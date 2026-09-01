@@ -18,7 +18,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SERVER = ROOT / "mcp_server" / "server.py"
-PYTHON = ROOT / "Sensei" / ".venv" / "bin" / "python"
+# The server has no third-party dependency, so it runs on whatever Python is
+# running this test. Hardcoding a venv path breaks a clean clone and CI.
+PYTHON = Path(sys.executable)
 GAP_LOG = ROOT / "Docs" / "MISSING_CONTROLS_LOG.md"
 BRIDGE_REQUESTS = Path.home() / "Documents" / "SenseiV2Bridge" / "requests"
 SAMPLE_ALS = Path.home() / "Desktop" / "solo" / "Turtle.als"
@@ -75,10 +77,6 @@ def check(label, condition, detail=""):
 
 
 def main():
-    if not PYTHON.exists():
-        print("Sensei venv not found: %s" % PYTHON)
-        return 1
-
     server = Server()
     created_request = None
     # Each chain run leaves a new build directory and the renderer leaves a new

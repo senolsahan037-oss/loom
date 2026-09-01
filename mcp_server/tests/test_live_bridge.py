@@ -175,7 +175,7 @@ thread = threading.Thread(target=fake_live_loop, daemon=True)
 thread.start()
 
 server_process = subprocess.Popen(
-    [str(ROOT / "Sensei" / ".venv" / "bin" / "python"), str(ROOT / "mcp_server" / "server.py")],
+    [sys.executable, str(ROOT / "mcp_server" / "server.py")],
     stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
     text=True, bufsize=1, cwd=str(ROOT),
 )

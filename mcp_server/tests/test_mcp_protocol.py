@@ -15,7 +15,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SERVER = ROOT / "mcp_server" / "server.py"
-PYTHON = ROOT / "Sensei" / ".venv" / "bin" / "python"
+# The server has no third-party dependency, so it runs on whatever Python is
+# running this test. Hardcoding a venv path breaks a clean clone and CI.
+PYTHON = Path(sys.executable)
 SAMPLE_ALS = Path.home() / "Desktop" / "solo" / "Turtle.als"
 
 checks = []
