@@ -1,4 +1,5 @@
 """Minimal MIDI reader used by Ableton inspectors."""
+from __future__ import annotations
 
 from pathlib import Path
 from typing import Dict, List

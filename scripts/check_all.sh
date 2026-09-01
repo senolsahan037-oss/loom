@@ -3,7 +3,7 @@
 #   1) prompt parsing, plan extraction, instrument coverage, typecheck,
 #      arrangement builder   (scripts/check_arrangement.sh)
 #   2) the Presetor and AISoundDesigner evidence layers
-#   3) every one of the MCP server's 27 tools, over real stdio
+#   3) every one of the MCP server's 28 tools, over real stdio
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -42,7 +42,7 @@ python3 "$ROOT/mcp_server/tests/test_mcp_protocol.py"
 
 echo
 echo "=============================================="
-echo " MCP tools (27 tools, real stdio)"
+echo " MCP tools (28 tools, real stdio)"
 echo "=============================================="
 python3 "$ROOT/mcp_server/tests/test_mcp_tools.py"
 

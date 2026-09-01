@@ -100,7 +100,7 @@ def main():
             if not cursor:
                 break
         names = [tool["name"] for tool in listed]
-        check("27 tools are published", len(names) == 27, len(names))
+        check("28 tools are published", len(names) == 28, len(names))
         check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
         check("tool names are unique", len(set(names)) == len(names))
 

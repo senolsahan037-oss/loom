@@ -440,6 +440,16 @@ TOOLS = [
             "required": ["als_path", "track"]
         }
     },
+{
+        "name": "setup_scan",
+        "description": "First-run setup: build Loom's catalogues from the stock Ableton library on THIS machine, read out of Live's own file index. Loom ships code and fixtures but never measurements, so each user generates their own. Reports state by default and writes nothing until asked.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "check_only": {"type": "boolean", "description": "Report which catalogues exist and whether Ableton's index is readable, without writing anything.", "default": True}
+            }
+        }
+    },
 ]
 
 
@@ -1789,6 +1799,17 @@ def handle_render_verify(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als
     from aimixmaster.render_workflow import build_render_manifest, validate_renders, validation_markdown
 
+    # This is the one tool in the server with a third-party dependency: it
+    # measures real audio files. Everything else runs on a stock Python.
+    try:
+        import soundfile  # noqa: F401
+    except ImportError as error:
+        raise RuntimeError(
+            "soundfile_not_installed: measuring rendered stems needs the soundfile package. "
+            "Install it with: python3 -m pip install soundfile numpy. Every other Loom tool "
+            "works without it."
+        ) from error
+
     als_path = resolve_als_path(args["als_path"])
     renders_dir = _assert_within_allowed(Path(args["renders_dir"]))
     if not renders_dir.is_dir():
@@ -1801,6 +1822,65 @@ def handle_render_verify(args: dict[str, Any]) -> dict[str, Any]:
     validation["renders_dir"] = str(renders_dir)
     validation["markdown"] = validation_markdown(validation)
     return validation
+
+
+def handle_setup_scan(args: dict[str, Any]) -> dict[str, Any]:
+    """Build this machine's catalogues from its own Ableton install.
+
+    Loom ships code and fixtures, never measurements. The catalogues it reasons
+    with come from the stock Ableton library on the machine it runs on, read
+    out of Live's own file index. Every user therefore gets their own, and
+    nobody has to hand-configure a path.
+    """
+    setup = _load_script_module("setup_scan.py", "loom_setup_scan")
+    found = setup.find_ableton()
+
+    if args.get("check_only", True):
+        catalogues = []
+        for label, out, _builder in setup.STEPS:
+            files = sorted(out.glob("*.jsonl")) if out.exists() else []
+            catalogues.append({
+                "catalogue": label,
+                "present": bool(files),
+                "rows": sum(1 for _ in files[0].open(encoding="utf-8")) if files else 0,
+            })
+        return {
+            "mode": "check",
+            "ableton_index": found,
+            "catalogues": catalogues,
+            "ready": bool(found["readable_index"]) and all(c["present"] for c in catalogues),
+            "note": "Nothing was written. Call again with check_only=false to build the missing catalogues.",
+        }
+
+    if not found["readable_index"]:
+        return {
+            "mode": "build",
+            "ableton_index": found,
+            "built": [],
+            "ready": False,
+            "message": "No readable Ableton file index. Install Live and open it once so it indexes "
+                       "the library, then run this again. Nothing was written.",
+        }
+
+    built, failed = [], []
+    for label, out, builder in setup.STEPS:
+        check_cancelled()
+        report_progress(len(built) + len(failed), len(setup.STEPS), label)
+        out.mkdir(parents=True, exist_ok=True)
+        try:
+            result = builder(out)
+            built.append({"catalogue": label, "entries": result.get("entry_count") if isinstance(result, dict) else None})
+        except Exception as error:  # noqa: BLE001
+            failed.append({"catalogue": label, "error": f"{type(error).__name__}: {error}"})
+
+    return {
+        "mode": "build",
+        "ableton_index": found,
+        "built": built,
+        "failed": failed,
+        "ready": not failed,
+        "note": "Tools that depend on a catalogue that failed will say so rather than guess.",
+    }
 
 
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
@@ -1860,6 +1940,7 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "library_search": handle_library_search,
         "render_plan": handle_render_plan,
         "live_bridge_status": handle_live_bridge_status,
+        "setup_scan": handle_setup_scan,
         "gap_record": handle_gap_record,
         "plan_verify": handle_plan_verify,
         "project_inspect_arrangement": handle_project_inspect_arrangement,

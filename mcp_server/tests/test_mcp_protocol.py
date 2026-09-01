@@ -157,7 +157,7 @@ try:
         cursor = response["result"].get("nextCursor")
         pages += 1
     names_seen = [tool["name"] for tool in seen]
-    check("the pages cover every tool", len(names_seen) == len(set(names_seen)) and len(names_seen) >= 24, len(names_seen))
+    check("the pages cover every tool", len(names_seen) == len(set(names_seen)) and len(names_seen) >= 28, len(names_seen))
     response = client.request("tools/list", {"cursor": "!!bozuk!!"}, 120)
     check("a broken cursor returns -32602", response.get("error", {}).get("code") == -32602, response)
     response = client.request("ping", {}, 121)

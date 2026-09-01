@@ -16,7 +16,7 @@ açılmadan çalıştırılabilen bir testle kanıtlı.
 | **Presetor** | Kullanıcının kendi projelerinden ölçülmüş cihaz zincirleri ve transplant |
 | **AISoundDesigner** | Kullanıcının gerçekten kullandığı ses paleti |
 | **SenseiRemote v2** | Live içinde çalışan çift yönlü köprü: canlı okuma ve yazma |
-| **mcp_server** | 27 araç, resources, prompts, ilerleme, iptal |
+| **mcp_server** | 28 araç, resources, prompts, ilerleme, iptal |
 
 ## Temel ilke
 
@@ -73,16 +73,46 @@ Katalog yoksa ona bağlı araçlar çalışmayı sürdürür ama bunu açıkça 
 
 ## Kurulum
 
-```bash
-python3 -m venv Sensei/.venv
-Sensei/.venv/bin/python -m pip install soundfile numpy
+Sanal ortam yok, paket kurulumu yok. macOS'un kendi Python'u yeter:
+
+```json
+"loom": {
+  "command": "python3",
+  "args": ["/ABSOLUTE/PATH/TO/Loom/mcp_server/server.py"]
+}
 ```
 
-MCP sunucusunu bir istemciye kaydetmek için: [`mcp_server/README.md`](mcp_server/README.md)
+Bunu MCP istemcinizin config'ine ekleyin (Claude Desktop:
+`~/Library/Application Support/Claude/claude_desktop_config.json`) ve
+uygulamayı yeniden başlatın.
+
+**28 aracın 27'si sıfır bağımlılıkla çalışır.** Tek istisna `render_verify`:
+gerçek ses dosyalarını ölçtüğü için `soundfile` ister ve kurulu değilse bunu
+söyleyip durur, çökmez.
+
+```bash
+python3 -m pip install soundfile numpy   # yalnızca render_verify için
+```
+
+### İlk çalıştırma: kendi kütüphanenizi tarayın
+
+Loom kod ve fixture yayınlar, ölçüm yayınlamaz. Akıl yürüttüğü kataloglar
+**sizin makinenizdeki stok Ableton kütüphanesinden** üretilir — Live'ın kendi
+dosya indeksi okunarak. Yol yapılandırmak gerekmez, indeks
+`~/Library/Application Support/Ableton/Live Database/` altında bulunur.
+
+```bash
+python3 scripts/setup_scan.py --check   # ne var, ne eksik
+python3 scripts/setup_scan.py           # eksikleri üret
+```
+
+Aynısını istemciden `setup_scan` aracıyla da yapabilirsiniz.
 
 Live tarafı için `AbletonScripts/SenseiRemote/` klasörünü Ableton'ın
 `User Library/Remote Scripts/` dizinine kopyalayıp Live'ı yeniden başlatın ve
 Settings → Link/MIDI altında Control Surface olarak seçin.
+
+MCP sunucusunun protokol ayrıntıları: [`mcp_server/README.md`](mcp_server/README.md)
 
 ## Bilinen sınırlar
 
