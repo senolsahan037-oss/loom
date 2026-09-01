@@ -33,7 +33,7 @@ CLIENTS = [
     ("Claude Code", Path.home() / ".claude.json", "mcpServers"),
 ]
 
-REMOTE_SCRIPTS = ["SenseiRemote", "ArrangementGPSBuilder"]
+REMOTE_SCRIPTS = ["Loom", "ArrangementGPSBuilder"]
 ABLETON_REMOTE_DIR = Path.home() / "Music/Ableton/User Library/Remote Scripts"
 
 
@@ -95,6 +95,34 @@ def install_remote_scripts(check: bool) -> list[str]:
     return notes
 
 
+LIVE_PREFS = Path.home() / "Library/Preferences/Ableton"
+
+
+def control_surface_status() -> tuple[bool, str]:
+    """Has Live actually loaded the Loom control surface?
+
+    Selecting a Control Surface cannot be automated. Live stores that choice in
+    Preferences.cfg, an undocumented binary format that differs between
+    versions; writing it would risk the user's whole preference file for the
+    sake of one dropdown. What can be automated is the check: Live logs every
+    remote script it loads, and the surface announces itself on load.
+    """
+    logs = sorted(LIVE_PREFS.glob("Live */Log.txt"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not logs:
+        return False, "no Live log found -- has Ableton Live been run on this machine?"
+    newest = logs[0]
+    try:
+        text = newest.read_text(encoding="utf-8", errors="ignore")
+    except OSError as error:
+        return False, f"could not read {newest}: {error}"
+    version = newest.parent.name
+    if "Loom control surface loaded" in text:
+        return True, f"loaded, according to {version}'s log"
+    if "SenseiRemote" in text:
+        return False, f"{version} last loaded the old SenseiRemote surface -- re-select Loom"
+    return False, f"not loaded yet, according to {version}'s log"
+
+
 def scan(check: bool) -> int:
     # Flush first: the child writes straight to the terminal, so without this
     # its output lands above the parent's buffered header.
@@ -123,14 +151,22 @@ def main() -> int:
     print("\n3. Catalogues from this machine's Ableton library")
     code = scan(args.check)
 
+    print("\n4. Live Control Surface")
+    loaded, detail = control_surface_status()
+    print("  %s  %s" % ("ok      " if loaded else "TODO    ", detail))
+    if not loaded:
+        print("     Live cannot be told to select a Control Surface from outside -- that")
+        print("     choice lives in an undocumented binary preferences file. Do it once:")
+        print("     Live -> Settings -> Link/MIDI -> Control Surface -> Loom")
+        print("     Then run 'python3 install.py --check' to confirm it took.")
+
     print("\n" + "=" * 62)
     if args.check:
         print("Nothing was changed. Run without --check to install.")
         return code
-    print("Installed. Two things need a restart before they take effect:")
-    print("  - your MCP client, so it picks up the new server")
-    print("  - Ableton Live, and then enable SenseiRemote under")
-    print("    Settings -> Link/MIDI as a Control Surface")
+    print("Installed. Restart your MCP client so it picks up the new server.")
+    if not loaded:
+        print("Then restart Ableton Live and select Loom as a Control Surface (step 4).")
     return code
 
 

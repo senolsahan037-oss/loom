@@ -388,7 +388,7 @@ TOOLS = [
     },
 {
         "name": "live_state",
-        "description": "Read Ableton Live's current state -- tempo, transport position, selected track, every track's mixer values and devices, and the song's locators. Published by SenseiRemote v2 running inside Live. Always reports how old the snapshot is and whether it is fresh; if Live is not running it says so instead of returning stale data as if it were live.",
+        "description": "Read Ableton Live's current state -- tempo, transport position, selected track, every track's mixer values and devices, and the song's locators. Published by the Loom control surface running inside Live. Always reports how old the snapshot is and whether it is fresh; if Live is not running it says so instead of returning stale data as if it were live.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -401,7 +401,7 @@ TOOLS = [
     },
     {
         "name": "live_command",
-        "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, or a locator. Runs through SenseiRemote v2, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
+        "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, or a locator. Runs through the Loom control surface, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -820,7 +820,7 @@ def handle_midi_write_to_live(args: dict[str, Any]) -> dict[str, Any]:
     result["waited_seconds"] = wait_seconds
     result["message"] = (
         f"Live did not pick the request up within {wait_seconds}s. The file is still in "
-        f"{REQUEST_DIR}. Usual cause: Live is not running, or SenseiRemote is not enabled "
+        f"{REQUEST_DIR}. Usual cause: Live is not running, or the Loom control surface is not enabled "
         f"as a Control Surface."
     )
     return result
@@ -877,7 +877,7 @@ def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict
     response["consumed"] = False
     response["message"] = (
         f"Live did not process the request within {wait_seconds}s. Usual cause: Live is not running, "
-        "or SenseiRemote is not enabled as a Control Surface in Settings -> Link/MIDI."
+        "or the Loom control surface is not enabled as a Control Surface in Settings -> Link/MIDI."
     )
     return response
 

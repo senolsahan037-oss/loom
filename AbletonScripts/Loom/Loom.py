@@ -1,4 +1,8 @@
-"""SenseiRemote v2 -- a bidirectional bridge for Ableton Live.
+"""Loom -- a bidirectional bridge for Ableton Live.
+
+This is the Control Surface Ableton shows in Settings -> Link/MIDI. The folder
+name is the name Live displays, so it is "Loom", not the name of whichever
+subsystem happens to write into the bridge.
 
 v1 did one thing: take a request off the queue and write a clip into the
 selected track. No result was written back, and Live's state could not be read
@@ -37,15 +41,15 @@ STATE_EVERY_TICKS = 40
 
 
 def create_instance(c_instance):
-    return SenseiRemote(c_instance)
+    return Loom(c_instance)
 
 
-class SenseiRemote(ControlSurface):
+class Loom(ControlSurface):
     def __init__(self, c_instance):
         super().__init__(c_instance)
         self._tick_count = 0
         self._ensure_dirs()
-        self.log_message("SenseiRemote v2 loaded (%s)" % bridge_ops.SCHEMA_VERSION)
+        self.log_message("Loom control surface loaded (%s)" % bridge_ops.SCHEMA_VERSION)
         self._register_timer_callback(self._on_timer)
 
     def disconnect(self):
@@ -72,7 +76,7 @@ class SenseiRemote(ControlSurface):
             temporary.write_text(json.dumps(state, indent=2))
             os.replace(str(temporary), str(STATE_FILE))
         except Exception as error:
-            self.log_message("SenseiRemote state dump failed: %s" % error)
+            self.log_message("Loom state dump failed: %s" % error)
 
     # --- istek islemesi ---------------------------------------------------
 
@@ -95,9 +99,9 @@ class SenseiRemote(ControlSurface):
             else:
                 result = bridge_ops.apply_operation(self.song(), payload)
             self._finish(request_path, payload, DONE_DIR, result=result)
-            self.log_message("SenseiRemote ok: %s" % (payload.get("op") or "write_clip"))
+            self.log_message("Loom ok: %s" % (payload.get("op") or "write_clip"))
         except Exception as error:
-            self.log_message("SenseiRemote error: %s" % error)
+            self.log_message("Loom error: %s" % error)
             self._finish(request_path, payload, ERROR_DIR, error="%s: %s" % (type(error).__name__, error))
 
     def _finish(self, request_path, payload, destination, result=None, error=None):

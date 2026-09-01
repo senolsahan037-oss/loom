@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Live bridge: the REAL SenseiRemote v2 class plus the MCP tools, no Ableton.
+"""Live bridge: the REAL Loom control surface class plus the MCP tools, no Ableton.
 
 _Framework is stubbed so the remote script imports normally and runs against a
 fake song. What is under test is therefore not an imitation but the very code
@@ -18,7 +18,7 @@ import types
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-REMOTE_DIR = ROOT / "AbletonScripts" / "SenseiRemote"
+REMOTE_DIR = ROOT / "AbletonScripts" / "Loom"
 sys.path.insert(0, str(REMOTE_DIR))
 
 # --- _Framework stub ------------------------------------------------------
@@ -50,7 +50,7 @@ sys.modules.setdefault("_Framework", _framework)
 sys.modules.setdefault("_Framework.ControlSurface", _cs_module)
 
 import bridge_ops  # noqa: E402
-import SenseiRemote as remote  # noqa: E402
+import Loom as remote  # noqa: E402
 sys.path.insert(0, str(REMOTE_DIR))
 from test_bridge_ops import FakeSong  # noqa: E402
 
@@ -76,7 +76,7 @@ def point_bridge_at(root: Path):
 
 
 def make_remote(song):
-    surface = remote.SenseiRemote(song)
+    surface = remote.Loom(song)
     return surface
 
 
@@ -161,7 +161,7 @@ created = []
 
 
 def fake_live_loop():
-    """Mimic SenseiRemote's timer: process requests, publish state."""
+    """Mimic the control surface timer: process requests, publish state."""
     while not stop_flag.is_set():
         before = set(remote.REQUEST_DIR.glob("*.json"))
         if before:

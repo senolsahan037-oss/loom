@@ -15,7 +15,7 @@ açılmadan çalıştırılabilen bir testle kanıtlı.
 | **AIMixMaster** | `.als` inceleme, gain staging, klip hizalama, drum buss, **otomasyon yazma** |
 | **Presetor** | Kullanıcının kendi projelerinden ölçülmüş cihaz zincirleri ve transplant |
 | **AISoundDesigner** | Kullanıcının gerçekten kullandığı ses paleti |
-| **SenseiRemote v2** | Live içinde çalışan çift yönlü köprü: canlı okuma ve yazma |
+| **Loom (Control Surface)** | Live içinde çalışan çift yönlü köprü: canlı okuma ve yazma |
 | **mcp_server** | 28 araç, resources, prompts, ilerleme, iptal |
 
 ## Temel ilke
@@ -99,7 +99,7 @@ python3 install.py --check    # hiçbir şeyi değiştirmez
 
 Kurulumdan sonra iki şeyi yeniden başlatın: **MCP istemciniz** (yeni sunucuyu
 görsün) ve **Ableton Live** — sonra Settings → Link/MIDI altında
-`SenseiRemote`'u Control Surface olarak seçin.
+`Loom`'u Control Surface olarak seçin.
 
 ### Neden sanal ortam yok
 

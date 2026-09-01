@@ -2,7 +2,7 @@
 
 Every function takes Live's `song` object from outside. That is deliberate: it
 lets the tests hand in a fake song and verify the whole command layer without
-opening Ableton. SenseiRemote.py does nothing but call into this module.
+opening Ableton. Loom.py does nothing but call into this module.
 
 Fail-closed:
   * An unknown operation is refused

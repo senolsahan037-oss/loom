@@ -26,7 +26,7 @@ echo
 echo "=============================================="
 echo " Bridge command layer (fake Live)"
 echo "=============================================="
-python3 "$ROOT/AbletonScripts/SenseiRemote/test_bridge_ops.py"
+python3 "$ROOT/AbletonScripts/Loom/test_bridge_ops.py"
 
 echo
 echo "=============================================="
