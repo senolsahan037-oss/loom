@@ -1,0 +1,300 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Aggressive Arrangement",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "Aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      65,
+      80,
+      75,
+      60,
+      45,
+      70,
+      85,
+      90,
+      80,
+      70,
+      55,
+      40,
+      20
+    ],
+    "notes": "The arrangement features a cinematic rise and fall energy profile with aggressive and experimental trip hop textures, emphasizing sample chopping techniques on multiple channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 35,
+          "verse_1": 70,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Kickoff",
+        "reason": "Intro start with initial micro chops rhythm"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Main Hook",
+        "reason": "Vocal chops intensify energy"
+      },
+      {
+        "track": "fx",
+        "bar": 41,
+        "type": "effect",
+        "label": "Reverse Chops Filter",
+        "reason": "Experimental reverse chops effect in verse 2"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook Peak",
+        "reason": "Bass stutter chops heighten cinematic rise"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "drop",
+        "label": "Outro Drop",
+        "reason": "Decreased activity to wind down energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "micro_chops": {
+        "assigned_to": "drums",
+        "description": "Used for rapid rhythmic sample chopping"
+      },
+      "phrase_chops": {
+        "assigned_to": "chords",
+        "description": "Short melodic chord fragments"
+      },
+      "reverse_chops": {
+        "assigned_to": "fx",
+        "description": "Reversed sample snippets creating texture"
+      },
+      "vocal_chops": {
+        "assigned_to": "vocal",
+        "description": "Vocal sample manipulations with aggressive timing"
+      },
+      "stutter_chops": {
+        "assigned_to": "bass",
+        "description": "Bass notes with stuttering rhythmic effect"
+      }
+    }
+  },
+  "sound_intent": {
+    "texture": "Granular sample chopping with cinematic dynamics and aggressive timbres",
+    "dynamic_range": "Cinematic rise and fall energy profile",
+    "style": "Experimental trip hop with detailed chopped samples"
+  },
+  "routing_intent": {
+    "channel_names": {
+      "micro_chops": "drums",
+      "phrase_chops": "chords",
+      "reverse_chops": "fx",
+      "vocal_chops": "vocal",
+      "stutter_chops": "bass"
+    },
+    "routing_notes": "Routing sample chopping channels according to technique names"
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation with micro chops",
+    "bass": "Harmonic rhythm with stutter chops",
+    "chords": "Textural harmony with phrase chops",
+    "melody": "Sparse highlights to complement vocal and chords",
+    "vocal": "Main melodic and aggressive vocal chops",
+    "fx": "Spatial and textural effects with reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 9,
+    "chords": 7,
+    "melody": 5,
+    "vocal": 10,
+    "fx": 6
+  },
+  "designer_intent": {
+    "direction": "Create a trip hop arrangement with aggressive feel and cinematic energy fluctuations using advanced sample chopping techniques."
+  },
+  "presetor_intent": {
+    "notes": "Preset behavior should preserve detailed sample articulation and emphasize cinematic dynamics without altering temporal structure."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns emphasizing micro chops with evolving dynamics fitting the aggressive trip hop mood."
+    },
+    "bass_generator": {
+      "brief": "Create bass parts with stutter chop processing to support aggressive and cinematic energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord progressions using phrase chops to introduce harmonic texture while maintaining experimental feel."
+    },
+    "melody_generator": {
+      "brief": "Design sparse melodic elements that complement vocal chops and chords without overpowering arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement structure ensuring cinematic rise and fall energy dynamics and aggressive mood."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that highlight chopping techniques and maintain clarity within aggressive cinematic context."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement transitions between sections and maintain energy curve evolution consistent with production intent."
+    },
+    "ai_mixmaster": {
+      "brief": "Process unprocessed channel audio ensuring clarity and balance without altering arrangement focus."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

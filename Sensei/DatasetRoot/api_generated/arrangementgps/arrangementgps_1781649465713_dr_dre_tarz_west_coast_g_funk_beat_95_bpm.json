@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "West Coast G-Funk Beat",
+    "genre": "Hip Hop",
+    "subgenre": "West Coast G-Funk",
+    "bpm": 95,
+    "key": "E minor",
+    "mood": "Laid-back, Funky",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      50,
+      70,
+      80,
+      20
+    ],
+    "notes": "Arrangement follows a classic West Coast G-Funk style with smooth transitions and steady groove emphasizing laid-back vibes."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 80,
+          "hook": 85,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "hit",
+        "label": "Kick intro",
+        "reason": "Set rhythmic foundation"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bassline entrance",
+        "reason": "Define groove for verse"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "layer",
+        "label": "Synth chord pad",
+        "reason": "Add harmonic richness during hook"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Lead synth hook",
+        "reason": "Emphasize final hook section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Establish groove and rhythm",
+    "bass": "Provide low-end foundation and groove",
+    "chords": "Add harmonic support and texture",
+    "melody": "Create melodic motifs and lead",
+    "vocal": "Deliver rap or vocal hooks",
+    "fx": "Add transitions and atmospheric elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate vintage West Coast drum patterns with syncopated kick and snappy snare, maintaining a laid-back groove."
+    },
+    "bass_generator": {
+      "brief": "Create smooth, funky basslines that lock in rhythmically with the drums and capture the G-Funk style."
+    },
+    "harmony_generator": {
+      "brief": "Provide rich chord pads and synth layers supporting the West Coast vibe, focusing on smooth progressions."
+    },
+    "melody_generator": {
+      "brief": "Develop catchy lead synth melodies and motifs that complement the hook sections and overall mood."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement dynamics and ensure smooth transitions between sections consistent with G-Funk style."
+    },
+    "presetor": {
+      "brief": "Apply West Coast G-Funk presets and textures to channel sounds, including synth and drum samples."
+    },
+    "songgps": {
+      "brief": "Manage song structure and energy flow to align with stylistic expectations and maintain listener engagement."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance track volumes and frequencies to ensure clarity and authenticity of a classic West Coast mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "project": {
+    "name": "Dark Experimental Phonk",
+    "genre": "Phonk",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 45
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "chop": 80,
+          "stutter": 70,
+          "slice": 60
+        }
+      },
+      "bass": {
+        "activity": {
+          "glitch": 50,
+          "bitcrush": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "repeat": 30,
+          "reverse": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "granular": 35,
+          "time_stretch": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "chop": 15,
+          "stretch": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "slice": 45,
+          "stutter": 50
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "Sample Chop Intro",
+        "reason": "Introduce modern sample chopping techniques"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "transition",
+        "label": "Slow Energy Build",
+        "reason": "Energy increase starts here"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Final Hook Peak",
+        "reason": "Maximum energy point"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using chopped samples",
+    "bass": "low-end groove with glitch effects",
+    "chords": "textural harmonic layers with repeat and reverse effects",
+    "melody": "experimental melodic fragments with granular and time stretch",
+    "vocal": "occasional chopped and stretched vocal samples",
+    "fx": "atmospheric effects with slicing and stuttering"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      40,
+      41,
+      42
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 1,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns focused on modern chopping and stuttering techniques for a dark, slow-building energy profile"
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines with glitch and bitcrush effects to complement the slow energy build"
+    },
+    "harmony_generator": {
+      "brief": "Create chord textures using repeat and reverse sample manipulation techniques"
+    },
+    "melody_generator": {
+      "brief": "Produce experimental melodic fragments using granular synthesis and time stretching"
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow emphasizing dark mood and gradual energy increase with sample chopping focus"
+    },
+    "presetor": {
+      "brief": "Apply suitable presets to enhance modern chopping and experimental sound design elements"
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure ensuring clear section transitions and energy curve adherence"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean unprocessed channels for final mixing focusing on clarity of chopped samples"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

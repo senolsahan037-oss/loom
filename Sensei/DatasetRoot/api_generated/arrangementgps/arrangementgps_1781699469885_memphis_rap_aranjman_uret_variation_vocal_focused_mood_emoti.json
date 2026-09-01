@@ -1,0 +1,237 @@
+{
+  "project": {
+    "name": "Memphis Rap Emotional Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C Minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      30,
+      60,
+      30,
+      80,
+      50
+    ],
+    "notes": "Sparse verses with strong hooks to emphasize emotional vocal delivery."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 30,
+          "57-64": 60,
+          "65-72": 80,
+          "73-80": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 25,
+          "25-40": 50,
+          "41-56": 25,
+          "57-64": 50,
+          "65-72": 70,
+          "73-80": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 20,
+          "25-40": 40,
+          "41-56": 20,
+          "57-64": 40,
+          "65-72": 55,
+          "73-80": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 10,
+          "25-40": 40,
+          "41-56": 10,
+          "57-64": 30,
+          "65-72": 45,
+          "73-80": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 70,
+          "25-40": 90,
+          "41-56": 70,
+          "57-64": 60,
+          "65-72": 95,
+          "73-80": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 10,
+          "25-40": 20,
+          "41-56": 10,
+          "57-64": 25,
+          "65-72": 30,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "First hook",
+        "reason": "Strong vocal hook emphasis"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final hook",
+        "reason": "High energy vocal climax"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "bridge_start",
+        "label": "Bridge Section",
+        "reason": "Build transition between verses and final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Provide rhythm foundation with sparse to moderate activity supporting vocal dynamics",
+    "bass": "Complement rhythm with sparse, deep, and supportive presence",
+    "chords": "Add harmonic support softly to maintain emotional tone",
+    "melody": "Minimal melodic motifs to enhance hooks and emotional cues",
+    "vocal": "Lead focus with emotional delivery and strong hooks",
+    "fx": "Subtle effects to enhance transitions and emotional highlights"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48
+    ]
+  },
+  "priority": {
+    "drums": 30,
+    "bass": 20,
+    "chords": 10,
+    "melody": 15,
+    "vocal": 90,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that provide a sparse rhythmic foundation with occasional punches for the hooks."
+    },
+    "bass_generator": {
+      "brief": "Create a bass line that supports rhythm sparsely but firmly with focus on complementing vocal energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce subtle chord progressions to convey emotional depth without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Design minimal melodic motifs that enhance hook sections and support emotional expression."
+    },
+    "ai_designer": {
+      "brief": "Arrange structure emphasizing sparse verses and strong, emotional vocal hooks with dynamic energy changes."
+    },
+    "presetor": {
+      "brief": "Apply presets optimized for emotional vocal clarity and sparse instrumental backing."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement matches energy profile with clear delineation of sparse verses and high-energy hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix keeping vocals prominent and clear with balanced, supportive instrumental layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

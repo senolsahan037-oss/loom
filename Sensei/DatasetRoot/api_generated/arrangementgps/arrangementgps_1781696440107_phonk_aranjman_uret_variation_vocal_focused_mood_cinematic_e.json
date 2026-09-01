@@ -1,0 +1,356 @@
+{
+  "project": {
+    "name": "Phonk Cinematic Vocal Focus",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "vocal entry",
+        "reason": "start of vocal-focused verse"
+      },
+      {
+        "track": "hook",
+        "bar": 25,
+        "type": "change",
+        "label": "chorus start",
+        "reason": "energy boost and vocal highlight"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "transition",
+        "label": "bridge entry",
+        "reason": "mood shift and build"
+      },
+      {
+        "track": "final_hook",
+        "bar": 65,
+        "type": "highlight",
+        "label": "final chorus",
+        "reason": "highest energy and vocal focus"
+      },
+      {
+        "track": "outro",
+        "bar": 73,
+        "type": "fade",
+        "label": "outro start",
+        "reason": "energy drop and wind down"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "Slice": [
+        "kick_slice",
+        "snare_slice"
+      ],
+      "Stab": [
+        "vocal_stab",
+        "chord_stab"
+      ],
+      "Chop": [
+        "vocal_chop",
+        "perc_chop"
+      ],
+      "Loop": [
+        "bass_loop",
+        "drum_loop"
+      ],
+      "Reverse": [
+        "fx_reverse"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal-centric with cinematic textures and slow energy build",
+    "texture": "warm sample chops and smooth transitions",
+    "dynamics": "gradual crescendo with clear vocal prominence"
+  },
+  "routing_intent": {
+    "vocal": "highlighted with dedicated bus and light reverb",
+    "drums": "tightly compressed with sidechain to vocals",
+    "fx": "panned for spatial depth"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using sampled slices and chops",
+    "bass": "groove support with sampled loops",
+    "chords": "harmonic texture using stab samples",
+    "melody": "ambient layers and fills",
+    "vocal": "lead focus with chopped sample phrases",
+    "fx": "spatial and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 60,
+    "bass": 50,
+    "chords": 40,
+    "melody": 30,
+    "vocal": 90,
+    "fx": 35
+  },
+  "designer_intent": {
+    "goal": "create a cinematic Phonk arrangement emphasizing vocals with a gradual slow energy build",
+    "method": "use sample chopping techniques named as channel identifiers to build instrumental backing"
+  },
+  "presetor_intent": {
+    "preference": "preserve clean channels for vocals and highlights, subtle effects for ambiance"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum rhythms using sample slicing and chopping techniques in sync with the slow build energy profile"
+    },
+    "bass_generator": {
+      "brief": "Create bass loops that complement the cinematic mood with smooth groove and subtle variation"
+    },
+    "harmony_generator": {
+      "brief": "Provide chord stabs and harmonic support using sampled chords, ensuring dynamic layering for energy transitions"
+    },
+    "melody_generator": {
+      "brief": "Develop ambient melody textures and fills to create cinematic atmosphere without overpowering vocals"
+    },
+    "ai_designer": {
+      "brief": "Integrate all parts focusing on vocal prominence, maintaining a slow building energy curve for arrangement flow"
+    },
+    "presetor": {
+      "brief": "Apply presets highlighting vocal clarity, subtle reverb effects on FX channels, and tight compression on drums"
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and energy curve progression to ensure smooth dynamic flow throughout 80 bars"
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix focusing on unprocessed channel audio for clarity, emphasizing vocal presence and cinematic depth"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

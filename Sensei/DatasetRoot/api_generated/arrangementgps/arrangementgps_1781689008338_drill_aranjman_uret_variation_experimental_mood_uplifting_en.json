@@ -1,0 +1,266 @@
+{
+  "project": {
+    "name": "Drill Arrangement Experimental",
+    "genre": "Drill",
+    "subgenre": "Experimental",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      85,
+      70,
+      60,
+      40,
+      30,
+      50,
+      75,
+      95,
+      100,
+      85,
+      60,
+      40,
+      30,
+      20
+    ],
+    "notes": "This arrangement features cinematic rises and falls in energy, reflecting a dynamic and uplifting mood. The experimental style incorporates unconventional drill elements, focusing on texture and flow changes to maintain interest without standard melodic or harmonic progressions."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 75,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Section begins with low energy percussive groove"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Vocal Entry",
+        "reason": "Lead vocal enters with rhythmic flow"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "build",
+        "label": "Hook FX Build",
+        "reason": "Sound effects heighten energy for hook"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "peak",
+        "label": "Final Hook Drum Peak",
+        "reason": "Maximum drum energy in final hook"
+      },
+      {
+        "track": "melody",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Melody Fade",
+        "reason": "Melody fades out to conclude arrangement"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation and dynamic shifts",
+    "bass": "Low-end groove supporting rhythm",
+    "chords": "Atmospheric texture and harmonic color",
+    "melody": "Counterpoint motifs and emotional highlights",
+    "vocal": "Lead rhythmic vocal delivery",
+    "fx": "Transitional effects and energy enhancers"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a dynamic drum arrangement matching drill style with experimental rhythmic shifts and natural energy rises and falls."
+    },
+    "bass_generator": {
+      "brief": "Generate supportive bass lines that complement the drums and enhance the cinematic energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Add atmospheric chord textures that suit the experimental drill theme and uplift the mood."
+    },
+    "melody_generator": {
+      "brief": "Design melodic motifs to add emotional uplift without dominating the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow to ensure coherent rise and fall of energy and maintain an uplifting atmosphere."
+    },
+    "presetor": {
+      "brief": "Apply suitable presets and sound selections to emphasize the experimental and uplifting character of the track."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and dynamic markers to maintain clarity and cinematic pacing."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mixing by ensuring unprocessed channel audio is clean and ready for cinematic rises and falls."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

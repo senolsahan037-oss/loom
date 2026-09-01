@@ -1,0 +1,247 @@
+{
+  "project": {
+    "name": "Experimental Emotional Trip Hop",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "Emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      40,
+      50,
+      85,
+      90
+    ],
+    "notes": "Hook-heavy energy profile featuring emotional vibes with experimental sample chopping techniques across the arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 100,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "sample_chop",
+        "label": "micro chops",
+        "reason": "Introduce experimental micro chopping technique to emphasize hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 30,
+        "type": "sample_chop",
+        "label": "phrase chops",
+        "reason": "Add variation to vocal textures in hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 35,
+        "type": "sample_chop",
+        "label": "reverse chops",
+        "reason": "Create emotional tension with reversed vocal elements"
+      },
+      {
+        "track": "vocal",
+        "bar": 40,
+        "type": "sample_chop",
+        "label": "vocal chops",
+        "reason": "Maintain hook energy with rhythmic vocal chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 67,
+        "type": "sample_chop",
+        "label": "stutter chops",
+        "reason": "Final hook climax with stuttered vocal chops"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with trip hop groove",
+    "bass": "Deep, emotional low end",
+    "chords": "Textured harmonic pads",
+    "melody": "Sparse melodic motifs",
+    "vocal": "Experimental chopped vocal layers",
+    "fx": "Atmospheric effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 50,
+    "bass": 40,
+    "chords": 30,
+    "melody": 30,
+    "vocal": 70,
+    "fx": 20
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design rhythmic patterns that support a trip hop feel with varied dynamics to suit emotional and hook-heavy sections."
+    },
+    "bass_generator": {
+      "brief": "Create deep, warm bass lines that complement the emotional tone and support the groove without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Generate textured chordal layers that enhance the mood and provide a grounding atmosphere for the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle, sparse melodic motifs that enhance emotional expression without cluttering the mix."
+    },
+    "ai_designer": {
+      "brief": "Manage overall arrangement structure with emphasis on effective energy build-up and release, focusing on hook impact."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that emphasize warmth and clarity, preserving the experimental and emotional character of the track."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement aligns with hook-heavy energy profile, balancing experimental elements spatially and temporally."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix balance focusing on clarity between chopped vocal samples and instrumental layers while maintaining emotional vibe."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

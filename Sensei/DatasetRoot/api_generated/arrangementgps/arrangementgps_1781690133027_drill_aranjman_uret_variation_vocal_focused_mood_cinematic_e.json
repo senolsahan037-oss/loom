@@ -1,0 +1,324 @@
+{
+  "project": {
+    "name": "Drill Vocal Focused Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 55,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "low_pass_filter_open",
+        "reason": "build tension in intro"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "vocal_entry",
+        "reason": "start of first verse vocal"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "energy_rise",
+        "reason": "start of hook building energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "cinematic_sweep",
+        "reason": "bridge cinematic enhancement"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "cue",
+        "label": "final_hook_vocals",
+        "reason": "highlight vocal emphasis in final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "drum_fade",
+        "reason": "outro energy reduction"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic build",
+    "bass": "support low end and groove",
+    "chords": "harmonic texture and cinematic mood",
+    "melody": "secondary melodic layer",
+    "vocal": "primary focus with expressive presence",
+    "fx": "atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      8,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a slow build in drum arrangement that increases energy smoothly from intro to final hook without overpowering vocals."
+    },
+    "bass_generator": {
+      "brief": "Generate supportive bass lines that follow chord rhythms, ensuring a grounded groove that builds gradually."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord textures that complement the cinematic mood, emphasizing atmosphere over complexity."
+    },
+    "melody_generator": {
+      "brief": "Design subtle melodic elements to reinforce vocal phrases and add depth without distraction."
+    },
+    "ai_designer": {
+      "brief": "Integrate all elements ensuring vocal focus is maintained, dynamics progress gradually, and cinematic mood is preserved."
+    },
+    "presetor": {
+      "brief": "Assign presets that enhance vocal clarity and cinematic effects while blending mix elements smoothly."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement sections ensuring energy curve matches the intended slow build with cinematic mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix all tracks balancing the vocal prominence, dynamic progression, and atmospheric effects cleanly."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

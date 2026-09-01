@@ -1,0 +1,322 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Cinematic Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      70,
+      75,
+      80,
+      90,
+      95,
+      100,
+      95,
+      90,
+      90,
+      85,
+      80,
+      75,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 70
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Set cinematic minimal mood with subtle drums"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Vocals",
+        "reason": "Introduce first vocal verse to build narrative"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Vocals",
+        "reason": "Elevate energy with hook vocals"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "start",
+        "label": "Bridge Section",
+        "reason": "Create a contrasting cinematic break"
+      },
+      {
+        "track": "final_hook",
+        "bar": 65,
+        "type": "start",
+        "label": "Final Hook",
+        "reason": "Peak of cinematic energy"
+      },
+      {
+        "track": "outro",
+        "bar": 73,
+        "type": "start",
+        "label": "Outro",
+        "reason": "Wind down with minimal cinematic elements"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic emphasis",
+    "bass": "support groove and tonal depth",
+    "chords": "harmonic texture, subtle layering",
+    "melody": "minimal melodic motifs for emotional color",
+    "vocal": "main narrative and hook delivery",
+    "fx": "atmospheric accents and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create subtle but dynamic drum patterns that support the cinematic rise and fall energy curve with minimal elements."
+    },
+    "bass_generator": {
+      "brief": "Generate a bass line that provides groove and depth with variations complementary to the energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Develop sparse harmonic textures and chord voicings to maintain minimal but cinematic feel."
+    },
+    "melody_generator": {
+      "brief": "Produce minimal melodic motifs that enhance cinematic mood without overpowering the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence and ensure dynamic flow matches the cinematic energy rise and fall."
+    },
+    "presetor": {
+      "brief": "Apply preset sounds suitable for West Coast Hip-Hop with a cinematic minimal aesthetic."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions, ensuring energy curve and section delineations adhere to minimal cinematic style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that preserve dynamic contrasts and clarity without adding processing to core arrangement elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

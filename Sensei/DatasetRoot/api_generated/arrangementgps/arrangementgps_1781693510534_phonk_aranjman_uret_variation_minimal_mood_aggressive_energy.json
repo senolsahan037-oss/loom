@@ -1,0 +1,270 @@
+{
+  "project": {
+    "name": "Phonk Aggressive Minimal Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      20
+    ],
+    "notes": "Arrangement built around a minimalistic, aggressive phonk style with a slow build in energy through the track. Sample layers use modern chopping techniques creating distinct texture. Channels are named after sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 35,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro drum slice start",
+        "reason": "Start of intro with drum slicing pattern"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "build",
+        "label": "Increase drum roll intensity",
+        "reason": "Energy build in hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "filter",
+        "label": "Bridge filter sweep",
+        "reason": "Transition effect with filter sweep"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "chop_1": "sample_chop_technique_1",
+      "chop_2": "sample_chop_technique_2",
+      "stutter": "sample_stutter_technique",
+      "slice": "sample_slice_technique"
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "Modern sample chopping techniques with tight, aggressive textures and slow energy build"
+  },
+  "routing_intent": {
+    "channels": {
+      "Slice": "drums",
+      "Stutter": "fx",
+      "Chop1": "bass",
+      "Chop2": "chords"
+    }
+  },
+  "track_roles": {
+    "drums": "Slice",
+    "bass": "Chop1",
+    "chords": "Chop2",
+    "melody": "Stutter",
+    "vocal": "",
+    "fx": "Stutter"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create an aggressive and minimal phonk arrangement using sample chopping, emphasizing slow build in energy"
+  },
+  "presetor_intent": {
+    "goal": "Apply effects and presets supporting modern chop and slice sample techniques to maintain raw aggressive mood"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns with sample slicing and stuttering techniques suitable for phonk style with slow energy build"
+    },
+    "bass_generator": {
+      "brief": "Produce bass activity using chopped sample layers emphasizing groove and slow intensity increase"
+    },
+    "harmony_generator": {
+      "brief": "Apply minimal chordal stabs with sample chopping effect to support aggressive mood"
+    },
+    "melody_generator": {
+      "brief": "Create subtle melodic content using sample stutter and slice effects to complement the arrangement"
+    },
+    "ai_designer": {
+      "brief": "Structure the arrangement to follow slow energy build with minimal and aggressive arrangement values"
+    },
+    "presetor": {
+      "brief": "Implement and adjust presets to bring out the modern chopped sample sound in all relevant channels"
+    },
+    "songgps": {
+      "brief": "Ensure layout fits ArrangementGPS common format including sections and lane activities with event markers"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio with routing aligned to sample chopping technique channel names"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

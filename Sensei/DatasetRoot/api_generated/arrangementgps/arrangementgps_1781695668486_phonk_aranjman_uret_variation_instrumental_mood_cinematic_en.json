@@ -1,0 +1,327 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Cinematic Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      65,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      15,
+      25,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      5,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 55,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "clip_start",
+        "label": "Crunchy Chop",
+        "reason": "Starting sample chopping technique layer"
+      },
+      {
+        "track": "chords",
+        "bar": 9,
+        "type": "fade_in",
+        "label": "Stutter Chop",
+        "reason": "Introduce modern chord sample chopping"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "layer_add",
+        "label": "Slice Chop",
+        "reason": "Bass sample chopping variation"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect_drop",
+        "label": "Reverse Chop",
+        "reason": "Bridge atmospheric chopping effects"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "clip_start",
+        "label": "Gate Chop",
+        "reason": "Melody sample chopping for final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Chop Decay",
+        "reason": "Outro gradual chop effect decay"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic sample chopping foundation",
+    "bass": "low frequency chopped sample layer",
+    "chords": "harmonic chopped samples",
+    "melody": "primary instrumental chops",
+    "vocal": "none (instrumental variation)",
+    "fx": "atmospheric chopped sample effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum layers using modern sample chopping techniques named after chopping styles to build slow energy increase."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using chopped low-frequency samples that complement the cinematic mood, gradually building energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers with stutter and slice chop effects to contribute harmonic depth with smooth build."
+    },
+    "melody_generator": {
+      "brief": "Design melody parts emphasizing gate chop sample techniques fitting a cinematic, slow build phonk instrumental."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring smooth slow energy curve and cinematic mood with modern chopping based layers."
+    },
+    "presetor": {
+      "brief": "Manage effect presets and transitions emphasizing chopped sample textures across drums, chords, bass, and melody."
+    },
+    "songgps": {
+      "brief": "Synchronize energy curve with arrangement sections to optimize cinematic slow build feel and chopping technique layers."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio outputs for final mix focusing on clean presentation of sample chopping details."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

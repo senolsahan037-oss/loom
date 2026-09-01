@@ -1,0 +1,324 @@
+{
+  "project": {
+    "name": "Trap Experimental Aggression",
+    "genre": "Trap",
+    "subgenre": "Experimental",
+    "bpm": 140,
+    "key": "D# minor",
+    "mood": "Aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      70,
+      85,
+      65,
+      80,
+      90,
+      75,
+      70,
+      80,
+      95,
+      100,
+      90,
+      85,
+      75,
+      60,
+      50,
+      40,
+      55,
+      70,
+      80,
+      85,
+      75,
+      65,
+      55,
+      45,
+      40,
+      50,
+      65,
+      80,
+      90,
+      100,
+      95,
+      85,
+      75,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      50,
+      65,
+      75,
+      80,
+      90,
+      95,
+      80,
+      70,
+      60,
+      55,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      15,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 70
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 95
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 80,
+          "25-40": 95,
+          "41-56": 75,
+          "57-64": 50,
+          "65-72": 90,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 75,
+          "25-40": 90,
+          "41-56": 65,
+          "57-64": 45,
+          "65-72": 85,
+          "73-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 60,
+          "25-40": 85,
+          "41-56": 60,
+          "57-64": 40,
+          "65-72": 75,
+          "73-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 40,
+          "25-40": 80,
+          "41-56": 45,
+          "57-64": 25,
+          "65-72": 70,
+          "73-80": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 60,
+          "25-40": 75,
+          "41-56": 60,
+          "57-64": 30,
+          "65-72": 80,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 45,
+          "25-40": 70,
+          "41-56": 40,
+          "57-64": 30,
+          "65-72": 65,
+          "73-80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Begin main rhythm pattern with increased aggressive energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduce aggressive vocal intensity for hook"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition with experimental sound effects"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Maximize bass intensity for climax"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Gradual energy taper off for outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation with aggressive trap beats",
+    "bass": "Driving low-end for club energy",
+    "chords": "Experimental harmonic textures",
+    "melody": "Sparse, tense experimental lead",
+    "vocal": "Aggressive vocal samples and shouts",
+    "fx": "Experimental sound design and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create an aggressive and dynamic drum pattern with experimental rhythms suitable for club trap energy."
+    },
+    "bass_generator": {
+      "brief": "Generate a powerful and punchy bassline that enhances the aggressive and club energy mood throughout the arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Design experimental harmonic textures and chords that support the aggressive trap vibe while introducing variation."
+    },
+    "melody_generator": {
+      "brief": "Develop sparse, tension-driven melodic motifs that complement the aggressive and experimental arrangement sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee energy curve shaping, section transitions, and maintain a balanced arrangement flow fitting the mood and variation."
+    },
+    "presetor": {
+      "brief": "Manage presets selection to maintain aggressive trap timbres with an experimental twist on all instrument tracks."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement structure and timing landmarks to ensure smooth section progressions and energy dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mixing by prioritizing drum and bass clarity and ensuring headroom for experimental FX elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

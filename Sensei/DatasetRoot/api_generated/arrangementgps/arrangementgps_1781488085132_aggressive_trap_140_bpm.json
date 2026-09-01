@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "Aggressive Trap",
+    "genre": "Trap",
+    "subgenre": "Aggressive",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "Aggressive, Intense",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      50,
+      80,
+      50,
+      70,
+      85,
+      90
+    ],
+    "notes": "Gradual build-up in intro, high energy in hook and bridge, dynamic verses with moderate energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of track"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "New vocal section"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Peak energy section"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to moderate energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Textural shift"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Build to final climax"
+      },
+      {
+        "track": "chords",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Track wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, maintain aggressive energy",
+    "bass": "drive low end, complement groove",
+    "chords": "support harmony, add tension",
+    "melody": "lead lines, enhance aggression",
+    "vocal": "deliver hooks and verses with intensity",
+    "fx": "add atmosphere and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 9,
+    "chords": 7,
+    "melody": 8,
+    "vocal": 9,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create aggressive and tight drum patterns with dynamic fills and high energy suitable for trap genre at 140 BPM."
+    },
+    "bass_generator": {
+      "brief": "Generate powerful and rhythmic basslines emphasizing low frequencies, complementing the drums and maintaining groove."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic background layers and chord progressions that enhance tension and aggression without overpowering other elements."
+    },
+    "melody_generator": {
+      "brief": "Develop sharp, catchy lead melodies that carry the aggressive mood and integrate with vocals and other layers."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement flow to ensure energy builds and releases appropriately across all sections."
+    },
+    "presetor": {
+      "brief": "Apply and manage presets for instruments and effects to achieve a consistent aggressive trap sound."
+    },
+    "songgps": {
+      "brief": "Guide the structure and energy pacing of the song ensuring natural transitions between sections aligned with trap genre norms."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks ensuring clarity, punch, and balance, with emphasis on drums and bass without losing melodic and vocal presence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

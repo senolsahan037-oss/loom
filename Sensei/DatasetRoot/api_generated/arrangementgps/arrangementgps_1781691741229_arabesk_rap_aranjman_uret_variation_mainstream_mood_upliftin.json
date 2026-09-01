@@ -1,0 +1,270 @@
+{
+  "project": {
+    "name": "Arabesk Rap Mainstream Uplifting",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 95,
+    "key": "D minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      65,
+      85,
+      60,
+      80,
+      90,
+      75,
+      50,
+      70,
+      85,
+      95,
+      70,
+      60,
+      80,
+      90,
+      40,
+      60,
+      85,
+      80
+    ],
+    "notes": "Arrangement follows a cinematic rise and fall energy profile with mainstream Arabesk Rap elements. The structure includes intro, verses, hooks, bridge, final hook, and outro. Energy peaks around hooks with dynamic drops in verses."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 65,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 55,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 75,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "intro_start",
+        "reason": "Begin with subtle rhythm intro"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "verse_1_start",
+        "reason": "Enter first rap verse"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "cue",
+        "label": "hook_start",
+        "reason": "Energy rises, melodic hook starts"
+      },
+      {
+        "track": "bass",
+        "bar": 49,
+        "type": "cue",
+        "label": "bridge_start",
+        "reason": "Lower energy for contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "cue",
+        "label": "final_hook_start",
+        "reason": "Final hook with highest energy"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "cue",
+        "label": "outro_start",
+        "reason": "Return to calm, closing sounds"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation and dynamic drive",
+    "bass": "low-end support and groove",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "main thematic elements",
+    "vocal": "lead rap vocal delivery",
+    "fx": "transitions and ambiance"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      65
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns that follow the cinematic rise and fall energy profile, emphasizing hooks and supporting rap verses with rhythmic variation."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that support rhythm and groove, with moderate complexity during verses and fuller presence at hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic background using traditional Arabesk chord textures blended with mainstream rap aesthetics, following mood and energy changes."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic elements that complement vocal lines, enhancing hooks with uplifting and memorable motifs."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure ensuring smooth energy transitions matching the cinematic rise and fall profile."
+    },
+    "presetor": {
+      "brief": "Apply a mainstream Arabesk Rap preset emphasizing clarity, warmth, and an uplifting sonic character."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement adherence to energy curve and section pacing, signaling key markers for transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix master inputs with unprocessed channel audio for a transparent final mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

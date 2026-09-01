@@ -1,0 +1,268 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "notes": "Arrangement follows a slow build energy profile, starting minimal with emotional emphasis."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 15,
+          "9": 30,
+          "25": 60,
+          "33": 40,
+          "49": 70,
+          "57": 90,
+          "65": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 25,
+          "25": 55,
+          "33": 45,
+          "49": 65,
+          "57": 85,
+          "65": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 10,
+          "9": 20,
+          "25": 50,
+          "33": 40,
+          "49": 60,
+          "57": 80,
+          "65": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "9": 15,
+          "25": 40,
+          "33": 30,
+          "49": 50,
+          "57": 75,
+          "65": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 40,
+          "25": 70,
+          "33": 50,
+          "49": 70,
+          "57": 90,
+          "65": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "9": 10,
+          "25": 20,
+          "33": 15,
+          "49": 30,
+          "57": 40,
+          "65": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Start with minimal drum activity"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "enter",
+        "label": "Verse 1 Vocals",
+        "reason": "Introduce vocals at verse start"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Hook Drums Increase",
+        "reason": "Increase energy for hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Add effects for bridge emphasis"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "peak",
+        "label": "Final Hook Vocal Peak",
+        "reason": "Highest vocal intensity in final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "fade",
+        "label": "Outro Drum Fade",
+        "reason": "Decrease drum activity toward outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low-end groove",
+    "chords": "harmonic support",
+    "melody": "emotional highlight",
+    "vocal": "lyrical delivery",
+    "fx": "atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      65,
+      66
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate minimal and slow build drum patterns appropriate for West Coast hip-hop."
+    },
+    "bass_generator": {
+      "brief": "Create subtle bassline supporting the slow build energy profile without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Provide simple chords that complement emotional mood and minimal arrangement."
+    },
+    "melody_generator": {
+      "brief": "Design an emotional melody line that grows gradually with the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence ensuring energy builds slowly while keeping minimal style."
+    },
+    "presetor": {
+      "brief": "Apply sound presets suited for emotional West Coast hip-hop style and minimal variation."
+    },
+    "songgps": {
+      "brief": "Ensure the arrangement reflects the slow build energy profile and section transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks maintaining clarity in minimal sections and emphasize emotional peaks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

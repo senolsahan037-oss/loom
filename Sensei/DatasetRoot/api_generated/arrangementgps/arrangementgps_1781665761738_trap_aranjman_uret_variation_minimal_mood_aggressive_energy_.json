@@ -1,0 +1,262 @@
+{
+  "project": {
+    "name": "Trap Arrangement Minimal Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "Fm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      70,
+      60,
+      90,
+      95
+    ],
+    "notes": "Minimal aggressive trap arrangement with club energy profile. Focus on dynamic build-ups and drops typical for club settings. Use sparse instrumentation emphasizing percussion and bass."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 95,
+          "verse_2": 70,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 35,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 35,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drum Entry",
+        "reason": "Begin with low activity percussive elements"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass Intro",
+        "reason": "Bass enters to add groove in verse 1"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Vocal Entrance",
+        "reason": "Lead vocal comes in to emphasize hook"
+      },
+      {
+        "track": "fx",
+        "bar": 40,
+        "type": "transition",
+        "label": "Bridge FX",
+        "reason": "Adds texture transitioning to bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "intensify",
+        "label": "Final Hook Drum Build",
+        "reason": "Drums intensify for climax"
+      },
+      {
+        "track": "melody",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro Melody Fade",
+        "reason": "Melody reduces for song closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {
+    "energy_profile": "club energy",
+    "mood": "aggressive",
+    "variation": "minimal"
+  },
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic pacing",
+    "bass": "low-end groove and club drive",
+    "chords": "harmonic support and texture",
+    "melody": "lead motifs and atmospheric presence",
+    "vocal": "hook and lyrical delivery",
+    "fx": "transitions and texture enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a dynamic percussive arrangement with emphasis on trap rhythm patterns and energy build throughout the sections."
+    },
+    "bass_generator": {
+      "brief": "Generate minimal yet impactful basslines that enhance club energy and complement rhythmic changes."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chordal textures that support the aggressive mood without overpowering the minimal arrangement."
+    },
+    "melody_generator": {
+      "brief": "Design subtle melodic motifs that add atmosphere and tension, fitting minimal and aggressive style."
+    },
+    "ai_designer": {
+      "brief": "Oversee and coordinate arrangement flow, ensuring smooth transitions and appropriate energy dynamics."
+    },
+    "presetor": {
+      "brief": "Apply presets suited for a minimal trap club track, focusing on clarity and punch in drums and bass."
+    },
+    "songgps": {
+      "brief": "Guide arrangement structure, energy curves, and section timing aligned with trap and club energy style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix setup optimized for unprocessed channel audio with emphasis on maintaining energy and clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "project": {
+    "name": "Drill Minimal Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      25,
+      50,
+      70,
+      40
+    ],
+    "notes": "Sparse verses with strong, energetic hooks create contrast and maintain aggression throughout the arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 65,
+          "verse_2": 5,
+          "bridge": 35,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 5,
+          "hook": 75,
+          "verse_2": 0,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 5,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Beginning of sparse verse with low energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increased energy hook with vocal emphasis"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Energy transition before final hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Peak energy section with strong hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic emphasis",
+    "bass": "low-end drive and groove",
+    "chords": "textural support to hooks",
+    "melody": "hook embellishments and atmosphere",
+    "vocal": "lyrical delivery with focus on hooks",
+    "fx": "transitional and impact effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns with sparse hits during verses and intense, punchy patterns for hooks reflecting aggressive mood."
+    },
+    "bass_generator": {
+      "brief": "Design bass tone and lines that remain minimal in verses but provide strong groove and presence during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Generate minimal harmonic elements mainly supporting hooks to increase energy without cluttering verses."
+    },
+    "melody_generator": {
+      "brief": "Add aggressive, sharp melodic motifs primarily in hooks to enhance hook strength and maintain minimalism elsewhere."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence, energy flow, and ensure contrast between sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Select presets that emphasize aggressive textures suitable for drill style with room for sparse sections."
+    },
+    "songgps": {
+      "brief": "Provide arrangement guidance to balance sparse verse delivery against hook intensity and energy peaks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed tracks for final mixing, maintaining clarity between sparse and dense arrangement parts."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "project": {
+    "name": "Memphis Rap Emotional Mainstream",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      85,
+      100,
+      75,
+      60,
+      50,
+      40,
+      55,
+      70,
+      85,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Arrangement represents a cinematic rise and fall energy profile typical for emotional mainstream Memphis Rap, focusing on dynamic shifts without specifying musical content."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 10,
+          "9": 60,
+          "25": 90,
+          "41": 65,
+          "57": 70,
+          "65": 85,
+          "73": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 5,
+          "9": 55,
+          "25": 80,
+          "41": 60,
+          "57": 65,
+          "65": 80,
+          "73": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 40,
+          "25": 75,
+          "41": 55,
+          "57": 70,
+          "65": 75,
+          "73": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 35,
+          "25": 70,
+          "41": 50,
+          "57": 60,
+          "65": 80,
+          "73": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 70,
+          "25": 95,
+          "41": 75,
+          "57": 80,
+          "65": 90,
+          "73": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 30,
+          "25": 60,
+          "41": 40,
+          "57": 50,
+          "65": 70,
+          "73": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 vocals start",
+        "reason": "Start of first vocal section"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "entry",
+        "label": "Hook vocals start",
+        "reason": "Highlight main hook with emotional impact"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "change",
+        "label": "Bridge bass texture shift",
+        "reason": "Add variation and cinematic tension"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro fx fade",
+        "reason": "Smooth closing atmosphere"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "groove and depth",
+    "chords": "harmonic support",
+    "melody": "emotional motifs",
+    "vocal": "lead narrative",
+    "fx": "atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design dynamic drum patterns following the cinematic rise and fall energy profile for emotional impact."
+    },
+    "bass_generator": {
+      "brief": "Generate bass grooves that support the groove and depth for mainstream Memphis rap style."
+    },
+    "harmony_generator": {
+      "brief": "Create chord progressions that provide harmonic support and enhance emotional mood."
+    },
+    "melody_generator": {
+      "brief": "Craft melodic motifs that carry emotional expression without specifying notes."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement coherence and energy flow across sections."
+    },
+    "presetor": {
+      "brief": "Manage presets ensuring they suit the mainstream Memphis rap emotional cinematic mood."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy variations matching the cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for later mixing stages with focus on clean unprocessed channel audio."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "project": {
+    "name": "Memphis Rap Experimental Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      60,
+      80,
+      90,
+      85,
+      60,
+      70,
+      75,
+      90,
+      95,
+      85,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      60,
+      70,
+      80,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement focuses on cinematic mood with club energy, emphasizing experimental structure typical for Memphis Rap genre."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 60,
+          "25-40": 90,
+          "41-56": 70,
+          "57-64": 40,
+          "65-72": 85,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 55,
+          "25-40": 80,
+          "41-56": 65,
+          "57-64": 35,
+          "65-72": 75,
+          "73-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 40,
+          "25-40": 65,
+          "41-56": 50,
+          "57-64": 30,
+          "65-72": 60,
+          "73-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 35,
+          "25-40": 70,
+          "41-56": 45,
+          "57-64": 25,
+          "65-72": 65,
+          "73-80": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 70,
+          "25-40": 90,
+          "41-56": 75,
+          "57-64": 20,
+          "65-72": 85,
+          "73-80": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 25,
+          "9-24": 40,
+          "25-40": 55,
+          "41-56": 45,
+          "57-64": 30,
+          "65-72": 50,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Start intro drum groove",
+        "reason": "Set initial cinematic yet club energy mood"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "cue",
+        "label": "Bass enters with groove",
+        "reason": "Introduce groove for first verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Vocals begin verse 1",
+        "reason": "Primary vocal entrance"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "cue",
+        "label": "Chords intensify for hook",
+        "reason": "Increase harmonic tension for hook"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Experimental FX section",
+        "reason": "Bridge experimental atmosphere"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "cue",
+        "label": "Final hook vocals",
+        "reason": "Climax of arrangement energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Drums fade out",
+        "reason": "Transition to outro and lower energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone and energy driver",
+    "bass": "support groove and rhythmic foundation",
+    "chords": "harmonic support and texture",
+    "melody": "lead instrumental expression",
+    "vocal": "primary lyrical delivery",
+    "fx": "atmosphere and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic, club-energy drum patterns with elements characteristic to Memphis Rap, ensuring smooth transitions between sections."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that complement the drums and support the groove, maintaining steady rhythmic foundation."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic textures and chord activity to build cinematic atmosphere with experimental variations."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic content that complements the overall mood without overlapping vocals, focusing on cinematic and experimental tones."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow and energy modulation, ensuring that transitions between sections feel natural and engaging."
+    },
+    "presetor": {
+      "brief": "Apply preset sounds and effects that enhance the cinematic and experimental qualities while fitting club energy."
+    },
+    "songgps": {
+      "brief": "Monitor and guide the arrangement’s structural coherence, section energy, and flow across the full 80 bars."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix staging focusing on clarity and balance emphasizing club energy and cinematic mood without audio processing interference."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

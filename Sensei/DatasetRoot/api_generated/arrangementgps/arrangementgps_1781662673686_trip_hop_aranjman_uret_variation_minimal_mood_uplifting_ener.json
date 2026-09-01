@@ -1,0 +1,233 @@
+{
+  "project": {
+    "name": "Minimal Uplifting Trip Hop Club",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      85,
+      30,
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      85,
+      70,
+      40,
+      30,
+      20
+    ],
+    "notes": "Create a minimal Trip Hop arrangement with uplifting mood and club energy, featuring modern sample chopping techniques with channel names reflecting chopping methods."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "chop": 80,
+          "reverse": 60,
+          "slice": 70,
+          "stutter": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "slice": 50,
+          "chop": 60
+        }
+      },
+      "chords": {
+        "activity": {
+          "reverse": 30,
+          "chop": 50
+        }
+      },
+      "melody": {
+        "activity": {
+          "stutter": 30,
+          "slice": 40
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "reverse": 60,
+          "chop": 30,
+          "stutter": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "ChopIntro",
+        "reason": "Start with minimal chopped samples as intro"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "SliceExplode",
+        "reason": "Increase energy with sliced drum layers for hook"
+      },
+      {
+        "track": "fx",
+        "bar": 41,
+        "type": "effect_entry",
+        "label": "ReverseFX",
+        "reason": "Introduce reversed effects in verse 2"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "peak_energy",
+        "label": "ChopBass",
+        "reason": "Peak club energy with chopped bass techniques"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "StutterOutro",
+        "reason": "Outro with stutter chopped patterns"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using chopped and sliced drum samples",
+    "bass": "minimal bass with chopped sample layers to complement rhythm",
+    "chords": "ambient and sparse chords with reverse slicing effects",
+    "melody": "subtle melodic elements using stutter and slice techniques",
+    "vocal": "no vocal activity",
+    "fx": "background effects primarily using reverse and chopped samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 70,
+    "chords": 50,
+    "melody": 30,
+    "vocal": 0,
+    "fx": 60
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing modern sample chopping techniques with variations in chop, slice, stutter, and reverse effects to achieve a club energy feel."
+    },
+    "bass_generator": {
+      "brief": "Produce minimal bass lines using sliced and chopped samples matching trip hop minimalism and uplifting energy."
+    },
+    "harmony_generator": {
+      "brief": "Create ambient chord textures with subtle reversed sample effects to support the uplifting mood minimally."
+    },
+    "melody_generator": {
+      "brief": "Design sparse melodic elements utilizing stutter and slice sample techniques to complement the arrangement without overwhelming."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure to maintain minimal style with effective energy flow suited for club trip hop."
+    },
+    "presetor": {
+      "brief": "Apply appropriate sample chopping based presets to each track channel reflecting chopping technique nomenclature."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement sections, energy curves, and lane activity align with trip hop minimal uplifting club style."
+    },
+    "ai_mixmaster": {
+      "brief": "Maintain clarity and balance of chopped samples with clean transitions between sections without altering unprocessed audio."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

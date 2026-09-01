@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Phonk Arrangement Minimal Uplifting",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      20,
+      35,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      0
+    ],
+    "notes": "Arrangement with cinematic rise and fall energy profile; minimal variation focusing on uplifting vibe using various chops samples."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Vocal Chops",
+        "reason": "Emphasize uplifting mood with vocal chops"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "effect",
+        "label": "Reverse Chops FX",
+        "reason": "Create contrast in bridge section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "climax",
+        "label": "Stutter Chops Layer",
+        "reason": "Maximize energy for final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation - micro chops based percussion",
+    "bass": "low end support with phrase chops",
+    "chords": "harmonic texture with reverse chops",
+    "melody": "lead phrasing using micro and phrase chops",
+    "vocal": "vocal chops with stutter effects",
+    "fx": "effects layer with reverse and stutter chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      64,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 6,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns incorporating micro chops and stutter chops for rhythmic interest keeping minimal variation."
+    },
+    "bass_generator": {
+      "brief": "Create basslines emphasizing phrase chops providing smooth and supportive low-end energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord textures using reverse chops with minimal movement to complement uplifting mood."
+    },
+    "melody_generator": {
+      "brief": "Design melodic layers utilizing micro and phrase chops aimed at emotional uplift."
+    },
+    "ai_designer": {
+      "brief": "Arrange the layout using cinematic rise and fall energy curve with minimal variation."
+    },
+    "presetor": {
+      "brief": "Apply presets suitable for a clean, cinematic phonk arrangement emphasizing chops textures."
+    },
+    "songgps": {
+      "brief": "Guide arrangement time structure and energy shaping based on minimal uplifting cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio while preserving dynamics and clarity of chopped samples."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

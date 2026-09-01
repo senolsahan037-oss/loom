@@ -1,0 +1,246 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Cinematic",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      70,
+      40,
+      20
+    ],
+    "notes": "Arrangement features cinematic rise and fall energy profile using micro chops, phrase chops, reverse chops, vocal chops, and stutter chops across channels named by chopping technique."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 90
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 40
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "micro_chops": 85,
+          "phrase_chops": 60,
+          "reverse_chops": 40,
+          "vocal_chops": 0,
+          "stutter_chops": 75
+        }
+      },
+      "bass": {
+        "activity": {
+          "micro_chops": 50,
+          "phrase_chops": 30,
+          "reverse_chops": 20,
+          "vocal_chops": 0,
+          "stutter_chops": 45
+        }
+      },
+      "chords": {
+        "activity": {
+          "micro_chops": 30,
+          "phrase_chops": 70,
+          "reverse_chops": 55,
+          "vocal_chops": 0,
+          "stutter_chops": 40
+        }
+      },
+      "melody": {
+        "activity": {
+          "micro_chops": 40,
+          "phrase_chops": 65,
+          "reverse_chops": 50,
+          "vocal_chops": 0,
+          "stutter_chops": 55
+        }
+      },
+      "vocal": {
+        "activity": {
+          "micro_chops": 0,
+          "phrase_chops": 0,
+          "reverse_chops": 0,
+          "vocal_chops": 80,
+          "stutter_chops": 70
+        }
+      },
+      "fx": {
+        "activity": {
+          "micro_chops": 20,
+          "phrase_chops": 15,
+          "reverse_chops": 30,
+          "vocal_chops": 20,
+          "stutter_chops": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Start of the intro section with low energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Intro to main hook using vocal chops"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Energy peak with stutter chops in drums"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition featuring reverse chops fx"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook with vocal and stutter chops"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy decline toward outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm and groove foundation with chopped percussion",
+    "bass": "supportive low-end with chopped bass elements",
+    "chords": "harmonic pads and textures with phrase and reverse chops",
+    "melody": "cinematic lead motifs using phrase and stutter chops",
+    "vocal": "vocal chops for melodic and rhythmic interest",
+    "fx": "ambient and transitional effects using reverse and other chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 7,
+    "melody": 6,
+    "vocal": 9,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate chopped drum patterns emphasizing micro chops, stutters, and reversed hits fitting boom bap style with cinematic dynamics."
+    },
+    "bass_generator": {
+      "brief": "Create bass layers with chopped phrasing and subtle variations to complement cinematic energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord textures using phrase chops and reverse chops to enrich harmonic atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Design melodic lines employing stutter and phrase chops to fit cinematic and experimental mood."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement timing, section energy, and layering of chopped sample types across all lanes."
+    },
+    "presetor": {
+      "brief": "Assign suitable presets matching the chopping techniques and cinematic tonal qualities."
+    },
+    "songgps": {
+      "brief": "Map energy curve and sectional layout ensuring smooth cinematic rise and fall motion."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean, unprocessed channel audio from chopped layers for final mixing with dynamic clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.6
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

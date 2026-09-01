@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Cinematic Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      40,
+      60,
+      80,
+      70
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 70
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 60
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 35
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 35,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_hit",
+        "label": "Reverse Snare Chop",
+        "reason": "Defines intro cinematic atmosphere"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "bass_entry",
+        "label": "Sliced Bass Sample",
+        "reason": "Starts minimal groove with club energy"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "chord_loop",
+        "label": "Chopped Stab Sample",
+        "reason": "Adds cinematic tension in hook"
+      },
+      {
+        "track": "melody",
+        "bar": 41,
+        "type": "melody_loop",
+        "label": "Granular Synth Chop",
+        "reason": "Maintains minimal melodic interest"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "fx_transition",
+        "label": "Tape Stop Chop",
+        "reason": "Bridge cinematic effect"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "drum_fill",
+        "label": "Beat Repeat Chop",
+        "reason": "Elevate energy to peak level"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "outro_fx",
+        "label": "Filtered Tape Loop",
+        "reason": "Smooth outro transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with chopped drum samples",
+    "bass": "minimal bass groove using sliced samples",
+    "chords": "chord stabs using chopped sample layers",
+    "melody": "cinematic granular synth chopped samples",
+    "vocal": "sparse vocal chops for texture",
+    "fx": "cinematic transitions and effects using sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 1,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Produce drum channels with sample chop techniques focused on West Coast Hip-Hop rhythm, emphasizing club energy and minimalism."
+    },
+    "bass_generator": {
+      "brief": "Generate bass line samples sliced and arranged with minimal variation suitable for club energy."
+    },
+    "harmony_generator": {
+      "brief": "Create chopped chord layers with cinematic, minimal harmonic content to support the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Design subtle granular sample chop melody lines that fit the cinematic mood without dominant melodic content."
+    },
+    "ai_designer": {
+      "brief": "Ensure the overall arrangement flows smoothly with minimal variation and cinematic club energy atmosphere."
+    },
+    "presetor": {
+      "brief": "Apply presets that highlight sample chopping techniques in all instrumental layers with clean audio output."
+    },
+    "songgps": {
+      "brief": "Structure the arrangement into defined sections with corresponding energy curves and event markers reflecting sample chop usage."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio focusing on clean mix pre-master for cinematic minimal West Coast Hip-Hop arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0,
+    "sound_intent": 0,
+    "agent_dispatch": 0
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

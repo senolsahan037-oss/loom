@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "Drill Experimental Uplifting",
+    "genre": "Drill",
+    "subgenre": "Experimental",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      35,
+      40,
+      80,
+      85,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks emphasizing uplifting and experimental drill feel."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 75,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 85,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Beginning of a strong hook with high energy"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Sparse verse with lowered energy"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Return of strong hook with maximum energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy drops, closing section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Drive rhythm and maintain sparse energy in verses; strong presence in hooks",
+    "bass": "Support rhythmic foundation and punctuation in hooks",
+    "chords": "Provide harmonic texture, subtle in verses, fuller in hooks",
+    "melody": "Accentuate hooks with uplifting motifs, low presence in verses",
+    "vocal": "Lead vocal delivery; sparse verses with high energy hooks",
+    "fx": "Enhance transitions and add experimental flavor to arrangement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 6,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a sparse yet punchy drum pattern emphasizing strong hooks and minimalistic verses"
+    },
+    "bass_generator": {
+      "brief": "Create a supportive bass line that punctuates hooks and remains minimal in verses"
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic layers with subtle chords in verses and richer textures in hooks"
+    },
+    "melody_generator": {
+      "brief": "Compose uplifting melodic phrases that peak during hooks with low activity in verses"
+    },
+    "ai_designer": {
+      "brief": "Arrange the track sections to reflect sparse verses and energetic hooks, maintaining uplifting mood"
+    },
+    "presetor": {
+      "brief": "Apply experimental sound presets that enhance the drill genre with an uplifting vibe"
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement timing and energy profiling targeting clean transitions between sections"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mix, maintaining clarity for hooks and spaciousness in verses"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

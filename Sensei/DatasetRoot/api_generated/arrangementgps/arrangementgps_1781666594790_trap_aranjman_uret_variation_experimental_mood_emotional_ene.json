@@ -1,0 +1,252 @@
+{
+  "project": {
+    "name": "Experimental Emotional Trap",
+    "genre": "Hip Hop",
+    "subgenre": "Trap",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": "Slow build energy profile with an emotional and experimental trap arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "marker",
+        "label": "Intro Starts",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "marker",
+        "label": "Verse 1 Entry",
+        "reason": "Start of main vocal section"
+      },
+      {
+        "track": "hook",
+        "bar": 25,
+        "type": "marker",
+        "label": "Hook Entry",
+        "reason": "Chorus peak section"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "marker",
+        "label": "Bridge Section",
+        "reason": "Dynamic shift and experimentation"
+      },
+      {
+        "track": "outro",
+        "bar": 73,
+        "type": "marker",
+        "label": "Outro Start",
+        "reason": "Return to low energy closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low-end groove",
+    "chords": "harmonic support",
+    "melody": "lead expression",
+    "vocal": "emotional story",
+    "fx": "atmospheric textures"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that evolve slowly in intensity matching the slow build energy profile, focusing on trap style beats."
+    },
+    "bass_generator": {
+      "brief": "Create bass grooves that support the emotional mood and gradually increase in presence along the sections."
+    },
+    "harmony_generator": {
+      "brief": "Design harmonic progressions and chord textures that suit an experimental trap arrangement with emotional undertones."
+    },
+    "melody_generator": {
+      "brief": "Compose melodic elements that reflect emotional expression, developing with the track's energy build."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the overall arrangement to ensure smooth transitions and maintain the slow build energy curve."
+    },
+    "presetor": {
+      "brief": "Apply presets that maintain clarity and emotional impact without overpowering the slow build dynamics."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement flow and energy distribution to adhere to the slow build characteristic and emotional tone."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix by balancing all elements, ensuring the emotional mood is preserved and the build feels natural."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Instrumental",
+    "genre": "Trip Hop",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      65,
+      50,
+      70,
+      55,
+      80,
+      40
+    ],
+    "notes": "Arrangement designed for instrumental trip hop with aggressive mood and club energy. Sample layers are named by sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 65
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 55
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 70,
+          "verse_2": 65,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 70,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook",
+        "reason": "Increase energy with main rhythm section"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge",
+        "reason": "Introduce FX transitions for variation"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Peak energy for final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "drums": [
+        "slice",
+        "glide",
+        "reverse_chop"
+      ],
+      "bass": [
+        "transient_split",
+        "pitch_shift_slice"
+      ],
+      "chords": [
+        "chop_loop",
+        "stutter"
+      ],
+      "melody": [
+        "granular_slice",
+        "time_stretch_slice"
+      ],
+      "fx": [
+        "reverse_glide",
+        "stutter_slice"
+      ]
+    }
+  },
+  "sound_intent": {
+    "mood": "aggressive",
+    "energy": "club energy",
+    "instrumental": true,
+    "sample_layer_naming": "by sample chop technique"
+  },
+  "routing_intent": {
+    "drums": "main rhythmic channel",
+    "bass": "sub low end support",
+    "chords": "harmonic texture layer",
+    "melody": "foreground motifs",
+    "vocal": "none - instrumental",
+    "fx": "transitional and atmospheric"
+  },
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "bass groove",
+    "chords": "harmonic background",
+    "melody": "expressive elements",
+    "vocal": "none",
+    "fx": "effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      64,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "create an instrumental aggressive trip hop arrangement with club energy using sample chopping techniques for texture"
+  },
+  "presetor_intent": {
+    "focus": "presets that enhance grit and punch in drums and bass, with spatial FX for atmosphere"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing chopped and sliced samples with aggressive feel and dynamic club energy throughout sections."
+    },
+    "bass_generator": {
+      "brief": "Create basslines with slicing techniques to complement the drums and maintain groove while sustaining aggressive mood."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers using sample loops chopped in various ways creating texture and harmonic background."
+    },
+    "melody_generator": {
+      "brief": "Design melodic fragments employing granular and time-stretch slicing samples to add character while keeping instrumental focus."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement structure and energy flow ensuring sections have appropriate dynamic contrast and instrumental balance."
+    },
+    "presetor": {
+      "brief": "Select and apply presets that enhance aggression, punch, and clarity in drums and bass, while supporting harmonic and melodic samples with ambient FX."
+    },
+    "songgps": {
+      "brief": "Analyze arrangement energy curve and timing to guide section transitions, event markers, and lane activity coherent with trip hop style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare routing instructions ensuring unprocessed channels for mix clarity, balancing transient-chopped layers with overall club energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

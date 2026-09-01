@@ -1,0 +1,321 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Emotional Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 95,
+    "key": "D Minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      75,
+      85,
+      100,
+      80,
+      75,
+      90,
+      100,
+      85,
+      70,
+      60,
+      50,
+      45,
+      40,
+      35,
+      30,
+      20
+    ],
+    "notes": "Arrangement features micro chops, phrase chops, reverse chops, vocal chops, and stutter chops distributed across relevant channels for experimental emotional boom bap with club energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "8": 20,
+          "9": 50,
+          "24": 50,
+          "25": 80,
+          "40": 80,
+          "41": 60,
+          "56": 60,
+          "57": 70,
+          "64": 70,
+          "65": 90,
+          "72": 90,
+          "73": 25,
+          "80": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "8": 10,
+          "9": 40,
+          "24": 40,
+          "25": 70,
+          "40": 70,
+          "41": 50,
+          "56": 50,
+          "57": 60,
+          "64": 60,
+          "65": 80,
+          "72": 80,
+          "73": 15,
+          "80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "8": 15,
+          "9": 45,
+          "24": 45,
+          "25": 75,
+          "40": 75,
+          "41": 55,
+          "56": 55,
+          "57": 65,
+          "64": 65,
+          "65": 85,
+          "72": 85,
+          "73": 20,
+          "80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 10,
+          "8": 10,
+          "9": 35,
+          "24": 35,
+          "25": 65,
+          "40": 65,
+          "41": 45,
+          "56": 45,
+          "57": 55,
+          "64": 55,
+          "65": 75,
+          "72": 75,
+          "73": 15,
+          "80": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 5,
+          "8": 5,
+          "9": 30,
+          "24": 30,
+          "25": 60,
+          "40": 60,
+          "41": 40,
+          "56": 40,
+          "57": 50,
+          "64": 50,
+          "65": 70,
+          "72": 70,
+          "73": 10,
+          "80": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 8,
+          "8": 8,
+          "9": 25,
+          "24": 25,
+          "25": 55,
+          "40": 55,
+          "41": 35,
+          "56": 35,
+          "57": 45,
+          "64": 45,
+          "65": 65,
+          "72": 65,
+          "73": 12,
+          "80": 12
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section",
+        "label": "Hook Start",
+        "reason": "Increase energy with vocal chops and stutter chops introduction"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "fx",
+        "label": "Bridge Vocal Effect",
+        "reason": "Add experimental reverse chops and phrase chops for dynamic bridge"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "micro_chops": {
+        "description": "Layer of micro chopping samples for rhythmic texture"
+      },
+      "phrase_chops": {
+        "description": "Arrangement channel using phrase chopping technique"
+      },
+      "reverse_chops": {
+        "description": "Channel dedicated to reversed chopped samples"
+      },
+      "vocal_chops": {
+        "description": "Channel with chopped vocal samples"
+      },
+      "stutter_chops": {
+        "description": "Channel implementing stutter effects on chopped samples"
+      }
+    }
+  },
+  "sound_intent": {
+    "overall_mood": "emotional with a club energy vibe",
+    "variation": "experimental boom bap arrangement",
+    "texture": "Fragmented chops layered to create rhythmic complexity"
+  },
+  "routing_intent": {
+    "micro_chops": "dry signal routed to drums and fx buses",
+    "phrase_chops": "processed with delay and routed to chords and melody",
+    "reverse_chops": "wet signal routed mainly to fx and vocal lanes",
+    "vocal_chops": "clean and rhythmic vocal samples routed to vocal lane",
+    "stutter_chops": "effect lanes processed for rhythmic stutter applied to drums and vocals"
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone utilizing chops with stutter effects",
+    "bass": "Supportive low end complementing rhythmic chops",
+    "chords": "Harmonic padding with phrase chops",
+    "melody": "Textural melodic layers using chopped samples",
+    "vocal": "Emotive vocal chops driving mood",
+    "fx": "Atmospheric and transitional effects with reverse and stutter chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      64,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 60,
+    "melody": 50,
+    "vocal": 75,
+    "fx": 40
+  },
+  "designer_intent": {
+    "goal": "Create an experimental emotional boom bap arrangement that balances texture and energy for club play, using multiple sample chopping techniques distinctly routed and layered."
+  },
+  "presetor_intent": {
+    "task": "Apply preset chains emphasizing clarity on chops, spatial effects on reverse chops, and dynamic modulation on stutter chops."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate experimental drum patterns using micro chops and stutter chops emphasizing rhythmic complexity and club energy."
+    },
+    "bass_generator": {
+      "brief": "Compose supportive bass lines that lock with drum chops and maintain emotional depth."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord progressions utilizing phrase chops to add harmonic texture in an emotional context."
+    },
+    "melody_generator": {
+      "brief": "Create textural melodic layers using chopped samples, focusing on expressive phrasing."
+    },
+    "ai_designer": {
+      "brief": "Design arrangement structure integrating sample chopping variations while maintaining smooth flow and energetic dynamics."
+    },
+    "presetor": {
+      "brief": "Apply and optimize effect presets to highlight micro chops, reverse chops, and vocal chops distinctly across tracks."
+    },
+    "songgps": {
+      "brief": "Monitor energy curve and section transitions to ensure consistent club energy with emotional impact."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and process unprocessed channel audio emphasizing clarity and separation for chopped sample layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

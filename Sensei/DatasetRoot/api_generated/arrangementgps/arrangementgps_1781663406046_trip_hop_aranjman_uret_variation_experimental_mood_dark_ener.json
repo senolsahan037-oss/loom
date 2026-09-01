@@ -1,0 +1,333 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Dark Arrangement",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      30,
+      40,
+      70,
+      80,
+      50,
+      60,
+      30,
+      40,
+      70,
+      90,
+      60,
+      50,
+      30,
+      40,
+      60,
+      70,
+      40,
+      30,
+      20,
+      60,
+      80,
+      70,
+      40,
+      50,
+      80,
+      90,
+      60,
+      50,
+      30,
+      40,
+      50,
+      70,
+      80,
+      90,
+      70,
+      50,
+      40,
+      30,
+      60,
+      80,
+      90,
+      70,
+      60,
+      30,
+      40,
+      50,
+      70,
+      90,
+      80,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      80,
+      90,
+      70,
+      40,
+      30,
+      20,
+      50,
+      70,
+      90,
+      70,
+      60,
+      40,
+      30,
+      20,
+      10,
+      20,
+      30,
+      40,
+      20,
+      10,
+      5,
+      10
+    ],
+    "notes": "Trip Hop arrangement with micro chops, phrase chops, reverse chops, vocal chops, and stutter chops layered for a dark, club-energy vibe. Variation is experimental focusing on creating texture and groove without traditional melodic or harmonic content."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 36,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 37,
+        "end_bar": 52,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 53,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 35,
+          "25-36": 60,
+          "37-52": 40,
+          "53-64": 50,
+          "65-76": 70,
+          "77-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-36": 50,
+          "37-52": 45,
+          "53-64": 40,
+          "65-76": 65,
+          "77-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 20,
+          "25-36": 45,
+          "37-52": 30,
+          "53-64": 40,
+          "65-76": 50,
+          "77-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 15,
+          "25-36": 40,
+          "37-52": 25,
+          "53-64": 30,
+          "65-76": 45,
+          "77-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 25,
+          "9-24": 45,
+          "25-36": 70,
+          "37-52": 50,
+          "53-64": 55,
+          "65-76": 75,
+          "77-80": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-36": 55,
+          "37-52": 40,
+          "53-64": 50,
+          "65-76": 60,
+          "77-80": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "effect",
+        "label": "Reverse Chop Intro",
+        "reason": "Introduce reverse chops to enhance texture"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "pattern_change",
+        "label": "Micro Chop Beats Start",
+        "reason": "Start micro chops for rhythmic complexity"
+      },
+      {
+        "track": "vocal",
+        "bar": 37,
+        "type": "effect",
+        "label": "Stutter Chops Applied",
+        "reason": "Add stutter chops for dynamic groove"
+      },
+      {
+        "track": "fx",
+        "bar": 53,
+        "type": "effect",
+        "label": "Phrase Chop FX Layer",
+        "reason": "Build tension with phrase chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "effect",
+        "label": "Vocal Chop Highlight",
+        "reason": "Emphasize vocal chops in final hook"
+      },
+      {
+        "track": "fx",
+        "bar": 77,
+        "type": "fade_out",
+        "label": "Outro FX Fade",
+        "reason": "Fade out effects to close the track"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with micro chops",
+    "bass": "low end support with groove variations",
+    "chords": "background atmosphere with chopped samples",
+    "melody": "textural elements without distinct melodies",
+    "vocal": "main chopped vocal samples with experimental effects",
+    "fx": "enhancement and texture through phrase and reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create rhythmic patterns using micro chops and stutter chops tailored to dark, club-energy trip hop."
+    },
+    "bass_generator": {
+      "brief": "Generate groove-supporting basslines with subtle variations, complementing the rhythm and dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Add atmospheric chopped chord samples to support the experimental texture without defined harmony."
+    },
+    "melody_generator": {
+      "brief": "Introduce minimal melodic elements via textural chopped samples, avoiding structured melodies."
+    },
+    "ai_designer": {
+      "brief": "Integrate sample chopping techniques (micro, phrase, reverse, vocal, stutter) to build a dark, club-energy trip hop arrangement."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance chopped sample textures and maintain a dark, experimental vibe."
+    },
+    "songgps": {
+      "brief": "Manage structure ensuring energy flow aligns with dark trip hop mood and experimental variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and mix all channels preserving the clarity of chopped samples and club energy dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

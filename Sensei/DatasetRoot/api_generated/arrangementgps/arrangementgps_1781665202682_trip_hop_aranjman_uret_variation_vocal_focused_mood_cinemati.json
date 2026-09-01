@@ -1,0 +1,309 @@
+{
+  "project": {
+    "name": "Trip Hop Cinematic Vocal Club Energy",
+    "genre": "Trip Hop",
+    "subgenre": "Vocal-focused",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      75,
+      80,
+      90,
+      50
+    ],
+    "notes": "Sample-based arrangement featuring texture bed and one-shot hits with a vocal focus, aiming for cinematic mood and club energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 75,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 35
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Vocal Onset",
+        "reason": "Start of vocal-focused verse"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Drum Boost",
+        "reason": "Increase energy for hook section to match club vibe"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Texture Shift",
+        "reason": "Bridge section starts with new texture bed"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "climax",
+        "label": "Vocal Peak",
+        "reason": "Final hook with highest vocal intensity"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Drum Outro",
+        "reason": "Energy reduction for outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_arrangement": {
+      "texture_bed": true,
+      "one_shot_hits": true,
+      "channel_names": [
+        "Transient_Slicing",
+        "Loop_Chop",
+        "Granular_Stem",
+        "Slice_And_Rearrange",
+        "Hit_Shots"
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture": "dense layered sample beds with atmospheric ambience",
+    "impact": "clean, punchy one-shot drum and hit samples",
+    "vocal_focus": "foregrounded processed vocals with dynamic emphasis",
+    "energy": "club energy with smooth flow and cinematic depth"
+  },
+  "routing_intent": {
+    "grouping": {
+      "drums": [
+        "Transient_Slicing",
+        "Slice_And_Rearrange"
+      ],
+      "bass": [
+        "Loop_Chop"
+      ],
+      "chords": [
+        "Granular_Stem"
+      ],
+      "vocal": [
+        "Processed_Vocals"
+      ],
+      "fx": [
+        "Atmospheric_Ambience",
+        "Hit_Shots"
+      ]
+    },
+    "effects": {
+      "vocal": [
+        "compression",
+        "reverb",
+        "delay"
+      ],
+      "drums": [
+        "transient_shaper",
+        "eq"
+      ],
+      "fx": [
+        "reverb",
+        "modulation"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample slicing and hits",
+    "bass": "groove and low end with chopped loops",
+    "chords": "harmonic texture using granular synthesis",
+    "melody": "minimal melodic motifs supporting vocals",
+    "vocal": "lead and main focus of the arrangement",
+    "fx": "atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 60,
+    "melody": 40,
+    "vocal": 100,
+    "fx": 50
+  },
+  "designer_intent": {
+    "focus": "Highlight vocal elements within a cinematic trip hop arrangement using sample-based textures and impactful one-shots to maintain club energy."
+  },
+  "presetor_intent": {
+    "goal": "Apply sample slicing presets and vocal processing chains suitable for cinematic trip hop style with emphasis on clarity and punch."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample-based drum hits and sliced loops focusing on transient clarity and club energy."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using loop chopping techniques that complement the vocal groove."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic pads and textures via granular synthesis to enrich the texture bed."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic motifs supporting the vocal line without overpowering."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the arrangement structure with focus on vocal prominence and smooth energy transitions."
+    },
+    "presetor": {
+      "brief": "Apply effects presets such as reverb, delay, and compression optimized for cinematic and club sound."
+    },
+    "songgps": {
+      "brief": "Guide the overall arrangement energy curve to maintain dynamics fitting a vocal-focused trip hop club piece."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance the mix with emphasis on vocal clarity, punchy drums, and textured ambience."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

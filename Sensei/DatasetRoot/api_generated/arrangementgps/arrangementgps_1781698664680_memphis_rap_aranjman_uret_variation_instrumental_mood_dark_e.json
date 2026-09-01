@@ -1,0 +1,239 @@
+{
+  "project": {
+    "name": "Memphis Rap Instrumental Dark Slow Build",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90
+    ],
+    "notes": "Arrangement features a slow build from minimal instrumentation to a fuller sound with layered beats and textures typical of Memphis Rap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 70,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 65,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 50,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 20,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 30,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 35,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 40,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduce higher energy drum pattern for hook"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect_transition",
+        "label": "Bridge FX Rise",
+        "reason": "Add atmosphere during bridge section"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy drop for outro, strip down drums"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with sparse hi-hats and distinctive kick",
+    "bass": "Deep, moody bass supporting the slow build",
+    "chords": "Dark, mellow pads and stabs to add texture",
+    "melody": "Sparse melodic motifs enhancing tension during hooks",
+    "vocal": "Instrumental only, no vocal",
+    "fx": "Atmospheric sound effects for transitions and mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a rhythmic drum pattern with slow build intensity, emphasizing traditional Memphis Rap kick and hi-hat sounds."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, moody bassline that slowly intensifies to support the dark mood and gradual energy increase."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord textures and pads that maintain a dark atmosphere and evolve gradually over the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic phrases primarily during the hook sections to enhance the slow build without overwhelming the instrumental."
+    },
+    "ai_designer": {
+      "brief": "Oversee the overall arrangement to ensure a coherent slow build energy curve and dark mood compliance."
+    },
+    "presetor": {
+      "brief": "Manage presets focusing on dark tones, vintage Memphis Rap instruments, and effects appropriate for slow build progression."
+    },
+    "songgps": {
+      "brief": "Guide section transitions with clear markers and maintain energy flow across the 80 bars."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix to retain clarity of slow build dynamics and emphasize the dark instrumental layers without vocals."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

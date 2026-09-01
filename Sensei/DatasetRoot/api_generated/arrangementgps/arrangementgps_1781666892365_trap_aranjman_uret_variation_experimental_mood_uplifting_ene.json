@@ -1,0 +1,227 @@
+{
+  "project": {
+    "name": "Trap Experimental Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C Minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      50,
+      60,
+      90,
+      100,
+      70
+    ],
+    "notes": "Trap arrangement with experimental variations focusing on high energy hooks and uplifting mood, structured to maintain engagement throughout."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 70
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 100,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy boost with hook"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Climax of arrangement"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone emphasizing percussion hits and trap hi-hat rolls",
+    "bass": "deep sub-bass with 808 elements supporting groove",
+    "chords": "sparse synth chords to add harmonic texture",
+    "melody": "catchy lead synth lines with experimental sound design",
+    "vocal": "vocals to deliver catchy hooks and verses, processed for clarity",
+    "fx": "effects to create transitions and enhance experimental mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 7,
+    "bass": 7,
+    "chords": 5,
+    "melody": 8,
+    "vocal": 6,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic trap-style drum patterns with emphasis on rhythmic complexity and energetic hi-hat rolls."
+    },
+    "bass_generator": {
+      "brief": "Generate deep and punchy 808 basslines that complement the hook-heavy energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse and experimental chord progressions to support uplifting mood and variation."
+    },
+    "melody_generator": {
+      "brief": "Craft uplifting, catchy melodies with an experimental sound palette that enhance the hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement ensuring energy builds and variations align with an uplifting, hook-heavy trap style."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance clarity and punch in drums and bass while maintaining experimental character in synths."
+    },
+    "songgps": {
+      "brief": "Track arrangement progression and energy curve to ensure smooth transitions between sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Provide a clean stereo mix emphasizing the hook sections and preserving energy dynamics throughout."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

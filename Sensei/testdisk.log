@@ -1,0 +1,70 @@
+
+
+Tue Jul 14 19:28:03 2026
+Command line: TestDisk
+
+TestDisk 7.2, Data Recovery Utility, February 2024
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Darwin, kernel 24.5.0 (Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:26 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8112) arm64
+Compiler: GCC 4.2
+ext2fs lib: none, ntfs lib: none, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.0
+Hard disk list
+Disk /dev/disk0 - 500 GB / 465 GiB - 122138133 sectors (RO), sector size=4096
+Disk /dev/disk2 - 5368 MB / 5119 MiB - 1310709 sectors (RO), sector size=4096
+Disk /dev/disk4 - 123 GB / 115 GiB - 242155521 sectors, sector size=512
+Disk /dev/disk6 - 123 GB / 115 GiB - 242155521 sectors (RO), sector size=512
+Disk /dev/rdisk0 - 500 GB / 465 GiB - 122138133 sectors (RO), sector size=4096
+Disk /dev/rdisk1 - 524 MB / 500 MiB - 128000 sectors (RO), sector size=4096
+Disk /dev/rdisk2 - 5368 MB / 5119 MiB - 1310709 sectors (RO), sector size=4096
+Disk /dev/rdisk3 - 494 GB / 460 GiB - 120699413 sectors (RO), sector size=4096
+Disk /dev/rdisk4 - 123 GB / 115 GiB - 242155521 sectors, sector size=512
+Disk /dev/rdisk6 - 123 GB / 115 GiB - 242155521 sectors (RO), sector size=512
+
+Partition table type (auto): Intel
+Disk /dev/rdisk4 - 123 GB / 115 GiB
+Partition table type: Intel
+
+Analyse Disk /dev/rdisk4 - 123 GB / 115 GiB - 242155521 sectors
+Geometry from i386 MBR: head=255 sector=63
+get_geometry_from_list_part_aux head=1 nbr=2
+get_geometry_from_list_part_aux head=8 nbr=2
+get_geometry_from_list_part_aux head=16 nbr=2
+get_geometry_from_list_part_aux head=32 nbr=2
+get_geometry_from_list_part_aux head=64 nbr=2
+get_geometry_from_list_part_aux head=128 nbr=2
+Current partition structure:
+ 1 P HPFS - NTFS                 2048  242155519  242153472
+
+Warning: Bad starting sector (CHS and LBA don't match)
+No partition is bootable
+
+search_part()
+Disk /dev/rdisk4 - 123 GB / 115 GiB - 242155521 sectors
+     HPFS - NTFS                 2048  242155519  242153472
+     exFAT, blocksize=131072, 123 GB / 115 GiB
+get_geometry_from_list_part_aux head=1 nbr=2
+get_geometry_from_list_part_aux head=8 nbr=2
+get_geometry_from_list_part_aux head=16 nbr=2
+get_geometry_from_list_part_aux head=32 nbr=2
+get_geometry_from_list_part_aux head=64 nbr=2
+get_geometry_from_list_part_aux head=128 nbr=2
+Warning: the current number of heads per cylinder is 1 but the correct value may be 128.
+
+Results
+   * HPFS - NTFS                 2048  242155519  242153472
+     exFAT, blocksize=131072, 123 GB / 115 GiB
+
+interface_write()
+ 1 * HPFS - NTFS                 2048  242155519  242153472
+
+search_part()
+Disk /dev/rdisk4 - 123 GB / 115 GiB - 242155521 sectors
+     HPFS - NTFS                 2048  242155519  242153472
+     exFAT, blocksize=131072, 123 GB / 115 GiB
+     HPFS - NTFS                 2048  242155519  242153472
+     exFAT found using backup sector, blocksize=131072, 123 GB / 115 GiB
+     HPFS - NTFS                 2048  242155519  242153472
+     exFAT found using backup sector, blocksize=131072, 123 GB / 115 GiB
+SIGINT detected! PhotoRec has been killed.
+SIGINT detected! PhotoRec has been killed.

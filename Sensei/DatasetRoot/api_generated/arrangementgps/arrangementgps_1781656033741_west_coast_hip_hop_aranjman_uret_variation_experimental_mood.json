@@ -1,0 +1,384 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      65,
+      80,
+      100,
+      80,
+      50,
+      35,
+      20,
+      10,
+      30,
+      60,
+      90,
+      70,
+      40,
+      20,
+      10,
+      20,
+      50,
+      80,
+      100,
+      90,
+      70,
+      50,
+      30,
+      40,
+      70,
+      100,
+      80,
+      50,
+      30,
+      20,
+      10,
+      20,
+      40,
+      70,
+      90,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      20,
+      40,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      15,
+      25,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      20,
+      40,
+      60,
+      80,
+      90,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": "Arrangement emphasizes variation in energy with cinematic rise and fall to support uplifting mood in West Coast Hip-Hop style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 55,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Begin main rhythm with micro chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "feature",
+        "label": "Vocal Chops Introduced",
+        "reason": "Add uplifting vocal chops in hook"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Experimental FX",
+        "reason": "Introduce reverse chops and stutter chops in bridge"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "peak",
+        "label": "Cinematic Rise",
+        "reason": "Energy peak in final hook with phrase chops"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Drums Drop",
+        "reason": "Energy taper down in outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ],
+    "channels": [
+      {
+        "name": "micro_chops",
+        "description": "Sample layer using micro chopping technique"
+      },
+      {
+        "name": "phrase_chops",
+        "description": "Sample layer using phrase chopping technique"
+      },
+      {
+        "name": "reverse_chops",
+        "description": "Sample layer using reverse chopping technique"
+      },
+      {
+        "name": "vocal_chops",
+        "description": "Sample layer using vocal chopping technique"
+      },
+      {
+        "name": "stutter_chops",
+        "description": "Sample layer using stutter chopping technique"
+      }
+    ]
+  },
+  "sound_intent": {
+    "texture": "grainy, warm, and experimental with a cinematic dynamic",
+    "spatial": "wide stereo imaging with occasional center focus on vocal chops",
+    "processing": "use of reverse, stutter, and slice effects emphasizing rhythmic variety"
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "drums",
+      "phrase_chops": "chords",
+      "reverse_chops": "fx",
+      "vocal_chops": "vocal",
+      "stutter_chops": "melody"
+    },
+    "bus_groups": {
+      "drums": [
+        "micro_chops"
+      ],
+      "chords": [
+        "phrase_chops"
+      ],
+      "fx": [
+        "reverse_chops"
+      ],
+      "vocal": [
+        "vocal_chops"
+      ],
+      "melody": [
+        "stutter_chops"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with micro chops emphasis",
+    "bass": "low-end support aligned with drums",
+    "chords": "harmonic texture using phrase chops",
+    "melody": "lead motifs with stutter chops",
+    "vocal": "vocal samples and chops as a melodic and rhythmic accent",
+    "fx": "experimental reverse and stutter effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 6,
+    "fx": 4
+  },
+  "designer_intent": {
+    "focus": "Create a dynamic experimental West Coast Hip-Hop arrangement with uplifting mood, leveraging sample chopping techniques to produce cinematic energy flow."
+  },
+  "presetor_intent": {
+    "goal": "Ensure presets support sample chopping methods and maintain clarity and impact in each section's energy curve."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate and detail drum patterns emphasizing micro chops with dynamic energy changes throughout sections."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement drums and maintain groove, following energy profiles."
+    },
+    "harmony_generator": {
+      "brief": "Design harmonic layers using phrase chops supporting mood and structure."
+    },
+    "melody_generator": {
+      "brief": "Build melodic elements featuring stutter chops integrated with main progression."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring cinematic rise and fall with experimental sound design."
+    },
+    "presetor": {
+      "brief": "Apply presets that highlight chopping techniques with appropriate effects and mixing."
+    },
+    "songgps": {
+      "brief": "Monitor energy curves and section transitions for smooth yet dynamic arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to preserve sample chop clarity, spatial placement, and cinematic dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

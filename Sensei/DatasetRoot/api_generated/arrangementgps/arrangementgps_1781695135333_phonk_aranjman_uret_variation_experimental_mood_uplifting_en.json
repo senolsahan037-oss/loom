@@ -1,0 +1,334 @@
+{
+  "project": {
+    "name": "Phonk Experimental Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 85,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      10,
+      15,
+      20,
+      30,
+      45,
+      60,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      10,
+      15,
+      25,
+      35,
+      50,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15
+    ],
+    "notes": "Experimental Phonk arrangement with slow build energy curve and uplifting mood focusing on modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 55,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "Hook Start Impact",
+        "reason": "Energy spikes with sample chops and kicks"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "fx_drop",
+        "label": "Bridge Effect Fade",
+        "reason": "Bridge uses experimental fx modulations to transition"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "glitch_chop",
+        "stutter",
+        "reverse_slice",
+        "time_stretch",
+        "granular_splice"
+      ],
+      "channels": {
+        "glitch_chop": "drums",
+        "stutter": "fx",
+        "reverse_slice": "melody",
+        "time_stretch": "chords",
+        "granular_splice": "bass"
+      }
+    }
+  },
+  "sound_intent": {
+    "timbral_focus": "modern chopped samples with crisp transient shaping and smooth atmospheric textures",
+    "dynamic_profile": "slow build from minimal to dense layered arrangement emphasizing uplifting mood",
+    "spatial_character": "subtle reverb and delay to enhance sample chops with atmospheric depth"
+  },
+  "routing_intent": {
+    "drums": "glitch_chop routed through transient designer and dynamic EQ",
+    "bass": "granular splice processed with low end saturation",
+    "chords": "time stretch effects with subtle modulation routing",
+    "melody": "reverse slice routed through filter sweeps",
+    "vocal": "none - no vocals included",
+    "fx": "stutter effects with delay and reverb chains"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation and sample chop articulation",
+    "bass": "sub bass groove with granular texture",
+    "chords": "harmonic pad with time stretched samples",
+    "melody": "experimental chopped sample leads",
+    "vocal": "none",
+    "fx": "transition and texture effects with stutters"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 6,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {
+    "goal": "Develop experimental, uplifting Phonk arrangement with slow energy build and modern chopping sample techniques highlighting texture and groove without traditional melodic or lyrical content."
+  },
+  "presetor_intent": {
+    "goal": "Provide presets emphasizing transient-rich chopped samples and atmospheric effects to support experimental and uplifting mood in arrangement."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum sample chops and rhythmic glitch patterns emphasizing dynamic build and transient clarity."
+    },
+    "bass_generator": {
+      "brief": "Create granular spliced bass textures that complement rhythmic foundation and add groove depth."
+    },
+    "harmony_generator": {
+      "brief": "Generate time-stretched chord samples to fill harmonic space with atmospheric layering."
+    },
+    "melody_generator": {
+      "brief": "Develop reversed slice melodic sample lines with experimental phrasing and texture."
+    },
+    "ai_designer": {
+      "brief": "Integrate all layers into a cohesive arrangement with smooth slow energy build and uplifting feel."
+    },
+    "presetor": {
+      "brief": "Supply effect presets focusing on glitch, stutter, reverb, and delay suitable for modern chopped sample manipulation."
+    },
+    "songgps": {
+      "brief": "Monitor energy curve and section transitions to maintain slow build and efficient experimental Phonk arrangement flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance raw channel audio emphasizing clarity of chops, atmosphere, and dynamic range without compression artifacts."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

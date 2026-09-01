@@ -1,0 +1,354 @@
+{
+  "project": {
+    "name": "Drill Arrangement Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 30,
+          "8": 30,
+          "9": 60,
+          "24": 60,
+          "25": 90,
+          "32": 90,
+          "33": 50,
+          "48": 50,
+          "49": 60,
+          "56": 60,
+          "57": 80,
+          "72": 80,
+          "73": 20,
+          "80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 15,
+          "8": 15,
+          "9": 40,
+          "24": 40,
+          "25": 70,
+          "32": 70,
+          "33": 50,
+          "48": 50,
+          "49": 60,
+          "56": 60,
+          "57": 80,
+          "72": 80,
+          "73": 20,
+          "80": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 10,
+          "8": 10,
+          "9": 35,
+          "24": 35,
+          "25": 65,
+          "32": 65,
+          "33": 45,
+          "48": 45,
+          "49": 55,
+          "56": 55,
+          "57": 75,
+          "72": 75,
+          "73": 15,
+          "80": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "8": 5,
+          "9": 30,
+          "24": 30,
+          "25": 60,
+          "32": 60,
+          "33": 40,
+          "48": 40,
+          "49": 50,
+          "56": 50,
+          "57": 70,
+          "72": 70,
+          "73": 10,
+          "80": 10
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "8": 5,
+          "25": 20,
+          "32": 20,
+          "57": 25,
+          "72": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of the arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Energy begins to build"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Highest energy point"
+      },
+      {
+        "track": "chords",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Sustaining energy with slight drop"
+      },
+      {
+        "track": "melody",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition with increased tension"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climactic emotional peak"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "primary rhythm foundation",
+    "bass": "sub bass and rhythm supporter",
+    "chords": "emotional harmonic background",
+    "melody": "instrumental emotional lead",
+    "vocal": "none - instrumental only",
+    "fx": "ambience and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that evolve smoothly with slow energy buildup, emphasizing emotional tone without complex fills."
+    },
+    "bass_generator": {
+      "brief": "Design bassline activity to support rhythm and harmony, progressively increasing intensity to match energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord arrangements that convey emotional depth, complementing the slow build with sustained harmonic textures."
+    },
+    "melody_generator": {
+      "brief": "Craft instrumental lead melodies that flow emotionally, supporting the arrangement's mood without vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement ensuring sections transition smoothly with attention to emotional and energy dynamics."
+    },
+    "presetor": {
+      "brief": "Manage presets to maintain coherent instrumental timbres that enhance the emotional and slow build characteristic."
+    },
+    "songgps": {
+      "brief": "Analyze and guide the energy curve and section structure, ensuring alignment with slow build and emotional mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix setup focused on clean, unprocessed channel audio suitable for instrumental drill style production."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

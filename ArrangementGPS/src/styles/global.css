@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--color-bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(55, 226, 162, 0.14), transparent 34rem),
+    radial-gradient(circle at 90% 6%, rgba(139, 188, 255, 0.1), transparent 30rem),
+    linear-gradient(145deg, #07090d 0%, #10151d 48%, #080a0d 100%);
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.panel {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012)),
+    rgba(15, 21, 29, 0.88);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(18px);
+}
+
+.panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.panel__kicker {
+  margin: 0 0 6px;
+  color: var(--color-primary);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 780;
+  letter-spacing: 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 760;
+  letter-spacing: 0;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+  background: #223044;
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  color: var(--color-subtle);
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--color-primary-strong), #5fc9ff);
+  color: #04100d;
+  box-shadow: 0 12px 36px rgba(55, 226, 162, 0.2);
+}
+
+.button--secondary {
+  background: rgba(69, 213, 176, 0.14);
+  color: #bfffee;
+}

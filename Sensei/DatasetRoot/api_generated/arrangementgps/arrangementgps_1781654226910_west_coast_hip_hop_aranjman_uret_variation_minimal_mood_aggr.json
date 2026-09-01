@@ -1,0 +1,226 @@
+{
+  "project": {
+    "name": "West Coast Aggressive Hip-Hop",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      80,
+      40,
+      70,
+      60,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile with minimal variation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 60
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "micro_chops": 70,
+          "phrase_chops": 40,
+          "reverse_chops": 30,
+          "vocal_chops": 20,
+          "stutter_chops": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "micro_chops": 40,
+          "phrase_chops": 25,
+          "reverse_chops": 15,
+          "vocal_chops": 0,
+          "stutter_chops": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "micro_chops": 30,
+          "phrase_chops": 50,
+          "reverse_chops": 10,
+          "vocal_chops": 0,
+          "stutter_chops": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "micro_chops": 35,
+          "phrase_chops": 45,
+          "reverse_chops": 20,
+          "vocal_chops": 0,
+          "stutter_chops": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "micro_chops": 25,
+          "phrase_chops": 60,
+          "reverse_chops": 30,
+          "vocal_chops": 80,
+          "stutter_chops": 70
+        }
+      },
+      "fx": {
+        "activity": {
+          "micro_chops": 40,
+          "phrase_chops": 30,
+          "reverse_chops": 60,
+          "vocal_chops": 10,
+          "stutter_chops": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "marker",
+        "label": "Hook Start",
+        "reason": "Increase energy for hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "marker",
+        "label": "Bridge Drop",
+        "reason": "Dynamic shift in bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "marker",
+        "label": "Final Hook Start",
+        "reason": "Energy peak before outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "percussion foundation with chopped samples",
+    "bass": "low-end groove with subtle chops",
+    "chords": "textural chopped elements",
+    "melody": "minimalistic phrase and reverse chops",
+    "vocal": "main chopped vocal samples with stutters",
+    "fx": "ambience and transitional reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      79
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 5,
+    "melody": 6,
+    "vocal": 10,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns emphasizing micro chops, stutter chops, and minimal variation to keep aggressive West Coast vibe."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines featuring subtle micro and phrase chops that support the groove without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Add chord and texture layers using phrase chops and occasional micro chops for minimal harmonic background."
+    },
+    "melody_generator": {
+      "brief": "Develop sparse melodic elements with phrase and reverse chops to enhance cinematic rises and falls."
+    },
+    "ai_designer": {
+      "brief": "Arrange the sections with dynamic energy curve focusing on cinematic rises and falls following minimal variation."
+    },
+    "presetor": {
+      "brief": "Apply presets suitable for West Coast Hip-Hop samples involving chopped technique effects."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure and transitions to maintain aggressive mood with cinematic energy dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixes with emphasis on clarity of chop techniques in all layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

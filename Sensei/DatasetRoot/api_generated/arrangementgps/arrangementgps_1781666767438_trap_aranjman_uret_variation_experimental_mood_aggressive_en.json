@@ -1,0 +1,319 @@
+{
+  "project": {
+    "name": "Aggressive Experimental Trap",
+    "genre": "Trap",
+    "subgenre": "Experimental",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      50,
+      70,
+      100,
+      90,
+      70,
+      50,
+      40,
+      60,
+      80,
+      100,
+      90,
+      75,
+      60,
+      40,
+      30,
+      20,
+      50,
+      70,
+      90,
+      100,
+      85,
+      70,
+      50,
+      40,
+      30,
+      20,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      20,
+      50,
+      70,
+      90,
+      100,
+      85,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      10,
+      5,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of track"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Verse 1 Vocal Entry",
+        "reason": "Entrance of vocals for aggression"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "peak",
+        "label": "Hook Climaxes",
+        "reason": "Highest energy and aggression point"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge Start",
+        "reason": "Change in energy profile for variation"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro FX Fade",
+        "reason": "Lowering energy to end"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone providing aggressive trap beats",
+    "bass": "low-end foundation with dynamic cinematic rise and fall",
+    "chords": "textural pads supporting mood with subtle tension",
+    "melody": "dramatic motifs enhancing emotional impact",
+    "vocal": "aggressive vocal phrases driving tension",
+    "fx": "atmospheric effects for experimental variation and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 9,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 8,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create rhythmic patterns that maintain aggressive trap style with dynamic energy peaks at hook sections."
+    },
+    "bass_generator": {
+      "brief": "Generate bass activity that supports cinematic rises and falls to complement the aggressive mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic pad textures that maintain experimental variation while reinforcing mood tension."
+    },
+    "melody_generator": {
+      "brief": "Develop melody lines that accentuate high energy sections and enhance aggressive character without overshadowing vocals."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with dynamic energy shaping the cinematic rise and fall required for this experimental trap piece."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance aggression and cinematic dynamics especially in high energy hooks."
+    },
+    "songgps": {
+      "brief": "Manage energy curve and section transitions to ensure clear narrative flow and variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio to allow faithful mixing emphasizing aggressive cinematic dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

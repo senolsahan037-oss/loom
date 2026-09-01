@@ -1,0 +1,289 @@
+{
+  "project": {
+    "name": "Trip Hop Emotional Vocal Focus",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 85,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      55,
+      75,
+      60,
+      80,
+      100,
+      30,
+      40,
+      50,
+      65,
+      90,
+      100,
+      50,
+      40,
+      20
+    ],
+    "notes": "Sample-based arrangement featuring a textured sample bed underpinning the track, with one-shot hits used sparingly to accentuate emotional vocal passages. Energy profile exhibits a cinematic rise and fall matching the mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Vocal Entry",
+        "reason": "Start of emotional vocal-focused verse"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "transition",
+        "label": "Dynamic shift",
+        "reason": "Cinematic energy rise entering hook"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "fx",
+        "label": "Texture Fill",
+        "reason": "Bridge texture enhancement"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Vocal Climax",
+        "reason": "Final hook emotional peak"
+      },
+      {
+        "track": "bass",
+        "bar": 73,
+        "type": "fade",
+        "label": "Bass Fade Out",
+        "reason": "Outro energy decline"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_bed": {
+      "type": "texture_bed",
+      "description": "Layered ambient samples providing lush harmonic background"
+    },
+    "hits": {
+      "type": "one_shot_hits",
+      "description": "Sampled percussion hits using common slicing techniques"
+    }
+  },
+  "sound_intent": {
+    "overall_character": "warm, cinematic, dynamic textures supporting emotional vocals",
+    "sample_techniques": [
+      "slice",
+      "chop",
+      "hit",
+      "texture layering"
+    ]
+  },
+  "routing_intent": {
+    "routed_samples": {
+      "channel_naming": {
+        "texture_bed": "slice_texture_bed",
+        "one_shot_hits": "one_shot_hits"
+      }
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sparse one-shot hits",
+    "bass": "supporting groove and warmth",
+    "chords": "harmonic texture via sample bed",
+    "melody": "complementary minimal samples",
+    "vocal": "emotional centerpiece",
+    "fx": "ambient texture and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      8,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 60,
+    "bass": 50,
+    "chords": 55,
+    "melody": 40,
+    "vocal": 100,
+    "fx": 45
+  },
+  "designer_intent": {
+    "focus": "Create emotional connection via vocal dynamics, supported by cinematic texture shifts and varied sample hits."
+  },
+  "presetor_intent": {
+    "preset_usage": "BYOD sample-based layers with texture and hit presets emphasizing smooth transitions and dynamic motion."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum lane activity emphasizing sample-based one-shot hits with dynamic rises and falls matching the cinematic profile."
+    },
+    "bass_generator": {
+      "brief": "Provide bass support that complements the textured sample bed and emotional vocal line with smooth groove variations."
+    },
+    "harmony_generator": {
+      "brief": "Create texture and chordal layers based on sample beds sliced and layered to evoke emotional, cinematic harmonic depth."
+    },
+    "melody_generator": {
+      "brief": "Produce minimal melodic sample elements to enhance emotional mood without overshadowing vocal focus."
+    },
+    "ai_designer": {
+      "brief": "Craft the overall arrangement emphasizing vocal prominence with dynamic energy curve featuring cinematic rise and fall."
+    },
+    "presetor": {
+      "brief": "Apply sample-based texture and one-shot hit presets named with slicing technique conventions for clear channel identification."
+    },
+    "songgps": {
+      "brief": "Manage section energy and transitions aligning with mood and vocal-focused arrangement constraints."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mix-ready for final balancing and spatial enhancements focusing on vocal clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

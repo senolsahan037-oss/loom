@@ -1,0 +1,310 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Mainstream",
+    "genre": "Trip Hop",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      100,
+      80,
+      60,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      50,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      20,
+      30,
+      50,
+      70,
+      100,
+      80,
+      60,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50
+    ],
+    "notes": "Aggressive trip hop arrangement with a cinematic energy rise and fall."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 65,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 45,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 70,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 24,
+        "type": "transition",
+        "label": "Build Up",
+        "reason": "Energy rises towards hook"
+      },
+      {
+        "track": "bass",
+        "bar": 40,
+        "type": "highlight",
+        "label": "Groove Peak",
+        "reason": "Main energy climax"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge Atmosphere",
+        "reason": "Create cinematic feel"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation using various sample chopping techniques",
+    "bass": "low end groove with chopped sample layers",
+    "chords": "harmonic texture from sliced chord samples",
+    "melody": "lead elements constructed from sample chops",
+    "vocal": "vocal sample chops integrated per arrangement needs",
+    "fx": "atmospheric and transitional samples sliced to aid dynamics"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create aggressive rhythm patterns with sample chop based percussion layers, emphasizing dynamic energy flow."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines and grooves using chopped sample layers that complement the rhythm and mood."
+    },
+    "harmony_generator": {
+      "brief": "Produce chordal textures and harmonic content using sample chop techniques matching the cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic phrases from sample chops that enhance the aggressive and cinematic character without writing notes."
+    },
+    "ai_designer": {
+      "brief": "Overall arrangement shaping focusing on energy rise and fall and incorporating sample chop naming conventions in channel layers."
+    },
+    "presetor": {
+      "brief": "Apply sound presets optimized for Trip Hop with emphasis on aggressive and cinematic tonalities."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure and energy curves following the cinematic rise and fall profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixdown settings ensuring clarity of sample chop channels and preserving energy dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

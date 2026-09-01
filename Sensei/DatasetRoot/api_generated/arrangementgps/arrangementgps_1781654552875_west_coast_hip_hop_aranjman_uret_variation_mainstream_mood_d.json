@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Dark Hook-Heavy Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      40,
+      60,
+      80,
+      60,
+      30
+    ],
+    "notes": "Arrangement focused on dark mood with hook-heavy energy profile emphasizing mainstream West Coast Hip-Hop style using sample chops techniques for vocal and instrumental layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 95,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "Begin hook with increased vocal chops and energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook with maximum vocal chop and hook energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "fx_transition",
+        "label": "Bridge FX",
+        "reason": "FX layer to highlight bridge section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic drive with chopped percussive layers",
+    "bass": "Deep bass to support the groove",
+    "chords": "Harmonic foundation with chopped sample layers",
+    "melody": "Sparse melodic elements using micro and phrase chops",
+    "vocal": "Hook-heavy vocal chops including reverse and stutter chops",
+    "fx": "Atmospheric and transitional effects using chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 6,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drums emphasizing the West Coast Hip-Hop style with rhythmic chops and stutters to complement vocal chops and maintain dark mood."
+    },
+    "bass_generator": {
+      "brief": "Create a deep, groovy bassline supporting low end with consistent energy matching arrangement dynamics without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic pads or chords using chopped sample layers maintaining dark tonal qualities fitting the style."
+    },
+    "melody_generator": {
+      "brief": "Design minimal melodic elements primarily using micro and phrase chops enhancing main motifs without cluttering arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow, ensuring energy transitions and varied chop techniques align with mainstream West Coast Hip-Hop aesthetic."
+    },
+    "presetor": {
+      "brief": "Manage presets targeting dark, hip-hop influenced sample-based sounds particularly for vocal chops and effects layers."
+    },
+    "songgps": {
+      "brief": "Control overall arrangement GPS parameters including section layout, energy curve, and event marker placement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings emphasizing clarity and separation of chopped samples and vocal elements preserving dark mood and hook energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

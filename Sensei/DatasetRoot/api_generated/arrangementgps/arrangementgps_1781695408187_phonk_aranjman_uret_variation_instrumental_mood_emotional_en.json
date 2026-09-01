@@ -1,0 +1,298 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Emotional",
+    "genre": "Phonk",
+    "subgenre": "Instrumental",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      85,
+      100,
+      80,
+      60,
+      40,
+      40,
+      60,
+      75,
+      90,
+      100,
+      85,
+      70,
+      55,
+      40
+    ],
+    "notes": "Arrangement focuses on a slow build energy profile with layers gradually introduced using various sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 55,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 50,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "micro_chops",
+        "bar": 5,
+        "type": "sample_chop",
+        "label": "micro chops intro",
+        "reason": "introduce micro chop textures softly"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 12,
+        "type": "sample_chop",
+        "label": "phrase chops verse 1",
+        "reason": "build rhythmic interest with phrase chops"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 28,
+        "type": "effect",
+        "label": "reverse chops hook",
+        "reason": "add emotional reversed samples to hook"
+      },
+      {
+        "track": "vocal_chops",
+        "bar": 35,
+        "type": "sample_chop",
+        "label": "vocal chops hook",
+        "reason": "layer vocal slices to enhance mood"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 60,
+        "type": "effect",
+        "label": "stutter chops bridge",
+        "reason": "add dynamic stutter effect"
+      }
+    ]
+  },
+  "production_tree": {
+    "micro_chops": {
+      "type": "sample_layer",
+      "description": "Micro chopped sample layers for texture"
+    },
+    "phrase_chops": {
+      "type": "sample_layer",
+      "description": "Phrase chopped elements to maintain rhythm"
+    },
+    "reverse_chops": {
+      "type": "effect_layer",
+      "description": "Reversed chopped samples for emotional atmosphere"
+    },
+    "vocal_chops": {
+      "type": "sample_layer",
+      "description": "Vocal chops providing melodic and emotional hints"
+    },
+    "stutter_chops": {
+      "type": "effect_layer",
+      "description": "Stutter chopping for rhythmic variation"
+    }
+  },
+  "sound_intent": {
+    "goal": "Create an emotional phonk instrumental with layered chopped sample textures progressing with a slow energy build."
+  },
+  "routing_intent": {
+    "micro_chops": "dry routing to preserve detail",
+    "phrase_chops": "moderate reverb send",
+    "reverse_chops": "wet reverb and delay send",
+    "vocal_chops": "compressed and reverb send",
+    "stutter_chops": "dry with delay feedback"
+  },
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low frequency support",
+    "chords": "harmonic bed",
+    "melody": "main emotional lead",
+    "vocal": "textural emotional layer",
+    "fx": "transitional effects and sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      2,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 65,
+    "chords": 60,
+    "melody": 75,
+    "vocal": 40,
+    "fx": 50
+  },
+  "designer_intent": {
+    "comment": "Focus on emotional progression using sample chops and slow gradual build in energy."
+  },
+  "presetor_intent": {
+    "comment": "Use preset settings that enhance sample texture clarity and smooth dynamic transitions."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that support a slow build energy profile, utilizing subtle rhythmic micro and phrase chopping."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the chord progression with emotional, mellow tones and slow reactive dynamics."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic textures suited to slow build emotional mood using chopped samples and layered pads."
+    },
+    "melody_generator": {
+      "brief": "Focus on melodic instrumentals using vocal chops and phrasing that highlight emotive aspects without direct melodies."
+    },
+    "ai_designer": {
+      "brief": "Integrate chopped sample layers with effects and maintain coherence throughout the arrangement sections."
+    },
+    "presetor": {
+      "brief": "Apply presets optimized for emotional phonk instrumentals emphasizing clarity in chopped samples and smooth fades."
+    },
+    "songgps": {
+      "brief": "Manage the arrangement workflow ensuring a slow, emotional energy ramp with attention to sample layer placements."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio focusing on balance and clarity among chopped sample layers with emotional impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

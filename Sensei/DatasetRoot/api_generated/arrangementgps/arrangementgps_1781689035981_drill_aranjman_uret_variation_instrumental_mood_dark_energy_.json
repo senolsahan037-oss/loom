@@ -1,0 +1,337 @@
+{
+  "project": {
+    "name": "Drill Instrumental Dark Slow Build",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 70,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement focuses on a slow build of intensity starting from a low energy intro with minimal elements and gradually adding layers towards a climactic hook and tapering off in the outro. The mood remains dark throughout using minor tonalities and atmospheric textures."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 60,
+          "25-40": 90,
+          "41-56": 75,
+          "57-64": 50,
+          "65-72": 90,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-40": 80,
+          "41-56": 70,
+          "57-64": 40,
+          "65-72": 85,
+          "73-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 70,
+          "41-56": 60,
+          "57-64": 35,
+          "65-72": 75,
+          "73-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 10,
+          "25-40": 60,
+          "41-56": 50,
+          "57-64": 20,
+          "65-72": 65,
+          "73-80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 0,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 0,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 20,
+          "25-40": 40,
+          "41-56": 30,
+          "57-64": 25,
+          "65-72": 45,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of the arrangement"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "layer_in",
+        "label": "Bass Enters",
+        "reason": "Adding depth for verse"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "layer_in",
+        "label": "Chords Enter",
+        "reason": "Building intensity into hook"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "layer_in",
+        "label": "Melody Enters",
+        "reason": "Hook melodic theme introduction"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Transition and mood modulation"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Drums Fade Out",
+        "reason": "Outro wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, emphasizes slow build",
+    "bass": "foundation layer providing depth and groove",
+    "chords": "harmonic texture, reinforces dark mood",
+    "melody": "accentuates hook with minimal presence",
+    "vocal": "none - instrumental only",
+    "fx": "atmospheric accentuation and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a consistent but evolving drum pattern that starts minimal and builds energy slowly, emphasizing drill style rhythms."
+    },
+    "bass_generator": {
+      "brief": "Generate a dark, deep bass foundation that supports the slow buildup with sparse notes turning more frequent at the hook."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord progressions using minor tonalities reinforcing the dark mood and gradually increasing harmonic complexity."
+    },
+    "melody_generator": {
+      "brief": "Introduce a simple melodic line that appears during hooks to add emotional intensity without overwhelming the instrumental."
+    },
+    "ai_designer": {
+      "brief": "Oversee balanced integration of layers, ensuring smooth transitions and maintaining the slow build energy profile."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize warmth and darkness suitable for drill instrumental with slow evolving textures."
+    },
+    "songgps": {
+      "brief": "Guide overall structure ensuring adherence to drill genre, instrumental variation, dark mood, and slow build energy."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare a clean, dynamic mix emphasizing clarity of layers and preserving intended energy curve from intro to outro."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

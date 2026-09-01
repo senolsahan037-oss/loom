@@ -1,0 +1,313 @@
+{
+  "project": {
+    "name": "Memphis Rap Dark Club Vocal Focus",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      70,
+      50,
+      65,
+      80,
+      90,
+      60,
+      75,
+      90,
+      85,
+      80,
+      90,
+      95,
+      90,
+      80,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      50,
+      70,
+      90,
+      85,
+      80,
+      75,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      75,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement designed to highlight vocal presence with dark mood instruments and club energy. Vary energy to support dynamics of vocal performance."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 45,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 35,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 25,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "begin hook with vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "verse_2_start",
+        "reason": "shift back to verse with steady drums"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "bridge_start",
+        "reason": "add atmospheric effects for bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "highlight final hook with peak vocal energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low frequency support",
+    "chords": "harmonic filler",
+    "melody": "background embellishment",
+    "vocal": "primary focus",
+    "fx": "transitional sounds and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a dark, club-oriented drum pattern with emphasis on groove and supporting the vocal dynamics."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the drums and reinforce the dark club energy without overpowering vocals."
+    },
+    "harmony_generator": {
+      "brief": "Compose subtle chordal textures that maintain a dark mood and leave space for vocal prominence."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic embellishments that enhance the track's mood without competing with vocals."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement to sustain club energy with a strong vocal focus and dynamic sectional energy changes."
+    },
+    "presetor": {
+      "brief": "Apply sound presets enhancing dark tones and clarity in vocal tracks."
+    },
+    "songgps": {
+      "brief": "Guide the structure to balance energy build-ups and breakdowns, ensuring vocal sections stand out."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to emphasize vocals while keeping the rhythm section clear and driving."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

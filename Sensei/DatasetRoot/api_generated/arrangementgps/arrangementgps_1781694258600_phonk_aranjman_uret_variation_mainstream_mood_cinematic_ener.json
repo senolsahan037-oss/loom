@@ -1,0 +1,296 @@
+{
+  "project": {
+    "name": "Phonk Mainstream Cinematic Club",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      80,
+      20
+    ],
+    "notes": "Energetic phonk arrangement with cinematic mood and club-oriented energy. Modern sample chopping techniques emphasize rhythm and groove."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 65,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy increase, main theme introduction"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Secondary verse progression"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition effect introduction"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climax and highest energy section"
+      }
+    ]
+  },
+  "production_tree": {
+    "MasterBus": {
+      "children": [
+        "SampleChopper1",
+        "SampleChopper2",
+        "LoopSlice1",
+        "LoopSlice2",
+        "StutterEffect"
+      ]
+    },
+    "SampleChopper1": {
+      "type": "chopping",
+      "description": "Modern transient slicing and rearrangement"
+    },
+    "SampleChopper2": {
+      "type": "chopping",
+      "description": "Syncopated rhythmic chopping"
+    },
+    "LoopSlice1": {
+      "type": "loop slicing",
+      "description": "Granular slice layering"
+    },
+    "LoopSlice2": {
+      "type": "loop slicing",
+      "description": "Staccato break edits"
+    },
+    "StutterEffect": {
+      "type": "effect",
+      "description": "Rapid gated stutter on samples"
+    }
+  },
+  "sound_intent": {
+    "sample_style": "modern chopping with syncopation and stutters",
+    "club_energy": true,
+    "cinematic_mood": true
+  },
+  "routing_intent": {
+    "channels": {
+      "TransientSlicer": [
+        "SampleChopper1",
+        "SampleChopper2"
+      ],
+      "LoopSlices": [
+        "LoopSlice1",
+        "LoopSlice2"
+      ],
+      "Effects": [
+        "StutterEffect"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using chopped samples",
+    "bass": "groove driver with sub-low support",
+    "chords": "harmonic bed with sparse modern samples",
+    "melody": "cinematic theme using processed samples",
+    "vocal": "vocal chops and phrases chopped for groove",
+    "fx": "transitions and texture via sample manipulation"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 2,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create a phonk arrangement with cinematic mood and club energy using advanced modern sample chopping techniques. Channel names reflect chopping/stuttering methods."
+  },
+  "presetor_intent": {
+    "preset_style": "modern chopped phonk with emphasis on rhythmic clarity and cinematic atmosphere."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum patterns based on chopped sample layers with club energy profile. Emphasize stuttering and transient cuts."
+    },
+    "bass_generator": {
+      "brief": "Design bass sounds supporting groove with attention to frequency space for chopped rhythms."
+    },
+    "harmony_generator": {
+      "brief": "Create sparse yet cinematic chord progressions using chopped sample textures to complement mood."
+    },
+    "melody_generator": {
+      "brief": "Develop cinematic melodic ideas employing modern sample chopping for rhythmic articulation."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement, energize progression, and ensure cohesive sample chopping integration."
+    },
+    "presetor": {
+      "brief": "Apply presets optimized for chopped sample clarity and cinematic atmospherics in a club context."
+    },
+    "songgps": {
+      "brief": "Manage global arrangement structure ensuring energy curve matches club energy with cinematic mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix channels preserving dynamics of chopped samples and overall club cinematic vibe."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

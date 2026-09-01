@@ -1,0 +1,238 @@
+{
+  "project": {
+    "name": "Memphis Rap Experimental Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      30,
+      40,
+      70,
+      90,
+      20
+    ],
+    "notes": "Sparse verses with strong, impactful hooks delivering emotional intensity. Experimental structure emphasizing mood shifts and contrast."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 80,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 5,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 25,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begin",
+        "reason": "Strong emotional hook starts here"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Begin",
+        "reason": "Final hook for climax"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro Starts",
+        "reason": "Beginning of arrangement"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with sparse patterning in verses, powerful in hooks",
+    "bass": "deep, minimal bass lines supporting verses, prominent in hooks",
+    "chords": "ambient, sparse chords to support mood",
+    "melody": "minimalistic melody lines emphasizing hooks",
+    "vocal": "emotional vocal delivery with sparse verses and strong hooks",
+    "fx": "atmospheric effects to enhance emotional and experimental vibe"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      66
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 6,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a sparse drum pattern for verses emphasizing space, and intense, powerful rhythms for hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate minimal but deep basslines during verses, increasing presence during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide ambient, sparse chord progressions that support emotional mood without overpowering."
+    },
+    "melody_generator": {
+      "brief": "Develop minimal melodic motifs focused on hooks with emotional expression."
+    },
+    "ai_designer": {
+      "brief": "Shape overall arrangement to reflect emotional and experimental mood, balancing sparse verses with impactful hooks."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance the emotional texture and dynamics of the arrangement."
+    },
+    "songgps": {
+      "brief": "Ensure the arrangement follows the experimental structure with defined energy profile for sparse verses and strong hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks maintaining clarity, highlighting hooks while preserving sparse feel in verses."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

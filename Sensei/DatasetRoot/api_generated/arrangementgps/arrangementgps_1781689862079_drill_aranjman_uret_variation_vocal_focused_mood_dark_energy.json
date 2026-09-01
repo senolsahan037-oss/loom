@@ -1,0 +1,309 @@
+{
+  "project": {
+    "name": "Dark Vocal Drill Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      50,
+      70,
+      90,
+      100,
+      80,
+      70,
+      50,
+      30,
+      20,
+      10,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      0,
+      20,
+      50,
+      80,
+      90,
+      100,
+      90,
+      80,
+      60,
+      40,
+      30,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      0,
+      20,
+      50,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      10,
+      0,
+      20,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      20,
+      10,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 90,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Vocal Peak",
+        "reason": "Cinematic rise in energy and vocal focus"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Beat",
+        "reason": "Sets dark mood foundation"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Build Tension FX",
+        "reason": "Bridge to Final Hook transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone and drive",
+    "bass": "Foundation and groove support",
+    "chords": "Harmonic texture and mood",
+    "melody": "Subtle motif elements",
+    "vocal": "Primary focus with emotional expression",
+    "fx": "Atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      15,
+      31,
+      55,
+      71,
+      79
+    ]
+  },
+  "priority": {
+    "drums": 7,
+    "bass": 5,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 10,
+    "fx": 6
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create energetic and impactful drum patterns that support dark drill mood with dynamic build-ups and drops."
+    },
+    "bass_generator": {
+      "brief": "Generate deep basslines that complement the dark atmosphere and provide groove without overpowering vocals."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic chord textures that enhance the cinematic and dark mood throughout the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Design subtle melodic motifs to add complexity and emotional depth while maintaining vocal focus."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure ensuring cinematic rise and fall in energy with a strong vocal focus."
+    },
+    "presetor": {
+      "brief": "Apply appropriate sonic presets that support cinematic dynamics and dark tonal palette."
+    },
+    "songgps": {
+      "brief": "Manage transitions and energy flow to achieve a smooth cinematic rise and fall with clear section delineation."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix emphasizing vocal prominence and cinematic dynamic range without losing drill intensity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-producer.local/schemas/shared-record.v1.json",
+  "title": "AI Producer Shared Dataset Record",
+  "type": "object",
+  "required": ["schema_version", "record_id", "domain", "source_native", "integrity", "capabilities"],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[a-z0-9._-]+\\.v[0-9]+$"},
+    "record_id": {"type": "string", "minLength": 1},
+    "domain": {
+      "enum": ["midi_clip", "arrangement", "groove", "instrument", "preset", "taxonomy", "audio", "automation", "mix"]
+    },
+    "roles": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "genres": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "source_native": {"type": "object"},
+    "derived": {"type": "object"},
+    "integrity": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["verified", "legacy", "rejected"]},
+        "content_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": true
+    },
+    "capabilities": {
+      "type": "object",
+      "required": ["reference", "generation"],
+      "properties": {
+        "reference": {"type": "boolean"},
+        "generation": {"type": "boolean"},
+        "sdk_write": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": true
+}

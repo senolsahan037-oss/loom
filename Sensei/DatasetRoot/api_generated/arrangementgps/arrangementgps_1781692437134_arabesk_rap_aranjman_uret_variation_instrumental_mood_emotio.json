@@ -1,0 +1,241 @@
+{
+  "project": {
+    "name": "Arabesk Rap Instrumental",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      80,
+      85,
+      80,
+      40
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 80,
+          "final_hook": 85,
+          "outro": 35
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook starts",
+        "reason": "energy boost"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge starts",
+        "reason": "dynamic variation"
+      },
+      {
+        "track": "chords",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "climax section"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro begins",
+        "reason": "energy wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "beat foundation with club energy",
+    "bass": "groove and rhythm support",
+    "chords": "harmonic texture with emotional tone",
+    "melody": "instrumental lead capturing emotional essence",
+    "vocal": "absent instrumental version",
+    "fx": "atmospheric enhancement and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate energetic and emotional drum patterns appropriate for club energy matching the Arabesk Rap style in an instrumental arrangement."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that provide groove and rhythmic backbone reflecting emotional depth without vocals."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic chord textures that evoke emotional mood suitable for Arabesk Rap instrumental."
+    },
+    "melody_generator": {
+      "brief": "Design lead instrumental melodies that carry the emotional narrative without vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring energy curve matches emotional and club energy profile for an Arabesk Rap instrumental."
+    },
+    "presetor": {
+      "brief": "Apply presets that accentuate emotional and club energy characteristics respecting Arabesk Rap instrumental qualities."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and event markers aligning with emotional dynamics and club energy requirements."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix emphasizing clarity of rhythm and emotional instrumental elements in a club context."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

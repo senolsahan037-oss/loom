@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "West Coast Experimental Hip-Hop",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      60,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks, experimental variation, cinematic mood, using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 80,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 100,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "start_sample_chop",
+        "reason": "Introduce sample chopping with stutter effect"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "marker",
+        "label": "hook_entry",
+        "reason": "Strong vocal hook begins, energy peaks"
+      },
+      {
+        "track": "bass",
+        "bar": 49,
+        "type": "effect",
+        "label": "filter_sweep",
+        "reason": "Bridge introduces experimental filtered bass"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "reverse_reverb",
+        "reason": "Final hook with cinematic reverse reverb effect"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with chopped samples",
+    "bass": "Sparse low-end foundation",
+    "chords": "Atmospheric background layers",
+    "melody": "Experimental melodic snippets",
+    "vocal": "Strong, cinematic hooks with sparse verses",
+    "fx": "Cinematic and sample manipulation effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing chopped sample techniques with rhythm variation, maintaining sparse verses and strong hooks."
+    },
+    "bass_generator": {
+      "brief": "Create a sparse bassline supporting the rhythm and hooks with filtered and experimental tones."
+    },
+    "harmony_generator": {
+      "brief": "Produce atmospheric chord layers using modern sample manipulation to complement the cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Compose experimental melodic snippets using sample chopping and processing techniques."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement to reflect the energy curve and cinematic mood with emphasis on sample chopping techniques."
+    },
+    "presetor": {
+      "brief": "Apply presets that simulate modern sample chopping effects and cinematic textures suitable for West Coast hip-hop."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and energy dynamics, ensuring sparse verses and strong hooks are emphasized."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels preserving raw chopped sample textures, maintain balance between sparse verses and hook sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

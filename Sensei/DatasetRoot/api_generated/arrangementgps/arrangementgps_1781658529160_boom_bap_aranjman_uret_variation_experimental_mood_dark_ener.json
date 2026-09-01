@@ -1,0 +1,275 @@
+{
+  "project": {
+    "name": "Experimental Boom Bap Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      80,
+      30
+    ],
+    "notes": "Focus on hook-heavy energy with experimental variations and dark mood throughout the arrangement. Use modern sample chopping techniques in production."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 50,
+          "25": 90,
+          "41": 50,
+          "57": 60,
+          "65": 90,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 80,
+          "41": 40,
+          "57": 50,
+          "65": 80,
+          "73": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 25,
+          "25": 70,
+          "41": 25,
+          "57": 40,
+          "65": 70,
+          "73": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 15,
+          "9": 35,
+          "25": 85,
+          "41": 35,
+          "57": 45,
+          "65": 85,
+          "73": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 80,
+          "25": 100,
+          "41": 80,
+          "57": 75,
+          "65": 100,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 30,
+          "25": 60,
+          "41": 30,
+          "57": 50,
+          "65": 60,
+          "73": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Section Start",
+        "reason": "Increase energy and complexity"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Verse 1 Start",
+        "reason": "Begin vocal delivery"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "verse_start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse vocal entry"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "bridge",
+        "label": "Bridge Section",
+        "reason": "Introduce variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook emphasis"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "description": "Modern sample chopping using time-slicing, beat-slicing, and transient detection techniques",
+      "channels": [
+        "Time-Slice Drums",
+        "Transient Bass Chops",
+        "Pitch-Shifting Chords",
+        "Granular Melody Fragments",
+        "Reverse FX Hits",
+        "Stutter Vocal Cuts"
+      ]
+    }
+  },
+  "sound_intent": {
+    "description": "Dark mood with hook-heavy energetic sections using experimental boom bap sample chopping techniques to create rhythmic and textured layers."
+  },
+  "routing_intent": {
+    "channels": {
+      "Time-Slice Drums": "drums",
+      "Transient Bass Chops": "bass",
+      "Pitch-Shifting Chords": "chords",
+      "Granular Melody Fragments": "melody",
+      "Stutter Vocal Cuts": "vocal",
+      "Reverse FX Hits": "fx"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythm foundation using chopped drum samples",
+    "bass": "Low-end support with transient chopped bass samples",
+    "chords": "Harmonic texture with pitch-shifted chords",
+    "melody": "Fragmented melodic motifs using granular synthesis",
+    "vocal": "Hook and verses with chopped/stuttered vocal samples",
+    "fx": "Atmospheric effects with reversed and chopped hits"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 9,
+    "fx": 5
+  },
+  "designer_intent": {
+    "goal": "Create a dark, experimental boom bap arrangement emphasizing hooks with heavy sample chopping techniques."
+  },
+  "presetor_intent": {
+    "instructions": "Apply effects and presets that enhance sample chops and highlight the dark, hook-heavy energy profile."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmically complex drum patterns emphasizing chop techniques and dynamic variations fitting a dark boom bap style."
+    },
+    "bass_generator": {
+      "brief": "Create bass parts using chopped transient samples that complement the rhythm and support the low-end with variation."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic layers using pitch-shifted chord samples, maintaining a dark and experimental texture."
+    },
+    "melody_generator": {
+      "brief": "Design fragmented melodic motifs from sampled material with granular synthesis for an experimental feel."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring energy rises on hooks and integrates experimental sample chopping coherently."
+    },
+    "presetor": {
+      "brief": "Apply sound design presets tailored to enhance chopped sample textures and maintain the dark mood."
+    },
+    "songgps": {
+      "brief": "Track energy curve and event markers, guiding transitions and emphasizing hook-heavy sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels to highlight rhythmic chops and dynamic energy changes without processing channel audio heavily."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

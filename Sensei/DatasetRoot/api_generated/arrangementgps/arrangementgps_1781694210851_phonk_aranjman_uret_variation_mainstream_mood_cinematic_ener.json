@@ -1,0 +1,309 @@
+{
+  "project": {
+    "name": "Phonk Arrangement Mainstream Cinematic",
+    "genre": "Phonk",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      25,
+      35,
+      50,
+      65,
+      80,
+      90,
+      95,
+      100,
+      90,
+      85,
+      70,
+      60,
+      50,
+      40,
+      25,
+      15,
+      10,
+      5
+    ],
+    "notes": "Slow build cinematic energy typical of mainstream Phonk with layered chopped samples arranged progressively."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 70,
+          "41": 50,
+          "57": 60,
+          "65": 75,
+          "73": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 5,
+          "9": 35,
+          "25": 65,
+          "41": 55,
+          "57": 70,
+          "65": 85,
+          "73": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "9": 25,
+          "25": 60,
+          "41": 50,
+          "57": 65,
+          "65": 80,
+          "73": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "9": 30,
+          "25": 55,
+          "41": 45,
+          "57": 55,
+          "65": 70,
+          "73": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 20,
+          "25": 50,
+          "41": 45,
+          "57": 60,
+          "65": 65,
+          "73": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 15,
+          "25": 40,
+          "41": 35,
+          "57": 50,
+          "65": 60,
+          "73": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "micro_chops",
+        "bar": 9,
+        "type": "slice_start",
+        "label": "Micro Chop Intro Start",
+        "reason": "Beginning micro chop sample layer"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 25,
+        "type": "slice_start",
+        "label": "Phrase Chops Hook Start",
+        "reason": "Introduce phrase chop samples for hook"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 41,
+        "type": "effect_entry",
+        "label": "Reverse Chop Entry",
+        "reason": "Introduce reverse chops for variation in verse 2"
+      },
+      {
+        "track": "vocal_chops",
+        "bar": 57,
+        "type": "effect_entry",
+        "label": "Vocal Chop Layer Added",
+        "reason": "Add vocal chop sample layer in bridge"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 65,
+        "type": "effect_entry",
+        "label": "Stutter Chop Boost",
+        "reason": "Increase stutter chops energy in final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "micro_chops",
+          "type": "sample_layer",
+          "technique": "micro chops"
+        },
+        {
+          "name": "phrase_chops",
+          "type": "sample_layer",
+          "technique": "phrase chops"
+        },
+        {
+          "name": "reverse_chops",
+          "type": "sample_layer",
+          "technique": "reverse chops"
+        },
+        {
+          "name": "vocal_chops",
+          "type": "sample_layer",
+          "technique": "vocal chops"
+        },
+        {
+          "name": "stutter_chops",
+          "type": "sample_layer",
+          "technique": "stutter chops"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "description": "Create a mainstream phonk arrangement with cinematic mood focusing on slow build energy using chopped sample layers separated by sample chopping technique."
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "Lane: micro_chops",
+      "phrase_chops": "Lane: phrase_chops",
+      "reverse_chops": "Lane: reverse_chops",
+      "vocal_chops": "Lane: vocal_chops",
+      "stutter_chops": "Lane: stutter_chops"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythm foundation with chopped drum samples",
+    "bass": "Bass synth and low-end support",
+    "chords": "Chord textures and pads",
+    "melody": "Lead melodic elements",
+    "vocal": "Vocal chops and manipulated vocals",
+    "fx": "Effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goals": "Build a mainstream cinematic phonk arrangement with tension and release using progressively layered chopping techniques."
+  },
+  "presetor_intent": {
+    "goals": "Apply presets appropriate for cinematic and phonk textures focusing on sample-based chopping techniques."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum patterns using chopped drum samples to support slow build energy."
+    },
+    "bass_generator": {
+      "brief": "Create basslines complementing the cinematic mood and sample layers, syncing with energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions and pads matching the mainstream phonk vibe without overpowering sample chops."
+    },
+    "melody_generator": {
+      "brief": "Compose lead melodic lines that enhance cinematic mood and complement vocal and sample chops."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, layering sample chopping techniques progressively for slow build energy."
+    },
+    "presetor": {
+      "brief": "Select and apply sound presets suitable for each sample chopping lane to maintain timbral consistency."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement timing, energy curve, and section transitions align with slow build cinematic phonk style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for final mixing, preserving clarity of sample chopping layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

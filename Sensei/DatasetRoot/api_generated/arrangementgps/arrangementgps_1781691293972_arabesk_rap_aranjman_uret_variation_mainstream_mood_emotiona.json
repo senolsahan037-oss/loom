@@ -1,0 +1,327 @@
+{
+  "project": {
+    "name": "Arabesk Rap Mainstream Emotional Club",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 100,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      80,
+      75,
+      85,
+      90,
+      60,
+      50,
+      70,
+      65,
+      85,
+      80,
+      90,
+      95,
+      70,
+      60,
+      80,
+      75,
+      85,
+      80,
+      95,
+      90,
+      80,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      85,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      40,
+      55,
+      70,
+      85,
+      90,
+      95,
+      85,
+      75,
+      65,
+      55,
+      50,
+      60,
+      70,
+      80,
+      90,
+      85,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      15,
+      25,
+      35,
+      45,
+      55,
+      65,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 70,
+          "25-40": 90,
+          "41-56": 65,
+          "57-64": 75,
+          "65-72": 90,
+          "73-80": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 60,
+          "25-40": 85,
+          "41-56": 60,
+          "57-64": 70,
+          "65-72": 85,
+          "73-80": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 55,
+          "25-40": 80,
+          "41-56": 55,
+          "57-64": 65,
+          "65-72": 80,
+          "73-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 70,
+          "25-40": 85,
+          "41-56": 65,
+          "57-64": 75,
+          "65-72": 90,
+          "73-80": 35
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 70,
+          "25-40": 95,
+          "41-56": 70,
+          "57-64": 80,
+          "65-72": 95,
+          "73-80": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 50,
+          "41-56": 30,
+          "57-64": 40,
+          "65-72": 55,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Entrance of vocals with emotional expression"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Main emotional peak and catchy hook entrance"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Continuation of emotional rap delivery"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Change in chord progression for dynamic shift"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Emotional climax and final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy winding down towards the end of the track"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with club energy",
+    "bass": "provide groove and drive",
+    "chords": "supporting harmonic emotional background",
+    "melody": "carry emotional themes with mainstream appeal",
+    "vocal": "expressive Arabesk rap vocal performance",
+    "fx": "enhance transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that emphasize club energy while complementing the Arabesk rap emotional mood."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that provide groove and drive, fitting the mainstream and club energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Develop chordal arrangements that support the emotional atmosphere characteristic of Arabesk rap."
+    },
+    "melody_generator": {
+      "brief": "Craft melodies that are emotionally expressive with a mainstream appeal without writing explicit notes."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement structure to maintain emotional flow and ensure dynamic energy movements throughout sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance emotional tone and club energy feel appropriate for Arabesk rap genre."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement with section transitions and energy curves to match the emotional and club energy intent."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix guidelines to keep clarity and separation for emotional vocals and rhythmic club elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "project": {
+    "name": "Arabesk Rap Minimal Dark Arrangement",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 85,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      45,
+      60,
+      75,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      25,
+      20,
+      30,
+      50,
+      75,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      25,
+      50,
+      75,
+      90,
+      100,
+      85,
+      60,
+      40,
+      30,
+      20,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      35,
+      20,
+      15,
+      10,
+      20,
+      30,
+      45,
+      60,
+      80,
+      100,
+      95,
+      70,
+      50,
+      35,
+      25,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 35
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 15,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 50,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Vocal Entrance",
+        "reason": "Start of Verse 1 vocal section"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Drums Rise",
+        "reason": "Start of Hook, increase energy"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "drop",
+        "label": "FX Reduction",
+        "reason": "Bridge minimalism for dynamic contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Vocal Fade",
+        "reason": "Outro, energy decrease"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic impact",
+    "bass": "low-end groove and mood support",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "lead thematic elements and motifs",
+    "vocal": "lyrical and vocal delivery",
+    "fx": "sound design and transitional elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      48,
+      56,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic patterns that provide a cinematic rise and fall in energy, emphasizing minimal dark textures fitting Arabesk Rap style."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement the dark mood with subtle dynamics and a minimalistic approach fitting the energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions and harmonic textures that convey darkness and cinematic depth without overcomplexity."
+    },
+    "melody_generator": {
+      "brief": "Craft minimal melodic motifs that evoke Arabesk influences balanced with rap elements, supporting dynamic shifts."
+    },
+    "ai_designer": {
+      "brief": "Orchestrate the arrangement focusing on energy variation adhering to the cinematic rise and fall profile."
+    },
+    "presetor": {
+      "brief": "Apply production presets to preserve minimalism and dark cinematic tone while ensuring clarity across sections."
+    },
+    "songgps": {
+      "brief": "Oversee arrangement flow monitoring energy levels and section transitions to align with the project's mood and energy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to highlight dynamic range and cinematic contrast without sacrificing minimal dark atmosphere."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

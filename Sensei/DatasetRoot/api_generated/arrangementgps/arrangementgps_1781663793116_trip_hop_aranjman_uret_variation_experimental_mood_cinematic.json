@@ -1,0 +1,379 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Club",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      65,
+      80,
+      75,
+      70,
+      90,
+      85,
+      75,
+      55,
+      60,
+      45,
+      40,
+      30,
+      25,
+      20,
+      40,
+      60,
+      80,
+      90,
+      85,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      40,
+      60,
+      80,
+      90,
+      85,
+      70,
+      65,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 55,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 35,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Section start marker"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Start",
+        "reason": "Section start marker"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Start",
+        "reason": "Section start marker"
+      },
+      {
+        "track": "melody",
+        "bar": 41,
+        "type": "start",
+        "label": "Verse 2 Start",
+        "reason": "Section start marker"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "start",
+        "label": "Bridge Start",
+        "reason": "Section start marker"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "start",
+        "label": "Final Hook Start",
+        "reason": "Section start marker"
+      },
+      {
+        "track": "bass",
+        "bar": 73,
+        "type": "start",
+        "label": "Outro Start",
+        "reason": "Section start marker"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "channels": [
+        {
+          "name": "grain_slicer",
+          "type": "sample_layer",
+          "description": "Drums layer sliced by granular slicing technique"
+        },
+        {
+          "name": "loop_chopper",
+          "type": "sample_layer",
+          "description": "Bass layer formed by loop chopping method"
+        },
+        {
+          "name": "time_stretcher",
+          "type": "sample_layer",
+          "description": "Chords layer created using time stretching and slicing"
+        },
+        {
+          "name": "splice_morpher",
+          "type": "sample_layer",
+          "description": "Melody elements shaped by splicing and morphing samples"
+        },
+        {
+          "name": "reverse_glitch",
+          "type": "sample_layer",
+          "description": "FX channel constructed with reversed glitch chopping technique"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture": "textured, layered samples with emphasis on cinematic atmosphere",
+    "energy_profile": "club energy maintaining a dynamic, evolving cadence",
+    "variation": "experimental with creative sample chopping and re-arrangements"
+  },
+  "routing_intent": {
+    "drums": "send to punchy drum bus with mild compression",
+    "bass": "route to warm bass bus with subtle saturation",
+    "chords": "stereo bus with effects send for spaciousness",
+    "melody": "processed through creative FX chain with modulation",
+    "fx": "dedicated FX bus with reverb and delays"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with granular chopped samples",
+    "bass": "low-end groove via chopped loop samples",
+    "chords": "harmonic support using time-stretched samples",
+    "melody": "expressive lead shaped by spliced samples",
+    "vocal": "none",
+    "fx": "atmospheric and transition effects with glitch chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "overall_arrangement": "Create a cinematic trip hop piece with club energy using experimental sample chopping techniques to maintain interest and dynamic flow."
+  },
+  "presetor_intent": {
+    "preset_creation": "Generate custom effects and layering presets to emphasize texture and cinematic mood while maintaining clarity in club settings."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum layers using granular slicing sample chops to build dynamic and punchy rhythms suited for trip hop club vibes."
+    },
+    "bass_generator": {
+      "brief": "Produce bass parts utilizing loop chopping techniques to create a groovy yet experimental low-end foundation."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chordal textures using time stretching and slicing methods to provide cinematic harmonic depth."
+    },
+    "melody_generator": {
+      "brief": "Design melodic phrases by splicing and morphing samples, ensuring experimental and cinematic characteristics."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement flow, energy profile, and integrate experimental sample chop techniques into the production."
+    },
+    "presetor": {
+      "brief": "Craft presets balancing cinematic atmosphere with club energy emphasizing clarity, space, and texture for sample layers."
+    },
+    "songgps": {
+      "brief": "Guide arrangement structure and energy curve to fit cinematic mood with club energy in a trip hop experimental context."
+    },
+    "ai_mixmaster": {
+      "brief": "Process unprocessed channel audio maintaining clarity of sample chop details while supporting the cinematic and club energy aesthetic."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      12,
+      15,
+      18,
+      22,
+      28,
+      35,
+      45,
+      55,
+      65,
+      75,
+      82,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      18,
+      15,
+      12,
+      10,
+      15,
+      25,
+      35,
+      50,
+      65,
+      80,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      18,
+      15,
+      12,
+      10,
+      15,
+      20,
+      25,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      85,
+      70,
+      55,
+      40,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of the song with slow build"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Vocals",
+        "reason": "Introduce rap vocals aggressively"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Chord Boost",
+        "reason": "Energy increase for hook section"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "variation",
+        "label": "Verse 2 Bass Variation",
+        "reason": "Add interest and variation"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "bridge",
+        "label": "Bridge Melody Shift",
+        "reason": "Create contrast with previous sections"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "finale",
+        "label": "Final Hook Vocals",
+        "reason": "Peak energy section"
+      },
+      {
+        "track": "fx",
+        "bar": 77,
+        "type": "fadeout",
+        "label": "Outro FX Fade",
+        "reason": "Energy winding down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and energy dynamics",
+    "bass": "low-end support and groove",
+    "chords": "harmonic structure and mood",
+    "melody": "lead instrumental character",
+    "vocal": "rap vocals main expression",
+    "fx": "transitions and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 6,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns starting with low intensity in intro and gradually build aggressive, punchy rhythms suited for Arabesk Rap."
+    },
+    "bass_generator": {
+      "brief": "Design bass lines that complement the slow energy build while maintaining groove and low-end weight relevant for aggressive mood."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord textures blending traditional Arabesk harmonies with mainstream Hip Hop progression, supporting mood and energy."
+    },
+    "melody_generator": {
+      "brief": "Produce lead melodic elements that reflect Arabesk style but adapt to the slow build and aggressive energy profile."
+    },
+    "ai_designer": {
+      "brief": "Overall arrangement coordination ensuring energy curve matches slow build with aggressive mood and mainstream variation."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance aggressive tone and support a slow build energy profile without overshadowing vocals."
+    },
+    "songgps": {
+      "brief": "Manage structural flow with clearly defined sections that maintain listener engagement and consistent energy progression."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mixing by preserving raw dynamic range and clarity, focusing on unprocessed tracks to allow flexible finalization."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.65,
+    "agent_dispatch": 0.6
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

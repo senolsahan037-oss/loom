@@ -1,0 +1,295 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Aggressive Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 85,
+    "key": "E minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90
+    ],
+    "notes": "Minimal arrangement focusing on gradual energy build, aggressive mood, slow tempo typical of West Coast Hip-Hop."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 10,
+          "8": 10,
+          "9": 30,
+          "24": 30,
+          "25": 70,
+          "32": 70,
+          "33": 60,
+          "48": 60,
+          "49": 75,
+          "56": 75,
+          "57": 90,
+          "72": 90,
+          "73": 20,
+          "80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 5,
+          "8": 5,
+          "9": 25,
+          "24": 25,
+          "25": 60,
+          "32": 60,
+          "33": 55,
+          "48": 55,
+          "49": 65,
+          "56": 65,
+          "57": 85,
+          "72": 85,
+          "73": 15,
+          "80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 0,
+          "8": 0,
+          "9": 10,
+          "24": 10,
+          "25": 40,
+          "32": 40,
+          "33": 20,
+          "48": 20,
+          "49": 30,
+          "56": 30,
+          "57": 50,
+          "72": 50,
+          "73": 0,
+          "80": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "8": 0,
+          "9": 5,
+          "24": 5,
+          "25": 30,
+          "32": 30,
+          "33": 15,
+          "48": 15,
+          "49": 20,
+          "56": 20,
+          "57": 35,
+          "72": 35,
+          "73": 0,
+          "80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "8": 0,
+          "9": 40,
+          "24": 40,
+          "25": 80,
+          "32": 80,
+          "33": 75,
+          "48": 75,
+          "49": 50,
+          "56": 50,
+          "57": 85,
+          "72": 85,
+          "73": 0,
+          "80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "8": 5,
+          "9": 10,
+          "24": 10,
+          "25": 20,
+          "32": 20,
+          "33": 15,
+          "48": 15,
+          "49": 25,
+          "56": 25,
+          "57": 30,
+          "72": 30,
+          "73": 10,
+          "80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Start",
+        "reason": "Beginning of first verse vocals"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Start",
+        "reason": "Increased energy with hook vocals"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "accent",
+        "label": "Final Hook Energy Boost",
+        "reason": "Drum intensity increase to build climax"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Gradual decrease of fx to close track"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with sparse but impactful patterns",
+    "bass": "deep and minimal to complement rhythm and mood",
+    "chords": "subtle harmonic support with sparse arrangement",
+    "melody": "occasional motifs to enhance mood without overpowering",
+    "vocal": "main narrative and emotional driver of the track",
+    "fx": "accent transitions and create atmospheric depth"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal yet aggressive drum pattern with a slow build in intensity matching the energy curve."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, minimal bassline that supports the rhythm and mood without dominating the arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chord elements that underpin the mood and evolving energy without crowding the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements to support aggressiveness and gradual energy build sparingly."
+    },
+    "ai_designer": {
+      "brief": "Coordinate agents to ensure a consistent arrangement with slow energy build and aggressive minimalism."
+    },
+    "presetor": {
+      "brief": "Prepare presets that support minimal instrumentation and aggressive sonic character."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and maintain arrangement coherence with smooth energy development."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix elements to preserve minimalism while allowing aggressive textures to emerge clearly."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

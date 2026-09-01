@@ -1,0 +1,268 @@
+{
+  "project": {
+    "name": "Phonk Emotional Mainstream Arrangement",
+    "genre": "Phonk",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      90,
+      40,
+      50,
+      100,
+      60,
+      30
+    ],
+    "notes": "Sparse verses with strong hooks in a mainstream phonk emotional setting using sample-based layers with texture beds and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 15,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "fill",
+        "label": "reverse_snare",
+        "reason": "Intro reverse snare hit to build anticipation"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hit",
+        "label": "one_shot_kick",
+        "reason": "Strong hook starts with one-shot kick emphasizing hook energy"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "texture_bed_fade",
+        "reason": "Bridge uses texture bed fade for mood transition"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "highlight",
+        "label": "hook_vocal_hit",
+        "reason": "Final hook vocal highlight for emotional peak"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "texture_bed": {
+        "type": "sample_based",
+        "sample_technique": "loop_slicing",
+        "description": "Background atmospheric texture using sliced sample loops"
+      },
+      "one_shot_hits": {
+        "type": "sample_based",
+        "sample_technique": "one_shot",
+        "description": "Percussive hits based on one-shot sample technique"
+      }
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "Create a warm and emotional ambient foundation with subtle movement using loop slicing",
+    "one_shot_hits": "Add rhythmic interest and energy with sharp percussive one-shot samples"
+  },
+  "routing_intent": {
+    "texture_bed": "Send to reverb and delay busses for space and depth",
+    "one_shot_hits": "Route through transient shaping for punch and clarity"
+  },
+  "track_roles": {
+    "drums": "Rhythm backbone with sample slicing and one-shot percussive hits",
+    "bass": "Deep foundation supporting emotional mood",
+    "chords": "Harmonic pad layers from sliced samples",
+    "melody": "Sparse melodic phrases enhancing emotional theme",
+    "vocal": "Emotional vocal hook highlights",
+    "fx": "Ambient texture and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 70,
+    "chords": 60,
+    "melody": 75,
+    "vocal": 80,
+    "fx": 50
+  },
+  "designer_intent": {
+    "goal": "Produce a mainstream phonk track with emotional depth and engaging dynamic energy profile aligned with sample-based production techniques."
+  },
+  "presetor_intent": {
+    "goal": "Optimize sample-based layers and effects for clarity, warmth and punch while enhancing hook presence."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum arrangements emphasizing one-shot hit placement and sparse fills matching emotional intensity."
+    },
+    "bass_generator": {
+      "brief": "Create deep bass lines that support mood and complement drum rhythm without overcrowding arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers using sample slicing that maintain harmonic interest and emotional warmth."
+    },
+    "melody_generator": {
+      "brief": "Generate simple melodic phrases with emotional expression and adequate space during verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement shaping energy curve and dynamics to align with mainstream phonk style."
+    },
+    "presetor": {
+      "brief": "Apply presets enhancing sample clarity, warmth, and dynamics for all layers."
+    },
+    "songgps": {
+      "brief": "Monitor section transitions, energy levels, and arrangement consistency according to the target profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for detailed mixing stage emphasizing clarity and emotional impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

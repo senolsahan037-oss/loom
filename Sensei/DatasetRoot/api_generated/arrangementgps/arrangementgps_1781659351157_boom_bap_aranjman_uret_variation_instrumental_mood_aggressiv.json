@@ -1,0 +1,271 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      85,
+      40,
+      50,
+      90,
+      75,
+      10
+    ],
+    "notes": "Instrumentation consists only of sample-based textures and one-shot hits arranged in typical Boom Bap style. Aggressive mood with heavy hooks and energetic sections. Emphasis on percussive slicing samples layered to create texture beds."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 81,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "transition to high energy hook with hook-heavy focus"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "final hook energy peak"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "effect",
+        "label": "texture_bed_intro",
+        "reason": "sample-based texture bed introduction"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_bed": {
+      "type": "texture_bed",
+      "method": "sample slicing",
+      "layers": [
+        "broken_loop_1",
+        "dusty_vinyl",
+        "crackles"
+      ]
+    },
+    "hits": {
+      "type": "one-shot_hits",
+      "method": "sample slicing",
+      "layers": [
+        "snare_slice_1",
+        "kick_slice_2",
+        "hi_hat_slice_3"
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "sample-based arrangement using sample slicing technique with texture bed and one-shot hits",
+    "mood": "aggressive",
+    "energy_profile": "hook-heavy with strong peaks during hook sections"
+  },
+  "routing_intent": {
+    "channel_naming": {
+      "drums": "one-shot hits sliced samples",
+      "chords": "sample slicing texture layers",
+      "fx": "texture bed and atmospheric slices"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with one-shot sliced drum hits",
+    "bass": "low end support using sampled bass layers",
+    "chords": "harmonic texture layers created from sliced samples",
+    "melody": "minimal melodic content from sparse hits",
+    "vocal": "none, instrumental only",
+    "fx": "texture bed and atmospheric effects from sample slicing"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 9,
+    "bass": 7,
+    "chords": 6,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {
+    "focus": "create aggressive, energetic boom bap instrumental emphasizing hook dynamics with sample slicing textures"
+  },
+  "presetor_intent": {
+    "behavior": "preserve sample character, prioritize clean transitions and balanced mix of texture bed and hits"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate percussive patterns using one-shot sliced drum samples to emphasize groove and energy especially in hook sections"
+    },
+    "bass_generator": {
+      "brief": "Create bass layers using sample slices to complement drums and maintain aggressive low-end presence"
+    },
+    "harmony_generator": {
+      "brief": "Add harmonic textures using sample slicing techniques to build a rich texture bed supporting mood"
+    },
+    "melody_generator": {
+      "brief": "Provide minimal melodic phrasing with sparse sample-based hits suited for instrumental boom bap style"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy peaks at hook sections and maintain coherent sample layering"
+    },
+    "presetor": {
+      "brief": "Apply clean presets that enhance clarity and preserve the character of sample slicing in both texture and hits"
+    },
+    "songgps": {
+      "brief": "Guide arrangement timeline and section transitions conforming to standard Boom Bap layout with hook prominence"
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix emphasizing punch and clarity, ensuring hooks stand out dynamically without overshadowing texture layers"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

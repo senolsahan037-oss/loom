@@ -1,0 +1,238 @@
+{
+  "project": {
+    "name": "Dark Experimental Trap",
+    "genre": "Hip Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      30,
+      80,
+      60,
+      20
+    ],
+    "notes": "Sparse verses with strong, memorable hooks; experimental sound design in bridges and hooks."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 70,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with strong hook introduction"
+      },
+      {
+        "track": "bass",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Introduce experimental sound variation in bridge"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Return to strong hook energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with trap hi-hats and heavy kicks",
+    "bass": "deep sub bass supporting the groove",
+    "chords": "dark atmospheric pads with sparse placement",
+    "melody": "hook melodies with experimental sound textures",
+    "vocal": "sparse verses and dominant hook vocal lines",
+    "fx": "ambient effects enhancing dark mood and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      40,
+      55
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate trap drum patterns with varying intensity; keep verses sparse and hooks energetic."
+    },
+    "bass_generator": {
+      "brief": "Provide deep and minimal bass lines during verses; increase complexity and impact during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create dark and moody chord textures with sparse placement, emphasizing atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Compose strong hook melodies with experimental elements; keep verse melodies minimal and sparse."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with sparse verses and energetic hooks, ensuring dark mood and experimental sound elements."
+    },
+    "presetor": {
+      "brief": "Apply presets suitable for trap genre with dark atmosphere and experimental sound design."
+    },
+    "songgps": {
+      "brief": "Ensure smooth transitions between sparse verses and energetic hooks, maintaining the overall dark mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix emphasizing clarity on drums and vocal hooks; keep atmospheric effects subtle and balanced."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

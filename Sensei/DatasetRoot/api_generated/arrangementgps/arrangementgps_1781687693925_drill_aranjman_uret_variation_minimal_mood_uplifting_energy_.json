@@ -1,0 +1,332 @@
+{
+  "project": {
+    "name": "Cinematic Drill Arrangement",
+    "genre": "Drill",
+    "subgenre": "Minimal",
+    "bpm": 140,
+    "key": "C Minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      65,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      45,
+      60,
+      70,
+      85,
+      90,
+      95,
+      90,
+      85,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      40,
+      50,
+      65,
+      80,
+      90,
+      85,
+      80,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      30,
+      40,
+      55,
+      65,
+      70,
+      75,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 45
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 35
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 55,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 20,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 10,
+          "final_hook": 45,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 25,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of the track"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_change",
+        "label": "Verse 1 Start",
+        "reason": "Vocals enter, energy rises"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_change",
+        "label": "Hook Start",
+        "reason": "Energy peak begins"
+      },
+      {
+        "track": "chords",
+        "bar": 41,
+        "type": "section_change",
+        "label": "Verse 2 Start",
+        "reason": "Energy dip for contrast"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_change",
+        "label": "Bridge Start",
+        "reason": "Mood shift, minimal energy"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_change",
+        "label": "Final Hook Start",
+        "reason": "Build to final climax"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "section_change",
+        "label": "Outro Start",
+        "reason": "Wind down, energy fades"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with dynamic intensity",
+    "bass": "supportive low-end to reinforce groove",
+    "chords": "minimal harmonic support for uplifting mood",
+    "melody": "sparse melodic elements to enhance uplift",
+    "vocal": "lead vocal presence with clarity and emotional impact",
+    "fx": "subtle effects to emphasize cinematic dynamics"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      23,
+      56,
+      64,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 7,
+    "chords": 5,
+    "melody": 4,
+    "vocal": 8,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal yet driving drum pattern that supports the cinematic energy curve with dynamic intensity variations."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the drums, maintaining minimalism while reinforcing the groove and uplifting mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chord structures to deliver minimal harmonic support, emphasizing cinematic rises and falls."
+    },
+    "melody_generator": {
+      "brief": "Design subtle melodic elements that enhance the uplifting mood without overwhelming the minimal arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement ensuring energy curve aligns with cinematic rise and fall, maintaining minimalism and uplifting mood."
+    },
+    "presetor": {
+      "brief": "Configure sound presets that emphasize clarity and emotional impact, suited to the minimal drill style and cinematic dynamics."
+    },
+    "songgps": {
+      "brief": "Guide the structural flow marking clear section transitions and energy peaks in accordance with the arrangement plan."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix elements focusing on dynamic range to highlight cinematic rises and falls while preserving minimalism."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

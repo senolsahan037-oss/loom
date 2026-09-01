@@ -1,0 +1,314 @@
+{
+  "project": {
+    "name": "Boom Bap Instrumental Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      30,
+      60,
+      80,
+      90,
+      50,
+      40,
+      70,
+      60,
+      80,
+      90,
+      100,
+      75,
+      40,
+      30,
+      70,
+      85,
+      90,
+      50,
+      35,
+      55,
+      80,
+      90,
+      100,
+      95,
+      85,
+      50,
+      40,
+      30,
+      20,
+      25,
+      50,
+      70,
+      85,
+      90,
+      75,
+      60,
+      40,
+      30,
+      20,
+      25,
+      50,
+      70,
+      85,
+      90,
+      75,
+      60,
+      40,
+      70,
+      85,
+      90,
+      100,
+      95,
+      85,
+      50,
+      40,
+      30,
+      20,
+      25,
+      50,
+      70,
+      85,
+      90,
+      75,
+      60,
+      40,
+      30,
+      20,
+      25,
+      50,
+      70,
+      85,
+      90,
+      75
+    ],
+    "notes": "Boom bap style arrangement with instrumental focus, designed for uplifting mood and high club energy. Includes diverse sample chopping layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 65,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 55,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "effect",
+        "label": "Phrase Chops Highlight",
+        "reason": "Transition into hook with stronger sample phrases"
+      },
+      {
+        "track": "melody",
+        "bar": 41,
+        "type": "effect",
+        "label": "Reverse Chops Entry",
+        "reason": "Variation layer for verse 2 to add texture"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "automation",
+        "label": "Stutter Chops Effect",
+        "reason": "Bridge adds dynamic stutter effect"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "effect",
+        "label": "Micro Chops Boost",
+        "reason": "Enhanced vocal chopping for final hook energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone and groove",
+    "bass": "low-end foundation",
+    "chords": "harmonic support",
+    "melody": "sample based melodic texture",
+    "vocal": "chopped sample articulations",
+    "fx": "transitions and effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 9,
+    "bass": 8,
+    "chords": 7,
+    "melody": 6,
+    "vocal": 7,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a boom bap drum arrangement maintaining club energy with attention to groove and dynamics."
+    },
+    "bass_generator": {
+      "brief": "Develop a bassline that supports the low-end while complementing the drum rhythm and uplifting mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord layers using sample chops ensuring harmonic cohesion with the rest of the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Incorporate melodic sample chopping layers, including phrase, reverse, and micro chops for texture."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure adapting energy curves and deploying sample chop layers expressively."
+    },
+    "presetor": {
+      "brief": "Manage preset selection and layering for all tracks emphasizing chopped sample techniques."
+    },
+    "songgps": {
+      "brief": "Oversee arrangement flow and section transitions to maintain uplifting and club energy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing guidelines to balance chopped samples and maintain clarity and punch."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

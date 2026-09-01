@@ -1,0 +1,233 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Vocal Variation",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      70,
+      90,
+      60
+    ],
+    "notes": "Emotional West Coast Hip-Hop arrangement focusing on vocals with a hook-heavy energy profile. Incorporates sample layering techniques including micro chops, phrase chops, reverse chops, vocal chops, and stutter chops."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 60
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 35
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 65,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal_chops",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Vocal Chops Start",
+        "reason": "Start of vocal chops sample layer at hook"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 57,
+        "type": "start",
+        "label": "Bridge Reverse Chops Introduced",
+        "reason": "Introduce reverse chops for texture in bridge"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 65,
+        "type": "start",
+        "label": "Final Hook Stutter Chops",
+        "reason": "Increase energy with stutter chops in final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low end groove",
+    "chords": "harmonic support",
+    "melody": "complement vocal phrasing",
+    "vocal": "lead and chopped vocal samples",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Develop drum patterns with a West Coast Hip-Hop feel, ensuring rhythmic support with dynamic variation suitable for hook-heavy sections."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the groove and maintain energy balance, emphasizing the emotional mood."
+    },
+    "harmony_generator": {
+      "brief": "Build chord progressions for harmonic support that enhance emotional atmosphere without overwhelming vocals."
+    },
+    "melody_generator": {
+      "brief": "Provide melodic elements that complement vocal phrasing and support the emotional tone."
+    },
+    "ai_designer": {
+      "brief": "Arrange the track sections and integrate sample layer techniques (micro, phrase, reverse, vocal, stutter chops) focusing on vocal prominence."
+    },
+    "presetor": {
+      "brief": "Manage presets for all instrument layers emphasizing clarity and presence in vocal and sample chop channels."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement flow, ensuring energy curve aligns with hook-heavy, emotional West Coast Hip-Hop style."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio focusing on vocal clarity and balanced integration of chopped sample layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

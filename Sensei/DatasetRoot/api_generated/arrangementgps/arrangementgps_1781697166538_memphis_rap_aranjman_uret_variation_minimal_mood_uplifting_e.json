@@ -1,0 +1,316 @@
+{
+  "project": {
+    "name": "Memphis Rap Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      70,
+      60,
+      85,
+      95,
+      90,
+      75,
+      65,
+      80,
+      85,
+      100,
+      90,
+      70,
+      60,
+      50,
+      45,
+      55,
+      65,
+      70,
+      85,
+      95,
+      90,
+      75,
+      65,
+      80,
+      85,
+      100,
+      95,
+      85,
+      70,
+      60,
+      50,
+      55,
+      65,
+      70,
+      80,
+      90,
+      85,
+      75,
+      65,
+      55,
+      50,
+      40,
+      35,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      30,
+      50,
+      70,
+      80,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 70,
+          "25-32": 90,
+          "33-48": 75,
+          "49-56": 50,
+          "57-72": 95,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 65,
+          "25-32": 85,
+          "33-48": 70,
+          "49-56": 45,
+          "57-72": 90,
+          "73-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 50,
+          "25-32": 80,
+          "33-48": 65,
+          "49-56": 40,
+          "57-72": 85,
+          "73-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 40,
+          "25-32": 75,
+          "33-48": 60,
+          "49-56": 30,
+          "57-72": 80,
+          "73-80": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 80,
+          "25-32": 95,
+          "33-48": 85,
+          "49-56": 50,
+          "57-72": 100,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 45,
+          "25-32": 70,
+          "33-48": 60,
+          "49-56": 35,
+          "57-72": 80,
+          "73-80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Start",
+        "reason": "Begin vocal line for first verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Start",
+        "reason": "Enter uplifting chorus hook melody"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "intensify",
+        "label": "Final Hook Energy Boost",
+        "reason": "Increase drum intensity for climax"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "end",
+        "label": "Outro Start",
+        "reason": "Release vocal presence for closing"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with club energy",
+    "bass": "driving low end supporting groove",
+    "chords": "minimal harmonic support",
+    "melody": "subtle lead synth elements",
+    "vocal": "rap verses and uplifting hooks",
+    "fx": "transitional sound effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns with club energy appropriate for Memphis Rap with minimal variation across sections."
+    },
+    "bass_generator": {
+      "brief": "Create a driving bassline supporting the groove with minimal harmonic movement."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse chords to provide minimal harmonic support that enhances uplifting mood."
+    },
+    "melody_generator": {
+      "brief": "Add subtle lead synth melodies that complement vocals and maintain uplifting energy."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with a smooth energy curve emphasizing club energy and minimal variation for a Memphis Rap vibe."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that enhance club energy, clarity, and an uplifting tonal balance."
+    },
+    "songgps": {
+      "brief": "Ensure adherence to arrangement structure rules and maintain consistent energy flow throughout the track."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the unprocessed channel audio for final mixing with attention to club energy and clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "project": {
+    "name": "Trap Arrangement Experimental Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      100,
+      20
+    ],
+    "notes": "Arrangement features sparse verses with strong, punchy hooks. Experimental variation on typical trap structure emphasizing aggressive energy spikes during hooks."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 90,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 10,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_spike",
+        "label": "hook_start",
+        "reason": "strong hook with aggressive energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_entry",
+        "label": "hook_vocal_start",
+        "reason": "hook vocal phrase begins"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "energy_spike",
+        "label": "final_hook_entry",
+        "reason": "final hook with peak energy"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "intro_fx",
+        "label": "intro_fx_start",
+        "reason": "intro atmosphere build"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "verse_1_start",
+        "reason": "bass enters for first verse"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and energy driver",
+    "bass": "low-end groove and power",
+    "chords": "harmonic texture",
+    "melody": "hook and thematic motifs",
+    "vocal": "primary vocal delivery",
+    "fx": "atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse but punchy drum patterns emphasizing trap rhythmic elements with aggressive energy surges in hooks."
+    },
+    "bass_generator": {
+      "brief": "Create deep, driving bass lines with greater density during hooks and sparser presence in verses."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimalistic chordal support with emphasis on dark, tense harmonic textures to enhance mood."
+    },
+    "melody_generator": {
+      "brief": "Design strong, memorable melodic hooks with sparse melodic activity in verses to contrast."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow to ensure dynamic energy variation and experimental structure within trap genre conventions."
+    },
+    "presetor": {
+      "brief": "Manage preset selections to maintain an aggressive, modern trap sound palette."
+    },
+    "songgps": {
+      "brief": "Map energy progression and ensure structural consistency with sparse verses and powerful hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Retain clean channel separation focusing on impactful low-end and punchy drums for aggressive energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

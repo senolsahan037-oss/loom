@@ -1,0 +1,556 @@
+
+==== CHANNEL DEVICE BOXES v1 ====
+Legend: every mixer channel/bus is boxed | DEVICE CHAIN = main serial chain summary | RACK CHAIN = rack-internal path | PARAMS = changed/non-default values only
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Pre Master  [parent: Pre-Master]                                                                                              │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight > Saturator > MultibandDynamics > Vinyl Distortion > Erosion                                           │
+│ DEVICE: EQ Eight                                                                                                              │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=30         display=30 Hz     │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=46.04      display=46.04 Hz  │
+│   Bands.1.ParameterA.Gain                          Gain                     db               raw=4.524      display=4.524 dB  │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=1000       display=1000 Hz   │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz    │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5    │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=5000       display=5000 Hz   │
+│   Bands.3.ParameterA.Gain                          Gain                     linear_gain      raw=1.905      display=5.6 dB    │
+│ DEVICE: Saturator                                                                                                             │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz   │
+│   DryWet                                           DryWet                   percent          raw=0.12       display=12%       │
+│ DEVICE: MultibandDynamics                                                                                                     │
+│   SplitLowMid                                      SplitLowMid              raw              raw=120        display=120       │
+│   SplitMidHigh                                     SplitMidHigh             raw              raw=2500       display=2500      │
+│   AboveThresholdLow                                AboveThresholdLow        db               raw=-20        display=-20 dB    │
+│   AboveThresholdMid                                AboveThresholdMid        db               raw=-20        display=-20 dB    │
+│   AboveThresholdHigh                               AboveThresholdHigh       db               raw=-20        display=-20 dB    │
+│   BelowThresholdLow                                BelowThresholdLow        db               raw=-60        display=-60 dB    │
+│   BelowThresholdMid                                BelowThresholdMid        db               raw=-60        display=-60 dB    │
+│   BelowThresholdHigh                               BelowThresholdHigh       db               raw=-60        display=-60 dB    │
+│   AttackLow                                        AttackLow                time_or_enum     raw=50         display=50        │
+│   AttackMid                                        AttackMid                time_or_enum     raw=10         display=10        │
+│ DEVICE: Vinyl Distortion                                                                                                      │
+│   BandFreq2                                        BandFreq2                hz               raw=0.12       display=0.12 Hz   │
+│   BandQ2                                           BandQ2                   raw              raw=0.12       display=0.12      │
+│   BandFreq1                                        BandFreq1                hz               raw=0.12       display=0.12 Hz   │
+│   BandQ1                                           BandQ1                   raw              raw=0.12       display=0.12      │
+│   Drive                                            Drive                    db               raw=0.0317     display=0.0317 dB │
+│   CracleDensity                                    CracleDensity            control_value    raw=0.12       display=0.12      │
+│   CracleVolume                                     CracleVolume             control_value    raw=0.0079     display=0.0079    │
+│ DEVICE: Erosion                                                                                                               │
+│   Freq                                             Freq                     hz               raw=0.1        display=0.1 Hz    │
+│   Amplitude                                        Amplitude                db               raw=0.119      display=0.119 dB  │
+│   BandQ                                            BandQ                    ratio            raw=0.1        display=0.1       │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Sample Buss  [parent: Pre-Master]                                                                                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: RACK[1 paths]                                                                                                  │
+│ RACK CHAIN: EQ Eight | Glue Compressor | Glue Compressor | Saturator | Vinyl Distortion | Utility                            │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=79.79      display=79.79 Hz │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=108.3      display=108.3 Hz │
+│   Bands.1.ParameterA.Gain                          Gain                     linear_gain      raw=1.667      display=4.4 dB   │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=287.7      display=287.7 Hz │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5   │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=5000       display=5000 Hz  │
+│   Bands.3.ParameterA.Gain                          Gain                     linear_gain      raw=3.333      display=10.5 dB  │
+│ DEVICE: Glue Compressor                                                                                                      │
+│   Threshold                                        Threshold                db               raw=-6         display=-6 dB    │
+│   DryWet                                           DryWet                   percent          raw=0.45       display=45%      │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.45       display=45%      │
+│ DEVICE: Glue Compressor                                                                                                      │
+│   Threshold                                        Threshold                db               raw=-8         display=-8 dB    │
+│   Makeup                                           Makeup                   db               raw=2          display=2 dB     │
+│   Release                                          Release                  enum             raw=6          display=enum:6   │
+│   DryWet                                           DryWet                   percent          raw=0.45       display=45%      │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.45       display=45%      │
+│   SideChainEq.Mode                                 Mode                     enum             raw=3          display=enum:3   │
+│   SideChainEq.Freq                                 Freq                     hz               raw=240        display=240 Hz   │
+│ DEVICE: Saturator                                                                                                            │
+│   PreDrive                                         PreDrive                 db               raw=2          display=2 dB     │
+│   BaseDrive                                        BaseDrive                db               raw=1.8        display=1.8 dB   │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz  │
+│   DryWet                                           DryWet                   percent          raw=0.18       display=18%      │
+│ DEVICE: Vinyl Distortion                                                                                                     │
+│   BandFreq2                                        BandFreq2                hz               raw=684        display=684 Hz   │
+│   BandQ2                                           BandQ2                   raw              raw=0.32       display=0.32     │
+│   BandFreq1                                        BandFreq1                hz               raw=7500       display=7500 Hz  │
+│   BandQ1                                           BandQ1                   raw              raw=3          display=3        │
+│   CracleDensity                                    CracleDensity            control_value    raw=10         display=10       │
+│   CracleVolume                                     CracleVolume             control_value    raw=0.0079     display=0.0079   │
+│ DEVICE: Utility                                                                                                              │
+│   StereoWidth                                      StereoWidth              raw              raw=1.12       display=1.12     │
+│   BassMonoFrequency                                BassMonoFrequency        hz               raw=120        display=120 Hz   │
+│   Gain                                             Gain                     linear_gain      raw=0.4467     display=-7.0 dB  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ SAMPLE  [parent: Pre-Master]                                                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Sample  [parent: SAMPLE]                                                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Sample fx buss  [parent: SAMPLE]                                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Voc Samp.  [parent: Pre-Master]                                                                                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight > Glue Compressor > Saturator                                                                         │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=812.7      display=812.7 Hz │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=719.3      display=719.3 Hz │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5   │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=5079       display=5079 Hz  │
+│   Bands.3.ParameterA.Gain                          Gain                     linear_gain      raw=0.9524     display=-0.4 dB  │
+│   Bands.3.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.3.ParameterB.Freq                          Freq                     hz               raw=500        display=500 Hz   │
+│ DEVICE: Glue Compressor                                                                                                      │
+│   Threshold                                        Threshold                db               raw=-10        display=-10 dB   │
+│   Release                                          Release                  enum             raw=6          display=enum:6   │
+│   DryWet                                           DryWet                   percent          raw=0.2        display=20%      │
+│ DEVICE: Saturator                                                                                                            │
+│   PreDrive                                         PreDrive                 db               raw=2          display=2 dB     │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz  │
+│   DryWet                                           DryWet                   percent          raw=0.15       display=15%      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ 7-Audio 26 (Bounce)  [parent: Voc Samp.]                                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Voc Sample5  [parent: Voc Samp.]                                                                                              │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight > Glue Compressor > Saturator > Auto Pan                                                               │
+│ DEVICE: EQ Eight                                                                                                              │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=598.9      display=598.9 Hz  │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=254.6      display=254.6 Hz  │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=598.9      display=598.9 Hz  │
+│   Bands.2.ParameterA.Gain                          Gain                     db               raw=-3.095     display=-3.095 dB │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz    │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=7327       display=7327 Hz   │
+│   Bands.3.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.3.ParameterB.Freq                          Freq                     hz               raw=500        display=500 Hz    │
+│ DEVICE: Glue Compressor                                                                                                       │
+│   Threshold                                        Threshold                db               raw=-7         display=-7 dB     │
+│   Release                                          Release                  enum             raw=6          display=enum:6    │
+│ DEVICE: Saturator                                                                                                             │
+│   PreDrive                                         PreDrive                 db               raw=2          display=2 dB      │
+│   BaseDrive                                        BaseDrive                db               raw=1.8        display=1.8 dB    │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz   │
+│   DryWet                                           DryWet                   percent          raw=0.15       display=15%       │
+│ DEVICE: Auto Pan                                                                                                              │
+│   Modulation_Amount                                Modulation_Amount        percent          raw=0.18       display=18%       │
+│   Modulation_Frequency                             Modulation_Frequency     hz               raw=4.282      display=4.282 Hz  │
+│   Modulation_SyncedRate                            Modulation_SyncedRate    raw              raw=6          display=6         │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Voc Sample4  [parent: Voc Samp.]                                                                                              │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: Reverb                                                                                                          │
+│ DEVICE: Reverb                                                                                                                │
+│   PreDelay                                         PreDelay                 ms               raw=0.7794     display=0.7794 ms │
+│   BandFreq                                         BandFreq                 hz               raw=830        display=830 Hz    │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz   │
+│   DecayTime                                        DecayTime                time_control     raw=274.6      display=274.6     │
+│   RoomSize                                         RoomSize                 control_value    raw=0.3853     display=0.3853    │
+│   MixDirect                                        MixDirect                raw              raw=0.2        display=0.2       │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Voc Sample3  [parent: Voc Samp.]                                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Voc Sample1  [parent: Voc Samp.]                                                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Voc Sample 4  [parent: Voc Samp.]                                                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ 13-Audio 3 (Bounce)  [parent: Voc Samp.]                                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Voc Sample 3  [parent: Voc Samp.]                                                                                           │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: Reverb                                                                                                        │
+│ DEVICE: Reverb                                                                                                              │
+│   BandFreq                                         BandFreq                 hz               raw=3495       display=3495 Hz │
+│   BandWidth                                        BandWidth                ratio            raw=5.56       display=5.56    │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz │
+│   RoomSize                                         RoomSize                 control_value    raw=11.91      display=11.91   │
+│   MixDirect                                        MixDirect                raw              raw=0.22       display=0.22    │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ DRUM BUSS  [parent: Pre-Master]                                                                                               │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: Glue Compressor > DrumBuss > Utility                                                                            │
+│ DEVICE: Glue Compressor                                                                                                       │
+│   Threshold                                        Threshold                db               raw=-2         display=-2 dB     │
+│   Release                                          Release                  enum             raw=6          display=enum:6    │
+│   DryWet                                           DryWet                   percent          raw=0.45       display=45%       │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.45       display=45%       │
+│ DEVICE: DrumBuss                                                                                                              │
+│   DriveAmount                                      DriveAmount              db               raw=0.0794     display=0.0794 dB │
+│   CrunchAmount                                     CrunchAmount             percent          raw=0.0952     display=9.5%      │
+│   DampingFrequency                                 DampingFrequency         hz               raw=9200       display=9200 Hz   │
+│   TransientShaping                                 TransientShaping         percent          raw=0.2063     display=20.6%     │
+│   BoomFrequency                                    BoomFrequency            hz               raw=50         display=50 Hz     │
+│   BoomAmount                                       BoomAmount               percent          raw=0.1667     display=16.7%     │
+│   DryWet                                           DryWet                   percent          raw=0.4        display=40%       │
+│ DEVICE: Utility                                                                                                               │
+│   BassMonoFrequency                                BassMonoFrequency        hz               raw=120        display=120 Hz    │
+│   Gain                                             Gain                     linear_gain      raw=0.7079     display=-3.0 dB   │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ TOM  [parent: DRUM BUSS]                                                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Zonk Pluck  [parent: DRUM BUSS effective: 17 Zonk Pluck]                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: none                                                                           │
+│ PARAMS: none detected                                                                        │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Snare Buss  [parent: Pre-Master]                                                                                            │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: Glue Compressor > Utility                                                                                     │
+│ DEVICE: Glue Compressor                                                                                                     │
+│   Release                                          Release                  enum             raw=6          display=enum:6  │
+│   DryWet                                           DryWet                   percent          raw=0.45       display=45%     │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.45       display=45%     │
+│ DEVICE: Utility                                                                                                             │
+│   BassMonoFrequency                                BassMonoFrequency        hz               raw=120        display=120 Hz  │
+│   Gain                                             Gain                     linear_gain      raw=0.5623     display=-5.0 dB │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ SNARE  [parent: Snare Buss]                                                                                                    │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight                                                                                                         │
+│ DEVICE: EQ Eight                                                                                                               │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=166.1      display=166.1 Hz   │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=239.6      display=239.6 Hz   │
+│   Bands.1.ParameterA.Gain                          Gain                     linear_gain      raw=2.619      display=8.4 dB     │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3     │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=976.2      display=976.2 Hz   │
+│   Bands.2.ParameterA.Gain                          Gain                     db               raw=-0.9524    display=-0.9524 dB │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3     │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz     │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5     │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=6100       display=6100 Hz    │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ SNARE fx  [parent: Snare Buss]                                                                                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: Reverb > EQ Eight                                                                                              │
+│ DEVICE: Reverb                                                                                                               │
+│   BandFreq                                         BandFreq                 hz               raw=2074       display=2074 Hz  │
+│   BandWidth                                        BandWidth                ratio            raw=5.762      display=5.762    │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz  │
+│   DecayTime                                        DecayTime                time_control     raw=541.4      display=541.4    │
+│   MixDirect                                        MixDirect                raw              raw=0.35       display=0.35     │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=3521       display=3521 Hz  │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=2160       display=2160 Hz  │
+│   Bands.2.ParameterA.Gain                          Gain                     linear_gain      raw=2.619      display=8.4 dB   │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5   │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=13599      display=13599 Hz │
+│   Bands.3.ParameterA.Gain                          Gain                     linear_gain      raw=1.429      display=3.1 dB   │
+│   Bands.3.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ SNARE fx [2]  [parent: Snare Buss duplicate_of: SNARE fx effective: SNARE fx]                                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight > Glue Compressor > Utility > Delay                                                                   │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=441.2      display=441.2 Hz │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=500        display=500 Hz   │
+│   Bands.3.ParameterA.Q                             Q                        ratio            raw=0.7603     display=0.7603   │
+│   Bands.3.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│ DEVICE: Glue Compressor                                                                                                      │
+│   Release                                          Release                  enum             raw=6          display=enum:6   │
+│   DryWet                                           DryWet                   percent          raw=0.35       display=35%      │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.35       display=35%      │
+│ DEVICE: Utility                                                                                                              │
+│   StereoWidth                                      StereoWidth              raw              raw=0.7077     display=0.7077   │
+│   BassMonoFrequency                                BassMonoFrequency        hz               raw=120        display=120 Hz   │
+│ DEVICE: Delay                                                                                                                │
+│   DelayLine_TimeL                                  DelayLine_TimeL          seconds          raw=0.375      display=375.0 ms │
+│   DelayLine_TimeR                                  DelayLine_TimeR          seconds          raw=0.375      display=375.0 ms │
+│   DelayLine_SimpleDelayTimeL                       DelayLine_SimpleDelayTimeL ms               raw=100        display=100 ms │
+│   DelayLine_SimpleDelayTimeR                       DelayLine_SimpleDelayTimeR ms               raw=100        display=100 ms │
+│   DelayLine_SyncedSixteenthL                       DelayLine_SyncedSixteenthL enum             raw=2          display=enum:2 │
+│   Feedback                                         Feedback                 percent          raw=0.098      display=9.8%     │
+│   Filter_Frequency                                 Filter_Frequency         hz               raw=882.2      display=882.2 Hz │
+│   Filter_Bandwidth                                 Filter_Bandwidth         ratio            raw=5.98       display=5.98     │
+│   Modulation_Frequency                             Modulation_Frequency     hz               raw=40         display=40 Hz    │
+│   Modulation_SyncedRate                            Modulation_SyncedRate    raw              raw=4          display=4        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ SNARE fx sust  [parent: Snare Buss]                                                                                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: Glue Compressor > Reverb > EQ Eight                                                                            │
+│ DEVICE: Glue Compressor                                                                                                      │
+│   DryWet                                           DryWet                   percent          raw=0.35       display=35%      │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.35       display=35%      │
+│ DEVICE: Reverb                                                                                                               │
+│   BandFreq                                         BandFreq                 hz               raw=830        display=830 Hz   │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz  │
+│   MixDirect                                        MixDirect                raw              raw=0.35       display=0.35     │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=2757       display=2757 Hz  │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=1000       display=1000 Hz  │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5   │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=5000       display=5000 Hz  │
+│   Bands.3.ParameterA.Gain                          Gain                     db               raw=7.381      display=7.381 dB │
+│   Bands.3.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.3.ParameterB.Freq                          Freq                     hz               raw=500        display=500 Hz   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ 23-drums  [parent: Snare Buss]                                                                                                │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight > Glue Compressor > Saturator > Overdrive > Utility                                                    │
+│ DEVICE: EQ Eight                                                                                                              │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=75.06      display=75.06 Hz  │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=115.1      display=115.1 Hz  │
+│   Bands.1.ParameterA.Gain                          Gain                     linear_gain      raw=2.381      display=7.5 dB    │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=530        display=530 Hz    │
+│   Bands.2.ParameterA.Gain                          Gain                     db               raw=-2.143     display=-2.143 dB │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz    │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5    │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=3978       display=3978 Hz   │
+│ DEVICE: Glue Compressor                                                                                                       │
+│   Threshold                                        Threshold                db               raw=-5         display=-5 dB     │
+│   Release                                          Release                  enum             raw=6          display=enum:6    │
+│ DEVICE: Saturator                                                                                                             │
+│   PreDrive                                         PreDrive                 db               raw=2          display=2 dB      │
+│   BaseDrive                                        BaseDrive                db               raw=1.8        display=1.8 dB    │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz   │
+│   DryWet                                           DryWet                   percent          raw=0.2        display=20%       │
+│ DEVICE: Overdrive                                                                                                             │
+│   MidFreq                                          MidFreq                  hz               raw=1250       display=1250 Hz   │
+│   BandWidth                                        BandWidth                ratio            raw=6.5        display=6.5       │
+│   Drive                                            Drive                    db               raw=12         display=12 dB     │
+│   DryWet                                           DryWet                   percent          raw=0.18       display=18%       │
+│   Tone                                             Tone                     raw              raw=50         display=50        │
+│   PreserveDynamics                                 PreserveDynamics         raw              raw=0.5        display=0.5       │
+│ DEVICE: Utility                                                                                                               │
+│   BassMonoFrequency                                BassMonoFrequency        hz               raw=120        display=120 Hz    │
+│   Gain                                             Gain                     linear_gain      raw=0.5012     display=-6.0 dB   │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ OPEN HAT  [parent: Snare Buss]                                                                                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: RACK[3 paths] + EQ Eight > Saturator > Auto Pan > Delay                                                        │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.0.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.0.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=500        display=500 Hz   │
+│   Bands.1.ParameterB.Freq                          Freq                     hz               raw=500        display=500 Hz   │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=2000       display=2000 Hz  │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=2000       display=2000 Hz  │
+│ DEVICE: Saturator                                                                                                            │
+│   PreDrive                                         PreDrive                 db               raw=1.2        display=1.2 dB   │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz  │
+│ DEVICE: Auto Pan                                                                                                             │
+│   Modulation_Amount                                Modulation_Amount        percent          raw=0.06       display=6%       │
+│   Modulation_TimeMode                              Modulation_TimeMode      enum             raw=4          display=enum:4   │
+│   Modulation_SyncedRate                            Modulation_SyncedRate    raw              raw=15         display=15       │
+│ DEVICE: Delay                                                                                                                │
+│   DelayLine_TimeL                                  DelayLine_TimeL          seconds          raw=0.375      display=375.0 ms │
+│   DelayLine_TimeR                                  DelayLine_TimeR          seconds          raw=0.375      display=375.0 ms │
+│   DelayLine_SimpleDelayTimeL                       DelayLine_SimpleDelayTimeL ms               raw=100        display=100 ms │
+│   DelayLine_SimpleDelayTimeR                       DelayLine_SimpleDelayTimeR ms               raw=100        display=100 ms │
+│   DelayLine_SyncedSixteenthR                       DelayLine_SyncedSixteenthR enum             raw=3          display=enum:3 │
+│   Feedback                                         Feedback                 percent          raw=0.14       display=14%      │
+│   Filter_Frequency                                 Filter_Frequency         hz               raw=1000       display=1000 Hz  │
+│   Filter_Bandwidth                                 Filter_Bandwidth         ratio            raw=8          display=8        │
+│   Modulation_Frequency                             Modulation_Frequency     hz               raw=0.5        display=0.5 Hz   │
+│   Modulation_SyncedRate                            Modulation_SyncedRate    raw              raw=4          display=4        │
+│ RACK CHAIN: Lo                                                                                                               │
+│ DEVICE: FilterEQ3                                                                                                            │
+│   FreqLo                                           FreqLo                   hz               raw=100.1      display=100.1 Hz │
+│   FreqHi                                           FreqHi                   hz               raw=2500       display=2500 Hz  │
+│ DEVICE: Reverb                                                                                                               │
+│   BandFreq                                         BandFreq                 hz               raw=830        display=830 Hz   │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz  │
+│   ShelfHiGain                                      ShelfHiGain              control_value    raw=0.47       display=0.47     │
+│   SizeModFreq                                      SizeModFreq              hz               raw=0.23       display=0.23 Hz  │
+│   SizeModDepth                                     SizeModDepth             control_value    raw=0.75       display=0.75     │
+│   RoomType                                         RoomType                 raw              raw=2          display=2        │
+│   MixDirect                                        MixDirect                raw              raw=0.35       display=0.35     │
+│ RACK CHAIN: Mid                                                                                                              │
+│ DEVICE: FilterEQ3                                                                                                            │
+│   FreqLo                                           FreqLo                   hz               raw=84         display=84 Hz    │
+│   FreqHi                                           FreqHi                   hz               raw=2500       display=2500 Hz  │
+│ DEVICE: Reverb                                                                                                               │
+│   BandFreq                                         BandFreq                 hz               raw=830        display=830 Hz   │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz  │
+│   ShelfHiGain                                      ShelfHiGain              control_value    raw=0.47       display=0.47     │
+│   SizeModFreq                                      SizeModFreq              hz               raw=0.23       display=0.23 Hz  │
+│   SizeModDepth                                     SizeModDepth             control_value    raw=0.75       display=0.75     │
+│   MixDirect                                        MixDirect                raw              raw=0.35       display=0.35     │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.0.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.0.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=500        display=500 Hz   │
+│   Bands.1.ParameterB.Freq                          Freq                     hz               raw=500        display=500 Hz   │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=2000       display=2000 Hz  │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=2000       display=2000 Hz  │
+│ RACK CHAIN: High                                                                                                             │
+│ DEVICE: FilterEQ3                                                                                                            │
+│   FreqLo                                           FreqLo                   hz               raw=250        display=250 Hz   │
+│   FreqHi                                           FreqHi                   hz               raw=18000      display=18000 Hz │
+│ DEVICE: Reverb                                                                                                               │
+│   BandFreq                                         BandFreq                 hz               raw=830        display=830 Hz   │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz  │
+│   ShelfHiGain                                      ShelfHiGain              control_value    raw=0.47       display=0.47     │
+│   SizeModFreq                                      SizeModFreq              hz               raw=0.23       display=0.23 Hz  │
+│   SizeModDepth                                     SizeModDepth             control_value    raw=0.75       display=0.75     │
+│   MixDirect                                        MixDirect                raw              raw=0.35       display=0.35     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Hİ-HAT  [parent: Snare Buss]                                                                                                  │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight > Glue Compressor > Saturator > Reverb > Auto Pan                                                      │
+│ DEVICE: EQ Eight                                                                                                              │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=287.7      display=287.7 Hz  │
+│   Bands.0.ParameterA.Gain                          Gain                     linear_gain      raw=1.259      display=2.0 dB    │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=199.4      display=199.4 Hz  │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=6893       display=6893 Hz   │
+│   Bands.2.ParameterA.Gain                          Gain                     db               raw=-4.286     display=-4.286 dB │
+│   Bands.2.ParameterA.Q                             Q                        ratio            raw=1.578      display=1.578     │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz    │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3    │
+│ DEVICE: Glue Compressor                                                                                                       │
+│   Threshold                                        Threshold                db               raw=-2         display=-2 dB     │
+│   DryWet                                           DryWet                   percent          raw=0.25       display=25%       │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.25       display=25%       │
+│ DEVICE: Saturator                                                                                                             │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz   │
+│ DEVICE: Reverb                                                                                                                │
+│   BandFreq                                         BandFreq                 hz               raw=2074       display=2074 Hz   │
+│   BandWidth                                        BandWidth                ratio            raw=5.155      display=5.155     │
+│   ShelfHiFreq                                      ShelfHiFreq              hz               raw=4500       display=4500 Hz   │
+│   MixDirect                                        MixDirect                raw              raw=0.0476     display=0.0476    │
+│ DEVICE: Auto Pan                                                                                                              │
+│   Modulation_Amount                                Modulation_Amount        percent          raw=0.14       display=14%       │
+│   Modulation_TimeMode                              Modulation_TimeMode      enum             raw=4          display=enum:4    │
+│   Modulation_Frequency                             Modulation_Frequency     hz               raw=1.266      display=1.266 Hz  │
+│   Modulation_Time                                  Modulation_Time          ms_or_sync       raw=0.5        display=0.5       │
+│   Modulation_SyncedRate                            Modulation_SyncedRate    raw              raw=19         display=19        │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ KİCK BUSS  [parent: drum buss]                                                                                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: Glue Compressor > Saturator > Utility                                                                         │
+│ DEVICE: Glue Compressor                                                                                                     │
+│   Release                                          Release                  enum             raw=6          display=enum:6  │
+│   DryWet                                           DryWet                   percent          raw=0.45       display=45%     │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.45       display=45%     │
+│ DEVICE: Saturator                                                                                                           │
+│   PreDrive                                         PreDrive                 db               raw=2          display=2 dB    │
+│   BaseDrive                                        BaseDrive                db               raw=1.8        display=1.8 dB  │
+│   ColorFrequency                                   ColorFrequency           hz               raw=1000       display=1000 Hz │
+│   DryWet                                           DryWet                   percent          raw=0.18       display=18%     │
+│ DEVICE: Utility                                                                                                             │
+│   BassMonoFrequency                                BassMonoFrequency        hz               raw=120        display=120 Hz  │
+│   Gain                                             Gain                     linear_gain      raw=0.631      display=-4.0 dB │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ KİCK  [parent: KİCK BUSS]                                                                                                      │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight                                                                                                         │
+│ DEVICE: EQ Eight                                                                                                               │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=30         display=30 Hz      │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=52.03      display=52.03 Hz   │
+│   Bands.1.ParameterA.Gain                          Gain                     linear_gain      raw=1.679      display=4.5 dB     │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3     │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=225.4      display=225.4 Hz   │
+│   Bands.2.ParameterA.Gain                          Gain                     db               raw=-0.9524    display=-0.9524 dB │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3     │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz     │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5     │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=2160       display=2160 Hz    │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ KİCK fx  [parent: KİCK BUSS]                                                                                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DEVICE CHAIN: EQ Eight > Glue Compressor > Utility                                                                           │
+│ DEVICE: EQ Eight                                                                                                             │
+│   Bands.0.ParameterA.Freq                          Freq                     hz               raw=30         display=30 Hz    │
+│   Bands.0.ParameterA.Gain                          Gain                     linear_gain      raw=1.19       display=1.5 dB   │
+│   Bands.1.ParameterA.Mode                          Mode                     enum             raw=7          display=enum:7   │
+│   Bands.1.ParameterA.Freq                          Freq                     hz               raw=36.06      display=36.06 Hz │
+│   Bands.2.ParameterA.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterA.Freq                          Freq                     hz               raw=1000       display=1000 Hz  │
+│   Bands.2.ParameterB.Mode                          Mode                     enum             raw=3          display=enum:3   │
+│   Bands.2.ParameterB.Freq                          Freq                     hz               raw=100        display=100 Hz   │
+│   Bands.3.ParameterA.Mode                          Mode                     enum             raw=5          display=enum:5   │
+│   Bands.3.ParameterA.Freq                          Freq                     hz               raw=147        display=147 Hz   │
+│ DEVICE: Glue Compressor                                                                                                      │
+│   Threshold                                        Threshold                db               raw=-3.81      display=-3.81 dB │
+│   Release                                          Release                  enum             raw=5          display=enum:5   │
+│   DryWet                                           DryWet                   percent          raw=0.5        display=50%      │
+│   SideChain.DryWet                                 DryWet                   percent          raw=0.5        display=50%      │
+│   SideChainEq.Freq                                 Freq                     hz               raw=120        display=120 Hz   │
+│ DEVICE: Utility                                                                                                              │
+│   BassMonoFrequency                                BassMonoFrequency        hz               raw=120        display=120 Hz   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

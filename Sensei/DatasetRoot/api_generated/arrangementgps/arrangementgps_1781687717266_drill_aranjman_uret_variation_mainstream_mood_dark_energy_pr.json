@@ -1,0 +1,267 @@
+{
+  "project": {
+    "name": "Drill Dark Mainstream",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "notes": "This arrangement features a slow build energy profile fitting a dark drill track. The intro sets a minimal atmosphere, gradually adding elements through verses and hooks, culminating in a high-energy final hook and tapering off during the outro."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 65,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Drums entry",
+        "reason": "Start establishing rhythm with minimal elements"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "bass_intro",
+        "label": "Bass entrance",
+        "reason": "Add depth and low end for verse 1"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "vocal_entry",
+        "label": "Vocal entrance",
+        "reason": "Beginning of verse 1"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "melody_rise",
+        "label": "Melody introduction",
+        "reason": "Increase melodic presence for hook"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "fx_peak",
+        "label": "FX peak",
+        "reason": "Energy climax in final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 77,
+        "type": "drums_fade",
+        "label": "Drums fade out",
+        "reason": "Tapering energy for outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low end groove",
+    "chords": "harmonic support",
+    "melody": "atmospheric texture",
+    "vocal": "lead performance",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      77,
+      78
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum arrangement that supports a slow build with increasing complexity and intensity, suitable for a dark drill track."
+    },
+    "bass_generator": {
+      "brief": "Generate bass parts that complement the slow energy build, providing a solid low-end groove without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Establish chord progressions or harmonic textures that maintain a dark mood and support the arrangement's energy profile."
+    },
+    "melody_generator": {
+      "brief": "Add melodic elements sparingly to enhance atmosphere and tension, growing stronger in hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement structure and ensure the energy profile aligns with the prompt of a slow build mainstream drill track."
+    },
+    "presetor": {
+      "brief": "Prepare presets and sound settings that emphasize dark timbres and maintain clarity through dynamic changes."
+    },
+    "songgps": {
+      "brief": "Coordinate the energy curve and timings of sections to create a coherent, engaging arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Plan mix balancing so that instruments and vocals maintain presence relative to the evolving energy levels."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

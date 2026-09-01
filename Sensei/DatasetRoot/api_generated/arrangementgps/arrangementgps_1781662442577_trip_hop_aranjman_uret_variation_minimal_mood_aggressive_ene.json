@@ -1,0 +1,259 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Minimalist",
+    "genre": "Trip Hop",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      25,
+      30,
+      70,
+      40,
+      20
+    ],
+    "notes": "Sparse verses with strong, aggressive hooks using sample-based arrangement layered with texture bed and impactful one-shot hits. Minimal variation to keep the raw trip hop aesthetic."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 0,
+          "hook": 60,
+          "verse_2": 0,
+          "bridge": 10,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 5,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hit",
+        "label": "Strong Hook Entrance",
+        "reason": "Increase energy with impactful drum hits using one-shot samples."
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "texture_bed_start",
+        "label": "Bridge Texture Layer",
+        "reason": "Add ambient texture bed to emphasize bridge section."
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "dropout",
+        "label": "Verse Sparse Vocals",
+        "reason": "Keep verses sparse with minimal vocal activity."
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_texture_bed": {
+      "type": "layer",
+      "description": "Sample-based ambient textures running through sections to add depth."
+    },
+    "one_shot_hits": {
+      "type": "sample_layer",
+      "description": "One-shot drum and percussive hits for hooks."
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "Create continuous ambient layers using chopped samples with subtle evolving textures.",
+    "one_shot_hits": "Use clean, punchy one-shot samples to highlight hooks distinctly.",
+    "minimal_variation": "Keep arrangement tight and restrained with slight changes only."
+  },
+  "routing_intent": {
+    "drums": "Route all one-shot hits and percussion through a dedicated bus with transient shaping and subtle saturation.",
+    "texture_bed": "Route texture layers through a reverb send to embed depth without cluttering the mix."
+  },
+  "track_roles": {
+    "drums": "Percussive backbone using sample-chopping techniques (e.g. hit, break, stab).",
+    "bass": "Sparse bass using sample-based sub-layers.",
+    "chords": "Ambient chopped samples providing harmonic pads.",
+    "melody": "Minimal hooks created with selected one-shot melodic samples.",
+    "vocal": "Sparse aggressive vocal chops aligned with hook energy spikes.",
+    "fx": "Texture beds created via sample layering and subtle processing effects."
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {
+    "minimal_variation": "Maintain simplicity by limiting changes and focusing on punchy hook moments.",
+    "aggressive_mood": "Use sharp, assertive samples and limited harmonic content to emphasize aggression."
+  },
+  "presetor_intent": {
+    "preset_selection": "Choose presets with raw, gritty sample textures and clean hit response for hooks."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum parts with sample chopping and one-shot techniques emphasizing aggressive hook hits and minimal verse activity."
+    },
+    "bass_generator": {
+      "brief": "Generate sparse bass layers using sample-based sources to support the minimal and aggressive texture."
+    },
+    "harmony_generator": {
+      "brief": "Design ambient chord textures mostly through layered sample chopping to provide a subtle harmonic bed."
+    },
+    "melody_generator": {
+      "brief": "Create limited melodic hooks using one-shot sampled hits focusing on strong rhythmic phrasing."
+    },
+    "ai_designer": {
+      "brief": "Integrate all sample layers into a cohesive arrangement emphasizing sparse verses and strong, energetic hooks."
+    },
+    "presetor": {
+      "brief": "Select sound presets appropriate for trip hop style with aggressive and minimal characteristics, prioritizing sample texture clarity."
+    },
+    "songgps": {
+      "brief": "Manage section transitions ensuring energy profile matches sparse verses and strong hook dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean, unprocessed channel audio for mixing emphasizing clarity of sample-based arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

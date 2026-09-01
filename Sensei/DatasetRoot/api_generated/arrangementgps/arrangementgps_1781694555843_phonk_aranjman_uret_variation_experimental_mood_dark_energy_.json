@@ -1,0 +1,269 @@
+{
+  "project": {
+    "name": "Phonk Experimental Dark Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      25,
+      55,
+      75,
+      80,
+      20
+    ],
+    "notes": "Variation: experimental style with sparse verses and strong energetic hooks. Usage of sample-based layers including texture bed and one-shot hits. Channel names follow sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 55
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 65,
+          "verse_2": 15,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 75,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Strong hook entry with sliced one-shot drum hits",
+        "reason": "Introduce energetic hook section with punchy drum samples sliced and triggered"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "verse_start",
+        "label": "Sparse bass grooves",
+        "reason": "Reduce bass activity for sparse verse vibe"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "texture_bed_start",
+        "label": "Dark texture bed sample layer",
+        "reason": "Set moody atmosphere with textured sample layer"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "Texture Bed",
+        "type": "sample_based",
+        "role": "foundation ambient texture",
+        "channel_name": "slice_texturebed"
+      },
+      {
+        "name": "One-shot Hits",
+        "type": "sample_based",
+        "role": "accentual hit percussion",
+        "channel_name": "slicer_oneshots"
+      }
+    ]
+  },
+  "sound_intent": {
+    "texture": "dark, moody, atmospheric with light hiss and vinyl crackle",
+    "hits": "sharp, snappy one-shot percussive elements for hooks",
+    "overall": "sparse verses with dense hook contrast"
+  },
+  "routing_intent": {
+    "drums": "processed with transient shaper, routed to drum submix",
+    "bass": "low-pass filtered, sidechained to drums",
+    "chords": "reverb send, ambient send",
+    "melody": "dry with slight delay",
+    "vocal": "dry in verses, doubled and processed in hooks",
+    "fx": "stereo widened, subtle modulation effects"
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with experimental slicing",
+    "bass": "low-end support sparse in verses",
+    "chords": "harmonic underpinning with subtle pads",
+    "melody": "minimal melodic highlights",
+    "vocal": "sparse vocal layers for hooks",
+    "fx": "atmosphere and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      13,
+      45,
+      46
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 5,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 7,
+    "fx": 4
+  },
+  "designer_intent": {
+    "focus": "experiment with dark phonk textures using sample-based layering and emphasizing sparse verses contrasting strong energetic hooks"
+  },
+  "presetor_intent": {
+    "task": "apply presets that enhance vintage sampler warmth and accentuate the sliced drum one-shots and texture beds without muddying mix clarity"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sliced drum hits for hooks and sparse, minimal percussion for verses using sample-based techniques."
+    },
+    "bass_generator": {
+      "brief": "Create sparse basslines with space in verses and more pronounced bass in hooks complementing drums."
+    },
+    "harmony_generator": {
+      "brief": "Provide subtle chord pads for atmosphere using sample-based textures with minimal movement."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements to provide hooks, relying on sample one-shots and minimal melodic phrasing."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement with experimental dark phonk style focusing on energy contrast between sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Select and apply effects presets that contribute to a vintage yet clear phonk aesthetic emphasizing sample texture and hit articulation."
+    },
+    "songgps": {
+      "brief": "Monitor and guide energy curve and section transitions ensuring sparse verses contrast with energetic hooks, respecting production intents."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance levels and spatial placement maintaining clarity between texture bed and one-shot layers with emphasis on dynamic hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

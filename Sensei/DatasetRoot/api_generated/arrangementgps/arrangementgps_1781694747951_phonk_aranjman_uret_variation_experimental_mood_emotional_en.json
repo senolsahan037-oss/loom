@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "Phonk Experimental Emotional",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      40,
+      20
+    ],
+    "notes": "Sparse verses with strong, energy-packed hooks; experimental arrangement with modern sample chopping."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 0,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "fill",
+        "label": "Snare Roll",
+        "reason": "Emphasize hook start with energetic drum fill"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "drop",
+        "label": "Bass Dropout",
+        "reason": "Sparse verse texture for emotional contrast"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Melody Crescendo",
+        "reason": "Build energy for final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "Slice": {
+        "description": "Sample slices arranged and triggered using modern chopping techniques such as stutter, glitch, and retrigger.",
+        "subchannels": {
+          "StutterSlice": {},
+          "GlitchHit": {},
+          "Retrigger": {}
+        }
+      }
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "modern sample chopping techniques including stutter, glitch, and retrigger",
+    "texture": "sparse verses with emotional and atmospheric elements; strong impactful hooks"
+  },
+  "routing_intent": {
+    "channels": {
+      "StutterSlice": "Drum bus",
+      "GlitchHit": "FX bus",
+      "Retrigger": "Melody bus"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone and sample slicing using stutter technique",
+    "bass": "Sparse foundations with emotional support",
+    "chords": "Background texture layer",
+    "melody": "Strong hook presence with retrigger sample chops",
+    "vocal": "Emotional sparse vocal cuts",
+    "fx": "Glitch and stutter effects for transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      11,
+      34,
+      35,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 6,
+    "vocal": 3,
+    "fx": 4
+  },
+  "designer_intent": {
+    "goal": "Create an experimental Phonk arrangement with emotional mood; emphasize hooks with strong energy while verses remain sparse and atmospheric."
+  },
+  "presetor_intent": {
+    "style": "Use preset chains emphasizing modern chopping and glitch effects on samples."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic patterns applying stutter slicing and dynamic drum fills especially before hook sections."
+    },
+    "bass_generator": {
+      "brief": "Create supportive tight bass sounds with occasional dropouts for sparse emotional verses."
+    },
+    "harmony_generator": {
+      "brief": "Design chord textures that add atmosphere and depth but remain subtle beneath hooks and vocal."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic hooks that utilize retrigger sample chopping techniques boosting hook energy."
+    },
+    "ai_designer": {
+      "brief": "Integrate all elements into a coherent experimental arrangement balancing sparse and dense sections."
+    },
+    "presetor": {
+      "brief": "Apply glitch, stutter, and retrigger effect presets on sample layers according to the arrangement."
+    },
+    "songgps": {
+      "brief": "Coordinate section energy levels, transitions, and event marker placements for better flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for downstream mix with clear separation of chopped samples."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

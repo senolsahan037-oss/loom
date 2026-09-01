@@ -1,0 +1,231 @@
+{
+  "project": {
+    "name": "Memphis Rap Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      40,
+      20,
+      50,
+      20,
+      60,
+      30
+    ],
+    "notes": "Sparse verses with strong hooks highlighted. Instrumental only."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 25
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 40
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 20
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 60
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 65,
+          "verse_2": 10,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 45,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with strong hook"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Culmination of hooks with strong energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation emphasizing strong hooks",
+    "bass": "supportive low-end with punchy accents on hooks",
+    "chords": "dark harmonic texture",
+    "melody": "sparse melodic accents primarily in hooks",
+    "vocal": "none (instrumental)",
+    "fx": "atmospheric effects enhancing mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      49
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create beats that are sparse in verses and punchy with strong presence in hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that complement sparse verses and emphasize hooks with thick low-end."
+    },
+    "harmony_generator": {
+      "brief": "Design dark chord progressions that maintain mood consistency and support energy shifts."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements mainly during hook sections to enhance memorability."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement to ensure dark mood and sparse verses combined with strong hooks."
+    },
+    "presetor": {
+      "brief": "Apply presets suitable for Memphis Rap instrumental with emphasis on dark tones and punch."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement matches sparse verse energy and strong hook peaks in instrumental format."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix to keep clarity in sparse sections and energy in hooks without vocal presence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

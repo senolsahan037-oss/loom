@@ -1,0 +1,264 @@
+{
+  "project": {
+    "name": "Boom Bap Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      100,
+      70
+    ],
+    "notes": "Sparse verses with strong, catchy hooks; minimal variation; modern sample chopping techniques applied."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_technique",
+        "label": "Slice",
+        "reason": "Intro uses sliced drum samples to set the mood"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "sample_technique",
+        "label": "Chop",
+        "reason": "Hook features chopped drum hits for energy"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "sample_technique",
+        "label": "Stutter",
+        "reason": "Hook employs stutter effect on melodic samples"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "activity",
+        "label": "Sparse Verses",
+        "reason": "Vocals minimal and sparse during verses"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "slice",
+        "chop",
+        "stutter"
+      ],
+      "description": "Modern sample chopping techniques applied on drums and melody layers."
+    }
+  },
+  "sound_intent": {
+    "overall": "Uplifting Boom Bap with spacious verses and energetic hooks, minimal variation emphasizing sample chops."
+  },
+  "routing_intent": {
+    "drums": "split slices and chops routed to separate channels named by chopping technique",
+    "melody": "stuttered sample phrases routed on dedicated melody chop channel"
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation using sliced and chopped samples",
+    "bass": "Sparse but supportive basslines",
+    "chords": "Minimal chord stabs",
+    "melody": "Hook melody with sample stutter",
+    "vocal": "Sparse vocal phrases during verses and strong presence in hooks",
+    "fx": "Subtle effects for transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      13,
+      14,
+      41,
+      42
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 3,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Capturing Boom Bap essence with modern sample chopping; keep verses minimal, hooks energetic and uplifting."
+  },
+  "presetor_intent": {
+    "goal": "Apply presets that emphasize warmth and clarity of samples and chopped effects."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum tracks emphasizing modern slicing and chopping techniques, with sparse activity in verses and strong hooks."
+    },
+    "bass_generator": {
+      "brief": "Create minimal bass lines that complement sparse verses and support energetic hooks."
+    },
+    "harmony_generator": {
+      "brief": "Add minimal chord stabs with low activity, supporting the uplifting mood."
+    },
+    "melody_generator": {
+      "brief": "Develop hook melodies using sample chopping and stutter techniques while keeping verses sparse."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement focusing on minimal variation, sparse verses, and energetic hook sections."
+    },
+    "presetor": {
+      "brief": "Select and apply appropriate effects and sample presets to enhance chopping techniques and maintain clarity."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and energy curve reflecting sparse verses and strong, uplifting hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance channels to highlight chopped samples in drums and melody; maintain clear vocal presence in hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

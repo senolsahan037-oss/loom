@@ -1,0 +1,251 @@
+{
+  "project": {
+    "name": "Boom Bap Dark Minimal Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      40,
+      50,
+      90,
+      100,
+      0
+    ],
+    "notes": "Arrangement focuses on a dark mood with minimal variation and hook-heavy energy profile. Sample layers include micro chops, phrase chops, reverse chops, vocal chops, and stutter chops as separate channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 0
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 35,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 100,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 55,
+          "outro": 0
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "label",
+        "label": "hook_start",
+        "reason": "Begin hook section with hook-heavy energy"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "label",
+        "label": "intro_start",
+        "reason": "Start intro with minimal drum activity"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "label",
+        "label": "final_hook_start",
+        "reason": "Final hook to maximize energy peak"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "label",
+        "label": "bridge_fx_layer",
+        "reason": "Add FX layer for bridge section transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with micro chops and stutters",
+    "bass": "low-end groove",
+    "chords": "harmonic texture using phrase chops",
+    "melody": "complementary melodic lines with reverse chops",
+    "vocal": "vocal chops and stutter chops emphasizing hooks",
+    "fx": "effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 6,
+    "vocal": 10,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing micro chops and stutter chops for rhythm foundation with minimal variation in intro and energy peaks in hook sections."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines to support groove with consistent low-end presence across sections with slight variations for bridge."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord textures incorporating phrase chops that blend with dark mood and minimal variations."
+    },
+    "melody_generator": {
+      "brief": "Develop complementary melodic elements utilizing reverse chops to subtly enhance dark atmosphere."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure ensuring hook-heavy energy profiles with clear section delineations."
+    },
+    "presetor": {
+      "brief": "Manage presets focusing on sample layer settings for micro, phrase, reverse, vocal, and stutter chops."
+    },
+    "songgps": {
+      "brief": "Provide energy curve guidance focusing on hooks and minimal variation adherence."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unmixed channel audio emphasizing clarity of sample chops and vocal layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

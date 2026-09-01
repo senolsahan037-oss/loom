@@ -1,0 +1,243 @@
+{
+  "project": {
+    "name": "Memphis Rap Emotional Club Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      65,
+      80,
+      90,
+      85
+    ],
+    "notes": "Instrumental variation focusing on emotional mood with club energy dynamics. No melodies, chords, or patterns included, just arrangement structure."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 85
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 50,
+          "25": 80,
+          "41": 70,
+          "57": 85,
+          "65": 90,
+          "73": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 75,
+          "41": 60,
+          "57": 80,
+          "65": 85,
+          "73": 45
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 30,
+          "25": 60,
+          "41": 50,
+          "57": 70,
+          "65": 80,
+          "73": 40
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 0,
+          "25": 0,
+          "41": 0,
+          "57": 0,
+          "65": 0,
+          "73": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 0,
+          "25": 0,
+          "41": 0,
+          "57": 0,
+          "65": 0,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 15,
+          "25": 30,
+          "41": 20,
+          "57": 40,
+          "65": 50,
+          "73": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Introduce beat to set emotional and club vibe"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "change",
+        "label": "Hook Boost",
+        "reason": "Increase bass presence to elevate energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "accent",
+        "label": "Bridge FX",
+        "reason": "Add effects to enhance transition"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Gradual drum reduction to close track"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation with club energy dynamics",
+    "bass": "Provide groove and emotional depth",
+    "chords": "Harmonic support with minimal presence",
+    "melody": "None (instrumental variation)",
+    "vocal": "None (instrumental track)",
+    "fx": "Enhance transitions and ambiance"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns reflecting club energy while maintaining emotional tone"
+    },
+    "bass_generator": {
+      "brief": "Generate basslines supporting emotional and rhythmic groove without overpowering"
+    },
+    "harmony_generator": {
+      "brief": "Arrange harmonic elements minimally to keep emotional mood without clutter"
+    },
+    "melody_generator": {
+      "brief": "No melody generation for instrumental variation"
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement sections to balance emotional mood and club energy"
+    },
+    "presetor": {
+      "brief": "Apply appropriate production presets for Memphis Rap instrumental with emotional and club vibe"
+    },
+    "songgps": {
+      "brief": "Guide arrangement flow ensuring energy progression matches emotional club style"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix emphasizing clarity of drums and bass, with smooth transitions"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

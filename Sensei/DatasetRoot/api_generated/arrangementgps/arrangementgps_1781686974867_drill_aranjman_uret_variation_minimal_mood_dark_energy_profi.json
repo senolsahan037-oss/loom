@@ -1,0 +1,330 @@
+{
+  "project": {
+    "name": "Minimal Dark Drill Arrangement",
+    "genre": "Drill",
+    "subgenre": "Minimal",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      60,
+      40,
+      50,
+      80,
+      90,
+      50,
+      40,
+      25,
+      30,
+      50,
+      75,
+      90,
+      85,
+      40,
+      30,
+      20,
+      25,
+      40,
+      65,
+      85,
+      90,
+      45,
+      30,
+      20,
+      25,
+      40,
+      60,
+      80,
+      85,
+      50,
+      35,
+      25,
+      30,
+      55,
+      80,
+      85,
+      70,
+      40,
+      30,
+      20,
+      25,
+      40,
+      65,
+      90,
+      100,
+      60,
+      40,
+      30,
+      35,
+      60,
+      85,
+      90,
+      65,
+      45,
+      35,
+      25,
+      20,
+      40,
+      60,
+      85,
+      90,
+      55,
+      40,
+      30,
+      35,
+      50,
+      70,
+      85,
+      90,
+      50,
+      30,
+      20,
+      25,
+      40
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 5,
+          "bridge": 20,
+          "final_hook": 35,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 35,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of track"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section",
+        "label": "Verse 1 Start",
+        "reason": "Energy build up"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "section",
+        "label": "Hook Start",
+        "reason": "Energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section",
+        "label": "Verse 2 Start",
+        "reason": "Energy tapering"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "section",
+        "label": "Bridge Start",
+        "reason": "Transition"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section",
+        "label": "Final Hook Start",
+        "reason": "Final energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section",
+        "label": "Outro Start",
+        "reason": "Track closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low-end groove",
+    "chords": "harmonic texture",
+    "melody": "atmospheric accents",
+    "vocal": "none",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create crisp, minimal drill drum patterns supporting club energy and dark mood."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, subtle bass groove that complements the minimal arrangement and energizes the club feel."
+    },
+    "harmony_generator": {
+      "brief": "Design sparse chord textures that maintain a dark atmosphere with minimal variation."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements that serve as atmospheric accents and deepen the dark mood."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement cohesion ensuring minimal variation with clear energy dynamics fitting a dark drill style."
+    },
+    "presetor": {
+      "brief": "Apply presets favoring dark, club-oriented sonic textures and minimalistic processing."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement sections conform to structure rules and energy profile matches club energy objectives."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio ensuring clarity and balance for mixing dark, minimal drill sounds."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

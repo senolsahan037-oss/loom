@@ -1,0 +1,356 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Fm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95
+    ],
+    "notes": "Arrangement follows an aggressive, slow build energy profile with an experimental take on Boom Bap structure. Sample layers use channel names referencing sample chopping techniques such as slice, chop, stab, and retrigger."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 55,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 45,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 35,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 40,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_beat_start",
+        "label": "Intro Beat Drop",
+        "reason": "Beginning of slow energy build with drum emphasis"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "Hook Energy Peak",
+        "reason": "Highest energy section in arrangement"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "bridge_fx",
+        "label": "Bridge FX Transition",
+        "reason": "Experimental sound effects to signal section change"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "slice": {
+        "description": "Channels consisting of sliced sample parts",
+        "channels": [
+          "slice_1",
+          "slice_2",
+          "slice_3"
+        ]
+      },
+      "chop": {
+        "description": "Chopped and rearranged sample pieces",
+        "channels": [
+          "chop_1",
+          "chop_2"
+        ]
+      },
+      "stab": {
+        "description": "Short stabs extracted from samples",
+        "channels": [
+          "stab_1",
+          "stab_2",
+          "stab_3"
+        ]
+      },
+      "retrigger": {
+        "description": "Repeated triggers of sample segments",
+        "channels": [
+          "retrigger_1",
+          "retrigger_2"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "character": "gritty, rough textures with emphasis on raw drum hits and vocal aggression",
+    "dynamic_range": "wide with gradual build across arrangement"
+  },
+  "routing_intent": {
+    "drums": "grouped and routed through bus with saturation",
+    "bass": "processed with parallel compression",
+    "chords": "wide stereo spread with subtle reverb",
+    "melody": "dry and upfront in mix",
+    "vocal": "aggressive, slightly distorted with delay effects",
+    "fx": "automated panning and filtering"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with experimental sample chops",
+    "bass": "low-end support and groove enhancer",
+    "chords": "harmonic background textures",
+    "melody": "secondary melodic elements to complement vocals",
+    "vocal": "lead vocal aggression and lyrical delivery",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 4,
+    "vocal": 9,
+    "fx": 3
+  },
+  "designer_intent": {
+    "focus": "achieve aggressive mood with slow energy build using Boom Bap samples and experimental chopping methods",
+    "arrangement_style": "traditional Boom Bap with variations in sectional energy and texture"
+  },
+  "presetor_intent": {
+    "goal": "preset adjustments to emphasize grit and dynamics, retaining clarity in aggressive mix",
+    "effects": "use of saturation, compression, and subtle modulation effects"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create and arrange drum patterns using experimental Boom Bap sample chopping techniques emphasizing aggressive groove and slow energy build"
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that support groove and energy curve without dominating, fitting Boom Bap style and aggressive mood"
+    },
+    "harmony_generator": {
+      "brief": "Arrange chordal layers using chopped and sliced samples to complement mood and build energy progressively"
+    },
+    "melody_generator": {
+      "brief": "Add melodic elements with experimental chops and textures; keep subtle to support vocal aggression"
+    },
+    "ai_designer": {
+      "brief": "Integrate all elements into cohesive aggressive arrangement with smooth slow energy build and variation"
+    },
+    "presetor": {
+      "brief": "Apply presets and effects to reinforce gritty, raw boom bap sound and maintain clarity with aggressive dynamics"
+    },
+    "songgps": {
+      "brief": "Analyze arrangement energy and structure to optimize section transitions and overall flow"
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks preserving aggressive mood and energy progression, emphasizing dynamic range and sample textures"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

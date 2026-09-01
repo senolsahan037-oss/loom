@@ -1,0 +1,252 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Vocal Focus",
+    "genre": "Trip Hop",
+    "subgenre": "Vocal-focused",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      60,
+      80,
+      100,
+      50
+    ],
+    "notes": "Arrangement centers on vocal-centric variations with aggressive mood and club energy; uses micro chops, phrase chops, reverse chops, vocal chops, and stutter chops sample layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 75,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 70,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 90,
+          "final_hook": 100,
+          "outro": 60
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 75,
+          "outro": 35
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal_chops",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse Vocals Entry",
+        "reason": "Introduce vocal chops with micro and phrase chops"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Vocal Stutters",
+        "reason": "Increase energy with stutter chops in hook"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge Reverse Chops",
+        "reason": "Bridge uses reverse chops for tension"
+      },
+      {
+        "track": "micro_chops",
+        "bar": 65,
+        "type": "climax",
+        "label": "Final Hook Micro Chops",
+        "reason": "Maximize intensity with micro chops in final hook"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro Phrase Chops",
+        "reason": "Outro uses phrase chops to wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "groove support",
+    "chords": "harmonic texture",
+    "melody": "instrumental lead",
+    "vocal": "vocal chops and phrases",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 10,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate hip-hop influenced aggressive drum rhythms with club energy maintaining trip hop style."
+    },
+    "bass_generator": {
+      "brief": "Create basslines complementing the aggressive and vocal-focused mood with club energy dynamics."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic layers with chord textures supporting the trip hop and aggressive mood."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic instrumental elements that enhance atmosphere without competing with vocals."
+    },
+    "ai_designer": {
+      "brief": "Arrange vocal chops in micro, phrase, reverse, vocal, and stutter variations supporting an aggressive trip hop club vibe."
+    },
+    "presetor": {
+      "brief": "Assign presets and sound profiles matching aggressive trip hop and vocal chop styling."
+    },
+    "songgps": {
+      "brief": "Coordinate section energy mapping and event markers ensuring coherent arrangement flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mixes emphasizing vocal chops prominence maintaining club-level energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

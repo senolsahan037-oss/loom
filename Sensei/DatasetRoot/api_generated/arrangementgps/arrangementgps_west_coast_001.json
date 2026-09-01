@@ -1,0 +1,128 @@
+{
+  "project": {
+    "name": "West Coast G-Funk Beat - Dr. Dre Style",
+    "bpm": 95,
+    "genre": "West Coast G-Funk",
+    "description": "Punchy drums, fat bass, smooth synth lead beat arrangement giving space for vocals."
+  },
+  "arrangement": {
+    "structure": [
+      {"section": "Intro", "length_bars": 8},
+      {"section": "Verse", "length_bars": 16},
+      {"section": "Chorus", "length_bars": 8},
+      {"section": "Verse", "length_bars": 16},
+      {"section": "Chorus", "length_bars": 8},
+      {"section": "Outro", "length_bars": 8}
+    ],
+    "tempo_bpm": 95,
+    "key": "F minor",
+    "vocal_space": true
+  },
+  "scene": {
+    "instruments": [
+      {
+        "id": "drums_01",
+        "type": "drums",
+        "role": "punchy_drums",
+        "description": "Punchy kick, snappy snare and crisp hi-hats"
+      },
+      {
+        "id": "bass_01",
+        "type": "synth_bass",
+        "role": "fat_bass",
+        "description": "Deep, saturated, thick basslines typical for G-Funk"
+      },
+      {
+        "id": "synth_lead_01",
+        "type": "synth_lead",
+        "role": "smooth_synth_lead",
+        "description": "Smooth, melodic synth lead providing main melodic content"
+      }
+    ]
+  },
+  "production_tree": {
+    "nodes": [
+      {
+        "id": "root_mix",
+        "type": "mixer",
+        "children": ["drums_01", "bass_01", "synth_lead_01"]
+      },
+      {
+        "id": "drums_01",
+        "type": "instrument",
+        "children": []
+      },
+      {
+        "id": "bass_01",
+        "type": "instrument",
+        "children": []
+      },
+      {
+        "id": "synth_lead_01",
+        "type": "instrument",
+        "children": []
+      }
+    ]
+  },
+  "sound_intent": {
+    "drums": {
+      "character": ["punchy", "tight"],
+      "dynamic_range": "medium"
+    },
+    "bass": {
+      "character": ["fat", "warm"],
+      "frequency_focus": ["low-mid", "subbass"]
+    },
+    "synth_lead": {
+      "character": ["smooth", "melodic"],
+      "effects": ["reverb", "delay"]
+    },
+    "overall": {
+      "space_for_vocals": true,
+      "mix_balance": "drums and bass upfront, leads smooth and sitting above"
+    }
+  },
+  "routing_intent": {
+    "drums_01": {
+      "output": "root_mix",
+      "effects_chain": ["compressor", "eq"]
+    },
+    "bass_01": {
+      "output": "root_mix",
+      "effects_chain": ["saturation", "eq"]
+    },
+    "synth_lead_01": {
+      "output": "root_mix",
+      "effects_chain": ["delay", "reverb"]
+    },
+    "root_mix": {
+      "output": "master_out",
+      "effects_chain": ["limiter"]
+    }
+  },
+  "agents": [
+    {
+      "name": "BeatArrangerBot",
+      "role": "arrangement_generation",
+      "capabilities": ["structure", "instrument_placement", "beat_style_mirroring"]
+    },
+    {
+      "name": "SoundDesignBot",
+      "role": "sound_design",
+      "capabilities": ["tone_shaping", "effects_selection", "character_emulation"]
+    }
+  ],
+  "render_policy": {
+    "audio_format": "wav",
+    "bit_depth": 24,
+    "sample_rate": 48000,
+    "mix_version": "final_draft",
+    "include_stems": true
+  },
+  "metadata": {
+    "created_by": "ArrangementGPS User",
+    "created_at": "2024-06-21T12:00:00Z",
+    "project_version": "1.0",
+    "tags": ["West Coast", "G-Funk", "Dr. Dre", "95 BPM", "Punchy Drums", "Fat Bass", "Smooth Synth"]
+  }
+}

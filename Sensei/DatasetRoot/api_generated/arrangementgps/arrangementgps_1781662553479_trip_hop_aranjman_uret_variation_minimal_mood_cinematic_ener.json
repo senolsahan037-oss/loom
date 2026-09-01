@@ -1,0 +1,237 @@
+{
+  "project": {
+    "name": "Trip Hop Minimal Cinematic Club Energy",
+    "genre": "Trip Hop",
+    "subgenre": "Minimal",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      60,
+      80,
+      90,
+      60
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits arranged using sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 50
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 25,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hit",
+        "label": "kick_slice_01",
+        "reason": "One-shot hit for hook drop"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "texture",
+        "label": "texture_bed_ambient_01",
+        "reason": "Bridge texture bed introduction"
+      },
+      {
+        "track": "chords",
+        "bar": 65,
+        "type": "slice",
+        "label": "chord_slice_01",
+        "reason": "Final hook chord sample slice"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample slicing for rhythmic hits",
+    "bass": "subtle textural low frequencies",
+    "chords": "sample-based pad slices",
+    "melody": "minimal one-shot melodic hits",
+    "vocal": "minimal vocal samples layered sparingly",
+    "fx": "ambient texture beds and impacts"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 4,
+    "melody": 2,
+    "vocal": 1,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns using sample slicing and one-shot hits aligned with club energy."
+    },
+    "bass_generator": {
+      "brief": "Create minimal bass layers complementing the trip hop subgenre with sample textures."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chord sample slices forming a cinematic atmosphere over the track."
+    },
+    "melody_generator": {
+      "brief": "Add sparse one-shot melodic sample hits that enhance the minimal trip hop mood."
+    },
+    "ai_designer": {
+      "brief": "Control overall arrangement flow focusing on energy shaping and minimalism."
+    },
+    "presetor": {
+      "brief": "Apply sample-based textures and one-shot sample layers conforming to the genre and mood."
+    },
+    "songgps": {
+      "brief": "Guide arrangement sections and energy curve to maintain cinematic but club energy vibe."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio output prioritizing clarity for mix stage."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

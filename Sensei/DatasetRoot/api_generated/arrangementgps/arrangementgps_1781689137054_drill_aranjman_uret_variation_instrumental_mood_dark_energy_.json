@@ -1,0 +1,275 @@
+{
+  "project": {
+    "name": "Drill Instrumental Dark Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "C#m",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      20,
+      40,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20,
+      10,
+      5,
+      10,
+      30,
+      60,
+      85,
+      100,
+      80,
+      60,
+      40,
+      20,
+      10
+    ],
+    "notes": "This is an instrumental drill arrangement with a cinematic rise and fall in energy, maintaining a dark mood throughout. The arrangement focuses on the interplay of drums and bass with atmospheric FX to create tension and release. No melodic or vocal elements are included."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 10,
+          "verse_2": 0,
+          "bridge": 5,
+          "final_hook": 10,
+          "outro": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of track with low energy"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Increase in energy with drum introduction"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Peak energy and FX intensify"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Energy drop and variation in drums"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition with increased FX activity"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final energy peak in arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy fades to conclusion"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and drive",
+    "bass": "harmonic and rhythmic support",
+    "chords": "atmospheric texture",
+    "melody": "not used",
+    "vocal": "not used",
+    "fx": "atmospheric enhancement and tension"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 100,
+    "bass": 80,
+    "chords": 30,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 50
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a dark, energetic drill drum pattern that follows the cinematic energy rise and fall, focusing on variation and tension without overusing fills."
+    },
+    "bass_generator": {
+      "brief": "Create a complementary bassline that supports the drums and enhances the dark cinematic mood with smooth dynamic changes matching the energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Introduce minimal atmospheric chord textures sparingly, focusing on dark and cinematic tones enhancing tension but avoiding melody or complex harmony."
+    },
+    "melody_generator": {
+      "brief": "No melodic elements needed; remain in an instrumental drill arrangement focused on rhythm and atmosphere."
+    },
+    "ai_designer": {
+      "brief": "Oversee the overall arrangement coherence ensuring the cinematic rise and fall energy shape is maintained, guiding transitions and section flow."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that emphasize dark and cinematic characteristics, especially on drums and FX to heighten impact during hooks."
+    },
+    "songgps": {
+      "brief": "Track progression and energy curve alignment; ensure the arrangement sections and energy profile fit the desired cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixes focusing on clarity and depth, with dynamic control matching the energy shifts, highlighting drums and bass and keeping space for FX."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

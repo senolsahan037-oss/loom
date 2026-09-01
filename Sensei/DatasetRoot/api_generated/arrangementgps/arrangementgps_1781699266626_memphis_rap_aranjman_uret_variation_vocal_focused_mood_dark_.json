@@ -1,0 +1,226 @@
+{
+  "project": {
+    "name": "Memphis Rap Dark Vocal Focus",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      50,
+      60,
+      80,
+      40
+    ],
+    "notes": "Focus on strong vocal delivery with hook-heavy arrangement; minimal melodic distractions"
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 30,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 30,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 20,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begin",
+        "reason": "Increase vocal energy and presence"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final Hook Begin",
+        "reason": "Climax of vocal energy for hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation with characteristic Memphis rap beats",
+    "bass": "Deep and supportive low-end to drive groove",
+    "chords": "Sparse atmospheric support to enhance dark mood",
+    "melody": "Minimal, to leave space for vocals",
+    "vocal": "Primary focus, delivering dark, intense vocal lines",
+    "fx": "Subtle effects to add atmosphere and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 10,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate classic Memphis rap drum patterns emphasizing groove and energy transitions."
+    },
+    "bass_generator": {
+      "brief": "Create deep, supportive basslines that complement drum rhythm and emphasize dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal chordal elements to support dark atmosphere without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Design sparse melodic lines that create subtle mood enhancement, allowing vocals to dominate."
+    },
+    "ai_designer": {
+      "brief": "Arrange overall structure focusing on vocal prominence and hook-heavy energy peaks."
+    },
+    "presetor": {
+      "brief": "Apply preset sounds that fit Memphis rap style with emphasis on dark textures and vocal clarity."
+    },
+    "songgps": {
+      "brief": "Manage arrangement energy curve and ensure smooth transitions between sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix to highlight vocal track while maintaining groove and dark mood in instrumental parts."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

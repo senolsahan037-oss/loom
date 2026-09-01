@@ -1,0 +1,264 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Minimal Hook",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 85,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      100,
+      60,
+      30
+    ],
+    "notes": "Minimalist aggressive trip hop arrangement focusing on a hook-heavy energy profile with sample chop technique based channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 80,
+          "verse_2": 5,
+          "bridge": 15,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Begin high energy hook section"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Emphasize hook with maximum energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "name": "Trip Hop Aggressive Minimal Hook Production",
+    "children": [
+      {
+        "name": "SampleChop Layer",
+        "channels": [
+          "Slice",
+          "Roll",
+          "Stutter",
+          "Reverse",
+          "Granular"
+        ],
+        "description": "Channels named by sample chop techniques for clear production routing."
+      }
+    ]
+  },
+  "sound_intent": {
+    "texture": "gritty, dark, sampled textures",
+    "effects": [
+      "reverb",
+      "delay",
+      "bitcrusher"
+    ],
+    "dynamic": "punchy and sparse with hook emphasis"
+  },
+  "routing_intent": {
+    "drums": "grouped with parallel compression",
+    "bass": "sidechained to drums",
+    "chords": "sent to reverb bus",
+    "melody": "dry with delay effects on hooks",
+    "vocal": "limited use, processed with distortion",
+    "fx": "background textures and transitions"
+  },
+  "track_roles": {
+    "drums": "rhythm backbone",
+    "bass": "groove foundation",
+    "chords": "harmonic atmosphere",
+    "melody": "main hook carrier",
+    "vocal": "aggressive texture layer",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 5,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {
+    "overview": "Create a minimal trip hop arrangement with aggressive mood and hook-focused energy spikes using sample chop based channels."
+  },
+  "presetor_intent": {
+    "overview": "Apply presets that emphasize grit, punch, and sparse layering to maintain minimalism and aggressive tone."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns emphasizing chop and stutter sample techniques to create aggressive, punchy grooves."
+    },
+    "bass_generator": {
+      "brief": "Produce minimal, dark bass lines that complement drum rhythms with subtle sidechain compression."
+    },
+    "harmony_generator": {
+      "brief": "Create sparse chord layers with ambient sample choppings, focusing on dark, moody textures."
+    },
+    "melody_generator": {
+      "brief": "Develop hook-heavy melodic phrases using granular and stutter sample chop channels to maximize energy."
+    },
+    "ai_designer": {
+      "brief": "Arrange the overall structure to maintain minimalism and aggression, emphasizing hook sections dynamically."
+    },
+    "presetor": {
+      "brief": "Select and tweak sound presets for gritty, lo-fi textures with effects like bitcrushing, delay, and reverb."
+    },
+    "songgps": {
+      "brief": "Manage arrangement timing and energy curves to balance quiet verses with aggressive hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks ensuring clarity, punch, and proper effect balance while preserving the rawness of sample chops."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

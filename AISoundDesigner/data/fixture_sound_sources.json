@@ -1,0 +1,2553 @@
+{
+  "synthetic": true,
+  "tracks": [
+    {
+      "project": "demo_project_01",
+      "track": "KICK 1",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "KICK 2",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "KICK 3",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "KICK 4",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "KICK 5",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "KICK 6",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "KICK 7",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "KICK 8",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "KICK 9",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "KICK 10",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "KICK 11",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "KICK 12",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "KICK 13",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "KICK 14",
+      "track_type": "MidiTrack",
+      "role": "kick",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif"
+      ],
+      "all_samples": [
+        "Demo Kick A.aif",
+        "Demo Kick B.aif",
+        "Bounce kick [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "SNARE 1",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "SNARE 2",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "SNARE 3",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "SNARE 4",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "SNARE 5",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "SNARE 6",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "SNARE 7",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "SNARE 8",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "SNARE 9",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "SNARE 10",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "SNARE 11",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "SNARE 12",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "SNARE 13",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "SNARE 14",
+      "track_type": "MidiTrack",
+      "role": "snare",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif"
+      ],
+      "all_samples": [
+        "Demo Snare A.aif",
+        "Demo Snare B.aif",
+        "Bounce snare [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "HAT 1",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "HAT 2",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "HAT 3",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "HAT 4",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "HAT 5",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "HAT 6",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "HAT 7",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "HAT 8",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "HAT 9",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "HAT 10",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "HAT 11",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "HAT 12",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "HAT 13",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "HAT 14",
+      "track_type": "MidiTrack",
+      "role": "hat",
+      "instruments": [
+        "DrumGroupDevice"
+      ],
+      "instrument_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif"
+      ],
+      "all_samples": [
+        "Demo Hat Closed.aif",
+        "Demo Hat Open.aif",
+        "Bounce hat [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "BASS 1",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "BASS 2",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "BASS 3",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "BASS 4",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "BASS 5",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "BASS 6",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "BASS 7",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "BASS 8",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "BASS 9",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "BASS 10",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "BASS 11",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "BASS 12",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "BASS 13",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "BASS 14",
+      "track_type": "MidiTrack",
+      "role": "bass",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif"
+      ],
+      "all_samples": [
+        "Demo Bass C1.aif",
+        "Demo Bass C2.aif",
+        "Bounce bass [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "SUB 1",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "SUB 2",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "SUB 3",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "SUB 4",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "SUB 5",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "SUB 6",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "SUB 7",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "SUB 8",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "SUB 9",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "SUB 10",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "SUB 11",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "SUB 12",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "SUB 13",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "SUB 14",
+      "track_type": "MidiTrack",
+      "role": "sub",
+      "instruments": [
+        "Operator"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce sub [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "KEYS 1",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "KEYS 2",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "KEYS 3",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "KEYS 4",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "KEYS 5",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "KEYS 6",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "KEYS 7",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "KEYS 8",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "KEYS 9",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "KEYS 10",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "KEYS 11",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "KEYS 12",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "KEYS 13",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "KEYS 14",
+      "track_type": "MidiTrack",
+      "role": "keys",
+      "instruments": [
+        "MultiSampler"
+      ],
+      "instrument_samples": [
+        "Demo Keys Soft.aif"
+      ],
+      "all_samples": [
+        "Demo Keys Soft.aif",
+        "Bounce keys [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "PAD 1",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "PAD 2",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "PAD 3",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "PAD 4",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "PAD 5",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "PAD 6",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "PAD 7",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "PAD 8",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "PAD 9",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "PAD 10",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "PAD 11",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "PAD 12",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "PAD 13",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "PAD 14",
+      "track_type": "MidiTrack",
+      "role": "pad",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [
+        "Demo Pad Wide.aif"
+      ],
+      "all_samples": [
+        "Demo Pad Wide.aif",
+        "Bounce pad [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "LEAD 1",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "LEAD 2",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "LEAD 3",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "LEAD 4",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "LEAD 5",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "LEAD 6",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "LEAD 7",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "LEAD 8",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "LEAD 9",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "LEAD 10",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "LEAD 11",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "LEAD 12",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "LEAD 13",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "LEAD 14",
+      "track_type": "MidiTrack",
+      "role": "lead",
+      "instruments": [
+        "UltraAnalog"
+      ],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce lead [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "PERC 1",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "PERC 2",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "PERC 3",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "PERC 4",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "PERC 5",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "PERC 6",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "PERC 7",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "PERC 8",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "PERC 9",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "PERC 10",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "PERC 11",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "PERC 12",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "PERC 13",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "PERC 14",
+      "track_type": "AudioTrack",
+      "role": "perc",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce perc [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "SAMPLE 1",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "SAMPLE 2",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "SAMPLE 3",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "SAMPLE 4",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "SAMPLE 5",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "SAMPLE 6",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "SAMPLE 7",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "SAMPLE 8",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "SAMPLE 9",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "SAMPLE 10",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "SAMPLE 11",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "SAMPLE 12",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "SAMPLE 13",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "SAMPLE 14",
+      "track_type": "MidiTrack",
+      "role": "sample",
+      "instruments": [
+        "OriginalSimpler"
+      ],
+      "instrument_samples": [
+        "Demo Break 90.aif"
+      ],
+      "all_samples": [
+        "Demo Break 90.aif",
+        "Bounce sample [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "BUS 1",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "BUS 2",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "BUS 3",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "BUS 4",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "BUS 5",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "BUS 6",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "BUS 7",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "BUS 8",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "BUS 9",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "BUS 10",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "BUS 11",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "BUS 12",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "BUS 13",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "BUS 14",
+      "track_type": "AudioTrack",
+      "role": "bus",
+      "instruments": [],
+      "instrument_samples": [],
+      "all_samples": [
+        "Bounce bus [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "FX 1",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "FX 2",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_03",
+      "track": "FX 3",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_04",
+      "track": "FX 4",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_05",
+      "track": "FX 5",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-05 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_06",
+      "track": "FX 6",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-06 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_07",
+      "track": "FX 7",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-07 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_08",
+      "track": "FX 8",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-08 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_09",
+      "track": "FX 9",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-09 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_10",
+      "track": "FX 10",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-01 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_11",
+      "track": "FX 11",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-02 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_12",
+      "track": "FX 12",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-03 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_01",
+      "track": "FX 13",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-04 000000]-1.wav"
+      ]
+    },
+    {
+      "project": "demo_project_02",
+      "track": "FX 14",
+      "track_type": "AudioTrack",
+      "role": "fx",
+      "instruments": [],
+      "instrument_samples": [
+        "Demo Riser.aif"
+      ],
+      "all_samples": [
+        "Demo Riser.aif",
+        "Bounce fx [2026-01-05 000000]-1.wav"
+      ]
+    }
+  ]
+}

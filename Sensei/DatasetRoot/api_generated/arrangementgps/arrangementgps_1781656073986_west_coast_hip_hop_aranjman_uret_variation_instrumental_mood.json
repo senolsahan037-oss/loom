@@ -1,0 +1,275 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Instrumental Dark Hook-Heavy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      80,
+      20
+    ],
+    "notes": "Instrumental arrangement with hook-heavy energy profile; dark mood suitable for West Coast hip-hop style; focus on sample chopping techniques in track construction."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begins",
+        "reason": "Energy rises sharply with hook"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook",
+        "reason": "Climactic hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "intro_effect",
+        "label": "Sample Chopping FX Intro",
+        "reason": "Establish atmosphere with sample chopping effects"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "sample_layer": "Stutter Chop",
+      "technique": "modern sample chopping"
+    },
+    "bass": {
+      "sample_layer": "Reverse Slice",
+      "technique": "modern sample chopping"
+    },
+    "chords": {
+      "sample_layer": "Granular Chop",
+      "technique": "modern sample chopping"
+    },
+    "melody": {
+      "sample_layer": "Glitch Chop",
+      "technique": "modern sample chopping"
+    },
+    "fx": {
+      "sample_layer": "Bitcrush Chop",
+      "technique": "modern sample chopping"
+    }
+  },
+  "sound_intent": {
+    "texture": "dark and moody",
+    "energy_profile": "hook-heavy with dynamic builds",
+    "sample_style": "modern chopping with layered complexity"
+  },
+  "routing_intent": {
+    "channels": {
+      "Stutter Chop": "drums",
+      "Reverse Slice": "bass",
+      "Granular Chop": "chords",
+      "Glitch Chop": "melody",
+      "Bitcrush Chop": "fx"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with stutter chops",
+    "bass": "low-end drive with reversed slices",
+    "chords": "harmonic texture with granular chops",
+    "melody": "lead elements via glitch chopping",
+    "vocal": "none",
+    "fx": "atmospheric enhancement with bitcrush chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "use sample chopping as core arrangement technique to reinforce dark mood and hook-driven energy",
+    "style": "authentic West Coast hip-hop instrumental vibe with a contemporary twist"
+  },
+  "presetor_intent": {
+    "preset_selection": "samples emphasizing chopped and sliced textures with dark timbres",
+    "effects": "minimal reverb, subtle saturation for grit"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Develop drum patterns integrating stutter chop samples focusing on groove and rhythmic interest."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using reversed slice samples with dark tonal qualities to support low end."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord layers employing granular chop techniques for harmonic depth in the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Produce lead melody elements utilizing glitch chop sample techniques to highlight hook sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, balancing energy levels and integrating sample chopping methods effectively."
+    },
+    "presetor": {
+      "brief": "Select and apply presets that best reflect modern sample chopping styles with dark tonal palettes."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and energy curves with emphasis on hook-heavy arrangements."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing ensuring clean separation of chopped sample tracks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "project": {
+    "name": "Drill Instrumental Uplifting",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      25,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Instrumental drill arrangement with a slow building energy profile emphasizing uplifting mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Starting low energy build"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Peak Energy",
+        "reason": "High energy section for uplifting mood"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Drop",
+        "reason": "Energy tapering off"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low end support and groove",
+    "chords": "harmonic texture",
+    "melody": "lead instrumental lines",
+    "vocal": "none - instrumental variation",
+    "fx": "transitional effects and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum patterns matching the slow build energy curve, focusing on drill rhythmic style."
+    },
+    "bass_generator": {
+      "brief": "Create a supportive bassline that reinforces harmonic progressions and grows with energy over sections."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures that complement the uplifting mood and build energy gradually."
+    },
+    "melody_generator": {
+      "brief": "Design instrumental melodic elements that convey uplifting feel without vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring smooth transitions and appropriate energy progression throughout the song."
+    },
+    "presetor": {
+      "brief": "Apply presets and sound design suited for drill genre with an uplifting instrumental character."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement structure and energy dynamics according to the slow build, uplifting goal."
+    },
+    "ai_mixmaster": {
+      "brief": "Plan mix routing ensuring clarity and balance among drums, bass, chords, melody and effects."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Aggression",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      30
+    ],
+    "notes": "Arrangement follows an aggressive, club energy profile with modern sample chopping techniques highlighting the experimental variation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 36,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 37,
+        "end_bar": 52,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 53,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "slice": 80,
+          "stutter": 75,
+          "glitch": 65,
+          "chop": 90,
+          "roll": 70
+        }
+      },
+      "bass": {
+        "activity": {
+          "slice": 60,
+          "chop": 55
+        }
+      },
+      "chords": {
+        "activity": {
+          "slice": 40,
+          "stutter": 45
+        }
+      },
+      "melody": {
+        "activity": {
+          "glitch": 50,
+          "roll": 55
+        }
+      },
+      "vocal": {
+        "activity": {
+          "stutter": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "glitch": 60,
+          "roll": 50,
+          "slice": 45
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy boost with sample chopping"
+      },
+      {
+        "track": "bass",
+        "bar": 37,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Maintain aggressive club energy"
+      },
+      {
+        "track": "fx",
+        "bar": 53,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Introduce experimental textures"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone using chopped samples",
+    "bass": "supportive low end with chopped bass riffs",
+    "chords": "textural atmosphere via sample manipulation",
+    "melody": "experimental leading motifs with glitch and roll effects",
+    "vocal": "uses stutter effects for aggressive textures",
+    "fx": "enhancing transitions and experimental sound design"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 1,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using modern sample chopping techniques such as slicing, stuttering, and glitching aligned with aggressive club energy."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines emphasizing chopped and sliced patterns to reinforce the trip hop experimental atmosphere with club energy."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures using sample-based stutter and slice effects to add experimental layers in the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Design melodic motifs utilizing glitch, roll, and chop sample manipulations fitting the aggressive and experimental mood."
+    },
+    "ai_designer": {
+      "brief": "Ensure arrangement sections and energy curves reflect a strong club energy profile with aggressive trip hop character and experimental sample chops."
+    },
+    "presetor": {
+      "brief": "Apply effects and presets emphasizing sample chopping methods and aggressive tonality across all sample layers."
+    },
+    "songgps": {
+      "brief": "Manage overall song structure with defined sections and energy markers incorporating experimental trip hop traits and modern sample chopping."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance the mix to highlight the dynamic energy shifts, ensuring clarity in the sample chopped drum and melodic layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

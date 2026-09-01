@@ -1,0 +1,357 @@
+{
+  "project": {
+    "name": "Trip Hop Cinematic Vocal Focus",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      45,
+      60,
+      75,
+      90,
+      75,
+      50,
+      65,
+      80,
+      95,
+      80,
+      60,
+      40,
+      30,
+      20,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      55,
+      35,
+      45,
+      60,
+      75,
+      90,
+      85,
+      70,
+      50,
+      35,
+      40,
+      60,
+      85,
+      100,
+      85,
+      70,
+      55,
+      40,
+      35,
+      30,
+      45,
+      60,
+      75,
+      90,
+      80,
+      60,
+      40,
+      25,
+      20,
+      35,
+      60,
+      85,
+      100,
+      80,
+      65,
+      50,
+      35,
+      25,
+      20,
+      30,
+      45,
+      60,
+      80,
+      95,
+      85,
+      65,
+      50,
+      35,
+      25,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "notes": "Arrangement focuses on vocal prominence with cinematic rise and fall in energy; sample layers built with channels named after sample chopping techniques such as 'Slice', 'Chop', 'Stab', 'Loop', 'Hit'."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Vocal intro",
+        "reason": "vocal-focused variation begins"
+      },
+      {
+        "track": "hook",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "Hook high energy",
+        "reason": "cinematic rise peak"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge section",
+        "reason": "dynamic variation"
+      },
+      {
+        "track": "final_hook",
+        "bar": 65,
+        "type": "energy_peak",
+        "label": "Final hook peak",
+        "reason": "cinematic climax"
+      }
+    ]
+  },
+  "production_tree": {
+    "SampleLayers": {
+      "Slice": [
+        "Kick_sliced",
+        "Snare_sliced"
+      ],
+      "Chop": [
+        "Vocal_chopped_1",
+        "Vocal_chopped_2"
+      ],
+      "Stab": [
+        "Chord_stab_1",
+        "Chord_stab_2"
+      ],
+      "Loop": [
+        "Atmos_loop",
+        "Drum_loop"
+      ],
+      "Hit": [
+        "FX_hit_1",
+        "FX_hit_2"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal clarity and prominence",
+    "texture": "cinematic, smooth textures with trip hop groove",
+    "dynamic": "energy rises and falls to create cinematic flow"
+  },
+  "routing_intent": {
+    "vocal": "lead signal chain with subtle reverb and delay",
+    "drums": "compressed for punchiness and groove",
+    "fx": "send effects for ambiance and transitions"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with trip hop groove",
+    "bass": "subtle low end to support mood",
+    "chords": "harmonic texture using sample stabs",
+    "melody": "ambient melodic motifs, minimal",
+    "vocal": "central melodic and emotional focus",
+    "fx": "atmospheric transitions and effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 10,
+    "fx": 1
+  },
+  "designer_intent": {
+    "highlighted_vocal": true,
+    "cinematic_energy_shape": true,
+    "sample_based_channels": true
+  },
+  "presetor_intent": {
+    "presets": [
+      "VocalBright",
+      "DrumPunch",
+      "CinematicReverb"
+    ]
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns with trip hop groove using sliced sample layers, maintain dynamic interest matching energy curve"
+    },
+    "bass_generator": {
+      "brief": "Generate subtle bass lines to support mood, focus on smooth flow and low-end presence without overpowering vocals"
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic chords using stab samples to create cinematic texture complementing vocal focus"
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic motifs with atmospheric quality to complement cinematic mood"
+    },
+    "ai_designer": {
+      "brief": "Arrange sections to follow cinematic rise and fall energy profile with vocal prominence and smooth transitions"
+    },
+    "presetor": {
+      "brief": "Apply presets to enhance vocal clarity, drum punch, and cinematic reverb characteristics"
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement timing and energy curve to reflect variation and mood accurately"
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels focusing on maintaining vocal presence and dynamic cinematic energy shape ensuring clarity and balance"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "project": {
+    "name": "Phonk Vocal Variation",
+    "genre": "Phonk",
+    "subgenre": "Vocal-focused",
+    "bpm": 85,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      65,
+      75,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      40,
+      45,
+      50,
+      60,
+      70,
+      80,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": "Arrangement focuses on vocal chops and variations with a slow build energy profile reflecting dark mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 45
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 35,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 35,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 1,
+        "type": "technique_intro",
+        "label": "Micro Chops Intro",
+        "reason": "Introduce micro chopped vocal textures"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "technique_switch",
+        "label": "Phrase Chops Begin",
+        "reason": "Shift to phrase chopping for variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "technique_emphasis",
+        "label": "Reverse Chops Highlight",
+        "reason": "Create dark mood with reversed vocal chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "technique_modulation",
+        "label": "Vocal Chops Variation",
+        "reason": "Introduce new vocal chops phrases for energy build"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "technique_stutter",
+        "label": "Stutter Chops Bridge",
+        "reason": "Add rhythmic interest and energy increase"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "technique_climax",
+        "label": "Full Vocal Chops Layer",
+        "reason": "Final hook with full vocal chop textures"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "micro_chops": {
+        "type": "sample_layer",
+        "description": "Layer for micro chopped samples"
+      },
+      "phrase_chops": {
+        "type": "sample_layer",
+        "description": "Layer for phrase chopped samples"
+      },
+      "reverse_chops": {
+        "type": "sample_layer",
+        "description": "Layer for reversed chopped samples"
+      },
+      "vocal_chops": {
+        "type": "sample_layer",
+        "description": "Layer for vocal chops"
+      },
+      "stutter_chops": {
+        "type": "sample_layer",
+        "description": "Layer for stutter chopped samples"
+      }
+    }
+  },
+  "sound_intent": {
+    "vocal_focus": true,
+    "atmosphere": "dark",
+    "energy_profile": "slow build"
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "vocal",
+      "phrase_chops": "vocal",
+      "reverse_chops": "vocal",
+      "vocal_chops": "vocal",
+      "stutter_chops": "vocal"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low-end support",
+    "chords": "harmonic texture",
+    "melody": "complementary lead",
+    "vocal": "primary focus - chopped vocals",
+    "fx": "atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 40,
+    "bass": 30,
+    "chords": 20,
+    "melody": 10,
+    "vocal": 100,
+    "fx": 15
+  },
+  "designer_intent": {
+    "focus": "Create a dark, vocal-focused phonk arrangement with slow dynamic energy build",
+    "techniques": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ]
+  },
+  "presetor_intent": {
+    "preset_priority": "enhance vocal chop textures, preserve dark ambiance, smooth transitions"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns with gradual intensity increase supporting slow energy build"
+    },
+    "bass_generator": {
+      "brief": "Produce basslines that complement dark mood and support slow build energy progression"
+    },
+    "harmony_generator": {
+      "brief": "Create chord progressions providing dark harmonic texture without overwhelming vocals"
+    },
+    "melody_generator": {
+      "brief": "Develop complementary melodic lines emphasizing mood without conflicting with vocal chops"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure focusing on vocal chops variation and energy curve adherence"
+    },
+    "presetor": {
+      "brief": "Apply sound presets emphasizing vocal chops and dark atmosphere throughout track"
+    },
+    "songgps": {
+      "brief": "Manage energy curve progression and section transitions ensuring a coherent slow build narrative"
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix prioritizing vocal chop clarity and dark mood ambience with smooth dynamics"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "project": {
+    "name": "Boom Bap Minimal Aggressive Hook-Heavy",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "Cm",
+    "mood": "Aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      40
+    ],
+    "notes": "Minimal variation with strong hook emphasis, aggressive mood, boom bap style with modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 95,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 5,
+          "hook": 35,
+          "verse_2": 5,
+          "bridge": 15,
+          "final_hook": 40,
+          "outro": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 10,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "Energy and hook-heavy section begins with modern sample chopping (slice) drum pattern"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "Final hook begins with prominent sample chop layers"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "slice",
+        "stutter",
+        "reverse",
+        "time_stretch"
+      ],
+      "channels": [
+        "slice",
+        "stutter",
+        "reverse",
+        "time_stretch"
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "modern sample chopping techniques emphasizing aggressive, punchy textures on slice and stutter channels",
+    "mood": "aggressive",
+    "energy_profile": "hook-heavy"
+  },
+  "routing_intent": {
+    "channels": {
+      "slice": "sample chopping slices routed to dedicated sample slice channel",
+      "stutter": "short repeated chops routed to stutter channel",
+      "reverse": "reverse sample hits routed to reverse channel",
+      "time_stretch": "time stretched samples routed to time stretch channel"
+    }
+  },
+  "track_roles": {
+    "drums": "percussion foundation with punchy sample chops",
+    "bass": "focused on supporting groove and low-end",
+    "chords": "minimal harmonic pads",
+    "melody": "tonal sample chops creating hook lines",
+    "vocal": "rap vocal left empty for user input",
+    "fx": "effects and transitions emphasizing sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      2,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Minimal, aggressive boom bap arrangement with strong hooks supported by modern sample chopping across channels named after chopping techniques."
+  },
+  "presetor_intent": {
+    "emphasis": "Bypass temporary arrangement chains and preserve hook-heavy energy profile with clean transitions between sections."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create aggressive but minimal drum pattern emphasizing slice and stutter chop techniques on dedicated channels."
+    },
+    "bass_generator": {
+      "brief": "Provide simple, supportive basslines that underpin groove without overpowering arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Apply minimal chordal elements consistent with boom bap style and modern sample manipulation techniques."
+    },
+    "melody_generator": {
+      "brief": "Generate tonal sample chopped melodies focused on hook development and energy lift within arrangement."
+    },
+    "ai_designer": {
+      "brief": "Design arrangement structure adhering to minimal variation and hook-heavy energy profile with aggressive mood."
+    },
+    "presetor": {
+      "brief": "Manage preset selection to highlight slice, stutter, reverse, and time stretch sample channels for clean modern boom bap sound."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and ensure energy curve reflects minimal variation with strong hook dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks emphasizing punch and clarity of sample chopping techniques, prioritizing hook sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

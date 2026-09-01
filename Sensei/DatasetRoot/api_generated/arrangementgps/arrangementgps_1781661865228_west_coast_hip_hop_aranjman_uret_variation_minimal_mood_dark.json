@@ -1,0 +1,266 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Dark Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      30,
+      40,
+      70,
+      50,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks create dramatic contrast. Minimal variation emphasized for a dark, moody West Coast vibe using sample-based layers with texture beds and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 0,
+          "hook": 50,
+          "verse_2": 0,
+          "bridge": 10,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 10,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 35,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "intro_start",
+        "reason": "Intro begins with sample-based texture bed"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "verse_1_start",
+        "reason": "Sparse verses begin with vocal samples"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "hook_start",
+        "reason": "Strong hook with one-shot vocal hits"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "start",
+        "label": "verse_2_start",
+        "reason": "Second verse with sparse vocals"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "start",
+        "label": "bridge_start",
+        "reason": "Texture bed changes for bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "start",
+        "label": "final_hook_start",
+        "reason": "Final hook with strong energy"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "start",
+        "label": "outro_start",
+        "reason": "Outro begins, energy winding down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Sample-based beat elements with sliced percussion hits",
+    "bass": "Low-end support from sampled basslines",
+    "chords": "Texture beds from chopped samples",
+    "melody": "Sparse one-shot melodic samples",
+    "vocal": "Vocal samples used for hooks and sparse verses",
+    "fx": "Atmospheric and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      66
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create minimal drum patterns using sample slicing techniques aligned to sparse verses and strong hook hits."
+    },
+    "bass_generator": {
+      "brief": "Generate low-end bass layers using sample-based approaches to support sparse verses and enhance hooks."
+    },
+    "harmony_generator": {
+      "brief": "Arrange texture-based sample beds with minimal chordal activity for a dark and moody West Coast hip-hop vibe."
+    },
+    "melody_generator": {
+      "brief": "Insert sparse one-shot melodic samples primarily during hooks and bridge for emotional impact."
+    },
+    "ai_designer": {
+      "brief": "Manage overall arrangement flow emphasizing minimal variation, sparse verses, and energetic hooks."
+    },
+    "presetor": {
+      "brief": "Apply presets focused on sample-based textures, one-shot hits, and dark tonal character."
+    },
+    "songgps": {
+      "brief": "Ensure structural coherence across sections with variation minimalism and dynamic energy shaping."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mix ready for post-processing with clear separation of sample layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

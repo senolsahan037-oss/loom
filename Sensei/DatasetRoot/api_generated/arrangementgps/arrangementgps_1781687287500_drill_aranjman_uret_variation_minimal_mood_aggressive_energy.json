@@ -1,0 +1,334 @@
+{
+  "project": {
+    "name": "Drill Minimal Aggressive Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "Aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      65,
+      45,
+      70,
+      90,
+      85,
+      60,
+      75,
+      90,
+      100,
+      85,
+      80,
+      60,
+      50,
+      40,
+      45,
+      70,
+      85,
+      90,
+      100,
+      90,
+      80,
+      75,
+      60,
+      50,
+      45,
+      70,
+      85,
+      90,
+      100,
+      95,
+      80,
+      65,
+      50,
+      45,
+      70,
+      75,
+      80,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      30,
+      40,
+      60,
+      75,
+      85,
+      90,
+      95,
+      100,
+      95,
+      85,
+      70,
+      60,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      30,
+      40,
+      55,
+      65,
+      70,
+      75,
+      80
+    ],
+    "notes": "Minimal variation with focused aggressive energy, emphasizing rhythmic drive and club-compatible intensity without melodic elaboration or harmonic complexity."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 30,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 15,
+          "bridge": 5,
+          "final_hook": 25,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 15,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of the arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Start of first verse with vocal activity"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Elevated energy and main hook section start"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Continuation of story with moderate energy vocals"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Energy dip and transition"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Return of high energy hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Conclusion with reduced instrumentation"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with punchy, aggressive patterns",
+    "bass": "Driving low end with steady presence",
+    "chords": "Sparse harmonic support for atmosphere",
+    "melody": "Minimal melodic embellishments emphasizing mood",
+    "vocal": "Aggressive vocal delivery with focused clarity",
+    "fx": "Enhancing transitions and adding club atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate aggressive and punchy drum patterns emphasizing minimal variation and club energy."
+    },
+    "bass_generator": {
+      "brief": "Create a driving bassline that supports the rhythmic foundation with minimal melodic complexity."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chordal elements to enhance atmosphere without overpowering the mix."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic motifs to contribute to the aggressive mood subtly."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections for optimal energy flow focusing on drill genre conventions with minimal variations."
+    },
+    "presetor": {
+      "brief": "Select presets that deliver a gritty, club-worthy aggressive sound palette."
+    },
+    "songgps": {
+      "brief": "Coordinate overall arrangement ensuring smooth transitions and balanced energy dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for clean audio mixing focusing on clarity and punch appropriate for club energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_name": "subverse_project",
+  "version": "0.1.0",
+  "description": "Shared dataset schema for ArrangementGPS and all Subverse Lab production agents.",
+  "sections": {
+    "project": {},
+    "arrangement": {},
+    "scene": {},
+    "production_tree": {},
+    "sound_intent": {},
+    "routing_intent": {},
+    "agents": {
+      "sensei_drum": {},
+      "bass_generator": {},
+      "harmony_generator": {},
+      "melody_generator": {},
+      "ai_designer": {},
+      "presetor": {},
+      "songgps": {},
+      "ai_mixmaster": {}
+    },
+    "render_policy": {},
+    "ableton_session_plan": {},
+    "metadata": {}
+  }
+}

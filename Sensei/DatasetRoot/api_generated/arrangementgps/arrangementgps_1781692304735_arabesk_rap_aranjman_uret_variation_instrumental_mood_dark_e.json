@@ -1,0 +1,313 @@
+{
+  "project": {
+    "name": "Arabesk Rap Instrumental",
+    "genre": "Rap",
+    "subgenre": "Arabesk",
+    "bpm": 75,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      30,
+      35,
+      40,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 40,
+          "25-40": 70,
+          "41-56": 50,
+          "57-64": 65,
+          "65-76": 80,
+          "77-80": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 45,
+          "57-64": 55,
+          "65-76": 70,
+          "77-80": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 35,
+          "25-40": 65,
+          "41-56": 50,
+          "57-64": 60,
+          "65-76": 75,
+          "77-80": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 10,
+          "25-40": 40,
+          "41-56": 30,
+          "57-64": 45,
+          "65-76": 60,
+          "77-80": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 5,
+          "25-40": 20,
+          "65-76": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Begin with soft drum pattern"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "change",
+        "label": "Bass Enters",
+        "reason": "Introduce bassline to increase energy"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "change",
+        "label": "Chords Intensify",
+        "reason": "Build chord layer for hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Add atmospheric effects to enhance mood"
+      },
+      {
+        "track": "drums",
+        "bar": 77,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Gradually reduce drum intensity"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low-end support",
+    "chords": "harmonic texture",
+    "melody": "lead instrument",
+    "vocal": "none - instrumental",
+    "fx": "atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      77
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design slow-building drum patterns fitting Arabesk Rap style with dark mood, focusing on a gradual energy increase."
+    },
+    "bass_generator": {
+      "brief": "Create a bassline that supports the slow energy buildup and matches the Arabesk Rap instrumental tone."
+    },
+    "harmony_generator": {
+      "brief": "Generate harmonic chord layers that evoke a dark mood and complement Arabesk style without overpowering other elements."
+    },
+    "melody_generator": {
+      "brief": "Provide subtle melodic motifs used sparingly to build tension without vocal or lead dominance."
+    },
+    "ai_designer": {
+      "brief": "Orchestrate the arrangement structure ensuring the energy curve reflects a slow build suitable for instrumental Arabesk Rap."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that maintain dark atmosphere and clarity through all arrangement layers."
+    },
+    "songgps": {
+      "brief": "Guide timing and section transitions to ensure smooth energy progression and cohesive track flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance raw audio levels to maintain clarity and dynamic range with focus on instrumental texture."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

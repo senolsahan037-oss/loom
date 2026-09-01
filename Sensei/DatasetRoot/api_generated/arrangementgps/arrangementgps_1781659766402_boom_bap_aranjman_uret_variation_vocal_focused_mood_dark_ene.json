@@ -1,0 +1,273 @@
+{
+  "project": {
+    "name": "Boom Bap Vocal Focus Dark",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      60,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks emphasizing vocal variations using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Strong hook with vocal focus"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Crescendo of vocal energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "technique": "modern_sample_chopping",
+      "channels": [
+        "slice",
+        "stutter",
+        "reverse",
+        "glitch"
+      ]
+    }
+  },
+  "sound_intent": {
+    "vocal_focus": true,
+    "mood": "dark",
+    "energy_profile": "sparse_verses_strong_hooks",
+    "sample_techniques": [
+      "slice",
+      "stutter",
+      "reverse",
+      "glitch"
+    ]
+  },
+  "routing_intent": {
+    "channels": {
+      "slice": [
+        "vocal",
+        "drums"
+      ],
+      "stutter": [
+        "vocal",
+        "melody"
+      ],
+      "reverse": [
+        "chords",
+        "fx"
+      ],
+      "glitch": [
+        "fx",
+        "drums"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using chopped drum samples",
+    "bass": "supporting low-end with minimal notes",
+    "chords": "atmospheric texture with chopped samples",
+    "melody": "modern chopped melodic samples",
+    "vocal": "primary focus, vocal samples chopped and varied",
+    "fx": "transitional effects using sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "arrangement": "Create a dark mood boom bap track with sparse verses and explosive, vocal-centered hooks using sample chopping techniques."
+  },
+  "presetor_intent": {
+    "sample_layer_preset": "modern_chop_variations"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Craft drum patterns that highlight sample chopping techniques with varied slice and stutter effects."
+    },
+    "bass_generator": {
+      "brief": "Generate minimal bass parts that complement the sparse verse structure and support dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Create chord textures using reversed and chopped samples to add atmospheric depth."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic content relying on chopped and glitched sample sequences."
+    },
+    "ai_designer": {
+      "brief": "Orchestrate overall structure emphasizing vocal prominence in hooks and sparse energy in verses."
+    },
+    "presetor": {
+      "brief": "Apply presets emphasizing modern sample chopping techniques across relevant channels."
+    },
+    "songgps": {
+      "brief": "Manage arrangement energy curve aligning with sparse verse and strong hook profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix sparse verses to be thin but clear, while giving hooks powerful vocal presence with sample layering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

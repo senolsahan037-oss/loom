@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Memphis Rap Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      20,
+      80,
+      30,
+      10
+    ],
+    "notes": "Sparse verses with strong, energetic hooks. Minimal variation throughout."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 20
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 75,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 10,
+          "final_hook": 40,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "hook_start",
+        "reason": "Strong vocal hook begins"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "start",
+        "label": "verse_2_start",
+        "reason": "Second verse begins with sparse drums"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "start",
+        "label": "final_hook_start",
+        "reason": "Final hook with increased energy starts"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "start",
+        "label": "outro_start",
+        "reason": "Outro begins with minimal instrumentation"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low-end support",
+    "chords": "harmonic texture",
+    "melody": "hook and fills",
+    "vocal": "lead vocals",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 6,
+    "vocal": 10,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic but sparse drum patterns emphasizing strong groove during hooks and minimal activity in verses and outro."
+    },
+    "bass_generator": {
+      "brief": "Develop bass lines that support the sparse verses and accentuate the hook sections with stronger presence."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal harmonic layers that complement the cinematic mood, focusing on subtle chord textures."
+    },
+    "melody_generator": {
+      "brief": "Generate melodic content primarily for hooks with a cinematic feel; keep melodies minimal or absent during verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring cinematic mood is maintained with minimal variation and focus on strong hooks."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance cinematic atmosphere and clarity in hooks while preserving minimalism in verses."
+    },
+    "songgps": {
+      "brief": "Guide structure to balance sparse verses and energetic hooks maintaining consistent arrangement energy curve."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to highlight hook energy peaks and preserve clarity during sparse verse sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

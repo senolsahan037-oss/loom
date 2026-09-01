@@ -1,0 +1,65 @@
+{
+  "actual_track_names": {
+    "New Old Sub": "# New Old Sub"
+  },
+  "bpm_range": {
+    "max": 100,
+    "min": 90,
+    "reference": 95
+  },
+  "device_order": [
+    "EQ Eight",
+    "Glue Compressor",
+    "Utility"
+  ],
+  "device_parameters": [
+    {
+      "name": "EQ Eight",
+      "native_tag": "Eq8",
+      "parameter_state_sha256": "4fa8a9b514fd37a95edc2c230bb58572a9f2a47aa05d0cee45c72f58c77fbe43",
+      "parameters_modified_by_builder": false
+    },
+    {
+      "name": "Glue Compressor",
+      "native_tag": "GlueCompressor",
+      "parameter_state_sha256": "ef4d2063b93915d6c376b733dda632d5434a1fbec6c0ed2adcb109cb34f8d66d",
+      "parameters_modified_by_builder": false
+    },
+    {
+      "name": "Utility",
+      "native_tag": "StereoGain",
+      "parameter_state_sha256": "ecb324f1f96d18098848738337f69f027f34858e549dd6d130da6ee6b35b04ec",
+      "parameters_modified_by_builder": false
+    }
+  ],
+  "fader_offsets_db": {
+    "DRUM BUSS": 0.0,
+    "KICK BUSS": 1.0,
+    "LIVE BASS": -10.0,
+    "New Old Sub": 0.0,
+    "PERC BUSS": 0.5,
+    "SNARE BUSS": -0.5
+  },
+  "genre": "95 BPM boom-bap / sample-chop",
+  "project": "Golden Step_RECOVERED",
+  "required_track_roles": [
+    "KICK BUSS",
+    "SNARE BUSS",
+    "PERC BUSS",
+    "LIVE BASS",
+    "New Old Sub"
+  ],
+  "routing": {
+    "KICK BUSS": "DRUM BUSS",
+    "LIVE BASS": "DRUM BUSS",
+    "New Old Sub": "DRUM BUSS",
+    "PERC BUSS": "DRUM BUSS",
+    "SNARE BUSS": "DRUM BUSS"
+  },
+  "schema_version": 1,
+  "verification": {
+    "direct_drum_buss_device_count": 3,
+    "method": "ALS reload parser and Ableton Live runtime",
+    "next_pointee_id": 134247
+  }
+}

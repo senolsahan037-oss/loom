@@ -1,0 +1,339 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      45,
+      50,
+      55,
+      60,
+      70,
+      80,
+      90,
+      100,
+      100,
+      90,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20
+    ],
+    "notes": "Arrangement features a slow build in energy with an aggressive tone, utilizing modern sample chopping techniques in varied channels representing different chopping styles."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 85,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 35,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_chop_start",
+        "label": "Slice",
+        "reason": "Initial sample slicing chop start"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "sample_chop_variation",
+        "label": "Staccato",
+        "reason": "Introduce staccato chopping for rhythm variation"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "sample_chop_technique",
+        "label": "Reverse Chop",
+        "reason": "Use reverse chopping to add experimental texture"
+      },
+      {
+        "track": "chords",
+        "bar": 41,
+        "type": "micro_chop",
+        "label": "Micro Chop",
+        "reason": "Applying fine grain chops in chord samples"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "loop_slice",
+        "label": "Loop Slice",
+        "reason": "Loop slicing technique for melody variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "sample_chop_fill",
+        "label": "Fill Chop",
+        "reason": "Vocal sample chopped fills for final hook"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "stutter_effect",
+        "label": "Stutter",
+        "reason": "Final outro stutter effect chops"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with experimental chopped samples",
+    "bass": "sub rhythmic support with reversed chopped samples",
+    "chords": "textural background with micro chopped layers",
+    "melody": "lead elements using loop slicing techniques",
+    "vocal": "aggressive vocal chops and fills",
+    "fx": "transitional and atmospheric chopped effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 80,
+    "chords": 60,
+    "melody": 50,
+    "vocal": 85,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create the drum arrangement using experimental modern sample chopping techniques across the track sections to build aggression and slow energy build."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines supporting the energy curve using reversed and chopped bass samples fitting West Coast Hip-Hop style."
+    },
+    "harmony_generator": {
+      "brief": "Add chord layers applying micro and fine grain chopping to provide textured background that evolves with sections."
+    },
+    "melody_generator": {
+      "brief": "Produce melody line elements focusing on loop slicing and sample manipulation for a distinct experimental flavor."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring gradual energy buildup with aggressive mood using layered chopped sample techniques."
+    },
+    "presetor": {
+      "brief": "Manage presets to enhance the sound design emphasizing chopped sample articulation and aggressive tonal character."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement coherence ensuring all sections and lane activities align with slow build energy and aggression mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix parameters to preserve sample chopping clarity and energy dynamics while supporting raw experimental sound."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

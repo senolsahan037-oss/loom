@@ -1,0 +1,248 @@
+{
+  "project": {
+    "name": "Mainstream Drill Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      40,
+      60,
+      50,
+      80,
+      30
+    ],
+    "notes": "Mainstream drill song with uplifting mood and hook-heavy energy. Arrangement structured with sections designed for variation and high listener engagement. Energy peaks at hooks and bridge."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 70,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 45,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with more active drums for hook"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Bring back hook elements with highest energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Full vocal entry in verse"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Introduce variation with bridge bass line"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Effects",
+        "reason": "Set atmosphere in intro with effects"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and drive",
+    "bass": "low-end support and groove",
+    "chords": "harmonic texture",
+    "melody": "primary melodic expression",
+    "vocal": "lead vocals and hook delivery",
+    "fx": "atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate energetic and hook-driven drum patterns emphasizing drill style with mainstream variation and uplifting feel."
+    },
+    "bass_generator": {
+      "brief": "Create supporting bass lines that complement the drill rhythm and enhance groove without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Build harmonic textures using chords that fit the key and uplift the mood in a subtle way."
+    },
+    "melody_generator": {
+      "brief": "Develop catchy melodic motifs active mainly in hooks and bridge to maximize uplift and memorability."
+    },
+    "ai_designer": {
+      "brief": "Design overall arrangement structure highlighting hooks and energy changes to maintain listener interest."
+    },
+    "presetor": {
+      "brief": "Prepare presets and sounds conforming to a mainstream drill style with increased brightness and clarity."
+    },
+    "songgps": {
+      "brief": "Map energy curves and section transitions aligning with a hook-heavy, uplifting drill arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure channels remain unprocessed for later mixing stages, focusing on clarity and balance."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

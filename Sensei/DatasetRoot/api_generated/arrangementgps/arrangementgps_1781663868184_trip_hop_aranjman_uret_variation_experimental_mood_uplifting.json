@@ -1,0 +1,308 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Uplifting",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      45,
+      60,
+      75,
+      90,
+      85,
+      95,
+      100,
+      95,
+      85,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0,
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75
+    ],
+    "notes": "Arrangement uses modern sample chopping techniques typical to trip hop, with slow energy build to uplifting mood. Variation experimental emphasizes creative production."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 45
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "Intro": 30,
+          "Verse 1": 60,
+          "Hook": 80,
+          "Verse 2": 50,
+          "Bridge": 40,
+          "Final Hook": 90,
+          "Outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "Intro": 20,
+          "Verse 1": 50,
+          "Hook": 70,
+          "Verse 2": 55,
+          "Bridge": 35,
+          "Final Hook": 85,
+          "Outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "Intro": 10,
+          "Verse 1": 40,
+          "Hook": 75,
+          "Verse 2": 45,
+          "Bridge": 30,
+          "Final Hook": 80,
+          "Outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "Intro": 5,
+          "Verse 1": 20,
+          "Hook": 65,
+          "Verse 2": 30,
+          "Bridge": 20,
+          "Final Hook": 70,
+          "Outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "Intro": 0,
+          "Verse 1": 10,
+          "Hook": 60,
+          "Verse 2": 30,
+          "Bridge": 20,
+          "Final Hook": 80,
+          "Outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "Intro": 25,
+          "Verse 1": 30,
+          "Hook": 70,
+          "Verse 2": 40,
+          "Bridge": 35,
+          "Final Hook": 85,
+          "Outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "technique",
+        "label": "Slice",
+        "reason": "Modern sample chopping technique: Slice channel activity start"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "technique",
+        "label": "Chop",
+        "reason": "Sample chopping technique emphasizing rhythmic variation"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "technique",
+        "label": "Stutter",
+        "reason": "Increasing energy with stutter slicing techniques in drums"
+      },
+      {
+        "track": "fx",
+        "bar": 40,
+        "type": "technique",
+        "label": "Reverse Chop",
+        "reason": "Experimental reverse chopping in FX layer for texture"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Percussive backbone with chopped samples",
+    "bass": "Subtle low-end groove with modern sample chops",
+    "chords": "Harmonic support using chopped sample pads",
+    "melody": "Sparse melodic content from chopped samples",
+    "vocal": "Textural pads and vocal chops",
+    "fx": "Atmospheric and percussive effects via chopping"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      72,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using modern sample chopping techniques with experimental rhythmic variation that fits a slow build energy profile"
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement chopped drum samples and contribute to the uplifting mood with subtle energy increases"
+    },
+    "harmony_generator": {
+      "brief": "Arrange harmonic content with pads and chords from chopped samples aligned to the trip hop genre and experimental style"
+    },
+    "melody_generator": {
+      "brief": "Provide minimal melodic elements using chopped samples that enhance the uplifting and slow build mood"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring slow build of energy and experimental treatment of samples across all tracks"
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize clarity and texture for modern sample chopping in trip hop context"
+    },
+    "songgps": {
+      "brief": "Maintain arrangement structure with correct section energy distribution and alignment to slow build uplifting experimental trip hop"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for final mixing ensuring samples retain texture and dynamics"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

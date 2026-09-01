@@ -1,0 +1,285 @@
+{
+  "project": {
+    "name": "Boom Bap Emotional Minimal Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      90,
+      30
+    ],
+    "notes": "Boom Bap style arrangement focused on minimal variation, emotional mood with a hook-heavy energy profile. Sample-based construction with texture bed and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 60,
+          "25-40": 90,
+          "41-56": 60,
+          "57-64": 40,
+          "65-72": 90,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 40,
+          "25-40": 70,
+          "41-56": 40,
+          "57-64": 30,
+          "65-72": 70,
+          "73-80": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 30,
+          "57-64": 40,
+          "65-72": 60,
+          "73-80": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 20,
+          "25-40": 50,
+          "41-56": 20,
+          "57-64": 25,
+          "65-72": 50,
+          "73-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 80,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 80,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 25,
+          "25-40": 55,
+          "41-56": 25,
+          "57-64": 35,
+          "65-72": 55,
+          "73-80": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "kick_in",
+        "reason": "start of boom bap drum sample-based arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_boost",
+        "label": "hook_drums",
+        "reason": "hook-heavy energy increase with sample-based one-shot hits"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "texture_bed_change",
+        "label": "bridge_fx",
+        "reason": "transition to bridge section with texture bed variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_intro",
+        "label": "final_hook_vocals",
+        "reason": "emotional hook vocal entrance"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "outro_drums_fade",
+        "reason": "reduce energy and fade out drums in outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "texture_bed": {
+        "description": "Sample-based atmospheric textures underlying the arrangement",
+        "technique": "looped pads with subtle modulation"
+      },
+      "one_shot_hits": {
+        "description": "Percussive samples triggered as single hits",
+        "technique": "samples sliced and mapped by drum hit types"
+      }
+    },
+    "channel_naming": {
+      "kick": "one_shot_kick",
+      "snare": "one_shot_snare",
+      "hihat": "one_shot_hihat",
+      "texture_pad": "texture_bed_pad",
+      "hit_samples": "one_shot_hits"
+    }
+  },
+  "sound_intent": {
+    "texture": "Minimal but warm, soft pads for emotional depth",
+    "rhythm": "Clean, punchy drum one-shots emphasizing boom bap style",
+    "hook": "Memorable melodic or rhythmic hook highlighted by focused energy",
+    "variation": "Subtle dynamic shifts, minimal arrangement changes"
+  },
+  "routing_intent": {
+    "drums": "Route to main drum bus with parallel compression",
+    "bass": "Direct to bass bus with mild saturation",
+    "chords": "Send to reverb bus for ambient spread",
+    "melody": "Dry output for clarity",
+    "vocal": "Send to vocal bus with delay for emotional emphasis",
+    "fx": "Mixed into master with subtle automation"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using one-shot hit samples",
+    "bass": "supporting harmonic low end",
+    "chords": "harmonic texture with sample-based pads",
+    "melody": "emotional motifs supporting the hook",
+    "vocal": "hook-focused vocal samples",
+    "fx": "ambient textures enhancing emotional mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Emotional minimal boom bap arrangement emphasizing hook sections and sample-based textures with clear one-shot percussive elements."
+  },
+  "presetor_intent": {
+    "approach": "Apply minimal variation presets with emphasis on clean mixing and hook prominence."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample-based drum arrangements with clear one-shot hits following boom bap style and minimal variation."
+    },
+    "bass_generator": {
+      "brief": "Create supportive bass lines to complement drums and chords with minimal presence but emotional depth."
+    },
+    "harmony_generator": {
+      "brief": "Design texture bed and chordal pads using sample layering to create emotional atmosphere with subtle modulation."
+    },
+    "melody_generator": {
+      "brief": "Produce simple memorable melodic motifs for hooks using sample-based techniques emphasizing emotional content."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure managing energy curve and section transitions with minimal variation."
+    },
+    "presetor": {
+      "brief": "Select and apply mixing and effect presets optimizing clarity and hook prominence in the arrangement."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement timing and energy profile with hook-heavy focus and ensure sample layering consistency."
+    },
+    "ai_mixmaster": {
+      "brief": "Create a balanced final mix focusing on unprocessed channel audio to preserve sample detail and emotional impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

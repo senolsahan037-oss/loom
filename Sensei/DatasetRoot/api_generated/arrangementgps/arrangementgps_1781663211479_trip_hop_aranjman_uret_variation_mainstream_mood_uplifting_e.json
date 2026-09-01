@@ -1,0 +1,226 @@
+{
+  "project": {
+    "name": "Mainstream Uplifting Trip Hop",
+    "genre": "Trip Hop",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      20
+    ],
+    "notes": "Trip Hop arrangement with a hook-heavy energy profile and uplifting mood using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 100,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "Hook Drum Crescendo",
+        "reason": "Start of hook with hook-heavy energy."
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "entry",
+        "label": "Vocal Hook Entrance",
+        "reason": "Highlight uplifting mood with hook."
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample chopping with stutter and slice techniques",
+    "bass": "deep groove with side-chained rhythm",
+    "chords": "ambient pad with chopped and reversed samples",
+    "melody": "hook melody created via syncopated sample slicing",
+    "vocal": "processed hook vocal chopped and time-stretched",
+    "fx": "transitions and glitchy effects using beat-repeat chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 10,
+    "vocal": 12,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing modern sample chopping techniques such as stutter, slice, and beat-repeat to create rhythmic complexity."
+    },
+    "bass_generator": {
+      "brief": "Build a bassline that supports the uplifting mood with groove-oriented patterns and sidechain compression to complement the hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Create chord and pad layers using ambient, chopped, and reversed sample textures to add depth and atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Develop hook-centric melodies leveraging syncopated sample slices and rhythmic phrasing to reinforce the high-energy sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow, managing energy curves and section transitions to maintain uplifting and hook-heavy energy."
+    },
+    "presetor": {
+      "brief": "Apply production presets focused on modern trip hop sample chopping effects and appropriate mixing chain presets for clarity."
+    },
+    "songgps": {
+      "brief": "Ensure structural adherence to requested sections with proper energy dynamics and scene lane activity balance."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing, focusing on preserving sample chops and hook clarity in final outputs."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

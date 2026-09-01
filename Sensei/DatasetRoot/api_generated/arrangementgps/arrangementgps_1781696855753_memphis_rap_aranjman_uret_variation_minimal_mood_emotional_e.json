@@ -1,0 +1,255 @@
+{
+  "project": {
+    "name": "Memphis Rap Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      80,
+      90,
+      85,
+      50
+    ],
+    "notes": "Minimal variation emphasizing emotional delivery with club energy dynamics."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 45
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro begins",
+        "reason": "Start of the arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Verse 1 starts",
+        "reason": "Entry of vocals"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook starts",
+        "reason": "Main melodic hook"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "bridge_start",
+        "label": "Bridge section",
+        "reason": "Energy variation for interest"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final hook",
+        "reason": "Climactic section"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro begins",
+        "reason": "Wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with club energy",
+    "bass": "deep and supportive groove",
+    "chords": "minimal harmonic texture",
+    "melody": "subtle motifs for emotional tone",
+    "vocal": "lead rap performance",
+    "fx": "ambient enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns with minimal variation, maintaining club energy and emotional feel."
+    },
+    "bass_generator": {
+      "brief": "Create deep basslines that support the groove with minimal changes to retain emotional impact."
+    },
+    "harmony_generator": {
+      "brief": "Produce subtle chord layers with minimal variations to enhance emotional mood without overpowering."
+    },
+    "melody_generator": {
+      "brief": "Design simple melodic motifs that convey emotion and fit the club energy profile."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with smooth energy transitions and minimal overall variation to reflect emotional content."
+    },
+    "presetor": {
+      "brief": "Set up sound presets optimized for club energy and emotional expressiveness with minimal changes."
+    },
+    "songgps": {
+      "brief": "Manage overall arrangement flow focusing on minimal variation and emotional club energy dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks preserving dynamics and clarity, emphasizing emotional delivery and club energy feel."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

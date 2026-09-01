@@ -1,0 +1,303 @@
+{
+  "project": {
+    "name": "Phonk Minimal Aggressive Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      30,
+      40,
+      80,
+      50,
+      20
+    ],
+    "notes": "Sparse verses to emphasize aggressive hooks, minimal variation for focus."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 75,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 5,
+          "hook": 70,
+          "verse_2": 5,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 0,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Strong Hook Drums",
+        "reason": "Introduce high energy hook with unique drum hits"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Bass Drop",
+        "reason": "Create strong hook presence with bass"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Sparse Verse Vocals",
+        "reason": "Aggressive but minimal vocal phrasing in verses"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "bridge_start",
+        "label": "Textural FX",
+        "reason": "Add ambient textures to build tension in bridge"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "Sample_Bed",
+        "type": "texture_bed",
+        "channels": [
+          "Sample_Bed_Grain",
+          "Sample_Bed_Loop"
+        ]
+      },
+      {
+        "name": "One_Shot_Hits",
+        "type": "hits",
+        "channels": [
+          "Transient_Chop",
+          "Slice_Click",
+          "Windowed_Loop"
+        ]
+      }
+    ]
+  },
+  "sound_intent": {
+    "sample_layer": "sample-based arrangement with texture bed and one-shot hits replicating phonk sample chopping techniques",
+    "variation": "minimal",
+    "mood": "aggressive",
+    "energy_profile": "sparse verses with strong hooks"
+  },
+  "routing_intent": {
+    "channel_names": {
+      "drums": [
+        "Transient_Chop",
+        "Slice_Click",
+        "Windowed_Loop"
+      ],
+      "bass": [
+        "Sample_Bed_Grain"
+      ],
+      "chords": [
+        "Sample_Bed_Loop"
+      ],
+      "melody": [
+        "One_Shot_Hits"
+      ],
+      "vocal": [
+        "Vocal_Samples"
+      ],
+      "fx": [
+        "Texture_Effects"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm and groove foundation using chopped samples",
+    "bass": "support hook and sparse verse energy",
+    "chords": "harmonic texture from sample loops",
+    "melody": "one-shot sample hits for melodic interest",
+    "vocal": "aggressive sparse vocals for verses and hooks",
+    "fx": "ambient and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      11,
+      34,
+      35
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "overview": "Create an aggressive phonk track with minimal variation focusing on powerful hooks and sparse verses using sample chopping techniques.",
+    "use_texture_beds": true,
+    "emphasize_hooks": true,
+    "maintain_sparse_verses": true
+  },
+  "presetor_intent": {
+    "preset_type": "phonk_minimal_aggressive",
+    "use_sample_layers": true,
+    "focus_energy_on_hooks": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns emphasizing chopped sample percussion with strong hits in hooks and sparse activity in verses."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that support hook energy peaks and remain minimal during verses."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic textures using sample loops for background in hooks and sparse chord presence in verses."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic one-shot sample hits that complement hooks and maintain minimal melodic activity in verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure to ensure minimal variation, aggressive mood, and energy balance between sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Apply presets targeting sample-based phonk textures, focus on minimal arrangement variation and energetic hook sections."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and energy curve focusing on sparse verses and elevated hook dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio routing emphasizing separation of sample layers for mixing clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

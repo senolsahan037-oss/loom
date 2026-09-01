@@ -1,0 +1,207 @@
+{
+  "project": {
+    "name": "Trip Hop Dark Mainstream Hook-Heavy Arrangement",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 85,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      70,
+      35,
+      50,
+      75,
+      80,
+      20
+    ],
+    "notes": "Arrangement follows a hook-heavy energy profile emphasizing dark mood with mainstream trip hop aesthetics using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "slicer": 80,
+          "chopper": 70,
+          "stutter": 75,
+          "reverse": 30,
+          "slice_roll": 60
+        }
+      },
+      "bass": {
+        "activity": {
+          "slicer": 60,
+          "chopper": 50,
+          "stutter": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "slicer": 40,
+          "chopper": 60,
+          "reverse": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "stutter": 70,
+          "chopper": 65,
+          "slicer": 50,
+          "reverse": 40
+        }
+      },
+      "vocal": {
+        "activity": {
+          "slicer": 70,
+          "stutter": 80,
+          "chopper": 60,
+          "reverse": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "reverse": 80,
+          "stutter": 50,
+          "slice_roll": 40
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduce hook with high energy drum chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Prominent hook vocal chops to emphasize climax"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using sample chopping techniques",
+    "bass": "low-end support with chopped bass samples",
+    "chords": "background harmonic texture using sliced chords",
+    "melody": "hook melodies created by chopped melodic samples",
+    "vocal": "vocal chops processed with modern slicing and stuttering",
+    "fx": "effects layers emphasizing reversed and sliced samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 75,
+    "chords": 50,
+    "melody": 80,
+    "vocal": 85,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create rhythmic patterns leveraging modern sample chopping techniques such as slicer, chopper, stutter, and slice rolls, focusing on dark trip hop style and hook emphasis."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using chopped and sliced bass samples, maintaining a supportive low-end groove reflective of trip hop style with moderate energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce chordal textures using modern sample slicing and chopping to build atmospheric dark harmonic layers that complement the bass and drums."
+    },
+    "melody_generator": {
+      "brief": "Develop hook-heavy melodic elements by employing sample chopping, slicing, and stuttering techniques aligned to the dark mood and mainstream trip hop variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring energy curve matches hook-heavy profile and section dynamics support dark trip hop mood using modern sample chopping styles."
+    },
+    "presetor": {
+      "brief": "Apply presets and effects tailored for chopped samples emphasizing stutter, slice rolls, and reversed samples to enhance dark trip hop arrangement."
+    },
+    "songgps": {
+      "brief": "Guide structural layout following trip hop mainstream variation with emphasis on hook sections and energy balance throughout the 80 bars."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix parameters prioritizing clarity and separation of chopped sample layers, maintaining mood dark and energy hook-focused."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

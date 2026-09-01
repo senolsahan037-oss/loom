@@ -1,0 +1,237 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Uplifting",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      35,
+      70,
+      40,
+      75,
+      20
+    ],
+    "notes": "Arrangement features sparse verses to maintain space, emphasizing strong, energetic hooks for uplifting effect with experimental sound textures integrated throughout."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 65,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 25,
+          "hook": 85,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "Start of the strong, energetic hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "verse_2_start",
+        "reason": "Beginning of second sparse verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "Beginning of the final, most energetic hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic energy changes",
+    "bass": "support groove with minimal notes in verses, strong in hooks",
+    "chords": "harmonic texture with experimental sound design",
+    "melody": "support hooks with uplifting phrases, sparse in verses",
+    "vocal": "lead vocal with sparse verses and strong hooks",
+    "fx": "enhance transitions and add experimental atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      44
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a sparse drum pattern during verses with more intense, rhythmic variation in hooks to emphasize energy spikes."
+    },
+    "bass_generator": {
+      "brief": "Generate a minimal bassline in verses focusing on groove, increasing fullness with hooks to drive uplifting mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide experimental chord textures that support the uplifting mood and maintain sparse arrangements during verses."
+    },
+    "melody_generator": {
+      "brief": "Design catchy melodic phrases for hooks; keep melody simple and spacious during verses."
+    },
+    "ai_designer": {
+      "brief": "Ensure overall arrangement balance between sparse verses and energetic hooks with an experimental touch."
+    },
+    "presetor": {
+      "brief": "Apply presets that allow clean sound with room for experimental elements and clear vocal presence."
+    },
+    "songgps": {
+      "brief": "Manage arrangement timing and energy curve to match sparse verses with strong, uplifting hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels maintaining vocal clarity, emphasizing hooks, and preserving dynamic range."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

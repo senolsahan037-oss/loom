@@ -1,0 +1,293 @@
+{
+  "project": {
+    "name": "Boom Bap Dark Minimal",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      40,
+      50,
+      70,
+      60,
+      30
+    ],
+    "notes": "Sample-based arrangement featuring texture bed and one-shot hits; minimal variation; club energy profile; boom bap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 20,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums_kicks",
+        "bar": 9,
+        "type": "hit",
+        "label": "kick_onset",
+        "reason": "start verse with distinctive kick one-shot hit"
+      },
+      {
+        "track": "drums_snares",
+        "bar": 25,
+        "type": "hit",
+        "label": "snare_onset",
+        "reason": "highlight hook with snare hit"
+      },
+      {
+        "track": "texture_bed",
+        "bar": 1,
+        "type": "loop",
+        "label": "texture_loop_start",
+        "reason": "start texture bed sample based loop"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        "texture_bed_layer",
+        "drum_hits_layer"
+      ]
+    },
+    "texture_bed_layer": {
+      "type": "sample-based",
+      "technique": "looped texture bed"
+    },
+    "drum_hits_layer": {
+      "type": "sample-based",
+      "technique": "one-shot hits",
+      "channels": [
+        "kick_slice",
+        "snare_slice",
+        "hat_slice"
+      ]
+    }
+  },
+  "sound_intent": {
+    "style": "boom bap with minimal variation",
+    "mood": "dark",
+    "energy": "club energy",
+    "sample_techniques": [
+      "texture bed loop",
+      "one-shot hits",
+      "sample slicing"
+    ]
+  },
+  "routing_intent": {
+    "channels": {
+      "kick_slice": "drums",
+      "snare_slice": "drums",
+      "hat_slice": "drums",
+      "texture_bed": "chords"
+    },
+    "effects_routing": {
+      "texture_bed": [
+        "reverb",
+        "lowpass"
+      ],
+      "drums": [
+        "compressor",
+        "eq"
+      ],
+      "fx": [
+        "delay",
+        "filter"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation and one-shot hits using sample slicing",
+    "bass": "sub-bass support",
+    "chords": "texture bed sample loops creating harmonic atmosphere",
+    "melody": "minimal melodic elements to enhance dark mood",
+    "vocal": "none",
+    "fx": "environmental and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 4,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create a minimal, dark-boom bap arrangement with club energy, emphasizing sample-based texture beds and sliced one-shot drum hits"
+  },
+  "presetor_intent": {
+    "preset_preferences": "Minimal variation for arrangement; preserve dark mood; prioritize clarity of one-shot hits"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slicing techniques with one-shot hits, emphasizing minimal variation and club energy"
+    },
+    "bass_generator": {
+      "brief": "Create a subtle, dark bass line complementing the texture bed without overpowering the arrangement"
+    },
+    "harmony_generator": {
+      "brief": "Provide sample-based texture bed loops that maintain a dark mood and minimal harmonic variation"
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic material to support mood without distraction"
+    },
+    "ai_designer": {
+      "brief": "Arrange sections ensuring smooth energy flow from intro to outro with minimal variation and clear transitions"
+    },
+    "presetor": {
+      "brief": "Apply presets emphasizing clarity and spatial effects on texture bed and drum one-shots"
+    },
+    "songgps": {
+      "brief": "Oversee structure adherence, energy curve consistency, and marker placement for arrangementgps format"
+    },
+    "ai_mixmaster": {
+      "brief": "Maintain separation and clarity of sample-based layers, balancing the dark mood and club energy profile"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "project": {
+    "name": "Boom Bap Mainstream Cinematic",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C Minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      70,
+      30
+    ],
+    "notes": "Energy profile follows sparse verses with strong hooks emphasizing cinematic mood using modern sample chopping."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook_Start",
+        "reason": "Strong hook energy begins"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Verse_1_Entry",
+        "reason": "Start of sparse verses"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "cue",
+        "label": "Final_Hook_Entry",
+        "reason": "High energy hook start"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "cue",
+        "label": "Bridge_Transition",
+        "reason": "Energy change and effect layer introduction"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "slice_and_dice",
+        "stutter_chop",
+        "reverse_slice",
+        "glitch_repeat"
+      ]
+    },
+    "channels": {
+      "Slice_and_Dice": "drums",
+      "Stutter_Chop": "bass",
+      "Reverse_Slice": "chords",
+      "Glitch_Repeat": "fx"
+    }
+  },
+  "sound_intent": {
+    "texture": "modern boom bap with cinematic spaciousness",
+    "dynamic_range": "sparse verses, dense hooks",
+    "character": "warm vinyl samples, punchy drums"
+  },
+  "routing_intent": {
+    "grouping": {
+      "drums_group": [
+        "Slice_and_Dice"
+      ],
+      "bass_group": [
+        "Stutter_Chop"
+      ],
+      "chords_group": [
+        "Reverse_Slice"
+      ],
+      "fx_group": [
+        "Glitch_Repeat"
+      ]
+    },
+    "bus_use": {
+      "hook_bus": [
+        "drums",
+        "bass",
+        "chords"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with modern sample chopping",
+    "bass": "support groove and energy with stutter chops",
+    "chords": "harmonic content using reversed chops",
+    "melody": "sparse cinematic motifs",
+    "vocal": "lead lyric focus on hooks and verses",
+    "fx": "atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      2,
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Maintain cinematic feel through arrangement and sampling.",
+    "variation": "Mainstream accessibility with modern sampling."
+  },
+  "presetor_intent": {
+    "preset_focus": "Highlight layering and channel routing for clear hooks."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using modern chopping sample techniques emphasizing sparse verses and strong hooks."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement drum chops with variation and energy matching sparse verses and strong hooks."
+    },
+    "harmony_generator": {
+      "brief": "Design chord layers employing reversed slice sample techniques to support cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Produce sparse melodic motifs to enhance cinematic atmosphere without cluttering."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections balancing sparse verses and dense hooks with cinematic progression."
+    },
+    "presetor": {
+      "brief": "Apply effects and channel routing reflecting modern sample chopping styles."
+    },
+    "songgps": {
+      "brief": "Guide arrangement energy curve focusing on sparse verses and strong cinematic hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix provided unprocessed channel audio ensuring clarity and support for arrangement intent."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Experimental Trap Arrangement",
+    "genre": "Electronic",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      60,
+      80,
+      70,
+      60,
+      90,
+      50
+    ],
+    "notes": "Create a club energy profile with a rising and dynamic layout that reflects an experimental variation of a trap arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 60
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 85,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 80,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 5,
+          "final_hook": 50,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_transition",
+        "label": "Hook Start",
+        "reason": "Energy boost with prominent drum pattern introduction"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "section_transition",
+        "label": "Verse 2 Start",
+        "reason": "Introduce deeper bass variation for club energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_transition",
+        "label": "Bridge Start",
+        "reason": "Add transitional FX to create experimental feel"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_transition",
+        "label": "Final Hook",
+        "reason": "Highlight uplifting melody variation in the final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and energy driver",
+    "bass": "low-end support and groove",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "lead catchy elements",
+    "vocal": "percussive or chopped vocal samples",
+    "fx": "transitional and spatial effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 5,
+    "melody": 7,
+    "vocal": 4,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic and rhythmic drum patterns that build energy in an experimental trap context, focusing on club energy flow."
+    },
+    "bass_generator": {
+      "brief": "Generate deep and punchy basslines that complement the drum rhythm and maintain uplifting club energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic chord textures that support the mood of uplifting and experimental trap arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop catchy, uplifting melodic motifs that enhance the club energy feel while fitting the experimental trap style."
+    },
+    "ai_designer": {
+      "brief": "Oversee combination of arrangement elements ensuring energy curve matches uplifting and club energy mood with experimental variation."
+    },
+    "presetor": {
+      "brief": "Apply suitable presets and sound design choices that enhance experimental trap character without overpowering mix."
+    },
+    "songgps": {
+      "brief": "Manage arrangement timing, section transitions, and overall progression according to the energy profile and mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixdown aiming for clarity and dynamic energy preservation."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

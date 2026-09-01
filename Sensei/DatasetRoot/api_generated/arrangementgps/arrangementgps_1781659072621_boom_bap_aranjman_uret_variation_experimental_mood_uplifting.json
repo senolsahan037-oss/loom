@@ -1,0 +1,263 @@
+{
+  "project": {
+    "name": "Experimental Boom Bap Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      55,
+      75,
+      90,
+      75,
+      55,
+      35,
+      20
+    ],
+    "notes": "Sample-based arrangement featuring texture beds and one-shot hits with dynamic cinematic rise and fall."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 95,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 80,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 90,
+          "final_hook": 75,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 85,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 80,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Cymbal Swell",
+        "reason": "Build energy for hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Reverse Crash",
+        "reason": "Experimental sound accent on bridge"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        "Sample Bed",
+        "One-Shot Hits"
+      ]
+    },
+    "Sample Bed": {
+      "children": [
+        "Texture Loop",
+        "Atmospheric Samples"
+      ],
+      "technique": "Sample Layering"
+    },
+    "One-Shot Hits": {
+      "children": [
+        "Hit Layer 1",
+        "Hit Layer 2"
+      ],
+      "technique": "Sample Slicing"
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "Smooth, atmospheric sample layers to provide a warm foundation",
+    "one_shot_hits": "Sharp, varied samples to punctuate rhythm and create interest",
+    "overall": "Cinematic rise and fall with uplifting mood and experimental variations"
+  },
+  "routing_intent": {
+    "Sample Bed": "Send to main mix with gentle reverb and stereo spread",
+    "One-Shot Hits": "Route to separate drum bus for dynamic control"
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone using sample slicing techniques",
+    "bass": "Supportive low-end layer",
+    "chords": "Sample-based harmonic textures",
+    "melody": "Experimental melodic motifs using sample manipulations",
+    "vocal": "None",
+    "fx": "Atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create an uplifting boom bap arrangement featuring experimental textures and dynamic energy flow"
+  },
+  "presetor_intent": {
+    "task": "Configure plugins and effects to enhance sample textures and one-shot hits while preserving clarity"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Provide drum patterns emphasizing sample slicing and one-shot hit diversity to maintain rhythmic interest"
+    },
+    "bass_generator": {
+      "brief": "Generate supportive low-end lines that complement the sample-based texture bed without overpowering"
+    },
+    "harmony_generator": {
+      "brief": "Create sample-based chord textures that evoke an uplifting mood and blend smoothly with the texture bed"
+    },
+    "melody_generator": {
+      "brief": "Develop experimental melodic motifs using sample manipulation techniques to enhance the cinematic feel"
+    },
+    "ai_designer": {
+      "brief": "Ensure arrangement follows a cinematic rise and fall energy curve with smooth transitions between sections"
+    },
+    "presetor": {
+      "brief": "Apply effects and routing to maintain clarity between texture beds and one-shot hits, highlighting dynamics"
+    },
+    "songgps": {
+      "brief": "Guide the arrangement structure with proper section energy levels and markers for transitions"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for final mix mastering without adding processing"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

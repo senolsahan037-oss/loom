@@ -1,0 +1,272 @@
+{
+  "project": {
+    "name": "Boom Bap Vocal Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20
+    ],
+    "notes": "Slow build energy profile with a focus on vocal presence; sample layers are named after sample chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 85,
+          "bridge": 95,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 35,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begins",
+        "reason": "Start of highest vocal energy section"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook",
+        "reason": "Culmination of vocal energy and variation"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "Slice": [
+        "Slice_01",
+        "Slice_02",
+        "Slice_03"
+      ],
+      "Chop": [
+        "Chop_01",
+        "Chop_02"
+      ],
+      "Stab": [
+        "Stab_01"
+      ],
+      "Roll": [
+        "Roll_01",
+        "Roll_02"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal",
+    "texture": "sample-based with chopping techniques",
+    "energy_profile": "slow build to uplifting climax"
+  },
+  "routing_intent": {
+    "vocal_chain": "highlight vocals with sidechain compression",
+    "drum_chain": "punchy, sample sliced drums",
+    "fx_chain": "subtle atmospheric effects"
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with sample chops",
+    "bass": "groove anchor with smooth tone",
+    "chords": "harmonic support",
+    "melody": "complementary motifs",
+    "vocal": "lead and focal point",
+    "fx": "atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "arrangement_goal": "Create a vocal-centric uplifting boom bap arrangement with slow energy build.",
+    "sample_usage": "Use various sample chopping techniques for layers named accordingly."
+  },
+  "presetor_intent": {
+    "preset_goal": "Enhance clarity and presence of vocal samples while maintaining classic boom bap texture."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample chop techniques focusing on punchy boom bap style."
+    },
+    "bass_generator": {
+      "brief": "Create smooth, groovy basslines complementing the slow build energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord layers supporting the uplifting mood with simple harmonic progressions."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic motifs that complement the vocals without overwhelming."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with a focus on vocal prominence and gradual energy increase."
+    },
+    "presetor": {
+      "brief": "Apply presets prioritizing vocal presence and classic boom bap tonal characteristics."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows slow build energy curve and vocal focus."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix to highlight vocal layers and preserve sample chop textures."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

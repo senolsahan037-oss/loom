@@ -1,0 +1,249 @@
+{
+  "project": {
+    "name": "Memphis Rap Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 15,
+          "9": 40,
+          "25": 60,
+          "41": 55,
+          "57": 70,
+          "65": 80,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 30,
+          "25": 55,
+          "41": 60,
+          "57": 75,
+          "65": 85,
+          "73": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 25,
+          "25": 50,
+          "41": 55,
+          "57": 65,
+          "65": 75,
+          "73": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 10,
+          "25": 40,
+          "41": 50,
+          "57": 65,
+          "65": 70,
+          "73": 15
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "25": 30,
+          "57": 40,
+          "65": 35
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Kickoff",
+        "reason": "Intro starts with basic drum pattern"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "change",
+        "label": "Add bass groove",
+        "reason": "Verse 1 bassline begins"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Chord progression uplift",
+        "reason": "Hook section uplifting harmony"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Bridge FX",
+        "reason": "Bridge introduces atmospheric effects"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "peak",
+        "label": "Final hook intensity",
+        "reason": "Culmination of energy buildup"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro FX",
+        "reason": "Outro with effects fading out"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low end groove",
+    "chords": "harmonic support",
+    "melody": "lead instrumental voice",
+    "vocal": "inactive instrumental version",
+    "fx": "texture and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that evolve gradually with energy build from minimal intro to intense final hook."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the drums, starting sparse and growing richer with the arrangement energy."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord progressions that uplift the mood and support gradual energy increases across sections."
+    },
+    "melody_generator": {
+      "brief": "Develop simple instrumental melodies that emerge in later sections for emotional uplift without vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence and ensure smooth energy transitions consistent with slow build profile."
+    },
+    "presetor": {
+      "brief": "Apply instrumental presets suitable for Memphis Rap style with warm and slightly gritty tones."
+    },
+    "songgps": {
+      "brief": "Guide section structuring and ensure arrangement adheres to slow build and uplifting mood specifications."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks transparently preserving natural dynamics and clear separation for instrumental version."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

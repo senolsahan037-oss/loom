@@ -1,0 +1,287 @@
+{
+  "project": {
+    "name": "Boom Bap Vocal-Focused Uplifting",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      80,
+      60
+    ],
+    "notes": "Sparse verses with strong, memorable hooks. Vocals are the central focus supported by modern sample chopping techniques in the sample layer."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 60
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_change",
+        "label": "Hook Start",
+        "reason": "Energy spike with strong hook and sample chopping"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "vocal_entry",
+        "label": "Lead Vocal Hook",
+        "reason": "Focus on strong melodic vocal hook"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "section_change",
+        "label": "Bridge Start",
+        "reason": "Transition section with chord variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_change",
+        "label": "Final Hook Start",
+        "reason": "Highest energy vocal hook to close"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "chop_slices",
+        "time_stretch",
+        "reverse_chops",
+        "pitch_shift_slices"
+      ]
+    },
+    "channel_names": [
+      "chop_slices",
+      "time_stretch",
+      "reverse_chops",
+      "pitch_shift_slices"
+    ]
+  },
+  "sound_intent": {
+    "focus": "vocal-centric with modern chopped samples",
+    "texture": "sparse verses, punchy hooks",
+    "mood": "uplifting"
+  },
+  "routing_intent": {
+    "channels": {
+      "chop_slices": [
+        "vocal",
+        "melody"
+      ],
+      "time_stretch": [
+        "chords",
+        "bass"
+      ],
+      "reverse_chops": [
+        "fx",
+        "drums"
+      ],
+      "pitch_shift_slices": [
+        "vocal",
+        "melody"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with boom bap groove",
+    "bass": "harmonic and rhythmic support",
+    "chords": "harmonic filler with sample textures",
+    "melody": "supporting melodic elements",
+    "vocal": "lead focus, main melodic content",
+    "fx": "transition and ambiance effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 10,
+    "fx": 1
+  },
+  "designer_intent": {
+    "arrangement_style": "classic boom bap with modern vocal-driven focus and sample chop emphasis",
+    "energy_flow": "build energy on hooks, keep verses sparse"
+  },
+  "presetor_intent": {
+    "preset_type": "clean modern boom bap with chopped sample textures emphasizing vocal clarity"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns with classic boom bap style focusing on groove and pocket, adjusting dynamics for hooks and verses."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that support rhythm and harmony in sparse verses, complementing vocal lines."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord layers using sampled textures and modern chopping techniques to add color without cluttering."
+    },
+    "melody_generator": {
+      "brief": "Create supportive melodic motives that enhance hooks and bridges but do not overpower vocals."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with clear energy transitions focusing on sparse verses and powerful, uplifting hooks."
+    },
+    "presetor": {
+      "brief": "Select presets and effects to support clarity of vocals and highlight modern sample chopping techniques."
+    },
+    "songgps": {
+      "brief": "Optimize arrangement structure for vocal-focused boom bap song with emphasis on hooks and sample layers."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix to keep vocal prominence and ensure sample chops are textured and clear without masking vocals."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

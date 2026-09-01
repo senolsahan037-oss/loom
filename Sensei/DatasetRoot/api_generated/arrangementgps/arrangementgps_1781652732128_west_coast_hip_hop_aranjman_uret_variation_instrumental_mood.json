@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "F minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      80,
+      35,
+      50,
+      80,
+      35,
+      20
+    ],
+    "notes": "Sparse verses underscore emotional depth, with strong, dynamic hooks to elevate energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 75,
+          "verse_2": 10,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Begin intro with sparse drums"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "transition",
+        "label": "Verse 1 Start",
+        "reason": "Introduce sparse drums for verse"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Energy Boost",
+        "reason": "Strong drum presence for hook"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "transition",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse drum pattern"
+      },
+      {
+        "track": "drums",
+        "bar": 49,
+        "type": "shift",
+        "label": "Bridge Energy Modulation",
+        "reason": "Moderate drum activity for bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Final Hook Boost",
+        "reason": "Return to strong drum pattern"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Fade drums for outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone emphasizing accents in hooks",
+    "bass": "supporting low-end with groove tailored to hook dynamics",
+    "chords": "providing harmonic framework with emotional tonal color",
+    "melody": "subtle lead elements emphasizing emotional motifs",
+    "vocal": "none (instrumental variation)",
+    "fx": "enhancing transitions and atmospheres"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns with sparse verses and strong energetic hooks, emphasizing groove and rhythmic accents."
+    },
+    "bass_generator": {
+      "brief": "Generate low-end bass elements that are minimal during verses but prominent and driving during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic support using chord textures that convey emotional depth with clear transitions."
+    },
+    "melody_generator": {
+      "brief": "Compose subtle melodic elements that enhance emotional mood without overcrowding verses, highlighting hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement to ensure energy contrasts between sparse verses and strong hooks, maintaining emotional tone."
+    },
+    "presetor": {
+      "brief": "Apply presets that support the instrumental mood and emphasize clarity and dynamics in hooks."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy curve aligning with emotional sparse verses and powerful hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that keep verses clear and minimal while maximizing hook impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

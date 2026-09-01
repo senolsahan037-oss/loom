@@ -1,0 +1,286 @@
+{
+  "project": {
+    "name": "Phonk Experiment",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      40,
+      60,
+      80,
+      50
+    ],
+    "notes": "Experimental phonk arrangement with aggressive mood and hook-heavy energy profile using sample-based textures and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peak with hook-heavy focus"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "High energy repeated hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "texture_bed": {
+        "type": "looped_sample",
+        "technique": "time_stretching"
+      },
+      "one_shot_hits": {
+        "type": "one_shot_samples",
+        "technique": "sample_slicing"
+      }
+    },
+    "channels": {
+      "TimeSliceDrums": [
+        "drums"
+      ],
+      "PitchShiftedBass": [
+        "bass"
+      ],
+      "ChoppedChords": [
+        "chords"
+      ],
+      "HitMelody": [
+        "melody"
+      ],
+      "AmbientFX": [
+        "fx"
+      ]
+    }
+  },
+  "sound_intent": {
+    "mood": "aggressive",
+    "energy_profile": "hook-heavy",
+    "texture": "sample-based arrangement with texture bed and one-shot hits",
+    "variation": "experimental"
+  },
+  "routing_intent": {
+    "drums": {
+      "route": "main_drum_bus"
+    },
+    "bass": {
+      "route": "bass_bus"
+    },
+    "chords": {
+      "route": "chord_bus"
+    },
+    "melody": {
+      "route": "melody_bus"
+    },
+    "vocal": {
+      "route": "vocal_bus"
+    },
+    "fx": {
+      "route": "fx_bus"
+    }
+  },
+  "track_roles": {
+    "drums": "Time sliced and layered percussive backbone",
+    "bass": "Pitch shifted and sample chopped bass foundation",
+    "chords": "Chopped sample pads and harmonic textures",
+    "melody": "One-shot hit and chopped melodic samples",
+    "vocal": "None",
+    "fx": "Ambient and transitional effects from samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      15,
+      55
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {
+    "goal": "Create an aggressive phonk track emphasizing hooks using sample slicing and experimental textures to deliver a dark and rhythmically engaging experience."
+  },
+  "presetor_intent": {
+    "goal": "Provide presets that support sample manipulation techniques such as slicing, time stretching, pitch shifting emphasizing percussive and textured layers."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design dynamic, time-sliced drum patterns using sample slicing techniques to enhance groove and maintain hook energy."
+    },
+    "bass_generator": {
+      "brief": "Generate bass parts employing pitch shifting of samples to complement the aggressive mood and hook-heavy sections."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic layers with chopped chord samples, providing textural depth within the experimental arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop melody layers based on one-shot hits and chopped melodic samples matching the aggressive and hook-driven context."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement consistency and energy flow ensuring experimental variation aligns with the aggressive phonk style."
+    },
+    "presetor": {
+      "brief": "Select and adjust presets that enhance sample layering and textural complexity for all instrumental lanes."
+    },
+    "songgps": {
+      "brief": "Manage arrangement pacing, section transitions, and maintain hook prominence within the overall energy curve."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for clean mixing focused on clarity of sample layers and percussive elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Cinematic Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 45,
+          "25-40": 70,
+          "41-56": 55,
+          "57-64": 60,
+          "65-72": 75,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 35,
+          "25-40": 60,
+          "41-56": 50,
+          "57-64": 55,
+          "65-72": 70,
+          "73-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 25,
+          "25-40": 50,
+          "41-56": 40,
+          "57-64": 45,
+          "65-72": 60,
+          "73-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 10,
+          "25-40": 20,
+          "41-56": 15,
+          "57-64": 20,
+          "65-72": 25,
+          "73-80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 15,
+          "25-40": 25,
+          "41-56": 20,
+          "57-64": 25,
+          "65-72": 30,
+          "73-80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Drum entry",
+        "reason": "Intro low energy build"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass entry",
+        "reason": "First verse begins"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Chords prominent",
+        "reason": "Hook cinematic lift"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX rise",
+        "reason": "Energy transition"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Drum fade out",
+        "reason": "Outro winding down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "time keeping and gradual energy build",
+    "bass": "low end foundation with dynamic progression",
+    "chords": "harmonic cinematic texture",
+    "melody": "subtle instrumental phrases",
+    "vocal": "instrumental only - no vocals",
+    "fx": "ambient and cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that start minimal in the intro and slowly build intensity through the verses and hooks, emphasizing a slow energy build fitting West Coast hip-hop style."
+    },
+    "bass_generator": {
+      "brief": "Generate a bassline that supports the slow build of energy providing a warm low end with dynamic movement appropriate for cinematic instrumental."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord progressions that create a cinematic atmosphere and underpin the mood of the track without dominating the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Add subtle instrumental melodic elements that enhance the cinematic feeling while keeping energy low in early sections and slightly increasing during hooks."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the overall arrangement ensuring the energy curve reflects the slow build cinematic mood common in West Coast Hip-Hop instrumentals and maintaining instrumental focus."
+    },
+    "presetor": {
+      "brief": "Apply presets that complement cinematic West Coast Hip-Hop sounds with warm tones, smooth textures and gradual layering over the arrangement."
+    },
+    "songgps": {
+      "brief": "Map out the energy curve and arrange the sections according to the slow build and cinematic mood requested, ensuring smooth transitions between sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the unprocessed channel audio for mixing with focus on clarity and preserving the cinematic and slow build characteristics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Aggression",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "Aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      80,
+      35,
+      50,
+      80,
+      40,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks combining sample chopping techniques for channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 75,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 85,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 25,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "fx",
+        "label": "Vinyl Crackle",
+        "reason": "Sets the experimental tone using classic trip hop texture"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "marker",
+        "label": "Sparse Vocal Entry",
+        "reason": "Begin aggressive sparse vocal phrases"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "marker",
+        "label": "Hook Drum Accent",
+        "reason": "Strong hook energy with impactful drum chops"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "fx",
+        "label": "Filtered Reverse Chops",
+        "reason": "Experimental effect to bridge to final hook"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "marker",
+        "label": "Hook Bassline Entry",
+        "reason": "Reinforces hook with stronger low end presence"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fx",
+        "label": "Outro Ambient Pads",
+        "reason": "Fade out with sparse atmospheric effects"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "drums": [
+        "slice_straight",
+        "slice_retrogate",
+        "slice_stutter"
+      ],
+      "bass": [
+        "slice_pitchshift",
+        "slice_smooth",
+        "slice_grain"
+      ],
+      "chords": [
+        "slice_reverse",
+        "slice_filter",
+        "slice_glitch"
+      ],
+      "melody": [
+        "slice_timestretch",
+        "slice_loop",
+        "slice_bounce"
+      ],
+      "vocal": [
+        "slice_cut",
+        "slice_stretch",
+        "slice_glitch"
+      ],
+      "fx": [
+        "slice_reverb",
+        "slice_delay",
+        "slice_crackle"
+      ]
+    }
+  },
+  "sound_intent": {
+    "description": "Aggressive mood with sparse verses, strong hooks; emphasis on experimental trip hop sample chopping techniques per channel."
+  },
+  "routing_intent": {
+    "notes": "Channels routed for clarity of sample chops; effects applied mainly on fx and vocal lanes; drums and bass have punchy, tight routing."
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation with experimental chopped samples emphasizing hook strength",
+    "bass": "Sparse low-end support with textured sample chops",
+    "chords": "Ethereal background with filtered and glitch chopped samples",
+    "melody": "Minimal melodic elements emphasizing sample loops and pitch manipulation",
+    "vocal": "Sparse aggressive vocal chops with glitch and stretch techniques",
+    "fx": "Atmospheric and transitional effects using reverbs, delays, and crackles"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goal": "Create a trip hop track with experimental and aggressive mood, focusing on strong hooks and sparse verses using sample chopping techniques."
+  },
+  "presetor_intent": {
+    "goal": "Set presets emphasizing sample-based textures with glitch, stutter, and reverse effects for each channel to maintain experimental sound."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using various sample chop techniques, focusing on sparse verses and strong hook accents with experimental textures."
+    },
+    "bass_generator": {
+      "brief": "Develop bass lines with pitch-shifted and granular sample chops, maintaining low energy in verses and energetic hooks."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers using filtered and reversed sample chops providing an ethereal, glitchy atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Create minimal melodic content with looped and timestretched sample chops emphasizing experimental sound."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement energy curves, ensuring sparse verses and strong hooks with proper sample chop channel assignment."
+    },
+    "presetor": {
+      "brief": "Apply presets to enforce experimental sample manipulation effects like stutter, glitch, and reverse on each channel."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement structure consistent with trip hop style and energy flow targeting experimental mood for hooks and verses."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing for clarity and punch, preserving dynamic contrast between sparse verses and intense hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

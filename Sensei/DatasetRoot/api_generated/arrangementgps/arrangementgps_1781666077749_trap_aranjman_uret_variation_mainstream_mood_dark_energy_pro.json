@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Dark Club Trap",
+    "genre": "Trap",
+    "subgenre": "Mainstream",
+    "bpm": 140,
+    "key": "D# minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      50,
+      80,
+      90,
+      30
+    ],
+    "notes": "Arrangement focuses on dark mood with club energy, suitable for mainstream trap style. Utilizes dynamic rises and drops for energy variation without specifying actual musical content."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 60,
+          "25-40": 90,
+          "41-56": 70,
+          "57-64": 50,
+          "65-72": 95,
+          "73-80": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 25,
+          "9-24": 55,
+          "25-40": 85,
+          "41-56": 65,
+          "57-64": 45,
+          "65-72": 90,
+          "73-80": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 40,
+          "25-40": 70,
+          "41-56": 50,
+          "57-64": 35,
+          "65-72": 75,
+          "73-80": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 45,
+          "57-64": 30,
+          "65-72": 65,
+          "73-80": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 35,
+          "25-40": 55,
+          "41-56": 40,
+          "57-64": 20,
+          "65-72": 60,
+          "73-80": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 45,
+          "25-40": 75,
+          "41-56": 55,
+          "57-64": 40,
+          "65-72": 80,
+          "73-80": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "Energy peak starts",
+        "reason": "Hook section introducing maximum energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge change",
+        "reason": "Transition to bridge section with energy dip"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "build",
+        "label": "Final hook build",
+        "reason": "Ramping energy for final hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro fade",
+        "reason": "Energy decline for track conclusion"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, driving club energy",
+    "bass": "low-end foundation with dark tone",
+    "chords": "harmonic support with minor dark textures",
+    "melody": "sparse and moody melodic elements",
+    "vocal": "atmospheric vocal chops and samples",
+    "fx": "transitional effects enhancing dark mood and energy flow"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 1,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum arrangement emphasizing dark trap rhythms with punchy club energy boosts at hook sections."
+    },
+    "bass_generator": {
+      "brief": "Generate deep basslines that complement dark tonalities and follow energy peaks smoothly."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord textures maintaining a minor, dark harmonic atmosphere suitable for mainstream trap."
+    },
+    "melody_generator": {
+      "brief": "Design sparse melodic lines that enhance mood without overpowering rhythm or harmony."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy curve matches club energy with dark mood variations."
+    },
+    "presetor": {
+      "brief": "Suggest sound presets that fit trap mainstream style with a dark and club-oriented timbre."
+    },
+    "songgps": {
+      "brief": "Manage arrangement flow, section transitions, and event markers for balanced energy progression."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix strategy emphasizing clarity and punch in rhythm section while preserving dark atmosphere."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

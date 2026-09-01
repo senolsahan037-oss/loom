@@ -1,0 +1,344 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      20,
+      35,
+      50,
+      65,
+      80,
+      90,
+      100,
+      95,
+      85,
+      70,
+      55,
+      40,
+      30,
+      20,
+      15,
+      10,
+      10,
+      20,
+      35,
+      50,
+      65,
+      80,
+      90,
+      100,
+      95,
+      85,
+      70,
+      55,
+      40,
+      30,
+      20,
+      15,
+      10,
+      10,
+      20,
+      35,
+      50,
+      65,
+      80,
+      90,
+      100,
+      95,
+      85,
+      70,
+      55,
+      40,
+      30,
+      20,
+      15,
+      10,
+      10,
+      20,
+      35,
+      50,
+      65,
+      80,
+      90,
+      100,
+      95,
+      85,
+      70,
+      55,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro start",
+        "reason": "Start of introduction section"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 start",
+        "reason": "Start of first verse"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook start",
+        "reason": "Start of chorus/hook"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 start",
+        "reason": "Start of second verse"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge start",
+        "reason": "Bridge section begins"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook start",
+        "reason": "Start of final hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro start",
+        "reason": "Outro section begins"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "channels": [
+        "slice",
+        "chop",
+        "stutter",
+        "reverse_slice",
+        "time_stretch",
+        "granular"
+      ]
+    }
+  },
+  "sound_intent": {
+    "variation": "experimental",
+    "mood": "cinematic",
+    "energy_profile": "cinematic rise and fall",
+    "sample_layer_naming": "based on sample chop techniques"
+  },
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, dynamic variations",
+    "bass": "low end groove with sample chops",
+    "chords": "atmospheric pads with sliced samples",
+    "melody": "experimental melodic textures using granular chops",
+    "vocal": "vocal chops and samples, variated stutters",
+    "fx": "transitions and cinematic effects with time-stretch and reverse slices"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic and experimental drum patterns using sample slice and chop techniques to support cinematic mood and energy curve."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines with varied sample chopping techniques emphasizing groove and smooth transitions fitting the cinematic rise and fall."
+    },
+    "harmony_generator": {
+      "brief": "Produce atmospheric chord layers using time-stretch and granular slicing of samples to enhance the experimental cinematic vibe."
+    },
+    "melody_generator": {
+      "brief": "Create melodic textures and motifs using stuttered, chopped and reversed sample slices to align with the cinematic mood."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement energy levels and variation using sample chopping and slicing techniques to drive dynamic cinematic flow."
+    },
+    "presetor": {
+      "brief": "Apply presets and settings optimized for experimental and cinematic West Coast hip-hop sample chops and layering."
+    },
+    "songgps": {
+      "brief": "Guide arrangement structure and energy curve based on cinematic rise and fall profile with variation in sample slicing techniques."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channels maintaining clarity of sample chop layers for clean cinematic final mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Emotional Hook-Heavy",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      40,
+      80,
+      90,
+      20
+    ],
+    "notes": "Arrangement emphasizes hook-heavy energy with emotional and experimental boom bap feel. Uses sample layer channels named by chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "Start of hook section with increased vocal energy"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "Final hook increase in drum intensity"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "bridge_fx",
+        "reason": "FX added to bridge for variation"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "channels": [
+        "slice_technique",
+        "beat_repeat",
+        "stutter",
+        "chop_and_roll"
+      ]
+    }
+  },
+  "sound_intent": {
+    "variation": "experimental",
+    "mood": "emotional",
+    "energy_profile": "hook-heavy",
+    "sample_layer_naming": "based_on_sample_chop_techniques"
+  },
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using sliced samples",
+    "bass": "supportive low end complementing drums",
+    "chords": "harmonic texture with sampled chopped layers",
+    "melody": "emotional lead lines with experimental textures",
+    "vocal": "main lyrical/hook delivery",
+    "fx": "transitions and atmosphere using sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns emphasizing sample slicing and chopping techniques for boom bap style with experimental variations."
+    },
+    "bass_generator": {
+      "brief": "Generate supportive bass parts matching the emotional mood and groove, using sample-based tones."
+    },
+    "harmony_generator": {
+      "brief": "Build chordal textures using chopped samples, maintaining emotional content and layering variations."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic lines with experimental character using sample chops and emotional phrasing without MIDI notation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure focusing on dynamic energy curve and hook-heavy layout with experimental elements."
+    },
+    "presetor": {
+      "brief": "Manage preset selections aligned with boom bap and sample chopping techniques."
+    },
+    "songgps": {
+      "brief": "Drive overall arrangement flow, section transitions, and energy distribution focusing on hook prominence."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the final mix balance prioritizing unprocessed channel audio for clarity and sample separation."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

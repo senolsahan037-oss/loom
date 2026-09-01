@@ -1,0 +1,238 @@
+{
+  "project": {
+    "name": "Arabesk Rap Experimental Cinematic",
+    "genre": "Rap",
+    "subgenre": "Arabesk",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      75,
+      30,
+      70,
+      45,
+      90,
+      15
+    ],
+    "notes": "Sparse verses with strong, cinematic hooks. Experimental approach to arrangement focusing on dynamics and space."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 75,
+          "verse_2": 15,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduce strong vocal hook for high energy"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Reduce energy for sparse verses"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Max energy for closing hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with dynamic changes",
+    "bass": "grounding low end with rhythmic support",
+    "chords": "harmonic texture supporting cinematic mood",
+    "melody": "accentuated motifs during hooks",
+    "vocal": "sparse verses with impactful hooks",
+    "fx": "subtle atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns that ebb during verses and intensify during hooks for cinematic effect."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that support the groove with sparse activity in verses and fuller presence in hooks."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic backgrounds that enhance the cinematic and experimental mood with subtle chord textures."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic motifs that highlight hooks strongly while remaining minimal in verses."
+    },
+    "ai_designer": {
+      "brief": "Balance overall arrangement dynamics ensuring strong hook presence and sparse verses fitting experimental style."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize cinematic atmosphere and clarity for each track."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement coherence across sections and guide energy flow matching the mood and style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix-ready channel audio with dynamic clarity and separation for post-processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

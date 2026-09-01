@@ -1,0 +1,300 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Hook-Heavy",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      100,
+      50
+    ],
+    "notes": "Arrangement features aggressive boom bap style focusing on a hook-heavy energy profile with mainstream variation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "cue",
+        "label": "hook_start",
+        "reason": "Beginning of hook section with max energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "verse_1_start",
+        "reason": "Entrance of aggressive vocal delivery"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "cue",
+        "label": "bridge_effects",
+        "reason": "Add tension with FX in bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "cue",
+        "label": "final_hook_start",
+        "reason": "Final energetic hook section begins"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "sample_layers": [
+        {
+          "name": "Chop_Slice",
+          "description": "Drum hits sliced from vintage breakbeat samples"
+        },
+        {
+          "name": "Chop_Grain",
+          "description": "Granular sliced samples creating textured drum layers"
+        }
+      ]
+    },
+    "bass": {
+      "sample_layers": [
+        {
+          "name": "Chop_Segment",
+          "description": "Bass riffs chopped into segments for rhythmic variation"
+        }
+      ]
+    },
+    "chords": {
+      "sample_layers": [
+        {
+          "name": "Chop_Loop",
+          "description": "Chord loops chopped into smaller pieces for syncopation"
+        }
+      ]
+    },
+    "melody": {
+      "sample_layers": [
+        {
+          "name": "Chop_Slice",
+          "description": "Melodic sample slices used as hooks and fills"
+        }
+      ]
+    },
+    "vocal": {
+      "sample_layers": []
+    },
+    "fx": {
+      "sample_layers": [
+        {
+          "name": "Chop_Scratch",
+          "description": "Scratch samples chopped to add rhythmic FX"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "overall_character": "Aggressive, raw, hook-heavy boom bap with a mainstream appeal, making prominent use of chopped sample layers to create energy and groove."
+  },
+  "routing_intent": {
+    "routing_preferences": "Separate channels for each sample chop technique layer to allow detailed mixing control and automation."
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone using chopped vintage samples.",
+    "bass": "Supportive low-end with chopped groove segments.",
+    "chords": "Harmonic texture using looped chord chops.",
+    "melody": "Hook and fill elements via chopped melodic samples.",
+    "vocal": "Aggressive rap vocal delivery (notated externally).",
+    "fx": "Rhythmic and transitional effects using chopped scratch samples."
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 9,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {
+    "instruction": "Create an arrangement emphasizing aggressive energy during hooks with clear, rhythmic chopped sample layers reflecting traditional boom bap production style with a mainstream variation."
+  },
+  "presetor_intent": {
+    "instruction": "Focus on routing and mixing presets that enhance sample chop clarity and maintain aggression and energy in hooks."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using chopped vintage breakbeat samples and granular slicing techniques to maintain aggressive boom bap feel."
+    },
+    "bass_generator": {
+      "brief": "Produce bassline segments chopped for rhythmic interest supporting groove without overshadowing drums."
+    },
+    "harmony_generator": {
+      "brief": "Create chord chops that add harmonic texture and syncopation aligned with boom bap style."
+    },
+    "melody_generator": {
+      "brief": "Provide melodic hooks and fills using sliced melodic sample chops capturing aggressive mood."
+    },
+    "ai_designer": {
+      "brief": "Design arrangement structure featuring energy peaks at hooks and smooth transitions between sections using chopped samples."
+    },
+    "presetor": {
+      "brief": "Apply mixing and routing presets emphasizing sample chop separation and energy dynamics."
+    },
+    "songgps": {
+      "brief": "Track arrangement energy and section mapping to optimize hook prominence within a boom bap context."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix individual chopped sample layers preserving clarity and aggression while maintaining balanced energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

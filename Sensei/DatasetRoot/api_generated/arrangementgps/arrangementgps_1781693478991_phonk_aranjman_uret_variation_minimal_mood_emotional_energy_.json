@@ -1,0 +1,281 @@
+{
+  "project": {
+    "name": "Phonk Emotional Minimal Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Sample-based arrangement with a texture bed and one-shot hits. Variation minimal with cinematic rise and fall energy profile. Kanal isimleri sample parçalama tekniklerinden oluşacak."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 0,
+          "final_hook": 20,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "hit",
+        "label": "Kick Hit",
+        "reason": "One-shot sample hit to establish pulse"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "loop",
+        "label": "Looped Beat",
+        "reason": "Sample-based loop begins for verse 1"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "texture",
+        "label": "Texture Bed Start",
+        "reason": "Textural sample bed introduced for hook"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "hit",
+        "label": "One-Shot Fill",
+        "reason": "Emotional dramatic fill one-shot"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "Sample_Bed_Texture",
+        "type": "texture",
+        "channel": "FX",
+        "technique": "granular_slicing"
+      },
+      {
+        "name": "One_Shot_Hits",
+        "type": "percussion",
+        "channel": "Drums",
+        "technique": "transient_slicing"
+      }
+    ]
+  },
+  "sound_intent": {
+    "sample_based": true,
+    "texture_bed": true,
+    "one_shot_hits": true,
+    "energy_profile": "cinematic_rise_fall",
+    "variation": "minimal",
+    "mood": "emotional"
+  },
+  "routing_intent": {
+    "drums": "slice_transient_samples_to_channel_drums",
+    "bass": "loop_samples_to_channel_bass",
+    "chords": "layer_sliced_samples_with_texture_on_chords",
+    "melody": "use_one_shot_hits_for_melody_effects",
+    "vocal": "sample_contour_for_emotional_touches",
+    "fx": "granular_textural_beds"
+  },
+  "track_roles": {
+    "drums": "percussive_pulse_and_one_shots",
+    "bass": "rhythmic_loop_foundation",
+    "chords": "harmonic_texture_layer",
+    "melody": "accent_hits_and_effects",
+    "vocal": "texture_and_minimal_vocal_effects",
+    "fx": "ambient_textural_layers"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      64,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "emotional cinematic arrangement with minimal variation and clear energy flow",
+    "use_sample_techniques": "transient and granular slicing for textural interest"
+  },
+  "presetor_intent": {
+    "presets": "neutral compressed samples with dark warmth to support emotional mood",
+    "automation": "slow energy crescendo and decrescendo aligned with arrangement"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create percussive layers focusing on one-shot sample hits, using sample transient slicing techniques, with minimal but expressive pattern variation."
+    },
+    "bass_generator": {
+      "brief": "Generate a sample-based bassline with looped textures, maintaining a subtle presence to support mood and energy flow."
+    },
+    "harmony_generator": {
+      "brief": "Layer harmonic content with sampled chords, using granular slicing to create a smooth texture bed with minimal chord changes."
+    },
+    "melody_generator": {
+      "brief": "Add melody elements via one-shot samples acting as accents without melodic complexity."
+    },
+    "ai_designer": {
+      "brief": "Integrate the elements into a cinematic energy shape by controlling variation and emotional intensity across sections."
+    },
+    "presetor": {
+      "brief": "Apply appropriate sample-based presets emphasizing warmth and cinematic dynamics, manage automation of energy curve."
+    },
+    "songgps": {
+      "brief": "Structure the arrangement with defined sections and energy curves, ensuring sample-based layers follow minimal variation and cinematic rise/fall profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio maintaining clarity of sample textural layers and one-shot hits, preserving emotional cinematic effect."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

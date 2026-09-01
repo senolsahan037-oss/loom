@@ -1,0 +1,278 @@
+{
+  "project": {
+    "name": "Phonk Uplifting Mainstream",
+    "genre": "Phonk",
+    "subgenre": "Mainstream",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      50,
+      80,
+      100,
+      30,
+      60,
+      85,
+      95,
+      60,
+      40,
+      70,
+      50,
+      30
+    ],
+    "notes": "Arrangement follows a cinematic rise and fall energy profile with sample-based layers including texture beds and one-shot hits. Channel names reflect sample slicing techniques where applicable."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 35,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "slice",
+        "label": "Reverse Slice",
+        "reason": "Sample-based texture bed start"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hit",
+        "label": "One-Shot Hit",
+        "reason": "Energy peak in hook"
+      },
+      {
+        "track": "chords",
+        "bar": 9,
+        "type": "slice",
+        "label": "Chop Slice",
+        "reason": "Main texture bed layering"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "sweep",
+        "label": "Sweep Up",
+        "reason": "Cinematic rise in bridge"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "texture_bed": [
+        "chord_slices",
+        "ambient_loops"
+      ],
+      "one_shot_hits": [
+        "kick_hits",
+        "snare_hits",
+        "hat_hits"
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "Smooth, warm, atmospheric layers built from sample chops",
+    "one_shot_hits": "Sharp, punchy with transient emphasis",
+    "energy_profile": "Cinematic rise and fall to maintain engagement and uplifting mood"
+  },
+  "routing_intent": {
+    "drums": "Route through transient shaper and parallel compression",
+    "bass": "Sidechain to drums for rhythmic drive",
+    "chords": "Stereo width enhancement with reverb",
+    "melody": "Light delay and subtle modulation effects",
+    "fx": "Automated sweeps and risers in build sections"
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation with sample sliced hits",
+    "bass": "Melodic bassline complementing groove",
+    "chords": "Harmonic texture via chopped samples",
+    "melody": "Lead melodic interest with sample-based phrasing",
+    "vocal": "Sparse vocal chops and effects",
+    "fx": "Transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 2,
+    "fx": 3
+  },
+  "designer_intent": {
+    "focus": "Create a mainstream phonk arrangement with uplifting mood, dynamic energy curve, and cinematic flow using sample slicing techniques."
+  },
+  "presetor_intent": {
+    "goal": "Generate presets for sample manipulation including slicing, chopping, and transient shaping for a rich texture bed and impactful one-shot hits."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Provide drum patterns emphasizing sample slicing and one-shot hits aligned with cinematic rise and fall energy profile."
+    },
+    "bass_generator": {
+      "brief": "Create bass layers that complement the groove and dynamic shifts without melody or chord content."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord textures using sample slices shaping a warm and ambient texture bed."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic phrasing via sample-based one-shot hits and chopped melodic samples."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement flow with focus on uplifting mood and energy dynamics according to cinematic rise and fall."
+    },
+    "presetor": {
+      "brief": "Develop presets and processing chains for sample slicing, chopping, and one-shot hit enhancement."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement structure complies with defined sections and energy profiles while integrating sample-based layers."
+    },
+    "ai_mixmaster": {
+      "brief": "Provide mix guidelines prioritizing unprocessed channel audio delivery suitable for further mastering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

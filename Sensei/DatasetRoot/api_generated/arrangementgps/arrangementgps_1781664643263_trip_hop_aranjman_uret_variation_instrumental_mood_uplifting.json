@@ -1,0 +1,241 @@
+{
+  "project": {
+    "name": "Uplifting Trip Hop Instrumental",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      65,
+      85,
+      90,
+      50
+    ],
+    "notes": "Instrumental trip hop arrangement with club energy, featuring sample-based textures and one-shot hit layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 50,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_slice",
+        "label": "Intro texture bed start",
+        "reason": "Sample-based texture bed beginning"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "one_shot_hit",
+        "label": "Hook one-shot hits enter",
+        "reason": "Enhanced club energy with hit samples"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "sample_slice",
+        "label": "Bridge texture layer",
+        "reason": "Add texture variation in bridge section"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "one_shot_hit",
+        "label": "Final hook hits",
+        "reason": "Maximize club energy in final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation with sample-slicing methods",
+    "bass": "Low-end support matching club energy",
+    "chords": "Texture bed with sample-based layers",
+    "melody": "Sparse instrumental motifs",
+    "vocal": "None (instrumental)",
+    "fx": "Atmospheric texture and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slicing and one-shot hits appropriate for uplifting trip hop with club energy, emphasize rhythmic dynamics."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the club energy profile, avoiding strong melodic lines but providing groove support within sample-based context."
+    },
+    "harmony_generator": {
+      "brief": "Produce texture beds using sample layers for chordal elements sustaining uplifting mood while maintaining trip hop subtlety."
+    },
+    "melody_generator": {
+      "brief": "Design minimal instrumental motifs that integrate as sparse melodic elements in the arrangement, focusing on club energy feel."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow, manage energy curve, and section transitions to keep uplifting club energy consistent and engaging."
+    },
+    "presetor": {
+      "brief": "Apply production presets suitable for sample-based trip hop arrangements with clarity on texture beds and one-shot percussive hits."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement sections and energy dynamics from intro to outro according to provided energy profile and mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix-ready unprocessed channel audio ensuring clarity and balance among textured samples and one-shot hits."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.65
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

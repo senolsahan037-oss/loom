@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Arabesk Rap Vocal Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "Arabesk Rap",
+    "bpm": 95,
+    "key": "Dm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      50,
+      90,
+      100,
+      40
+    ],
+    "notes": "Vocal-focused arrangement with hook-heavy energy peaks to highlight the uplifting mood. Energy swells in hooks and bridges to reinforce focus on vocals, moderate instrumental presence elsewhere."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 35
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 18,
+          "bridge": 25,
+          "final_hook": 45,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begins",
+        "reason": "Highlight main vocal hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook",
+        "reason": "Culmination of vocal energy"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro Start",
+        "reason": "Set mood with light percussion"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Verse 1",
+        "reason": "Increase beat presence"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and groove",
+    "bass": "low-end support and groove",
+    "chords": "harmonic texture and mood",
+    "melody": "instrumental melodic accents",
+    "vocal": "main lyrical delivery and hooks",
+    "fx": "transitions and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 60,
+    "chords": 50,
+    "melody": 40,
+    "vocal": 100,
+    "fx": 30
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that complement an uplifting Arabesk Rap arrangement, emphasizing energy variations especially in hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that support rhythmic groove and reinforce uplifting mood without overpowering vocals."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic textures using chords that blend Arabesk and Rap elements, supporting vocal focus and uplifting mood."
+    },
+    "melody_generator": {
+      "brief": "Create melodic accents and instrumental lines that emphasize hooks and vocal highlights without conflicting with main vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement ensuring vocal focus and hook-heavy energy profiles are balanced and clear."
+    },
+    "presetor": {
+      "brief": "Apply sound presets and effects that enhance vocal presence and maintain cohesion in the Arabesk Rap style."
+    },
+    "songgps": {
+      "brief": "Manage arrangement transitions and energy curve to maintain listener engagement and emphasize hook sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix and balance tracks maintaining vocal prominence and clarity throughout the uplifting, hook-heavy arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

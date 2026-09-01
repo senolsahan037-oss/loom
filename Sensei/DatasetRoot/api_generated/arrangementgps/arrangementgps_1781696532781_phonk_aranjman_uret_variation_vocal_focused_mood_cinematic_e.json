@@ -1,0 +1,320 @@
+{
+  "project": {
+    "name": "Phonk Cinematic Vocal Focus",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      20,
+      45,
+      65,
+      85,
+      65,
+      45,
+      30,
+      55,
+      75,
+      95,
+      75,
+      55,
+      35,
+      20,
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      25,
+      20,
+      20,
+      30,
+      50,
+      70,
+      50,
+      30,
+      20,
+      20,
+      35,
+      55,
+      75,
+      55,
+      35,
+      20,
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      20,
+      20,
+      30,
+      50,
+      70,
+      50,
+      30,
+      20,
+      20,
+      25,
+      45,
+      65,
+      45,
+      25,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0
+    ],
+    "notes": "Phonk style instrumental arrangement with vocal-focused cinematic dynamics showcasing a cinematic rise and fall energy profile. Use sample chop techniques for channel naming for clarity in production."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 35
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 50,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Cinematic energy peak with vocal focus"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Energy dips for cinematic fall"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Energy rises back for final section"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "Stutter_Chops": {},
+      "Reverse_Chops": {},
+      "Slice_Chops": {},
+      "Granular_Chops": {},
+      "Gate_Chops": {}
+    }
+  },
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low-end groove support",
+    "chords": "harmonic texture",
+    "melody": "instrumental melodic element",
+    "vocal": "lead vocal focus",
+    "fx": "atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      64,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum arrangements supporting cinematic rise and fall energy curve with phonk-style rhythmic chops."
+    },
+    "bass_generator": {
+      "brief": "Generate bassline patterns that complement the drums and support the cinematic energy dynamics."
+    },
+    "harmony_generator": {
+      "brief": "Build chord progressions with cinematic, harmonic textures appropriate for a phonk subgenre."
+    },
+    "melody_generator": {
+      "brief": "Design instrumental melodic motifs that provide subtle background complementing vocal focus."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement to align with cinematic mood and energy profile emphasizing vocal-focused sections."
+    },
+    "presetor": {
+      "brief": "Apply and manage effect presets suited to cinematic phonk atmosphere with sample chop channel routing."
+    },
+    "songgps": {
+      "brief": "Track section transitions and energy levels ensuring smooth rises and falls suitable for the cinematic feel."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix treatments emphasizing clarity and prominence of vocal lane while balancing sample chop layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

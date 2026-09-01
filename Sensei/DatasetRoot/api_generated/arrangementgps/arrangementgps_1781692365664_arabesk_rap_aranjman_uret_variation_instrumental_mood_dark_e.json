@@ -1,0 +1,301 @@
+{
+  "project": {
+    "name": "Arabesk Rap Instrumental Dark Mood",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      25,
+      20,
+      25,
+      30,
+      40,
+      50,
+      35,
+      40,
+      30,
+      40,
+      70,
+      80,
+      75,
+      70,
+      30,
+      35,
+      30,
+      30,
+      75,
+      85,
+      80,
+      75,
+      40,
+      50,
+      45,
+      35,
+      60,
+      55,
+      50,
+      45,
+      30,
+      40,
+      35,
+      25,
+      70,
+      85,
+      80,
+      75,
+      20,
+      30,
+      25,
+      25,
+      60,
+      70,
+      65,
+      60,
+      40,
+      50,
+      45,
+      40,
+      90,
+      95,
+      90,
+      85,
+      30,
+      25,
+      20,
+      15,
+      40,
+      50,
+      30,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 25,
+          "25-32": 70,
+          "33-48": 35,
+          "49-56": 60,
+          "57-64": 90,
+          "65-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 20,
+          "25-32": 65,
+          "33-48": 30,
+          "49-56": 55,
+          "57-64": 85,
+          "65-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 15,
+          "25-32": 50,
+          "33-48": 25,
+          "49-56": 40,
+          "57-64": 70,
+          "65-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 10,
+          "25-32": 80,
+          "33-48": 15,
+          "49-56": 40,
+          "57-64": 90,
+          "65-80": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-32": 0,
+          "33-48": 0,
+          "49-56": 0,
+          "57-64": 0,
+          "65-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 10,
+          "25-32": 55,
+          "33-48": 15,
+          "49-56": 35,
+          "57-64": 50,
+          "65-80": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "hook",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "Hook Start",
+        "reason": "Strong hook introduction"
+      },
+      {
+        "track": "final_hook",
+        "bar": 57,
+        "type": "energy_peak",
+        "label": "Final Hook Start",
+        "reason": "Climactic energy peak"
+      },
+      {
+        "track": "intro",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "outro",
+        "bar": 65,
+        "type": "outro_start",
+        "label": "Outro",
+        "reason": "End of arrangement"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation, sparse in verses, strong in hooks",
+    "bass": "bass foundation, minimal in verses, prominent in hooks",
+    "chords": "harmonic support, light textures",
+    "melody": "dominant in hooks, minimal in verses",
+    "vocal": "instrumental only, no vocals",
+    "fx": "atmospheric effects, enhance dark mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      36,
+      68
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create sparse drum patterns during verses with increased intensity and complexity for hooks emphasizing a dark, rhythmic feel."
+    },
+    "bass_generator": {
+      "brief": "Generate minimal bass lines for verses and stronger, driving bass for hooks, aligning with the sparse yet impactful arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Provide subtle chord textures throughout, with emphasis in hooks to underscore dark mood and energy shifts."
+    },
+    "melody_generator": {
+      "brief": "Compose prominent melody lines for hooks that are strong and catchy, maintaining minimal melodic activity in verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement structure, ensuring dark mood, energy profiles with sparse verses and strong hooks are met."
+    },
+    "presetor": {
+      "brief": "Manage preset selections focusing on dark tonal characteristics suitable for Arabesk Rap instrumental."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement timing, section transitions, and energy curve aligning with design goals."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix for unprocessed channel audio ensuring clarity between sparse verses and energetic hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

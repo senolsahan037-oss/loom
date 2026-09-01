@@ -1,0 +1,7 @@
+{
+  "name": "Sensei MIDI Writer",
+  "author": "Loom",
+  "entry": "dist/extension.js",
+  "version": "0.6.10",
+  "minimumApiVersion": "1.0.0"
+}

@@ -1,0 +1,257 @@
+{
+  "project": {
+    "name": "Trip Hop Vocal-Aggressive Hook",
+    "genre": "Trip Hop",
+    "subgenre": "Vocal-focused",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      85,
+      90,
+      30
+    ],
+    "notes": "Focus on vocal-driven aggression with hook-heavy energy spikes, emphasizing sample chopping techniques in the production layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 35
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Main Hook Start",
+        "reason": "Beginning of the hook section with maximum energy and vocal focus"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook Start",
+        "reason": "Return of the hook with highest energy for the song climax"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "channels": [
+        "slice",
+        "stutter",
+        "reverse",
+        "glitch",
+        "granular",
+        "glide",
+        "roll",
+        "chop"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal aggression with hook-dense dynamic shifts, employing sample chopping techniques named as production channels",
+    "timbre": "dark, gritty, textured with layered chopped vocal samples and rhythmic complexity"
+  },
+  "routing_intent": {
+    "vocal": "processed through granular and stutter channels for sharp rhythmic phrasing",
+    "drums": "routed with glitch and roll channels for dynamic percussive variation",
+    "bass": "glide and chop channels for smooth yet aggressive movement",
+    "chords": "slice and reverse channels to add atmospheric tension",
+    "fx": "glitch and granular for transitions and space creation"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using glitch and roll chops",
+    "bass": "harmonic drive with glide and chop layers",
+    "chords": "atmospheric pads sliced and reversed",
+    "melody": "subtle lead elements, minimal to support vocals",
+    "vocal": "primary melodic and emotional focus with sliced and stuttered processing",
+    "fx": "accentuating transitions and textural depth"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "goal": "Create a Trip Hop arrangement emphasizing aggressive, hook-heavy vocal variations, exploiting advanced sample chop techniques for production channels."
+  },
+  "presetor_intent": {
+    "instructions": "Configure presets oriented around stuttered, sliced vocal chops with textured glitch and granular effects for dynamic rhythmic and harmonic interest."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing rhythmic complexity and incorporating glitch and roll sample chop techniques."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines with glide and chop sample channel effects to enhance groove and aggressiveness."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures using slice and reverse sample chopping for atmospheric tension."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements to complement vocal lines without overpowering them."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring vocal focus with hook-intensive energy peaks and smooth section transitions."
+    },
+    "presetor": {
+      "brief": "Apply and tweak presets tailored for sample chopping effects on vocals, drums, and FX channels."
+    },
+    "songgps": {
+      "brief": "Manage overall energy curve and section dynamics maintaining hook prominence and vocal aggression."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixes prioritizing clarity and separation of chopped sample layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

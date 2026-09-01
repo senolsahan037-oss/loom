@@ -1,0 +1,26 @@
+{
+  "template_id": "sample_based_modern_chop_arrangement",
+  "description": "Modern sample-based beat arrangement with channels named after sample chopping techniques.",
+  "channel_naming_policy": "use_sample_chop_technique_names",
+  "sample_chop_tracks": [
+    "Micro Chop",
+    "Phrase Chop",
+    "Stutter Chop",
+    "Reverse Chop",
+    "Texture Bed",
+    "Vocal Chop",
+    "One-Shot Hit",
+    "Time-Stretch Pad",
+    "Granular Spray",
+    "Filter Sweep Chop"
+  ],
+  "arrangement_usage": {
+    "intro": ["Texture Bed", "Reverse Chop", "Time-Stretch Pad"],
+    "verse_1": ["Phrase Chop", "Micro Chop", "Texture Bed"],
+    "hook": ["Phrase Chop", "Vocal Chop", "One-Shot Hit", "Stutter Chop"],
+    "verse_2": ["Micro Chop", "Phrase Chop", "Granular Spray"],
+    "bridge": ["Reverse Chop", "Time-Stretch Pad", "Filter Sweep Chop"],
+    "final_hook": ["Phrase Chop", "Vocal Chop", "One-Shot Hit", "Stutter Chop", "Granular Spray"],
+    "outro": ["Texture Bed", "Reverse Chop", "Time-Stretch Pad"]
+  }
+}

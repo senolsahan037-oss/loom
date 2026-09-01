@@ -1,0 +1,333 @@
+{
+  "project": {
+    "name": "Phonk Minimal Cinematic",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      55,
+      60,
+      70,
+      80,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      5,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      90
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 45
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 40,
+          "25-40": 70,
+          "41-56": 50,
+          "57-64": 45,
+          "65-72": 80,
+          "73-80": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 35,
+          "25-40": 60,
+          "41-56": 50,
+          "57-64": 40,
+          "65-72": 75,
+          "73-80": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 50,
+          "41-56": 40,
+          "57-64": 35,
+          "65-72": 65,
+          "73-80": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 20,
+          "25-40": 40,
+          "41-56": 35,
+          "57-64": 30,
+          "65-72": 55,
+          "73-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 0,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 0,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 15,
+          "25-40": 25,
+          "41-56": 20,
+          "57-64": 18,
+          "65-72": 30,
+          "73-80": 8
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "pattern_start",
+        "label": "Intro Chop",
+        "reason": "Start of minimal sample chopping technique on drums"
+      },
+      {
+        "track": "chords",
+        "bar": 9,
+        "type": "pattern_variation",
+        "label": "Subtle Slice",
+        "reason": "Introduce minimal chord chopping variation with cinematic mood"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "effect_entry",
+        "label": "Tape Stop",
+        "reason": "Slow build with cinematic effect on sample channel"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "pattern_change",
+        "label": "Granular Sequence",
+        "reason": "Chopped bass sample with granular technique for slow build"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "fade_in",
+        "label": "Reverse Slice",
+        "reason": "Sample reverse slice technique to enhance cinematic mood"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "pattern_intensity",
+        "label": "Transient Chop",
+        "reason": "Intensified drum sample chopping for energy peak"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "outro_effect",
+        "label": "Filtered Cut",
+        "reason": "Minimal fading out with filter chopping technique"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using chopped samples",
+    "bass": "low end with granular chopped bass samples",
+    "chords": "atmospheric layers via minimal chord sample slices",
+    "melody": "cinematic texture with reversed and sliced samples",
+    "vocal": "none",
+    "fx": "transitional and cinematic effects via sample chopping"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design minimal drum patterns using sample chopping techniques focused on slow build and cinematic atmosphere."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using granular chopping methods that complement a slow energy build and minimal phonk style."
+    },
+    "harmony_generator": {
+      "brief": "Create chord layers with minimal sliced samples to support the cinematic mood and subtle energy progression."
+    },
+    "melody_generator": {
+      "brief": "Provide cinematic texture through reversed and sliced sample techniques without explicit melodic content."
+    },
+    "ai_designer": {
+      "brief": "Overall arrangement planning focusing on slow build energy curve, minimal variation, and cinematic mood using sample chopping naming conventions."
+    },
+    "presetor": {
+      "brief": "Apply suitable preset effects optimized for minimal phonk arrangement with cinematic, slow build energy profile."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement adheres to ArrangementGPS formatting with correct section ids and sample chopping channel naming."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix workflow to retain clarity of chopped sample layers and cinematic slow build energy without heavy processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

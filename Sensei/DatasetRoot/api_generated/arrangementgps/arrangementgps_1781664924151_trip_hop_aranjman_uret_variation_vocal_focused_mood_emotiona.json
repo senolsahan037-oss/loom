@@ -1,0 +1,269 @@
+{
+  "project": {
+    "name": "Trip Hop Vocal-Focused Arrangement",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      60,
+      25,
+      40,
+      70,
+      70,
+      15
+    ],
+    "notes": "Sparse verses with emotional vocal focus and strong energetic hooks. Use micro chops, phrase chops, reverse chops, vocal chops, and stutter chops as sample techniques to highlight vocal elements."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 25
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 55,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 45,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 35,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Strong Vocal Hook",
+        "reason": "Increased energy and vocal chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "hook_start",
+        "label": "Final Hook Vocal Peak",
+        "reason": "Highest vocal energy and stutter chops"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect_cue",
+        "label": "Bridge FX Transition",
+        "reason": "Smooth transition with reverse chops and effects"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ],
+    "channels": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ]
+  },
+  "sound_intent": {
+    "vocal_texture": "emotional and intimate with chopped samples emphasizing phrase articulation",
+    "energy_distribution": "low energy verses, high energy hooks emphasizing vocal hooks",
+    "sound_balance": "foreground vocal chops with sparse instrumental backing"
+  },
+  "routing_intent": {
+    "vocal_chops": "lead channel routed to main vocal bus with dedicated effects",
+    "micro_chops": "panned lightly left for stereo width",
+    "phrase_chops": "panned lightly right complementing micro chops",
+    "reverse_chops": "used in transitions with reverb and delay",
+    "stutter_chops": "timed with rhythmic gating effects"
+  },
+  "track_roles": {
+    "drums": "provide sparse rhythm foundation emphasizing groove",
+    "bass": "support mood with soft and subby tones",
+    "chords": "create ambient harmonic pads",
+    "melody": "minimal melodic motifs complementing vocal",
+    "vocal": "main focus with chopped and processed vocal samples",
+    "fx": "transition and texture effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      48,
+      64
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "Create an emotional trip hop arrangement with vocal chops as the centerpiece",
+    "structure": "Dynamic energy with strong vocal hooks, sparse verses to enhance emotional storytelling"
+  },
+  "presetor_intent": {
+    "selection": "Choose presets that emphasize dark, moody textures and vocal manipulation effects"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design sparse and groove-focused drum patterns that support vocal dynamics"
+    },
+    "bass_generator": {
+      "brief": "Generate subby, mood-supporting bass parts with minimal complexity"
+    },
+    "harmony_generator": {
+      "brief": "Create ambient chord pads with sparse articulation to support emotional mood"
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic lines that complement but do not overshadow vocals"
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with varied energy, emphasizing vocal sample techniques for hooks"
+    },
+    "presetor": {
+      "brief": "Select and tweak presets to produce rich vocal chop textures and atmospheric elements"
+    },
+    "songgps": {
+      "brief": "Manage arrangement sections and energy curve, ensuring smooth transitions and vocal focus"
+    },
+    "ai_mixmaster": {
+      "brief": "Mix with vocal clarity and dynamic balance, ensuring chopped vocal samples remain foregrounded"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

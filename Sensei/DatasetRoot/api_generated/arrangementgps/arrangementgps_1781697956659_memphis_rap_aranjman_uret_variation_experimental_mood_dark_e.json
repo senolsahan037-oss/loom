@@ -1,0 +1,255 @@
+{
+  "project": {
+    "name": "Memphis Rap Experimental",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 75,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      40
+    ],
+    "notes": "This arrangement features experimental variations with a hook-heavy energy profile emphasizing dark moods suitable for Memphis Rap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-40": 90,
+          "41-56": 50,
+          "57-64": 60,
+          "65-72": 90,
+          "73-80": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 80,
+          "41-56": 40,
+          "57-64": 50,
+          "65-72": 80,
+          "73-80": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 35,
+          "25-40": 70,
+          "41-56": 35,
+          "57-64": 45,
+          "65-72": 70,
+          "73-80": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 75,
+          "41-56": 30,
+          "57-64": 40,
+          "65-72": 75,
+          "73-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-40": 95,
+          "41-56": 50,
+          "57-64": 55,
+          "65-72": 95,
+          "73-80": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 25,
+          "25-40": 60,
+          "41-56": 25,
+          "57-64": 35,
+          "65-72": 60,
+          "73-80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy and hook prominence"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Set dark mood with subdued drums"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to moderate groove after hook"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Experimental textures introduced"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Maximize hook intensity"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone",
+    "bass": "low-end foundation",
+    "chords": "harmonic support",
+    "melody": "lead motif",
+    "vocal": "main lyrical delivery",
+    "fx": "atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      64,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns with dark, hook-heavy energy focusing on rhythmic interest and variation between sections."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that provide a strong low-end foundation with groove variations emphasizing hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Create chord voicings that complement the dark mood while supporting the experimental arrangement style."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic lines that are subtle and moody with occasional variations accentuating hooks."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the arrangement structure ensuring appropriate energy curve and section transitions suitable for Memphis Rap."
+    },
+    "presetor": {
+      "brief": "Apply presets to achieve a dark, gritty sound characteristic of Memphis Rap with experimental undertones."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement energy flow and ensure hook-heavy dynamics align with project mood and style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings focusing on clarity for vocal hooks and maintaining dark atmospheric elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "project": {
+    "name": "Boom Bap Minimal Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      40,
+      20
+    ],
+    "notes": "Sparse verses emphasizing minimal boom bap sample-based textures with strong cinematic hooks, maintaining a smooth dynamic flow with texture beds and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_slice_open",
+        "label": "TextureBedStart",
+        "reason": "Start with textured sample layering in drums channel"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "one_shot_hit",
+        "label": "HookDrumPunch",
+        "reason": "Strong hook with punchy one-shot drum hits"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "sample_slice",
+        "label": "HookChordTexture",
+        "reason": "Enhanced cinematic texture during hook section"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "sample_slice_retrigger",
+        "label": "VerseBassSparse",
+        "reason": "Sparse bass activation during verses"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "sample_slice_overlay",
+        "label": "BridgeFxLayer",
+        "reason": "Add cinematic FX texture in the bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "one_shot_hit",
+        "label": "HookVocalPhrase",
+        "reason": "Strong vocal hook presence"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_based_arrangement": {
+      "texture_bed": [
+        "sample_slice_open",
+        "sample_slice",
+        "sample_slice_retrigger"
+      ],
+      "one_shot_hits": [
+        "one_shot_hit",
+        "sample_slice_overlay"
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture": "sample-based layered textures with a cinematic mood",
+    "energy_profile": "sparse verses with strong dynamic hooks",
+    "rhythmic_feel": "classic boom bap minimal groove"
+  },
+  "routing_intent": {
+    "channels": {
+      "drums": "sample_slice and one-shot routing for dynamic rhythm",
+      "bass": "sample_slice_retrigger routing for sparse bass presence",
+      "chords": "texture layering via sample slices",
+      "melody": "minimal melodic overlays with samples",
+      "vocal": "focus on hook one-shot vocal hits",
+      "fx": "effects layered via sample overlays"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation using sample slicing",
+    "bass": "low-frequency support with sparse sample retriggers",
+    "chords": "textural harmonic bed with sample slices",
+    "melody": "minimal melodic content with sample hints",
+    "vocal": "hook-centric vocal one-shots",
+    "fx": "ambient cinematic effect layers"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      17,
+      41,
+      66
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {
+    "overview": "Design a boom bap minimal arrangement with cinematic mood focusing on sample-based texture beds and decisive one-shot hits to highlight hooks while verses remain sparse and atmospheric."
+  },
+  "presetor_intent": {
+    "task": "Implement variation: minimal; ensure sample slicing techniques generate channel layers; reinforce cinematic energy with sparse verse activity and strong hook presence."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum arrangements using sample slicing techniques to create a minimal boom bap rhythm, emphasizing texture beds in verses and strong one-shot hits during hooks."
+    },
+    "bass_generator": {
+      "brief": "Produce sparse bass lines using sample retriggers to support verses subtly and increase energy during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create textural chord layers by slicing harmonic samples, enhancing the cinematic mood throughout sections, especially hooks and the bridge."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements with sample-based overlays, ensuring they complement the cinematic and sparse vibe without overwhelming."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement flow focusing on energy profile with sparse verses and strong hooks using sample slice and one-shot hit techniques."
+    },
+    "presetor": {
+      "brief": "Apply minimal variation preset focusing on sample-based arrangement with clear channel definitions and cinematic energy dynamics."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement structure enforcing sections and energy curve rules; ensure channel naming aligns with sample slicing techniques."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix strategy that highlights the contrast between sparse verses and energetic hooks, preserving sample texture clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

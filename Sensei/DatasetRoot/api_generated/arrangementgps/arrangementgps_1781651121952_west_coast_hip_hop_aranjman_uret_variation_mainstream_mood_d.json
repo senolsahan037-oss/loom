@@ -1,0 +1,267 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Dark",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      40,
+      80,
+      80,
+      50,
+      30,
+      70,
+      90,
+      90,
+      50,
+      40,
+      85,
+      85,
+      20
+    ],
+    "notes": "Sparse verses with minimal instrumentation, strong impactful hooks with full instrumentation and energy peaks, maintaining a dark mood throughout."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 80,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Begin sparse verses with focus on vocals"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduce strong hooks with higher energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse verse pattern"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Introduce bridge with moderate buildup"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Maximize energy and hook strength for final chorus"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Gradually reduce energy for closing"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "foundation and groove",
+    "bass": "rhythmic support with sparse presence in verses",
+    "chords": "harmonic support with warm textures",
+    "melody": "lead hooks and motifs in chorus sections",
+    "vocal": "lead rap verses and vocal hooks",
+    "fx": "accentuation and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      42
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 9,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that are minimal in verses but full and strong during hooks to emphasize high energy and dark mood."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines with sparse presence during verses and fuller, rhythmic support during hooks and bridge."
+    },
+    "harmony_generator": {
+      "brief": "Provide dark harmonic textures focusing on chords that support the mood, particularly emphasizing hooks and bridge."
+    },
+    "melody_generator": {
+      "brief": "Develop strong, memorable melodic hooks during chorus sections, with minimal melodic content in verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement energy dynamics ensuring sparse verses and strong hook impact while maintaining a dark, mainstream West Coast hip-hop style."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that enhance the dark mood and support the dynamic energy profile of the arrangement."
+    },
+    "songgps": {
+      "brief": "Ensure structural consistency with labelled sections and energy mapping according to the arrangement requirements."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix all channel audio preserving clarity in sparse verses and fullness in hooks, while retaining the dark emotive tone."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "project": {
+    "name": "Memphis Rap Aggressive Hook-Heavy",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      60,
+      20
+    ],
+    "notes": "Minimal variation, aggressive energy focusing on hooks."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Start",
+        "reason": "Increase energy with hook-heavy emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "cue",
+        "label": "Final Hook Start",
+        "reason": "Peak energy for final hook section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, aggressive tone",
+    "bass": "low-end drive, supports hook heaviness",
+    "chords": "minimal harmonic texture",
+    "melody": "sparse hook motifs",
+    "vocal": "primary rap verses and hooks",
+    "fx": "accent and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create an aggressive, punchy drum pattern emphasizing the hook-heavy energy, maintaining minimal variation throughout the arrangement."
+    },
+    "bass_generator": {
+      "brief": "Generate a low-end bassline that supports rhythmic aggression and hook prominence without melodic complexity."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal harmonic elements primarily during hooks and transitions to support aggressive mood and energy."
+    },
+    "melody_generator": {
+      "brief": "Produce sparse melodic motifs focusing on hooks to enhance energy and memorability with minimal variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring aggressive mood, hook-heavy energy profile and minimal variation across sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that reinforce an aggressive Memphis rap sound with clear hooks and energetic beats."
+    },
+    "songgps": {
+      "brief": "Manage arrangement flow with focus on hook prominence, energy curve shaping and section transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix focusing on clarity for aggressive vocals and rhythmic elements maintaining energy and minimal sonic clutter."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

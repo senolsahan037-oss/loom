@@ -1,0 +1,246 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Aggressive Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "F minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      30,
+      70,
+      60,
+      90,
+      40
+    ],
+    "notes": "Sparse verses with strong, hook-focused energy"
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 80,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increased energy and hook section begins"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "introduce",
+        "label": "Main Hook Melody",
+        "reason": "Strong melodic hook introduced to elevate energy"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Peak energy section with strongest hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy tapering and arrangement closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "driving_rhythm",
+    "bass": "low_end_support",
+    "chords": "harmonic_rhythm",
+    "melody": "hook_melody",
+    "vocal": "none",
+    "fx": "transitions_and_ambience"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      11,
+      34,
+      35
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 9,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a driving yet sparse drum pattern emphasizing strong rhythmic hooks in the hook sections."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, supporting bass line that complements sparse verses and energizes hooks."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic layers with chord stabs and sparse rhythm to support the aggressive mood."
+    },
+    "melody_generator": {
+      "brief": "Design an aggressive, memorable hook melody used only in hook sections with minimal verse melody."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring clear dynamic contrasts between verses and hooks with an aggressive, sparse energy flow."
+    },
+    "presetor": {
+      "brief": "Apply West Coast Hip-Hop styled instrument preset settings emphasizing gritty tones and punchy sounds."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement energy curve focusing on sparse verses and strong dynamic hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix-ready channel audio with clarity on energetic hooks and sparse verses."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

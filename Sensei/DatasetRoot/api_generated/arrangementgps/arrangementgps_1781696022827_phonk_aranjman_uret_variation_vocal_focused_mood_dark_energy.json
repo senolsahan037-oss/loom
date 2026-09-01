@@ -1,0 +1,296 @@
+{
+  "project": {
+    "name": "Phonk Vocal-Focused Dark Hook",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      80,
+      50,
+      40,
+      85,
+      90,
+      30
+    ],
+    "notes": "Arrangement uses sample-based layering with a textured bed and prominent one-shot hits. Focus on vocal layers with dark tonality and hook-heavy energy dynamics."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 65,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 35
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Opens",
+        "reason": "Energy increase with vocal focus"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "intro_end",
+        "label": "Verse 1 Begins",
+        "reason": "Drums intensify to support vocal entrance"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final Hook",
+        "reason": "Climax with maximal vocal and hook energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro",
+        "reason": "Energy drops for fade out"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_based_arrangement": {
+      "texture_bed": {
+        "description": "Layered ambient samples providing depth and atmosphere"
+      },
+      "one_shot_hits": {
+        "description": "Percussive accents emphasizing hooks and transitions"
+      }
+    },
+    "channels": {
+      "chopped_samples": {
+        "drums": [
+          "sliced_kicks",
+          "chopped_snares",
+          "grabbed_claps"
+        ],
+        "bass": [
+          "looped_bass_wobble"
+        ],
+        "chords": [
+          "sampled_chord_snippets"
+        ],
+        "melody": [
+          "sampled_melody_fragments"
+        ],
+        "vocal": [
+          "vocal_chops",
+          "sliced_vowel_hits"
+        ],
+        "fx": [
+          "reverse_sweeps",
+          "tap_reverbs"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "texture": "Sample-based layers rich in atmospheric texture with sparse, punchy hits",
+    "vocals": "Prominently placed vocal chops and one-shots to drive arrangement",
+    "energy": "Hook-driven energy surges supported by rhythmic sample chopping"
+  },
+  "routing_intent": {
+    "drums": "Group routed to parallel compressor and transient shaper chains",
+    "bass": "Filtered sample layers with sidechain to drums",
+    "vocals": "Processed with formant shifting and subtle delay",
+    "fx": "Send effects including reverb and tape delay"
+  },
+  "track_roles": {
+    "drums": "Provide rhythmic backbone using chopped samples",
+    "bass": "Support harmonic low end with looped and sliced bass samples",
+    "chords": "Add harmonic color with chopped chord samples",
+    "melody": "Create melodic contours with fragmented sample layers",
+    "vocal": "Lead focus with sliced and manipulated vocal hits",
+    "fx": "Enhance transitions and atmosphere with effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 5,
+    "melody": 4,
+    "vocal": 10,
+    "fx": 6
+  },
+  "designer_intent": {
+    "focus": "Highlight vocal sample chops and hooks within a dark and moody phonk environment",
+    "energy_profile": "Drive momentum with layered samples emphasizing hooks and vocal presence"
+  },
+  "presetor_intent": {
+    "goal": "Preserve sample texture while enhancing clarity and punch in mix",
+    "focus": "Enhance vocal impact and maintain dark atmosphere"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum layers using chopped kicks, snares, and claps emphasizing rhythmic hooks and transitions"
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using looped and sliced samples to complement dark tonality and hooked energy profile"
+    },
+    "harmony_generator": {
+      "brief": "Arrange chopped chord samples to support dark mood without overpowering vocals"
+    },
+    "melody_generator": {
+      "brief": "Generate melodic fragments from sample slices that integrate smoothly with vocal and texture bed"
+    },
+    "ai_designer": {
+      "brief": "Supervise arrangement focusing on energy build-up in hooks and ensure vocal prominence"
+    },
+    "presetor": {
+      "brief": "Apply presets to retain rawness of samples while boosting hook parts for clarity"
+    },
+    "songgps": {
+      "brief": "Manage arrangement sequencing with attention to energy curves and section transitions"
+    },
+    "ai_mixmaster": {
+      "brief": "Perform mixing ensuring vocal focus in dark textured environment, balancing one-shot hits and texture bed"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

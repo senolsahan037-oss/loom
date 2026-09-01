@@ -1,0 +1,270 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Dark Hook",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 75,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      80,
+      40,
+      50,
+      90,
+      95,
+      10
+    ],
+    "notes": "Trip Hop aranjmanı üretimi, deneysel varyasyonlu, karanlık ruh hali, ve hook ağırlıklı enerji profiliyle. Örnek katmanı, sample parçalama teknikleriyle isimlendirilmiş kanallardan oluşacak."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Hook Start",
+        "reason": "Energy increase, hook section begins"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Vocal Hook Entry",
+        "reason": "Hook heavy vocal presence"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Add atmospheric experimental effects"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "transition",
+        "label": "Final Hook Start",
+        "reason": "Energy peak before outro"
+      },
+      {
+        "track": "bass",
+        "bar": 73,
+        "type": "dropout",
+        "label": "Outro Bass Drop",
+        "reason": "Energy decline, minimal bass in outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "samples": {
+        "chop_technique_channels": [
+          "slice_chop",
+          "granular_chop",
+          "reverse_chop",
+          "stutter_chop"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "mood": "dark",
+    "variation": "experimental",
+    "energy_profile": "hook-heavy",
+    "sample_layer_naming": "sample chop technique names"
+  },
+  "routing_intent": {
+    "channels_named_by_sample_chop": true
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with sample chop layers",
+    "bass": "low end groove with dark tonality",
+    "chords": "atmospheric pads and textures",
+    "melody": "minimal experimental motifs",
+    "vocal": "hook-centered vocal lines",
+    "fx": "experimental sound effects and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goal": "Create a dark, hook-heavy, experimental trip hop arrangement emphasizing sample chop techniques for sample layering."
+  },
+  "presetor_intent": {
+    "instruction": "Bypass temporary arrangement chains; focus on sample chop channel naming and hook energy."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns using sample chop techniques to enhance rhythmic interest with a dark, experimental mood."
+    },
+    "bass_generator": {
+      "brief": "Generate deep, dark basslines supporting hook sections, aligned with trip hop stylistic elements."
+    },
+    "harmony_generator": {
+      "brief": "Create atmospheric chord textures focusing on experimental sound design and dark tonality."
+    },
+    "melody_generator": {
+      "brief": "Compose minimal melodies that complement the hook-heavy arrangement without dominating."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence, energy curve shaping, and integrating sample chop labeled channels."
+    },
+    "presetor": {
+      "brief": "Implement routing and rendering policies, ensure sample chop technique channel naming consistency."
+    },
+    "songgps": {
+      "brief": "Guide structure and section transitions emphasizing hook energy and experimental variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing, preserving dynamic range and hook emphasis."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

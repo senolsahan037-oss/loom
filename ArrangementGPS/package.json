@@ -1,0 +1,35 @@
+{
+  "name": "arrangement-gps",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node server/index.js",
+    "dev:all": "concurrently \"npm run dev:server\" \"npm run dev\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "index:system": "node server/systemIndexer.js",
+    "engine": "node engine/run.js",
+    "collect": "node engine/collector/collect.js",
+    "run:next": "node engine/runner/runNext.js",
+    "run:all": "node engine/runner/runAll.js",
+    "build:ableton-plan": "node engine/builder/createBuildPlan.js",
+    "build:session-plan": "node engine/builder/createSessionPlan.js",
+    "build:ableton-stub": "node engine/ableton_builder/buildStub.js",
+    "validate:ableton-build": "node engine/ableton_builder/validateBuildManifest.js",
+    "build:ableton-report": "node engine/ableton_builder/dryRunReport.js",
+    "package:ableton": "node engine/ableton_builder/packageBuild.js",
+    "package:project": "node engine/ableton_builder/createProjectPackage.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^10.0.3",
+    "express": "^5.2.1",
+    "openai": "^6.42.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vite": "^6.0.5"
+  },
+  "run:next": "node engine/runner/runNext.js"
+}

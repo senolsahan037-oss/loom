@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Vocal Variation",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      75,
+      30,
+      40,
+      75,
+      50,
+      20
+    ],
+    "notes": "Sparse verses with strong vocal hooks, dark mood, sample-based with texture bed and one-shot hits. Channel names correspond to sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Strong vocal hook start",
+        "reason": "Highlight energy peak with vocal dominance"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "verse_start",
+        "label": "Sparse drum pattern starts",
+        "reason": "Sparse verses with light rhythm"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "hook_start",
+        "label": "Final hook repeats",
+        "reason": "Emphasize vocal hook for climax"
+      },
+      {
+        "track": "fx",
+        "bar": 8,
+        "type": "transition",
+        "label": "Intro to verse transition FX",
+        "reason": "Smooth section transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample_slicing_kicks_and_snares",
+    "bass": "texture_bed_subsamples",
+    "chords": "loop_chop_pads",
+    "melody": "one_shot_hits_melody",
+    "vocal": "vocal_rearranged_slices",
+    "fx": "sample_slice_transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 10,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drums using sample slicing techniques to produce sparse but punchy rhythms fitting West Coast Hip-Hop style."
+    },
+    "bass_generator": {
+      "brief": "Create bass layers from texture bed samples with minimal movement, supporting the dark mood and sparse verses."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord layers with chopped loop samples to add atmosphere without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Add occasional one-shot melodic hits for emphasis in hooks and bridge."
+    },
+    "ai_designer": {
+      "brief": "Arrange the dataset focusing on vocal variations with strong hooks and sparse verses; ensure dark mood and sample-based texture bed cohesion."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize the sparse energy profile and highlight vocal tracks in the mix."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement sections and event markers to reinforce vocal-focused structure with energy peaks on hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix to retain the sparse energy and vocal focus with clear sample slicing articulation."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

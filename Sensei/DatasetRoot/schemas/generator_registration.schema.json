@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-producer.local/schemas/generator-registration.v1.json",
+  "title": "AI Producer Generator Registration",
+  "type": "object",
+  "required": ["generator_id", "version", "consumes", "produces", "access"],
+  "properties": {
+    "generator_id": {"type": "string", "pattern": "^[a-z0-9._-]+$"},
+    "version": {"type": "string"},
+    "consumes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "produces": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "access": {"const": "read_only"},
+    "write_boundary": {"type": ["string", "null"]},
+    "status": {"enum": ["active", "planned", "legacy"]}
+  },
+  "additionalProperties": false
+}

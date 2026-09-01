@@ -1,0 +1,203 @@
+{
+  "project": {
+    "name": "Boom Bap Cinematic Minimal",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": "Slow build arrangement with minimal variation focusing on modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "Chop": 90,
+          "Slice": 80,
+          "Gate": 70
+        }
+      },
+      "bass": {
+        "activity": {
+          "Chop": 40,
+          "Slice": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "Chop": 30,
+          "Gate": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "Slice": 25,
+          "Gate": 20
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "Gate": 15,
+          "Slice": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "intro_start",
+        "reason": "Begin slow build with chopped sample hit"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "change",
+        "label": "hook_entry",
+        "reason": "Increase energy for hook with sliced samples"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "transition",
+        "label": "bridge_entry",
+        "reason": "Introduce gating effects for mood shift"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with chopped samples",
+    "bass": "support low end with subtle chops",
+    "chords": "textural layer with gated sample chops",
+    "melody": "minimal melodic fragments using sliced samples",
+    "vocal": "none",
+    "fx": "spatial and gating effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns using modern sample chopping and slicing techniques with controlled energy to support a slow build."
+    },
+    "bass_generator": {
+      "brief": "Generate subtle bass activity, focusing on chopped and sliced samples that complement the slow build energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce minimal chordal textures using gating and chopped sample methods to add cinematic depth."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic elements with sliced and gated samples, keeping minimalism consistent."
+    },
+    "ai_designer": {
+      "brief": "Orchestrate arrangement dynamics focusing on gradual energy increase and cinematic mood."
+    },
+    "presetor": {
+      "brief": "Configure presets that enhance modern sample chopping clarity and smooth gating effects."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement structure ensuring correct section flow with minimal variation and slow energy build."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings emphasizing clarity on chopped samples and balanced dynamic progression."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

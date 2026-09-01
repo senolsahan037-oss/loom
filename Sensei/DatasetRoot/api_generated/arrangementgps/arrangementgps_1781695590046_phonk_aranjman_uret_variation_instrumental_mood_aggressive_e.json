@@ -1,0 +1,325 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Aggressive Club Energy",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      70,
+      60,
+      70,
+      80,
+      50,
+      90,
+      90,
+      80,
+      85,
+      60,
+      75,
+      70,
+      60,
+      80,
+      85,
+      90,
+      95,
+      70,
+      60,
+      50,
+      40,
+      65,
+      70,
+      80,
+      90,
+      85,
+      80,
+      75,
+      60,
+      70,
+      75,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      70,
+      80,
+      90,
+      95,
+      100,
+      85,
+      80,
+      75,
+      70,
+      65,
+      45,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      40,
+      30,
+      20,
+      20,
+      15,
+      10,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement created for an aggressive instrumental phonk track with a club energy profile. Sample layers are organized with channels named after sample chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy increase and main theme entry"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy decrease, closing section"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "drums": [
+        "slice",
+        "stutter",
+        "reverse",
+        "chop",
+        "gate"
+      ],
+      "bass": [
+        "loop",
+        "slice",
+        "glide",
+        "chop"
+      ],
+      "chords": [
+        "slice",
+        "gate",
+        "chop"
+      ],
+      "fx": [
+        "reverse",
+        "stutter",
+        "slice"
+      ]
+    }
+  },
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with percussive chops",
+    "bass": "low frequency drive with chopped loops and slides",
+    "chords": "harmonic texture using sample slicing and gating",
+    "melody": "none (instrumental)",
+    "vocal": "none (instrumental)",
+    "fx": "transition effects with reversed and stuttered samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample chopping, slicing, gates, reverse, and stutter effects to create aggressive phonk rhythms."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines utilizing chopped and sliced sample loops with glide effects to provide a strong low-end presence."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord layers based on sample slicing and gating techniques to maintain harmonic interest without melodic content."
+    },
+    "melody_generator": {
+      "brief": "Not applicable, as the instrumental variation excludes melody generation."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement energy and dynamics while ensuring sample chop techniques are reflected in channel names and structure."
+    },
+    "presetor": {
+      "brief": "Provide presets optimized for chopped samples with aggressive tone suitable for club energy Phonk style."
+    },
+    "songgps": {
+      "brief": "Validate arrangement structure, energy curves, and section transitions for the Phonk instrumental track."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing, focusing on clarity of sample chop effects."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

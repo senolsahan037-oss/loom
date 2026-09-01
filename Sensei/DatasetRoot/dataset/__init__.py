@@ -1,0 +1,2 @@
+"""Shared dataset consumer package."""
+

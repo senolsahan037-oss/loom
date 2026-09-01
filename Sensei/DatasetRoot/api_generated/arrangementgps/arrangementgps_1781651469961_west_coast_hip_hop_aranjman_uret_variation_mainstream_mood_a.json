@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "E minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      100,
+      40
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 85,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 75,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peak and vocal hook begins"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Arrangement transition with reduced energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Return to highest energy chorus"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy wind down and track ending"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation and groove",
+    "bass": "low-end groove and drive",
+    "chords": "harmonic support",
+    "melody": "lead hooks and motifs",
+    "vocal": "rap verses and vocal hooks",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 5,
+    "vocal": 6,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Produce a groove-heavy, punchy drum pattern that matches West Coast Hip-Hop style with aggressive intensity, emphasizing hook bars."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, rhythmic bassline that complements the drum groove and supports the aggressive mood with varied activity especially in hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic structures that maintain tension and drive, with sparse but impactful chord activity that underlines hooks and verses."
+    },
+    "melody_generator": {
+      "brief": "Design catchy melodic hooks with high energy during chorus sections while keeping verses minimal for vocal focus."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement balance ensuring energy curves match mood and genre conventions, focusing on hook prominence."
+    },
+    "presetor": {
+      "brief": "Apply preset configurations that bring grime and clarity characteristic to the West Coast Hip-Hop sound, prioritizing hook impact."
+    },
+    "songgps": {
+      "brief": "Manage sectioning and energy transition markers accurately, emphasizing hook sections and smooth flows between sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure mix clarity and balance focusing on vocal and drum prominence, maintaining aggressive and hook-heavy energy profile."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.65
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

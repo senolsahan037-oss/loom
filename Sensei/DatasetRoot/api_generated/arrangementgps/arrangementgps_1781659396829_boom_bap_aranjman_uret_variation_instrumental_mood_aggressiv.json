@@ -1,0 +1,287 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      30,
+      80,
+      90,
+      20
+    ],
+    "notes": "Sparse verses featuring minimal instrumentation; hooks have strong energy and dense layering."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 28,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 12,
+          "bridge": 10,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 5,
+          "hook": 70,
+          "verse_2": 5,
+          "bridge": 0,
+          "final_hook": 75,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 5,
+          "hook": 20,
+          "verse_2": 5,
+          "bridge": 10,
+          "final_hook": 25,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "start",
+        "label": "hook_start",
+        "reason": "Beginning of high energy hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "start",
+        "label": "final_hook_start",
+        "reason": "Start of final hook with maximum energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "drums": [
+        "slice",
+        "chop",
+        "glitch"
+      ],
+      "bass": [
+        "lofi_scratch",
+        "time_stretch"
+      ],
+      "chords": [
+        "reversed",
+        "granular"
+      ],
+      "melody": [
+        "loop",
+        "stutter"
+      ],
+      "fx": [
+        "reverb_slice",
+        "delay_chop"
+      ]
+    }
+  },
+  "sound_intent": {
+    "selection": {
+      "sample_chop_techniques": [
+        "slice",
+        "chop",
+        "glitch",
+        "lofi_scratch",
+        "time_stretch",
+        "reversed",
+        "granular",
+        "loop",
+        "stutter",
+        "reverb_slice",
+        "delay_chop"
+      ],
+      "instrumental": true,
+      "aggressive_mood": true,
+      "energy_profile": "sparse_verses_strong_hooks"
+    }
+  },
+  "routing_intent": {
+    "channels_named_by_sample_chop_technique": true,
+    "route_layers_separately": true
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample chops",
+    "bass": "low end with sample time manipulation",
+    "chords": "harmonic flavor using reversed and granular samples",
+    "melody": "accentuating hooks with looped/stuttered samples",
+    "vocal": "none (instrumental)",
+    "fx": "transitional effects from sample slicing techniques"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      11,
+      34,
+      35
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {
+    "focus_on_aggressive_mood": true,
+    "highlight_hooks_with_energy_peaks": true,
+    "maintain_sparse_verses_for_dynamic_contrast": true,
+    "use_sample_chop_techniques_for_unique_layer_naming": true
+  },
+  "presetor_intent": {
+    "presets_match_sample_chop_techniques": true,
+    "support_instrumental_boom_bap_arrangement": true,
+    "optimize_for_sparse_verses_strong_hooks_energy_profile": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using slice, chop, and glitch sample chopping techniques emphasizing sparse verses and energetic hook sections."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines applying lofi scratch and time stretch sample chop techniques to complement the aggressive mood and maintain low end dynamics."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chords using reversed and granular sample chop techniques to add harmonic depth while fitting boom bap style."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic elements with loop and stutter sample chopping techniques focusing energy on hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring aggressive mood with sparse verses and strong hooks using sample chop naming conventions."
+    },
+    "presetor": {
+      "brief": "Apply presets optimized for boom bap instrumentals with energetic hooks and sparse verse texture."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure identifying sections and energy curves consistent with boom bap instrumental style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix sessions routing samples chopped by technique separately for clarity and separation."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "project": {
+    "name": "Trap Club Uplift",
+    "genre": "Electronic",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "F# minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      60,
+      80,
+      100,
+      50
+    ],
+    "notes": "Arrangement suitable for a mainstream trap track with uplifting mood and club energy. Builds from intro to hook with dynamic energy swings through sections."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 20,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 21,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 44,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 45,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 55,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Soft intro drums",
+        "reason": "Low energy start to build atmosphere"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Vocal entrance verse 1",
+        "reason": "Introduce main vocal element"
+      },
+      {
+        "track": "bass",
+        "bar": 21,
+        "type": "cue",
+        "label": "Bass intensifies for hook",
+        "reason": "Increase club energy"
+      },
+      {
+        "track": "fx",
+        "bar": 45,
+        "type": "effect",
+        "label": "Build up FX",
+        "reason": "Create tension towards final hook"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "cue",
+        "label": "Melody peak at final hook",
+        "reason": "Maximize uplifting energy impact"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Drum fade out outro",
+        "reason": "Smooth energy descent"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation, driving club energy",
+    "bass": "low-end groove support",
+    "chords": "harmonic structure, mood support",
+    "melody": "primary uplifting motif",
+    "vocal": "leading lyrical element",
+    "fx": "transitions, tension effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      41,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic trap drum patterns varying intensity per section aligned with club energy profile."
+    },
+    "bass_generator": {
+      "brief": "Create a clean, punchy bass line that supports groove and uplift in hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Build chord progressions that maintain uplifting mood without cluttering low-end."
+    },
+    "melody_generator": {
+      "brief": "Compose memorable melodic phrases that rise in energy towards hooks and final hook."
+    },
+    "ai_designer": {
+      "brief": "Structure arrangement dynamics and section transitions to promote dancefloor engagement."
+    },
+    "presetor": {
+      "brief": "Apply mainstream trap sound presets to instruments ensuring clarity and club impact."
+    },
+    "songgps": {
+      "brief": "Guide section energy progression and section length optimizing flow and energy curve."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean mix-ready audio with focus on balance between energy layers and clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

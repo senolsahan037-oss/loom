@@ -1,0 +1,336 @@
+{
+  "project": {
+    "name": "Arabesk Rap Mainstream Uplifting Club Energy",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 100,
+    "key": "A minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      80,
+      90,
+      85,
+      30,
+      50,
+      75,
+      70,
+      85,
+      90,
+      95,
+      80,
+      40,
+      60,
+      85,
+      80,
+      90,
+      95,
+      90,
+      70,
+      50,
+      60,
+      80,
+      75,
+      85,
+      90,
+      95,
+      85,
+      50,
+      70,
+      90,
+      85,
+      80,
+      100,
+      90,
+      75,
+      55,
+      45,
+      85,
+      80,
+      70,
+      75,
+      65,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      60,
+      55,
+      50,
+      50,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 55
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 65,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 75,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Begin arrangement with low energy drum pattern"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass Enter",
+        "reason": "Introduce bassline for verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Vocals Enter",
+        "reason": "Rap vocals start in verse 1"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Chords Intensify",
+        "reason": "Chord progression to support hook energy"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook FX Rise",
+        "reason": "Increase FX presence for hook energy"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "start",
+        "label": "Melody Leads Final Hook",
+        "reason": "Melody prominence in final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Drums Fade Out",
+        "reason": "Outro section reducing energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, driving club energy",
+    "bass": "grounding low end with groove",
+    "chords": "harmonic support emphasizing mainstream arabesk flavor",
+    "melody": "uplifting lead lines enhancing hook impact",
+    "vocal": "rap vocals carrying arabesk lyrical delivery",
+    "fx": "accentuation and transitions for club energy"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum arrangement that evokes club energy with rhythmic patterns fitting arabesk rap in a mainstream style."
+    },
+    "bass_generator": {
+      "brief": "Develop a bassline that supports groove and rhythmic drive while blending arabesk and rap styles."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord patterns that provide harmonic richness with a mainstream arabesk rap vibe."
+    },
+    "melody_generator": {
+      "brief": "Generate uplifting melodic lines by maintaining arabesk tonal color, enhancing hooks and transitions."
+    },
+    "ai_designer": {
+      "brief": "Supervise arrangement flow, section energy distribution, and stylistic consistency with arabesk rap and club energy."
+    },
+    "presetor": {
+      "brief": "Apply presets emphasizing clarity, warmth, and energy suited for mainstream arabesk rap in a club environment."
+    },
+    "songgps": {
+      "brief": "Monitor structural coherence, energy curves, and event marker placement throughout the arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing parameters to ensure dynamic balance between drums, vocals, bass, and melodic elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

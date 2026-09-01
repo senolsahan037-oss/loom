@@ -1,0 +1,237 @@
+{
+  "project": {
+    "name": "Memphis Rap Cinematic Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      70,
+      40,
+      80,
+      20
+    ],
+    "notes": "Arrangement with sparse verses and strong, energetic hooks emphasizing vocal presence."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "First Hook",
+        "reason": "Increase vocal energy for memorable hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "verse_start",
+        "label": "Verse 2 Start",
+        "reason": "Reduce complexity to sparse patterns for sparse verse energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "hook_start",
+        "label": "Final Hook",
+        "reason": "Maximize vocal presence and energy for climax"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone and groove",
+    "bass": "foundation and drive",
+    "chords": "harmonic support",
+    "melody": "ambient and sparse motifs",
+    "vocal": "lead and focus",
+    "fx": "transitional and cinematic embellishments"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 1,
+    "melody": 0,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that are sparse during verses and punchy during hooks with a Memphis rap groove."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that support the rhythm with sparse activity in verses and fullness in hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal chordal support emphasizing cinematic mood without overcrowding vocals."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic motifs that enhance the cinematic vibe but remain subtle."
+    },
+    "ai_designer": {
+      "brief": "Arrange energy dynamics focusing on vocal prominence in hooks and sparse verses with cinematic atmosphere."
+    },
+    "presetor": {
+      "brief": "Apply vocal-focused presets emphasizing clarity and presence; keep instrument presets cinematic and sparse."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy curves ensuring strong hook presence and vocal focus."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix to highlight vocals especially in hooks, maintain space for cinematic elements and sparse verses."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "project": {
+    "name": "Dark Vocal Trap",
+    "genre": "Trap",
+    "subgenre": "Vocal-Focused",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      30,
+      50,
+      80,
+      90,
+      60,
+      70,
+      85,
+      95,
+      40,
+      30,
+      80,
+      90,
+      100
+    ],
+    "notes": "Focus on vocal arrangements driving the mood. Use dark atmospheric elements to support vocal intensity. Build club energy progressively with dynamic layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "Vocal intensity increases, main hook begins"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Drum pattern softens, transitioning from hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook",
+        "label": "Final Hook",
+        "reason": "Peak vocal energy, final chorus section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone supporting club energy",
+    "bass": "provides low-end drive complementing vocals",
+    "chords": "pad and atmospheric support for dark mood",
+    "melody": "secondary melodic interest, supporting vocals",
+    "vocal": "central melodic and expressive element",
+    "fx": "textural embellishments enhancing mood and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns that build from low energy intro to high energy club hits during hooks, ensuring tight rhythmic support for vocal focus."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the drums and vocal lines, emphasizing dark and heavy low-end presence."
+    },
+    "harmony_generator": {
+      "brief": "Compose chord progressions and pads that convey a dark mood and enhance the vocal textures without overpowering."
+    },
+    "melody_generator": {
+      "brief": "Design secondary melodic elements that support the vocal line and add depth and interest without distracting from the vocal focus."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement’s energy curve and ensure smooth transitions between sections emphasizing vocal prominence and dark club energy."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that suit dark texture, club energy, and vocal clarity for all instruments and FX."
+    },
+    "songgps": {
+      "brief": "Manage arrangement section timings, energy levels, and event markers aligned with vocal focus and dark mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mixing by ensuring clear separation of vocal tracks and balanced club energy dynamics in unprocessed audio."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

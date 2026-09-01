@@ -1,0 +1,231 @@
+{
+  "project": {
+    "name": "Trip Hop Minimal Aggressive Club Mix",
+    "genre": "Trip Hop",
+    "subgenre": "Minimal",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      80,
+      60,
+      70,
+      90,
+      40,
+      20
+    ],
+    "notes": "Arrangement features minimal instrumentation emphasizing aggressive vibe with club energy profile. Sample layers structured using micro chops, phrase chops, reverse chops, vocal chops, and stutter chops on vocal channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Vocal chops intro",
+        "reason": "Introduce vocal chops with micro and phrase chops sample layers"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "cue",
+        "label": "Reverse chops effect",
+        "reason": "Add reverse chops effect to vocal and fx layers for bridge section atmosphere"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation with aggressive club beat",
+    "bass": "Driving bassline matching energy profile",
+    "chords": "Minimal harmonic support with filtered textures",
+    "melody": "Sparse melodic elements enhancing mood",
+    "vocal": "Vocal chops showcasing sample layering techniques",
+    "fx": "Atmospheric effects using reverse and stutter chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate minimal but aggressive drum patterns suitable for club energy, focused on tight rhythmic hits."
+    },
+    "bass_generator": {
+      "brief": "Produce a driving but minimal bassline that complements the aggressive mood and club energy."
+    },
+    "harmony_generator": {
+      "brief": "Create minimal chord textures that support the mood without overcrowding the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic elements that add interest but maintain minimalism."
+    },
+    "ai_designer": {
+      "brief": "Arrange the sections with dynamic energy curve, utilizing sample chop techniques on vocal layers."
+    },
+    "presetor": {
+      "brief": "Apply preset sounds optimized for trip hop minimal style with aggressive, club energy character."
+    },
+    "songgps": {
+      "brief": "Manage arrangement segmentation and energy flow to ensure coherent and engaging structure."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix emphasizing clarity of chops and aggressive elements, maintaining club energy presence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

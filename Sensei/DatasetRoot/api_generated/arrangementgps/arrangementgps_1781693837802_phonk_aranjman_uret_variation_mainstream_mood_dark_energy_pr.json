@@ -1,0 +1,277 @@
+{
+  "project": {
+    "name": "Dark Phonk Mainstream Hook-Heavy",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      50,
+      80,
+      80,
+      20
+    ],
+    "notes": "Arrangement emphasizes hook-heavy energy profile with a dark mood. Variation is mainstream phonk style using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "High energy vocal moment to emphasize hook"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "energy_drop",
+        "label": "Energy Drop - Verse 2",
+        "reason": "Lower activity to create tension after hook"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "final_hook_entry",
+        "label": "Final Hook",
+        "reason": "Highest melodic activity for climactic hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": "modern sample chopping techniques",
+    "channel_names": {
+      "drums": [
+        "Slice_1",
+        "Stab_2",
+        "Chop_3"
+      ],
+      "bass": [
+        "Slice_Bass",
+        "Chop_Bass"
+      ],
+      "chords": [
+        "Stab_Chords",
+        "Slice_Chords"
+      ],
+      "melody": [
+        "Chop_Melody",
+        "Slice_Melody"
+      ],
+      "vocal": [
+        "Slice_Vocals",
+        "Chop_Vocals"
+      ],
+      "fx": [
+        "Slice_FX",
+        "Chop_FX"
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_style": "modern chopping",
+    "mood": "dark",
+    "variation": "mainstream",
+    "energy_profile": "hook-heavy"
+  },
+  "routing_intent": {
+    "channels_routed_by_sample_technique": true
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with chopped samples",
+    "bass": "deep low-end support from sample slices",
+    "chords": "harmonic texture via stabs and slices",
+    "melody": "hook and thematic melody using chopped samples",
+    "vocal": "vocal chops supporting hooks and verses",
+    "fx": "transitional effects slicing samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 9,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {
+    "focus": "balanced dark phonk arrangement with modern sampled hooks"
+  },
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns based on sample chopping techniques with varying activity emphasizing the hook sections."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using sample slices to complement dark mood and support hook-heavy energy."
+    },
+    "harmony_generator": {
+      "brief": "Create chord stabs and slices fitting the dark phonk style maintaining harmonic interest throughout sections."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic hooks using modern sample chopping methods with high activity on hook sections."
+    },
+    "ai_designer": {
+      "brief": "Design overall arrangement energy curve and section transitions emphasizing hook-heavy peaks."
+    },
+    "presetor": {
+      "brief": "Assign presets emphasizing chopped sample sounds for all instruments."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows mainstream phonk structure with appropriate energy levels in each section."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix strategy focusing on unprocessed channel audio for clarity of chopped samples."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

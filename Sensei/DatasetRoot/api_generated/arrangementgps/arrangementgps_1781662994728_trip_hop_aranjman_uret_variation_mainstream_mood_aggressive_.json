@@ -1,0 +1,276 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Mainstream Variation",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      45,
+      60,
+      85,
+      90,
+      30
+    ],
+    "notes": "Arrangement focused on aggressive mood with hook-heavy energy profile suitable for mainstream trip hop. Sample layers include micro chops, phrase chops, reverse chops, vocal chops, and stutter chops with respective channel naming."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 45
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 95,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Start",
+        "reason": "High energy hook featuring vocal chops prominently"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Intro Start",
+        "reason": "Begin with micro and phrase chops drums to set aggressive tone"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge Effect",
+        "reason": "Use reverse and stutter chops effects for variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook",
+        "reason": "Increase vocal chop intensity for climax"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "micro_chops": {
+        "type": "sample_layer",
+        "description": "Micro chops sample layer used in percussion and fx"
+      },
+      "phrase_chops": {
+        "type": "sample_layer",
+        "description": "Phrase chops sample layer used primarily in drum and chord lanes"
+      },
+      "reverse_chops": {
+        "type": "sample_layer",
+        "description": "Reverse chops for fx and transitional sounds"
+      },
+      "vocal_chops": {
+        "type": "sample_layer",
+        "description": "Vocal chops layer for vocal lane with aggressive manipulation"
+      },
+      "stutter_chops": {
+        "type": "sample_layer",
+        "description": "Stutter chops used on vocals and fx for rhythmic variation"
+      }
+    }
+  },
+  "sound_intent": {
+    "description": "Aggressive, hook-heavy trip hop arrangement emphasizing sample chopping techniques for dynamic texture."
+  },
+  "routing_intent": {
+    "description": "Channels routed to separate busses for chopped sample processing and final mix clarity."
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with chopped sample layers",
+    "bass": "groove and low-end support",
+    "chords": "harmonic support using phrase chops",
+    "melody": "sparse melodic elements enhancing mood",
+    "vocal": "vocal chops as hook and texture",
+    "fx": "texture and transitions using reverse and stutter chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      40,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 4,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {
+    "focus": "maximize hook impact with vocal chops and maintain aggressive trip hop character"
+  },
+  "presetor_intent": {
+    "focus": "apply suitable effects to chopped samples to enhance bite and presence"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing micro and phrase chops with aggressive rhythms for trip hop style."
+    },
+    "bass_generator": {
+      "brief": "Create bass grooves that support the aggressive mood with smooth transitions."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions using phrase chop samples for harmonic texture."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic motifs to complement the vocal and rhythmic elements."
+    },
+    "ai_designer": {
+      "brief": "Design overall arrangement flow maximizing energetic hooks with sample chop layers."
+    },
+    "presetor": {
+      "brief": "Assign sound presets and effects focused on chopped sample processing enhancing aggression and energy."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement structure according to mood, energy profile, and sample layering requirements."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels to ensure clarity of chopped samples and strong hook presence in final output."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

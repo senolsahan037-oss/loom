@@ -1,0 +1,251 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "E minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      85,
+      80,
+      90,
+      100
+    ],
+    "notes": "Vocal-focused arrangement with aggressive mood and club energy profile using modern sample chopping techniques. Channels named after sample chopping styles."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 70,
+          "25-40": 90,
+          "41-56": 75,
+          "57-64": 50,
+          "65-72": 95,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 60,
+          "25-40": 85,
+          "41-56": 70,
+          "57-64": 55,
+          "65-72": 90,
+          "73-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 40,
+          "25-40": 60,
+          "41-56": 50,
+          "57-64": 35,
+          "65-72": 70,
+          "73-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 50,
+          "41-56": 45,
+          "57-64": 25,
+          "65-72": 60,
+          "73-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 40,
+          "9-24": 80,
+          "25-40": 100,
+          "41-56": 85,
+          "57-64": 65,
+          "65-72": 100,
+          "73-80": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 20,
+          "25-40": 35,
+          "41-56": 25,
+          "57-64": 30,
+          "65-72": 40,
+          "73-80": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increased vocal intensity and focus"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Beat fully enters with sample chopping kicks and snares"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "bridge_effect",
+        "label": "Bridge FX Rise",
+        "reason": "Transition effect for mood buildup"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Maximum vocal energy and chopping variations"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy wind down with simplified drum chops"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Sample chopped drum patterns with aggressive punch",
+    "bass": "Deep rhythmic bass grooves complementing vocal focus",
+    "chords": "Sparse melodic chords supporting mood",
+    "melody": "Complementary riffs with subtle sample chops",
+    "vocal": "Primary vocal track with chopped vocal samples emphasizing aggression",
+    "fx": "Ambient and transition effects using modern sample chopping"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 30,
+    "melody": 30,
+    "vocal": 100,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate aggressive West Coast style drum patterns focusing on modern sample chopping techniques like slicing, glitch effects, and stutter edits."
+    },
+    "bass_generator": {
+      "brief": "Create deep bass grooves that lock tightly with the drum pattern, maintaining aggressive club energy while complementing vocal rhythm."
+    },
+    "harmony_generator": {
+      "brief": "Add sparse chord layers that enhance the mood without overcrowding the vocal focus, using subtle sample chopping to texture the harmony."
+    },
+    "melody_generator": {
+      "brief": "Compose minimal melodic lines with modern chopping effects to support and contrast the vocal track."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement dynamics and ensure an energetic flow emphasizing vocal intensity and chopped sample layers."
+    },
+    "presetor": {
+      "brief": "Apply presets that support aggressive and clean sample chops across drums, vocals, and FX channels, maintaining clarity and punch."
+    },
+    "songgps": {
+      "brief": "Manage section transitions, energy curve, and marker placements to reflect arrangement flow for West Coast hip-hop."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mix by maintaining unprocessed channel audio, ensuring vocal presence and clarity in final mix stages."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

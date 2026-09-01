@@ -1,0 +1,9 @@
+{
+  "target_context": {
+    "explicit_profile_id": "ableton.chord.synth-keys.v1"
+  },
+  "genre": "Hip Hop",
+  "bars": 4,
+  "seed": 1,
+  "variation_amount": 0.6
+}

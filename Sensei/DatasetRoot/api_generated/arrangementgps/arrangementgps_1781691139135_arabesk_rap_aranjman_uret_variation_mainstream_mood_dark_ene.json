@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "Arabesk Rap Mainstream Dark",
+    "genre": "Arabesk",
+    "subgenre": "Rap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      70,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 20,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 21,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 44,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 45,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 95,
+          "verse_2": 45,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 21,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "high energy hook section with vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "energy peak with hook-heavy arrangement"
+      },
+      {
+        "track": "melody",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "gradual energy drop and outro onset"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation emphasizing hook dynamics",
+    "bass": "drives groove with dark tones supporting vocals",
+    "chords": "provide harmonic texture blending arabesk elements",
+    "melody": "lead motifs highlighting emotional rap delivery",
+    "vocal": "rap primary vocals with dynamic presence in hooks",
+    "fx": "subtle effects accentuating transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 9,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum arrangements that build energy toward and through the hook sections while maintaining the dark mood."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the rhythmic drive and add depth to the darker tones associated with arabesk rap."
+    },
+    "harmony_generator": {
+      "brief": "Develop chordal textures blending arabesk scales with modern rap harmonic styles supporting emotional intensity."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic motifs that emphasize hook-heavy passages and reinforce the dark, emotional undertone."
+    },
+    "ai_designer": {
+      "brief": "Oversee structural arrangement ensuring energy progression aligns with sections and the hook dominates."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize a dark, mainstream arabesk rap sound with hook prominence and atmospheric depth."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement adherence to required sections and energy profiles, flagging any inconsistencies."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to balance instrumental and vocal elements, preserving the dark mood and hook clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

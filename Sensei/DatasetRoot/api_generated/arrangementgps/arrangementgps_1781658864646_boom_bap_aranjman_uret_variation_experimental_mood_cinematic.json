@@ -1,0 +1,314 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Cinematic",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      15,
+      20,
+      30,
+      45,
+      60,
+      75,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      15,
+      15,
+      10,
+      10,
+      5,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement with slow build energy, cinematic mood, using boom bap style with experimental variation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "micro_chops": 70,
+          "phrase_chops": 65,
+          "reverse_chops": 40,
+          "vocal_chops": 10,
+          "stutter_chops": 60
+        }
+      },
+      "bass": {
+        "activity": {
+          "micro_chops": 30,
+          "phrase_chops": 20,
+          "reverse_chops": 10,
+          "vocal_chops": 0,
+          "stutter_chops": 0
+        }
+      },
+      "chords": {
+        "activity": {
+          "micro_chops": 40,
+          "phrase_chops": 50,
+          "reverse_chops": 30,
+          "vocal_chops": 0,
+          "stutter_chops": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "micro_chops": 15,
+          "phrase_chops": 20,
+          "reverse_chops": 35,
+          "vocal_chops": 0,
+          "stutter_chops": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "micro_chops": 5,
+          "phrase_chops": 15,
+          "reverse_chops": 25,
+          "vocal_chops": 80,
+          "stutter_chops": 75
+        }
+      },
+      "fx": {
+        "activity": {
+          "micro_chops": 50,
+          "phrase_chops": 30,
+          "reverse_chops": 60,
+          "vocal_chops": 0,
+          "stutter_chops": 45
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Entry",
+        "reason": "Highlight vocal chops in hook"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "transition",
+        "label": "Bridge FX Rise",
+        "reason": "Build cinematic tension"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "peak",
+        "label": "Final Hook Peak",
+        "reason": "Energy max point"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Vocal Fade",
+        "reason": "Ending cinematic effect"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythm foundation using micro and stutter chops",
+    "bass": "Subtle depth with filtered chops",
+    "chords": "Harmonic texture with phrase and reverse chops",
+    "melody": "Sparse melodic hints with reverse chops",
+    "vocal": "Prominent vocal chops and stutters",
+    "fx": "Atmospheric effects with reversed chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 5,
+    "chords": 7,
+    "melody": 5,
+    "vocal": 9,
+    "fx": 6
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum layers focusing on micro chops, phrase chops, reverse chops, and stutter chops with a boom bap beat style and experimental cinematic touches."
+    },
+    "bass_generator": {
+      "brief": "Generate bass parts using micro and phrase chopping techniques that complement a slow build energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions and textures that incorporate phrase and reverse chops to enhance the cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Compose sparse melodic elements with emphasis on reverse chops and subtle micro chopping to support the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Arrange section structure adhering to slow build energy, cinematic mood, and experimental variation."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize chopped sample textures, focusing on the named chopping techniques for each channel."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows the energy curve, section definitions, and lane activity for a cinematic boom bap piece with experimental variations."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare a clean mix emphasizing clarity of chopped samples in each channel, maintaining balance and cinematic atmosphere."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

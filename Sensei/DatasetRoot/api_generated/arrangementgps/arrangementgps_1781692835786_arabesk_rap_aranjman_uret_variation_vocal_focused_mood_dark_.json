@@ -1,0 +1,238 @@
+{
+  "project": {
+    "name": "Arabesk Rap Vocal-Focused Arrangement",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      30,
+      40,
+      85,
+      25,
+      20
+    ],
+    "notes": "Sparse verses with strong vocal hooks. Focus on vocal presence and dark atmospheric arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 95,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Strong Vocal Hook Start",
+        "reason": "Highlight vocal hook energy increase"
+      },
+      {
+        "track": "verse",
+        "bar": 33,
+        "type": "verse_start",
+        "label": "Verse 2 Start",
+        "reason": "Reintroduce vocals with sparse energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "hook_start",
+        "label": "Final Hook Start",
+        "reason": "Emphasize final vocal hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, sparse to emphasize vocals",
+    "bass": "support low end with simple patterns",
+    "chords": "provide dark harmonic texture",
+    "melody": "subtle instrumental motifs complementing vocals",
+    "vocal": "primary focus with strong hooks",
+    "fx": "ambient and transitional effects to enhance mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      40,
+      68
+    ]
+  },
+  "priority": {
+    "drums": 1,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create sparse and dynamic drum patterns that support vocal presence and dark mood."
+    },
+    "bass_generator": {
+      "brief": "Generate minimalistic basslines that underpin the dark harmonic structure without overpowering vocals."
+    },
+    "harmony_generator": {
+      "brief": "Arrange dark chord progressions creating atmospheric support for vocal hooks."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle melodic elements to complement and contrast vocal lines."
+    },
+    "ai_designer": {
+      "brief": "Balance arrangement focusing on vocal clarity and energy contrast between verses and hooks."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance vocal presence and dark sonic textures."
+    },
+    "songgps": {
+      "brief": "Guide arrangement flow focusing on strong vocal hooks and sparse verses."
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure mix emphasizes vocals and delivers clean dynamic contrast matching arrangement energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

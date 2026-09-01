@@ -1,0 +1,330 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      25,
+      40,
+      55,
+      65,
+      80,
+      100,
+      90,
+      75,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      25,
+      35,
+      50,
+      65,
+      85,
+      95,
+      100,
+      90,
+      70,
+      55,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      25,
+      40,
+      60,
+      75,
+      90,
+      100,
+      90,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      25,
+      30,
+      45,
+      60,
+      80,
+      95,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      35,
+      50,
+      70,
+      85,
+      100,
+      80,
+      65,
+      50,
+      30,
+      20,
+      10,
+      5
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 45,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "Intro FX",
+        "reason": "Setting cinematic mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 vocals",
+        "reason": "Introduce lyrical content"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook entrance",
+        "reason": "Energy peak"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "transition",
+        "label": "Bridge FX",
+        "reason": "Smooth section change"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Final hook vocals",
+        "reason": "Climax"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro drum fade",
+        "reason": "Cinematic wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic energy control",
+    "bass": "low-end groove and drive",
+    "chords": "harmonic support and texture",
+    "melody": "lead thematic material and motifs",
+    "vocal": "primary narrative and energy delivery",
+    "fx": "atmospheric enhancements and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns that emphasize cinematic rise and fall energy, fitting experimental West Coast Hip-Hop style without direct note outputs."
+    },
+    "bass_generator": {
+      "brief": "Design bass activity that complements and supports the energy profile with subtle variations emphasizing mood changes."
+    },
+    "harmony_generator": {
+      "brief": "Generate harmonic textural elements to establish a cinematic atmosphere aligning with the arrangement’s energy curve."
+    },
+    "melody_generator": {
+      "brief": "Develop lead melodic fragments that evoke cinematic and experimental moods while respecting energy shifts."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the arrangement structure and energy dynamics for a cohesive experimental West Coast Hip-Hop cinematic experience."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that enhance cinematic and experimental qualities while maintaining clarity and depth."
+    },
+    "songgps": {
+      "brief": "Provide guidance on maintaining smooth energy transitions and section demarcations consistent with ArrangementGPS format."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing approach to balance unprocessed channel audio emphasizing cinematic dynamics without prior processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

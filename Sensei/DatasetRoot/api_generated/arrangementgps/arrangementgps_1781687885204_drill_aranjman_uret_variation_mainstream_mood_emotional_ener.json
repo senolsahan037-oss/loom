@@ -1,0 +1,264 @@
+{
+  "project": {
+    "name": "Drill Arrangement Emotional Club",
+    "genre": "Drill",
+    "subgenre": "Mainstream",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      40,
+      60,
+      80,
+      90,
+      50,
+      40,
+      70,
+      100,
+      70,
+      60,
+      90,
+      100,
+      80,
+      60,
+      30,
+      20,
+      10
+    ],
+    "notes": "Arrangement emphasizes club energy with emotional dynamics and tension build-ups common to drill genre."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 65,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "Filtered Kick Intro",
+        "reason": "Establish low energy start"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Vocal Start",
+        "reason": "Introduce main vocal line"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "Hook Drop",
+        "reason": "Energy peak with full drums"
+      },
+      {
+        "track": "bass",
+        "bar": 49,
+        "type": "variation",
+        "label": "Bass Change Bridge",
+        "reason": "Create contrast before final hook"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro FX Fade",
+        "reason": "Smooth ending transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with high energy dynamics",
+    "bass": "drives groove with low-end emphasis",
+    "chords": "add harmonic tension and smooth transitions",
+    "melody": "emotional lead motifs layered subtly",
+    "vocal": "main lyrical conveyance with emotional presence",
+    "fx": "textural enhancements and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 9,
+    "chords": 7,
+    "melody": 6,
+    "vocal": 8,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create rhythmic drum patterns that build club energy with typical drill style variations and accents."
+    },
+    "bass_generator": {
+      "brief": "Generate a bassline that supports groove and emotional mood without dominating other elements."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord progressions and harmonic textures that enhance emotional depth and smooth transitions."
+    },
+    "melody_generator": {
+      "brief": "Compose subtle melody motifs complementing vocals with emotional and club energy vibes."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring dynamic balancing and emotional progression across sections."
+    },
+    "presetor": {
+      "brief": "Apply sound presets optimized for a drill mainstream style with club energy impact."
+    },
+    "songgps": {
+      "brief": "Guide arrangement with focus on energy curve, section transitions and listener engagement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix cues to ensure clean channel audio ready for dynamic mixing and mastering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

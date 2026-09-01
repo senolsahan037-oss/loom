@@ -1,0 +1,361 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      75,
+      90,
+      75,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      95,
+      80,
+      60,
+      40,
+      20,
+      35,
+      55,
+      70,
+      85,
+      70,
+      55,
+      35,
+      20,
+      30,
+      50,
+      75,
+      90,
+      75,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      95,
+      80,
+      60,
+      40,
+      20,
+      35,
+      45,
+      70,
+      85,
+      70,
+      55,
+      35,
+      20,
+      25,
+      45,
+      65,
+      85,
+      90,
+      85,
+      65,
+      45,
+      25,
+      20,
+      35,
+      55,
+      70,
+      85,
+      70,
+      55,
+      40,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": "Arrangement built from sample-based texture beds layered with one-shot hit samples. The arrangement fluctuates in a cinematic rise and fall energy profile with aggressive mood characteristics."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 50,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "fill",
+        "label": "Drum Fill",
+        "reason": "Transition into Verse 1"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "build_up",
+        "label": "Rising FX",
+        "reason": "Build into Hook"
+      },
+      {
+        "track": "drums",
+        "bar": 40,
+        "type": "fill",
+        "label": "Drum Fill",
+        "reason": "Transition into Verse 2"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "drop",
+        "label": "FX Drop",
+        "reason": "Bridge section emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "fill",
+        "label": "Drum Fill",
+        "reason": "Build into Final Hook"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "FX fade",
+        "reason": "Outro transition"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "type": "arrangement",
+      "children": [
+        {
+          "name": "TextureBed",
+          "technique": "sample_based_looping",
+          "channels": [
+            "granular_sliced",
+            "time_stretched_pad"
+          ]
+        },
+        {
+          "name": "OneShotHits",
+          "technique": "sample_slicing",
+          "channels": [
+            "transient_slices",
+            "vel_sensitive_hits"
+          ]
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "style": "Phonk sample-based with texture layers and sharp hits",
+    "variation": "instrumental",
+    "mood": "aggressive",
+    "energy_profile": "cinematic rise and fall"
+  },
+  "routing_intent": {
+    "drums": "separate bus with transient shaper and minimal compression",
+    "bass": "parallel compression and subtle saturation",
+    "chords": "reverb send with warm delay",
+    "melody": "dry with EQ adjustments",
+    "vocal": "none - instrumental only",
+    "fx": "sidechain compression triggered by drums"
+  },
+  "track_roles": {
+    "drums": "rhythm foundation using sample slicing techniques",
+    "bass": "low-end support with sample-based texture",
+    "chords": "harmonic bed using granular sliced samples",
+    "melody": "accent and hook elements from one-shot samples",
+    "vocal": "none - instrumental track",
+    "fx": "transitional elements and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "focus": "Create an aggressive phonk instrumental with clear dynamic contrast and cinematic energy variation using sample slicing for texture and one-shot hits."
+  },
+  "presetor_intent": {
+    "goals": "Apply presets that enhance transient impact on hits and texture depth for cinematic rise and fall dynamics."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns using sample slicing techniques with emphasis on transient hits and fills to support aggressive mood."
+    },
+    "bass_generator": {
+      "brief": "Generate bass textures using sample-based loops with dynamic movement matching the energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Create chordal texture beds using granular slicing and time stretching of samples to build harmonic atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Compose melodic accents with single-shot sample hits to complement the arrangement without forming melodies."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure emphasizing cinematic rise and fall energy shaping and aggressive mood adherence."
+    },
+    "presetor": {
+      "brief": "Implement sound presets for transient shaping, saturation, reverb, and delay suited to sample-based phonk style."
+    },
+    "songgps": {
+      "brief": "Coordinate the arrangement flow, section transitions, and energy curve to achieve desired cinematic dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix the channels ensuring clarity of transient hits and balance between texture bed and one-shot samples using minimal processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

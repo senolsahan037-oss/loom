@@ -1,0 +1,267 @@
+{
+  "project": {
+    "name": "Boom Bap Dark Minimal",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      50,
+      70,
+      80,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks, minimal variation, dark mood, and modern sample chopping techniques in sample layer."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 15,
+          "hook": 80,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "energy_peak"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "verse_2_start",
+        "reason": "return_to_sparse_verses"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "strong_closing_hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "slice",
+        "chop",
+        "reverse_slice",
+        "time_stretch"
+      ]
+    },
+    "channels": [
+      "slice",
+      "chop",
+      "reverse",
+      "time_stretch"
+    ]
+  },
+  "sound_intent": {
+    "sample_layer_method": "modern sample chopping techniques focused on slice and chop with reverse and time-stretch accents"
+  },
+  "routing_intent": {
+    "channel_routing": {
+      "slice": "sample_layer_1",
+      "chop": "sample_layer_2",
+      "reverse": "sample_layer_3",
+      "time_stretch": "sample_layer_4"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with boom bap breakbeat style",
+    "bass": "low-end groove supporting dark mood",
+    "chords": "minimal harmonic padding",
+    "melody": "strong hook focus with minimalistic elements",
+    "vocal": "sparse verses and dominant hook presence",
+    "fx": "ambient effects to enhance dark mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      2,
+      10,
+      26,
+      34
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 6,
+    "vocal": 7,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "create a sparse, dark boom bap arrangement with strong hooks and minimal variations blending modern sample slicing and chopping techniques"
+  },
+  "presetor_intent": {
+    "preset_style": "dark minimal boom bap with modern chopped samples"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse and impactful drum patterns with emphasis on boom bap breakbeat style, using channel names reflecting sample chopping techniques"
+    },
+    "bass_generator": {
+      "brief": "Create a minimal bass line supporting the dark mood without overcrowding the arrangement"
+    },
+    "harmony_generator": {
+      "brief": "Add minimal chord layers with subtle harmonic support appropriate for sparse verses and stronger hooks"
+    },
+    "melody_generator": {
+      "brief": "Compose compelling hooks with strong melodic presence using minimal notes and modern sample manipulation"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring sparse verses and strong hooks, managing energy curve and mood consistency"
+    },
+    "presetor": {
+      "brief": "Apply presets consistent with a dark minimal boom bap style and sample chopping techniques for channels"
+    },
+    "songgps": {
+      "brief": "Manage section markers, ensure energy curve fits sparse verses and strong hooks, enforce section identities and event markers"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings emphasizing clarity of sparse elements and punch for hooks, ensuring clean routing with sample chop channel naming"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "project": {
+    "name": "Uplifting Trip Hop Instrumental",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      30
+    ],
+    "notes": "Sparse verses with strong, driving hooks, using instrumental trip hop style with modern sample chopping techniques and focusing on an uplifting mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 85,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 88,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peak with strong hooks"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climax with highest energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "modern_sample_chopping": {
+        "description": "Use of advanced sample chopping techniques including slicing, stuttering, and rearrangement in drums and chords lanes."
+      }
+    },
+    "channels": {
+      "Slice": {
+        "role": "drums",
+        "description": "Drum samples chopped with precise slices"
+      },
+      "Stutter": {
+        "role": "chords",
+        "description": "Chords chopped using stutter effect"
+      },
+      "Rearrange": {
+        "role": "bass",
+        "description": "Bass samples arranged with chopped and re-sequenced segments"
+      },
+      "Granular": {
+        "role": "fx",
+        "description": "FX processed with granular slicing techniques"
+      }
+    }
+  },
+  "sound_intent": {
+    "style": "trip hop instrumental, sparse verses, strong hooks, uplifting mood",
+    "sample_techniques": [
+      "modern chopping",
+      "slicing",
+      "stuttering",
+      "rearranging"
+    ]
+  },
+  "routing_intent": {
+    "channels": {
+      "Slice": "drums",
+      "Stutter": "chords",
+      "Rearrange": "bass",
+      "Granular": "fx"
+    }
+  },
+  "track_roles": {
+    "drums": "Slice",
+    "bass": "Rearrange",
+    "chords": "Stutter",
+    "melody": "sample_based_lead",
+    "vocal": "none",
+    "fx": "Granular"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "Create an instrumental trip hop arrangement with uplifting energy, emphasizing sparse verses and emphasized hooks with sample chopping."
+  },
+  "presetor_intent": {
+    "focus": "Bypass temporary arrangement chains and render clean audio tracks according to arrangement sections."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse but dynamic drum patterns using chopped drum samples, adding emphasis on hooks with stronger presence."
+    },
+    "bass_generator": {
+      "brief": "Produce bass arrangements using rearranged chopped bass samples, maintaining low energy during verses and lifting in hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create chord layers using stuttered, chopped samples that contribute to the uplifting mood and complement the rhythm section."
+    },
+    "melody_generator": {
+      "brief": "Generate sample-based melodic motifs with limited activity, focusing energy during hook sections."
+    },
+    "ai_designer": {
+      "brief": "Design the overall arrangement flow emphasizing sparse verses and energetic hooks using modern sample chopping techniques."
+    },
+    "presetor": {
+      "brief": "Implement the rendering policy focusing on bypassing temporary arrangement chains and producing clean audio for mixing."
+    },
+    "songgps": {
+      "brief": "Guide the energy curves and section transitions to maintain proper pacing and mood shifts across the arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to preserve the character of chopped samples and maintain clarity of sparse verses alongside strong hook sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

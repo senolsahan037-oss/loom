@@ -1,0 +1,372 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Cinematic Vocal Variation",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      80,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      30,
+      50,
+      80,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      20,
+      10,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      0,
+      10,
+      30,
+      50,
+      70,
+      80,
+      60,
+      50,
+      30,
+      20,
+      10,
+      5,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "enter",
+        "label": "Vocal phrase start",
+        "reason": "Vocal-focused variation start"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "effect",
+        "label": "Texture bed begins",
+        "reason": "Sample-based texture bed introduction"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "Energy peak",
+        "reason": "Cinematic rise to hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "repeat",
+        "label": "Final hook vocal emphasis",
+        "reason": "Cinematic climax with vocal focus"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade",
+        "label": "Texture bed fade out",
+        "reason": "Outro section transition"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "Texture Bed",
+        "type": "sample_based",
+        "channels": [
+          "granular_slice",
+          "time_stretch_pad"
+        ],
+        "description": "Background texture created with granular slicing and time-stretch pad samples."
+      },
+      {
+        "name": "One-Shot Hits",
+        "type": "sample_one_shot",
+        "channels": [
+          "transient_slice",
+          "velocity_layered"
+        ],
+        "description": "One-shot percussive hits created with transient slicing and velocity layered samples."
+      }
+    ]
+  },
+  "sound_intent": {
+    "focus": "vocal prominence",
+    "texture": "sample-based texture bed with cinematic atmosphere",
+    "energy_profile": "cinematic rise and fall",
+    "arrangement_style": "West Coast Hip-Hop"
+  },
+  "routing_intent": {
+    "channels": {
+      "granular_slice": "texture_bed",
+      "time_stretch_pad": "texture_bed",
+      "transient_slice": "one_shot_hits",
+      "velocity_layered": "one_shot_hits"
+    },
+    "grouping": {
+      "texture_bed": [
+        "granular_slice",
+        "time_stretch_pad"
+      ],
+      "one_shot_hits": [
+        "transient_slice",
+        "velocity_layered"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using one-shot hits with sample slicing techniques",
+    "bass": "supportive low-end using sample manipulations",
+    "chords": "harmonic texture with sample layer pads",
+    "melody": "light melodic elements using sample layers",
+    "vocal": "primary melodic and emotional focus",
+    "fx": "ambient texture bed using granular and time-stretch samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      73,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 50,
+    "melody": 30,
+    "vocal": 100,
+    "fx": 60
+  },
+  "designer_intent": {
+    "goal": "Create a cinematic, vocal-focused West Coast Hip-Hop arrangement using sample-based textures and one-shot hits, emphasizing dynamic energy flow."
+  },
+  "presetor_intent": {
+    "goal": "Preset configurations to enhance cinematic mood and vocal prominence with polished sample layering."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample-based drum patterns using transient slice and velocity layering techniques emphasizing one-shot hits that complement vocal dynamics."
+    },
+    "bass_generator": {
+      "brief": "Design a supportive bass line using chopped and processed samples to match the cinematic energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Create chord pads and harmonic textures employing time-stretch and granular slicing samples for a rich background."
+    },
+    "melody_generator": {
+      "brief": "Sketch light melodic elements that do not conflict with vocal focus, utilizing subtle sample layers."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, ensuring dynamic rise and fall and vocal prominence in the West Coast Hip-Hop style."
+    },
+    "presetor": {
+      "brief": "Apply presets to balance cinematic mood with hip-hop arrangement including enhanced vocal clarity and texture layering."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy curve development aligned with the cinematic rise and fall pattern."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels preserving unprocessed audio for clarity, focusing on vocal presence and texture bed balance."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

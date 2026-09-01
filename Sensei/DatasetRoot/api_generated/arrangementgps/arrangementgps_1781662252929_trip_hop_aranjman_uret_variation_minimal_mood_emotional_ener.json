@@ -1,0 +1,329 @@
+{
+  "project": {
+    "name": "Trip Hop Minimal Emotional Arrangement",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 80,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      10,
+      10,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 10,
+          "8": 20,
+          "16": 30,
+          "24": 40,
+          "32": 50,
+          "40": 60,
+          "48": 50,
+          "56": 40,
+          "64": 30,
+          "72": 20,
+          "80": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 5,
+          "8": 15,
+          "16": 25,
+          "24": 35,
+          "32": 45,
+          "40": 55,
+          "48": 45,
+          "56": 35,
+          "64": 25,
+          "72": 15,
+          "80": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "8": 25,
+          "16": 35,
+          "24": 45,
+          "32": 55,
+          "40": 65,
+          "48": 55,
+          "56": 45,
+          "64": 35,
+          "72": 25,
+          "80": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "8": 10,
+          "16": 15,
+          "24": 20,
+          "32": 25,
+          "40": 30,
+          "48": 25,
+          "56": 20,
+          "64": 15,
+          "72": 10,
+          "80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "8": 0,
+          "16": 0,
+          "24": 0,
+          "32": 0,
+          "40": 0,
+          "48": 0,
+          "56": 0,
+          "64": 0,
+          "72": 0,
+          "80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "8": 10,
+          "16": 15,
+          "24": 20,
+          "32": 25,
+          "40": 30,
+          "48": 25,
+          "56": 20,
+          "64": 15,
+          "72": 10,
+          "80": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample-slice",
+        "label": "Texture Bed Start",
+        "reason": "Beginning of texture-based sample layer"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "one-shot-hit",
+        "label": "One-shot Hit Entry",
+        "reason": "Introduces emotional accent"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample slicing for texture bed",
+    "bass": "minimal support",
+    "chords": "sample-based pads with texture",
+    "melody": "sparse, emotional one-shots",
+    "vocal": "none",
+    "fx": "textural effects and hits"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 4,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal trip hop drum arrangement using sample slicing techniques to build a textured rhythmic bed with slow energy build."
+    },
+    "bass_generator": {
+      "brief": "Generate a minimal bass layer that supports the texture bed subtly, keeping the emotional tension with a slow build of dynamics."
+    },
+    "harmony_generator": {
+      "brief": "Provide sample-based chord textures that evolve gently over time to support the emotional mood and minimal variation."
+    },
+    "melody_generator": {
+      "brief": "Introduce sparse one-shot hit samples serving as minimal melodic or emotional highlights, complementing the texture bed."
+    },
+    "ai_designer": {
+      "brief": "Arrange the overall track structure with a slow energy build following the emotional and minimal variation requirements."
+    },
+    "presetor": {
+      "brief": "Apply appropriate presets emphasizing sample-based textures and emotional ambiance, maintaining slow dynamic progression."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement flow adhering to trip hop genre characteristics, minimal variation, emotional mood, and slow build energy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix the channels preserving the clarity of sample slices and one-shot hits, ensuring the textured bed and emotional delivery are highlighted."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

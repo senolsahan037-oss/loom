@@ -1,0 +1,297 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      50,
+      85,
+      100,
+      30
+    ],
+    "notes": "Arrangement focuses on a club energy aggressive boom bap instrumental with modern sample chopping techniques as the core sample layer. No melodic or bass content specified."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 35,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 15,
+          "hook": 25,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 35,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Start of verse with increased energy"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Peak energy section"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to verse energy level"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Energy shift before final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final high energy section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Arrangement wind down"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "technique": "modern sample chopping",
+      "channels": [
+        "slice_1",
+        "slice_2",
+        "slice_3",
+        "slice_4",
+        "reverse_slice",
+        "stutter",
+        "pitch_shifted_slice"
+      ]
+    }
+  },
+  "sound_intent": {
+    "mood": "aggressive",
+    "energy_profile": "club energy",
+    "sample_style": "modern sample chopping",
+    "instrumental": true
+  },
+  "routing_intent": {
+    "channels": {
+      "slice_1": "drums",
+      "slice_2": "drums",
+      "slice_3": "chords",
+      "slice_4": "melody",
+      "reverse_slice": "fx",
+      "stutter": "fx",
+      "pitch_shifted_slice": "bass"
+    }
+  },
+  "track_roles": {
+    "drums": "main rhythmic drive, sample slices",
+    "bass": "supportive low-end from pitch shifted slices",
+    "chords": "harmonic texture from chopped samples",
+    "melody": "sampled melodic fragments",
+    "vocal": "none - instrumental only",
+    "fx": "effects and transitional slices"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      65
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create a gritty, aggressive boom bap instrumental emphasizing modern sample chopping and club energy dynamics"
+  },
+  "presetor_intent": {
+    "guidance": "Enhance sample slices with punchy compression and crisp EQ to maintain clarity and aggression"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns focusing on groove and punch using chopped sample slices named after slicing techniques"
+    },
+    "bass_generator": {
+      "brief": "Generate low-end parts by pitch shifting sample slices to support the club energy vibe"
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic layers from selected chopped sample slices following boom bap conventions without chords"
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic fragments extracted from chopped samples to support the aggressive mood"
+    },
+    "ai_designer": {
+      "brief": "Arrange sections and energy curve ensuring smooth transitions with emphasis on hook and final hook intensities"
+    },
+    "presetor": {
+      "brief": "Apply processing presets to maintain aggressive tonal balance and clarity on chopped sample layers"
+    },
+    "songgps": {
+      "brief": "Manage arrangement sections, transitions, and map energy profile to maximize club energy impact"
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio ensuring the prominence of drum slices and clear sample cutting artifacts"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

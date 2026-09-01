@@ -1,0 +1,326 @@
+{
+  "project": {
+    "name": "Memphis Rap Aggressive Mainstream",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      20,
+      40,
+      60,
+      80,
+      100,
+      100,
+      100,
+      80
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Start Verse 1",
+        "reason": "Introduce first vocal verse with mainstream aggressive attitude"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Start Hook",
+        "reason": "Main hook with maximum energy and aggressive delivery"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Start Verse 2",
+        "reason": "Return to verse style with steady aggressive rap delivery"
+      },
+      {
+        "track": "drums",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Start Bridge",
+        "reason": "Change rhythm pattern for bridge to maintain slow build energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Start Final Hook",
+        "reason": "Final high-energy hook with layered vocals"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Start Outro",
+        "reason": "Fade out with effects and reduce vocal intensity"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone, driving beat",
+    "bass": "low-end groove and foundation",
+    "chords": "harmonic support",
+    "melody": "supportive melodic layers",
+    "vocal": "lead rap vocals with aggressive tone",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that evolve slowly with increasing intensity, emphasizing a slow build energy and aggressive feel characteristic of Memphis Rap."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that support the slow energy build, providing a deep groove that remains dynamic throughout the sections."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord activity that maintains harmonic interest with sparse but impactful progression, complementing the aggressive mood."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic phrases and layers that enhance the main vocal line without overpowering the aggressive tone."
+    },
+    "ai_designer": {
+      "brief": "Manage overall arrangement structure ensuring smooth transitions between sections adhering to mainstream arrangement conventions."
+    },
+    "presetor": {
+      "brief": "Apply presets suitable for Memphis Rap style with aggressive timbres and clean mix-ready sounds."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement’s energy curve to achieve a slow but effective build culminating in high energy hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix stage by ensuring all elements have clear separation and aggressive balance ready for final mastering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

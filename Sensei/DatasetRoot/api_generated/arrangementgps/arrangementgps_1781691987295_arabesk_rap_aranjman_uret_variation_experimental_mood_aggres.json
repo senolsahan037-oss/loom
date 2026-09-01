@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Arabesk Rap Experimental",
+    "genre": "Rap",
+    "subgenre": "Arabesk",
+    "bpm": 85,
+    "key": "D minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 85,
+          "41-56": 60,
+          "57-64": 75,
+          "65-72": 90,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 50,
+          "25-40": 80,
+          "41-56": 65,
+          "57-64": 70,
+          "65-72": 85,
+          "73-80": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 75,
+          "41-56": 60,
+          "57-64": 70,
+          "65-72": 85,
+          "73-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 35,
+          "25-40": 70,
+          "41-56": 55,
+          "57-64": 65,
+          "65-72": 80,
+          "73-80": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 70,
+          "25-40": 95,
+          "41-56": 80,
+          "57-64": 60,
+          "65-72": 95,
+          "73-80": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 40,
+          "57-64": 50,
+          "65-72": 70,
+          "73-80": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Verse 1 start",
+        "reason": "Begin rap vocals with Arabesk inflection, mood sets aggression"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook start",
+        "reason": "Chorus enters with fuller vocal arrangement and aggressive delivery"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "bridge_start",
+        "label": "Bridge start",
+        "reason": "Experimental bridge with build-up to final hook"
+      },
+      {
+        "track": "outro",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro start",
+        "reason": "Energy winding down with fading textures"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with experimental elements",
+    "bass": "supportive groove with slow build intensity",
+    "chords": "harmonic support with Arabesk motifs",
+    "melody": "complements vocal with subtle Arabesk tonalities",
+    "vocal": "lead aggressive rap delivery with Arabesk influence",
+    "fx": "textural and build tension effect layers"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a slow build rhythm with Arabesk and rap drum hybrid patterns adding experimental textures."
+    },
+    "bass_generator": {
+      "brief": "Generate supportive bass lines that build energy gradually aligned with the slow build energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic layers influenced by Arabesk scales to accentuate mood and aggressiveness."
+    },
+    "melody_generator": {
+      "brief": "Compose subtle melodic phrases reflecting Arabesk style and complementing rap vocals."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections emphasizing slow energy buildup, aggression in mood, and include variation experimental elements."
+    },
+    "presetor": {
+      "brief": "Apply presets that support aggressive Arabesk rap style with clean sound and experimental effects."
+    },
+    "songgps": {
+      "brief": "Ensure energy progression aligns with slow build profile and that sections transition fluidly with experimental variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for later mixing maintaining clarity and dynamic range for aggressive mood."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

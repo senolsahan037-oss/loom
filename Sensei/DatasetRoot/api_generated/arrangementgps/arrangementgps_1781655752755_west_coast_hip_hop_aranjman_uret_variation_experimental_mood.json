@@ -1,0 +1,284 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Aggression",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      60,
+      40,
+      30,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      75,
+      65,
+      55,
+      45,
+      35,
+      25,
+      40,
+      55,
+      70,
+      80,
+      90,
+      85,
+      75,
+      65,
+      55,
+      45,
+      35,
+      30,
+      50,
+      70,
+      90,
+      85,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      40,
+      60,
+      75,
+      90,
+      95,
+      85,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      20,
+      30,
+      40,
+      50,
+      70,
+      90,
+      95,
+      80,
+      65,
+      55,
+      45,
+      35,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      30,
+      40
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "chop": 85,
+          "slice": 50,
+          "stutter": 70
+        }
+      },
+      "bass": {
+        "activity": {
+          "chop": 60,
+          "slice": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "slice": 30,
+          "reverse_slice": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "stutter": 50,
+          "chop": 40
+        }
+      },
+      "vocal": {
+        "activity": {
+          "chop": 30,
+          "slice": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "stutter": 40,
+          "reverse_slice": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "slice_start",
+        "label": "Intro slice open",
+        "reason": "Introduce experimental chopped percussion"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "chop",
+        "label": "Bass chop variation",
+        "reason": "Add rhythmic complexity to verse"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "stutter",
+        "label": "Melody stutter hook",
+        "reason": "Build aggressive cinematic hook energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "reverse_slice",
+        "label": "Bridge FX reverse slice",
+        "reason": "Create tension and variation before final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with modern sample chopping",
+    "bass": "driving low-end with chopped sample technique",
+    "chords": "textural support using slicing techniques",
+    "melody": "lead motifs employing stutter chops",
+    "vocal": "sampled vocal chops and slices for aggression",
+    "fx": "atmospheric effects utilizing reverse and stutter slices"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 5,
+    "melody": 6,
+    "vocal": 4,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate modern experimental drum arrangements using sample chopping, slicing, and stuttering techniques with aggressive dynamics."
+    },
+    "bass_generator": {
+      "brief": "Create bass parts utilizing chopped and sliced samples to maintain groove and support aggressive mood."
+    },
+    "harmony_generator": {
+      "brief": "Design chord textures with sliced samples to enhance the cinematic rise and fall energy profile."
+    },
+    "melody_generator": {
+      "brief": "Develop lead melodic content employing modern sample chopping and stutter effects that convey aggression and energy variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring a cinematic energy curve with aggressive mood using experimental variation techniques."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize aggressive, cinematic and experimental sample chopping characteristics on all tracks."
+    },
+    "songgps": {
+      "brief": "Manage arrangement flow, section transitions, energy dynamics, and event markers to fit the West Coast Hip-Hop genre with experimental variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing to retain clarity of chopped samples and aggressive elements for unprocessed channel audio rendering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

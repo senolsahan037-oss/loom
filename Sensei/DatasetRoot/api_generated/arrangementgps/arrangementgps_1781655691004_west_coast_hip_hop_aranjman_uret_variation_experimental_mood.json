@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "C Minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      100,
+      10
+    ],
+    "notes": "Experimental West Coast Hip-Hop arrangement focusing on aggressive mood and hook-heavy energy profile. Sample layers are named using sample chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 75,
+          "hook": 95,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Emphasize hook-heavy energy"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Peak energy moment"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "effect_start",
+        "label": "Intro FX",
+        "reason": "Set experimental mood"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with chop-technique naming",
+    "bass": "low-end groove reinforcing rhythm",
+    "chords": "harmonic support with sample chop layers",
+    "melody": "experimental hooks with sample chops",
+    "vocal": "aggressive vocal presence",
+    "fx": "atmospheric and transition effects using sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 5,
+    "melody": 6,
+    "vocal": 9,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns emphasizing experimental sample chop techniques with aggressive energy, supporting hook sections prominently."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the rhythmic and harmonic content, adhering to West Coast Hip-Hop style with sample chop influences."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord layers named after sample chop techniques that add harmonic depth while maintaining aggressive mood."
+    },
+    "melody_generator": {
+      "brief": "Craft experimental melodic hooks using sample chop named channels to enhance hook-heavy energy."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure and ensure experimental variations align with aggressive, hook-heavy West Coast Hip-Hop style."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that enhance sample chop textures and maintain cohesive aggressive mood throughout the track."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and event markers to keep energy curve coherent and emphasize hooks effectively."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio prioritizing clarity of sample chop layers and aggressive energy profiles specific to West Coast Hip-Hop."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

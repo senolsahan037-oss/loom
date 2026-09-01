@@ -1,0 +1,298 @@
+{
+  "project": {
+    "name": "Phonk Mainstream Dark",
+    "genre": "Phonk",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      25,
+      40,
+      60,
+      80,
+      90,
+      100,
+      85,
+      70,
+      50,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Sample-based arrangement featuring a textured bed layer with one-shot hits organized into channels named after common sample slicing techniques such as 'Transient', 'Slice', 'Chop', and 'Hit'. The energy profile follows a cinematic rise and fall pattern."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Intro Start",
+        "reason": "Beginning atmospheric texture bed and light hits"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Start",
+        "reason": "Energy peak with layered one-shot hits"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "cue",
+        "label": "Bridge Start",
+        "reason": "Energy dip for cinematic tension"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "cue",
+        "label": "Final Hook Start",
+        "reason": "Final energy build before outro"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "cue",
+        "label": "Outro Start",
+        "reason": "Energy resolution with sparse hits and texture"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "texture_bed": {
+        "type": "sample_based",
+        "channel": "Transient"
+      },
+      "one_shot_hits": {
+        "type": "one_shot_samples",
+        "channels": [
+          "Slice",
+          "Chop",
+          "Hit"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "sample-based arrangement combining a textured buffer layer with dynamic one-shot percussion hits",
+    "mood": "dark",
+    "variation": "mainstream",
+    "energy_profile": "cinematic rise and fall"
+  },
+  "routing_intent": {
+    "routing": {
+      "Transient": "texture_bed",
+      "Slice": "one_shot_hits",
+      "Chop": "one_shot_hits",
+      "Hit": "one_shot_hits"
+    }
+  },
+  "track_roles": {
+    "drums": "percussion and rhythmic foundation using one-shot sample hits",
+    "bass": "low frequency support complementing the dark mood",
+    "chords": "textural harmonic layers with sampled textures",
+    "melody": "minimal melodic textures sampled and chopped",
+    "vocal": "none",
+    "fx": "ambient effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      72,
+      73,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "goal": "create a dark, cinematic phonk arrangement with clear dynamic build and release",
+    "texture_focus": "sample-based layers with careful channel assignment based on slicing techniques",
+    "energy_shape": "rise and fall reflecting cinematic tension and release"
+  },
+  "presetor_intent": {
+    "preset_usage": "use texture preserving presets for sample layers and sharp transient shaping on one-shot hits"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate percussive elements using one-shot samples with routing to channels named by sample slicing technique"
+    },
+    "bass_generator": {
+      "brief": "Create low-end bass samples supporting the cinematic rise and fall of energy"
+    },
+    "harmony_generator": {
+      "brief": "Arrange sampled chord textures that emphasize dark mood and complement bass and drums"
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic textures using sampled material with subtle dynamics"
+    },
+    "ai_designer": {
+      "brief": "Design the overall arrangement structure with energy flow matching cinematic rise and fall"
+    },
+    "presetor": {
+      "brief": "Apply presets to maintain clarity and dynamic energy in sample layers and hits"
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement sections and energy curve while maintaining sample layer integrity"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for final mixing with clear separation of sample slicing lanes"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

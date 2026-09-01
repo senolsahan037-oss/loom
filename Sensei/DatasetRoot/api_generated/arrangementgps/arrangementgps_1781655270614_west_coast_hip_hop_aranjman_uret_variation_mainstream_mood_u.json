@@ -1,0 +1,264 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Uplifting",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C Minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      70,
+      90,
+      100,
+      60,
+      40,
+      80,
+      100,
+      90,
+      70,
+      60,
+      50,
+      80,
+      90,
+      100,
+      100,
+      60
+    ],
+    "notes": "The arrangement emphasizes hook-heavy energy, balanced with uplifting mood typical of mainstream West Coast hip-hop."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal_chops",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Main Hook Vocal",
+        "reason": "Start of uplifting, high-energy hook section with vocal chops"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 57,
+        "type": "effect_entry",
+        "label": "Bridge Reverse Effect",
+        "reason": "Introduce reverse chops for texture on bridge section"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 65,
+        "type": "final_hook_entry",
+        "label": "Final Hook Stutter",
+        "reason": "Enhance energy on final hook with stutter chops"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {
+    "sample_layer_techniques": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ],
+    "channel_naming": {
+      "micro_chops": "micro_chops",
+      "phrase_chops": "phrase_chops",
+      "reverse_chops": "reverse_chops",
+      "vocal_chops": "vocal_chops",
+      "stutter_chops": "stutter_chops"
+    }
+  },
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone",
+    "bass": "low-end groove",
+    "chords": "harmonic support",
+    "melody": "lead motifs",
+    "vocal": "hook and vocal chops",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a hook-heavy drum arrangement that enhances the energy curve and supports West Coast hip-hop style."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that provide a solid groove foundation with occasional variations for uplifting feel."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions that complement the mood and support the uplifting theme without dominating."
+    },
+    "melody_generator": {
+      "brief": "Craft melodic layers that add character and uplifting motifs while leaving space for vocal chops."
+    },
+    "ai_designer": {
+      "brief": "Manage overall arrangement structure, ensuring smooth transitions and energy flow across all sections."
+    },
+    "presetor": {
+      "brief": "Assign appropriate sample chopping techniques to channels named after chopping methods and optimize mix presets."
+    },
+    "songgps": {
+      "brief": "Guide arrangement timing and section definitions ensuring energy peaks align with hooks and variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix elements to maintain clarity and highlight vocal chop layers in the hook sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

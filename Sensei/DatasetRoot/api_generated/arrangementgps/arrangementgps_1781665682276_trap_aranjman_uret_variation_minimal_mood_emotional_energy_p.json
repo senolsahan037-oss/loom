@@ -1,0 +1,257 @@
+{
+  "project": {
+    "name": "Emotional Trap Minimal",
+    "genre": "Trap",
+    "subgenre": "Minimal",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      25,
+      50,
+      80,
+      30
+    ],
+    "notes": "Arrangement features sparse verses to keep energy low with minimal instrumentation, contrasted by strong and energetic hooks with prominent melodic and rhythmic elements."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 80,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 95,
+          "verse_2": 5,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 vocal start",
+        "reason": "Begin sparse verses with emotional vocal delivery"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook melody start",
+        "reason": "Introduce strong hook melody to increase energy"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensity_increase",
+        "label": "Hook drum intensify",
+        "reason": "Increase drum complexity for hook impact"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "intensity_increase",
+        "label": "Hook bass intensify",
+        "reason": "Add bass fullness during hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "start",
+        "label": "Final hook vocal return",
+        "reason": "Reintroduce full vocal energy for final hook"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "effect",
+        "label": "Intro atmosphere",
+        "reason": "Set emotional mood with subtle effects"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with dynamic energy shifts",
+    "bass": "Supports groove, sparse in verses, fuller in hooks",
+    "chords": "Harmonic foundation, minimal texture",
+    "melody": "Lead element in hooks, minimal in verses",
+    "vocal": "Emotional delivery prominent in verses and hooks",
+    "fx": "Atmospheric enhancement and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 6,
+    "vocal": 7,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns with sparse verses and powerful hooks to enhance energy contrast."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that maintain a minimal feel in verses and grow fuller and more present during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Produce minimal chord arrangements to provide harmonic support without overshadowing emotional mood."
+    },
+    "melody_generator": {
+      "brief": "Craft strong melodic hooks with emotional impact, while keeping verses sparse and atmospheric."
+    },
+    "ai_designer": {
+      "brief": "Arrange the track structure emphasizing sparse verses and energetic hooks to highlight emotional dynamics."
+    },
+    "presetor": {
+      "brief": "Select sounds and presets that support a minimal but emotional trap aesthetic with clear energy shifts."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows the sparse verses and hook energy profile per requested energy curve and bar lengths."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix to maintain clarity of sparse elements and full impact in hooks, preserving emotional depth."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

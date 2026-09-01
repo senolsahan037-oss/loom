@@ -1,0 +1,319 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 85,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": "Slow build with experimental textures, emphasizing cinematic feel without traditional melodies or drum patterns."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 55
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 35,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 35
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "hook_start",
+        "reason": "energy build up to hook"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "transition",
+        "label": "final_hook_start",
+        "reason": "increase intensity"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "transition",
+        "label": "outro_start",
+        "reason": "decrease energy towards outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "drums",
+        "channels": [
+          {
+            "name": "slice",
+            "type": "sample chop technique"
+          },
+          {
+            "name": "beat_repeat",
+            "type": "sample chop technique"
+          },
+          {
+            "name": "stutter",
+            "type": "sample chop technique"
+          }
+        ]
+      },
+      {
+        "name": "bass",
+        "channels": [
+          {
+            "name": "time_stretch",
+            "type": "sample chop technique"
+          },
+          {
+            "name": "reverse_slice",
+            "type": "sample chop technique"
+          }
+        ]
+      },
+      {
+        "name": "chords",
+        "channels": [
+          {
+            "name": "granular_chop",
+            "type": "sample chop technique"
+          },
+          {
+            "name": "resample",
+            "type": "sample chop technique"
+          }
+        ]
+      },
+      {
+        "name": "melody",
+        "channels": [
+          {
+            "name": "glitch_slice",
+            "type": "sample chop technique"
+          }
+        ]
+      },
+      {
+        "name": "fx",
+        "channels": [
+          {
+            "name": "gate_chop",
+            "type": "sample chop technique"
+          },
+          {
+            "name": "reverse_stutter",
+            "type": "sample chop technique"
+          }
+        ]
+      }
+    ]
+  },
+  "sound_intent": {
+    "focus": "experimental sound design with layered sample chopping techniques creating a cinematic atmosphere",
+    "energy_profile": "slow build"
+  },
+  "routing_intent": {
+    "channels_to_prefix": true,
+    "group_channels_by_sample_technique": true
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with experimental chopped samples",
+    "bass": "harmonic foundation utilizing time stretching and reversed samples",
+    "chords": "textural harmony by granular and resample chops",
+    "melody": "occasional experimental glitches serving cinematic moods",
+    "vocal": "none - instrumental focus",
+    "fx": "transitions and atmosphere with gate and reverse chop effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      8,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {
+    "create_a_slow_energy_build_arrangement_with_experimental_techniques_to_capture_west_coast_hiphop_cinematic_feel": true
+  },
+  "presetor_intent": {
+    "use_preset_layers_named_by_sample_chop_techniques_for_channel_names": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design the drum layers using sample chopping methods like slicing, beat repeat, and stutter to create a loose but evolving rhythmic backbone."
+    },
+    "bass_generator": {
+      "brief": "Craft bass parts using time stretching and reversed sample chops to create slow evolving harmonic foundation with subtle movement."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord layers with granular chopping and resampling techniques to provide textured harmonic atmosphere fitting cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Produce occasional glitch-style melody lines using short sample chops, emphasizing experimental textures without traditional phrases."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement energy progression for a slow build culminating in hook sections, ensuring cinematic and experimental feel."
+    },
+    "presetor": {
+      "brief": "Apply channel names derived from sample chop techniques and assign appropriate presets emphasizing cinematic texture."
+    },
+    "songgps": {
+      "brief": "Manage arrangement sections and lane activities to follow a natural energy curve and defined cinematic mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing, keeping clarity of sample chop layers and maintaining cinematic space."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

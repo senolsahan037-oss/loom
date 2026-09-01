@@ -1,0 +1,308 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Emotional",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      60,
+      50,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      70,
+      60,
+      65,
+      75,
+      85,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      55,
+      65,
+      75,
+      85,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 15,
+          "final_hook": 40,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Vocal Start",
+        "reason": "start of first vocal verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "entry",
+        "label": "Hook Vocal Start",
+        "reason": "start of catchy emotional hook"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "section",
+        "label": "Bridge",
+        "reason": "experimental mood shift section"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "entry",
+        "label": "Final Hook Vocal Start",
+        "reason": "return to hook with emotional intensity"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone, experimental beats",
+    "bass": "low-end groove, emotional support",
+    "chords": "harmonic texture, atmospheric layers",
+    "melody": "lead motifs, cinematic expression",
+    "vocal": "lyrical content, emotional delivery",
+    "fx": "transitions and sound design elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 6,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create experimental drum patterns maintaining emotional energy and complimenting West Coast Hip-Hop style."
+    },
+    "bass_generator": {
+      "brief": "Design basslines that support cinematic rise and fall energy curve, reflecting emotional depth."
+    },
+    "harmony_generator": {
+      "brief": "Generate harmonic textures and chord voicings that add atmospheric layers to the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Compose lead melodic motifs that express emotional narrative following the dynamic energy profile."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement ensuring variation, mood consistency, and energy flow across sections."
+    },
+    "presetor": {
+      "brief": "Assign presets to tracks that evoke cinematic and emotional sounds with an experimental edge."
+    },
+    "songgps": {
+      "brief": "Guide structure and energy curve for emotion-driven cinematic hip-hop arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing strategy for clean dynamic transitions aligned with arrangement energy profile."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

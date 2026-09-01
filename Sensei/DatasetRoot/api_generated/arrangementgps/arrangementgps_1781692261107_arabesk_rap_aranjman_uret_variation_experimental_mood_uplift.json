@@ -1,0 +1,314 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement Experimental",
+    "genre": "Rap",
+    "subgenre": "Arabesk Experimental",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      55,
+      20,
+      30,
+      60,
+      55,
+      30,
+      40,
+      80,
+      75,
+      30,
+      40,
+      80,
+      75,
+      20,
+      25,
+      65,
+      60,
+      30,
+      35,
+      70,
+      65,
+      40,
+      45,
+      85,
+      90,
+      45,
+      50,
+      85,
+      90,
+      30,
+      35,
+      70,
+      65,
+      30,
+      35,
+      70,
+      65,
+      25,
+      30,
+      80,
+      85,
+      30,
+      35,
+      80,
+      85,
+      20,
+      25,
+      75,
+      80,
+      20,
+      25,
+      75,
+      80,
+      15,
+      20,
+      60,
+      55,
+      15,
+      20,
+      60,
+      55
+    ],
+    "notes": "Sparse verses with strong, uplifting hooks; experimental use of traditional Arabesk instruments merged with rap elements."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 35,
+          "bridge": 85,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 70,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 75,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 90,
+          "verse_2": 10,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 95,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 65,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Start of the first verse with sparse vocal energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Strong, uplifting hook begins"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse with sparse vocal delivery"
+      },
+      {
+        "track": "melody",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Experimental bridge section with increased melodic activity"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook with highest energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Outro with decreasing energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "drive rhythm and energy dynamics",
+    "bass": "support groove and harmonic foundation",
+    "chords": "provide harmonic texture with Arabesk influences",
+    "melody": "add melodic embellishments and experimental motifs",
+    "vocal": "deliver rap verses and strong hooks",
+    "fx": "enhance transitions and create atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      44
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that keep verses sparse but build strongly in hooks to maintain uplifting energy."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that underpin the groove subtly during verses and intensify in hooks while complementing the Arabesk style."
+    },
+    "harmony_generator": {
+      "brief": "Add harmonic textures using Arabesk-inspired chords mainly in hooks and bridge to create an authentic mood."
+    },
+    "melody_generator": {
+      "brief": "Produce experimental melodic motifs that accentuate hooks and the bridge, with minimal melodic activity in verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee sparse verse structure with strong hook dynamics, ensuring uplifting emotional delivery throughout arrangement."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance clarity and brightness in vocals and hooks, and preserve traditional Arabesk instrument character."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement flow to maintain contrast between sparse verses and energetic hooks for uplifting impact."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix emphasizing vocals and hooks while maintaining clarity and spacing in sparse verse sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

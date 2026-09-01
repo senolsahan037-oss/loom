@@ -1,0 +1,284 @@
+{
+  "project": {
+    "name": "Trip Hop Vocal Club Arrangement",
+    "genre": "Trip Hop",
+    "subgenre": "Vocal-focused",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      75,
+      85,
+      90,
+      50
+    ],
+    "notes": "Vocal-focused trip hop arrangement with vocal prominence, modern chopped samples, and club-level energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 35
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 90,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 60,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Vocal intensity spikes with chopped sample variations"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Drum pattern switches to advanced chopping techniques"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Highest energy with vocal layering and modern sample chops"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layering": {
+      "techniques": [
+        "slice chopping",
+        "time-stretch chopping",
+        "re-pitch chopping",
+        "reverse chopping"
+      ]
+    },
+    "channels": {
+      "SliceChop": [
+        "drums",
+        "percussion"
+      ],
+      "TimeStretchChop": [
+        "vocal",
+        "fx"
+      ],
+      "RePitchChop": [
+        "bass",
+        "chords"
+      ],
+      "ReverseChop": [
+        "melody",
+        "fx"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal-centric with club energy, using modern sample chopping for dynamic textures",
+    "tone": "warm, uplifting with crisp chopped vocal samples"
+  },
+  "routing_intent": {
+    "channels": {
+      "SliceChop": "drums_percussion_bus",
+      "TimeStretchChop": "vocal_fx_bus",
+      "RePitchChop": "bass_chords_bus",
+      "ReverseChop": "melody_fx_bus"
+    }
+  },
+  "track_roles": {
+    "drums": "Keep rhythmic groove and energy with slice chopping samples",
+    "bass": "Provide harmonic foundation with re-pitch chopped samples",
+    "chords": "Support harmonic content with re-pitch chopped samples",
+    "melody": "Add melodic interest using reverse chopping",
+    "vocal": "Lead element with time-stretch chopped vocal samples",
+    "fx": "Enhance transitions and atmosphere with time-stretch and reverse chopping"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 5,
+    "melody": 4,
+    "vocal": 10,
+    "fx": 3
+  },
+  "designer_intent": {
+    "emphasize_vocals": true,
+    "use_modern_sample_chopping": true,
+    "maintain_uplifting_club_energy": true
+  },
+  "presetor_intent": {
+    "apply_clip_gain_automation": true,
+    "use_dynamic_eq_for_vocals": true,
+    "add_subtle_reverbs_and_delays": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic slice chopping drum patterns with evolving rhythmic grooves, supporting club energy profile."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines utilizing re-pitch chopped samples providing harmonic depth to support the vocal focus."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions with re-pitch sample chops that complement the vocal and bass layers."
+    },
+    "melody_generator": {
+      "brief": "Craft melodic layers primarily with reverse chopped samples that add texture without overshadowing vocals."
+    },
+    "ai_designer": {
+      "brief": "Design arrangement focusing on vocal prominence, energy shaping, and smooth transitions between sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance chopped sample clarity and vocal presence while maintaining energy."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement flow and energy curve ensuring vocal focus and club energy consistency."
+    },
+    "ai_mixmaster": {
+      "brief": "Provide mixing guidance to balance chopped samples and vocals, preserving clarity and dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

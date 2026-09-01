@@ -1,0 +1,30 @@
+{
+  "schema_version": "ai-producer.generator-registry.v1",
+  "generators": [
+    {
+      "generator_id": "sensei.midi_variation",
+      "version": "0.4.5",
+      "consumes": [
+        "sensei.canonical_midi",
+        "sensei.variation_sources",
+        "sensei.instrument_capabilities",
+        "sensei.preset_genre_identities",
+        "sensei.genre_neighbor_graph",
+        "sensei.grooves"
+      ],
+      "produces": ["sensei.sdk-midi-write.v1"],
+      "access": "read_only",
+      "write_boundary": "official_ableton_extensions_sdk_selected_clip_slot",
+      "status": "active"
+    },
+    {
+      "generator_id": "arrangementgps",
+      "version": "legacy-0.1",
+      "consumes": ["taxonomy.genres", "taxonomy.sample_chop_techniques"],
+      "produces": ["subverse_project.legacy.v0"],
+      "access": "read_only",
+      "write_boundary": null,
+      "status": "legacy"
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "project": {
+    "name": "Trip Hop Cinematic Instrumental",
+    "genre": "Trip Hop",
+    "subgenre": "Instrumental",
+    "bpm": 80,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45
+    ],
+    "notes": "Arrangement follows a slow build energy profile suitable for cinematic Trip Hop instrumental with modern sample chopping techniques distributed on channels named after chopping methods."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "Transient Cut": 90,
+          "Slice Select": 85,
+          "Gate Chop": 80,
+          "Time Warp": 70
+        }
+      },
+      "bass": {
+        "activity": {
+          "Reverse Slice": 60,
+          "Envelope Chop": 65
+        }
+      },
+      "chords": {
+        "activity": {
+          "Loop Trim": 50,
+          "Granular Chop": 55
+        }
+      },
+      "melody": {
+        "activity": {
+          "Transient Cut": 60,
+          "Slice Select": 70
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "Gate Chop": 40,
+          "Time Warp": 50
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro begins with transient cuts",
+        "reason": "Establish cinematic mood"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "layer_intro",
+        "label": "Bass enters with reverse slice",
+        "reason": "Build energy after intro"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Chord loop trim begins",
+        "reason": "Hook section with fuller harmony"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "bridge_fx",
+        "label": "Time warp fx added",
+        "reason": "Bridge atmospheric effect"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Drums simplify to gate chop",
+        "reason": "Energy winding down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with chopped sample drums",
+    "bass": "supportive low-end with sliced bass samples",
+    "chords": "ambient harmonic texture from chopped chord samples",
+    "melody": "expressive chopped melodic elements",
+    "vocal": "none (instrumental)",
+    "fx": "atmospheric and transitional sound effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns using modern sample chopping techniques named Transient Cut, Slice Select, Gate Chop, and Time Warp, with a cinematic yet slow build energy profile."
+    },
+    "bass_generator": {
+      "brief": "Generate bass layers using reversed slices and envelope chopping techniques consistent with trip hop style and slow energy build."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers using loop trimming and granular chopping to create cinematic harmonic textures."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic samples using transient cut and slice select chopping for expressive instrumental melodies."
+    },
+    "ai_designer": {
+      "brief": "Design the overall arrangement emphasizing cinematic mood and gradual energy increase using sample chopping methods."
+    },
+    "presetor": {
+      "brief": "Ensure instrument samples are routed and preset with effects that highlight the chopping techniques and cinematic atmosphere."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement structure with trip hop genre conventions, slow build energy curve, and proper section markers."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio preserving clarity of chopped samples and cinematic ambiance."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

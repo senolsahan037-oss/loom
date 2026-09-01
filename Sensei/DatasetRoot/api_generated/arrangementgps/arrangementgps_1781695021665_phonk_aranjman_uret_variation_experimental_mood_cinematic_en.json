@@ -1,0 +1,281 @@
+{
+  "project": {
+    "name": "Phonk Experimental Cinematic",
+    "genre": "Phonk",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      40,
+      80,
+      60,
+      20
+    ],
+    "notes": "Sparse verses with strong, energetic hooks; experimental arrangement using various chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 65,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal_chops",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Strong hook start",
+        "reason": "Increase energy with vocal chops"
+      },
+      {
+        "track": "micro_chops",
+        "bar": 33,
+        "type": "transition",
+        "label": "Verse 2 entry",
+        "reason": "Sparse energy with micro chops"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 49,
+        "type": "bridge_effect",
+        "label": "Bridge introduction",
+        "reason": "Experimental textures with reverse chops"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 57,
+        "type": "hook_boost",
+        "label": "Final hook energy peak",
+        "reason": "Stutter chops emphasize hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": [
+      {
+        "name": "micro_chops",
+        "type": "sampler",
+        "description": "Micro-sliced vocal and instrument snippet chops"
+      },
+      {
+        "name": "phrase_chops",
+        "type": "sampler",
+        "description": "Longer phrase sample chops for variation"
+      },
+      {
+        "name": "reverse_chops",
+        "type": "sampler",
+        "description": "Samples reversed for texture and mood"
+      },
+      {
+        "name": "vocal_chops",
+        "type": "sampler",
+        "description": "Vocal samples chopped and rearranged"
+      },
+      {
+        "name": "stutter_chops",
+        "type": "sampler",
+        "description": "Repeated, stuttered sample chops"
+      }
+    ]
+  },
+  "sound_intent": {
+    "description": "Create a cinematic atmospheric phonk track with experimental chopping techniques for texture variation and dynamic energy shifts."
+  },
+  "routing_intent": {
+    "description": "Route chopped sample layers to individual channels named after their chop technique to maintain clarity and allow detailed mixing."
+  },
+  "track_roles": {
+    "drums": "Provide rhythmic foundation with sparse patterns supporting hooks.",
+    "bass": "Subtle low-end complement keeping verses sparse.",
+    "chords": "Add harmonic texture with chopped samples.",
+    "melody": "Sparse melodic elements emphasizing hooks.",
+    "vocal": "Lead vocal chops creating hooks and textures.",
+    "fx": "Atmospheric accents and transitions using chopped effects."
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      42,
+      58
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {
+    "general": "Focus on cinematic feel, experimental textures, and balance between sparse verses and energetic hooks."
+  },
+  "presetor_intent": {
+    "general": "Design presets that emphasize clarity on chopped samples and smooth transitions between sections."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse yet solid phonk drum patterns that complement hook sections without overcrowding the mix."
+    },
+    "bass_generator": {
+      "brief": "Create low-end basslines that are subtle during verses but support the energy peaks in hooks."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic content with chopped chords that maintain cinematic mood and experimental texture."
+    },
+    "melody_generator": {
+      "brief": "Produce minimal melodic elements emphasizing hook sections while keeping verses sparse."
+    },
+    "ai_designer": {
+      "brief": "Shape overall arrangement and dynamics for cinematic, experimental phonk with emphasis on chopping techniques."
+    },
+    "presetor": {
+      "brief": "Apply suitable presets to sample layers to enhance texture and clarity of chop techniques."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement flow ensuring energy curve aligns with sparse verses and strong hooks in defined sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix with focus on clear separation of chop technique channels and preserving cinematic mood."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

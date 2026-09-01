@@ -1,0 +1,294 @@
+{
+  "project": {
+    "name": "Phonk Mainstream Aggressive Club",
+    "genre": "Phonk",
+    "subgenre": "Mainstream",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      50,
+      80,
+      60,
+      75,
+      90,
+      85,
+      40
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits forming the core arrangement. Use slicing and chopping techniques for sample manipulation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Kick In",
+        "reason": "Beginning of intro with kick drum one-shot"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "cue",
+        "label": "Bass Introduced",
+        "reason": "Enter bass line for verse 1"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "transition",
+        "label": "Riser FX",
+        "reason": "Lead into hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "Drum Variation",
+        "reason": "Increase intensity in hook"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "bridge_entry",
+        "label": "Chord Texture Shift",
+        "reason": "Introduce new chord texture in bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook Drums",
+        "reason": "Peak energy drum hits"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fadeout",
+        "label": "Outro FX",
+        "reason": "Fade out effects in outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "structure": {
+      "sample_layer": {
+        "type": "sample_based_arrangement",
+        "components": [
+          "texture_bed",
+          "one_shot_hits"
+        ]
+      }
+    },
+    "channel_names": [
+      "slice_kick",
+      "chop_snare",
+      "grain_hat",
+      "texture_bed_1",
+      "one_shot_fx",
+      "slice_bass",
+      "chop_chords",
+      "slice_melody"
+    ]
+  },
+  "sound_intent": {
+    "description": "Aggressive, club energy phonk arrangement using sample slicing and chopping, emphasizing punchy drums and textured atmospheres."
+  },
+  "routing_intent": {
+    "routing": "Separate channels for one-shot hits and texture bed layers with filter and compression buses for drums, bass, and chords."
+  },
+  "track_roles": {
+    "drums": "Provides rhythmic drive through sample slices and chopped drum hits.",
+    "bass": "Foundation of groove via sample slices and bass one-shots.",
+    "chords": "Supportive texture using chopped samples and layered pads.",
+    "melody": "Sparse texture using selected sample slices.",
+    "vocal": "Not used in this arrangement.",
+    "fx": "Provides transitions and energy build-up via one-shot FX samples."
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      2,
+      10,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 80,
+    "chords": 70,
+    "melody": 50,
+    "vocal": 0,
+    "fx": 60
+  },
+  "designer_intent": {
+    "goal": "Create a high-energy aggressive phonk arrangement suitable for club settings, leveraging sample manipulation techniques."
+  },
+  "presetor_intent": {
+    "task": "Apply mainstream phonk preset adjustments focusing on punchy drums, saturated bass, and textured atmospheres."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slicing and chopping techniques emphasizing one-shot hits with club energy."
+    },
+    "bass_generator": {
+      "brief": "Produce basslines using sample-based techniques and layering for an aggressive, club-oriented phonk feel."
+    },
+    "harmony_generator": {
+      "brief": "Create chord textures and pads using sample manipulation methods to support aggressive mood."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic elements using sample slices and one-shots, avoiding melodic complexity."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy curve and section activity match the aggressive, club energy profile."
+    },
+    "presetor": {
+      "brief": "Tune effect and instrument presets to fit mainstream phonk style with an aggressive and club energy character."
+    },
+    "songgps": {
+      "brief": "Manage arrangement timing, section transitions, and event marker placements to ensure coherent progression."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing and dynamic processing plans to preserve raw unprocessed channels while highlighting energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

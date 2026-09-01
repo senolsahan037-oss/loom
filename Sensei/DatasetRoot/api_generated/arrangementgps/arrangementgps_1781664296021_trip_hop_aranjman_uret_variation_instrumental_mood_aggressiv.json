@@ -1,0 +1,281 @@
+{
+  "project": {
+    "name": "Aggressive Trip Hop Instrumental",
+    "genre": "Trip Hop",
+    "subgenre": "Instrumental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "Aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      50,
+      90,
+      100,
+      30
+    ],
+    "notes": "Focus on a hook-heavy energy profile with modern sample chopping techniques emphasizing rhythmic complexity and aggressive tonal character."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 95,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 65,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase in energy due to hook-heavy structure"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "activity_spike",
+        "label": "Melody hook entry",
+        "reason": "Hook melodic line enters to boost energy"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Energy peak phase"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "technique": "modern sample chopping",
+      "description": "Using advanced slicing and re-sequencing of samples to create rhythmic complexity"
+    },
+    "channels": {
+      "stutter": {
+        "role": "drums",
+        "description": "Channel using stuttering sample chops to form rhythmic hits"
+      },
+      "slice": {
+        "role": "bass",
+        "description": "Channel using tight sample slicing for bass groove articulation"
+      },
+      "reverse_slice": {
+        "role": "chords",
+        "description": "Channel applying reversed chopped samples for atmospheric pads"
+      },
+      "roll": {
+        "role": "melody",
+        "description": "Channel utilizing sample roll chops to form hook melodies"
+      },
+      "gate": {
+        "role": "fx",
+        "description": "Channel applying gated sample cuts for dynamic FX"
+      }
+    }
+  },
+  "sound_intent": {
+    "sample_style": "modern chopping",
+    "energy_profile": "hook-heavy aggressive",
+    "mood": "aggressive"
+  },
+  "routing_intent": {
+    "channels": {
+      "stutter": "drums_bus",
+      "slice": "bass_bus",
+      "reverse_slice": "chords_bus",
+      "roll": "melody_bus",
+      "gate": "fx_bus"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with chopped sample stutter patterns",
+    "bass": "groove support with sliced bass samples",
+    "chords": "atmospheric pads from reversed sample chops",
+    "melody": "main hook derived from roll sample techniques",
+    "vocal": "none (instrumental)",
+    "fx": "dynamic effects using gated samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 9,
+    "chords": 7,
+    "melody": 10,
+    "vocal": 0,
+    "fx": 6
+  },
+  "designer_intent": {
+    "focus": "Create an aggressive, hook-heavy instrumental Trip Hop arrangement using modern sample chopping techniques with channel naming linked to sample chopping styles."
+  },
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate stutter and chopped rhythmic drum patterns emphasizing dynamic and aggressive energy for hook-heavy sections."
+    },
+    "bass_generator": {
+      "brief": "Create deep bass grooves using sample slicing to complement the drum layer with steady, rhythmic patterns."
+    },
+    "harmony_generator": {
+      "brief": "Produce atmospheric chord pads using reversed and sliced samples to add texture without overpowering the hook."
+    },
+    "melody_generator": {
+      "brief": "Design hook melodic lines exploiting sample roll chopping techniques to create distinctive instrumental hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, energy flow and coordinate agent contributions for a coherent aggressive instrumental Trip Hop track."
+    },
+    "presetor": {
+      "brief": "Maintain channel setups and presets aligned with modern sample chopping techniques named after chopping styles."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement adheres to hook-heavy energy profile with aggressive mood and supports seamless section transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean unprocessed channel audio routing for mixing focusing on clarity of sample chop layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

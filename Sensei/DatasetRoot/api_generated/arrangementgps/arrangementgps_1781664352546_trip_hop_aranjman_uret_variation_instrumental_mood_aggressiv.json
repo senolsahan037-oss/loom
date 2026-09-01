@@ -1,0 +1,281 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Instrumental",
+    "genre": "Trip Hop",
+    "subgenre": "Instrumental",
+    "bpm": 85,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      70,
+      40,
+      80,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks, instrumental variation, aggressive mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 75,
+          "verse_2": 20,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums_micro_chops",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with strong hook"
+      },
+      {
+        "track": "vocal_vocal_chops",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Sparse verse vocal chops"
+      },
+      {
+        "track": "fx_reverse_chops",
+        "bar": 49,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Add texture with reverse chops"
+      },
+      {
+        "track": "melody_phrase_chops",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Strong final hook melody"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "drums_micro_chops": [
+        "micro chops"
+      ],
+      "drums_phrase_chops": [
+        "phrase chops"
+      ],
+      "vocal_vocal_chops": [
+        "vocal chops"
+      ],
+      "melody_reverse_chops": [
+        "reverse chops"
+      ],
+      "fx_stutter_chops": [
+        "stutter chops"
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture": "sparse layers with focused strong hook hits",
+    "timbre": "dark, punchy, and aggressive",
+    "sample_layers": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ]
+  },
+  "routing_intent": {
+    "channel_setup": {
+      "drums_micro_chops": "drums",
+      "drums_phrase_chops": "drums",
+      "vocal_vocal_chops": "vocal",
+      "melody_reverse_chops": "melody",
+      "fx_stutter_chops": "fx"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with percussive chops",
+    "bass": "harmonic foundation and groove",
+    "chords": "atmospheric harmonic pads",
+    "melody": "hook phrases using chops",
+    "vocal": "textural vocal chops",
+    "fx": "transitional effects and textures"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 3,
+    "vocal": 2,
+    "fx": 1
+  },
+  "designer_intent": {
+    "arrangement_focus": "highlight strong hooks with aggressive energy while keeping verses sparse and textured with chops."
+  },
+  "presetor_intent": {
+    "preset_use": "select presets that emphasize grit and transient impact for all chop layers."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum parts emphasizing micro chops and phrase chops with sparse verses and energetic hooks."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that support the groove without overpowering sparse verses; increase presence on hooks."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord pads that are atmospheric and complement the aggressive mood, using subtle layers."
+    },
+    "melody_generator": {
+      "brief": "Develop hook melodies using phrase chops and reverse chops, focusing on sparse verses."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with energy variation focusing on sparse verses and strong hooks; manage section transitions."
+    },
+    "presetor": {
+      "brief": "Choose effect and instrument presets that enhance aggression and clarity in chopped samples."
+    },
+    "songgps": {
+      "brief": "Monitor and optimize arrangement's energy curve and section balance aligned with the aggressive mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing ensuring unprocessed chopped layer audio passes clearly to mix stage."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

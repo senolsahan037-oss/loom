@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Trap Arrangement Instrumental Uplifting",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      30,
+      80,
+      40,
+      90,
+      30
+    ],
+    "notes": "Sparse verses with minimal instrumentation focusing on rhythm and bass, contrasted by strong, energetic hooks with fuller instrumentation and melodic elements to uplift the mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Introduce drum elements gently"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Strong bass to uplift energy"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Full harmonic support for final hook"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "motif_start",
+        "label": "Melody Hook Start",
+        "reason": "Introduce uplifting melodic hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "energy driver",
+    "chords": "harmonic support",
+    "melody": "main melodic hook",
+    "vocal": "none",
+    "fx": "transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse yet groovy drum patterns for verses and strong, dynamic beats for hooks."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement drum sparsity in verses and intensify during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal chord stabs in verses and fuller harmonic textures in hooks and bridge."
+    },
+    "melody_generator": {
+      "brief": "Develop uplifting melodic hooks for hook sections with subtle motifs in verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement balance focusing on energy dynamics and section transitions."
+    },
+    "presetor": {
+      "brief": "Apply neutral presets suitable for trap instrumental tracks highlighting energy shifts."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement matches sparse verses and strong hooks pattern."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix setup optimizing clarity and dynamic contrast without final processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

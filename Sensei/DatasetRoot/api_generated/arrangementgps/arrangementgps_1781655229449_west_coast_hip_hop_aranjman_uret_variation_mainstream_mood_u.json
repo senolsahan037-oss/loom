@@ -1,0 +1,350 @@
+{
+  "project": {
+    "name": "West Coast Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "F minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      80,
+      85,
+      90,
+      95,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": "Arrangement focuses on a slow build of energy throughout the track with uplifting motifs suited to mainstream West Coast Hip-Hop. The sample layers are organized by sample chop techniques to highlight production creativity."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Verse 1 Start",
+        "reason": "Entrance of primary vocal"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Start",
+        "reason": "Main hook vocal introduction"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge FX",
+        "reason": "Smooth bridge transition effects"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "cue",
+        "label": "Final Hook",
+        "reason": "Peak lyrical hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Gradual vocal fade out"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "channels": [
+        "time_stretch_chop",
+        "slice_and_dice",
+        "reversed_slice",
+        "pitch_shift_chop",
+        "granular_slice"
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_style": "west_coast_hiphop",
+    "energy_profile": "slow_build",
+    "mood_target": "uplifting",
+    "variation": "mainstream"
+  },
+  "routing_intent": {
+    "channel_routing": {
+      "time_stretch_chop": "chords",
+      "slice_and_dice": "drums",
+      "reversed_slice": "fx",
+      "pitch_shift_chop": "melody",
+      "granular_slice": "bass"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sliced samples emphasizing groove",
+    "bass": "warm, groovy bass with granular chopped samples",
+    "chords": "harmonic support from time-stretched chopped samples",
+    "melody": "lead lines employing pitch-shifted chops",
+    "vocal": "mainstream commercial vocal parts",
+    "fx": "transition and atmosphere using reversed slices"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 6,
+    "fx": 1
+  },
+  "designer_intent": {
+    "goal": "Create a smooth, slow building arrangement typical of uplifting West Coast Hip-Hop with mainstream appeal, emphasizing sample chopping techniques."
+  },
+  "presetor_intent": {
+    "preset_selection": "Use presets that enhance warmth and clarity fitting mainstream hip-hop style."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sliced and diced samples suited for West Coast groove, ensuring energy rises smoothly across sections."
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines using granular sliced samples that complement slow energy build and maintain groove."
+    },
+    "harmony_generator": {
+      "brief": "Create chord layers by manipulating time-stretched chop samples to provide harmonic uplift."
+    },
+    "melody_generator": {
+      "brief": "Compose melody with pitch-shifted chop techniques, ensuring it fits an uplifting, mainstream vibe."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow and section balancing to maintain smooth energy curve and mainstream appeal."
+    },
+    "presetor": {
+      "brief": "Apply preset settings that bring out clarity, warmth, and sample texture in all sample-based layers."
+    },
+    "songgps": {
+      "brief": "Guide the overall production structure aligning with a slow-building, uplifting West Coast Hip-Hop style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mix for clarity and balance according to arrangement priorities."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

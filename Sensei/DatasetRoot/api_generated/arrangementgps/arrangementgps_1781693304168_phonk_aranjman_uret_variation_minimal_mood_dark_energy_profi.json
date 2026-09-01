@@ -1,0 +1,274 @@
+{
+  "project": {
+    "name": "Phonk Dark Minimal",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      25,
+      60,
+      30,
+      80,
+      20
+    ],
+    "notes": "Arrangement with sparse verses and strong hooks, minimal variation, dark mood typical for Phonk style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 5,
+          "hook": 75,
+          "verse_2": 5,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook",
+        "reason": "Introduce strong hook energy with samples"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1",
+        "reason": "Sparse verses with dark mood delivery"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Peak energy hook with maximum impact"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "Slicer": [
+        "drums",
+        "fx"
+      ],
+      "Chopper": [
+        "vocal"
+      ],
+      "Granulator": [
+        "melody",
+        "bass"
+      ],
+      "Looper": [
+        "chords"
+      ]
+    }
+  },
+  "sound_intent": {
+    "overall_timbre": "Dark, gritty, with warm analog textures",
+    "sample_techniques": [
+      "Slicing for rhythmic drum chops",
+      "Granulation for atmospheric melodic layers",
+      "Chopping for vocal fragments",
+      "Looping for chord sustain and presence"
+    ]
+  },
+  "routing_intent": {
+    "drums": "sent to main bus, parallel compression for punch",
+    "bass": "direct to bass bus with sidechain to kick",
+    "chords": "chorus and reverb send effects",
+    "melody": "delayed and filtered for depth",
+    "vocal": "dry/wet controlled to maintain clarity, sliced samples routed individually",
+    "fx": "wide stereo with automation"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation, sample sliced percussive elements",
+    "bass": "low-end groove with granular sample manipulation",
+    "chords": "harmonic pad layers looped subtly",
+    "melody": "atmospheric motifs via granular chops",
+    "vocal": "fragmented chopped vocal samples",
+    "fx": "textural effects with sliced processing"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      42
+    ]
+  },
+  "priority": {
+    "drums": 9,
+    "bass": 7,
+    "chords": 5,
+    "melody": 6,
+    "vocal": 8,
+    "fx": 4
+  },
+  "designer_intent": {
+    "arrangement_style": "Minimal variation with stark energy contrast between verses and hooks to emphasize hooks",
+    "channel_naming": "Channels named after sample chopping techniques such as Slicer, Chopper, Granulator, and Looper"
+  },
+  "presetor_intent": {
+    "preset_focus": "Presets that enhance grit and dark warmth with sample manipulation effects"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design rhythmic patterns that use sliced drum samples with sparse filling during verses and high energy hooks."
+    },
+    "bass_generator": {
+      "brief": "Produce granular-processed bass layers that enhance groove with minimal note complexity."
+    },
+    "harmony_generator": {
+      "brief": "Generate looped chord pads with minimal movement to support the dark atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Create atmospheric melodic phrases using granular sample chops, focusing on texture not melody complexity."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with minimal variation, emphasizing sparse verses and strong, catchy hooks."
+    },
+    "presetor": {
+      "brief": "Select and tweak presets to produce warm, dark timbres suited for Phonk sample manipulations."
+    },
+    "songgps": {
+      "brief": "Guide arrangement energy profile to create clear contrast between low-energy verses and high-energy hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels to retain raw sample texture with clarity, apply sidechain compression to maintain groove."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "project": {
+    "name": "Arabesk Rap Experimental Aggressive",
+    "genre": "Rap",
+    "subgenre": "Arabesk",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      70,
+      50,
+      90,
+      10
+    ],
+    "notes": "Sparse verses with strong, aggressive hooks focusing on experimental sound textures."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 85,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 25,
+          "hook": 95,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "Start of the aggressive hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "Start of the climactic final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 49,
+        "type": "effect",
+        "label": "bridge_transition",
+        "reason": "Energy transition towards bridge section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with sparse but punchy hits",
+    "bass": "deep support emphasizing groove",
+    "chords": "textural pads and experimental layers",
+    "melody": "strong hook motifs with minimal verse presence",
+    "vocal": "lead rap vocals with aggressive delivery",
+    "fx": "atmospheric and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 6,
+    "vocal": 8,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that are punchy and sparse in verses, with aggressive and energetic hits on hooks."
+    },
+    "bass_generator": {
+      "brief": "Create a bassline that supports the groove with a focus on subtlety during verses and prominence during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Design experimental chord textures and pads that enrich the arrangement without overpowering the vocals."
+    },
+    "melody_generator": {
+      "brief": "Compose strong melodic hooks that stand out energetically, keeping verse melodies minimal to allow vocal prominence."
+    },
+    "ai_designer": {
+      "brief": "Orchestrate the overall arrangement to balance sparse verses with powerful hooks, ensuring aggressive mood coherence."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance the aggressive and experimental characteristics of the Arabesk rap arrangement."
+    },
+    "songgps": {
+      "brief": "Monitor and adjust energy levels to maintain sparse verse dynamics and high-energy hook sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix the track to highlight hook intensity, keeping verses clean and sparse to preserve energy contrast."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

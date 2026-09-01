@@ -1,0 +1,269 @@
+{
+  "project": {
+    "name": "Phonk Vocal-Driven Aggressive Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      85,
+      40,
+      50,
+      90,
+      85,
+      30
+    ],
+    "notes": "Sparse verses with strong vocal hooks focusing on aggressive energy; sample-based texture bed with one-shot hits layered."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 100,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "Strong vocal hook entry for energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_start",
+        "label": "verse_2_start",
+        "reason": "Return to sparse verse energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "Build energy with FX textures during final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": [
+      {
+        "name": "texture_bed",
+        "type": "sample_layer",
+        "description": "Background texture layer with sustained samples"
+      },
+      {
+        "name": "one_shot_hits",
+        "type": "sample_layer",
+        "description": "Percussive one-shot hits for rhythmic accents"
+      }
+    ]
+  },
+  "sound_intent": {
+    "sample_based_arrangement": true,
+    "texture_bed_presence": true,
+    "one_shot_hits_usage": true,
+    "vocal_focus": true,
+    "aggressive_mood": true
+  },
+  "routing_intent": {
+    "channels": {
+      "GranularSlice": "drums",
+      "TransientHit": "drums",
+      "LoopLayer": "chords",
+      "StretchedTexture": "melody",
+      "VocalSample": "vocal",
+      "EffectRiser": "fx"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using sample slicing and transient hits",
+    "bass": "supportive low frequency layer enhancing groove",
+    "chords": "harmonic pad layers from loop samples",
+    "melody": "textural and sparse melodic phrasing",
+    "vocal": "primary vocal hook and phrases, aggressive delivery",
+    "fx": "ambient effects and risers creating transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "Create a vocal-driven aggressive phonk arrangement emphasizing sparse verses and strong hooks within a sample-based production approach."
+  },
+  "presetor_intent": {
+    "style": "Apply gritty, lo-fi effects and analogue-style saturation on drums and vocal samples to fit phonk style."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse yet punchy drum samples using slicing and one-shot hits with variation across sections to support energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create supportive bass layers that complement sparse verses but amplify energy during hooks with sample-based textures."
+    },
+    "harmony_generator": {
+      "brief": "Design subtle chord pads from loop-based samples that maintain dark, aggressive mood and fill out the texture bed."
+    },
+    "melody_generator": {
+      "brief": "Compose sparse melodic textures supporting vocal hooks, using stretched and granular samples to add atmosphere."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement to ensure vocal-focused structure with dynamic energy curve and proper use of production tree elements."
+    },
+    "presetor": {
+      "brief": "Apply phonk-appropriate effect chains and sample processing presets to enhance aggressive, grainy sound quality."
+    },
+    "songgps": {
+      "brief": "Map structural sections and energy profile for arrangement with clear demarcation of verses, hooks, and transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to maintain clarity of vocal hooks while blending sample layers and ensuring dynamic contrast."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

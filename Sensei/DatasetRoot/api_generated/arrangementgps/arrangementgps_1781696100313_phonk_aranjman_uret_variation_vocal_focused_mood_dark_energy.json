@@ -1,0 +1,312 @@
+{
+  "project": {
+    "name": "Phonk Dark Vocal Focus",
+    "genre": "Phonk",
+    "subgenre": "Vocal-focused",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      80,
+      50,
+      70,
+      90,
+      40,
+      30,
+      45,
+      70,
+      85,
+      60,
+      40,
+      75,
+      90,
+      60,
+      50,
+      70,
+      80
+    ],
+    "notes": "The arrangement features a cinematic rise and fall in energy with a dark mood. It integrates micro chops, phrase chops, reverse chops, vocal chops, and stutter chops as sample techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 5,
+          "hook": 10,
+          "verse_2": 5,
+          "bridge": 15,
+          "final_hook": 20,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "sample_cut",
+        "label": "micro chops",
+        "reason": "Introduce micro vocal chops at verse start"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "sample_cut",
+        "label": "phrase chops",
+        "reason": "Add phrase chopping for hook energy lift"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "sample_cut",
+        "label": "reverse chops",
+        "reason": "Apply reverse chops to darken verse 2"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "sample_cut",
+        "label": "stutter chops",
+        "reason": "Use stutter chops to build bridge tension"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "sample_cut",
+        "label": "vocal chops",
+        "reason": "Feature prominent vocal chops during final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": [
+      {
+        "name": "micro_chops",
+        "type": "vocal_sample"
+      },
+      {
+        "name": "phrase_chops",
+        "type": "vocal_sample"
+      },
+      {
+        "name": "reverse_chops",
+        "type": "vocal_sample"
+      },
+      {
+        "name": "vocal_chops",
+        "type": "vocal_sample"
+      },
+      {
+        "name": "stutter_chops",
+        "type": "vocal_sample"
+      }
+    ]
+  },
+  "sound_intent": {
+    "vocal": {
+      "focus": "prominent",
+      "techniques": [
+        "micro chops",
+        "phrase chops",
+        "reverse chops",
+        "vocal chops",
+        "stutter chops"
+      ],
+      "mood": "dark",
+      "energy_profile": "cinematic rise and fall"
+    }
+  },
+  "routing_intent": {
+    "vocal": {
+      "channel_group": "vocal_samples",
+      "routing_notes": "Route chopped vocal samples through dedicated vocal effects chain"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low-end support",
+    "chords": "harmonic support",
+    "melody": "ambient embellishment",
+    "vocal": "lead and texture via vocal chops",
+    "fx": "atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      2,
+      3,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 50,
+    "bass": 40,
+    "chords": 30,
+    "melody": 20,
+    "vocal": 90,
+    "fx": 25
+  },
+  "designer_intent": {
+    "focus": "Create a dark phonk vocal-focused arrangement with dynamic energy and varied chopped vocal sample techniques emphasizing cinematic energy flow."
+  },
+  "presetor_intent": {
+    "focus": "Apply vocal-centered sample-based presets emphasizing chopping techniques with dark timbres and cinematic modulation."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate supportive drum patterns with moderate activity that complement the vocal chops and dark mood."
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines that underpin the dark atmosphere without overshadowing vocal samples."
+    },
+    "harmony_generator": {
+      "brief": "Create subtle chord progressions to maintain harmonic interest and support mood."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements for ambient texture with low activity."
+    },
+    "ai_designer": {
+      "brief": "Integrate chopped vocal sample techniques dynamically across arrangement sections ensuring energy flow."
+    },
+    "presetor": {
+      "brief": "Configure presets tailored for vocal sample chopping and effects suitable for dark cinematic phonk style."
+    },
+    "songgps": {
+      "brief": "Manage arrangement energy curve and section transitions emphasizing cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure vocal chops are prominent and clear in the mix while maintaining dark and cinematic atmosphere."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

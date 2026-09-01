@@ -1,0 +1,263 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Aggro Hook",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      50,
+      80,
+      60,
+      70,
+      85,
+      60
+    ],
+    "notes": "This arrangement focuses on vocal-driven sections with heavy hook energy. Uses sample-based textures and one-shot hits to build aggressive atmosphere typical to West Coast Hip-Hop."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 60
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 8,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 18,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Starts",
+        "reason": "Hook section with vocal emphasis and peak energy"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "bridge_start",
+        "label": "Bridge Starts",
+        "reason": "Bridge section to transition energy and arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final Hook",
+        "reason": "Climax vocal hook section with highest energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "texture_bed": true,
+      "one_shot_hits": true,
+      "channel_naming": [
+        "splice_slice",
+        "loop_segment",
+        "hit_snap",
+        "groove_chunk"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal",
+    "texture": "sample_based",
+    "energy_profile": "hook-heavy, aggressive mood",
+    "layering": "texure bed underpinning sharp one-shot hits"
+  },
+  "routing_intent": {
+    "channels": {
+      "splice_slice": "texure_bed_layer",
+      "loop_segment": "rhythmic_support",
+      "hit_snap": "one_shot_hits_layer",
+      "groove_chunk": "percussive_fill"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm and groove foundation",
+    "bass": "low-end support and groove",
+    "chords": "harmonic texture layer",
+    "melody": "secondary hooks and motifs",
+    "vocal": "primary vocal delivery and hook",
+    "fx": "transitions and atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 7,
+    "bass": 6,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {
+    "goal": "Create aggressive West Coast Hip-Hop arrangement with a strong vocal presence and hook-heavy energy using sample-based production."
+  },
+  "presetor_intent": {
+    "focus": "Prioritize vocal clarity and aggressive drum hits; emphasize sample textures for authenticity."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns using sample slices reflecting West Coast Hip-Hop groove with aggressive one-shot hit placements."
+    },
+    "bass_generator": {
+      "brief": "Generate a supportive bassline that complements groove and reinforces energy in hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Add chordal sample segments with minimal complexity to support mood but keep focus on vocal."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic hooks using sample chops without overpowering vocals."
+    },
+    "ai_designer": {
+      "brief": "Design arrangement structure focusing on vocal-driven sections with variation in energy to enhance hooks."
+    },
+    "presetor": {
+      "brief": "Apply presets emphasizing vintage West Coast style samples with clear vocal processing."
+    },
+    "songgps": {
+      "brief": "Manage arrangement timing, section transitions, and energy curve fitting hook-heavy West Coast Hip-Hop style."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels to maintain vocal prominence and punchy drums; balance sample textures effectively."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

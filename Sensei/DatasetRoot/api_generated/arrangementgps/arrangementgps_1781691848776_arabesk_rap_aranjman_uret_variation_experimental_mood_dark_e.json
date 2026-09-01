@@ -1,0 +1,314 @@
+{
+  "project": {
+    "name": "Arabesk Rap Experimental",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      35,
+      50,
+      65,
+      80,
+      70,
+      50,
+      40,
+      60,
+      75,
+      90,
+      85,
+      60,
+      45,
+      30,
+      20,
+      40,
+      55,
+      70,
+      75,
+      80,
+      90,
+      85,
+      60,
+      45,
+      30,
+      20,
+      15,
+      30,
+      50,
+      70,
+      60,
+      50,
+      40,
+      20,
+      10,
+      15,
+      25,
+      40,
+      55,
+      65,
+      80,
+      70,
+      60,
+      50,
+      45,
+      30,
+      20,
+      25,
+      35,
+      50,
+      65,
+      80,
+      75,
+      50,
+      40,
+      25,
+      15,
+      10,
+      20,
+      40,
+      60,
+      80,
+      70,
+      50,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      10,
+      20,
+      30,
+      15
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 55,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 10,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 15,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_transition",
+        "label": "Hook Start",
+        "reason": "Elevate energy for hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "section_transition",
+        "label": "Verse 2 Start",
+        "reason": "Return to verse vocal pattern"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_transition",
+        "label": "Bridge Start",
+        "reason": "Lower energy, experimental textures"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_transition",
+        "label": "Outro Start",
+        "reason": "Fade out with effects"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, dynamic shifts",
+    "bass": "low-end support, groove driver",
+    "chords": "harmonic texture, atmospheric layer",
+    "melody": "lead motif, thematic expression",
+    "vocal": "rap verses and expressive delivery",
+    "fx": "transitional sounds and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic and cinematic drum patterns with rises and falls matching the dark mood."
+    },
+    "bass_generator": {
+      "brief": "Generate a bassline that complements the arabesk rap style with experimental low-end textures."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord progressions that provide dark harmonic support with atmospheric touches."
+    },
+    "melody_generator": {
+      "brief": "Compose an experimental lead melody that evolves and interacts with energy curves."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the overall arrangement focusing on cinematic rise and fall energy profile."
+    },
+    "presetor": {
+      "brief": "Apply presets to enhance the dark and cinematic atmosphere without overriding arrangement dynamics."
+    },
+    "songgps": {
+      "brief": "Ensure section transitions are clear and energy changes smooth according to the arrangement plan."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix to maintain clarity for cinematic energy shifts and experimental elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

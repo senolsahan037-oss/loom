@@ -1,0 +1,278 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Dark Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20
+    ],
+    "notes": "Arrangement focused on slow build mood with instrumental variation and dark tonality. Samples sliced and layered using common sample chopping techniques named as channel names."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 25,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 35,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement with slow build"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peaks during hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy winds down for arrangement end"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "channels": [
+        "Slice_Transient",
+        "Slice_Staccato",
+        "Slice_Legato",
+        "Splice_Loop",
+        "Gate_Stab",
+        "Chop_ReArranged"
+      ]
+    }
+  },
+  "sound_intent": {
+    "style": "phonk",
+    "variation": "instrumental",
+    "mood": "dark",
+    "energy_profile": "slow build"
+  },
+  "routing_intent": {
+    "channel_routing": {
+      "Slice_Transient": "drums",
+      "Slice_Staccato": "drums",
+      "Slice_Legato": "chords",
+      "Splice_Loop": "bass",
+      "Gate_Stab": "fx",
+      "Chop_ReArranged": "fx"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample chopped drum patterns",
+    "bass": "low end groove supporting slow build energy",
+    "chords": "harmonic structure with sample sliced chords",
+    "melody": "minimal melodic content to enhance mood",
+    "vocal": "none",
+    "fx": "atmospheric and textural sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {
+    "description": "Create a dark instrumental phonk arrangement with a slow energy build using sample chopping techniques in channel naming."
+  },
+  "presetor_intent": {
+    "description": "Apply presets that emphasize gritty, lo-fi textures and space around samples."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns using sample chopping techniques focusing on transient and staccato slicing."
+    },
+    "bass_generator": {
+      "brief": "Produce bass layers with spliced loops supporting the slow build energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic chord content using legato sample slices matching the dark mood."
+    },
+    "melody_generator": {
+      "brief": "Provide sparse melodic elements that emphasize atmosphere without dominating the instrumental focus."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring smooth energy buildup aligned with dark mood and instrumental variation."
+    },
+    "presetor": {
+      "brief": "Assign sound presets with lo-fi, dark textures fitting phonk style and sample chops."
+    },
+    "songgps": {
+      "brief": "Map arrangement sections and energy dynamics coordinating lane activities and section transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix allowing clean sample chops to be audible, maintaining space and low-end clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

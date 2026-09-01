@@ -1,0 +1,324 @@
+{
+  "project": {
+    "name": "Memphis Rap Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      60,
+      40,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      20,
+      50,
+      70,
+      90,
+      100,
+      90,
+      70,
+      50,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      20,
+      40,
+      60,
+      80,
+      70,
+      50,
+      30,
+      20,
+      10,
+      0,
+      10,
+      20,
+      30,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 30,
+          "9": 70,
+          "25": 90,
+          "41": 80,
+          "57": 85,
+          "65": 90,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 20,
+          "9": 60,
+          "25": 85,
+          "41": 75,
+          "57": 80,
+          "65": 85,
+          "73": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 10,
+          "9": 50,
+          "25": 80,
+          "41": 70,
+          "57": 75,
+          "65": 80,
+          "73": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 70,
+          "41": 60,
+          "57": 70,
+          "65": 75,
+          "73": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 80,
+          "25": 100,
+          "41": 90,
+          "57": 85,
+          "65": 100,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "9": 20,
+          "25": 50,
+          "41": 40,
+          "57": 45,
+          "65": 50,
+          "73": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Start",
+        "reason": "Beginning of vocal delivery"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "entry",
+        "label": "Hook Start",
+        "reason": "Chorus vocal introduction"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge Section",
+        "reason": "Energy shift and arrangement change"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "entry",
+        "label": "Final Hook",
+        "reason": "Climactic vocal return"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro Drums Fade",
+        "reason": "Track completion and energy drop"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, aggressive percussion",
+    "bass": "low-end groove, driving force",
+    "chords": "harmonic support, dark tonal color",
+    "melody": "complementary motifs, subtle leads",
+    "vocal": "lead rapped vocals, aggressive delivery",
+    "fx": "transitions and atmospheric elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 6,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate aggressive and punchy drum patterns consistent with Memphis Rap style focusing on dynamic fills and cinematic rise and fall energy."
+    },
+    "bass_generator": {
+      "brief": "Create a driving, powerful bassline that supports the aggressive mood and matches the cinematic energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Provide dark and moody chord progressions that underpin the aggressive tone without overwhelming the rhythm."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic motifs that enhance tension and release aligning with the cinematic energy profile."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement structure ensuring smooth transitions and energy dynamics suitable for mainstream aggressive Memphis Rap."
+    },
+    "presetor": {
+      "brief": "Apply presets tailored for Memphis Rap to all instruments ensuring consistency in timbre and production quality."
+    },
+    "songgps": {
+      "brief": "Manage the overall arrangement flow and energy curve to produce a compelling arrangement with clear sectional definitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix guidance focusing on clarity, punch, and balance to emphasize the aggression and cinematic aspects of the track."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

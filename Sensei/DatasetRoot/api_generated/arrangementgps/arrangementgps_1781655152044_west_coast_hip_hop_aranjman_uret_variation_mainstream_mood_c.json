@@ -1,0 +1,284 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      85,
+      40,
+      30,
+      85,
+      30,
+      10
+    ],
+    "notes": "Sparse verses emphasizing strong hooks with cinematic textures."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 100,
+          "verse_2": 40,
+          "bridge": 10,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy increase with hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse vocal verses"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition effect"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Strong hook repetition"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": [
+      {
+        "name": "texture_bed",
+        "type": "sample_based",
+        "channels": [
+          "granular_synthesis_pad",
+          "loop_slice_rhythm",
+          "time_stretch_ambience"
+        ]
+      },
+      {
+        "name": "one_shot_hits",
+        "type": "sample_based",
+        "channels": [
+          "transient_transpose_kick",
+          "slice_snare_snap",
+          "reverse_clap_hit",
+          "glitch_fx_blip"
+        ]
+      }
+    ]
+  },
+  "sound_intent": {
+    "texture_bed": "Create ambient cinematic atmosphere with layered samples and granular synthesis.",
+    "one_shot_hits": "Use punchy percussive one-shot samples sliced and processed for dynamic impact.",
+    "vocals": "Emphasize sparse, rhythmic verses contrasted with catchy and melodic hooks."
+  },
+  "routing_intent": {
+    "drums": "Processed through transient shaper and parallel compression to preserve punch.",
+    "bass": "Direct routed with mild saturation for warmth and presence.",
+    "chords": "Sent through stereo reverb to add space and depth to the arrangement.",
+    "melody": "Layered with subtle delays and modulation to enhance cinematic feel.",
+    "vocal": "Dry/wet routing to maintain clarity in verses with subtle effects in hooks.",
+    "fx": "Automated volume and filters to highlight section transitions."
+  },
+  "track_roles": {
+    "drums": "provide rhythmic backbone with sample slicing techniques",
+    "bass": "foundation of groove with sample loop slices and subtle saturation",
+    "chords": "ambient texture created via granular pad samples",
+    "melody": "cinematic melodic fragments with sparse usage",
+    "vocal": "sparse verses with strong melodic hooks",
+    "fx": "transitional and atmospheric support using glitch and reverse samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "arrangement": "Highlight the contrast between sparse verses and strong, catchy hooks through dynamic variation and cinematic textures.",
+    "texture": "Blend sample-based pads and one-shot samples to achieve authentic West Coast hip-hop feel with modern cinematic influence."
+  },
+  "presetor_intent": {
+    "processing": "Prioritize punchy transient shaping for drums and warm saturation for bass, maintaining clarity on vocals.",
+    "effects": "Use reverb and delay selectively to add space without cluttering the mix."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate and sequence drum patterns using sliced samples and one-shot hits focusing on punchy, sparse verses and powerful hooks."
+    },
+    "bass_generator": {
+      "brief": "Create groovy bass lines based on loop slices with controlled saturation to complement the sparse verses and energetic hooks."
+    },
+    "harmony_generator": {
+      "brief": "Design atmospheric chord layers using granular pad samples to support the cinematic mood throughout the track."
+    },
+    "melody_generator": {
+      "brief": "Compose minimal melodic elements for hooks and accents that enhance cinematic feel while maintaining sparseness."
+    },
+    "ai_designer": {
+      "brief": "Arrange sparse verses and strong hooks with dynamic energy curve and cinematic textures, applying sound and routing intents."
+    },
+    "presetor": {
+      "brief": "Apply processing presets focusing on transient shaping, saturation, and ambient effects as defined in sound and routing intents."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement conforms to mainstream West Coast hip-hop structure with cinematic mood and energy management."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix processing with emphasis on unprocessed audio delivery, allowing clear separation of sparse verses and strong hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "project": {
+    "name": "Boom Bap Mainstream Aggressive",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": "Arrangement follows a cinematic rise and fall of energy, designed for mainstream boom bap style with aggressive mood and modern sample chopping."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 70,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 85,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Start Intro",
+        "reason": "Base drum loop with chopped samples onset"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Hook Drop",
+        "reason": "Energy spike with aggressive drum pattern"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse Vocal Entry",
+        "reason": "Rap vocal enters for verse 1"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Atmospheric fx for bridge dynamics"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro",
+        "label": "Outro Drums",
+        "reason": "Fade out drum chops for ending"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "slice",
+        "stutter",
+        "reverse",
+        "time-stretch",
+        "glitch"
+      ],
+      "description": "Modern sample chopping techniques applied across drum and melodic layers."
+    },
+    "channel_names": [
+      "Slice_Kit",
+      "Stutter_Snare",
+      "Reverse_Sample",
+      "TimeStretch_Keys",
+      "Glitch_FX"
+    ]
+  },
+  "sound_intent": {
+    "overall_character": "Aggressive, punchy, cinematic dynamic flow with sharp sample chops.",
+    "tone": "Warm vinyl texture with crisp transient emphasis on drums and cuts."
+  },
+  "routing_intent": {
+    "drums": "Sample chops routed through transient shaper and parallel compression chains.",
+    "bass": "Clean low-end with subtle saturation to complement drum punch.",
+    "chords": "Processed with light reverb and EQ to blend with melody.",
+    "melody": "Sample chops routed through delay and modulation FX for depth.",
+    "vocal": "Minimal processing, focus on clarity and presence.",
+    "fx": "Spatial effects automated to enhance section transitions."
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with chopped samples",
+    "bass": "low frequency groove support",
+    "chords": "harmonic texture and rhythm complement",
+    "melody": "main instrumental theme using modern chops",
+    "vocal": "main vocal rap delivery",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goal": "Create a mainstream boom bap arrangement with aggressive energy and cinematic flow using sample chopping techniques to build rhythm and texture."
+  },
+  "presetor_intent": {
+    "goal": "Apply presets that emphasize transients, vintage texture, and spatial effects consistent with boom bap style."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design energetic drum parts with aggressive, punchy sample chops using modern slicing and stuttering techniques."
+    },
+    "bass_generator": {
+      "brief": "Create a solid, warm bass foundation that supports drums and melody without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Generate harmonic pads and chords using sampled instruments that blend well with the chopped melody."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic lines utilizing modern sample chopping techniques to add interest and variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure and energy dynamics ensuring cinematic rise and fall for mainstream appeal."
+    },
+    "presetor": {
+      "brief": "Select and configure presets for each track focusing on vintage texture, transient shaping, and spatial effects."
+    },
+    "songgps": {
+      "brief": "Track the arrangement energy curve and section transitions ensuring smooth dynamic flow and section clarity."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix guidelines aiming for clarity, punch, and warm analog feel in the final audio deliverable."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "project": {
+    "name": "Drill Aranjmanı",
+    "genre": "Drill",
+    "subgenre": "Mainstream",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      70,
+      60,
+      90,
+      100
+    ],
+    "notes": "Arrangement based on club energy profile with variations for mainstream drill style. Dark mood emphasized through arrangement dynamics and section contrasts."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Intro start",
+        "reason": "Establish initial dark club energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Verse 1 start",
+        "reason": "Introduce vocal elements, increase intensity"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "Hook drop",
+        "reason": "Maximize energy for club impact"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "fill",
+        "label": "Bridge fill",
+        "reason": "Create variation and sustain energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "cue",
+        "label": "Final hook start",
+        "reason": "Bring energy to peak for final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro fade",
+        "reason": "Smooth energy decline and ending"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with dark, impactful hits suitable for club environment",
+    "bass": "Deep and driving bassline to support energy and dark mood",
+    "chords": "Sparse and moody harmonic texture enhancing dark atmosphere",
+    "melody": "Minimalist melodic content highlighting tension",
+    "vocal": "Lead lines with lyrical intensity characteristic of mainstream drill",
+    "fx": "Atmospheric and rhythmic effects to enhance club energy"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dark, punchy drum patterns with varied intensity supporting club energy through all sections."
+    },
+    "bass_generator": {
+      "brief": "Generate deep, driving basslines that align with the dark mood and enhance club energy dynamics."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse, moody chords that support the dark atmosphere without overwhelming other elements."
+    },
+    "melody_generator": {
+      "brief": "Compose minimalist melodic motifs that build tension and complement the dark drill arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy flow matches dark club energy profile with mainstream appeal."
+    },
+    "presetor": {
+      "brief": "Apply presets focused on punchy drums, deep bass, and dark atmospheric sounds suitable for mainstream drill."
+    },
+    "songgps": {
+      "brief": "Manage arrangement cues, section transitions, and event markers to maintain coherent energy progression."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix-ready channel audio maintaining clarity and punch without processing or effects applied yet."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

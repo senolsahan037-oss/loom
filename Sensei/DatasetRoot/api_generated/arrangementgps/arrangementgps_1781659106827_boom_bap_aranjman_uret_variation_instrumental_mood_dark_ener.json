@@ -1,0 +1,297 @@
+{
+  "project": {
+    "name": "Boom Bap Dark Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 85,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "notes": "Boom Bap style instrumental with a slow build energy profile, modern sample chopping techniques used for sample layers. Mood is dark and the arrangement progressively increases energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of the track"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section",
+        "label": "Verse 1 Start",
+        "reason": "Verse section begins"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "section",
+        "label": "Hook Start",
+        "reason": "Hook section"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "section",
+        "label": "Verse 2 Start",
+        "reason": "Second verse"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "section",
+        "label": "Bridge Start",
+        "reason": "Bridge section"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "section",
+        "label": "Final Hook Start",
+        "reason": "Final hook with high energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section",
+        "label": "Outro Start",
+        "reason": "Outro section"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "slice",
+        "chop",
+        "glitch",
+        "stutter",
+        "repeat"
+      ],
+      "description": "Modern sample chopping techniques applied to sample layer, with channel names reflecting chopping methods."
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "Use modern chopping and slicing sample techniques to create rhythmically interesting percussive and melodic elements with a dark mood.",
+    "energy_profile": "Slow build from low energy intro to high energy final hook.",
+    "mood": "Dark, moody, atmospheric."
+  },
+  "routing_intent": {
+    "channels": {
+      "slice": "Sample slices routed to dedicated slice channel for detailed processing.",
+      "chop": "Chopped samples routed separately for glitch effects.",
+      "glitch": "Glitch effects on chopped samples routed to own channel.",
+      "stutter": "Stuttered samples routed for rhythmic repetition.",
+      "repeat": "Repeated sample phrases isolated for layering."
+    }
+  },
+  "track_roles": {
+    "drums": "Provide boom bap rhythm and groove using chopped and sliced drum samples.",
+    "bass": "Deliver deep, dark bassline supporting the groove.",
+    "chords": "Add harmonic content using chopped sampled chords.",
+    "melody": "Melodic elements created from chopped samples with minimal presence.",
+    "vocal": "No vocals, instrumental only.",
+    "fx": "Effects layer with glitch, stutter, and sample manipulation effects."
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "focus": "Creating an authentic boom bap instrumental with modern sample chopping techniques, emphasizing a dark mood and slow energy build across arrangement."
+  },
+  "presetor_intent": {
+    "goal": "Render arrangement clearly while preserving dynamic and textured sample layers."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate and arrange boom bap drum patterns using sliced and chopped drum samples with dynamic energy build."
+    },
+    "bass_generator": {
+      "brief": "Produce a dark, supportive bass line that complements the drum groove and supports the mood."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic textures using chopped sample layers, focusing on dark chords and smooth transitions."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic elements from sample chops, enhancing atmosphere without overpowering rhythm."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow, ensuring slow energy build and consistent dark mood throughout the piece."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize clarity and punch in drums and bass, maintain sample layer texture."
+    },
+    "songgps": {
+      "brief": "Guide structural layout and energy pacing to achieve effective slow build with clear section delineations."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio preserving sample chopping detail and dynamic range with appropriate spatial effects."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

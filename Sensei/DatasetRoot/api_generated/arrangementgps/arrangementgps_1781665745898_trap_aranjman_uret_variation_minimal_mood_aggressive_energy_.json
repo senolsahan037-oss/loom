@@ -1,0 +1,230 @@
+{
+  "project": {
+    "name": "Trap Aggressive Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      100,
+      20
+    ],
+    "notes": "Energy profile focused on hook-heavy with minimal variation and aggressive mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 10,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begins",
+        "reason": "Energy peak – hook-heavy"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook",
+        "reason": "High energy hook variation"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, driving aggressive trap beats",
+    "bass": "low-end foundation with punchy trap bass tone",
+    "chords": "minimal harmonic support with sparse trap chords",
+    "melody": "hook-focused, sharp and catchy melodic elements",
+    "vocal": "aggressive vocal elements and hooks",
+    "fx": "textural effects to emphasize transitions and energy"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 5,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate aggressive and impactful trap drum patterns focused on hook sections with minimal variation."
+    },
+    "bass_generator": {
+      "brief": "Create punchy, simple basslines that reinforce the rhythm and energy, especially during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Produce minimal chord progressions that support the aggressive mood without cluttering arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop strong, hook-heavy melodic motifs with sharp and aggressive character."
+    },
+    "ai_designer": {
+      "brief": "Integrate all elements into an arrangement with minimal variation, emphasizing hooks and maintaining an aggressive feel."
+    },
+    "presetor": {
+      "brief": "Apply presets that ensure clean, powerful trap sound with emphasis on energy during hooks."
+    },
+    "songgps": {
+      "brief": "Map energy and arrangement flow aligned with the aggressive, hook-focused trap style."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and mix tracks to highlight hooks and maintain an aggressive energy profile without losing clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

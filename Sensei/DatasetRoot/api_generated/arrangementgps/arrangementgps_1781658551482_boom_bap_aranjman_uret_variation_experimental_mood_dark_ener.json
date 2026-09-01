@@ -1,0 +1,259 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Dark Club",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      50,
+      75,
+      80,
+      60
+    ],
+    "notes": "Arrangement focuses on a dark, experimental boom bap club energy vibe without melody or basslines."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 30,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 25,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 25,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook start",
+        "reason": "Increase energy with variation"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook start",
+        "reason": "Culmination of energy peak"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "type": "sample_chop_layers",
+      "channels": [
+        "reverse_chops",
+        "stutter_chops",
+        "glitch_chops",
+        "time_stretch_chops",
+        "pitch_shift_chops"
+      ]
+    }
+  },
+  "sound_intent": {
+    "style": "experimental boom bap",
+    "texture": "dark and gritty",
+    "energy_profile": "club energy"
+  },
+  "routing_intent": {
+    "channels": {
+      "reverse_chops": "drums_channel_1",
+      "stutter_chops": "drums_channel_2",
+      "glitch_chops": "drums_channel_3",
+      "time_stretch_chops": "drums_channel_4",
+      "pitch_shift_chops": "drums_channel_5"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation through experimental sample chopping",
+    "bass": "none",
+    "chords": "atmospheric texture support",
+    "melody": "none",
+    "vocal": "none",
+    "fx": "transition and ambiance effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 0,
+    "chords": 5,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Create a dark experimental boom bap arrangement with club energy focusing on sample chopping techniques in drum layers without melodic elements."
+  },
+  "presetor_intent": {
+    "goal": "Apply appropriate effects and chain presets to enhance layered chopped samples and maintain dark atmospheric vibe."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate intricate drum patterns using sample chopping techniques like reverse, stutter, glitch, time-stretch, and pitch-shift to create experimental rhythmic textures."
+    },
+    "bass_generator": {
+      "brief": "No bassline generation required for this arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Support chord layers with subtle dark atmospheric textures, no harmonic progression."
+    },
+    "melody_generator": {
+      "brief": "No melody generation required."
+    },
+    "ai_designer": {
+      "brief": "Design overall arrangement flow and energy curve ensuring dark mood with club energy suited for boom bap genre."
+    },
+    "presetor": {
+      "brief": "Manage effect presets for drums and chords to emphasize sample chopping and dark ambiance."
+    },
+    "songgps": {
+      "brief": "Coordinate timeline events, section transitions, and energy marker placements."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix and balance channels preserving separation of chopped sample layers and ensure coherent club energy output."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

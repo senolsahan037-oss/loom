@@ -1,0 +1,215 @@
+{
+  "project": {
+    "name": "Phonk Mainstream Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      85,
+      60,
+      90,
+      80,
+      30
+    ],
+    "notes": "Arrangement designed for hook-heavy energy profile emphasizing uplifting moods with modern chopped sample layers"
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "stutter": 60,
+          "slice": 80,
+          "roll": 70,
+          "chop": 90,
+          "glitch": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "stutter": 40,
+          "slice": 50,
+          "roll": 60,
+          "chop": 70,
+          "glitch": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "stutter": 20,
+          "slice": 30,
+          "roll": 40,
+          "chop": 50,
+          "glitch": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "stutter": 70,
+          "slice": 85,
+          "roll": 90,
+          "chop": 95,
+          "glitch": 60
+        }
+      },
+      "vocal": {
+        "activity": {
+          "stutter": 10,
+          "slice": 20,
+          "roll": 30,
+          "chop": 25,
+          "glitch": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "stutter": 60,
+          "slice": 70,
+          "roll": 50,
+          "chop": 65,
+          "glitch": 80
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "Start of hook section with high energy"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "Final hook for maximum emotional uplift"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample chopping techniques stutter, slice, roll, chop, glitch",
+    "bass": "support sample chopping variations",
+    "chords": "background chopped harmonic layers",
+    "melody": "main chopped melodic phrases",
+    "vocal": "vocal chops with subtle sample techniques",
+    "fx": "effects with glitch and chop chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 75,
+    "bass": 50,
+    "chords": 35,
+    "melody": 80,
+    "vocal": 25,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drums using sample chopping techniques focusing on stutter, slice, roll, chop, and glitch patterns for high energy and hook portions"
+    },
+    "bass_generator": {
+      "brief": "Generate bass layers that complement the chopped sample drum patterns with space for groove but not overpowering"
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers using chopping and slicing techniques for harmonic texture with subtle variations"
+    },
+    "melody_generator": {
+      "brief": "Design uplifting melodic lines using advanced sample chopping, rolls, and glitched articulations to fit hook-heavy arrangement"
+    },
+    "ai_designer": {
+      "brief": "Ensure overall arrangement flows with energy curves tailored to uplifting mood and varied use of chopping techniques across sections"
+    },
+    "presetor": {
+      "brief": "Apply modern sample based presets emphasizing clarity and punch for chopped samples across drums, melody, and FX layers"
+    },
+    "songgps": {
+      "brief": "Analyze and optimize arrangement timeline for best energy peaks at hooks and smooth transitions with well-defined intro and outro"
+    },
+    "ai_mixmaster": {
+      "brief": "Mix all chopped sample layers with focus on preserving transient detail for stutter and roll techniques while keeping balance"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

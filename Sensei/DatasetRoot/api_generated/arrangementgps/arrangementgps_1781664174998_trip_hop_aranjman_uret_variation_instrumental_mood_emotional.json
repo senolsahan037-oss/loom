@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "Emotional Trip Hop Instrumental",
+    "genre": "Trip Hop",
+    "subgenre": "Instrumental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      50,
+      85,
+      90,
+      30
+    ],
+    "notes": "Trip Hop arrangement with club energy profile using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-40": 80,
+          "41-56": 70,
+          "57-64": 60,
+          "65-72": 90,
+          "73-80": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 60,
+          "41-56": 60,
+          "57-64": 55,
+          "65-72": 75,
+          "73-80": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 50,
+          "57-64": 40,
+          "65-72": 70,
+          "73-80": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 0,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 0,
+          "73-80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 0,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 0,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 25,
+          "25-40": 40,
+          "41-56": 35,
+          "57-64": 30,
+          "65-72": 55,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_hit",
+        "label": "Beat Chop Start",
+        "reason": "Starting with chopped drum sample"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_boost",
+        "label": "Glitch Slice",
+        "reason": "Adding rhythmic interest with glitch slicing"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "effect_in",
+        "label": "Reverse Chop FX",
+        "reason": "Adding emotional intensity with reversed samples"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone using sample chopping techniques",
+    "bass": "sub bass line supporting club energy",
+    "chords": "ambient and emotional harmonic pads with chopped samples",
+    "melody": "none (instrumental variation)",
+    "vocal": "none (instrumental)",
+    "fx": "emotional texture and transitions with modern sample chopping effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 7,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum patterns with emphasis on modern sample chopping and glitch slicing techniques to create club energy in Trip Hop style."
+    },
+    "bass_generator": {
+      "brief": "Create deep, emotional bass lines with rhythmic interplay suitable for instrumental Trip Hop and club contexts."
+    },
+    "harmony_generator": {
+      "brief": "Design harmonic pads and chord progressions utilizing chopped and ambient sample layers to enhance emotional tone."
+    },
+    "melody_generator": {
+      "brief": "Do not generate melodies for this instrumental variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow to maintain emotional mood and club energy with sample chopping techniques in all layers."
+    },
+    "presetor": {
+      "brief": "Assign presets emphasizing modern sample chops and emotional textures for all instruments except melody and vocals."
+    },
+    "songgps": {
+      "brief": "Track energetic curve and ensure section transitions align with club energy profile, emphasizing sample chopping workflows."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix setting that highlights chopped sample articulation and emotional dynamics for club play."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

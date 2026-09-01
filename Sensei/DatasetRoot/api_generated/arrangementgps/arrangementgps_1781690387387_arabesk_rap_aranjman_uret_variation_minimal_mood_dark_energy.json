@@ -1,0 +1,264 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement",
+    "genre": "Rap",
+    "subgenre": "Arabesk",
+    "bpm": 75,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      60,
+      50,
+      40
+    ],
+    "notes": "Arrangement features minimal variations with a gradual slow build of energy matching a dark mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 35,
+          "25": 60,
+          "33": 55,
+          "49": 65,
+          "57": 80,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 15,
+          "9": 30,
+          "25": 50,
+          "33": 45,
+          "49": 55,
+          "57": 70,
+          "73": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 10,
+          "9": 20,
+          "25": 40,
+          "33": 35,
+          "49": 45,
+          "57": 60,
+          "73": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "9": 15,
+          "25": 30,
+          "33": 25,
+          "49": 35,
+          "57": 50,
+          "73": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 30,
+          "25": 60,
+          "33": 50,
+          "49": 60,
+          "57": 75,
+          "73": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "9": 10,
+          "25": 20,
+          "33": 15,
+          "49": 20,
+          "57": 25,
+          "73": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Begins",
+        "reason": "Start of the arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Vocals",
+        "reason": "Vocals enter in verse 1"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Emphasis",
+        "reason": "Hook section with increased vocal presence"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "peak",
+        "label": "Final Hook Energy Peak",
+        "reason": "Energy climax in final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Energy ramps down toward the outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with minimal variation",
+    "bass": "provides slow build foundation",
+    "chords": "supportive, sparse harmonic texture",
+    "melody": "subtle, minimal lead elements",
+    "vocal": "lead vocals with gradual intensity increase",
+    "fx": "ambient enhancements, minimal usage"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 1,
+    "bass": 2,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate minimal drum patterns matching slow build energy and dark mood."
+    },
+    "bass_generator": {
+      "brief": "Create a bassline that evolves gradually with minimal complexity supporting the dark atmosphere."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chordal support with emphasis on minor tones to maintain dark vibe."
+    },
+    "melody_generator": {
+      "brief": "Compose subtle melodic elements that complement vocals and overall mood with minimal variation."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with slow energy build and minimal changes focusing on mood consistency."
+    },
+    "presetor": {
+      "brief": "Apply presets geared towards ambient and dark tonalities with minimal brightness."
+    },
+    "songgps": {
+      "brief": "Optimize arrangement flow to reflect slow energy increase and minimal variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix for clarity and emphasis on vocals and slow build energy characteristics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

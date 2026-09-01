@@ -1,0 +1,246 @@
+{
+  "project": {
+    "name": "Trap Cinematic Minimal Hook",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      70
+    ],
+    "notes": "Minimal trap arrangement with a strong focus on hook-heavy energy and cinematic mood. The structure progresses from a subdued intro to energetic hooks, maintaining minimal instrumentation to highlight key elements."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 70
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 70,
+          "25-32": 100,
+          "33-48": 60,
+          "49-56": 50,
+          "57-72": 100,
+          "73-80": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-32": 90,
+          "33-48": 50,
+          "49-56": 40,
+          "57-72": 90,
+          "73-80": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-32": 70,
+          "33-48": 30,
+          "49-56": 50,
+          "57-72": 70,
+          "73-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 25,
+          "25-32": 85,
+          "33-48": 25,
+          "49-56": 35,
+          "57-72": 85,
+          "73-80": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 40,
+          "25-32": 70,
+          "33-48": 40,
+          "49-56": 30,
+          "57-72": 80,
+          "73-80": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 20,
+          "25-32": 40,
+          "33-48": 20,
+          "49-56": 50,
+          "57-72": 40,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy intensifies with hook entrance"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climactic energy peak in final hook"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Add cinematic transition effect"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Lower energy for arrangement closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, driving energy",
+    "bass": "foundation, groove support",
+    "chords": "harmonic texture, mood setting",
+    "melody": "hook lead, cinematic feel",
+    "vocal": "hook phrases and verses",
+    "fx": "transitions and atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      15,
+      32,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate the drum patterns focusing on minimal trap style with clear energy buildups and drops matching arrangement sections."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that support groove with minimalistic approach but strong presence during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chord progressions that enhance the cinematic mood without overcrowding."
+    },
+    "melody_generator": {
+      "brief": "Produce hook-oriented melodic elements that emphasize cinematic atmosphere and high energy parts."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement balance and energy flow ensuring minimal variation and clear hook emphasis."
+    },
+    "presetor": {
+      "brief": "Apply preset sound textures appropriate for minimal trap with cinematic vibe."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement timing and section transitions for smooth energy curve manipulations."
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure clean unprocessed audio routing for downstream mixing and mastering phases."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.65,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

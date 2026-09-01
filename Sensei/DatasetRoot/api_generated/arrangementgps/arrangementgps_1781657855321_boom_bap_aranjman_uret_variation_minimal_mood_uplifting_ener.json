@@ -1,0 +1,255 @@
+{
+  "project": {
+    "name": "Boom Bap Minimal Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      40,
+      50,
+      80,
+      80,
+      30
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 30,
+          "9": 60,
+          "25": 90,
+          "33": 60,
+          "49": 50,
+          "57": 95,
+          "73": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 20,
+          "9": 45,
+          "25": 70,
+          "33": 45,
+          "49": 40,
+          "57": 80,
+          "73": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "9": 35,
+          "25": 60,
+          "33": 35,
+          "49": 45,
+          "57": 75,
+          "73": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 10,
+          "9": 30,
+          "25": 60,
+          "33": 30,
+          "49": 40,
+          "57": 75,
+          "73": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 0,
+          "25": 0,
+          "33": 0,
+          "49": 0,
+          "57": 0,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 15,
+          "25": 20,
+          "33": 15,
+          "49": 20,
+          "57": 25,
+          "73": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "pattern_start",
+        "label": "Sample Chop Intro Kick",
+        "reason": "intro with kick chop texture"
+      },
+      {
+        "track": "chords",
+        "bar": 9,
+        "type": "pattern_start",
+        "label": "Sample Slice Texture Bed",
+        "reason": "start texture bed chords"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "pattern_start",
+        "label": "One-Shot Hit Roll",
+        "reason": "hook energy increase"
+      },
+      {
+        "track": "bass",
+        "bar": 49,
+        "type": "pattern_start",
+        "label": "Minimal Sample Loop",
+        "reason": "bridge texture variation"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Uplifting Hit Layer",
+        "reason": "final hook energy lift"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "pattern_end",
+        "label": "Outro Sparse Hits",
+        "reason": "song wind-down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm",
+    "bass": "rhythmic foundation",
+    "chords": "harmonic texture",
+    "melody": "lead texture",
+    "vocal": "none",
+    "fx": "enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns emphasizing sample chopping and one-shot hits, focusing on a boom bap style with club energy."
+    },
+    "bass_generator": {
+      "brief": "Generate minimal basslines matching the boom bap groove with subtle variations and sample-based loops."
+    },
+    "harmony_generator": {
+      "brief": "Develop a texture bed using sample slicing techniques for harmonic support with minimal variation."
+    },
+    "melody_generator": {
+      "brief": "Provide sparse melodic elements that complement the texture bed without overpowering the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Arrange the components to maintain an uplifting mood while preserving minimal variation and club energy feel."
+    },
+    "presetor": {
+      "brief": "Set presets for samples and hits emphasizing clear articulation and punchy textures in the boom bap style."
+    },
+    "songgps": {
+      "brief": "Manage overall song structure and energy flow with section transitions matching the minimal uplifting vibe."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixes, ensuring clarity for post-processing of sample-based arrangement layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

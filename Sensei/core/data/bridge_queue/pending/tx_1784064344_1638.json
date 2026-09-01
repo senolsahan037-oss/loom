@@ -1,0 +1,65 @@
+{
+  "transaction_id": "tx_1784064344_1638",
+  "action": "write_midi_clip",
+  "role": "drums",
+  "manual_trigger": true,
+  "bar_range": [
+    1,
+    1
+  ],
+  "notes": [
+    {
+      "pitch": 77,
+      "time": 0.0,
+      "duration": 0.2,
+      "velocity": 98
+    },
+    {
+      "pitch": 80,
+      "time": 0.0,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 77,
+      "time": 1.0,
+      "duration": 0.2,
+      "velocity": 95
+    },
+    {
+      "pitch": 79,
+      "time": 1.0,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 77,
+      "time": 2.0,
+      "duration": 0.2,
+      "velocity": 103
+    },
+    {
+      "pitch": 80,
+      "time": 2.0,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 77,
+      "time": 3.0,
+      "duration": 0.2,
+      "velocity": 102
+    },
+    {
+      "pitch": 79,
+      "time": 3.0,
+      "duration": 0.25,
+      "velocity": 105
+    }
+  ],
+  "metadata": {
+    "prompt": "",
+    "genre": "boom_bap",
+    "seed": 42
+  }
+}

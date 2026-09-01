@@ -1,0 +1,279 @@
+{
+  "project": {
+    "name": "Phonk Cinematic Club",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      65,
+      50,
+      80,
+      85,
+      20
+    ],
+    "notes": "Sample-based arrangement layering texture beds with one-shot hits focused on vocal variations; emphasis on club energy suitable for cinematic mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 15,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "effect",
+        "label": "vocal chop entrance",
+        "reason": "introduces vocal one-shot variation at hook"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "fill",
+        "label": "breakbeat slice",
+        "reason": "variation in drum sample slicing for verse 2"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "reverse sample sweep",
+        "reason": "bridge section dramatic effect"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "texture_bed": "sliced ambient pads",
+      "one_shot_hits": "vocal chops, drum hits"
+    },
+    "channels": {
+      "drums": [
+        "transient_slicing",
+        "breakbeat_slicing"
+      ],
+      "bass": [
+        "loop_sampling"
+      ],
+      "chords": [
+        "loop_sampling"
+      ],
+      "melody": [
+        "one_shot_samples"
+      ],
+      "vocal": [
+        "vocal_chops",
+        "time_stretch_slices"
+      ],
+      "fx": [
+        "reversed_samples",
+        "ambient_layers"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal variation",
+    "atmosphere": "cinematic with club energy",
+    "sample_style": "sample-based with texture layering and one-shot emphasis"
+  },
+  "routing_intent": {
+    "vocal": "priority bus with delay and reverb sends",
+    "drums": "parallel compression and transient shaping chain",
+    "fx": "send effects on separate bus",
+    "texture_beds": "stereo width and mid-side processing"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using sample slicing techniques",
+    "bass": "low-end groove with looped sampled bass",
+    "chords": "harmonic texture from sampled chords",
+    "melody": "supportive melodic samples, mainly one-shots",
+    "vocal": "lead variation using chopped and sliced vocal samples",
+    "fx": "transitional and atmospheric elements from sample processing"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 60,
+    "chords": 50,
+    "melody": 40,
+    "vocal": 90,
+    "fx": 30
+  },
+  "designer_intent": {
+    "arrangement_focus": "emphasize vocal samples with cinematic club vibe, maintaining sample slicing authenticity",
+    "energy_management": "build energy towards hooks and maintain groove"
+  },
+  "presetor_intent": {
+    "render_style": "clean sample-based textures, maintain clarity on vocals and drum one-shots"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate and sequence drum parts using sample slicing techniques appropriate for phonk style with club energy."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using sample loops complementing the drum rhythm and maintaining groove."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord and texture layers through sampled loops enhancing the cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic one-shot sample sequences supporting vocals and hooks subtly."
+    },
+    "ai_designer": {
+      "brief": "Compose arrangement structure prioritizing vocal variations and dynamic energy flow."
+    },
+    "presetor": {
+      "brief": "Set sample processing presets emphasizing clarity and presence of vocal chops and drums."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy dynamics based on club energy profile for phonk."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing ensuring vocal prominence and tight drum/transient dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

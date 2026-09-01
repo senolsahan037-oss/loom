@@ -1,0 +1,311 @@
+{
+  "project": {
+    "name": "West Coast Experimental Hip-Hop",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "Em",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      75,
+      60,
+      85,
+      70,
+      90,
+      100,
+      90,
+      80,
+      95,
+      90,
+      100,
+      85,
+      80,
+      70
+    ],
+    "notes": "Arrangement designed for club energy with aggressive mood using experimental hip-hop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal_chops",
+        "bar": 9,
+        "type": "chop_start",
+        "label": "micro chops intro",
+        "reason": "Start of micro chop vocal sample"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 25,
+        "type": "highlight",
+        "label": "phrase chops hook",
+        "reason": "Vocals chopped into phrases for hook impact"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 33,
+        "type": "effect",
+        "label": "reverse chops verse 2",
+        "reason": "Use of reversed samples for experimental texture"
+      },
+      {
+        "track": "vocal_chops",
+        "bar": 49,
+        "type": "stutter",
+        "label": "stutter chops bridge",
+        "reason": "Applied stutter effect in bridge section"
+      },
+      {
+        "track": "micro_chops",
+        "bar": 57,
+        "type": "intensify",
+        "label": "micro chops final hook",
+        "reason": "Increased micro chopping for energetic final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "micro_chops": [
+        "sample1_micro.wav",
+        "sample2_micro.wav"
+      ],
+      "phrase_chops": [
+        "sample1_phrase.wav"
+      ],
+      "reverse_chops": [
+        "sample1_reverse.wav"
+      ],
+      "vocal_chops": [
+        "vocal_sample1.wav"
+      ],
+      "stutter_chops": [
+        "vocal_stutter1.wav"
+      ]
+    },
+    "channels": {
+      "micro_chops": "micro_chops",
+      "phrase_chops": "phrase_chops",
+      "reverse_chops": "reverse_chops",
+      "vocal_chops": "vocal_chops",
+      "stutter_chops": "stutter_chops"
+    }
+  },
+  "sound_intent": {
+    "target_mood": "aggressive",
+    "energy_profile": "club energy",
+    "style_variation": "experimental",
+    "sample_techniques": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ]
+  },
+  "routing_intent": {
+    "channels": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ],
+    "channel_naming": "sample technique based"
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with strong hits",
+    "bass": "low-end groove support",
+    "chords": "harmonic texture",
+    "melody": "lead experimental motifs",
+    "vocal": "vocal sample chops and effects",
+    "fx": "transitions and atmospheric elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Create an aggressive, high energy west coast hip-hop arrangement with experimental sample chopping techniques suitable for club play."
+  },
+  "presetor_intent": {
+    "focus": "Presets should emphasize punchy drums, gritty bass, clear vocal chops with stutter effects, and reverse chop textures for experimental flavor."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a dynamic drum pattern that supports club energy with punchy kicks and snappy snares emphasizing aggressive rhythms."
+    },
+    "bass_generator": {
+      "brief": "Create a groovy, aggressive bassline that complements the drums and supports the club mood while maintaining a west coast vibe."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic beds and chord stabs that fit the aggressive and experimental style without overpowering vocal samples."
+    },
+    "melody_generator": {
+      "brief": "Produce lead lines and motifs that are experimental and add melodic interest, using subtle phrasing compatible with chopping variations."
+    },
+    "ai_designer": {
+      "brief": "Orchestrate overall arrangement structure ensuring smooth energy transitions and appropriate use of sample chopping techniques mapped to channels."
+    },
+    "presetor": {
+      "brief": "Assign sound presets to channels focusing on clarity for chops and aggressive tonal qualities in drums and bass."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement progression and energy curve to maintain club energy flow with clear section definitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix levels and panning for unprocessed channel audio ensuring separation of chopping techniques and punchy sound."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

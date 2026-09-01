@@ -1,0 +1,319 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Aggression",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "E minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      90,
+      85,
+      80,
+      70,
+      65,
+      60,
+      55,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 85,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drum Layer",
+        "reason": "Begin with sparse, experimental drum textures"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "layer",
+        "label": "Bass Enters",
+        "reason": "Add deep, slow-build bass line"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook",
+        "label": "Aggressive Vocal Hook",
+        "reason": "Bring main vocal hook with aggressive delivery"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Experimental FX Section",
+        "reason": "Add experimental sound effects emphasizing aggression"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Drum Outro Fade",
+        "reason": "Gradual drum fade for ending"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with experimental textures",
+    "bass": "low-end support with slow energy build",
+    "chords": "harmonic texture emphasizing dark mood",
+    "melody": "lead elements highlighting aggression",
+    "vocal": "aggressive vocal delivery",
+    "fx": "experimental sound design to enhance mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      8,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create slow build, experimental drum patterns with aggressive hits during hooks and dynamic variation."
+    },
+    "bass_generator": {
+      "brief": "Generate slow-building bass lines that support the aggressive mood and West Coast Hip-Hop style."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic chord textures that match the dark and aggressive mood with experimental layering."
+    },
+    "melody_generator": {
+      "brief": "Design melodic elements that reinforce the aggressive tone and slowly increase energy towards hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy builds slowly and aggression is highlighted in key sections."
+    },
+    "presetor": {
+      "brief": "Apply experimental sound presets appropriate for an aggressive West Coast Hip-Hop vibe."
+    },
+    "songgps": {
+      "brief": "Manage the progressive energy curve application and ensure smooth transitions between sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for final mix considering dynamic range and aggressive mood."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": "Slow build energy focusing on vocal elements with cinematic mood using sample-based textures and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 45,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook begins",
+        "reason": "Increase vocal focus and energy"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 begins",
+        "reason": "Maintain groove with one-shot hits and texture bed"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge start",
+        "reason": "Add cinematic FX layers for build"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Peak vocal energy and cinematic mood"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": [
+      {
+        "name": "texture_bed",
+        "technique": "time_stretch_slicing",
+        "description": "Extended atmospheric texture created by slicing and time-stretching sample layers."
+      },
+      {
+        "name": "one_shot_hits",
+        "technique": "sample_slicing_one_shot",
+        "description": "Percussive one-shot hits derived from chopped samples."
+      }
+    ]
+  },
+  "sound_intent": {
+    "focus": "Vocal clarity and presence with cinematic texture bed and minimalist, deliberate percussive hits.",
+    "texture": "Sample-based arrangement emphasizing layered pads and ambient slices."
+  },
+  "routing_intent": {
+    "lanes_routing": {
+      "texture_bed": "vocal_reverb_send",
+      "one_shot_hits": "drum_bus",
+      "vocal_lead": "dry_vocal_bus"
+    }
+  },
+  "track_roles": {
+    "drums": "Percussion and rhythmic support through sample slicing techniques",
+    "bass": "Low-end support keeping groove grounded",
+    "chords": "Chordal atmosphere using sample pads and slices",
+    "melody": "Sparse instrumental hooks complementing vocals",
+    "vocal": "Lead vocal with focus on cinematic expression",
+    "fx": "Ambience and texture to enhance cinematic feel"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Create a slow-building West Coast Hip-Hop arrangement with cinematic mood emphasizing vocal presence and sample-based textures."
+  },
+  "presetor_intent": {
+    "instructions": "Configure sample slicing techniques for texture bed and one-shot hits emphasizing clarity and cinematic spatialization."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample-based percussive one-shot hits with a slow build energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create deep, supportive bass lines utilizing sample layering techniques suitable for laid-back West Coast groove."
+    },
+    "harmony_generator": {
+      "brief": "Produce ambient, cinematic chord pads from processed sample beds."
+    },
+    "melody_generator": {
+      "brief": "Design sparse melodic motifs with atmospheric sample slices complementing vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring slow energy build and vocal focus."
+    },
+    "presetor": {
+      "brief": "Set sample slicing parameters and routing for texture and one-shot sample layers."
+    },
+    "songgps": {
+      "brief": "Map energy curve and section transitions reflecting cinematic and vocal-focused slow build."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance dry and wet signals focusing on vocal clarity and cinematic spatial effects."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

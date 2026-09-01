@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Dark Trap Mainstream",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C Minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      25,
+      75,
+      30,
+      85,
+      20
+    ],
+    "notes": "Sparse verses with minimal instrumentation emphasize vocals; strong, high-energy hooks with fuller instrumentation and impactful accents."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 35,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 25,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 75,
+          "verse_2": 15,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 95,
+          "verse_2": 45,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 15,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with strong drum presence"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Entry",
+        "reason": "Maximize impact with enhanced bass"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Introduce sparse vocal lines"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Atmosphere",
+        "reason": "Set dark mood with effects"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation and dynamic shifts",
+    "bass": "Sub-bass presence enhancing energy",
+    "chords": "Harmonic texture to support mood",
+    "melody": "Emotional lead lines for hooks",
+    "vocal": "Primary lyrical delivery",
+    "fx": "Ambient and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      41
+    ]
+  },
+  "priority": {
+    "drums": 9,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create tight drum patterns that are sparse in verses and full and punchy in hooks, emphasizing rhythmic dynamics."
+    },
+    "bass_generator": {
+      "brief": "Generate sub-bass lines that are minimal and supportive in verses and powerful and driving in hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic layers that maintain a dark atmosphere with reduced complexity in verses and richer texture in hooks."
+    },
+    "melody_generator": {
+      "brief": "Compose melodic lines that remain subtle in verses and become more prominent and memorable in hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement consistency ensuring sparse verses and energetic hooks with smooth transitions."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance the dark mood and aggressive energy profile, adapting instrument tones accordingly."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement pacing and energy curve to match the sparse verses and strong hook structure."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix elements to maintain clarity during sparse sections and fullness during hooks, emphasizing dynamic contrast."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

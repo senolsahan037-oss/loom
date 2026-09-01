@@ -1,0 +1,370 @@
+{
+  "project": {
+    "name": "Phonk Emotional Minimal Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      25,
+      35,
+      50,
+      60,
+      70,
+      80,
+      70,
+      60,
+      55,
+      50,
+      45,
+      60,
+      75,
+      85,
+      90,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      60,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      15,
+      25,
+      35,
+      50,
+      60,
+      70,
+      80,
+      75,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      25,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85,
+      95,
+      100,
+      95,
+      85,
+      75,
+      65,
+      55,
+      45,
+      35,
+      25,
+      15,
+      10,
+      5,
+      0,
+      0,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drums Fade In",
+        "reason": "Slow build texture introduction"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass enters",
+        "reason": "Increase energy for verse 1"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Chords texture bed",
+        "reason": "Build emotional depth in hook"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "start",
+        "label": "One-shot melodic hits",
+        "reason": "Highlight emotional peak"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "start",
+        "label": "Bridge FX layer",
+        "reason": "Transition soundscape texture"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "layer_change",
+        "label": "Final hook increase",
+        "reason": "Energy peak slow build"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro fade",
+        "reason": "Signal closing, reduce energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "texture_bed": {
+        "description": "Sample-based layered textures providing background atmosphere"
+      },
+      "one_shot_hits": {
+        "description": "Single-sample hits used minimally for accentuation"
+      },
+      "channel_naming": {
+        "drums": "sample_slice_drums",
+        "bass": "sample_slice_bass",
+        "chords": "sample_slice_chords",
+        "melody": "sample_slice_melody",
+        "fx": "sample_slice_fx"
+      }
+    }
+  },
+  "sound_intent": {
+    "arrangement_type": "sample-based arrangement with texture bed and one-shot hits",
+    "variation": "minimal",
+    "mood": "emotional",
+    "energy_profile": "slow build"
+  },
+  "routing_intent": {
+    "channel_convention": "Channel names reflect sample slicing technique"
+  },
+  "track_roles": {
+    "drums": "sample sliced drums providing rhythmic foundation",
+    "bass": "sample sliced bass notes supporting groove and harmony",
+    "chords": "sample sliced chord hits creating harmonic texture",
+    "melody": "one-shot sample hits for melodic emphasis",
+    "vocal": "none",
+    "fx": "sample sliced effects for atmosphere and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      72,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create an emotional phonk arrangement with minimal variation and a slow energy build using sample-based textures and one-shot hits"
+  },
+  "presetor_intent": {
+    "preset_style": "minimalistic phonk textures with emphasis on emotional slow build"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample sliced drum patterns with minimal variation that gradually increase in energy from intro to final hook"
+    },
+    "bass_generator": {
+      "brief": "Create minimal bass sample patterns that complement drum rhythm and reinforce emotional slow build energy profile"
+    },
+    "harmony_generator": {
+      "brief": "Produce sample sliced chord textures serving as a harmonic bed to enhance mood without melodic complexity"
+    },
+    "melody_generator": {
+      "brief": "Add one-shot sample hits sparingly to highlight emotional peaks, avoiding melodic lines or patterns"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy curve progression fits a slow build with minimal variation and emotional impact"
+    },
+    "presetor": {
+      "brief": "Apply suitable minimalistic phonk presets and textures to samples for cohesive sound"
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement segments and track activity metrics following ArrangementGPS shared dataset format"
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure clarity and balanced levels of sample layers, maintaining space for slow build and emotional expression"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

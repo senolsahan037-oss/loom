@@ -1,0 +1,331 @@
+{
+  "project": {
+    "name": "Emotional Minimal Drill Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      30,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      40,
+      20,
+      10,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 60,
+          "25-40": 90,
+          "41-56": 70,
+          "57-64": 80,
+          "65-72": 100,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 70,
+          "41-56": 50,
+          "57-64": 60,
+          "65-72": 80,
+          "73-80": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 20,
+          "25-40": 50,
+          "41-56": 30,
+          "57-64": 50,
+          "65-72": 70,
+          "73-80": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 10,
+          "25-40": 40,
+          "41-56": 20,
+          "57-64": 40,
+          "65-72": 60,
+          "73-80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 70,
+          "25-40": 90,
+          "41-56": 70,
+          "57-64": 80,
+          "65-72": 95,
+          "73-80": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 25,
+          "25-40": 50,
+          "41-56": 30,
+          "57-64": 45,
+          "65-72": 55,
+          "73-80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Begins",
+        "reason": "Section start"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_change",
+        "label": "Verse 1 Start",
+        "reason": "Energy increase and vocal entry"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_change",
+        "label": "Hook Start",
+        "reason": "High energy peak"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "section_change",
+        "label": "Verse 2 Start",
+        "reason": "Energy drop and arrangement variation"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "section_change",
+        "label": "Bridge Start",
+        "reason": "Arrangement build up before final hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_change",
+        "label": "Final Hook Start",
+        "reason": "Climax of vocal and energy"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_change",
+        "label": "Outro Start",
+        "reason": "Energy decline and arrangement wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "primary rhythm and drive",
+    "bass": "subtle harmonic foundation",
+    "chords": "minimal harmonic texture",
+    "melody": "sparse emotional motifs",
+    "vocal": "expressive lyrical delivery",
+    "fx": "atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a minimal but dynamic drum arrangement emphasizing cinematic rise and fall energy transitions."
+    },
+    "bass_generator": {
+      "brief": "Create a subtle bass pattern that supports the emotional mood and complements the energy curve without overpowering the drums."
+    },
+    "harmony_generator": {
+      "brief": "Design minimal chord layers that add harmonic depth in alignment with the emotional and cinematic energy flow."
+    },
+    "melody_generator": {
+      "brief": "Compose sparse, emotional melodic motifs that emerge and recede following the energy curve."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence ensuring smooth transitions between sections with cinematic energy dynamics."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance emotional tone and cinematic dynamics with minimalistic sound design."
+    },
+    "songgps": {
+      "brief": "Coordinate section structure, energy curve, and lane activity to maintain a balanced and cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare to mix unprocessed channel audio with clarity, preserving dynamic range and emotional impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

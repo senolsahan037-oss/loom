@@ -1,0 +1,262 @@
+{
+  "project": {
+    "name": "Drill Arrangement Minimal Variation",
+    "genre": "Drill",
+    "subgenre": "Minimal",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      65,
+      40,
+      50,
+      70,
+      80,
+      30
+    ],
+    "notes": "The arrangement uses sparse instrumentation with minimal variation to maintain a cinematic mood and club energy typical for Drill genre."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 65
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Start of intro section"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Beginning of first verse"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Start of hook with increased energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Beginning of second verse"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Bridge to create contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook with peak energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Song outro section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Percussion backbone driving rhythm and groove",
+    "bass": "Sub-bass support adding depth and low-end presence",
+    "chords": "Supportive harmonic pad layers with minimal variation",
+    "melody": "Sparse lead elements adding cinematic tension",
+    "vocal": "Main vocal delivery with prominent presence",
+    "fx": "Atmospheric effects enhancing cinematic mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 6,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate minimal variation drum patterns maintaining driving rhythm and energy for a drill track."
+    },
+    "bass_generator": {
+      "brief": "Create a consistent sub-bass line that supports the drums and maintains club energy."
+    },
+    "harmony_generator": {
+      "brief": "Generate sparse chord progressions and harmonic pads that maintain a cinematic mood with minimal variation."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements to create tension and interest without overwhelming the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence ensuring energy curve matches drill style with cinematic and club energy moods."
+    },
+    "presetor": {
+      "brief": "Apply predefined minimal variation presets tailored for drill production with cinematic mood."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement structure to balance minimal variation with dynamic section energy transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix stages focusing on clarity and punch suitable for club playback environments."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

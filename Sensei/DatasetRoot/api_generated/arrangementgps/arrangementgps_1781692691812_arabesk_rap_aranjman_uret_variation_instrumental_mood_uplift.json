@@ -1,0 +1,333 @@
+{
+  "project": {
+    "name": "Arabesk Rap Instrumental Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drum Entry",
+        "reason": "Introduce rhythm with traditional percussion elements"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass Groove Start",
+        "reason": "Begin bassline to support groove in verse"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Chord Layer Expansion",
+        "reason": "Enhance harmony during hook to uplift mood"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge Effect",
+        "reason": "Add atmospheric effects to differentiate bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "peak",
+        "label": "Final Hook Drum Peak",
+        "reason": "Maximize energy build for final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 77,
+        "type": "fade_out",
+        "label": "Outro Drum Fade",
+        "reason": "Gradual energy decrease to close arrangement"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation and dynamic energy",
+    "bass": "groove and low-end support",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "instrumental lead motifs",
+    "vocal": "not used in instrumental variation",
+    "fx": "transitions and sonic enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum parts with traditional percussion elements that build energy gradually and peak at hooks, ensuring rhythmic interest throughout the arrangement."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that support the slow energy build and uplifting mood, maintaining groove consistency through verses and intensifying in hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Provide lush chord arrangements emphasizing Arabesk harmonic character while supporting the uplifting mood and transitions between sections."
+    },
+    "melody_generator": {
+      "brief": "Develop engaging instrumental motifs that complement the arrangement’s energy profile without vocal presence, focusing on instrumental lead lines."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement structure to ensure smooth energy progression, coherence among sections, and appropriate instrument activity."
+    },
+    "presetor": {
+      "brief": "Prepare preset configurations that preserve ethnic instrumentation flavor and warm instrumental tones fitting Arabesk Rap style."
+    },
+    "songgps": {
+      "brief": "Manage arrangement timing, section transitions, and ensure energy curve matches the slow build pattern with an uplifting feel."
+    },
+    "ai_mixmaster": {
+      "brief": "Apply mixing strategies that highlight instrumental clarity, balance rhythmic and harmonic content, and maintain dynamic energy flow."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

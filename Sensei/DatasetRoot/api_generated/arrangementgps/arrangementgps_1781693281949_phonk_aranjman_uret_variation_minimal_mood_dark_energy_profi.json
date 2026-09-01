@@ -1,0 +1,260 @@
+{
+  "project": {
+    "name": "Phonk Minimal Dark Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      70,
+      60,
+      90,
+      50,
+      40,
+      20
+    ],
+    "notes": "Minimal dark phonk arrangement with club energy profile using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "technique",
+        "label": "Slice Break",
+        "reason": "Start with chopped sample drum pattern"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "technique",
+        "label": "Stutter",
+        "reason": "Add stuttered drum chops for hook energy"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "technique",
+        "label": "Looped Slice",
+        "reason": "Bass created by repeated chopped sample slices"
+      },
+      {
+        "track": "chords",
+        "bar": 33,
+        "type": "technique",
+        "label": "Reverse Chop",
+        "reason": "Use reversed sample slices for dark texture"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "technique",
+        "label": "Glitch Chop",
+        "reason": "FX with glitch-style sample chops at bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "technique",
+        "label": "Gate Chop",
+        "reason": "Gated sample chops for intensity in final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using modern sample chopping",
+    "bass": "deep sub lines from chopped bass samples",
+    "chords": "atmospheric dark chords from reversed samples",
+    "melody": "sparse melodic elements from chopped vocal samples",
+    "vocal": "no vocal content",
+    "fx": "textural effects from glitch and chopped samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create minimal but dynamic drum patterns using modern chopping techniques like slicing, stuttering, gating."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using looped chopped samples that fit a dark club energy vibe."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal atmospheric chords using reversed or heavily chopped samples to maintain dark mood."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic content by chopping vocal or instrumental samples with subtle variation."
+    },
+    "ai_designer": {
+      "brief": "Ensure the overall arrangement maintains minimalism with evolving energy, prioritizing modern sample chopping style."
+    },
+    "presetor": {
+      "brief": "Apply presets that emulate chopped sample processing and dark atmospheric textures."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and energy shaping to fit club environment while maintaining minimalism."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix all channels preserving clarity of chopping detail and dark mood without vocal presence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

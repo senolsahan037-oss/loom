@@ -1,0 +1,273 @@
+{
+  "project": {
+    "name": "Emotional Boom Bap Mainstream",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C Minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": "Sample-based arrangement featuring a textured bed with layered one-shot hits providing dynamic emotional expression following a cinematic rise and fall energy profile. Channel names correspond to sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        },
+        "channel_names": [
+          "slice_kick",
+          "slice_snare",
+          "slice_hat_closed",
+          "slice_hat_open",
+          "slice_clap"
+        ]
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        },
+        "channel_names": [
+          "slice_bass_sample"
+        ]
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 25
+        },
+        "channel_names": [
+          "slice_pad",
+          "slice_keys_texture"
+        ]
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 0
+        },
+        "channel_names": [
+          "one_shot_lead",
+          "one_shot_melody_hit"
+        ]
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        },
+        "channel_names": []
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        },
+        "channel_names": [
+          "slice_risefall_fx",
+          "slice_impact",
+          "one_shot_reverse_hit"
+        ]
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Hook Start",
+        "reason": "Elevate energy with fuller drum hits and intensified one-shot layering."
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "fx_cue",
+        "label": "Bridge FX Rise",
+        "reason": "Introduce risefall FX to highlight emotional shift before final hook."
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "transition",
+        "label": "Outro Start",
+        "reason": "Gradual decrease in drum activity for cinematic fade out."
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "provide the rhythmic foundation with slice-based drum samples and dynamic one-shot hits",
+    "bass": "support groove with sample-based bass layer",
+    "chords": "add harmonic texture with pad and keyboard sample slices",
+    "melody": "offer emotional lead elements using one-shot melody and lead hits",
+    "vocal": "none assigned",
+    "fx": "enhance transitions and dynamics using risefall and impact FX samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create and control drum patterns based on sliced samples, managing energy and texture layers with one-shot hits for emotional dynamic range."
+    },
+    "bass_generator": {
+      "brief": "Generate smooth sample-based bass lines that complement the boom bap groove and support the cinematic energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chordal textures using sample slices to create an emotional and atmospheric background layer."
+    },
+    "melody_generator": {
+      "brief": "Design melodic one-shot hits and lead fragments for emotional expression without using continuous notes."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement pacing and ensure the cinematic rise and fall energy profile is maintained across sections."
+    },
+    "presetor": {
+      "brief": "Manage sample selection and ensure channel naming conventions reflect slicing and one-shot techniques."
+    },
+    "songgps": {
+      "brief": "Guide structural arrangement according to mainstream boom bap form with emotional mood and varying energy levels."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing while preserving the raw dynamic and cinematic energy transitions."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

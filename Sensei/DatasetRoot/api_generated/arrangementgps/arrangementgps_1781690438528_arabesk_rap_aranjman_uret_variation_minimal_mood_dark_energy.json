@@ -1,0 +1,212 @@
+{
+  "project": {
+    "name": "Arabesk Rap",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 120,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      50,
+      70,
+      90,
+      60
+    ],
+    "notes": "Minimal variation arrangement with dark mood and club energy suitable for Arabesk rap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 50
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 45,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 35,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": []
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with minimal variation",
+    "bass": "deep, steady foundation",
+    "chords": "dark harmonic pads emphasizing arabesk influence",
+    "melody": "minimal lead elements with subtle arabesk flavor",
+    "vocal": "rap verses and hooks with dark tone",
+    "fx": "ambient sounds to enhance club energy and tension"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate minimal, dark-themed drum patterns with club energy adapting to section intensities."
+    },
+    "bass_generator": {
+      "brief": "Create a steady, deep bass foundation that supports the dark mood and reflects arabesk style rhythms minimally."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic pad textures with arabesk influence, maintaining minimal variation appropriate for the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop subtle, minimal melodic lines inspired by arabesk motifs suitable for rap delivery."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure ensuring energy profiles align with club energy and dark mood."
+    },
+    "presetor": {
+      "brief": "Apply sound design presets that highlight arabesk elements and club energy while maintaining minimalism."
+    },
+    "songgps": {
+      "brief": "Optimize arrangement transitions and section dynamics focusing on energy modulation in a shared production context."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix strategy focusing on clarity of vocals and balance between minimal elements and dark, club energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "project": {
+    "name": "Trap Cinematic Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "A minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      50,
+      90,
+      85,
+      30
+    ],
+    "notes": "Focus on evolving vocal layers with club energy arrangement. Avoid direct notation of musical elements."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 75,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 35,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entrance",
+        "label": "lead vocals start",
+        "reason": "Introduction of vocal focus"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "beat drop",
+        "reason": "Increase energy to club level"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "variation",
+        "label": "vocal ad-libs",
+        "reason": "Variation emphasizing vocal focus"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "bridge atmosphere",
+        "reason": "Creating cinematic mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "peak",
+        "label": "final hook climax",
+        "reason": "Highest vocal energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "outro drum fade",
+        "reason": "Lower energy to close"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation and club energy enhancer",
+    "bass": "low-end support and groove",
+    "chords": "harmonic background",
+    "melody": "supportive texture",
+    "vocal": "main focus and emotional conveyance",
+    "fx": "atmospheric and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic trap drum patterns that support club energy and enhance transitions."
+    },
+    "bass_generator": {
+      "brief": "Generate bass parts that provide groove and complement vocal intensity."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions that support a cinematic mood without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic elements that enhance texture while maintaining vocal focus."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow emphasizing vocal presence and cinematic energy."
+    },
+    "presetor": {
+      "brief": "Apply presets emphasizing clarity and presence on vocal tracks and punch on drums."
+    },
+    "songgps": {
+      "brief": "Manage arrangement energy curve aligning with club energy profile and cinematic mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio ready for final mixing with vocal prominence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

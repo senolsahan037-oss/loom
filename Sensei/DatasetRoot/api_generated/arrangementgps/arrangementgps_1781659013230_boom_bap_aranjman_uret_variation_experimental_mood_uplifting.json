@@ -1,0 +1,283 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      60,
+      75,
+      55,
+      70,
+      90,
+      80,
+      60,
+      50,
+      40,
+      70,
+      85,
+      95,
+      80,
+      70,
+      60,
+      40,
+      30,
+      20
+    ],
+    "notes": "Arrangement focuses on an experimental boom bap style emphasizing club energy with uplifting mood. Sample layers are labeled according to sample chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 65,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy for hook section"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Elevated energy climax for arrangement"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "effect",
+        "label": "Ambient Intro FX",
+        "reason": "Create atmospheric intro"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "samples": [
+        {
+          "channel_name": "slice_stutter",
+          "description": "Samples chopped using stutter slicing technique"
+        },
+        {
+          "channel_name": "transient_cut",
+          "description": "Samples chopped at transient points"
+        },
+        {
+          "channel_name": "beat_repeat",
+          "description": "Repeated chopped samples arranged rhythmically"
+        },
+        {
+          "channel_name": "reverse_slice",
+          "description": "Samples sliced and reversed"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "style": "Boom Bap with experimental sample chopping",
+    "energy_profile": "club energy",
+    "mood": "uplifting"
+  },
+  "routing_intent": {
+    "sample_layers": [
+      "slice_stutter",
+      "transient_cut",
+      "beat_repeat",
+      "reverse_slice"
+    ],
+    "routing_rules": "Each sample chop technique channel routed to individual stems for mixing clarity."
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone with chopped percussive samples",
+    "bass": "Low-end groove support with sample-based bass textures",
+    "chords": "Harmonic foundation using chopped sample layers",
+    "melody": "Sparse experimental melodic fragments from samples",
+    "vocal": "Hypothetical vocal chops fitting boom bap style",
+    "fx": "Atmospheric and transitional sample-based effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      0
+    ]
+  },
+  "priority": {
+    "drums": 4,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {
+    "goal": "Create an uplifting boom bap beat using experimental chopping techniques focusing on club energy, avoiding melodic or harmonic explicit instructions."
+  },
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns emphasizing chopped samples with experimental techniques for groove and energy."
+    },
+    "bass_generator": {
+      "brief": "Provide rhythmic bass layers derived from sample chops supporting the arrangement's groove."
+    },
+    "harmony_generator": {
+      "brief": "Create chordal textures from chopped sample layers, maintaining boom bap harmonic feel without typical progressions."
+    },
+    "melody_generator": {
+      "brief": "Generate sparse melodic snippets from sample chops serving the uplifting mood without direct melodies."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure ensuring dynamic energy flow and sample chop integration."
+    },
+    "presetor": {
+      "brief": "Apply appropriate processing presets to experimental chopped sample channels."
+    },
+    "songgps": {
+      "brief": "Guide energy curve and section transitions focusing on club energy and uplifting mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels distinctly by sample chop technique, maintaining clarity and energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

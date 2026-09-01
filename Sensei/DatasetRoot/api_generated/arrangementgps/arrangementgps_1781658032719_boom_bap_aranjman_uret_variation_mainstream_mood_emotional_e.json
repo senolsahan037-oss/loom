@@ -1,0 +1,347 @@
+{
+  "project": {
+    "name": "Boom Bap Emotional Club",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      50,
+      40,
+      70,
+      80,
+      60,
+      40,
+      30,
+      20
+    ],
+    "notes": "Arrangement focuses on emotional Boom Bap style with a club energy profile and mainstream variation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 85,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 75,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 65,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 85,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Start of first verse"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Chords emphasize hook"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse begins"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Bridge section with fx"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook intensifies drums"
+      },
+      {
+        "track": "melody",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Melody fades out in outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "samples": [
+        "slice_beat",
+        "chop_kick",
+        "chop_snare"
+      ],
+      "techniques": [
+        "sample_chop",
+        "time_stretch",
+        "layering"
+      ]
+    },
+    "bass": {
+      "samples": [
+        "chop_bass_loop",
+        "filtered_sub"
+      ],
+      "techniques": [
+        "sample_slice",
+        "envelope_mod"
+      ]
+    },
+    "chords": {
+      "samples": [
+        "chop_piano_loop",
+        "filtered_keys"
+      ],
+      "techniques": [
+        "sample_segment",
+        "reverse_chop"
+      ]
+    },
+    "melody": {
+      "samples": [
+        "chop_vocal_melody",
+        "slice_strings"
+      ],
+      "techniques": [
+        "grain_chop",
+        "loop_slice"
+      ]
+    },
+    "vocal": {
+      "samples": [
+        "vocal_chop_1",
+        "slice_adlibs"
+      ],
+      "techniques": [
+        "slice_shuffler",
+        "sample_slice"
+      ]
+    },
+    "fx": {
+      "samples": [
+        "slice_riser",
+        "chop_reverse_fx"
+      ],
+      "techniques": [
+        "loop_slice",
+        "slice_grain"
+      ]
+    }
+  },
+  "sound_intent": {
+    "energy_profile": "club energy",
+    "mood": "emotional",
+    "variation": "mainstream"
+  },
+  "routing_intent": {
+    "drums": "grouped and compressed",
+    "bass": "sidechained to drums",
+    "chords": "moderate reverb send",
+    "melody": "delay and subtle chorus",
+    "vocal": "lead processing with eq and compression",
+    "fx": "stereo widened and automated"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low end groove",
+    "chords": "harmony support",
+    "melody": "instrumental lead",
+    "vocal": "lyrical content",
+    "fx": "transitional and textural effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create a mainstream Boom Bap arrangement with emotional depth and club energy dynamics using sample chop techniques for sampling layers."
+  },
+  "presetor_intent": {
+    "task": "Apply presets that enhance emotional and club vibe, focusing on clarity and punch in drums and bass."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns based on sample chop techniques with dynamic energy suitable for emotional Boom Bap and club energy profile."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using slice and filter sample chop methods to complement the rhythmic groove and emotional mood."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chord samples chopped creatively to support emotional undertones and mainstream Boom Bap style."
+    },
+    "melody_generator": {
+      "brief": "Compose instrumental melodic layers derived from sliced and grain-chopped samples to add emotional expression."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure with focus on energy curve and seamless transitions using sample chopping techniques."
+    },
+    "presetor": {
+      "brief": "Select and modify presets to ensure clarity and emotional club energy across all sample-chopped layers."
+    },
+    "songgps": {
+      "brief": "Guide the song arrangement to maintain emotional mood and club energy while applying mainstream Boom Bap standards."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix the track ensuring drums, bass, chords, melody, vocals, and fx are balanced for club energy and emotional impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

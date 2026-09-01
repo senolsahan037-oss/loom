@@ -1,0 +1,334 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      70,
+      80,
+      90,
+      100,
+      80,
+      70,
+      65,
+      85,
+      75,
+      80,
+      95,
+      90,
+      85,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      40,
+      30,
+      40,
+      60,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      60,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      20,
+      30,
+      45,
+      60,
+      75,
+      80,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 45
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 15,
+          "final_hook": 45,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 75,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of the arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Start",
+        "reason": "Verse section begins"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Start",
+        "reason": "Hook section introduces lift"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse begins"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "start",
+        "label": "Bridge Start",
+        "reason": "Bridge section for variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "start",
+        "label": "Final Hook Start",
+        "reason": "Final hook intensifies"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "start",
+        "label": "Outro Start",
+        "reason": "Conclusion of the arrangement"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone and groove",
+    "bass": "low-end foundation and groove support",
+    "chords": "harmonic texture and emotional atmosphere",
+    "melody": "minimal melodic hooks and motifs",
+    "vocal": "lead vocal performance and rhythmic phrasing",
+    "fx": "transitions and atmosphere enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 4,
+    "vocal": 9,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a minimal West Coast Hip-Hop drum arrangement that supports club energy while maintaining emotional subtlety."
+    },
+    "bass_generator": {
+      "brief": "Create a deep and supportive bassline that complements the drums and enhances the emotional mood with minimal variations."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse harmonic chord structures that reinforce the emotional atmosphere and smooth transitions between sections."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic motifs that add emotional expression without overpowering the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Design an arrangement roadmap balancing emotional mood and club energy with a minimal West Coast Hip-Hop style."
+    },
+    "presetor": {
+      "brief": "Apply appropriate presets to all instrument tracks to emphasize warmth and clarity in a minimal mix."
+    },
+    "songgps": {
+      "brief": "Manage the arrangement flow and ensure energy curve consistency between sections within ArrangementGPS."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing guidelines focused on preserving the emotional essence and club energy dynamic."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

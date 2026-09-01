@@ -1,0 +1,277 @@
+{
+  "project": {
+    "name": "Boom Bap Cinematic Vocal Focus",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      40,
+      75,
+      80,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks; vocal-focused arrangement; sample-based textures, one-shot drum hits layered with a texture bed."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 55,
+          "verse_2": 10,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with strong hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Introduce vocal-focused content"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Maintain vocal focus with sparse verses"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy drops for outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_based": {
+      "texture_bed": {
+        "channels": [
+          "tex1_pad",
+          "tex2_ambience"
+        ]
+      },
+      "one_shot_hits": {
+        "channels": [
+          "kick_one_shot",
+          "snare_one_shot",
+          "hihat_closed_snap"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "sample_layering": {
+      "texture_bed": "ambient sample loops with light processing",
+      "one_shot_hits": "sharp, punchy drum hits for groove"
+    },
+    "arrangement_focus": "vocal driven with cinematic mood and energy variation in hooks"
+  },
+  "routing_intent": {
+    "drums": "sample_one_shots routed to drums bus",
+    "texture_bed": "layered under drums and vocal bus",
+    "vocals": "prioritized routing with slight compression and reverb",
+    "fx": "spatial effects layered on top selectively"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation via one-shot samples",
+    "bass": "low end support",
+    "chords": "sample based harmonic texture",
+    "melody": "minimal instrumental hooks",
+    "vocal": "central expressive element with lead focus",
+    "fx": "ambience and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "highlight vocal presence with clean sparse verses; hooks have full layered energy",
+    "sample_manipulation": "use sample slicing and one-shots for percussive clarity, texture bed for atmosphere"
+  },
+  "presetor_intent": {
+    "produce_clean_transitions": true,
+    "emphasize_vocals_in_mix": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate tight, punchy one-shot drum samples with clear transient attacks fitting boom bap style."
+    },
+    "bass_generator": {
+      "brief": "Create a supportive low-end bassline that complements the sparse verse energy and drives hooks subtly."
+    },
+    "harmony_generator": {
+      "brief": "Design harmonic textures using sample beds to maintain a cinematic feel without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic phrases that act as hooks, using sampled instruments sparingly in hook sections."
+    },
+    "ai_designer": {
+      "brief": "Arrange section energy curves focusing on vocal prominence, spacing verses sparsely, and enriching hooks."
+    },
+    "presetor": {
+      "brief": "Apply effects preserving clarity and space, especially on vocals and one-shot drum hits."
+    },
+    "songgps": {
+      "brief": "Structure the song into defined sections with appropriate energy changes per arrangement guidelines."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix emphasizing vocal presence, clear percussive hits, and smooth transitions between sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "project": {
+    "name": "Phonk Minimal Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      20,
+      15,
+      10,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      5,
+      0,
+      0
+    ],
+    "notes": "Minimal phonk arrangement with layered sample chops including micro chops, phrase chops, reverse chops, vocal chops, and stutter chops. Energy slowly builds over the arrangement to create an uplifting mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "micro_chops",
+        "bar": 9,
+        "type": "cue",
+        "label": "micro chop intro",
+        "reason": "start micro chops sample layer at verse 1"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 25,
+        "type": "cue",
+        "label": "phrase chops peak",
+        "reason": "phrase chops highlight hook section"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 41,
+        "type": "cue",
+        "label": "reverse chops bridge onset",
+        "reason": "reverse chops introduced at verse 2 and bridge"
+      },
+      {
+        "track": "vocal_chops",
+        "bar": 65,
+        "type": "cue",
+        "label": "vocal chops final hook",
+        "reason": "vocal chops accentuate final hook"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 73,
+        "type": "cue",
+        "label": "stutter chops outro fade",
+        "reason": "gradual fade-out with stutter chops"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ],
+    "channels": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ]
+  },
+  "sound_intent": {
+    "arrangement_style": "minimal",
+    "mood": "uplifting",
+    "energy_profile": "slow_build",
+    "sample_layers": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ]
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "micro_chops",
+      "phrase_chops": "phrase_chops",
+      "reverse_chops": "reverse_chops",
+      "vocal_chops": "vocal_chops",
+      "stutter_chops": "stutter_chops"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low frequency support",
+    "chords": "harmonic texture",
+    "melody": "lead phrasing and motifs",
+    "vocal": "vocal chops and samples",
+    "fx": "effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "purpose": "Create a minimalistic phonk track with a slow building energy curve, uplift mood using varied chopping techniques for sample layers"
+  },
+  "presetor_intent": {
+    "focus": "Optimize sound layers for clarity and clean blend of chopping sample techniques"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns fitting slow build minimal phonk arrangement with dynamic accents."
+    },
+    "bass_generator": {
+      "brief": "Create bass textures supporting uplifting slow build energy without overpowering the arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic chord layers with minimal complexity to complement sample chops."
+    },
+    "melody_generator": {
+      "brief": "Develop subtle melodic motifs that integrate with chopped sample textures."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement pacing, section transitions, and ensure energy curve matches intent."
+    },
+    "presetor": {
+      "brief": "Apply presets that highlight sample chop clarity and maintain minimalistic style."
+    },
+    "songgps": {
+      "brief": "Manage arrangement GPS data including section markers, energy curve, and event markers."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix for clean separation of chopping sample layers and preservation of dynamic build."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

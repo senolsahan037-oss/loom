@@ -1,0 +1,270 @@
+{
+  "project": {
+    "name": "Memphis Rap Experimental Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      25,
+      45,
+      65,
+      85,
+      95,
+      85,
+      70,
+      55,
+      40,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Verse 1 start",
+        "reason": "Enter rap vocals"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Hook build-up",
+        "reason": "Energy increase"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "change",
+        "label": "Verse 2 groove",
+        "reason": "Maintain flow variation"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Bridge ambiance",
+        "reason": "Add texture for contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "cue",
+        "label": "Final hook entry",
+        "reason": "Climax of song"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro diminuendo",
+        "reason": "Song wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone",
+    "bass": "rhythmic and harmonic foundation",
+    "chords": "harmonic support",
+    "melody": "lead musical lines",
+    "vocal": "rap vocal delivery",
+    "fx": "ambient and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 85,
+    "chords": 70,
+    "melody": 60,
+    "vocal": 100,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns with experimental rhythmic elements that rise and fall in energy to drive the uplifting mood."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the drums with a cinematic dynamic, supporting the rhythm and mood shifts."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions that enhance the uplifting mood with variations suited for Memphis Rap style."
+    },
+    "melody_generator": {
+      "brief": "Craft melodic motifs that interact emotionally with the arrangement's energy and variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement structure ensuring smooth transitions and appropriate energy flow through sections."
+    },
+    "presetor": {
+      "brief": "Assign suitable sound presets that align with the Memphis Rap genre and the experimental sound profile."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement based on cinematic rise and fall energy profile, ensuring coherence between sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing strategy to preserve dynamic rises and falls, maintaining clarity and impact throughout."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

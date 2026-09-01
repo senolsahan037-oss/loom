@@ -1,0 +1,258 @@
+{
+  "project": {
+    "name": "Arabesk Rap Mainstream Aggressive",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      30,
+      40,
+      80,
+      20
+    ],
+    "notes": "Sparse verses with strong, energetic hooks. Mainstream structure with aggressive mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 85,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Verse 1 Start",
+        "reason": "Sparse aggressive verses begin"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "Strong hook with high energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "verse_start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse with moderate energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 49,
+        "type": "bridge_start",
+        "label": "Bridge Start",
+        "reason": "Transition section"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Start",
+        "reason": "Climactic hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro Start",
+        "reason": "Energy taper and ending"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone, sparse during verses, driving during hooks",
+    "bass": "Supports groove, complements sparse verses and strong hooks",
+    "chords": "Provides harmonic texture, more active in hooks",
+    "melody": "Enhances hooks with strong motifs, minimal in verses",
+    "vocal": "Lead with aggressive delivery, main focus of arrangement",
+    "fx": "Adds atmosphere, accentuates transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum arrangements with sparse, punchy patterns in verses and full, driving beats for hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that provide groove and support sparse verses and strong hooks."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions and textures to add harmonic interest, emphasizing hooks."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic motifs focusing on hooks, minimal melodic movement in verses."
+    },
+    "ai_designer": {
+      "brief": "Overall arrangement design focusing on energy contrast between sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Select and apply mainstream Arabesk Rap sounds and presets fitting aggressive mood."
+    },
+    "songgps": {
+      "brief": "Guide energy curve and section transitions, ensuring smooth dynamic flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix instructions to preserve dynamic integrity between sparse verses and strong hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

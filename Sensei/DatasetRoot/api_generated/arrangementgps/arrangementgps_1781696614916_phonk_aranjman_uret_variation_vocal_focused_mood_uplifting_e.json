@@ -1,0 +1,291 @@
+{
+  "project": {
+    "name": "Phonk Vocal-Focused Uplifting Club Energy",
+    "genre": "Phonk",
+    "subgenre": "Vocal-focused",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      70,
+      90,
+      100,
+      50
+    ],
+    "notes": "Arrangement emphasizes vocal layers with modern sample chopping techniques creating energetic club mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 10,
+          "9": 35,
+          "25": 85,
+          "41": 55,
+          "57": 65,
+          "65": 90,
+          "73": 45
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 15,
+          "9": 30,
+          "25": 75,
+          "41": 50,
+          "57": 60,
+          "65": 85,
+          "73": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 15,
+          "25": 35,
+          "41": 30,
+          "57": 40,
+          "65": 60,
+          "73": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 10,
+          "25": 40,
+          "41": 35,
+          "57": 50,
+          "65": 70,
+          "73": 30
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 5,
+          "9": 50,
+          "25": 90,
+          "41": 70,
+          "57": 75,
+          "65": 95,
+          "73": 45
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "9": 25,
+          "25": 40,
+          "41": 30,
+          "57": 45,
+          "65": 50,
+          "73": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "effect",
+        "label": "Stutter",
+        "reason": "Modern sample chopping technique emphasizing vocal chopping"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "effect",
+        "label": "Reverse Chop",
+        "reason": "Vocal-focused rhythmic variation using sample chopping"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "effect",
+        "label": "Glitch",
+        "reason": "Creative chopping glitch effect to boost energy"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "Chop Layer",
+        "reason": "Sample chopping applied on drum channel for texture"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "effect",
+        "label": "Granular",
+        "reason": "FX channel uses granular sample chopping for atmosphere"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "modern_sample_chopping": true
+    },
+    "channels": {
+      "Chop_Vocal_Stutter": "vocal",
+      "Reverse_Sample_Chop": "vocal",
+      "Glitch_Chop": "vocal",
+      "Drum_Chop_Layer": "drums",
+      "Granular_FX_Chop": "fx"
+    }
+  },
+  "sound_intent": {
+    "style": "modern sample chopping with emphasis on chopped vocal samples to create uplifting and energetic club mood",
+    "energy_profile": "club energy",
+    "mood": "uplifting"
+  },
+  "routing_intent": {
+    "vocal": {
+      "effect_routing": [
+        "stutter",
+        "reverse",
+        "glitch"
+      ]
+    },
+    "drums": {
+      "layering": [
+        "sample chopped layers"
+      ]
+    },
+    "fx": {
+      "processing": [
+        "granular synthesis"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with chopped textures",
+    "bass": "groove support",
+    "chords": "harmonic pad",
+    "melody": "supportive motif",
+    "vocal": "main melodic and rhythmic focus with sample chopping",
+    "fx": "atmospheric texture through chopping techniques"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 60,
+    "chords": 30,
+    "melody": 40,
+    "vocal": 100,
+    "fx": 50
+  },
+  "designer_intent": {
+    "focus": "Showcase chopped vocal samples as primary rhythmic and melodic driver in an uplifting Phonk club track",
+    "techniques": "Modern chopping and glitch effects"
+  },
+  "presetor_intent": {
+    "preset_types": [
+      "vocal chops",
+      "glitch fx",
+      "drum chops"
+    ],
+    "target": "create clear, punchy, modern sample chopped sounds"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns with chopped sample layers and texture variation matching club energy"
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement vocal chops providing groove and energy without overpowering vocals"
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic chord layers that support uplifting mood with subtle dynamics"
+    },
+    "melody_generator": {
+      "brief": "Generate supportive melodic motifs that interplay with vocals without clashing"
+    },
+    "ai_designer": {
+      "brief": "Coordinate vocal chopping techniques focusing on variation and energy curve"
+    },
+    "presetor": {
+      "brief": "Apply modern sample chopping presets to vocal and drum tracks with glitch and stutter effects"
+    },
+    "songgps": {
+      "brief": "Manage section structure and energy shaping to maintain uplifting and club energy dynamics"
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and clean mix ride ensuring vocal chops sit clearly and punchy within club arrangement"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

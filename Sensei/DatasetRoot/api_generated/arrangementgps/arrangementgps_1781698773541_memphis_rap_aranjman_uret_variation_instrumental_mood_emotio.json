@@ -1,0 +1,263 @@
+{
+  "project": {
+    "name": "Memphis Rap Instrumental Emotional Slow Build",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 75,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      55,
+      60,
+      65,
+      70,
+      70,
+      75,
+      80,
+      80,
+      85,
+      90,
+      95,
+      95,
+      100,
+      100
+    ],
+    "notes": "Instrumental arrangement with a slow dynamic build in energy, maintaining emotional vibes typical of Memphis Rap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 65
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "8": 30,
+          "16": 45,
+          "24": 55,
+          "32": 65,
+          "40": 70,
+          "48": 75,
+          "56": 80,
+          "64": 95,
+          "72": 60,
+          "80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 15,
+          "8": 25,
+          "16": 40,
+          "24": 50,
+          "32": 60,
+          "40": 65,
+          "48": 70,
+          "56": 80,
+          "64": 90,
+          "72": 55,
+          "80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 10,
+          "8": 15,
+          "16": 30,
+          "24": 40,
+          "32": 55,
+          "40": 60,
+          "48": 65,
+          "56": 75,
+          "64": 85,
+          "72": 50,
+          "80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "8": 10,
+          "16": 20,
+          "24": 35,
+          "32": 50,
+          "40": 55,
+          "48": 60,
+          "56": 70,
+          "64": 80,
+          "72": 45,
+          "80": 5
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "16": 20,
+          "32": 30,
+          "48": 35,
+          "64": 40,
+          "80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Playback Start",
+        "reason": "Project start"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "introduction",
+        "label": "Bass Enters",
+        "reason": "Build energy during hook"
+      },
+      {
+        "track": "fx",
+        "bar": 56,
+        "type": "effect",
+        "label": "Transition FX",
+        "reason": "Bridge to final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Drums Fade Out",
+        "reason": "Outro section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "provides rhythmic foundation with characteristic Memphis Rap beats",
+    "bass": "supports groove with slow building basslines",
+    "chords": "adds harmonic emotional depth",
+    "melody": "delivers sparse instrumental motifs to enhance emotion",
+    "vocal": "absent due to instrumental variation",
+    "fx": "used sparingly for transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a slow build drum arrangement reflecting Memphis Rap style with rhythmic complexity that grows over time."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement the emotional mood and support the slow build in energy."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic content that maintains emotional tension and progression without chord details."
+    },
+    "melody_generator": {
+      "brief": "Design sparse instrumental melodic elements adding emotional atmosphere without lyrics or explicit melodies."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence ensuring the slow energy build and emotional mood are effectively conveyed."
+    },
+    "presetor": {
+      "brief": "Apply preset configurations suitable for Memphis Rap instrumental emotional slow build arrangements."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement structure and event timing consistency according to ArrangementGPS standards."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mix ready for final processing and mastering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

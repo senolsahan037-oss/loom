@@ -1,0 +1,253 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "F minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      60,
+      70,
+      90,
+      100,
+      80,
+      60,
+      50,
+      40,
+      30,
+      20
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits; focus on cinematic rise and fall in energy; experimental West Coast Hip-Hop style"
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 30,
+          "5": 70,
+          "25": 90,
+          "65": 100,
+          "73": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "9": 50,
+          "25": 80,
+          "41": 60,
+          "65": 90,
+          "73": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 40,
+          "25": 70,
+          "57": 40,
+          "65": 80
+        }
+      },
+      "melody": {
+        "activity": {
+          "25": 70,
+          "41": 50,
+          "65": 90
+        }
+      },
+      "vocal": {
+        "activity": {
+          "9": 40,
+          "25": 85,
+          "41": 50,
+          "65": 95
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 20,
+          "25": 50,
+          "57": 30,
+          "73": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro drums start",
+        "reason": "Establish texture bed with sample chopping"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "fade_in",
+        "label": "Bass enters",
+        "reason": "Introduce emotional depth"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook vocal hits",
+        "reason": "Peak emotional and energy moment"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge FX",
+        "reason": "Experimental sound textures"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "climax",
+        "label": "Final hook drums",
+        "reason": "Maximum energy and cinematic rise"
+      },
+      {
+        "track": "chords",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro chord fade",
+        "reason": "Wind down energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone using sample chopping techniques",
+    "bass": "Emotional support with deep sample-based bassline",
+    "chords": "Texture bed using layered sample textures",
+    "melody": "Sparse melodic one-shot hits",
+    "vocal": "Sampled vocal chops and emotional phrasing",
+    "fx": "Experimental sound design and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      57,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create intricate and experimental drum patterns using sample chopping to build texture and dynamic energy flow."
+    },
+    "bass_generator": {
+      "brief": "Generate emotional, deep bass lines supporting mood, emphasizing cinematic rises and falls in energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce a texture bed with layered chordal samples that complement the emotional tone and support the arrangement's dynamics."
+    },
+    "melody_generator": {
+      "brief": "Incorporate one-shot melodic hits to accentuate key emotional moments, keeping minimal and experimental."
+    },
+    "ai_designer": {
+      "brief": "Design the overall arrangement flow with cinematic rise and fall energy, coordinating lane activities and transitions."
+    },
+    "presetor": {
+      "brief": "Manage presets focused on sample-based sound sources with textures and experimental processing."
+    },
+    "songgps": {
+      "brief": "Provide guidance on section structure, energy curve, and lane activity to realize cinematic and emotional West Coast Hip-Hop style."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix raw channel audio emphasizing clarity of textures, dynamic transitions, and preserving emotional impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

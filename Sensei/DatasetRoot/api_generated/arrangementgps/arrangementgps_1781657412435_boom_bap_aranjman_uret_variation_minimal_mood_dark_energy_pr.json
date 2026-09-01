@@ -1,0 +1,357 @@
+{
+  "project": {
+    "name": "Boom Bap Minimal Dark",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 85,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      90,
+      95,
+      100,
+      100,
+      95,
+      85,
+      80,
+      75,
+      65,
+      60,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      55,
+      60,
+      65,
+      70,
+      70,
+      75,
+      75,
+      80,
+      85,
+      90,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": "Arrangement focuses on minimal variation with dark mood; energy slowly builds throughout."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 35,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drums Start",
+        "reason": "Beginning of the arrangement"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass Enters",
+        "reason": "Build energy in verse"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Chord Progression Hook",
+        "reason": "Hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Vocals Begin Verse 1",
+        "reason": "Main vocal entrance"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Final Hook Vocals",
+        "reason": "Energy peak"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Transition enhancement"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "chopping_techniques": [
+        "slice",
+        "stutter",
+        "reverse_slice",
+        "pitch_shift_slice"
+      ],
+      "channels": [
+        "slice_1",
+        "stutter_1",
+        "reverse_slice_1",
+        "pitch_shift_slice_1"
+      ]
+    }
+  },
+  "sound_intent": {
+    "mood": "dark",
+    "variation": "minimal",
+    "energy_profile": "slow build"
+  },
+  "routing_intent": {
+    "sample_layers_routed_by_chop_technique": true,
+    "channels_named_by_sample_chop_tech": true
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation, groove",
+    "bass": "low end support, groove complement",
+    "chords": "harmonic support",
+    "melody": "atmospheric textures",
+    "vocal": "main vocal content",
+    "fx": "transitions and texture enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus_on_groove": true,
+    "dark_ambience": true,
+    "minimal_variation": true,
+    "slow_energy_build": true
+  },
+  "presetor_intent": {
+    "use_analog_hiphop_presets": true,
+    "clean_mix_targets": true,
+    "focus_on_boom_bap_essence": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create and arrange drum layers emphasizing boom bap groove with minimal variations and sample chop techniques."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the drums and support the dark mood with slow energy build."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal chordal support to enhance dark atmosphere, using harmonic samples appropriately chopped."
+    },
+    "melody_generator": {
+      "brief": "Design subtle atmospheric melodic textures to maintain minimal variation and dark mood."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, ensuring slow energy buildup and minimal variation are maintained."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance boom bap character and clarity while maintaining a dark sound."
+    },
+    "songgps": {
+      "brief": "Generate arrangement energy curve and section transitions aligned with slow build energy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Deliver a clean mix, respecting sample chopping channels routing and maintaining clarity in minimal arrangements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

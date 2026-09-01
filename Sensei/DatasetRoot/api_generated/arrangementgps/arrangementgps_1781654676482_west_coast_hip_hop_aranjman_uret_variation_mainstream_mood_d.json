@@ -1,0 +1,336 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Dark Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      85,
+      100,
+      80,
+      60,
+      40,
+      20,
+      30,
+      55,
+      75,
+      95,
+      70,
+      50,
+      35,
+      25,
+      15,
+      10
+    ],
+    "notes": "Cinematic rise-and-fall dynamic shaping the dark mood of West Coast hip-hop mainstream style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 75,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 15,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy ramp up and main hook entry"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Sustain groove with variation"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Textural shift for contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climactic vocal delivery build"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Gradual energy fall off"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "layers": [
+        {
+          "name": "slicing_chords",
+          "description": "Chords sliced into rhythmic hits"
+        },
+        {
+          "name": "stuttering_loops",
+          "description": "Sample chopped and repeated fragments"
+        },
+        {
+          "name": "granular_resampling",
+          "description": "Granular chops creating texture"
+        }
+      ]
+    },
+    "bass": {
+      "layers": [
+        {
+          "name": "time_stretching",
+          "description": "Bass sample stretched and pitch shifted"
+        },
+        {
+          "name": "reverse_chops",
+          "description": "Samples reversed and clipped"
+        }
+      ]
+    },
+    "chords": {
+      "layers": [
+        {
+          "name": "chop_and_roll",
+          "description": "Rapid chopping and rolled playback of chords"
+        }
+      ]
+    },
+    "melody": {
+      "layers": [
+        {
+          "name": "slice_and_dice",
+          "description": "Melody sliced into small segments for rhythmic variation"
+        }
+      ]
+    },
+    "vocal": {
+      "layers": [
+        {
+          "name": "micro_sample_slices",
+          "description": "Vocal lines chopped into micro samples for effect"
+        }
+      ]
+    },
+    "fx": {
+      "layers": [
+        {
+          "name": "glitch_cutups",
+          "description": "Sampled glitch cuts used as effect elements"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "style": "West Coast Hip-Hop mainstream with dark tonalities and cinematic dynamic shifts",
+    "texture_focus": "Sample chopping and layering with organic rhythmic feel"
+  },
+  "routing_intent": {
+    "group_drums": true,
+    "bass_to_subgroup": true,
+    "effects_to_send": true
+  },
+  "track_roles": {
+    "drums": "main rhythmic driver using chopped sample techniques",
+    "bass": "foundation with sampled and processed bassline chops",
+    "chords": "harmonic support via rhythmic chord chops",
+    "melody": "textural melodic fragments for atmosphere",
+    "vocal": "lyrical and atmospheric vocal sample chops",
+    "fx": "transitional and textural effects with chopped glitch samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      64
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 80,
+    "chords": 70,
+    "melody": 60,
+    "vocal": 85,
+    "fx": 50
+  },
+  "designer_intent": {
+    "goal": "Create a dark, cinematic West Coast Hip-Hop arrangement using mainstream variation emphasizing sample chopping techniques in channel naming."
+  },
+  "presetor_intent": {
+    "apply_preset": "Preset focusing on warm analog textures and crisp dynamics suitable for West Coast Hip-Hop dark moods."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum arrangements using sample chop techniques with dynamic energy profiles fitting cinematic rise and fall."
+    },
+    "bass_generator": {
+      "brief": "Create bass layers using pitch-shifted, time-stretched, and reversed chops for dark atmospheric groove."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chord layers with sliced, rolled, and rhythmically chopped samples to support moody atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Produce textural melodic fragments with sample slicing and dicing techniques without explicit melodies."
+    },
+    "ai_designer": {
+      "brief": "Compose arrangement structure adhering to requested sections and energy curve maintaining dark mainstream West Coast vibe."
+    },
+    "presetor": {
+      "brief": "Apply sound presets targeting cinematic dynamic shaping and warm/smooth tonal balance for the genre."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and energy flow following the cinematic rise and fall profile accurately."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix with clean channel audio ensuring clarity of chopped sample layers and dynamic energy transitions."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

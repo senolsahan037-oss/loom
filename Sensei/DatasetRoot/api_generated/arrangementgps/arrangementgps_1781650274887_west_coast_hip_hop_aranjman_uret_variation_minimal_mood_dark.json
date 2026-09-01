@@ -1,0 +1,326 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Dark Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 60,
+          "41-56": 50,
+          "57-64": 20,
+          "65-72": 70,
+          "73-80": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 30,
+          "25-40": 50,
+          "41-56": 40,
+          "57-64": 15,
+          "65-72": 55,
+          "73-80": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 10,
+          "25-40": 30,
+          "41-56": 20,
+          "57-64": 5,
+          "65-72": 35,
+          "73-80": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 5,
+          "25-40": 15,
+          "41-56": 10,
+          "57-64": 5,
+          "65-72": 15,
+          "73-80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 20,
+          "25-40": 40,
+          "41-56": 30,
+          "57-64": 10,
+          "65-72": 45,
+          "73-80": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 10,
+          "25-40": 15,
+          "41-56": 10,
+          "57-64": 5,
+          "65-72": 15,
+          "73-80": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of track"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Start",
+        "reason": "Vocals enter"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Start",
+        "reason": "Chorus begins"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse begins"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "start",
+        "label": "Bridge Start",
+        "reason": "Transition section"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "start",
+        "label": "Final Hook Start",
+        "reason": "Final chorus"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "start",
+        "label": "Outro Start",
+        "reason": "Track winding down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low frequency groove",
+    "chords": "harmonic support",
+    "melody": "subtle melodic elements",
+    "vocal": "main lyrical delivery",
+    "fx": "atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal yet groovy drum arrangement that grows slowly in intensity suited for West Coast Hip-Hop."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, subtle bassline that supports a slow energy build, matching the dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chordal backing with minimal harmonic movement to maintain a dark and minimal atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Add occasional subtle melodic motifs that complement the slow build and dark aesthetic without overcrowding."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring minimalism and slow energy progression with dark mood consistency."
+    },
+    "presetor": {
+      "brief": "Configure sound presets that emphasize dark timbres and provide clarity in a minimal mix."
+    },
+    "songgps": {
+      "brief": "Manage the overall energy curve and ensure arrangement meets the slow build and minimalism criteria."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings for unprocessed channel audio focusing on clarity and maintaining dark ambiance."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

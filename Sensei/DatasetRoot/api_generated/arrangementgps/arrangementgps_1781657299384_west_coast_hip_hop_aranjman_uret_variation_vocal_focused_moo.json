@@ -1,0 +1,238 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Vocal-Focused Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": "Slow build arrangement with emphasis on vocal layers and modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 25,
+          "9": 50,
+          "25": 70,
+          "41": 60,
+          "57": 40,
+          "65": 80,
+          "73": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 15,
+          "9": 35,
+          "25": 55,
+          "41": 50,
+          "57": 45,
+          "65": 65,
+          "73": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 10,
+          "9": 30,
+          "25": 50,
+          "41": 40,
+          "57": 35,
+          "65": 60,
+          "73": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "9": 20,
+          "25": 40,
+          "41": 35,
+          "57": 30,
+          "65": 50,
+          "73": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 40,
+          "9": 70,
+          "25": 90,
+          "41": 80,
+          "57": 60,
+          "65": 95,
+          "73": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 15,
+          "25": 20,
+          "41": 25,
+          "57": 10,
+          "65": 15,
+          "73": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begins",
+        "reason": "Main vocal hook section onset"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final Hook",
+        "reason": "Climax of the song with vocal focus"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "drum_rise",
+        "label": "Drum Build Up",
+        "reason": "Energy build in drums starting verse 1"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Provide rhythmic foundation with modern sample chopping style",
+    "bass": "Create a low-end groove complementing the drums",
+    "chords": "Support harmonic structure with minimal texture",
+    "melody": "Enhance mood subtly under vocal prominence",
+    "vocal": "Lead element focusing on uplifting and clear delivery",
+    "fx": "Add transitional effects and depth"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using modern sample chopping techniques with slow build energy across sections."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that support the groove and enhance the slow build and uplifting mood."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse chord textures that complement the vocal and maintain uplifting atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Generate subtle melodic elements that support the vocal lead and overall arrangement energy."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the arrangement structure focusing on vocal prominence and energy progression."
+    },
+    "presetor": {
+      "brief": "Apply appropriate presets emphasizing sample chopping styles on relevant channels."
+    },
+    "songgps": {
+      "brief": "Manage scene and section transitions ensuring slow energy build and uplifting mood flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to highlight vocals and maintain clarity of chopped samples."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

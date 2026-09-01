@@ -1,0 +1,253 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": "Sample-based arrangement with a texture bed and one-shot hits emphasizing cinematic rise and fall energy dynamic."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 15,
+          "final_hook": 50,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 45
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Transition to main beat with one-shot hit sample slicing"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Texture bed intensifies with stretched sample layers"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Effect Layer",
+        "reason": "Ambient texture shift using chopped sample FX"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Energy peak with punchy one-shot hits and sample breaks"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy drop with minimal drum samples"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Sample sliced breaks and one-shot hits providing rhythmic backbone",
+    "bass": "Subtle sample-based bass lines supporting groove",
+    "chords": "Texture bed created from layered chopped harmonic samples",
+    "melody": "Sparse one-shot melodic hits",
+    "vocal": "Sampled vocal chops and hooks without full vocals",
+    "fx": "Ambient and transitional effects via sample slicing techniques"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 1,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a dynamic drum pattern using sample slicing and one-shot hits following a cinematic energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create a subtle bassline with sampled textures that complement the drum pattern and maintain groove in a cinematic mood."
+    },
+    "harmony_generator": {
+      "brief": "Produce layered chord textures using chopped and processed samples to support the cinematic atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic interest with sparse one-shot sampled melodic hits aligned with the energy profile."
+    },
+    "ai_designer": {
+      "brief": "Arrange the sections with smooth cinematic rise and fall, focusing on sample-based textures and impactful one-shot hits."
+    },
+    "presetor": {
+      "brief": "Apply preset sample slicing techniques and effects to the arrangement ensuring clarity and cinematic feel."
+    },
+    "songgps": {
+      "brief": "Oversee arrangement flow, balancing energy and mood through section transitions using sample layering and hits."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix the unprocessed channel audio, emphasizing clarity of sample layers and maintaining the cinematic rise and fall dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

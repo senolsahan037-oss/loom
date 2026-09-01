@@ -1,0 +1,261 @@
+{
+  "project": {
+    "name": "Trip Hop Dark Vocal Hook",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 85,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      40,
+      60,
+      80,
+      50,
+      20
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits, vocal focus, hook-heavy energy profile."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 75,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 45,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Main Vocal Hook",
+        "reason": "Hook-heavy energy profile"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro Drums Texture Bed",
+        "reason": "Sample-based texture bed start"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "bridge_transition",
+        "label": "Bridge FX Shift",
+        "reason": "Mood shift in bridge"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "texture_bed": {
+        "description": "Continuous ambient sample textures to fill space"
+      },
+      "one_shot_hits": {
+        "description": "Sample sliced hits timed for rhythmic accent"
+      }
+    }
+  },
+  "sound_intent": {
+    "focus": "Vocal dominant with dark moody textures",
+    "energy": "Hook-heavy with dynamic peaks in hooks",
+    "texture": "Sample-based with layered slicing techniques"
+  },
+  "routing_intent": {
+    "drums": "Processed to highlight one-shot hits with minimal reverb",
+    "vocal": "Front and center with clear presence and dry signal",
+    "fx": "Subtle enhancement of dark textures"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation via sample slicing",
+    "bass": "low end support with subtle groove",
+    "chords": "harmonic texture from sample layers",
+    "melody": "minimal melodic accents via samples",
+    "vocal": "lead hook and lyrical focus",
+    "fx": "ambient and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      15,
+      39,
+      55
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "emphasize_vocal": "Keep vocals prominent in hooks with supportive samples",
+    "use_sample_slicing": "Channels named after slicing techniques to reflect production style"
+  },
+  "presetor_intent": {
+    "preset_selection": "Choose dark ambient and vocal focused presets"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a rhythmic foundation using sample slicing techniques emphasizing one-shot hits with varied texture layers."
+    },
+    "bass_generator": {
+      "brief": "Generate a subtle bass groove supporting the dark mood without overpowering the vocals."
+    },
+    "harmony_generator": {
+      "brief": "Add harmonic textures through sampled chord layers to fill out the arrangement in support of vocals."
+    },
+    "melody_generator": {
+      "brief": "Introduce minimal sample-based melodic accents to complement vocal hooks without competing."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement elements ensuring vocal focus and dynamic energy curve highlighting hooks."
+    },
+    "presetor": {
+      "brief": "Select presets emphasizing dark textures and vocal clarity in sample layers."
+    },
+    "songgps": {
+      "brief": "Plan and optimize arrangement structure focusing on energy flow and hook prominence."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio to maintain clarity between textured samples and vocals, respecting routing intent."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement",
+    "genre": "Rap",
+    "subgenre": "Arabesk",
+    "bpm": 95,
+    "key": "D minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      20,
+      40,
+      55,
+      75,
+      90,
+      100,
+      80,
+      60,
+      50,
+      40,
+      30,
+      50,
+      70,
+      85,
+      100,
+      95,
+      80,
+      65,
+      50,
+      30,
+      20,
+      10,
+      40,
+      60,
+      80,
+      100,
+      90,
+      75,
+      60,
+      50,
+      40,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      55,
+      40,
+      30,
+      20,
+      10,
+      15,
+      25,
+      45,
+      65,
+      80,
+      95,
+      100,
+      90,
+      70,
+      55,
+      40,
+      30,
+      20,
+      10,
+      15,
+      25,
+      45,
+      65,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 55
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 45
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 55,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 45,
+          "final_hook": 95,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 85,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 45,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introducing chorus with heightened energy"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Energy dip for contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final chorus with max energy"
+      },
+      {
+        "track": "drums",
+        "bar": 77,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Gradual energy release"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with strong percussion emphasizing aggressive mood",
+    "bass": "Supportive rhythmic and harmonic foundation with Arabic tonal character",
+    "chords": "Carry harmonic texture with mainstream Arabesk influences",
+    "melody": "Expressive lead with emotional, cinematic phrasing",
+    "vocal": "Aggressive rap verses and powerful hook delivery",
+    "fx": "Atmospheric elements enhancing cinematic rise and fall"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      2,
+      78,
+      79
+    ]
+  },
+  "priority": {
+    "drums": 9,
+    "bass": 8,
+    "chords": 7,
+    "melody": 9,
+    "vocal": 10,
+    "fx": 6
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create an aggressive, cinematic drum arrangement that supports the dynamic energy curve and emphasizes the rap and Arabesk fusion style."
+    },
+    "bass_generator": {
+      "brief": "Generate bass patterns that highlight both rhythmic drive and traditional Arabesk harmonic elements while following the energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord progressions and harmonic textures that fit the mainstream Arabesk and rap fusion, adapting to the cinematic mood changes."
+    },
+    "melody_generator": {
+      "brief": "Produce expressive melodic lines that reflect the aggressive mood and cinematic rise and fall characteristic without specifying exact notes."
+    },
+    "ai_designer": {
+      "brief": "Integrate all arrangement elements cohesively respecting the energy curve and section transitions with mainstream Arabesk rap style."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance the aggressive and cinematic qualities, ensuring clean and balanced sound suitable for mainstream Arabesk rap production."
+    },
+    "songgps": {
+      "brief": "Manage arrangement flow and ensure the energy dynamics adhere to a cinematic rise and fall pattern over 80 bars."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mix targets for mastering, maintaining clarity between drums, bass, melody, vocals, and effects."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

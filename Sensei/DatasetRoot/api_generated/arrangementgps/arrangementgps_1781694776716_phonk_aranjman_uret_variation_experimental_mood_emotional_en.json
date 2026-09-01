@@ -1,0 +1,287 @@
+{
+  "project": {
+    "name": "Phonk Experimental Emotional",
+    "genre": "Phonk",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      45,
+      70,
+      90,
+      60,
+      40,
+      20,
+      25,
+      35,
+      60,
+      90,
+      95,
+      70,
+      50,
+      30,
+      25,
+      20
+    ],
+    "notes": "Arrangement follows a cinematic rise and fall energy profile with emotional intent."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "chords",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 start",
+        "reason": "Begin Verse 1 with sample chop pads"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook start",
+        "reason": "Energy rises to hook with sliced drum samples"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge start",
+        "reason": "Introduce experimental glitch chop fx"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Peak cinematic emotional melody with granular chops"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro start",
+        "reason": "Energy drops, return to sparse rhythmic chops"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": [
+      "slice_tempo",
+      "granular_chop",
+      "reverse_slice",
+      "stutter_cut",
+      "glitch_segment",
+      "loop_slice"
+    ],
+    "channel_names": [
+      "slice_tempo_drums",
+      "granular_chop_bass",
+      "reverse_slice_chords",
+      "stutter_cut_melody",
+      "glitch_segment_fx",
+      "loop_slice_vocals"
+    ]
+  },
+  "sound_intent": {
+    "description": "Create a Phonk arrangement with experimental variations emphasizing emotional mood and a cinematic rise and fall in energy using sample chopping techniques for channel naming."
+  },
+  "routing_intent": {
+    "description": "Route channels according to sample chopping techniques to maintain clarity and experimental sound texture differentiation."
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using tempo-synced slice chops",
+    "bass": "granular chopped bassline providing depth",
+    "chords": "reverse slice pad textures for atmosphere",
+    "melody": "stutter cut melodic motifs",
+    "vocal": "loop sliced vocal chops for emotional expression",
+    "fx": "glitch segment effects for experimental accents"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {
+    "goals": "Design emotional progression and cinematic dynamics with clear sample chopping technique representation in channel structure."
+  },
+  "presetor_intent": {
+    "goals": "Apply presets enhancing the experimental texture and dynamic movement without compromising clarity."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum patterns using slice_tempo chops for varied rhythmic interest and a cinematic energy curve."
+    },
+    "bass_generator": {
+      "brief": "Craft deep, granular chop-based basslines that support emotional flow and complement the arrangement's rise and fall."
+    },
+    "harmony_generator": {
+      "brief": "Lay down chord progressions using reverse_slice techniques to provide atmospheric and experimental textures."
+    },
+    "melody_generator": {
+      "brief": "Create stutter cut melodic fragments that build emotional intensity aligned with the cinematic energy profile."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the overall arrangement to ensure smooth energy transitions and maintain emotional impact using sample chopping techniques."
+    },
+    "presetor": {
+      "brief": "Select and apply presets that emphasize experimental textures and cinematic dynamics without muddying the mix."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement structure, including section transitions and energy management, reflecting the cinematic rise and fall mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing with clear separation of sample chop technique channels."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

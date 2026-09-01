@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-producer.local/schemas/dataset-release.v1.json",
+  "title": "AI Producer Shared Dataset Release",
+  "type": "object",
+  "required": ["schema_version", "release_id", "generated_at", "policy", "collections"],
+  "properties": {
+    "schema_version": {"const": "ai-producer.dataset-release.v1"},
+    "release_id": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "policy": {
+      "type": "object",
+      "required": ["consumers_are_read_only", "verify_hashes_before_generation"],
+      "properties": {
+        "consumers_are_read_only": {"const": true},
+        "verify_hashes_before_generation": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "collections": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["path", "format", "status"],
+        "properties": {
+          "path": {"type": "string"},
+          "format": {"enum": ["json", "jsonl", "directory"]},
+          "status": {"enum": ["locked", "legacy"]},
+          "bytes": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "records": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

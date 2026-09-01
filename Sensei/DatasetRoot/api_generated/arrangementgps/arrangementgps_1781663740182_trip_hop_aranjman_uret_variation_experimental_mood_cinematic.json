@@ -1,0 +1,282 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Cinematic",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 80,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": "Trip Hop style with slow build energy profile emphasizing cinematic mood using sample-based textures and one-shot hits with sample slicing channel naming."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 50,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 70,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 25,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 35,
+          "verse_1": 40,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 60,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning with texture bed using sliced sample layers"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with one-shot hit samples"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Introduce experimental sound effects layer"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy tapering with fading textures"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "texture_bed": {
+        "channels": [
+          "slice_01",
+          "slice_02",
+          "slice_03",
+          "slice_04"
+        ]
+      },
+      "one_shot_hits": {
+        "channels": [
+          "hit_01",
+          "hit_02",
+          "hit_03"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "ambient and evolving pad with sample slicing technique applied",
+    "one_shot_hits": "sharp, clear percussive hits layered to build energy",
+    "mood_target": "cinematic with experimental flavor and slow energy build"
+  },
+  "routing_intent": {
+    "channels": {
+      "slice_01": "effects_bus_reverb",
+      "slice_02": "effects_bus_delay",
+      "slice_03": "dry",
+      "slice_04": "dry",
+      "hit_01": "dry",
+      "hit_02": "effects_bus_distortion",
+      "hit_03": "dry"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone using one-shot hit samples with slicing techniques",
+    "bass": "subtle low-end to support slow build energy",
+    "chords": "ambient texture bed from sliced sample pads",
+    "melody": "minimal melodic elements via sampled one-shots",
+    "vocal": "sparse vocal samples for atmospheric effect",
+    "fx": "experimental FX samples enhancing cinematic mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 3,
+    "melody": 1,
+    "vocal": 1,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goal": "Create an experimental trip hop arrangement with cinematic atmosphere and slow energy build using sample-based layered textures and one-shot hits named after sample slicing techniques."
+  },
+  "presetor_intent": {
+    "goal": "Use preset chains optimized for sample-based textures and percussive one-shots with ambient cinematic effects."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns with one-shot hits emphasizing dynamics and gradual energy increase fitting slow build and cinematic mood."
+    },
+    "bass_generator": {
+      "brief": "Produce subtle bass rhythms supporting slow build without overpowering the texture bed."
+    },
+    "harmony_generator": {
+      "brief": "Create chord layers from sampled pads sliced into texture beds enhancing cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Provide minimal melodic content using sparse one-shot samples maintaining ambient and experimental style."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring slow build energy curve and smooth transitions between sections."
+    },
+    "presetor": {
+      "brief": "Apply suitable presets to layered samples for cinematic and experimental sound textures."
+    },
+    "songgps": {
+      "brief": "Coordinate section structure abiding by arrangement GPS standards and ensure correct energy curve representation."
+    },
+    "ai_mixmaster": {
+      "brief": "Focus on preserving raw sample texture clarity and apply spatial effects without compromising slow build energy flow."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

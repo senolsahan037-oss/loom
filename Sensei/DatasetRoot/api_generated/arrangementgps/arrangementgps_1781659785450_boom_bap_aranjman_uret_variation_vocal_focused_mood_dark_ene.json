@@ -1,0 +1,282 @@
+{
+  "project": {
+    "name": "Boom Bap Dark Vocal Focus",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      60,
+      45,
+      70,
+      40,
+      85,
+      30,
+      90,
+      40,
+      70,
+      50,
+      80,
+      55,
+      95,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile with strong vocal focus and dark, moody atmosphere."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 45,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 65,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Introduction",
+        "reason": "Start of vocal-focused hook to heighten energy"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_change",
+        "label": "Verse 2 Start",
+        "reason": "Transition with drum variations using sample chopping"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "bridge_effect",
+        "label": "Bridge Atmosphere",
+        "reason": "FX layers using glitch and granular chops enhance dark mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Entry",
+        "reason": "Maximum vocal presence and energy peak"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "chopped_samples": {
+        "description": "Sample chopping techniques used to create rhythm and texture",
+        "channels": [
+          "slice_loop",
+          "stutter_repeat",
+          "reverse_slice",
+          "granular_chop",
+          "glitch_cut"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "description": "A dark boom bap arrangement with vocal focus. Energy rises and falls dynamically creating a cinematic feel.",
+    "key_elements": [
+      "vocal prominence",
+      "sample chop drums",
+      "cinematic energy shaping",
+      "deep bass textures"
+    ]
+  },
+  "routing_intent": {
+    "routing_guide": "Separate vocal channel with processing bus. Drum chops routed to percussion bus with flexible sample slice control.",
+    "notes": "FX routed to send/return for atmospheric layering."
+  },
+  "track_roles": {
+    "drums": "rhythmic pulse emphasizing chopped sample slices",
+    "bass": "foundation and groove support with dark tone",
+    "chords": "atmospheric harmonic texture using chopped sample pads",
+    "melody": "minimal supporting motifs with sample-based sounds",
+    "vocal": "lead focus, main expressive element",
+    "fx": "atmospheric enhancements and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48,
+      64
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "create a brooding boom bap structure with evolving cinematic dynamics centered on the vocal delivery",
+    "arrangement_style": "dynamic energy variation with chopped sample usage"
+  },
+  "presetor_intent": {
+    "goal": "apply preset chains emphasizing dark warmth and clarity for vocals and drum chops"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum arrangements using sample chopping techniques including slice loops, stutters, and glitches to maintain boom bap rhythm."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines complementing the dark mood with controlled movement to support the vocal focus without competing."
+    },
+    "harmony_generator": {
+      "brief": "Add harmonic textures using chopped sample pads and chords that reinforce the cinematic dark mood."
+    },
+    "melody_generator": {
+      "brief": "Construct subtle melodic motifs with sampled sounds that complement vocals without overshadowing."
+    },
+    "ai_designer": {
+      "brief": "Shape overall arrangement curve focusing on vocal prominence and cinematic energy rise and fall."
+    },
+    "presetor": {
+      "brief": "Apply vocal clarity and warmth presets; apply dynamic processing on drum chops and bass for coherence."
+    },
+    "songgps": {
+      "brief": "Maintain structure, section IDs, and energy curve consistency with proper lane activity balancing."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixes ensuring unprocessed channel audio delivery, focus on preserving dynamics for cinematic impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

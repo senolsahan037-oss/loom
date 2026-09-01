@@ -1,0 +1,291 @@
+{
+  "project": {
+    "name": "Boom Bap Mainstream Uplifting",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      90,
+      30
+    ],
+    "notes": "Sparse verses with strong hooks to maintain an uplifting atmosphere in mainstream boom bap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 90,
+          "verse_2": 10,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 100,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "verse_1",
+        "reason": "Sparse verse section begins"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook",
+        "reason": "Strong hook starts with energetic vocals"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "verse_2",
+        "reason": "Second verse with sparse vocal energy"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "section_start",
+        "label": "bridge",
+        "reason": "Bridge introduces harmonic variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "final_hook",
+        "reason": "Final hook with maximal energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "outro",
+        "reason": "Energy winds down to outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "chop_layers": {
+        "slicer": {
+          "description": "Channels named by sample slicing technique"
+        },
+        "stutter": {
+          "description": "Channels using stutter chops"
+        },
+        "reverse": {
+          "description": "Channels with reversed sample chops"
+        }
+      }
+    }
+  },
+  "sound_intent": {
+    "overall": "Uplifting boom bap with a clean, spacious groove emphasizing sample chop techniques in layers.",
+    "drums": "Punchy but sparse drum hits focusing on clear rhythmic placement in verses with fuller presence in hooks.",
+    "bass": "Warm and supportive bass lines that enhance hooks and remain minimal during verses.",
+    "chords": "Subtle chord chops enhancing texture, especially in hooks and bridge sections.",
+    "melody": "Bright melodic chops appearing mainly in hooks to lift mood without cluttering verses.",
+    "vocal": "Sparse vocal elements in verses building to strong, engaging hooks.",
+    "fx": "Light, tasteful effects emphasizing transitions between sections."
+  },
+  "routing_intent": {
+    "drums": "Separate channel for sliced drum samples routed through dedicated compression and saturation nodes.",
+    "bass": "Clean routing to bass bus with EQ emphasizing low mids.",
+    "chords": "Multi-channel routing for different chord chops allowing for dynamic control.",
+    "melody": "Layered routing with automation on effects levels for hooks to increase energy.",
+    "vocal": "Dry signal channel with parallel effects chain for vocal hooks.",
+    "fx": "Send-return configuration for global effects with selective routing."
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation and groove definition",
+    "bass": "harmonic support and groove reinforcement",
+    "chords": "harmonic texture and mood enhancement",
+    "melody": "melodic hooks and emotional lift",
+    "vocal": "lyrical delivery and thematic emphasis",
+    "fx": "transitional and atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "emphasis": "Maintain clear contrast between sparse verses and powerful hook sections with sample chop layers to reinforce boom bap style."
+  },
+  "presetor_intent": {
+    "goal": "Use presets emphasizing punch, clarity, and warmth to fit the boom bap mainstream uplifting style and energy profile."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that are sparse during verses and punchy with swing during hooks, emphasizing sample slicing techniques."
+    },
+    "bass_generator": {
+      "brief": "Create bass parts that support groove subtly in verses and intensify during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord chops and harmonic progressions that uplift the mood, using sample slicing for texture."
+    },
+    "melody_generator": {
+      "brief": "Design melodic hooks that stand out in hooks sections, using chopped sample layers for phrasing."
+    },
+    "ai_designer": {
+      "brief": "Ensure arrangement dynamics flow with energy shifts between verses and hooks, keeping sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Select and tweak presets to complement boom bap sample chops, focusing on uplifting tonal characteristics and clarity."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement energy profile and section transitions to maintain coherence and uplifting atmosphere."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels preserving sample chop articulation, balancing sparse verses with energetic hooks seamlessly."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

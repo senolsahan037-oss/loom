@@ -1,0 +1,315 @@
+{
+  "project": {
+    "name": "Emotional Trap Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 75,
+    "key": "Dm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      85,
+      100,
+      90,
+      80,
+      70,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      70,
+      75,
+      85,
+      90,
+      100,
+      95,
+      90,
+      85,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 35
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 40,
+          "25-40": 80,
+          "41-56": 50,
+          "57-64": 30,
+          "65-72": 90,
+          "73-80": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 35,
+          "25-40": 75,
+          "41-56": 45,
+          "57-64": 25,
+          "65-72": 85,
+          "73-80": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 70,
+          "41-56": 40,
+          "57-64": 20,
+          "65-72": 80,
+          "73-80": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 10,
+          "25-40": 60,
+          "41-56": 35,
+          "57-64": 15,
+          "65-72": 75,
+          "73-80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 15,
+          "25-40": 40,
+          "41-56": 20,
+          "57-64": 10,
+          "65-72": 45,
+          "73-80": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drum Fade In",
+        "reason": "Smooth introduction with subtle percussive elements"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "intensity_increase",
+        "label": "Bass Build",
+        "reason": "Increase energy for hook section with deeper bass"
+      },
+      {
+        "track": "chords",
+        "bar": 41,
+        "type": "texture_change",
+        "label": "Chord Simplification",
+        "reason": "Reduce chord activity to support vocal lead in verse 2"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook FX",
+        "reason": "Add effects to elevate final hook energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro Drum Fade",
+        "reason": "Gradual reduction in drum presence for outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with trap hi-hats and snare rolls",
+    "bass": "deep 808 bass underpinning the groove",
+    "chords": "emotional pad chords creating atmosphere",
+    "melody": "sparse emotive motifs emphasizing mood",
+    "vocal": "none - instrumental only",
+    "fx": "textural elements to enhance transitions and build tension"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design a drum pattern that starts subtle and builds gradually in energy, incorporating trap-style hi-hats and snare rolls to complement the emotional mood."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, punchy 808 bassline that increases intensity during hook sections and supports the slow build energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Create atmospheric chord progressions using pad sounds that convey an emotional tone and evolve subtly throughout the track."
+    },
+    "melody_generator": {
+      "brief": "Develop sparse instrumental melodic motifs that emphasize emotional expression without overpowering the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Integrate arrangements with a smooth slow build energy curve, ensuring variation in sections and appropriate layering of elements."
+    },
+    "presetor": {
+      "brief": "Apply preset sounds that fit the emotional trap instrumental theme, focusing on warm pads and punchy bass presets."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement structure, energy flow, and section transitions to maintain cohesion with the emotional slow build trap instrumental."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixdown, ensuring clarity and dynamic range suitable for slow build emotional trap arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

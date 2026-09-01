@@ -1,0 +1,316 @@
+{
+  "project": {
+    "name": "Arabesk Rap Instrumental",
+    "genre": "Rap",
+    "subgenre": "Arabesk",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      20,
+      10,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      10,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      10,
+      20,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      10,
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      20,
+      10,
+      20,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      10,
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      20,
+      10,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      10,
+      20,
+      40,
+      60,
+      80,
+      60,
+      40,
+      20,
+      10,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro starts",
+        "reason": "Energy set low to build atmosphere"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Hook begins",
+        "reason": "Energy peak for cinematic rise"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "intensify",
+        "label": "Final Hook peak",
+        "reason": "Maximum energy moment"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro fades",
+        "reason": "Energy descent to close track"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with cinematic dynamics",
+    "bass": "Provides dark tonal foundation",
+    "chords": "Harmonic support with emotional depth",
+    "melody": "Sparse instrumental motifs for atmosphere",
+    "vocal": "None - instrumental variation",
+    "fx": "Adds cinematic and dark textures"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 3,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum pattern with cinematic dynamics that builds and falls in energy matching the arrangement's dark mood."
+    },
+    "bass_generator": {
+      "brief": "Generate a bass line that supports a dark, cinematic feel without dominating the mix."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures that enhance the dark mood and complement the Arabesk Rap style."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic motifs that contribute to the dark atmosphere without being intrusive."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement elements to realize the cinematic rise and fall energy profile in an instrumental Arabesk Rap context."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize a dark cinematic tone across instruments."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement structure matches defined sections and energy profile with no melody or harmony note data."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the unprocessed track stems for mixdown focusing on clarity and balance befitting the dark instrumental vibe."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "project": {
+    "name": "Drill Experimental Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      30,
+      40,
+      55,
+      65,
+      75,
+      80,
+      85,
+      90,
+      93,
+      95,
+      97,
+      99,
+      100,
+      100,
+      98,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      5,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      100,
+      100,
+      95,
+      90,
+      80
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 70,
+          "25-40": 100,
+          "41-56": 75,
+          "57-64": 65,
+          "65-72": 95,
+          "73-80": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 60,
+          "25-40": 90,
+          "41-56": 70,
+          "57-64": 50,
+          "65-72": 85,
+          "73-80": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 40,
+          "57-64": 30,
+          "65-72": 50,
+          "73-80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 70,
+          "41-56": 50,
+          "57-64": 40,
+          "65-72": 65,
+          "73-80": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 80,
+          "25-40": 100,
+          "41-56": 85,
+          "57-64": 60,
+          "65-72": 90,
+          "73-80": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 20,
+          "25-40": 50,
+          "41-56": 35,
+          "57-64": 40,
+          "65-72": 55,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "soft_intro_hit",
+        "reason": "build tension slowly"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "verse_1_entrance",
+        "reason": "start aggressive vocals"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "transition",
+        "label": "hook_rise",
+        "reason": "elevate energy for hook"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "dynamic_change",
+        "label": "verse_2_drop",
+        "reason": "drop energy for contrast"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "bridge_entry",
+        "label": "bridge_texture",
+        "reason": "add harmonic complexity"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "motif_return",
+        "reason": "heighten listener engagement"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_fade",
+        "label": "reduce_intensity",
+        "reason": "gradual calming"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation, aggressive groove",
+    "bass": "low-end support, maintaining slow build energy",
+    "chords": "harmonic texture, subtle support",
+    "melody": "accentuating dynamics and motifs",
+    "vocal": "lead aggressive verses and hooks",
+    "fx": "transitional and atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create an aggressive yet slow-build drum arrangement typical for drill, focusing on rhythmic variation without overwhelming energy."
+    },
+    "bass_generator": {
+      "brief": "Produce bass patterns that support the slow build energy profile and contribute to the aggressive mood without becoming too dense."
+    },
+    "harmony_generator": {
+      "brief": "Generate subtle harmonic textures and chord pads that enhance tension and mood without dominating the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic accents and motifs that build slowly and fit the experimental variation style, complementing vocal and rhythmic elements."
+    },
+    "ai_designer": {
+      "brief": "Oversee the overall arrangement flow ensuring energy rises gradually and matches the aggressive mood and experimental drill style."
+    },
+    "presetor": {
+      "brief": "Apply appropriate production presets emphasizing clarity, aggression, and space conducive to drill’s slow build energy."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and energy curve to maintain coherent flow from intro to outro with appropriate emphasis on hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel stems ensuring clarity and separation for later mixing while preserving arrangement dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

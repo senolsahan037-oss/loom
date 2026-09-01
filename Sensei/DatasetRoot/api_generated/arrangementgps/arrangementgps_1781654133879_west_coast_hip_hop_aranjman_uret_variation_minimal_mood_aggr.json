@@ -1,0 +1,266 @@
+{
+  "project": {
+    "name": "West Coast Aggro Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      80,
+      10
+    ],
+    "notes": "Sample-based arrangement using texture beds and one-shot hits with minimal variations emphasizing a hook-heavy energy profile."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 35,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 35,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook",
+        "reason": "Start of the high-energy hook section with prominent vocal lines"
+      },
+      {
+        "track": "drums",
+        "bar": 40,
+        "type": "drop",
+        "label": "Energy Drop",
+        "reason": "End of hook leading into verse 2 with reduced energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final Hook",
+        "reason": "Start of the final hook with maximum hook energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "type": "sample-based",
+      "components": [
+        "texture_bed",
+        "one_shot_hits"
+      ],
+      "channel_naming": "sample_slicing_techniques"
+    }
+  },
+  "sound_intent": {
+    "texture_bed": {
+      "description": "Provides atmospheric background with looped samples treated as textured pads."
+    },
+    "one_shot_hits": {
+      "description": "Sharp, percussive hits sampled and sliced for rhythmic accents."
+    }
+  },
+  "routing_intent": {
+    "channels": {
+      "sample_slicing_techniques": [
+        "slice_01",
+        "slice_02",
+        "slice_03",
+        "slice_04"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone using one-shot drum hits",
+    "bass": "Driving low-end created from sample slices",
+    "chords": "Textural layers utilizing sample beds",
+    "melody": "Sparse melodic elements from sample variations",
+    "vocal": "Hook-heavy aggressive vocal samples",
+    "fx": "Transitional effects emphasizing sample textural shifts"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 6,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goal": "Create a minimal but aggressive West Coast hip-hop arrangement focused on a hook-driven energy flow using sample-based textures and one-shot sample hits named after slicing techniques."
+  },
+  "presetor_intent": {
+    "presetor_goal": "Preserve minimalism while highlighting the hook sections with distinct sample-based layers and texture beds."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythm tracks with sliced one-shot drum samples emphasizing aggression and groove suitable for West Coast hip-hop."
+    },
+    "bass_generator": {
+      "brief": "Produce deep bass lines using sample slices, focusing on matching drum rhythms and supporting hook-heavy energy."
+    },
+    "harmony_generator": {
+      "brief": "Create chordal textures using sample layers forming a texture bed to support a minimal arrangement."
+    },
+    "melody_generator": {
+      "brief": "Design sparse melodic content through minimal sample variations to enhance mood without cluttering the mix."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement development ensuring energy curves and section transitions reinforce aggression and hook prominence."
+    },
+    "presetor": {
+      "brief": "Apply presets to maintain minimal sonic space while supporting sample slicing techniques in channel naming and mixing."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement structure and event markers to mark key sections and energy shifts aligned to hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks prioritizing clarity of one-shot hits and texture beds while preserving the minimal and aggressive vibe."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

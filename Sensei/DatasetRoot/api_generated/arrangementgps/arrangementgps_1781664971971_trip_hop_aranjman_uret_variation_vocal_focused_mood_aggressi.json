@@ -1,0 +1,359 @@
+{
+  "project": {
+    "name": "Trip Hop Aggressive Vocal Build",
+    "genre": "Trip Hop",
+    "subgenre": "Vocal-focused",
+    "bpm": 80,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      60,
+      70,
+      75,
+      85,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      65,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      20,
+      35,
+      50,
+      60,
+      70,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      75,
+      60,
+      55,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      20,
+      40,
+      60,
+      75,
+      85,
+      95,
+      100,
+      95,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      5,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70
+    ],
+    "notes": "This arrangement involves a slow energy build throughout the track, focusing on aggressive vocal elements layered with modern sample chopping techniques for texture and dynamics."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 90
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 85,
+          "bridge": 100,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Vocal Lead Start",
+        "reason": "Beginning of vocal-focused verse with aggressive tone"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Drum Sample Chopping Increase",
+        "reason": "Build energy for hook section with modern sample chopping"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "transition",
+        "label": "FX Layer Transition",
+        "reason": "Bridge introduces atmospheric effects to support mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Final Vocal Hook Peak",
+        "reason": "Maximum vocal energy and aggression for climax"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "stutter_edit",
+        "beat_repeat",
+        "glitch_chop",
+        "time_slice",
+        "granular_slice"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "modern sample chopping techniques emphasizing vocal aggression with slow-building energy",
+    "character": "gritty, raw, and textured with chopped vocal samples dominating the arrangement"
+  },
+  "routing_intent": {
+    "vocal": {
+      "channel_name": "stutter_edit",
+      "effects_chain": [
+        "compressor",
+        "distortion",
+        "delay"
+      ]
+    },
+    "drums": {
+      "channel_name": "beat_repeat",
+      "effects_chain": [
+        "eq",
+        "transient_shaper",
+        "reverb"
+      ]
+    },
+    "fx": {
+      "channel_name": "glitch_chop",
+      "effects_chain": [
+        "filter",
+        "modulation",
+        "delay"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with chopped sample textures",
+    "bass": "deep groove support with minimal melodic content",
+    "chords": "harmonic filler emphasizing atmosphere",
+    "melody": "textural layer supporting vocal focus",
+    "vocal": "primary lead with aggressive tone and chopped samples",
+    "fx": "atmospheric enhancement using glitch and time-based effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 7,
+    "bass": 5,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 10,
+    "fx": 4
+  },
+  "designer_intent": {
+    "overall": "Create an aggressive trip hop arrangement with a prominent vocal focus and modern sample chopping production to convey a slow-building, intense energy mood."
+  },
+  "presetor_intent": {
+    "presets": [
+      "vocal aggressive compression",
+      "beat repeat drum chopping",
+      "glitch delay FX",
+      "granular synth pad"
+    ]
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using modern sample chopping and beat repeat techniques matched to the aggressive mood and slow build energy curve."
+    },
+    "bass_generator": {
+      "brief": "Produce a minimal deep bassline that supports the rhythm and mood without overwhelming vocals."
+    },
+    "harmony_generator": {
+      "brief": "Create chordal textures emphasizing atmospheric pads suitable for trip hop, keeping the harmonic complexity low to maintain space for vocals."
+    },
+    "melody_generator": {
+      "brief": "Develop subtle melodic elements using sample manipulations and granular effects to complement the vocal lead."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement progression ensuring energy dynamic aligns with slow build and aggressive mood, focusing on vocal prominence and sample chopping style."
+    },
+    "presetor": {
+      "brief": "Assign appropriate effect presets for each track channel to reinforce modern sample chopping and vocal aggression."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement sections with energy ramps and ensure correct event markers are placed to signal changes and intensity shifts."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio routing for mixmaster focused on preserving raw chopped vocal samples and drum textures."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

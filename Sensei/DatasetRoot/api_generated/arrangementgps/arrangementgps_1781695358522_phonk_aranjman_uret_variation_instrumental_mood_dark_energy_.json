@@ -1,0 +1,260 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      40,
+      80,
+      80,
+      20
+    ],
+    "notes": "Sparse verses with strong hook sections, dark and moody instrumental focus using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "Strong hook with high energy"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "verse_start",
+        "label": "Verse 2 Start",
+        "reason": "Sparse verses after hook"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Start",
+        "reason": "Strong energy hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": "modern sample chopping techniques",
+    "channels": {
+      "Slice": {},
+      "Beatrepeat": {},
+      "Stutter": {},
+      "Chop": {}
+    }
+  },
+  "sound_intent": {
+    "texture": "dark, atmospheric, sparse verses with powerful hook presence",
+    "sample_techniques": "modern chopping, stutter, beatrepeat, slicing"
+  },
+  "routing_intent": {
+    "drums": "routed to Drum Bus",
+    "bass": "routed to Bass Bus",
+    "chords": "routed to Instrument Bus",
+    "melody": "routed to Instrument Bus",
+    "vocal": "not used",
+    "fx": "routed to FX Bus"
+  },
+  "track_roles": {
+    "drums": "rhythm backbone with chopped samples",
+    "bass": "low end support with rhythmic pulse",
+    "chords": "harmonic texture with sample chops",
+    "melody": "dark melodic motifs, sparsely used",
+    "vocal": "absent in this instrumental",
+    "fx": "effects to enhance transitions and space"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 5,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "goal": "Create a phonk instrumental with a dark mood, focusing on sparse verses with strong, catchy hooks using modern sample chopping techniques.",
+    "attention": "Use lane activity to emphasize hooks and keep verses minimal."
+  },
+  "presetor_intent": {
+    "preset_use": "Apply presets emphasizing sample slicing, stutter effects, and beatrepeat for rhythmic variation."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns using modern sample chopping techniques with sparse verses and energetic hook sections."
+    },
+    "bass_generator": {
+      "brief": "Produce basslines that complement the dark mood and maintain rhythmic pulse, emphasizing hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic textures using chord samples chopped and rearranged to match the dark atmospheric mood."
+    },
+    "melody_generator": {
+      "brief": "Compose minimal melodic motifs that accentuate hooks with modern chopped sample techniques."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement balancing sparse verses with strong hooks and manage lane activity and energy flow."
+    },
+    "presetor": {
+      "brief": "Apply sample chopping related presets such as Slice, Beatrepeat, Stutter, and Chop on channel levels."
+    },
+    "songgps": {
+      "brief": "Organize section structure and event markers reflecting sparse verses and high energy hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix strategy for unprocessed channel audio to keep sample chopping textures clear and balanced."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

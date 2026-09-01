@@ -1,0 +1,298 @@
+{
+  "project": {
+    "name": "Phonk Mainstream Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      25,
+      30,
+      85,
+      90,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks, aggressive mood. Modern sample chopping techniques for layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 85,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 0,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 10,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "transition to high energy hook with strong melodic elements"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "sparse verse vocal starts"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "second sparse verse with vocal presence"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "final hook with maximum melodic activity"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "chopping",
+        "glitch_slice",
+        "reverse_slice",
+        "time_stretch_slice"
+      ]
+    },
+    "channels": {
+      "chopping": {
+        "purpose": "primary drum and melodic sample manipulation"
+      },
+      "glitch_slice": {
+        "purpose": "adding rhythmic texture and variation"
+      },
+      "reverse_slice": {
+        "purpose": "creating tension and transitions"
+      },
+      "time_stretch_slice": {
+        "purpose": "melodic and atmospheric layering"
+      }
+    }
+  },
+  "sound_intent": {
+    "style": "modern phonk with aggressive energy and sparse verses",
+    "sample_techniques": [
+      "modern chopping",
+      "dynamic slicing",
+      "aggressive hooks"
+    ],
+    "texture": "rough and gritty with clear hook focus"
+  },
+  "routing_intent": {
+    "channels": [
+      "chopping",
+      "glitch_slice",
+      "reverse_slice",
+      "time_stretch_slice"
+    ],
+    "grouping": {
+      "drums": [
+        "chopping",
+        "glitch_slice"
+      ],
+      "melody_fx": [
+        "reverse_slice",
+        "time_stretch_slice"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "primary rhythmic drive via chopped samples",
+    "bass": "low end support and groove",
+    "chords": "atmospheric harmonic texture",
+    "melody": "strong hooks via chopped samples",
+    "vocal": "lead vocal presence in verses and hooks",
+    "fx": "transitional effects and enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 9,
+    "vocal": 9,
+    "fx": 5
+  },
+  "designer_intent": {
+    "focus": "create aggressive phonk arrangement with sparse verses and strong, memorable hooks using modern sample chopping techniques",
+    "goal": "balance energy drops and hooks for listener engagement"
+  },
+  "presetor_intent": {
+    "preset_preferences": "use presets emphasizing chopped sounds, gritty textures, and punchy hooks"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum track using sample chopping and glitch slicing techniques that supports aggressive, sparse verses and energetic hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that provide a solid groove with minimal activity in verses and stronger presence during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Add atmospheric chords with subtle presence, employing time-stretch slicing for texture during hooks and bridge."
+    },
+    "melody_generator": {
+      "brief": "Develop strong, memorable hook melodies using reversed and chopped sample slices with high energy."
+    },
+    "ai_designer": {
+      "brief": "Arrange the composition to balance sparse verses and high-energy hooks using modern sample chopping production techniques."
+    },
+    "presetor": {
+      "brief": "Select and apply sound presets that emphasize modern sample chopping, aggressive hooks, and gritty phonk style."
+    },
+    "songgps": {
+      "brief": "Manage and track section energy, lane activities, and event markers to ensure clear arrangement with sparse verses and strong hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio maintaining clarity of chopped samples and aggressive energy profile."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

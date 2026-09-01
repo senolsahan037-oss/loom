@@ -1,0 +1,312 @@
+{
+  "project": {
+    "name": "Phonk Cinematic Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      45,
+      60,
+      80,
+      100,
+      80,
+      60,
+      50,
+      40,
+      30,
+      25,
+      35,
+      50,
+      70,
+      90,
+      100,
+      90,
+      75,
+      60,
+      50,
+      45,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      10,
+      20,
+      40,
+      70,
+      90,
+      100,
+      85,
+      75,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      5,
+      10,
+      15,
+      25,
+      40,
+      60,
+      80,
+      100,
+      90,
+      75,
+      60,
+      45,
+      35,
+      25,
+      20,
+      15,
+      10,
+      5,
+      5,
+      0,
+      0,
+      10,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "chunking": 85,
+          "stuttering": 10,
+          "reverse": 15,
+          "glitch": 20,
+          "roll": 40,
+          "chopping": 80
+        }
+      },
+      "bass": {
+        "activity": {
+          "chopping": 70,
+          "looping": 60,
+          "stuttering": 30,
+          "chunking": 50
+        }
+      },
+      "chords": {
+        "activity": {
+          "chopping": 60,
+          "rearranging": 30,
+          "glitch": 20,
+          "stuttering": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "glitch": 40,
+          "stuttering": 50,
+          "chunking": 60,
+          "reverse": 30,
+          "chopping": 70
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "reverse": 40,
+          "glitch": 50,
+          "stuttering": 30,
+          "chopping": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 8,
+        "type": "section_end",
+        "label": "Intro Ends",
+        "reason": "Intro ends with initial drum chops"
+      },
+      {
+        "track": "bass",
+        "bar": 24,
+        "type": "section_end",
+        "label": "Verse 1 Ends",
+        "reason": "Bass variation ramps up"
+      },
+      {
+        "track": "chords",
+        "bar": 40,
+        "type": "section_end",
+        "label": "Hook Ends",
+        "reason": "Chords reach peak cinematic energy"
+      },
+      {
+        "track": "fx",
+        "bar": 56,
+        "type": "section_end",
+        "label": "Verse 2 Ends",
+        "reason": "FX transition to bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 64,
+        "type": "section_end",
+        "label": "Bridge Ends",
+        "reason": "Drum break before final hook"
+      },
+      {
+        "track": "melody",
+        "bar": 72,
+        "type": "section_end",
+        "label": "Final Hook Ends",
+        "reason": "Melody resolves for outro"
+      },
+      {
+        "track": "fx",
+        "bar": 80,
+        "type": "section_end",
+        "label": "Outro Ends",
+        "reason": "FX fade out"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with modern chopping techniques",
+    "bass": "supportive low frequency chopped sample loops",
+    "chords": "textural harmonic support with glitchy chops",
+    "melody": "cinematic melodic elements via chopping and glitch",
+    "vocal": "none (instrumental variation)",
+    "fx": "atmospheric cinematic effects with reverse and stutter techniques"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 7,
+    "melody": 9,
+    "vocal": 0,
+    "fx": 6
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum layers using modern sample chopping techniques such as chunking, stuttering, and rolls to build cinematic rises and falls."
+    },
+    "bass_generator": {
+      "brief": "Generate bass parts with chopped and looped samples that support the energy curve and add depth to the arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord textures using glitch and chopping methods to provide harmonic interest and cinematic atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Compose melodic lines with sample chopping, glitch, and reverse playback to enhance the cinematic mood without using specific notes."
+    },
+    "ai_designer": {
+      "brief": "Overall arrangement design focusing on energy dynamics and cinematic mood using instrumental phonk style."
+    },
+    "presetor": {
+      "brief": "Provide tone and effect presets emphasizing modern sample chopping and cinematic texture."
+    },
+    "songgps": {
+      "brief": "Manage arrangement sections and energy mapping ensuring smooth cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix and balance unprocessed channel audio preserving the dynamics and sample chopping details."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "actual_track_names": {
+    "New Old Sub": "# New Old Sub"
+  },
+  "bpm_range": {
+    "max": 100,
+    "min": 90,
+    "reference": 95
+  },
+  "device_order": [
+    "EQ Eight",
+    "Glue Compressor",
+    "Utility"
+  ],
+  "device_parameters": [
+    {
+      "name": "EQ Eight",
+      "native_tag": "Eq8",
+      "parameter_state_sha256": "7eb9ac15754e0b57d179465d79e3cfa9babca8f33936f43db53835067e258f35",
+      "parameters_modified_by_builder": false
+    },
+    {
+      "name": "Glue Compressor",
+      "native_tag": "GlueCompressor",
+      "parameter_state_sha256": "bb1761a00dc632babf701a595a48b2d167960fbf81c4d1c2c04f0d5a73fa5510",
+      "parameters_modified_by_builder": false
+    },
+    {
+      "name": "Utility",
+      "native_tag": "StereoGain",
+      "parameter_state_sha256": "3f99ecc56261c78c18cbfa786a80ab5827edd6f0372d6c129474a8c433c4e704",
+      "parameters_modified_by_builder": false
+    }
+  ],
+  "fader_offsets_db": {
+    "DRUM BUSS": 0.0,
+    "KICK BUSS": 1.0,
+    "LIVE BASS": -10.0,
+    "New Old Sub": 0.0,
+    "PERC BUSS": 0.5,
+    "SNARE BUSS": -0.5
+  },
+  "genre": "95 BPM boom-bap / sample-chop",
+  "parameter_values": {
+    "EQ Eight": {
+      "enabled_band_parameter_sets": []
+    },
+    "Glue Compressor": {
+      "Attack": "5",
+      "DryWet": "1.0",
+      "Makeup": "0.0",
+      "PeakClipIn": "false",
+      "Range": "2",
+      "Ratio": "0",
+      "Release": "6",
+      "SideChain/OnOff": "false",
+      "SideChainEq/On": "false",
+      "Threshold": "-8.0"
+    },
+    "Utility": {
+      "Balance": "0",
+      "BassMono": "true",
+      "BassMonoFrequency": "120.0",
+      "Gain": "1.0",
+      "Mono": "false",
+      "Mute": "false",
+      "StereoWidth": "1"
+    }
+  },
+  "project": "Golden Step_RECOVERED",
+  "required_track_roles": [
+    "KICK BUSS",
+    "SNARE BUSS",
+    "PERC BUSS",
+    "LIVE BASS",
+    "New Old Sub"
+  ],
+  "routing": {
+    "KICK BUSS": "DRUM BUSS",
+    "LIVE BASS": "DRUM BUSS",
+    "New Old Sub": "DRUM BUSS",
+    "PERC BUSS": "DRUM BUSS",
+    "SNARE BUSS": "DRUM BUSS"
+  },
+  "schema_version": 1,
+  "verification": {
+    "direct_drum_buss_device_count": 3,
+    "method": "ALS reload parser and Ableton Live runtime",
+    "next_pointee_id": 134247
+  }
+}

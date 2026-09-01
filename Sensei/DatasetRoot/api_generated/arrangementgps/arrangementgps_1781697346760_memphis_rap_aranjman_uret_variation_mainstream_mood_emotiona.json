@@ -1,0 +1,332 @@
+{
+  "project": {
+    "name": "Memphis Rap Emotional Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 75,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 55,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 85,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Start",
+        "reason": "Entering first vocal verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Start",
+        "reason": "Chorus introduction with emotional intensity"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "start",
+        "label": "Verse 2 Start",
+        "reason": "Second vocal verse entry"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "change",
+        "label": "Bridge Switch",
+        "reason": "Energy pull back for bridge section"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "start",
+        "label": "Final Hook Start",
+        "reason": "Build to final chorus for emotional climax"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "end",
+        "label": "Outro Start",
+        "reason": "Wind down vocal for track conclusion"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic builds",
+    "bass": "low end groove and depth",
+    "chords": "harmonic texture and emotional support",
+    "melody": "lead instrumental presence",
+    "vocal": "primary narrative and emotional delivery",
+    "fx": "atmospheric enhancement and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that gradually build energy from a sparse intro to full dynamic hook sections, emphasizing slow build and emotional impact."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that support the slow build energy profile with smooth, emotive groove progression fitting the Memphis Rap style."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal arrangements that add emotional depth and support the mood, evolving gently to complement energy increases."
+    },
+    "melody_generator": {
+      "brief": "Compose melodic elements that reinforce the emotional and slow build feel without overshadowing vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow and balance of energy, ensuring impactful transitions between sections aligned with the emotional theme."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance warmth and depth suitable for mainstream Memphis Rap while maintaining clarity for slow build dynamics."
+    },
+    "songgps": {
+      "brief": "Guide arrangement sequencing and section timing to optimize emotional pacing and energy distribution."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix parameters to highlight vocal clarity and build-up dynamics throughout the arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "project": {
+    "name": "Memphis Rap Instrumental Dark Hook-Heavy",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 85,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      40
+    ],
+    "notes": "Instrumental arrangement focusing on dark mood and hook-heavy energy profile. No melodic or lyrical content detailed."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 40,
+          "25": 90,
+          "41": 40,
+          "57": 60,
+          "65": 90,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 35,
+          "25": 85,
+          "41": 35,
+          "57": 55,
+          "65": 85,
+          "73": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "9": 30,
+          "25": 75,
+          "41": 30,
+          "57": 50,
+          "65": 75,
+          "73": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 10,
+          "25": 30,
+          "41": 10,
+          "57": 20,
+          "65": 30,
+          "73": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 0,
+          "25": 0,
+          "41": 0,
+          "57": 0,
+          "65": 0,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "9": 10,
+          "25": 15,
+          "41": 10,
+          "57": 15,
+          "65": 15,
+          "73": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Beginning of hook section with increased drums energy and prominence"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook section to emphasize high energy and hook presence"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation emphasizing groove and hook energy",
+    "bass": "low-end support driving dark vibe",
+    "chords": "harmonic backdrop enhancing dark mood",
+    "melody": "minimal melodic elements supporting atmosphere",
+    "vocal": "none - instrumental only",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dark and groove-oriented drum patterns with emphasis on hook bars, maintaining activity suitable for Memphis Rap style."
+    },
+    "bass_generator": {
+      "brief": "Generate low, dark basslines that enhance groove and complement drum patterns, focusing more energy during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic chord structures evoking a dark mood that supports the groove without overpowering."
+    },
+    "melody_generator": {
+      "brief": "Add subtle instrumental melodic elements to enrich the arrangement without conflicting with hook intensity."
+    },
+    "ai_designer": {
+      "brief": "Supervise overall arrangement flow ensuring energy peaks align with hooks and maintain consistent dark mood."
+    },
+    "presetor": {
+      "brief": "Manage presets ensuring sound timbres reflect Memphis Rap instrumentals with dark tonalities and gritty textures."
+    },
+    "songgps": {
+      "brief": "Guide arrangement structure along energy profile focusing on hook-heavy sections and appropriate transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix setup to emphasize clarity in hook regions and maintain balance for dark instrumental textures."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

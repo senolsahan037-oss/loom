@@ -1,0 +1,257 @@
+{
+  "project": {
+    "name": "Arabesk Rap Instrumental",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 100
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-32": 80,
+          "33-48": 60,
+          "49-56": 90,
+          "57-72": 80,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 45,
+          "25-32": 75,
+          "33-48": 55,
+          "49-56": 85,
+          "57-72": 75,
+          "73-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 40,
+          "25-32": 70,
+          "33-48": 50,
+          "49-56": 90,
+          "57-72": 70,
+          "73-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 35,
+          "25-32": 65,
+          "33-48": 45,
+          "49-56": 85,
+          "57-72": 65,
+          "73-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 30,
+          "25-32": 60,
+          "33-48": 40,
+          "49-56": 70,
+          "57-72": 60,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro begins",
+        "reason": "Start of the track"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_change",
+        "label": "Verse 1 start",
+        "reason": "Energy rises"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_change",
+        "label": "Hook start",
+        "reason": "Peak energy"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "section_change",
+        "label": "Verse 2 start",
+        "reason": "Energy falls"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "section_change",
+        "label": "Bridge start",
+        "reason": "Energy peak with cinematic rise"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_change",
+        "label": "Final Hook start",
+        "reason": "Sustain high energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_change",
+        "label": "Outro start",
+        "reason": "Energy decline to close"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "groove and low end support",
+    "chords": "harmonic texture",
+    "melody": "main instrumental theme",
+    "vocal": "none - instrumental version",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns that follow the cinematic energy rise and fall, suitable for Arabesk Rap style."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that enhance groove and complement the emotional dynamics without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Add chord textures to support emotional mood with gradual surges in intensity for cinematic effect."
+    },
+    "melody_generator": {
+      "brief": "Develop instrumental melodic themes that convey emotional depth without vocal elements."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow and energy curve to ensure smooth emotional and cinematic rises and falls."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance the Arabesk Rap instrumental atmosphere, emphasizing emotional tone."
+    },
+    "songgps": {
+      "brief": "Guide arrangement structure and timing to fit the specified sections and energy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix with clean audio channels preserving dynamic range and clarity for cinematic feel."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "transaction_id": "tx_1784064316_3630",
+  "action": "write_midi_clip",
+  "role": "drums",
+  "manual_trigger": true,
+  "bar_range": [
+    1,
+    1
+  ],
+  "notes": [
+    {
+      "pitch": 80,
+      "time": 0.0,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 79,
+      "time": 1.0,
+      "duration": 0.25,
+      "velocity": 103
+    }
+  ],
+  "metadata": {
+    "prompt": "enerjiyi artir",
+    "genre": "boom_bap",
+    "seed": 229175
+  }
+}

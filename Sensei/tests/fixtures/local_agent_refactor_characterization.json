@@ -1,0 +1,34 @@
+{
+  "legacy": {
+    "event_count": 38,
+    "role_distribution": null,
+    "note_set": [77, 79, 80],
+    "bars": 4,
+    "beats": 16,
+    "fallback": true,
+    "primary_genre": "boom_bap",
+    "assembled_event_hash": "9d21fbacdbda56da49579f2f774757c7f352b4fe",
+    "diagnostics": {
+      "representation": "legacy physical events"
+    }
+  },
+  "canonical": {
+    "event_count": 38,
+    "role_distribution": {
+      "closed_hat": 19,
+      "kick": 7,
+      "snare": 12
+    },
+    "note_set": [77, 79, 80],
+    "bars": 4,
+    "beats": 16,
+    "fallback": true,
+    "primary_genre": "boom_bap",
+    "assembled_event_hash": "1ce260c6f2c9d9989f41fb79f3d346fb6efe2b9b",
+    "diagnostics": {
+      "fallback_reason": "no_matching_candidate",
+      "mapping_type": "ableton_kit",
+      "duplicates_removed": []
+    }
+  }
+}

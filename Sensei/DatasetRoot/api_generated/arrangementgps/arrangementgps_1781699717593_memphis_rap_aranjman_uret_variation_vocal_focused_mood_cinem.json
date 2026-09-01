@@ -1,0 +1,241 @@
+{
+  "project": {
+    "name": "Memphis Rap Club Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      80,
+      90,
+      100,
+      60
+    ],
+    "notes": "Arrangement follows a vocal-focused structure with cinematic mood and club energy, emphasizing dynamic shifts suitable for Memphis Rap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 60
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 65,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 90,
+          "hook": 95,
+          "verse_2": 90,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 35,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Verse 1 Start",
+        "reason": "Entry of main vocal performance"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensity_peak",
+        "label": "Hook Increase",
+        "reason": "Elevate energy with drum dynamics in hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook Climax",
+        "reason": "Maximize vocal presence and impact"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge Effects",
+        "reason": "Use FX for cinematic transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone and energy driver",
+    "bass": "groove foundation and club feel",
+    "chords": "harmonic support and cinematic texture",
+    "melody": "instrumental theme and vocal complement",
+    "vocal": "primary narrative and focus element",
+    "fx": "atmospheric enhancement and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 65,
+    "chords": 40,
+    "melody": 45,
+    "vocal": 95,
+    "fx": 35
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that establish club energy with a Memphis Rap groove and maintain dynamic variations supporting vocal focus."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement the drums and enhance groove while supporting the vocal energy and cinematic mood."
+    },
+    "harmony_generator": {
+      "brief": "Design chord activity that provides harmonic richness with a cinematic texture suitable for Memphis Rap atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Produce instrumental melodies that interplay with vocals to enhance the cinematic and emotional feel."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence and energy curve, ensuring all elements support the vocal focus and cinematic club vibe."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that emphasize vocal clarity and cinematic effects with adequate presence in club settings."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and event markers to maintain arrangement flow and energy alignment."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing strategy preserving vocal prominence and balancing instruments dynamically for club energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

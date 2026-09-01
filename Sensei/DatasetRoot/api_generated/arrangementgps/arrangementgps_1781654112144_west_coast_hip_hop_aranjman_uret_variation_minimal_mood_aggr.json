@@ -1,0 +1,251 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      75,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20
+    ],
+    "notes": "Arrangement features a slow build in energy with minimal instrumentation emphasizing aggressive mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 90,
+          "final_hook": 85,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 75,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 35,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 80,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 60,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 vocals",
+        "reason": "beginning vocal chops with micro chops layering"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook vocal chops",
+        "reason": "phrase chops introduction with stutter effects"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge reverse chops",
+        "reason": "build tension with reverse chops effect"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation and groove",
+    "bass": "low-end support and drive",
+    "chords": "harmonic texture with minimal layers",
+    "melody": "accentuating phrases subtly",
+    "vocal": "main vocal chops using sample slicing techniques",
+    "fx": "transitional effects and build tension"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal aggressive West Coast hip-hop drum pattern emphasizing groove and slow energy build."
+    },
+    "bass_generator": {
+      "brief": "Generate a bass line with deep, minimal, and slow building energy to complement drums and vocal chops."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse chord textures supporting the mood with minimal complexity."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic elements focusing on texture without overpowering vocal chops."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with slow energy build focusing on aggressive mood and minimalistic arrangement."
+    },
+    "presetor": {
+      "brief": "Apply preset settings for West Coast hip-hop style minimal production."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows slow build energy profile and uses sample layering techniques in vocals."
+    },
+    "ai_mixmaster": {
+      "brief": "Provide mix guidelines prioritizing clarity of vocal sample chops and balanced dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      70,
+      20
+    ],
+    "notes": "Arrangement emphasizes hook-heavy energy profile with variations of sample slicing techniques in separate channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 85,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Beginning of high energy hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Beginning of final high energy hook"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Start of outro and energy decline"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "micro_chops": {
+        "description": "Sample segments sliced into very short slices to create rhythmically sharp textures"
+      },
+      "phrase_chops": {
+        "description": "Sample segments taken as longer phrases chopped for phrase reordering or repetition"
+      },
+      "reverse_chops": {
+        "description": "Sample fragments reversed to create unique manipulated sounds"
+      },
+      "vocal_chops": {
+        "description": "Vocal samples sliced and processed for rhythmic vocal textures"
+      },
+      "stutter_chops": {
+        "description": "Samples rapidly repeated or gated for stutter effects"
+      }
+    },
+    "channel_setup": {
+      "micro_chops": "drums",
+      "phrase_chops": "chords",
+      "reverse_chops": "fx",
+      "vocal_chops": "vocal",
+      "stutter_chops": "melody"
+    }
+  },
+  "sound_intent": {
+    "instrumental": true,
+    "mood": "uplifting",
+    "energy_profile": "hook-heavy",
+    "sample_techniques": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ]
+  },
+  "routing_intent": {
+    "routing": {
+      "drums": "micro_chops",
+      "chords": "phrase_chops",
+      "fx": "reverse_chops",
+      "vocal": "vocal_chops",
+      "melody": "stutter_chops",
+      "bass": "clean"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with micro chop samples",
+    "bass": "low frequency support and groove",
+    "chords": "harmonic foundation via phrase chops",
+    "melody": "textural melodic stutter chops",
+    "vocal": "vocal chops providing rhythmic and dynamic interest",
+    "fx": "atmospheric and reverse chopped effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns focusing on micro chop sample slices emphasizing rhythmic complexity and groove"
+    },
+    "bass_generator": {
+      "brief": "Create bass lines supporting the groove, maintaining a low, warm presence without oversaturating the mix"
+    },
+    "harmony_generator": {
+      "brief": "Arrange harmonic content using phrase chop samples to support uplifting mood and maintain hook energy"
+    },
+    "melody_generator": {
+      "brief": "Produce melodic layers using stutter chop techniques with sparse but effective rhythmic phrasing"
+    },
+    "ai_designer": {
+      "brief": "Supervise arrangement structure and ensure energy profile aligns with hook-heavy uplifting style"
+    },
+    "presetor": {
+      "brief": "Apply presets for sample slicing techniques including micro, phrase, reverse, vocal, and stutter chops"
+    },
+    "songgps": {
+      "brief": "Guide overall arrangement positioning, section transitions, and energy mapping throughout the 80 bar structure"
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure clean processing of channels routed by chopping technique with focus on clarity in each sample layer"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.95,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

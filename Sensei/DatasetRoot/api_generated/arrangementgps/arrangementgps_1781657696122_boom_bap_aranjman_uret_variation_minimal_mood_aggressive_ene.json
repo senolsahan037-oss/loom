@@ -1,0 +1,280 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Minimal",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      85,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Minimal variation arrangement with cinematic rise and fall energy profile. Sample-based layers including texture bed and one-shot hits. Channel names use sample slicing technique terminology."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 40,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "slice",
+        "label": "Intro Hit",
+        "reason": "One-shot drum hit starts arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "slice",
+        "label": "Hook Snare Slice",
+        "reason": "Sample sliced snare for hook drums"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "effect",
+        "label": "Cinematic Rise",
+        "reason": "Cinematic effect to highlight final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "Texture_Bed",
+        "type": "sample-based",
+        "role": "background texture",
+        "channels": [
+          "granular_echo",
+          "time_stretch_pad"
+        ]
+      },
+      {
+        "name": "One_Shot_Hits",
+        "type": "sample-based",
+        "role": "percussive hits",
+        "channels": [
+          "transient_slice",
+          "loop_slice"
+        ]
+      }
+    ]
+  },
+  "sound_intent": {
+    "style": "Boom Bap classic",
+    "texture": "grainy, sample chopped",
+    "dynamics": "cinematic rise and fall, aggressive mood"
+  },
+  "routing_intent": {
+    "channels_named_after_sample_slicing_techniques": true,
+    "drums": [
+      "transient_slice",
+      "loop_slice"
+    ],
+    "texture_bed": [
+      "granular_echo",
+      "time_stretch_pad"
+    ]
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample slices",
+    "bass": "sub-bass groove",
+    "chords": "supporting texture",
+    "melody": "minimal lead",
+    "vocal": "none",
+    "fx": "cinematic effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 5,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "arrangement_style": "minimal variation emphasizing aggressive mood",
+    "energy_profile": "cinematic rise in hook sections with fall by outro"
+  },
+  "presetor_intent": {
+    "apply_sample_based_textures": true,
+    "use_one_shot_hits": true,
+    "channel_naming_convention": "sample slicing terms"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slice techniques with aggressive and minimal variation focusing on boom bap style"
+    },
+    "bass_generator": {
+      "brief": "Create a sub-bass groove matching the minimal arrangement and aggressive mood"
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal chordal texture layers using sample-based pads and textures"
+    },
+    "melody_generator": {
+      "brief": "Craft a subtle, minimal melodic line complementing the aggressive mood without overpowering"
+    },
+    "ai_designer": {
+      "brief": "Arrange the sections with cinematic energy rise and fall, assigning sample-slice named channels accordingly"
+    },
+    "presetor": {
+      "brief": "Select presets that emphasize sample-based textures and one-shot hit timbres with minimal effects"
+    },
+    "songgps": {
+      "brief": "Ensure that the arrangement follows the boom bap minimal variation style with proper energy transitions"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixdown, preserving natural dynamics and sample texture clarity"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

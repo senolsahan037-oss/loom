@@ -1,0 +1,211 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Instrumental Cinematic Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      70,
+      85,
+      90,
+      60
+    ],
+    "notes": "Instrumental arrangement emphasizing cinematic mood with club energy dynamics; modern sample chopping techniques are used for texture and rhythm layering."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 60
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "slice": 85,
+          "chop": 75,
+          "stutter": 60
+        }
+      },
+      "bass": {
+        "activity": {
+          "slice": 70,
+          "chop": 60
+        }
+      },
+      "chords": {
+        "activity": {
+          "slice": 50
+        }
+      },
+      "melody": {
+        "activity": {
+          "stutter": 65,
+          "chop": 55
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "stutter": 40,
+          "chop": 35
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "cue",
+        "label": "Intro to Verse 1 Transition",
+        "reason": "Shift from introductory cinematic textures to established club groove"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Entry",
+        "reason": "Bass intensifies to increase energy at hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX Build",
+        "reason": "Add tension using chopped and stuttered samples"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "energy_peak",
+        "label": "Final Hook Drum Peak",
+        "reason": "Maximize energy and club feel for final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with sample chopping and slicing",
+    "bass": "groove anchor with sample slicing",
+    "chords": "harmonic texture with sliced samples",
+    "melody": "lead elements using stutter and chop effects",
+    "vocal": "none - instrumental only",
+    "fx": "atmospheric and dynamic effects using chopping and stuttering"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 7,
+    "bass": 6,
+    "chords": 4,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns using modern sample slicing and chopping techniques that build club energy and support a cinematic mood."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines with sliced sample layers that enhance groove and complement the cinematic instrumental arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Design harmonic textures employing sliced samples to maintain a cinematic atmosphere with a subtle underlying chord presence."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic lines using chopped and stuttered sample effects to add interest and cinematic flair without dominating instrumentation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring smooth transitions, effective energy curve, and appropriate use of sample chopping techniques across lanes."
+    },
+    "presetor": {
+      "brief": "Apply presets focusing on sample chopping and slicing to each channel to reinforce the cinematic and club energy tones."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure, section markers, and energy progression in line with West Coast Hip-Hop instrumental standards."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixes emphasizing clarity of chopped samples and balances club energy with cinematic atmosphere in unprocessed audio."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

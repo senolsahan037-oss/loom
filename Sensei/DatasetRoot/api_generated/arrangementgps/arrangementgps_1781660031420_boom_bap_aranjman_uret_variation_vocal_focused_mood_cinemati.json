@@ -1,0 +1,294 @@
+{
+  "project": {
+    "name": "Boom Bap Cinematic Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      80,
+      75,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement focuses on a slow build of energy with emphasis on vocal layers and cinematic mood. Modern sample chopping techniques are applied to the sample layers utilizing channel names that represent sample chopping methods."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "Stutter": 70,
+          "Chop": 60,
+          "Slice": 80,
+          "Gate": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "Stutter": 20,
+          "Chop": 15,
+          "Slice": 25,
+          "Gate": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "Stutter": 10,
+          "Chop": 15,
+          "Slice": 20,
+          "Gate": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "Stutter": 30,
+          "Chop": 40,
+          "Slice": 50,
+          "Gate": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "Stutter": 90,
+          "Chop": 95,
+          "Slice": 100,
+          "Gate": 85
+        }
+      },
+      "fx": {
+        "activity": {
+          "Stutter": 15,
+          "Chop": 10,
+          "Slice": 20,
+          "Gate": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduction of vocal hook with sample chopping"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Drum section with modern stutter chops begins"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "FX emphasizing cinematic mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Vocal layer variation with gate chops reintroduction"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone with modern chopped samples",
+    "bass": "supportive low-end with subtle chops",
+    "chords": "harmonic texture using sliced samples",
+    "melody": "lead elements using chopped motifs",
+    "vocal": "central focus with layered chopped vocal samples",
+    "fx": "ambient and transitional cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 20,
+    "chords": 25,
+    "melody": 40,
+    "vocal": 100,
+    "fx": 15
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum layer using modern sample chopping techniques such as stutter and slice to support a slow build energy pattern."
+    },
+    "bass_generator": {
+      "brief": "Generate a subtle, chopped bassline that complements the drum rhythm and vocal-focused arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Add chopped and sliced chord textures that enhance the cinematic mood without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Compose melodic phrases using sample chopping and gating techniques that evolve gradually throughout sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee the gradual energy build and ensure the vocal layers remain the central focus with modern chopping techniques."
+    },
+    "presetor": {
+      "brief": "Apply preset effects emphasizing chopped sample articulation fitting a cinematic slow build boom bap style."
+    },
+    "songgps": {
+      "brief": "Guide arrangement transitions and energy curves to align with cinematic mood and vocal-focused variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare an unprocessed mix with clear channels for drums, vocals, and effects to allow flexible later processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "project": {
+    "name": "Dark Trip Hop",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 82,
+    "key": "",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      45,
+      60,
+      70,
+      85,
+      90,
+      50
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 40,
+          "25": 70,
+          "33": 45,
+          "49": 50,
+          "57": 75,
+          "73": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 35,
+          "25": 60,
+          "33": 30,
+          "49": 45,
+          "57": 65,
+          "73": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "9": 30,
+          "25": 55,
+          "33": 35,
+          "49": 40,
+          "57": 60,
+          "73": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 25,
+          "25": 50,
+          "33": 20,
+          "49": 30,
+          "57": 55,
+          "73": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 40,
+          "25": 60,
+          "33": 45,
+          "49": 40,
+          "57": 70,
+          "73": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 20,
+          "25": 40,
+          "33": 25,
+          "49": 30,
+          "57": 50,
+          "73": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro start",
+        "reason": "Beginning of track"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "enter",
+        "label": "Verse 1 vocals",
+        "reason": "Introduce vocals"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "enter",
+        "label": "Hook melody",
+        "reason": "Main hook melody enters"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "variation",
+        "label": "Verse 2 bass",
+        "reason": "Bass variation for dynamics"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "add",
+        "label": "Bridge FX",
+        "reason": "Atmospheric effect for bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Final hook vocals",
+        "reason": "Energy peak with vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro drums fade",
+        "reason": "Gradual reduction in energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with trip hop beats",
+    "bass": "dark and deep bassline supporting groove",
+    "chords": "ambient pads creating moody atmosphere",
+    "melody": "minimal melodic motifs with atmospheric textures",
+    "vocal": "sparse vocals emphasizing mood and tone",
+    "fx": "textural effects enhancing dark ambiance"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create subtle, groovy trip hop drum patterns with moderate energy throughout."
+    },
+    "bass_generator": {
+      "brief": "Compose deep, dark basslines that complement the groove and support the arrangement's mood."
+    },
+    "harmony_generator": {
+      "brief": "Generate ambient, moody chord progressions that sustain the dark trip hop vibe."
+    },
+    "melody_generator": {
+      "brief": "Produce minimal and atmospheric melodic motifs to enhance the hook and verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement dynamics and energy flow, ensuring smooth transitions across sections."
+    },
+    "presetor": {
+      "brief": "Select suitable presets that maintain dark and atmospheric sound character."
+    },
+    "songgps": {
+      "brief": "Guide section lengths and energy curve for coherent trip hop song structure."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix-ready channels preserving clarity and dark ambience without excessive processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

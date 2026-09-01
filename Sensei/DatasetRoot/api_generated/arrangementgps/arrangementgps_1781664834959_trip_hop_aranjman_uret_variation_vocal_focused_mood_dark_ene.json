@@ -1,0 +1,231 @@
+{
+  "project": {
+    "name": "Trip Hop Vocal Dark Arrangement",
+    "genre": "Trip Hop",
+    "subgenre": "Vocal-focused",
+    "bpm": 85,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      85,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile emphasizing dark vocal elements using micro chops, phrase chops, reverse chops, vocal chops, and stutter chops layered strategically."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-40": 70,
+          "41-56": 50,
+          "57-64": 85,
+          "65-72": 70,
+          "73-80": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 40,
+          "25-40": 65,
+          "41-56": 45,
+          "57-64": 80,
+          "65-72": 65,
+          "73-80": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 60,
+          "41-56": 40,
+          "57-64": 75,
+          "65-72": 60,
+          "73-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 25,
+          "25-40": 55,
+          "41-56": 35,
+          "57-64": 70,
+          "65-72": 55,
+          "73-80": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 70,
+          "25-40": 90,
+          "41-56": 75,
+          "57-64": 95,
+          "65-72": 90,
+          "73-80": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 30,
+          "25-40": 50,
+          "41-56": 30,
+          "57-64": 65,
+          "65-72": 50,
+          "73-80": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook",
+        "reason": "Key vocal section starts with high energy and chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge",
+        "reason": "Energy peak with advanced vocal chop techniques"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with subtle, understated percussion",
+    "bass": "deep melodic support with smooth low end",
+    "chords": "atmospheric harmonic texture",
+    "melody": "complementary melodic motifs with minimal presence",
+    "vocal": "primary focus featuring multiple chop samples",
+    "fx": "transitional ambiance and texture enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 30,
+    "bass": 40,
+    "chords": 25,
+    "melody": 20,
+    "vocal": 100,
+    "fx": 15
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create subtle and dynamic drum patterns supporting the cinematic energy curve without overpowering."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, smooth bassline that supports the dark mood and complements vocal chops."
+    },
+    "harmony_generator": {
+      "brief": "Provide atmospheric chord textures that enhance the dark mood and cinematic flow."
+    },
+    "melody_generator": {
+      "brief": "Add complementary, minimal melodic motifs that interlace with vocal chops."
+    },
+    "ai_designer": {
+      "brief": "Arrange the sections with a cinematic rise and fall energy profile focusing on detailed vocal sample chopping."
+    },
+    "presetor": {
+      "brief": "Apply sound presets suitable for dark trip hop featuring vocal chops, micro and phrase chops."
+    },
+    "songgps": {
+      "brief": "Guide arrangement towards a vocal-focused dark trip hop with smooth dynamic flow and energy rises/falls."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance the unprocessed channel tracks preserving clarity and ensuring vocal chops remain prominent."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

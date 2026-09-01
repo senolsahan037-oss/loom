@@ -1,0 +1,255 @@
+{
+  "project": {
+    "name": "West Coast Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      85,
+      60,
+      90,
+      95,
+      50
+    ],
+    "notes": "Mainstream West Coast hip-hop arrangement with an uplifting mood and hook-heavy energy profile."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 85
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 65,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 85,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy rise and hook emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Introduction of main rhythmic pattern"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Continuation of lyrical theme"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Harmonic change to contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climax of the song with hook focus"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Wind down and fade out"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and groove",
+    "bass": "low-end support and groove",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "hook and melodic motifs",
+    "vocal": "main lyrical delivery and hooks",
+    "fx": "transitions and effects for emphasis"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic and rhythmic drum patterns that build energy towards the hook and maintain a classic West Coast Hip-Hop groove."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that complement the drum groove with a firm low-end presence suitable for uplifting hip-hop."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions that add warmth and harmonic interest while supporting the uplifting mood."
+    },
+    "melody_generator": {
+      "brief": "Develop catchy melodic hooks and motifs that are hook-heavy and serve as highlights during hook sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement to ensure smooth energy transitions and maintain a mainstream, uplifting West Coast Hip-Hop vibe."
+    },
+    "presetor": {
+      "brief": "Apply appropriate presets for instruments to achieve a polished, classic West Coast sound."
+    },
+    "songgps": {
+      "brief": "Guide the structural arrangement and energy mapping to maximize hook impact and listener engagement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mixing by ensuring clean, unprocessed channel audio with clear separation for each instrument."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

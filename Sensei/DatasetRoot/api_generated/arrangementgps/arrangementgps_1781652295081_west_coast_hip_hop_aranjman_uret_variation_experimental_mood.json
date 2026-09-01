@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      65,
+      50,
+      80,
+      90,
+      40
+    ],
+    "notes": "Arrangement follows an experimental structure with cinematic mood, hook-heavy energy profile emphasizing impactful hooks sections with dynamic variations."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 90,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 20,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Primary Hook Start",
+        "reason": "Start of high-energy hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook Start",
+        "reason": "Climactic hook section to finalize arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "bridge_start",
+        "label": "Bridge Section Start",
+        "reason": "Energy dip and experimental variations in bridge"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with groove variations",
+    "bass": "groove foundation and low-end drive",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "complementary motifs and hooks",
+    "vocal": "primary lyrical and hook delivery",
+    "fx": "transitional and cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 10,
+    "chords": 8,
+    "melody": 9,
+    "vocal": 12,
+    "fx": 6
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic, groove-oriented drum patterns emphasizing experimental variations across sections with hook-heavy energy concentration."
+    },
+    "bass_generator": {
+      "brief": "Produce basslines that support groove and low-end drive, adjusting intensity according to energy profile and experimental mood."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic layers and chord textures enhancing cinematic mood, supporting melodic and vocal elements."
+    },
+    "melody_generator": {
+      "brief": "Develop complementary melodic motifs that enhance the hook-heavy sections and maintain variation throughout the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall experimental arrangement structure ensuring cinematic mood and maintaining energy dynamics focused on hooks."
+    },
+    "presetor": {
+      "brief": "Manage presets selection optimizing for cinematic layering and experimental sound profile consistent with West Coast Hip-Hop genre."
+    },
+    "songgps": {
+      "brief": "Guide arrangement energy curve and section transitions focusing on hook impact and experimental aesthetics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing and level balancing for unprocessed channel audio to maintain clarity and cinematic presence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

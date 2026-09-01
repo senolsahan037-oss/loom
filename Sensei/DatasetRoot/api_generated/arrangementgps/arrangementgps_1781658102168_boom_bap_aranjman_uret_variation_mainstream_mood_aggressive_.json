@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Mainstream",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      55,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      75,
+      65,
+      55,
+      50,
+      40
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 65,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "technique",
+        "label": "Chop",
+        "reason": "Sample chopping intro technique"
+      },
+      {
+        "track": "drums",
+        "bar": 17,
+        "type": "technique",
+        "label": "Slice",
+        "reason": "Sample slicing for rhythmic variation"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "technique",
+        "label": "Grid",
+        "reason": "Modern sample grid layering"
+      },
+      {
+        "track": "chords",
+        "bar": 33,
+        "type": "technique",
+        "label": "Trim",
+        "reason": "Sample trim for cleaner sound"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "technique",
+        "label": "Stutter",
+        "reason": "Stutter sample effect in final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "beat foundation",
+    "bass": "harmonic support",
+    "chords": "background texture",
+    "melody": "lead elements",
+    "vocal": "main vocals",
+    "fx": "transitions and effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 9,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a solid boom bap drum groove using chopped and sliced sample techniques with variations and slow build energy."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that support the groove and emphasize sample chopping and trimming techniques, matching the aggressive mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord textures using trimmed samples to build harmonic support that evolves slowly alongside energy curve."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic elements with stutter and chop sample techniques, focusing on modern sample manipulation."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the arrangement structure enforcing slow build energy profile, mainstream boom bap style, and sample-based production."
+    },
+    "presetor": {
+      "brief": "Apply presets emphasizing modern sample chopping techniques on all relevant channels and ensure smooth transitions."
+    },
+    "songgps": {
+      "brief": "Manage energy curve progression and section transitions according to slow build and aggressive mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that prioritize clarity of chopped samples, avoiding excessive processing for clean audio."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

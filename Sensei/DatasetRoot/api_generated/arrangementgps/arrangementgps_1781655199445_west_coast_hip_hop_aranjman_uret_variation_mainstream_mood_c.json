@@ -1,0 +1,361 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Cinematic Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "G minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      65,
+      80,
+      60,
+      85,
+      90,
+      70,
+      50,
+      65,
+      80,
+      75,
+      55,
+      70,
+      85,
+      60,
+      40,
+      20
+    ],
+    "notes": "Arrangement features a cinematic rise and fall energy profile with modern sample chopping techniques used in percussive and melodic layers. Channels are named after sample chopping methods to match the production style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "chords",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Entry of vocals"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peak with full rhythm"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Change in mood and dynamics"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final energy climax"
+      },
+      {
+        "track": "chords",
+        "bar": 80,
+        "type": "section_end",
+        "label": "Outro End",
+        "reason": "Arrangement conclusion"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "layer_names": [
+        "Slice",
+        "Stab",
+        "Chop",
+        "Rearranged"
+      ],
+      "techniques": [
+        "modern sample chopping",
+        "time-stretching",
+        "pitch-shifting"
+      ]
+    },
+    "bass": {
+      "layer_names": [
+        "Latch",
+        "Roll",
+        "Reverse"
+      ],
+      "techniques": [
+        "sample chopping",
+        "filter automation"
+      ]
+    },
+    "chords": {
+      "layer_names": [
+        "Gate",
+        "Cut",
+        "Fade"
+      ],
+      "techniques": [
+        "modern sample chopping",
+        "envelope modulation"
+      ]
+    },
+    "melody": {
+      "layer_names": [
+        "Chop",
+        "Glitch",
+        "Stutter"
+      ],
+      "techniques": [
+        "sample chopping",
+        "granular slicing"
+      ]
+    },
+    "vocal": {
+      "layer_names": [
+        "Chop",
+        "Stab",
+        "Slice"
+      ],
+      "techniques": [
+        "vocal sample chopping",
+        "time slicing"
+      ]
+    },
+    "fx": {
+      "layer_names": [
+        "Reverse",
+        "Chop",
+        "Slice"
+      ],
+      "techniques": [
+        "fx sample chopping",
+        "time manipulation"
+      ]
+    }
+  },
+  "sound_intent": {
+    "overall": "cinematic mood with dynamic energy profile and clear sample chopping textures in all layers",
+    "drums": "punchy and rhythmic with chopped samples",
+    "bass": "deep, groovy with chopped bass sample layers",
+    "chords": "smooth but chopped for rhythmic interest",
+    "melody": "cinematic and textured with chopped melodic samples",
+    "vocal": "processed vocal chops adding to rhythmic and melodic elements",
+    "fx": "ambient chopped effects to deepen cinematic vibe"
+  },
+  "routing_intent": {
+    "drums": "separate punchy drum bus with transient shaping",
+    "bass": "sidechained to drums for groove tension",
+    "chords": "stereo widened bus for depth",
+    "melody": "reverb and delay send for cinematic space",
+    "vocal": "lead bus with periodic gating and chopping effects",
+    "fx": "automated filter and delay effects"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample chops",
+    "bass": "groove and low-end drive",
+    "chords": "harmonic support with rhythmic chops",
+    "melody": "cinematic texture and lead interest",
+    "vocal": "main vocal chops and phrases",
+    "fx": "transitional cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      8,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus_on_dynamic_energy": "Yes",
+    "highlight_sample_chopping": "Yes",
+    "maintain_cinematic_mood": "Yes"
+  },
+  "presetor_intent": {
+    "preset_selection_criteria": "Preset sounds favor modern chopped samples with cinematic tonal quality",
+    "effects_presets": "Reverbs, delays, and filters must be cinematic and smooth"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns with modern sample chopping techniques matching cinematic energy rise and fall"
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using chopped bass samples emphasizing groove and cinematic flow"
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic layers with chopped chord samples to support cinematic mood"
+    },
+    "melody_generator": {
+      "brief": "Develop melodic lines using advanced sample chopping and slicing for cinematic texture"
+    },
+    "ai_designer": {
+      "brief": "Coordinate dynamic energy curve and ensure smooth transitions across sections"
+    },
+    "presetor": {
+      "brief": "Select and apply presets emphasizing modern sample chopping and cinematic sound textures"
+    },
+    "songgps": {
+      "brief": "Apply arrangement rules for section structure and energy balance"
+    },
+    "ai_mixmaster": {
+      "brief": "Mix ensuring clarity of chopped sample layers and cinematic ambiance"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

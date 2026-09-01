@@ -1,0 +1,323 @@
+{
+  "project": {
+    "name": "Drill Emotional Minimal",
+    "genre": "Drill",
+    "subgenre": "Minimal",
+    "bpm": 75,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      5,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      80,
+      70
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 100,
+          "verse_2": 50,
+          "bridge": 0,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 5,
+          "final_hook": 20,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "Verse 1 Start",
+        "reason": "vocal entrance"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Start",
+        "reason": "chorus highlight"
+      },
+      {
+        "track": "drums",
+        "bar": 49,
+        "type": "cue",
+        "label": "Bridge Start",
+        "reason": "energy drop"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "cue",
+        "label": "Final Hook Start",
+        "reason": "final chorus"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "cue",
+        "label": "Outro Start",
+        "reason": "energy decline"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and slow build energy progression",
+    "bass": "support rhythmic groove and subtle harmonic grounding",
+    "chords": "minimal harmonic pads enhancing emotional mood",
+    "melody": "sparse motifs adding emotional emphasis",
+    "vocal": "primary emotional expression with controlled intensity",
+    "fx": "accentuating transitions and emotional depth"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      8,
+      56,
+      57
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 0
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal, slow-building drum arrangement that supports an emotional drill vibe with subtle variations across sections."
+    },
+    "bass_generator": {
+      "brief": "Generate a sparse bass texture that complements the rhythmic foundation and supports the emotional tone."
+    },
+    "harmony_generator": {
+      "brief": "Produce minimal harmonic layers with chords that add emotional depth without overpowering the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Produce simple, sparse melodic motifs that enhance the mood and emotional build without complexity."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement ensuring minimal variation, slow energy build, and emotional coherence across sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize clean, emotional drill sounds with minimal processing to maintain clarity."
+    },
+    "songgps": {
+      "brief": "Guide energy curve shaping and section progression for a slow, emotional build fitting the drill genre."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare to mix unprocessed channel audio with a focus on maintaining clarity and emotional impact in final output."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

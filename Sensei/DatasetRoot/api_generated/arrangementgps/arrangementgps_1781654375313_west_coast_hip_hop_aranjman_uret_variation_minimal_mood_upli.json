@@ -1,0 +1,228 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "notes": "Slow build with minimal instrumentation emphasizing modern sample chopping."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "slice_and_dice": 80,
+          "stutter": 50,
+          "chop": 70,
+          "reverse_slice": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "slice_and_dice": 40,
+          "chop": 50
+        }
+      },
+      "chords": {
+        "activity": {
+          "slice_and_dice": 30,
+          "stutter": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "chop": 60,
+          "stutter": 40,
+          "slice_and_dice": 30
+        }
+      },
+      "vocal": {
+        "activity": {
+          "chop": 40,
+          "stutter": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "reverse_slice": 50,
+          "slice_and_dice": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Intro Start",
+        "reason": "Start minimal percussive chops"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Entry",
+        "reason": "Introduce uplifting sample chops"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "cue",
+        "label": "Verse 2 Start",
+        "reason": "Add bass chop layers to build energy"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "cue",
+        "label": "Bridge FX",
+        "reason": "Apply reversed slice effects for tension"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "cue",
+        "label": "Final Hook Vocals",
+        "reason": "Add chopped vocal samples for climax"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation using sample chopping techniques",
+    "bass": "Supporting groove with minimal chopped bass samples",
+    "chords": "Sparse sliced chord stabs",
+    "melody": "Main uplifting phrases delivered with sample chops",
+    "vocal": "Chopped and stuttered vocal samples for texture",
+    "fx": "Effects layers using reversed and sliced samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 4,
+    "vocal": 2,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using modern sample chopping, stutter, and slice techniques with a slow energy build."
+    },
+    "bass_generator": {
+      "brief": "Create bassline layers with subtle chopped samples fitting the minimal, uplifting West Coast vibe."
+    },
+    "harmony_generator": {
+      "brief": "Arrange sparse chord layers with sliced and stutter effects to support the arrangement without overpowering."
+    },
+    "melody_generator": {
+      "brief": "Produce uplifting melodic elements using modern sample chopping techniques to enhance emotional impact."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement energy flow from intro to final hook emphasizing slow build and minimalism."
+    },
+    "presetor": {
+      "brief": "Assign appropriate production presets optimizing for clean, chopped sample clarity and warmth."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows slow build energy profile with proper section transitions and lane activity."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing for unprocessed channel audio focusing on clarity and punch in chopped samples."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

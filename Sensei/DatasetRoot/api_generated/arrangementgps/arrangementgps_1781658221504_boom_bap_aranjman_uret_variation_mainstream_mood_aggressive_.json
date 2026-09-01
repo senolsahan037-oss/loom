@@ -1,0 +1,318 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Mainstream",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      30,
+      50,
+      80,
+      80,
+      20
+    ],
+    "notes": "Sparse verses with strong, energetic hooks; sample-based arrangement featuring texture beds and one-shot hits; channel names use sample slicing technique nomenclature."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "marker",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "marker",
+        "label": "Verse 1 Start",
+        "reason": "Entry of sparse vocal verses"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "marker",
+        "label": "Hook Start",
+        "reason": "Strong hook with high energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "marker",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse verses"
+      },
+      {
+        "track": "vocal",
+        "bar": 49,
+        "type": "marker",
+        "label": "Bridge Start",
+        "reason": "Transition section to final hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "marker",
+        "label": "Final Hook Start",
+        "reason": "Climactic hook repeat with full energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "marker",
+        "label": "Outro Start",
+        "reason": "Arrangement wind down"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "Sample_Bed",
+          "type": "texture_bed",
+          "children": [
+            {
+              "name": "Sliced_Sample_1",
+              "type": "sample_slice"
+            },
+            {
+              "name": "Sliced_Sample_2",
+              "type": "sample_slice"
+            }
+          ]
+        },
+        {
+          "name": "One_Shot_Hits",
+          "type": "one_shot",
+          "children": [
+            {
+              "name": "Kick_Transient",
+              "type": "one_shot_hit"
+            },
+            {
+              "name": "Snare_Transient",
+              "type": "one_shot_hit"
+            },
+            {
+              "name": "HiHat_Transient",
+              "type": "one_shot_hit"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "Create a warm, gritty atmosphere using chopped and sliced boom bap samples as the texture base.",
+    "one_shot_hits": "Add punchy, crisp one-shot drum hits for rhythm and groove emphasizing sparse verses and strong hooks."
+  },
+  "routing_intent": {
+    "sampling_channels": {
+      "Sliced_Sample_1": "texture_bed_left",
+      "Sliced_Sample_2": "texture_bed_right",
+      "Kick_Transient": "kick_channel",
+      "Snare_Transient": "snare_channel",
+      "HiHat_Transient": "hihat_channel"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using one-shot drum hits and sample slices",
+    "bass": "minimal bass supporting groove",
+    "chords": "sample-based chord stabs or pads",
+    "melody": "sparsely used textured melodic samples",
+    "vocal": "aggressive vocal delivery sparing verses, prominent hooks",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 6,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 9,
+    "fx": 2
+  },
+  "designer_intent": {
+    "arrangement_style": "Standard boom bap with mainstream appeal focusing on contrast between sparse verses and energetic hooks"
+  },
+  "presetor_intent": {
+    "preset_selection": "Use presets emphasizing grit and punch for drum one-shots and warm analog-style texture beds"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a one-shot focused drum pattern using sample slicing techniques prioritizing punch and groove"
+    },
+    "bass_generator": {
+      "brief": "Produce minimal bass line that supports rhythm while leaving space in verses"
+    },
+    "harmony_generator": {
+      "brief": "Create chord stabs or pads using chopped sample slices for texture beds"
+    },
+    "melody_generator": {
+      "brief": "Form sparse melodic textures focusing on sampled melodic fragments rather than full melodies"
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with an energy curve highlighting strong hooks and spatially sparse verses"
+    },
+    "presetor": {
+      "brief": "Select and assign presets enhancing sample texture warmth and one-shot impact per channel"
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement timing and section transitions to optimize song flow and energy dynamics"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix emphasizing clarity of one-shot hits and texture bed depth with proper routing"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

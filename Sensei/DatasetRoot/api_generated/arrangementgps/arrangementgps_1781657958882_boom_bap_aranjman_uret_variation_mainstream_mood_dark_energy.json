@@ -1,0 +1,275 @@
+{
+  "project": {
+    "name": "Boom Bap Mainstream Dark",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      30,
+      40,
+      80,
+      90,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks; mainstream boom bap style; dark mood"
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 85,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 20,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "verse 1 start",
+        "reason": "Beginning of sparse energetic verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook start",
+        "reason": "Strong hook energy increase"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "verse 2 start",
+        "reason": "Return to sparse verse energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "final hook start",
+        "reason": "Final hook peak energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "time_stretch",
+        "type": "sample_chop",
+        "description": "Chopped samples adjusted for tempo"
+      },
+      {
+        "name": "slice_deletion",
+        "type": "sample_chop",
+        "description": "Samples sliced and parts deleted for sparse rhythm"
+      },
+      {
+        "name": "rearrangement",
+        "type": "sample_chop",
+        "description": "Rearranged samples to create groove"
+      }
+    ]
+  },
+  "sound_intent": {
+    "desired_effects": [
+      "lo-fi grit",
+      "vintage warmth",
+      "bite"
+    ],
+    "dynamic_profile": "sparse verses with strongly accented hooks"
+  },
+  "routing_intent": {
+    "routing_notes": "Separate drum channel components by sample chop technique layers for independent mixing"
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with boom bap drum chops",
+    "bass": "support groove with dark basslines",
+    "chords": "harmony with dark minor tonal texture",
+    "melody": "sparse melody elements for mood",
+    "vocal": "rap verses and strong hooks",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      42
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 60,
+    "melody": 40,
+    "vocal": 90,
+    "fx": 30
+  },
+  "designer_intent": {
+    "focus": "Create a dark, authentic boom bap arrangement with clear sectional dynamics reflecting sparse verses and strong hooks to capture mainstream appeal."
+  },
+  "presetor_intent": {
+    "instructions": "Apply preset chains emphasizing vintage warmth and grit on drum chops; maintain clarity and energy for hooks."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using boom bap sample chopping techniques: time stretch, slice deletion, and rearrangement layers to support sparse verses and strong hook dynamics."
+    },
+    "bass_generator": {
+      "brief": "Design basslines that align with dark mood and support groove; follow sparse energy in verses and fuller presence in hooks."
+    },
+    "harmony_generator": {
+      "brief": "Compose chordal layers using minor tonalities to bolster dark mood, keeping texture minimal in verses and fuller in hooks."
+    },
+    "melody_generator": {
+      "brief": "Create sparse melodic elements for mood enhancement, ensuring they complement the vocal delivery and energy profile."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement structure and energy flow, enforce the mainstream dark boom bap style with clear dynamics between sections."
+    },
+    "presetor": {
+      "brief": "Implement and tweak presets for each layer to preserve warmth, clarity, and grit, particularly emphasizing hook sections."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement timelines and ensure section transitions are clear and energy dynamics follow the desired sparse verse/strong hook profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixes focusing on preserving individual sample chop layers for flexible post-processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

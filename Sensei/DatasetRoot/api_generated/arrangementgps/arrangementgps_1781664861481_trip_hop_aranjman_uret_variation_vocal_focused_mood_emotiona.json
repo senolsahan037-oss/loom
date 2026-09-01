@@ -1,0 +1,345 @@
+{
+  "project": {
+    "name": "Emotional Trip Hop Vocal Focus",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "Emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      75,
+      90,
+      80,
+      60,
+      55,
+      50,
+      65,
+      80,
+      95,
+      90,
+      85,
+      70,
+      60,
+      55,
+      50,
+      40,
+      35,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      85,
+      90,
+      95,
+      90,
+      85,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      65,
+      75,
+      80,
+      85,
+      90,
+      95,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5
+    ],
+    "notes": "Arrangement features a slow build in energy with a textured sample bed and one-shot hit samples emphasizing vocal-focused emotional expression without specific musical elements."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 65,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 35
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Vocal Entry",
+        "reason": "Highlight vocal focus to set emotional tone"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Drum Build",
+        "reason": "Increase rhythmic energy for hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge FX",
+        "reason": "Smooth energy transition and add texture"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Vocal Emphasis",
+        "reason": "Maximize emotional impact in final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "SampleBasedArrangement",
+          "children": [
+            {
+              "name": "TextureBed",
+              "children": [
+                {
+                  "name": "OneShotHits",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "Sample-based arrangement with textured sample bed providing atmospheric depth, complemented by one-shot hits emphasizing rhythmic accents.",
+    "focus": "Vocal-focused emotional delivery with slow-building energy."
+  },
+  "routing_intent": {
+    "drums": "Route one-shot hit samples and rhythmic texture samples through dedicated drum bus with transient shaping.",
+    "bass": "Route filtered sub-sample layers with smooth compression on bass bus.",
+    "chords": "Route layered texture samples with reverb and delay to chords bus.",
+    "melody": "Route sparse melodic sample slices with subtle modulation effects.",
+    "vocal": "Route vocal samples with priority, applying emotional processing and dynamic automation.",
+    "fx": "Route atmospheric and transition samples with spatial processing in fx bus."
+  },
+  "track_roles": {
+    "drums": "Provide rhythm and dynamics with one-shot hits and textured samples.",
+    "bass": "Support harmonic foundation with sample-based bass layers.",
+    "chords": "Create harmonic texture using layered sample pads.",
+    "melody": "Add melodic interest with subtle sampled phrases.",
+    "vocal": "Lead emotional storytelling with focused vocal samples.",
+    "fx": "Add atmosphere and smooth transitions with sample-based effects."
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 60,
+    "bass": 50,
+    "chords": 45,
+    "melody": 40,
+    "vocal": 90,
+    "fx": 30
+  },
+  "designer_intent": {
+    "goal": "Create an emotional trip hop arrangement with slow build energy, emphasizing vocal presence supported by a textured sample bed and impactful one-shot hits."
+  },
+  "presetor_intent": {
+    "goal": "Select presets that enhance the emotional vocal delivery and provide rich texture in the sample layers, ensuring clarity and depth."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic patterns using one-shot hit samples with controlled dynamics and textures appropriate for trip hop groove."
+    },
+    "bass_generator": {
+      "brief": "Produce smooth, sample-based bass sounds that complement the emotional mood and slow build energy."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic textures using layered samples that provide depth without overpowering the vocal focus."
+    },
+    "melody_generator": {
+      "brief": "Craft subtle, sparse melodic sample slices that enhance the emotional narrative without clashing with vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure and energy build, ensuring smooth transitions and vocal emphasis throughout the piece."
+    },
+    "presetor": {
+      "brief": "Apply appropriate sample-based presets with reverb, delay, and modulation tailored to the emotional and slow build characteristics."
+    },
+    "songgps": {
+      "brief": "Manage arrangement pacing, energy curve, and section transitions to create a coherent and expressive trip hop piece."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixdown, ensuring clarity of one-shot hits and vocal layers for subsequent mixing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

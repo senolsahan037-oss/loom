@@ -1,0 +1,237 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Dark Hook",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      30,
+      60,
+      90,
+      40,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 15,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "highlight hook-heavy energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "dynamic_change",
+        "label": "bridge_intro",
+        "reason": "energy reduction followed by build-up"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "final hook climax"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with strong groove",
+    "bass": "deep and punchy low-end support",
+    "chords": "dark, jazzy harmonic texture",
+    "melody": "minimal, atmospheric motifs",
+    "vocal": "focused on hook and verse delivery",
+    "fx": "ambient effects for mood enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a groove with west coast hip-hop style drums, balancing energy through verses and hook to emphasize hook-heavy sections."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep bassline that supports the dark mood and energizes hook sections without overpowering verses."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures that evoke a dark atmosphere, using jazzy and minor harmonies suited for west coast hip-hop."
+    },
+    "melody_generator": {
+      "brief": "Compose minimal melodic content to support hooks with memorable motifs while keeping verses sparse."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence, shaping energy curve for the dark, hook-heavy profile, ensuring smooth transitions."
+    },
+    "presetor": {
+      "brief": "Apply presets that complement a dark and mainstream west coast hip-hop sound focusing on clarity in vocals and impactful hooks."
+    },
+    "songgps": {
+      "brief": "Guide the section layout with emphasis on hook energy and appropriate breaks for a mainstream hip-hop structure."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing chain preserving dynamics and clarity, ensuring unprocessed channels are ready for final mastering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

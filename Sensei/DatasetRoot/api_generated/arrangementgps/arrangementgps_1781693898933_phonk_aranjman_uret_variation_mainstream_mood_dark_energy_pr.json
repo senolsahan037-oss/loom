@@ -1,0 +1,271 @@
+{
+  "project": {
+    "name": "Phonk Club Darkness",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      40
+    ],
+    "notes": "Phonk style arrangement with mainstream variation, emphasizing club energy and dark mood. Channels are named based on sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Elevate energy, emphasize club vibe"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Introduce main bass groove"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "fade_in",
+        "label": "Intro fade in",
+        "reason": "Set dark and moody atmosphere"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "Slice": {},
+      "Stab": {},
+      "Chop": {},
+      "Loop_Segments": {},
+      "One_Shots": {}
+    }
+  },
+  "sound_intent": {
+    "samples": {
+      "Slice": "Sharp cut samples from vinyl records",
+      "Stab": "Short, punchy hits sliced from samples",
+      "Chop": "Rhythmic chopped sample fragments",
+      "Loop_Segments": "Looped segments cut from longer samples",
+      "One_Shots": "Isolated percussive or melodic hits"
+    },
+    "effects": {
+      "dark_reverb": true,
+      "analog_saturation": true,
+      "low_pass_filter": true
+    }
+  },
+  "routing_intent": {
+    "channels": {
+      "Slice": "Drums lane",
+      "Stab": "Chords lane",
+      "Chop": "Melody lane",
+      "Loop_Segments": "Bass lane",
+      "One_Shots": "FX lane"
+    }
+  },
+  "track_roles": {
+    "drums": "Provide rhythmic backbone with sample-chopped drum hits",
+    "bass": "Deliver driving low-end with chopped loop segments",
+    "chords": "Create atmospheric stabs from sliced samples",
+    "melody": "Feature rhythmic chops to accent the dark mood",
+    "vocal": "Sparse vocal chops to accent hook and verses",
+    "fx": "Add spatial and transitional effects via one-shots"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {
+    "arrangement_style": "Mainstream phonk with dark club energy",
+    "channel_naming": "Channels named after prominent sample chop techniques"
+  },
+  "presetor_intent": {
+    "preset_focus": "Presets to emphasize dark mood and club punchiness"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns focusing on sample chopping techniques for rhythmic interest, ensuring dark mood and club energy."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines with loop segment chopping techniques emphasizing groove and dark club vibe."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord stabs and pads using sample slicing for atmosphere, maintaining mood and energy profile."
+    },
+    "melody_generator": {
+      "brief": "Design melody lines using chopped samples that fit the dark atmosphere and club energy."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow and validate section energy matching dark, mainstream phonk style."
+    },
+    "presetor": {
+      "brief": "Assign presets that enhance punch, warmth, and darkness aligned with phonk club style."
+    },
+    "songgps": {
+      "brief": "Manage arrangement timeline with appropriate section transitions and energy dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing adhering to sample chop based channel separation, ensuring clarity and energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

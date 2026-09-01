@@ -1,0 +1,252 @@
+{
+  "project": {
+    "name": "Arabesk Rap Aranjmanı",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Minimalist arrangement emphasizing cinematic rise and fall in energy with aggressive mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "beginning of verse 1"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "chorus entry"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "bridge change"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "final chorus entry"
+      },
+      {
+        "track": "chords",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "song outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with minimal beats emphasizing aggressiveness",
+    "bass": "support the rhythm with sparse but impactful pulses",
+    "chords": "provide minimal harmonic support with traditional Arabesk elements",
+    "melody": "subtle melodic elements complementing the vocal line",
+    "vocal": "carry the aggressive rap vocal performance",
+    "fx": "enhance transitions and cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "generate minimal aggressive drum patterns with dynamic intensity changes reflecting cinematic rise and fall"
+    },
+    "bass_generator": {
+      "brief": "create sparse and impactful bass activity supporting rhythm and harmony changes"
+    },
+    "harmony_generator": {
+      "brief": "produce minimal chord structures with Arabesk flavor enhancing the mood"
+    },
+    "melody_generator": {
+      "brief": "compose subtle melodic lines to complement vocal and maintain minimalism"
+    },
+    "ai_designer": {
+      "brief": "oversee arrangement’s energy curve and section transitions ensuring cinematic dynamics"
+    },
+    "presetor": {
+      "brief": "apply sound presets that emphasize aggressive mood with cinematic textures"
+    },
+    "songgps": {
+      "brief": "manage section structure and timing with proper event markers"
+    },
+    "ai_mixmaster": {
+      "brief": "prepare for mixing by routing unprocessed channel audio focusing on clarity of aggressive elements"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

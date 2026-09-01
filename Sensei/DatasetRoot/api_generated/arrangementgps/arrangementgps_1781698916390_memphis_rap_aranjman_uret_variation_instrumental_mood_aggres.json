@@ -1,0 +1,330 @@
+{
+  "project": {
+    "name": "Memphis Rap Instrumental Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 75,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      40,
+      60,
+      80,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 70,
+          "25-40": 90,
+          "41-56": 80,
+          "57-64": 85,
+          "65-72": 95,
+          "73-80": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 60,
+          "25-40": 85,
+          "41-56": 70,
+          "57-64": 80,
+          "65-72": 90,
+          "73-80": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 40,
+          "25-40": 55,
+          "41-56": 45,
+          "57-64": 50,
+          "65-72": 60,
+          "73-80": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 0,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 0,
+          "73-80": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 0,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 0,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 30,
+          "25-40": 45,
+          "41-56": 25,
+          "57-64": 40,
+          "65-72": 50,
+          "73-80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drums Low",
+        "reason": "Begin slow build percussion"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass Entrance",
+        "reason": "Add depth for verse 1"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Chords Layer",
+        "reason": "Introduce harmony at hook"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Create tension before final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "intensify",
+        "label": "Final Hook Drums",
+        "reason": "Maximum energy section"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Drums Fade",
+        "reason": "Wind down energy for outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone with heavy snares and kicks",
+    "bass": "deep sub bass to support groove",
+    "chords": "dark synth stabs for atmosphere",
+    "melody": "none - instrumental variation focus on rhythm and atmosphere",
+    "vocal": "none - instrumental",
+    "fx": "ambient effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      2
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create aggressive, sparse but impactful drum patterns that build energy slowly and peak at hooks."
+    },
+    "bass_generator": {
+      "brief": "Produce a deep, steady bass line emphasizing slow build in energy matching drum intensity."
+    },
+    "harmony_generator": {
+      "brief": "Generate dark and moody chord stabs enhancing the aggressive vibe without melodic complexity."
+    },
+    "melody_generator": {
+      "brief": "Omit melodic line to keep instrumental variation focused on rhythm and atmosphere."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections to ensure smooth slow build in energy and highlight hooks with full instrumentation."
+    },
+    "presetor": {
+      "brief": "Apply Memphis Rap style presets emphasizing gritty drum samples and moody synth textures."
+    },
+    "songgps": {
+      "brief": "Monitor and adjust energy curve ensuring gradual build and clímax aligning with section transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix drums and bass prominently while keeping chords and FX spatially wide and balanced."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

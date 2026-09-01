@@ -1,0 +1,46 @@
+.activity-log {
+  padding: 10px;
+  min-height: 0;
+}
+
+.activity-log .panel__kicker {
+  margin-bottom: 4px;
+}
+
+.activity-log h2 {
+  font-size: 0.9rem;
+}
+
+.activity-log__console {
+  max-height: 44px;
+  margin-top: 6px;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: rgba(2, 5, 9, 0.72);
+  padding: 6px 8px;
+  font-family: var(--font-mono);
+}
+
+.activity-log__entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #cfe3f6;
+  font-size: 0.66rem;
+  line-height: 1.25;
+}
+
+.activity-log__entry + .activity-log__entry {
+  margin-top: 2px;
+}
+
+.activity-log__entry span {
+  width: 18px;
+  color: var(--color-primary);
+}
+
+.activity-log__entry.is-pending span {
+  color: var(--color-warning);
+}

@@ -1,0 +1,350 @@
+{
+  "project": {
+    "name": "Phonk Aggressive Mainstream",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40
+    ],
+    "notes": "Arrangement follows cinematic rise and fall energy profile for mainstream aggressive phonk."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Intro section start"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "enter",
+        "label": "Verse 1 Vocal Entry",
+        "reason": "Vocal starts in verse 1"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Chord Emphasis",
+        "reason": "Hook chord prominence"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "dynamic_peak",
+        "label": "Verse 2 Bass Boost",
+        "reason": "Increased energy in verse 2"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "transition",
+        "label": "Bridge FX Shift",
+        "reason": "Bridge atmospheric effect"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "finale",
+        "label": "Final Hook Vocal Peak",
+        "reason": "Culmination of vocal energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro Drum Fade",
+        "reason": "Energy reduction to end"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "Slice": {},
+      "Stab": {},
+      "Roll": {},
+      "Chop": {},
+      "Tap": {}
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "channels named by sample chop techniques such as Slice, Stab, Roll, Chop, Tap",
+    "mood": "aggressive",
+    "variation": "mainstream",
+    "energy_profile": "cinematic rise and fall"
+  },
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with percussive sample chops",
+    "bass": "deep bassline emphasizing groove",
+    "chords": "harmonic support with chopped samples",
+    "melody": "main melodic elements using sample chops",
+    "vocal": "vocal parts with aggressive delivery",
+    "fx": "effects for transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate aggressive drum patterns using sample chop techniques suitable for phonk genre with dynamic build and release."
+    },
+    "bass_generator": {
+      "brief": "Create deep bass backing aligning with the cinematic energy curve and sample layering methods."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic support layers using sample chops that enhance the aggressive mood and mainstream variation."
+    },
+    "melody_generator": {
+      "brief": "Design melodic lines composed of chopped sample layers matching the cinematic rise and fall energy profile."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring smooth energy transitions matching the cinematic profile and aggressive mood."
+    },
+    "presetor": {
+      "brief": "Manage presets for sample instruments to reflect sample chop naming conventions and phonk arrangement style."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement sections and energy tagging to ensure consistency with project mood and variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean channel audio routing for mixing, respecting sample chop channel naming and dynamic energy flow."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "project": {
+    "name": "Trap Instrumental Aggressive Club Energy",
+    "genre": "Hip Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      70,
+      80,
+      100,
+      90,
+      80,
+      100,
+      90,
+      70,
+      60,
+      80,
+      100,
+      90,
+      80
+    ],
+    "notes": "This arrangement emphasizes aggressive energy typical for trap club instrumentals, balancing tension and release over 80 bars."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook_Start",
+        "reason": "Introduce full energy drum pattern for hook"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge_Start",
+        "reason": "Bass variation to support bridge mood"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro_Start",
+        "reason": "Begin fade out with FX textures"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low-end support",
+    "chords": "harmonic texture",
+    "melody": "none (instrumental variation)",
+    "vocal": "none (instrumental)",
+    "fx": "transitional elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create aggressive, syncopated drum patterns typical of trap music with strong club energy."
+    },
+    "bass_generator": {
+      "brief": "Produce deep, driving basslines that complement the aggressive drum patterns and sustain energy."
+    },
+    "harmony_generator": {
+      "brief": "Add sparse harmonic layers supporting the mood without cluttering, using minor chord textures."
+    },
+    "melody_generator": {
+      "brief": "Omit melody content as this is an instrumental variation focused on rhythm and harmony."
+    },
+    "ai_designer": {
+      "brief": "Structure arrangement sections to maximize energy flow suitable for a club environment."
+    },
+    "presetor": {
+      "brief": "Apply sound presets enhancing aggressive tonal qualities, clear low-end and impactful drums."
+    },
+    "songgps": {
+      "brief": "Guide energy curve and arrangement section transitions to maintain dynamic tension."
+    },
+    "ai_mixmaster": {
+      "brief": "Ensure clarity between rhythm and bass, balanced with effects for club-ready final mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

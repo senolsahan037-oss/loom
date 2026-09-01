@@ -1,0 +1,270 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      50,
+      80,
+      40,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks; instrumental variation with a sample-based texture bed and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 5,
+          "hook": 80,
+          "verse_2": 5,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 0,
+          "verse_2": 10,
+          "bridge": 10,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy increase and hook section begins"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Energy drops for verse continuation"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Energy peak and final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "texture_bed": {
+        "type": "loop",
+        "description": "Sample-based texture bed with warm pads and subtle atmospheres"
+      },
+      "one_shot_hits": {
+        "type": "events",
+        "description": "One-shot sample hits used for rhythmic accentuation"
+      }
+    },
+    "sample_slicing_techniques": {
+      "channels": {
+        "drums": "Transient Slicing",
+        "bass": "Loop Slicing",
+        "chords": "Granular Slicing",
+        "melody": "Slice and Rearrange",
+        "fx": "Reverse Slicing"
+      }
+    }
+  },
+  "sound_intent": {
+    "overall_texture": "Emotional with sparse verses and strong engaging hooks using sample layering and hit accents"
+  },
+  "routing_intent": {
+    "drums": "Route percussive samples to transient-focused channels for punch and clarity",
+    "bass": "Low-pass filtered loop samples with occasional pitching",
+    "chords": "Spatial effects to enhance atmosphere on granular slices",
+    "melody": "Clean, dry routing with emphasis on one-shot hits",
+    "fx": "Reverb-heavy send channels for spatial depth"
+  },
+  "track_roles": {
+    "drums": "Rhythm foundation with transient sliced one-shot hits",
+    "bass": "Low-end groove using loop sliced samples",
+    "chords": "Harmonic texture employing granular slicing",
+    "melody": "Melodic motifs using slice and rearrange method",
+    "vocal": "None (instrumental variation)",
+    "fx": "Atmospheric effects with reverse sliced samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      36,
+      68
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 5,
+    "melody": 7,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "focus": "Create a dynamic emotional arrangement emphasizing hooks with sparse verses using sample-based techniques"
+  },
+  "presetor_intent": {
+    "preset_usage": "Apply presets suitable for sample slicing and transient shaping to accentuate hooks and texture beds"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using transient slicing techniques emphasizing strong one-shot hits in hooks and sparse elements in verses"
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines using loop-sliced sample methods creating a warm low-end groove complementing sparse verses"
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic textures with granular-sliced chord samples adding emotional depth but leaving room for hooks"
+    },
+    "melody_generator": {
+      "brief": "Design melodic motifs with slice and rearrange techniques focused on hooks to maximize emotional impact"
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow ensuring sparse verses and strong hooks using sample-based instrumentation and texture layers"
+    },
+    "presetor": {
+      "brief": "Select and apply sound presets that enhance sample slicing clarity and transient definition across all tracks"
+    },
+    "songgps": {
+      "brief": "Manage energy curve and section transitions to maintain emotional intensity and variation in arrangement"
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and mix raw channel audio preserving transient details and sample textures without processing"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

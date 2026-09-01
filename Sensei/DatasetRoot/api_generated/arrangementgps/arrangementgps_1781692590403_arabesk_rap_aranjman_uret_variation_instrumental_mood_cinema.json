@@ -1,0 +1,322 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement Instrumental",
+    "genre": "Arabesk Rap",
+    "subgenre": "Instrumental",
+    "bpm": 80,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 82,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "fade_in",
+        "label": "Intro Start",
+        "reason": "Start of the arrangement"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "intensity_increase",
+        "label": "Verse 1 Entry",
+        "reason": "Transition to first verse"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Section",
+        "reason": "Main theme introduction"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "bridge_transition",
+        "label": "Bridge Start",
+        "reason": "Dynamic change"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro",
+        "reason": "Ending the track"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "harmonic anchor",
+    "chords": "harmonic texture",
+    "melody": "instrumental lead",
+    "vocal": "none",
+    "fx": "atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum pattern that supports a slow energy build matching the cinematic mood, emphasizing dynamic rhythmic textures without overpowering the arrangement."
+    },
+    "bass_generator": {
+      "brief": "Design a bassline that underpins the harmonic structure with a gradual energy increase while maintaining a cinematic and emotional arabesk rap feel."
+    },
+    "harmony_generator": {
+      "brief": "Generate rich chordal textures complementing the arabesk rap style, evolving slowly for a slow build energy profile."
+    },
+    "melody_generator": {
+      "brief": "Produce an instrumental lead melody that fits a cinematic mood, with gradual intensity escalation matching the arrangement's energy curve."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement consistency and ensure the instrumental cinematic mood is maintained without vocals, supporting a slow energy build."
+    },
+    "presetor": {
+      "brief": "Setup presets emphasizing cinematic soundscapes and smooth dynamic transitions for all instruments in line with the slow build energy profile."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and energy curve shaping to reflect the slow build, cinematic mood of the arabesk rap instrumental."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing parameters to retain clarity and cinematic depth, prioritizing gradual dynamic builds as per arrangement guidance."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

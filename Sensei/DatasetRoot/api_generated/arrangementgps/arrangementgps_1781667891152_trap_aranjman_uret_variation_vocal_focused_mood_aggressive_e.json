@@ -1,0 +1,310 @@
+{
+  "project": {
+    "name": "Trap Vocal Aggression",
+    "genre": "Hip Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      20,
+      35,
+      55,
+      75,
+      95,
+      75,
+      55,
+      35,
+      25,
+      20,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      85,
+      70,
+      50,
+      35,
+      25,
+      20,
+      35,
+      55,
+      75,
+      95,
+      85,
+      65,
+      45,
+      30,
+      20,
+      25,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      35,
+      25,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 40,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 60,
+          "verse_1": 90,
+          "hook": 100,
+          "verse_2": 90,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "Hook Start",
+        "reason": "Maximize energy for hook introduction"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Vocals",
+        "reason": "Start vocal-focused aggressive delivery"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge Effects",
+        "reason": "Smooth energy dip and contrast"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "entry",
+        "label": "Final Hook Vocals",
+        "reason": "Bring back maximum vocal energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone and dynamic driver",
+    "bass": "low-end support and groove foundation",
+    "chords": "harmonic fill and texture",
+    "melody": "occasional lead motifs",
+    "vocal": "main focus with aggressive delivery",
+    "fx": "transitional and atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a drum pattern that supports an aggressive trap groove with dynamic intensity peaks for hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that emphasize low-end power and complement the aggressive vocal delivery with rhythmic groove."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chordal support to maintain harmonic interest while leaving space for vocals."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements that highlight key moments but keep vocals in focus."
+    },
+    "ai_designer": {
+      "brief": "Shape the overall arrangement energy curve to create cinematic rises and falls aligned with aggressive vocal moments."
+    },
+    "presetor": {
+      "brief": "Assign presets that enhance the cinematic and aggressive mood with clarity on vocals."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement sections conform to trap structure and maintain vocal focus with dynamic energy flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix elements for clean processing focusing on vocal prominence and cinematic dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      65,
+      50,
+      80,
+      75,
+      30
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits; channels named using sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-40": 90,
+          "41-56": 85,
+          "57-64": 60,
+          "65-72": 95,
+          "73-80": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 45,
+          "25-40": 80,
+          "41-56": 70,
+          "57-64": 50,
+          "65-72": 85,
+          "73-80": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 35,
+          "25-40": 60,
+          "41-56": 55,
+          "57-64": 40,
+          "65-72": 70,
+          "73-80": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 25,
+          "25-40": 50,
+          "41-56": 45,
+          "57-64": 30,
+          "65-72": 65,
+          "73-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 20,
+          "25-40": 40,
+          "41-56": 35,
+          "57-64": 10,
+          "65-72": 50,
+          "73-80": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 55,
+          "41-56": 45,
+          "57-64": 35,
+          "65-72": 55,
+          "73-80": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Start of verse 1, introduce rhythm variations"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Build energy with prominent bass texture bed"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Introduce cinematic textures and effects"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Peak energetic section with one-shot hits"
+      },
+      {
+        "track": "melody",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Fade out melodic elements"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {
+    "sample_layering": "sample-based arrangement with textural layers and carefully sliced one-shot samples",
+    "channel_names": "use sample slicing technique names such as 'Slice 01', 'Grain 02', 'Hit 03'"
+  },
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample slicing and one-shot hits to drive groove and energy",
+    "bass": "texture bed with deep sample-based bass elements",
+    "chords": "textured pads and sampled harmonic layers",
+    "melody": "sparsed sample-based melodic hits",
+    "vocal": "vocal chops and processed one-shot vocal hits",
+    "fx": "cinematic effects and transitions using sample manipulation"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create innovative drum arrangements using sample slicing and one-shot hits to maintain club energy and cinematic mood."
+    },
+    "bass_generator": {
+      "brief": "Generate deep sample-based bass textures that complement the drum patterns with a focus on a textured bed."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic layers employing sample-based chords with cinematic ambience fitting West Coast Hip-Hop style."
+    },
+    "melody_generator": {
+      "brief": "Produce sparse, sample-sliced melodic one-shots that add cinematic variation without dominating."
+    },
+    "ai_designer": {
+      "brief": "Coordinate experimental arrangement with emphasis on sample slicing techniques and texture beds to fit overall energy curve."
+    },
+    "presetor": {
+      "brief": "Apply presets best suited for experimental West Coast Hip-Hop sample-based textures and dynamic club arrangement."
+    },
+    "songgps": {
+      "brief": "Analyze and guide arrangement progression ensuring variation and energy fit the experimental cinematic club vibe."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mix, preserving sample slicing details and dynamic one-shot hits."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

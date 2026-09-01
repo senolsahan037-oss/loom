@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "Emotional Trip Hop Instrumental",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 80,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      30,
+      40,
+      55,
+      70,
+      85,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5
+    ],
+    "notes": "Trip Hop arrangement with slow energy build; instrumental variation featuring layered micro chops, phrase chops, reverse chops, vocal chops, and stutter chops sample techniques. Channels named accordingly for clear sample layering."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 3,
+        "type": "effect",
+        "label": "reverse_chops_intro",
+        "reason": "introduce reverse chops in vocal samples for texture"
+      },
+      {
+        "track": "melody",
+        "bar": 9,
+        "type": "sample_technique",
+        "label": "micro_chops_start",
+        "reason": "start layering micro chops to build interest"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "sample_technique",
+        "label": "stutter_chops",
+        "reason": "use stutter chops to heighten energy in hook"
+      },
+      {
+        "track": "fx",
+        "bar": 40,
+        "type": "transition",
+        "label": "reverse_chops_fx",
+        "reason": "transition effect using reverse chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "sample_technique",
+        "label": "phrase_chops",
+        "reason": "introduce phrase chops to emphasize final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation using chopped and processed samples",
+    "bass": "low-end support with texture matching trip hop vibe",
+    "chords": "harmonic support with layered sample chops",
+    "melody": "instrumental phrases utilizing micro chops samples",
+    "vocal": "vocal chops and effects as instrumental texture",
+    "fx": "ambient and effect samples including reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Arrange drum patterns and textures with subtle use of sample chops to create emotional slow build rhythm."
+    },
+    "bass_generator": {
+      "brief": "Generate warm and deep bass lines that support emotional mood and integrate with chopped sample layers."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic layers using sample chops like phrase chops and micro chops to add depth and emotional texture."
+    },
+    "melody_generator": {
+      "brief": "Produce instrumental melodies using micro chops and phrase chops sample techniques with emotional expression."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement emphasizing slow energy build and emotional progression using sample chop techniques."
+    },
+    "presetor": {
+      "brief": "Assign channel names and presets reflecting sample chopping techniques for clarity in production."
+    },
+    "songgps": {
+      "brief": "Manage energy curve and section transitions to ensure smooth slow build arrangement matching emotional mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix sessions with clear routing for chopped sample layers preserving clarity and emotional impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

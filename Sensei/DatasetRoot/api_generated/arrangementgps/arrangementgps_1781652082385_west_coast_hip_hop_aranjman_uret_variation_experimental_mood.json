@@ -1,0 +1,231 @@
+{
+  "project": {
+    "name": "West Coast Experimental Hip-Hop",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "F minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      30,
+      40,
+      90,
+      100,
+      20
+    ],
+    "notes": "Sparse verses with strong, impactful hooks to highlight emotional expression and experimental sound design."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 75,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "First Hook",
+        "reason": "Strong hook entry for emotional impact"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "hook_start",
+        "label": "Final Hook",
+        "reason": "Culmination of emotional and experimental energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation with sparse and experimental patterns",
+    "bass": "Deep, supportive foundation emphasizing groove",
+    "chords": "Atmospheric and emotional harmonic support",
+    "melody": "Sparse motifs to complement hooks and mood",
+    "vocal": "Primary narrative with strong, emotional hooks",
+    "fx": "Experimental elements to enhance mood and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create sparse, groove-oriented drum patterns emphasizing West Coast style with experimental elements in the hook sections."
+    },
+    "bass_generator": {
+      "brief": "Design deep basslines that support the groove and add emotional depth especially in hooks and bridge."
+    },
+    "harmony_generator": {
+      "brief": "Generate atmospheric chords that reinforce emotional mood and complement sparse verses and strong hooks."
+    },
+    "melody_generator": {
+      "brief": "Produce simple yet emotive melodic motifs that appear mainly in hooks and bridge to add experimental flavor."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring emotional expression with sparse verses and energetic hooks, focusing on experimental arrangement."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize warm, vintage West Coast Hip-Hop tones with modern experimental textures."
+    },
+    "songgps": {
+      "brief": "Guide energy curve mapping and section structuring to maintain sparse verses and strong hook dynamics throughout."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mix stage by balancing dynamic contrasts and preserving sparse experimental elements in final mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

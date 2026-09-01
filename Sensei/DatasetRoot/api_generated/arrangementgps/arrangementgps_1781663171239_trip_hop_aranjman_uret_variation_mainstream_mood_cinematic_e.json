@@ -1,0 +1,363 @@
+{
+  "project": {
+    "name": "Trip Hop Cinematic Rise and Fall",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      65,
+      80,
+      65,
+      50,
+      35,
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20,
+      25,
+      45,
+      65,
+      85,
+      65,
+      45,
+      25,
+      20,
+      40,
+      60,
+      80,
+      90,
+      80,
+      60,
+      40,
+      20,
+      25,
+      50,
+      75,
+      95,
+      75,
+      50,
+      25,
+      20,
+      35,
+      55,
+      75,
+      95,
+      75,
+      55,
+      35,
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20,
+      25,
+      45,
+      65,
+      85,
+      65,
+      45,
+      25,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20
+    ],
+    "notes": "Trip Hop arrangement with cinematic mood utilizing rising and falling energy profile."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 65,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 75,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 35
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "micro_chops",
+        "bar": 12,
+        "type": "intro_phrase",
+        "label": "Micro Chops Entry",
+        "reason": "Introduce micro chops for texture"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Phrase Chops Highlight",
+        "reason": "Elevate energy in hook with phrase chops"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 33,
+        "type": "fx_transition",
+        "label": "Reverse Chops FX",
+        "reason": "Transition effect using reverse chops"
+      },
+      {
+        "track": "vocal_chops",
+        "bar": 40,
+        "type": "hook_peak",
+        "label": "Vocal Chops Surge",
+        "reason": "Enhance hook energy with vocal chops"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 57,
+        "type": "bridge_entry",
+        "label": "Stutter Chops Entrance",
+        "reason": "Add rhythmic complexity in bridge"
+      },
+      {
+        "track": "micro_chops",
+        "bar": 72,
+        "type": "final_hook_peak",
+        "label": "Micro Chops Finale",
+        "reason": "Build climax with micro chops"
+      },
+      {
+        "track": "fx",
+        "bar": 78,
+        "type": "outro_fade",
+        "label": "FX Outro Fade",
+        "reason": "Smooth energy drop with fx"
+      }
+    ]
+  },
+  "production_tree": {
+    "micro_chops": {
+      "type": "sample_layer",
+      "technique": "micro chops"
+    },
+    "phrase_chops": {
+      "type": "sample_layer",
+      "technique": "phrase chops"
+    },
+    "reverse_chops": {
+      "type": "sample_layer",
+      "technique": "reverse chops"
+    },
+    "vocal_chops": {
+      "type": "sample_layer",
+      "technique": "vocal chops"
+    },
+    "stutter_chops": {
+      "type": "sample_layer",
+      "technique": "stutter chops"
+    }
+  },
+  "sound_intent": {
+    "overall_mood": "cinematic",
+    "energy_profile": "cinematic rise and fall",
+    "arrangement_style": "mainstream trip hop"
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "micro_chops",
+      "phrase_chops": "phrase_chops",
+      "reverse_chops": "reverse_chops",
+      "vocal_chops": "vocal_chops",
+      "stutter_chops": "stutter_chops"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low-end support and groove",
+    "chords": "harmonic background",
+    "melody": "lead textural layer",
+    "vocal": "vocal chops and textures",
+    "fx": "transitions and effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate diverse trip hop drum patterns with appropriate energy dynamics."
+    },
+    "bass_generator": {
+      "brief": "Create a bass groove that supports the cinematic rise and fall energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic support using chord layers with smooth cinematic textures."
+    },
+    "melody_generator": {
+      "brief": "Design lead textures focusing on sample-based micro, phrase, reverse, vocal, and stutter chops."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement flow and ensure smooth energy transitions across sections."
+    },
+    "presetor": {
+      "brief": "Select and configure suitable presets for trip hop sample layers and effects."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure and section definitions per ArrangementGPS format."
+    },
+    "ai_mixmaster": {
+      "brief": "Process mixing guidelines to maintain clarity and dynamic range for cinematic mood."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

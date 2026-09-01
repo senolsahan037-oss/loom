@@ -1,0 +1,329 @@
+{
+  "project": {
+    "name": "Boom Bap Emotional Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      20,
+      30,
+      40,
+      50,
+      40,
+      30,
+      20,
+      10,
+      5,
+      0,
+      0
+    ],
+    "notes": "Instrumental arrangement with varied cinematic rises and falls in energy. Sample layers separated by channel names reflecting sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drums Start",
+        "reason": "Begin percussion with simple sample chopping hits"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass Enters",
+        "reason": "Add bassline using sliced bass sample layer"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "Chords Highlight",
+        "reason": "Bring in chord samples sliced by chopping technique"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "start",
+        "label": "Melody Leads",
+        "reason": "Introduce melody layer composed of chopped vocal sample fragments"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "start",
+        "label": "Bridge FX",
+        "reason": "Add atmospheric FX using reverse sample chops"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "start",
+        "label": "Final Hook Drums",
+        "reason": "Build energy with glitch chop percussion samples"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "end",
+        "label": "Outro Start",
+        "reason": "Begin energy tapering with sparse sample hits"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using sample chop techniques",
+    "bass": "low end support with chopped bass samples",
+    "chords": "harmonic texture from sliced chord samples",
+    "melody": "lead lines from vocal and instrumental chops",
+    "vocal": "none - instrumental only",
+    "fx": "atmospheric and transitional sample effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 7,
+    "melody": 6,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns using various sample chopping techniques like slice, glitch, and stutter that fit the boom bap style with emotional feel."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using chopped bass samples emphasizing smooth transitions and fits with the cinematic rise and fall energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic chord layers via sample sliced chords, ensuring emotional tone and supporting dynamic structure."
+    },
+    "melody_generator": {
+      "brief": "Develop lead melody lines using chopped vocal or instrumental samples, matching mood and energy variations."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement, ensuring balanced energy curve and coherent sample layer usage following boom bap instrumental instrumental variation."
+    },
+    "presetor": {
+      "brief": "Manage presets that support cinematic rise and fall energy, focusing on crisp sample chops and smooth transitions."
+    },
+    "songgps": {
+      "brief": "Track arrangement sections and map energy profile accurately to support production flow and creative intent."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix workflow prioritizing clean unprocessed sample layers for future processing, maintaining clarity and dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

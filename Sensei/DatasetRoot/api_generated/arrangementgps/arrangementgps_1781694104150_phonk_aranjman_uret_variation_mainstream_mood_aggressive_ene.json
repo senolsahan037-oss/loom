@@ -1,0 +1,297 @@
+{
+  "project": {
+    "name": "Phonk Aggressive Hook",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      90,
+      100,
+      30
+    ],
+    "notes": "Arrangement features a hook-heavy energy profile with aggressive mood throughout sections. Variation is mainstream style of Phonk."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 100,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 100,
+          "verse_2": 45,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook",
+        "reason": "Energy peak and vocal chop layer start"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook",
+        "reason": "Climax with maximum hook energy and vocal chop layering"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "samples": [
+        "micro_chops",
+        "stutter_chops"
+      ]
+    },
+    "bass": {
+      "samples": [
+        "phrase_chops"
+      ]
+    },
+    "chords": {
+      "samples": [
+        "reverse_chops"
+      ]
+    },
+    "melody": {
+      "samples": [
+        "phrase_chops",
+        "reverse_chops"
+      ]
+    },
+    "vocal": {
+      "samples": [
+        "vocal_chops",
+        "stutter_chops"
+      ]
+    },
+    "fx": {
+      "samples": [
+        "micro_chops",
+        "reverse_chops"
+      ]
+    }
+  },
+  "sound_intent": {
+    "variation": "mainstream",
+    "energy_profile": "hook-heavy",
+    "mood": "aggressive"
+  },
+  "routing_intent": {
+    "channels": {
+      "Micro_Chops": [
+        "drums",
+        "fx"
+      ],
+      "Phrase_Chops": [
+        "bass",
+        "melody"
+      ],
+      "Reverse_Chops": [
+        "chords",
+        "melody",
+        "fx"
+      ],
+      "Vocal_Chops": [
+        "vocal"
+      ],
+      "Stutter_Chops": [
+        "drums",
+        "vocal"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation using micro and stutter chops",
+    "bass": "low-end foundation with phrase chops",
+    "chords": "harmonic texture featuring reverse chops",
+    "melody": "lead motifs layered with phrase and reverse chops",
+    "vocal": "vocal hooks using vocal and stutter chops",
+    "fx": "texture and transitions using micro and reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 75,
+    "chords": 60,
+    "melody": 100,
+    "vocal": 100,
+    "fx": 50
+  },
+  "designer_intent": {
+    "focus": "Aggressive and mainstream phonk arrangement with heavy hooks and chopped sample layering."
+  },
+  "presetor_intent": {
+    "focus": "Enable crisp articulation of chops and aggressive dynamics emphasizing hooks."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns emphasizing micro chops and stutter chops to drive rhythm aggressively."
+    },
+    "bass_generator": {
+      "brief": "Design bass lines primarily using phrase chops to complement the aggressive mood and hook-heavy profile."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord layers employing reverse chops to provide harmonic depth fitting the mainstream phonk style."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic phrases using phrase and reverse chops aligned with aggressive and hook-centered mood."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy curve matches aggressive and hook-heavy focus."
+    },
+    "presetor": {
+      "brief": "Apply audio presets optimizing sample articulation for micro, phrase, reverse, vocal, and stutter chops."
+    },
+    "songgps": {
+      "brief": "Manage section markers and energy transitions supporting the aggressive hook-heavy arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance unprocessed channel audio with clarity on vocal chops and rhythmic elements priority."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

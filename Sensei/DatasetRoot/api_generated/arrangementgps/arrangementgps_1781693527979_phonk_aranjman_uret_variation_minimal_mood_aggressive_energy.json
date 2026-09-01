@@ -1,0 +1,291 @@
+{
+  "project": {
+    "name": "Phonk Aggressive Minimal Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      40
+    ],
+    "notes": "Aggressive, hook-heavy Phonk arrangement with minimal variation, emphasizing sample-chop based channel naming for clarity."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 60,
+          "final_hook": 50,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy boost, hook-heavy focus"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "motif_entry",
+        "label": "Main Hook Melody",
+        "reason": "Hook prominent melodic theme"
+      },
+      {
+        "track": "bass",
+        "bar": 1,
+        "type": "sample_chop",
+        "label": "Slice 1",
+        "reason": "Establish minimal sample chops"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "sample_chop",
+        "label": "Rearranged Slice",
+        "reason": "Variation in verse bass pattern"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect_in",
+        "label": "Bridge Transition FX",
+        "reason": "Bridge mood change"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Bring energy to final section"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "chop_1": {
+        "name": "stutter_slice",
+        "description": "Channel with repeatedly cut sample slices"
+      },
+      "chop_2": {
+        "name": "reverse_slice",
+        "description": "Reversed sample slices channel"
+      },
+      "chop_3": {
+        "name": "granular_slice",
+        "description": "Granular chopped samples channel"
+      },
+      "chop_4": {
+        "name": "loop_slice",
+        "description": "Looped chopped sample channel"
+      }
+    }
+  },
+  "sound_intent": {
+    "variation": "minimal",
+    "energy_profile": "hook-heavy",
+    "mood": "aggressive"
+  },
+  "routing_intent": {
+    "channels": {
+      "stutter_slice": "dry to drums bus",
+      "reverse_slice": "wet delay effect",
+      "granular_slice": "send to reverb for depth",
+      "loop_slice": "panned slightly left for stereo width"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with sample sliced layering",
+    "bass": "low-end support using chopped bass samples",
+    "chords": "minimal atmospheric pads built from chopped melodic samples",
+    "melody": "hook-driven sample slices with clear motif",
+    "vocal": "vocal chops and samples emphasizing the hook",
+    "fx": "transition effects and texture layers"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 5,
+    "melody": 9,
+    "vocal": 7,
+    "fx": 4
+  },
+  "designer_intent": {
+    "focus": "deliver aggressive, hook-heavy phonk arrangement with minimal variation and clear sample slice channel identity"
+  },
+  "presetor_intent": {
+    "apply_presets": "use analog style phonk drum and bass presets emphasizing grit and punch"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns emphasizing stutter and reverse sample chops linked to phonk style aggressive mood."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines based on chopped and looped samples with minimal variation supporting hooks."
+    },
+    "harmony_generator": {
+      "brief": "Generate minimalist atmospheric chords using sample-based sliced sounds."
+    },
+    "melody_generator": {
+      "brief": "Generate hook-driven melodic phrases with aggressive attitude using sliced sample technique."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement to maintain minimal variation and aggressive energy profile with hook focus."
+    },
+    "presetor": {
+      "brief": "Apply fitting phonk-style presets on relevant channels to enhance grit and punch."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement structure defining sections and energy transitions clearly."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing with clear separation of sample chop layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.95,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

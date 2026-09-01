@@ -1,0 +1,327 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional Experimental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      65,
+      70,
+      75,
+      80,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      85,
+      80,
+      70,
+      60,
+      50,
+      40
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 55
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 75,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 35,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Set initial slow build rhythm"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "enter",
+        "label": "Verse 1 Voice In",
+        "reason": "Introduce vocals for emotional storytelling"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "peak",
+        "label": "Hook Energy Peak",
+        "reason": "Increase bass energy for hook impact"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge Experimental FX",
+        "reason": "Add experimental sound textures for mood shift"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook Vocal Highlight",
+        "reason": "Emotional climax with vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Drum Fade",
+        "reason": "Smooth energy decline to close"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and groove",
+    "bass": "bassline for groove and mood",
+    "chords": "harmonic support and texture",
+    "melody": "emotional melodic motifs",
+    "vocal": "main vocal presence and emotion",
+    "fx": "atmospheric and experimental effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns with gradual energy increase; maintain West Coast Hip-Hop groove with occasional experimental slow builds."
+    },
+    "bass_generator": {
+      "brief": "Create bass outlines that support groove and emotional build, emphasizing slow energy rise aligned with arrangement curve."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions and textures that evoke emotion and support the experimental mood without overpowering the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop subtle, emotional melodic motifs that evolve slowly through the arrangement to align with energy build."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring the slow build energy profile and emotional mood consistent with West Coast Hip-Hop style."
+    },
+    "presetor": {
+      "brief": "Apply presets supporting experimental sounds with emotional and slow buildup characteristics without using predefined melodic or rhythmic content."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement timeline and energy peaks ensuring smooth transitions between sections for an emotional experimental hip-hop track."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing instructions to maintain clarity of each element and ensure unprocessed channel audio delivery to downstream stages."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

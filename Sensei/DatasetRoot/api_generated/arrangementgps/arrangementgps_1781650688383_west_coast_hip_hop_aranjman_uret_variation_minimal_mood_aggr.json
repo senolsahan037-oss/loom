@@ -1,0 +1,237 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Aggressive",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C Minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      80,
+      30
+    ],
+    "notes": "Sparse verses focusing on minimal instrumentation to highlight vocals, strong, catchy hooks with enhanced energy and instrumentation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "start",
+        "label": "hook_entry",
+        "reason": "Increase energy with strong hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "verse_1_entry",
+        "reason": "Sparse vocal entry to maintain minimal aggressive mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "start",
+        "label": "final_hook_entry",
+        "reason": "Elevate energy with final hook for climax"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with sparse fills",
+    "bass": "supportive low end with minimal notes",
+    "chords": "subtle harmonic support",
+    "melody": "minimal melodic accents during hooks",
+    "vocal": "lead focus in verses and hooks with sparse verses",
+    "fx": "atmospheric and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a drum pattern with a minimalistic West Coast hip-hop style keeping space in verses and higher intensity in hooks."
+    },
+    "bass_generator": {
+      "brief": "Create sparse and groove-driven bass lines supporting verse rhythms and more prominent bass in hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Provide subtle, minimal chord progressions emphasizing minor tonality and aggressive mood without clutter."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic elements focusing on hooks to elevate energy while keeping verses sparse."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring smooth energy transitions and appropriate section flow matching the aggressive, minimal style."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that complement minimal West Coast hip-hop with warm, punchy drums and deep bass."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement consistency with energy curve and enforce section structure compliance."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mix processing by delivering unprocessed channel audio with clear separation for final processing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

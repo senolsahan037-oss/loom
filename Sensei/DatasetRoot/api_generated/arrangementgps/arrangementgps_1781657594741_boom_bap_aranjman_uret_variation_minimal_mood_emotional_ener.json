@@ -1,0 +1,295 @@
+{
+  "project": {
+    "name": "Boom Bap Emotional Minimal",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Arrangement with cinematic rise and fall energy profile, minimal variations, emotional mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 10,
+          "final_hook": 50,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal_chops",
+        "bar": 9,
+        "type": "start",
+        "label": "Micro Chops Begin",
+        "reason": "Introduce micro chops sample layer"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 25,
+        "type": "start",
+        "label": "Phrase Chops Layer",
+        "reason": "Elevate emotional intensity with phrase chopping"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 41,
+        "type": "start",
+        "label": "Reverse Chops Layer",
+        "reason": "Add reverse chops sample texture"
+      },
+      {
+        "track": "vocal_chops",
+        "bar": 65,
+        "type": "intensity_peak",
+        "label": "Vocal Chops Peak",
+        "reason": "Final hook emotional climax"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 57,
+        "type": "start",
+        "label": "Stutter Chops",
+        "reason": "Bridge section unique sample manipulation"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "micro_chops": {
+        "description": "Chop samples into micro slices for intricate rhythmic textures."
+      },
+      "phrase_chops": {
+        "description": "Chop longer phrases for emotional phrasing."
+      },
+      "reverse_chops": {
+        "description": "Reverse chop samples to add tension and release."
+      },
+      "vocal_chops": {
+        "description": "Chop vocal samples to create emotional hooks."
+      },
+      "stutter_chops": {
+        "description": "Rapid repeat chops to add rhythmic interest."
+      }
+    }
+  },
+  "sound_intent": {
+    "emotional": true,
+    "energy_profile": "cinematic rise and fall",
+    "variation": "minimal",
+    "sample_layers": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ]
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "drums_channel",
+      "phrase_chops": "drums_channel",
+      "reverse_chops": "fx_channel",
+      "vocal_chops": "vocal_channel",
+      "stutter_chops": "drums_channel"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample chopping layers",
+    "bass": "low-end support",
+    "chords": "minimal harmonic texture",
+    "melody": "subtle emotional layers",
+    "vocal": "vocal chops emotional accent",
+    "fx": "ambient and reverse sample effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 6,
+    "chords": 5,
+    "melody": 4,
+    "vocal": 8,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Create an emotional Boom Bap arrangement with minimal variation and cinematic dynamics using sample chop layers."
+  },
+  "presetor_intent": {
+    "focus": "Maintain clarity in sample chop layer routing and balance the cinematic energy curve."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns incorporating micro chops, phrase chops, and stutter chops with minimal variation."
+    },
+    "bass_generator": {
+      "brief": "Create a supportive bassline complementing the cinematic energy profile with subtle variations."
+    },
+    "harmony_generator": {
+      "brief": "Add minimal chord structures to maintain emotional mood without overpowering the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle melodic elements that enhance the emotional tone without dominating the mix."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, ensuring the cinematic rise and fall energy curve with emotional mood."
+    },
+    "presetor": {
+      "brief": "Optimize routing for sample chop layers and adjust effects to support the cinematic dynamics."
+    },
+    "songgps": {
+      "brief": "Coordinate transitions and energy progression to align with arrangement and mood requirements."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mix, maintaining clarity of sample chop layers and dynamic range."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

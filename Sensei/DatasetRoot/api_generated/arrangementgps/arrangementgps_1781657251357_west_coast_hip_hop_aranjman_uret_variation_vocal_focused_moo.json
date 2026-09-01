@@ -1,0 +1,289 @@
+{
+  "project": {
+    "name": "West Coast Cinematic Hip-Hop Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "A minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      40,
+      50,
+      85,
+      70,
+      20
+    ],
+    "notes": "Sparse verses with strong vocal hooks, cinematic mood featuring sample chops techniques for vocal focus."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 65,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 100,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 100,
+          "outro": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Strong Vocal Hook Start",
+        "reason": "Start of high energy vocal hook using vocal chops and stutter chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Strong Vocal",
+        "reason": "Emphasizing vocal focus with micro chops and reverse chops on final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ],
+    "channels": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ]
+  },
+  "sound_intent": {
+    "focus": "vocal-centric",
+    "sample_techniques": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ],
+    "mood": "cinematic",
+    "energy_profile": "sparse_verses_strong_hooks"
+  },
+  "routing_intent": {
+    "channels": [
+      {
+        "name": "micro_chops",
+        "type": "sample_layer",
+        "description": "Channel for micro chopping techniques on vocals and samples"
+      },
+      {
+        "name": "phrase_chops",
+        "type": "sample_layer",
+        "description": "Channel for phrase chop samples"
+      },
+      {
+        "name": "reverse_chops",
+        "type": "sample_layer",
+        "description": "Channel for reversed chopped samples"
+      },
+      {
+        "name": "vocal_chops",
+        "type": "sample_layer",
+        "description": "Channel for vocal chopped samples"
+      },
+      {
+        "name": "stutter_chops",
+        "type": "sample_layer",
+        "description": "Channel for stutter chopping technique in samples"
+      }
+    ]
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with sparse verse hits and fuller hook sections",
+    "bass": "subtle groove supporting cinematic mood",
+    "chords": "ambient harmonic texture with minimal activity in verses",
+    "melody": "supporting cinematic phrases layered lightly",
+    "vocal": "primary focus using various sample chopping techniques",
+    "fx": "transition and atmosphere enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "Create a cinematic West Coast hip-hop arrangement with a strong vocal presence using sample chop techniques. Maintain sparse verses with energy build-ups into dynamic hooks."
+  },
+  "presetor_intent": {
+    "focus": "Preserve vocal clarity and punch with specialized processing on sample chopped vocals."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design sparse, groove-focused drum patterns emphasizing tight hits in verses and fuller elements during hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate a supportive bassline that complements the cinematic mood while remaining understated."
+    },
+    "harmony_generator": {
+      "brief": "Add subtle chord layers providing ambient support without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Create light melodic motifs enhancing cinematic atmosphere."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow with focus on dynamic energy transitions from sparse verses to energetic hooks."
+    },
+    "presetor": {
+      "brief": "Optimize presets to highlight vocal chops and maintain clarity."
+    },
+    "songgps": {
+      "brief": "Provide arrangement guidance to ensure energy curve matches sparse verses and strong hooks vocal focus."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mix ready for post-processing, maintaining clarity of vocal chops."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.95,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

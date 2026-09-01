@@ -1,0 +1,278 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "E minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      40,
+      85,
+      90,
+      20
+    ],
+    "notes": "Sparse verses with strong, memorable hooks; variation kept minimal; sample-based arrangement including texture beds and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 75,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with strong hook drums"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Vocal Entry",
+        "reason": "Strong catchy hook vocals introduced"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse verse drum pattern"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Bass intensified for final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "Sample_Layer",
+          "type": "texture_bed",
+          "technique": "granular_slicing"
+        },
+        {
+          "name": "One_Shot_Hits",
+          "type": "percussion",
+          "technique": "transient_slicing"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "Provide rich atmospheric sample textures using granular slicing",
+    "one_shot_hits": "Use sharp transient sample slicing for drum hits",
+    "hooks": "Strong, memorable and uplifting",
+    "verses": "Sparse, minimal and laid-back"
+  },
+  "routing_intent": {
+    "channels": {
+      "drums": "channel_granular_drums",
+      "bass": "channel_texture_bass",
+      "chords": "channel_sliced_chords",
+      "melody": "channel_one_shot_melody",
+      "vocal": "channel_vocal_samples",
+      "fx": "channel_fx_slices"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with one-shot hits",
+    "bass": "low-end support with texture layers",
+    "chords": "sample-based harmonic textures",
+    "melody": "accentuating hook elements with one-shots",
+    "vocal": "sparse verses and strong hooks",
+    "fx": "transitional and atmospheric slices"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "goal": "Create an uplifting West Coast Hip-Hop arrangement with minimal variation, emphasizing strong hooks supported by sparse verses and sample-based textures."
+  },
+  "presetor_intent": {
+    "focus": "Optimize arrangement chains for clean audio render, prioritizing unprocessed channel audio for mix flexibility."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns focusing on sparse verses and powerful hook hits; use transient slicing techniques for one-shot hits."
+    },
+    "bass_generator": {
+      "brief": "Create low-end bass textures using sample layering and granular slicing to complement sparse verses and uplifting hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide sample-based chord textures with slicing techniques to support harmonic structure with minimal variation."
+    },
+    "melody_generator": {
+      "brief": "Design one-shot melodic accents primarily for the hooks to enhance uplifting energy without cluttering verses."
+    },
+    "ai_designer": {
+      "brief": "Structure the arrangement with minimal variation, balancing sparse verses and strong hooks to achieve an uplifting mood."
+    },
+    "presetor": {
+      "brief": "Ensure arrangement chains are bypassed temporarily during rendering to provide clean audio stems."
+    },
+    "songgps": {
+      "brief": "Map energy profiles and section transitions; place event markers accurately for arrangement guidance."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare to receive unprocessed audio channels to allow flexible mixing and dynamic balancing post-render."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "Arabesk Rap Emotional Club Mix",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 110,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      50,
+      60,
+      80,
+      40,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 50
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 15,
+          "9": 30,
+          "25": 50,
+          "33": 40,
+          "49": 60,
+          "57": 70,
+          "73": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 25,
+          "25": 45,
+          "33": 35,
+          "49": 55,
+          "57": 65,
+          "73": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 12,
+          "9": 28,
+          "25": 48,
+          "33": 38,
+          "49": 58,
+          "57": 68,
+          "73": 12
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 8,
+          "9": 20,
+          "25": 40,
+          "33": 30,
+          "49": 50,
+          "57": 60,
+          "73": 8
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 35,
+          "25": 55,
+          "33": 45,
+          "49": 65,
+          "57": 75,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "9": 15,
+          "25": 30,
+          "33": 20,
+          "49": 40,
+          "57": 50,
+          "73": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Start",
+        "reason": "Introduce vocals with emotional tone"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Hook Energy Increase",
+        "reason": "Boost club energy for hook section"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "highlight",
+        "label": "Final Hook Peak",
+        "reason": "Crescendo in vocal expression"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro FX Fade",
+        "reason": "Smooth ending transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with club energy",
+    "bass": "groovy foundation supporting arabesk style",
+    "chords": "minimal harmonic texture with emotional depth",
+    "melody": "subtle arabesk motifs emphasizing mood",
+    "vocal": "emotional rap delivery blending arabesk influences",
+    "fx": "enhance transitions and club atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 60,
+    "melody": 50,
+    "vocal": 90,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a dynamic, emotional drum pattern supporting club energy with subtle arabesk influences."
+    },
+    "bass_generator": {
+      "brief": "Design a groovy bassline that emphasizes arabesk rhythms with minimal variation for emotional impact."
+    },
+    "harmony_generator": {
+      "brief": "Generate soft, sparse chord progressions that enhance the emotional atmosphere using arabesk tonalities."
+    },
+    "melody_generator": {
+      "brief": "Produce minimal melodic motifs inspired by arabesk music that complement vocal rap sections."
+    },
+    "ai_designer": {
+      "brief": "Supervise arrangement pacing and emotional flow balancing minimalism with club energy."
+    },
+    "presetor": {
+      "brief": "Apply presets that accentuate emotional timbres suited for arabesk and club fusion genre."
+    },
+    "songgps": {
+      "brief": "Map energy curve and section transitions maintaining emotional intensity and club dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix tracks to preserve clarity of arabesk elements while enhancing club energy impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

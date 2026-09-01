@@ -1,0 +1,350 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Instrumental Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      25,
+      50,
+      70,
+      90,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      10,
+      25,
+      45,
+      65,
+      85,
+      100,
+      85,
+      65,
+      45,
+      25,
+      10,
+      20,
+      35,
+      55,
+      75,
+      95,
+      100,
+      90,
+      70,
+      50,
+      30,
+      20,
+      15,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20
+    ],
+    "notes": "Sample-based arrangement featuring texture bed layering and one-shot hits, arranged to evoke an uplifting and cinematic rise and fall energy profile."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 65,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 25,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 35,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 15,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums_OneShot_Hits",
+        "bar": 8,
+        "type": "transition",
+        "label": "Intro to Verse 1",
+        "reason": "Energy rises with addition of one-shot drum hits"
+      },
+      {
+        "track": "textureBed_SampleSlices",
+        "bar": 24,
+        "type": "transition",
+        "label": "Verse 1 to Hook",
+        "reason": "Texture bed intensifies, cinematic energy peak"
+      },
+      {
+        "track": "drums_OneShot_Hits",
+        "bar": 40,
+        "type": "transition",
+        "label": "Hook to Verse 2",
+        "reason": "Energy dips, simplifying drum hits"
+      },
+      {
+        "track": "textureBed_SampleSlices",
+        "bar": 56,
+        "type": "transition",
+        "label": "Verse 2 to Bridge",
+        "reason": "Texture bed reduces layers, cinematic fall"
+      },
+      {
+        "track": "drums_OneShot_Hits",
+        "bar": 64,
+        "type": "transition",
+        "label": "Bridge to Final Hook",
+        "reason": "Energy rises with percussion reintroduction"
+      },
+      {
+        "track": "textureBed_SampleSlices",
+        "bar": 72,
+        "type": "transition",
+        "label": "Final Hook to Outro",
+        "reason": "Energy winds down, layers drop"
+      }
+    ]
+  },
+  "production_tree": {
+    "textureBed_SampleSlices": {
+      "type": "sample-based",
+      "role": "texture bed"
+    },
+    "drums_OneShot_Hits": {
+      "type": "sample-based",
+      "role": "one-shot drum hits"
+    }
+  },
+  "sound_intent": {
+    "textureBed_SampleSlices": {
+      "description": "Provides a layered, textured harmonic and atmospheric bed for cinematic dynamics"
+    },
+    "drums_OneShot_Hits": {
+      "description": "Punctuates arrangement with percussive one-shots to enhance rhythm and energy flow"
+    }
+  },
+  "routing_intent": {
+    "textureBed_SampleSlices": {
+      "output_channel": "chords",
+      "processing": "reverb and subtle delay for cinematic space"
+    },
+    "drums_OneShot_Hits": {
+      "output_channel": "drums",
+      "processing": "compression and transient shaping for punch"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with one-shot samples emphasizing groove",
+    "bass": "complementary low-end sample patterns supporting groove",
+    "chords": "texture bed created from sliced samples providing harmonic warmth",
+    "melody": "minimal melodic motifs extracted from samples for uplift",
+    "vocal": "none (instrumental variation)",
+    "fx": "transitional sample effects complementing mood and energy profiles"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 70,
+    "chords": 75,
+    "melody": 40,
+    "vocal": 0,
+    "fx": 50
+  },
+  "designer_intent": {
+    "notes": "Create an uplifting West Coast hip-hop instrumental with a cinematic rise and fall. Use sample-based layering with sliced samples as texture beds and one-shot drum hits for rhythmic punctuation. Avoid typical melodic and harmonic writing; focus on arrangement and texture."
+  },
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate and arrange one-shot drum hits to emphasize rhythmic groove and dynamic energy build and release."
+    },
+    "bass_generator": {
+      "brief": "Create complementary low-end sample-based patterns that support the groove and match the cinematic energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Arrange sliced sample textures into harmonic beds that build cinematic atmosphere and uplift the mood."
+    },
+    "melody_generator": {
+      "brief": "Incorporate minimalistic melodic motifs extracted from samples to subtly uplift without dominating the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Structure the arrangement with a cinematic rise and fall energy curve, balancing texture beds and one-shot hits in an instrumental format."
+    },
+    "presetor": {
+      "brief": "Apply suitable reverb, delay, compression, and transient shaping presets optimized for West Coast hip-hop sample-based instrumental."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows the cinematic energy profile and maintains clear section transitions following ArrangementGPS protocols."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare an unprocessed mix pass emphasizing dynamic contrast and clarity for both sample texture layers and one-shot drum hits."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

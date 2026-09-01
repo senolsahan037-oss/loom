@@ -1,0 +1,288 @@
+{
+  "project": {
+    "name": "Boom Bap Minimal Cinematic Club",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      30
+    ],
+    "notes": "Arrangement features minimal Boom Bap elements with cinematic mood and club energy profile. Uses sample chopping techniques in layers: micro chops, phrase chops, reverse chops, vocal chops, and stutter chops."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 35,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "micro_chops",
+        "bar": 9,
+        "type": "slice",
+        "label": "Micro Chop Intro",
+        "reason": "start of minimal sample micro chopping"
+      },
+      {
+        "track": "phrase_chops",
+        "bar": 25,
+        "type": "slice",
+        "label": "Phrase Chop Hook",
+        "reason": "introduce phrase slicing for hook energy"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 41,
+        "type": "effect",
+        "label": "Reverse Chop Verse 2",
+        "reason": "add reverse sample variation"
+      },
+      {
+        "track": "vocal_chops",
+        "bar": 57,
+        "type": "slice",
+        "label": "Vocal Chop Bridge",
+        "reason": "vocal chops increase cinematic mood"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 65,
+        "type": "effect",
+        "label": "Stutter Chop Final Hook",
+        "reason": "stutter chops enhance club energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": [
+      {
+        "name": "micro_chops",
+        "technique": "micro chops"
+      },
+      {
+        "name": "phrase_chops",
+        "technique": "phrase chops"
+      },
+      {
+        "name": "reverse_chops",
+        "technique": "reverse chops"
+      },
+      {
+        "name": "vocal_chops",
+        "technique": "vocal chops"
+      },
+      {
+        "name": "stutter_chops",
+        "technique": "stutter chops"
+      }
+    ]
+  },
+  "sound_intent": {
+    "style": "Boom Bap minimal arrangement with cinematic feel and club energy using sample chopping techniques."
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "main_mix",
+      "phrase_chops": "main_mix",
+      "reverse_chops": "main_mix",
+      "vocal_chops": "main_mix",
+      "stutter_chops": "main_mix"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with chops based percussion",
+    "bass": "deep low-end support",
+    "chords": "textural harmonic pads",
+    "melody": "subtle melodic layers",
+    "vocal": "sampled vocal chops and phrases",
+    "fx": "transition and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create a minimal boom bap arrangement emphasizing sample chop techniques and cinematic mood suitable for club energy."
+  },
+  "presetor_intent": {
+    "task": "Apply appropriate presets for sample chop effects matching their techniques and enhance cinematic club vibe."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns focusing on rhythm foundation with chopped percussion layers supporting boom bap style."
+    },
+    "bass_generator": {
+      "brief": "Generate deep and minimal bass lines that complement cinematic mood and club energy without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Create subtle harmonic pads and chord textures that support the cinematic atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Develop minimal melodic elements layered with sample chops to keep mood cinematic and arrangements sparse."
+    },
+    "ai_designer": {
+      "brief": "Manage overall arrangement structure emphasizing sample chopping techniques and energy flow."
+    },
+    "presetor": {
+      "brief": "Assign and tweak sound presets to each sample chopping technique ensuring clarity and club energy."
+    },
+    "songgps": {
+      "brief": "Control energy curve and section design focusing on minimal boom bap with cinematic moods."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels focusing on clarity of chopped samples while balancing mood and club energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

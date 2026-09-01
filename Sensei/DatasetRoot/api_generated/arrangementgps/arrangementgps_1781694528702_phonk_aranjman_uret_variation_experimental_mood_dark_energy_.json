@@ -1,0 +1,247 @@
+{
+  "project": {
+    "name": "Phonk Experimental Dark Club",
+    "genre": "Electronic",
+    "subgenre": "Phonk",
+    "bpm": 130,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      80,
+      60,
+      90,
+      30
+    ],
+    "notes": "Arrangement features micro chops, phrase chops, reverse chops, vocal chops, and stutter chops layered to create a dark experimental phonk track with club energy. Focus is on the texture and rhythmic complexity."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 15,
+          "9": 50,
+          "25": 80,
+          "33": 60,
+          "49": 85,
+          "57": 90,
+          "65": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 75,
+          "33": 55,
+          "49": 80,
+          "57": 85,
+          "65": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 30,
+          "25": 50,
+          "33": 35,
+          "49": 45,
+          "57": 55,
+          "65": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 10,
+          "9": 45,
+          "25": 70,
+          "33": 50,
+          "49": 75,
+          "57": 80,
+          "65": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 20,
+          "9": 60,
+          "25": 85,
+          "33": 65,
+          "49": 90,
+          "57": 95,
+          "65": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 35,
+          "25": 60,
+          "33": 40,
+          "49": 55,
+          "57": 65,
+          "65": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "slice",
+        "label": "phrase_chops",
+        "reason": "Introduce experimental vocal phrase chops at hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "slice",
+        "label": "micro_chops",
+        "reason": "Add rhythmic micro chops in verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 49,
+        "type": "slice",
+        "label": "reverse_chops",
+        "reason": "Enhance bridge with reverse chops for dark effect"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "slice",
+        "label": "stutter_chops",
+        "reason": "Use stutter chops to elevate energy in final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "low-end groove",
+    "chords": "harmonic texture",
+    "melody": "main theme holder",
+    "vocal": "sample chops and texture",
+    "fx": "transitions and atmospheres"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      8,
+      64,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 6,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns that support club energy with subtle experimental fills and variations."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that reinforce the dark mood and complement the phonk groove with controlled energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord textures that enhance dark atmosphere without overpowering the sample layers."
+    },
+    "melody_generator": {
+      "brief": "Design melodic elements supporting the main theme while leaving space for vocal sample chops."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections to ensure smooth flow, emphasizing experimental sample chop patterns in vocals."
+    },
+    "presetor": {
+      "brief": "Apply preset settings that maintain dark timbres and clarity for chopped sample layers."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement balances dark mood and club energy with strategic section energy levels."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that accommodate chopped vocal samples and preserve dynamic range."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      100,
+      75,
+      50,
+      30,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile emphasizing vocal performance with sample chop technique naming for channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 55,
+          "verse_2": 35,
+          "bridge": 15,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Begin emotional vocal hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Energy dips slightly, verse continuation"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Highest emotional vocal peak"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with sample slice named channels",
+    "bass": "low frequency support with chopped samples",
+    "chords": "harmonic layer using loop splice technique",
+    "melody": "supportive melodic chops",
+    "vocal": "primary emotional focus, sliced vocal chops",
+    "fx": "transitional and ambient effects using sample gating"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 50,
+    "bass": 40,
+    "chords": 30,
+    "melody": 30,
+    "vocal": 100,
+    "fx": 20
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample chop techniques emphasizing West Coast Hip-Hop style with cinematic energy dynamics."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using chopped bass samples to complement the emotional vocal focus and cinematic energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions using loop splice samples that blend with the emotional mood and fill harmonic space."
+    },
+    "melody_generator": {
+      "brief": "Generate melodic lines using sample chopping and gating to support vocal focus without overshadowing."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring vocal focus with dynamic cinematic energy rise and fall matching emotional mood."
+    },
+    "presetor": {
+      "brief": "Manage presets related to sample chopping techniques for all channels to maintain stylistic coherence."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and energy curves to reflect cinematic rise and fall with vocal emotional emphasis."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio focusing on preserving emotional vocal clarity and cinematic dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

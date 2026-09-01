@@ -1,0 +1,215 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Emotional Club",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 100,
+    "key": "A Minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      80,
+      60,
+      90,
+      85,
+      30
+    ],
+    "notes": "Arrangement follows an emotional build with club energy, using experimental variations."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "chop": 80,
+          "slice": 60,
+          "stutter": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "granular": 70,
+          "loop": 55
+        }
+      },
+      "chords": {
+        "activity": {
+          "time_stretch": 60,
+          "reverse_slice": 45
+        }
+      },
+      "melody": {
+        "activity": {
+          "pitch_shift": 55,
+          "glitch": 50
+        }
+      },
+      "vocal": {
+        "activity": {
+          "slice": 40,
+          "chop": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "reverse": 65,
+          "bitcrush": 50
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 Start",
+        "reason": "Energy increase initiating verse with active drum chops"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "entry",
+        "label": "Hook Start",
+        "reason": "Bass granular loops added for emotional tension"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Experimental effects increase energy for bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook Vocals",
+        "reason": "Vocal chops emphasize final hook variation"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone with sample chopping techniques",
+    "bass": "Low-end support using granular and looped samples",
+    "chords": "Harmonic texture with time stretching and reversed slices",
+    "melody": "Lead element using pitch shifting and glitch effects",
+    "vocal": "Vocal chops and slices for emotional expression",
+    "fx": "Ambient and transition effects with reverse and bitcrush techniques"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 2,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate experimental drum patterns using chopping, slicing, and stutter effects to maintain club energy."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines with granular synthesis and looping sample chops to support emotional mood."
+    },
+    "harmony_generator": {
+      "brief": "Design chord textures employing time stretch and reversed slicing techniques for harmonic interest."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic elements with pitch shifting and glitch sample chops emphasizing emotional expression."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement energy curve and ensure variation aligns with club energy and emotional mood."
+    },
+    "presetor": {
+      "brief": "Manage sample chopping technique presets and maintain consistent channel naming conventions."
+    },
+    "songgps": {
+      "brief": "Track progress and ensure arrangement sections meet energy targets and emotional intent."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio to balance layers emphasizing sample chop textures."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

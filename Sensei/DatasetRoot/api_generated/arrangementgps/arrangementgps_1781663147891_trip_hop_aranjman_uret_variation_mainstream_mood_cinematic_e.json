@@ -1,0 +1,304 @@
+{
+  "project": {
+    "name": "Trip Hop Cinematic Mainstream",
+    "genre": "Trip Hop",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      40,
+      90,
+      30
+    ],
+    "notes": "Sparse verses with strong hook sections, cinematic atmosphere."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 85,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 95,
+          "verse_2": 20,
+          "bridge": 45,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 40
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "start",
+        "label": "hook_drop",
+        "reason": "Strong hook energy increase"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "hook_vocals",
+        "reason": "Hook vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "drop",
+        "label": "verse_sparse_drums",
+        "reason": "Sparse drum arrangement in verses"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "start",
+        "label": "final_hook_bass",
+        "reason": "Increase bass energy for final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "samples": [
+        "slice",
+        "chop",
+        "stutter"
+      ],
+      "description": "Drum channels built using sample chopping and stutter techniques"
+    },
+    "bass": {
+      "samples": [
+        "glide",
+        "slice"
+      ],
+      "description": "Bass uses glide and slice sample techniques"
+    },
+    "chords": {
+      "samples": [
+        "chop",
+        "reverse"
+      ],
+      "description": "Chord samples arranged with chopping and reversing"
+    },
+    "melody": {
+      "samples": [
+        "stutter",
+        "slice"
+      ],
+      "description": "Melody channels use chopping and stutter techniques"
+    },
+    "vocal": {
+      "samples": [
+        "slice",
+        "reverse"
+      ],
+      "description": "Vocal samples sliced and reversed"
+    },
+    "fx": {
+      "samples": [
+        "reverse",
+        "chop"
+      ],
+      "description": "FX channel uses reverse and chop techniques"
+    }
+  },
+  "sound_intent": {
+    "overall": "Sparse yet cinematic with strong, memorable hooks",
+    "texture": "Sample chops and stutters create a cinematic and dynamic texture",
+    "mood": "Dark, atmospheric, mainstream trip hop"
+  },
+  "routing_intent": {
+    "drums": "Processed with transient shaping, routed to parallel compression",
+    "bass": "Low-pass filtered and sidechained to kick",
+    "chords": "Reverb send bus with modulation delay",
+    "melody": "Stereo widened and lightly delayed",
+    "vocal": "Dry/Wet balance for clarity and space",
+    "fx": "Placed on stereo FX bus with heavy reverb"
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation with sample chops and stutters",
+    "bass": "Groove and low-end support with glide and slice",
+    "chords": "Harmonic texture using reversed and chopped samples",
+    "melody": "Atmospheric lead using stutters and chops",
+    "vocal": "Main vocal with sliced and reversed samples",
+    "fx": "Atmospheric and transition effects using reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "description": "Create a cinematic trip hop track with sparse verses and strong, memorable hook sections. Sample chopping techniques should guide channel naming and structure."
+  },
+  "presetor_intent": {
+    "description": "Apply effects and presets that emphasize a dark, cinematic vibe with punchy hooks and sparse verses."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample chopping techniques emphasizing sparse verses and powerful hook drops."
+    },
+    "bass_generator": {
+      "brief": "Create basslines using glide and slice samples that support groove and enhance hook energy."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chords with reversed and chopped samples to add harmonic depth and cinematic atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Design melodic motifs using stutter and slice samples that complement sparse verses and accentuate hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee cinematic mood creation and manage energy distribution across sections with focus on sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Select and apply audio effect presets that enhance cinematic ambiance and highlight contrast between verses and hooks."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement structure complies with sections and energy profiles; validate event markers and lane activities."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixes ensuring clarity and dynamic range based on arrangement priorities."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

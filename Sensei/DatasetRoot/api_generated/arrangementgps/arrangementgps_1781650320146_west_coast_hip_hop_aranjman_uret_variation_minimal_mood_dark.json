@@ -1,0 +1,258 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Dark Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "F minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      65,
+      80,
+      75,
+      20
+    ],
+    "notes": "Minimal arrangement with dark atmosphere, designed for club energy, focusing on sparse but impactful elements to maintain groove and mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 50,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro start",
+        "reason": "Beginning of track - low energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Verse 1 vocals enter",
+        "reason": "Increase energy with vocal presence"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook bass fill",
+        "reason": "Drive energy for hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge FX rise",
+        "reason": "Mood shift and atmospheric build"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final hook vocal peak",
+        "reason": "Maximum energy moment"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "drop",
+        "label": "Outro drum fade",
+        "reason": "Energy release and track wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation, driving minimal groove",
+    "bass": "Provide low-end support and groove anchor",
+    "chords": "Sparse harmonic layer for atmosphere",
+    "melody": "Minimal melodic fills for texture",
+    "vocal": "Lead rap or vocal elements",
+    "fx": "Atmospheric and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create minimal but punchy drum patterns suitable for West Coast Hip-Hop with club energy, focusing on groove and space."
+    },
+    "bass_generator": {
+      "brief": "Develop basslines that support the groove minimally while maintaining the dark club atmosphere."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse chordal activity to complement the bass and drums, enhancing the dark mood without overcrowding."
+    },
+    "melody_generator": {
+      "brief": "Generate minimal melodic motifs or fills that add texture and dark nuances without dominating the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, ensuring a balanced energy curve and appropriate transitions between sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that support a dark, minimal West Coast Hip-Hop sound suitable for club environments."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement timing and energy dynamics across the sections to maintain consistent club energy."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that keep the clarity and impact of minimal elements while emphasizing atmosphere and groove."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

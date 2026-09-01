@@ -1,0 +1,286 @@
+{
+  "project": {
+    "name": "Dark Boom Bap Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      50,
+      60,
+      90,
+      70,
+      30
+    ],
+    "notes": "Boom Bap style arrangement focusing on a hook-heavy energy profile with dark mood instrumental variation. Sample layers are organized by sample chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 75,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increased energy for hook section"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "layer_on",
+        "label": "Melody Layer On",
+        "reason": "Melody introduced to highlight hook"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Peak energy section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy decrease ending track"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "ChopTypes": [
+        "Slice",
+        "Stab",
+        "Repeat",
+        "Reverse",
+        "PitchShift"
+      ],
+      "sample_layers": {
+        "drums": [
+          "Slice",
+          "Stab",
+          "Repeat"
+        ],
+        "bass": [
+          "PitchShift"
+        ],
+        "chords": [
+          "Slice",
+          "Reverse"
+        ],
+        "melody": [
+          "Repeat",
+          "PitchShift"
+        ],
+        "fx": [
+          "Reverse",
+          "Slice"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "variation": "instrumental",
+    "mood": "dark",
+    "energy_profile": "hook-heavy"
+  },
+  "routing_intent": {
+    "channels_by_sample_chop_technique": true
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low end support",
+    "chords": "harmonic texture",
+    "melody": "hook emphasis",
+    "vocal": "none",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      65
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 9,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {
+    "objective": "Create a dark, hook-driven Boom Bap instrumental arrangement with clear sample chop technique naming in channels."
+  },
+  "presetor_intent": {
+    "objective": "Bypass temporary arrangement chains and render clean audio focusing on sample chop technique organization."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum patterns with sample chops like slices and stabs emphasizing the hook sections."
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines using pitch-shifted samples that support the dark mood and hook-heavy energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Create chord layers using slicing and reversing sample chops to fill harmonic texture in a dark, atmospheric fashion."
+    },
+    "melody_generator": {
+      "brief": "Add melodic elements primarily in hook sections using repeat and pitch-shift sample chopping techniques."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure and ensure correct placement and energy flow aligning with boom bap style and hook emphasis."
+    },
+    "presetor": {
+      "brief": "Apply render policies to produce clean, well-organized stems aligned with sample chop naming conventions."
+    },
+    "songgps": {
+      "brief": "Map energy curve and section transitions for optimal arrangement flow focusing on hook-driven instrumental."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixes respecting priority levels and channel naming conventions."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

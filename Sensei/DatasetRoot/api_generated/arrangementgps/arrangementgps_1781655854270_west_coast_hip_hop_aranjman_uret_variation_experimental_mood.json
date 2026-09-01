@@ -1,0 +1,239 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      70,
+      90,
+      100,
+      40
+    ],
+    "notes": "Hook-heavy energy profile with experimental West Coast Hip-Hop style using various chops samples."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 45,
+          "hook": 100,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 95,
+          "outro": 35
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Main Hook Start",
+        "reason": "Energy increase and vocal chops introduced"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "bridge_entry",
+        "label": "Bridge Section Start",
+        "reason": "Experimental chops processing alter groove"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "final_hook",
+        "label": "Final Hook Entry",
+        "reason": "Maximum energy and hook-heavy focus"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with chops based layers",
+    "bass": "low-end support matching experimental mood",
+    "chords": "atmospheric harmonic textures",
+    "melody": "subtle experimental melodic elements",
+    "vocal": "various chops including micro, phrase, reverse, vocal, and stutter chops",
+    "fx": "transitions and cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 6,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design and sequence drum parts emphasizing experimental chops and rhythmic variety consistent with West Coast Hip-Hop."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the experimental and cinematic mood, supporting the hook-heavy energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic textures using chords with atmospheric and cinematic qualities suited for an experimental West Coast style."
+    },
+    "melody_generator": {
+      "brief": "Incorporate subtle melodic elements that align with the arrangement's mood without overpowering vocal chopped samples."
+    },
+    "ai_designer": {
+      "brief": "Oversee the overall arrangement flow, ensuring energy curve follows hook-heavy dynamics and experimental variation."
+    },
+    "presetor": {
+      "brief": "Apply preset settings to sample layers focusing on micro chops, phrase chops, reverse chops, vocal chops, and stutter chops."
+    },
+    "songgps": {
+      "brief": "Manage section transitions with emphasis on energy markers and event markers for arrangement clarity."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix elements to maintain clarity of chops and preserve dynamic range associated with the cinematic mood."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

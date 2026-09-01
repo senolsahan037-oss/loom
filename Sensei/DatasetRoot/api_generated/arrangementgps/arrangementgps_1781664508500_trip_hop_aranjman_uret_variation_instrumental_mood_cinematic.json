@@ -1,0 +1,315 @@
+{
+  "project": {
+    "name": "Trip Hop Cinematic Instrumental",
+    "genre": "Trip Hop",
+    "subgenre": "Instrumental",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      50,
+      70,
+      40,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks in cinematic trip hop style, sample-based arrangement featuring texture beds and one-shot hits. Kanal isimleri sample parçalama tekniği isimleriyle kurulmuştur."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 80,
+          "verse_2": 10,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Sparse verses begin"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Strong hook energy increase"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse verses"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Dynamic bridge with texture bed focus"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final strong hook"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy fade out"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "slice_kick": {
+        "type": "one-shot",
+        "role": "drums",
+        "description": "Kick drum from sample slicing technique"
+      },
+      "slice_snare": {
+        "type": "one-shot",
+        "role": "drums",
+        "description": "Snare from sample slicing"
+      },
+      "slice_hat_closed": {
+        "type": "one-shot",
+        "role": "drums",
+        "description": "Closed hi-hat from slices"
+      },
+      "slice_hat_open": {
+        "type": "one-shot",
+        "role": "drums",
+        "description": "Open hi-hat slice sample"
+      },
+      "texture_bed_ambient": {
+        "type": "sample-based",
+        "role": "chords",
+        "description": "Ambient texture bed created from layered samples"
+      },
+      "texture_bed_drones": {
+        "type": "sample-based",
+        "role": "chords",
+        "description": "Drone texture bed sample layers"
+      },
+      "one_shot_hit_fx": {
+        "type": "one-shot",
+        "role": "fx",
+        "description": "One-shot hit effects for transition emphasis"
+      }
+    }
+  },
+  "sound_intent": {
+    "description": "Sparse verses with subtle textures, cinematic mood with dynamic strong hook sections built around sample slicing and texture beds, instrumental trip hop production."
+  },
+  "routing_intent": {
+    "drums": "Group one-shot slices into drum bus, parallel processing for punch",
+    "chords": "Send texture beds to reverb and delay busses",
+    "fx": "Route one-shot hits with gated reverb for impact"
+  },
+  "track_roles": {
+    "drums": "Percussive backbone with sample sliced hits",
+    "bass": "Low-end support with minimalist groove",
+    "chords": "Atmospheric texture beds",
+    "melody": "Hook-driven lead samples",
+    "vocal": "None (instrumental)",
+    "fx": "Transitional one-shot effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      20,
+      44,
+      52
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Create a cinematic trip hop instrumental arrangement with clear energy dynamics and engaging hooks using sample slicing techniques and layered textures."
+  },
+  "presetor_intent": {
+    "goal": "Optimize presets for sample-based drum hits and textured chord beds with cinematic effects."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slicing techniques, focusing on sparse verses and energetic hook sections with one-shot hits."
+    },
+    "bass_generator": {
+      "brief": "Create a minimalist bass groove that supports the cinematic mood without overpowering the arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Design atmospheric chord layers as texture beds using samples to enhance the cinematic feel."
+    },
+    "melody_generator": {
+      "brief": "Develop hook melodies with sample-based techniques, emphasizing strong, memorable phrases."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement structure focusing on energy profile and dynamic transitions between sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Deploy presets tailored for sample sliced percussive hits, textured pads, and cinematic FX processing."
+    },
+    "songgps": {
+      "brief": "Maintain adherence to ArrangementGPS format with correct sectioning, energy mapping, and lane activity."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare channel routing and balance to preserve clarity of sample-based layers and dynamic energy changes throughout the arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

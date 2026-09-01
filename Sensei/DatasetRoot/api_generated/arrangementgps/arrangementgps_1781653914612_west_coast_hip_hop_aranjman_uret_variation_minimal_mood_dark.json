@@ -1,0 +1,274 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Dark Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      30,
+      85,
+      50,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks, minimal variation. Sample-based layers with texture beds and one-shot hits. Channel names use sample slicing technique terminology."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 15,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 70,
+          "verse_2": 10,
+          "bridge": 5,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 90,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Higher energy hook with strong percussion hits"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Sparse verses introduced"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition to bridge with subtle FX texture"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": [
+      {
+        "name": "Slice Kick",
+        "type": "one-shot",
+        "technique": "sample slicing"
+      },
+      {
+        "name": "Chop Snare",
+        "type": "one-shot",
+        "technique": "sample slicing"
+      },
+      {
+        "name": "Grain Bass",
+        "type": "texture bed",
+        "technique": "sample-based grain"
+      },
+      {
+        "name": "Loop Pad",
+        "type": "texture bed",
+        "technique": "sample looping"
+      },
+      {
+        "name": "Hit Perc",
+        "type": "one-shot",
+        "technique": "sample slicing"
+      }
+    ]
+  },
+  "sound_intent": {
+    "description": "Sample-based arrangement utilizing texture beds and sharp one-shot samples with dark, minimal west coast hip-hop aesthetic."
+  },
+  "routing_intent": {
+    "description": "Separate routing per sample slicing technique for tailored effects and mixing clarity."
+  },
+  "track_roles": {
+    "drums": "rhythm foundation with sliced one-shot hits",
+    "bass": "deep texture bed using granular samples",
+    "chords": "ambient texture pads from looped samples",
+    "melody": "minimal one-shot melodic motifs",
+    "vocal": "sparse verse vocal chops, strong hook vocals",
+    "fx": "atmospheric texture and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      24,
+      48,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "goal": "Create a minimal dark west coast hip-hop vibe emphasizing hook strength and sparse verses using sample slicing techniques."
+  },
+  "presetor_intent": {
+    "goal": "Apply minimal processing presets to preserve sample texture tone and dark mood."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse yet impactful drum patterns emphasizing one-shot sliced samples with groove and swing typical to west coast hip-hop."
+    },
+    "bass_generator": {
+      "brief": "Create a deep textured bass layer using granular sample manipulation and minimal melodic movement."
+    },
+    "harmony_generator": {
+      "brief": "Design ambient chord pads using looped sample textures to support mood without dominating."
+    },
+    "melody_generator": {
+      "brief": "Produce minimal, focused melodic motifs with one-shot samples mainly active during hooks."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement energy contour balancing sparse verses and energetic hooks with sample slicing channel organization."
+    },
+    "presetor": {
+      "brief": "Implement dark, minimal preset chain focusing on preserving raw sample character and minimal effects."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement flow supports sparse verses prominently featuring strong hook segments using the defined section structure."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unmixed channel audio maintaining clarity for final mixing emphasizing contrast between sparse and energetic parts."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "project": {
+    "name": "Experimental Boom Bap Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      80,
+      90,
+      100,
+      90,
+      70,
+      50,
+      40,
+      60,
+      80,
+      85,
+      90,
+      95,
+      100,
+      80,
+      70,
+      60,
+      50,
+      40,
+      60,
+      80,
+      90,
+      100,
+      95,
+      70,
+      60,
+      50,
+      40,
+      30,
+      50,
+      70,
+      85,
+      90,
+      100,
+      80,
+      70,
+      60,
+      50,
+      40,
+      60,
+      80,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      70,
+      90,
+      95,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      60,
+      80,
+      90,
+      100,
+      95,
+      70,
+      60,
+      50,
+      40,
+      20,
+      40,
+      60,
+      70,
+      80,
+      90,
+      100,
+      90,
+      80,
+      60
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 70
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 15,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_slice_trigger",
+        "label": "Kick Slice Start",
+        "reason": "Using sample slicing technique for rhythmic texture"
+      },
+      {
+        "track": "drums",
+        "bar": 5,
+        "type": "one_shot_hit",
+        "label": "Snare One-Shot",
+        "reason": "Add punch to the aggressive rhythm section"
+      },
+      {
+        "track": "fx",
+        "bar": 8,
+        "type": "texture_bed_layer",
+        "label": "Vinyl Crackle Bed",
+        "reason": "Sample-based texture bed for atmosphere"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "sample_slice_trigger",
+        "label": "Bass Slice Loop",
+        "reason": "Sample chopping to create groove variations"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "sample_slice_trigger",
+        "label": "Chord Slice Layer",
+        "reason": "Variation with experimental slicing"
+      },
+      {
+        "track": "melody",
+        "bar": 41,
+        "type": "one_shot_hit",
+        "label": "Melodic Hit",
+        "reason": "Adding contrast and energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "texture_bed_layer",
+        "label": "Ambient Texture",
+        "reason": "Bridge experimental texture"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "one_shot_hit",
+        "label": "Percussion One-Shot",
+        "reason": "Final hook emphasis"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation using sample slicing and aggressive one-shots",
+    "bass": "Groove support with sample-based slicing",
+    "chords": "Harmonic texture via sample slicing",
+    "melody": "Occasional hits for melodic emphasis",
+    "vocal": "Minimal vocal activity, supportive role",
+    "fx": "Texture beds and ambient layering with sample-based textures"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 100,
+    "bass": 90,
+    "chords": 70,
+    "melody": 60,
+    "vocal": 30,
+    "fx": 50
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum samples and patterns applying sample slicing and one-shot hits to create aggressive boom bap rhythms with club energy."
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines using sample chopping techniques to maintain groove and support the rhythm section, fitting an experimental boom bap style."
+    },
+    "harmony_generator": {
+      "brief": "Create chord layers using sample slicing techniques that contribute harmonic texture without traditional chord progressions."
+    },
+    "melody_generator": {
+      "brief": "Design occasional melodic one-shot hits for energy and contrast, maintaining a minimal melodic presence."
+    },
+    "ai_designer": {
+      "brief": "Supervise overall arrangement and ensure consistency with aggressive mood and club energy profile using sample-based arrangement methods."
+    },
+    "presetor": {
+      "brief": "Manage presets and sound selection focused on experimental and textural sample layers."
+    },
+    "songgps": {
+      "brief": "Coordinate scene structure, energy curve, and event markers to guide arrangement progression fitting the boom bap experimental style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing guidelines to preserve clarity of sample slices and one-shot hits, emphasizing aggressive and club energy characteristics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

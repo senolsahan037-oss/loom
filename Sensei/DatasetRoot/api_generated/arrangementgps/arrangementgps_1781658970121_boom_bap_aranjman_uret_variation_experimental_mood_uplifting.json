@@ -1,0 +1,308 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C Minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      40,
+      50,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      28,
+      25,
+      22,
+      20,
+      20,
+      25,
+      30,
+      40,
+      50,
+      65,
+      75,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      28,
+      25,
+      22,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100
+    ],
+    "notes": "Arrangement focuses on slow build energy with experimental variations using sample-based textures and one-shot hits layered to create uplifting mood. Drum channels named after sample slicing techniques to reflect sample chopping style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 20,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 40
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_chop",
+        "label": "intro_slice",
+        "reason": "Establish texture bed with chopped sample hits"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "one_shot_hit",
+        "label": "hook_spot_hit",
+        "reason": "Add one-shot hits for energy build"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect_rise",
+        "label": "bridge_swell",
+        "reason": "Experimental texture lift in bridge section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample slicing and one-shot hit sequencing",
+    "bass": "sample-based low end",
+    "chords": "sample layers with textured pads",
+    "melody": "ambient melodic samples",
+    "vocal": "vocal hits and shouts",
+    "fx": "transitions and texture effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 60,
+    "melody": 50,
+    "vocal": 30,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns using sample chopping techniques and incorporate one-shot hits to match slow build energy profile."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using sample-based sounds that complement the uplifting mood and support the slow build energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers with sample textures to add depth and maintain the experimental atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Add ambient melodic samples that enhance the uplifting mood without overwhelming the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow and variation to ensure a slow build energy profile while incorporating experimental elements."
+    },
+    "presetor": {
+      "brief": "Apply presets that preserve the organic, sample-based character and support the slow and smooth energy progression."
+    },
+    "songgps": {
+      "brief": "Track and manage arrangement sections, energy curves, and event markers to guide arrangement iteration."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for final mixing ensuring clean transitions between sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

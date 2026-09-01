@@ -1,0 +1,317 @@
+{
+  "project": {
+    "name": "Trip Hop Minimal Uplift",
+    "genre": "Trip Hop",
+    "subgenre": "Minimal",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      60,
+      40,
+      30,
+      20,
+      25,
+      35,
+      55,
+      75,
+      65,
+      45,
+      35,
+      25,
+      30,
+      40,
+      60,
+      80,
+      70,
+      50,
+      40,
+      30,
+      35,
+      45,
+      65,
+      85,
+      75,
+      55,
+      45,
+      35,
+      40,
+      50,
+      70,
+      90,
+      80,
+      60,
+      50,
+      40,
+      45,
+      55,
+      75,
+      95,
+      85,
+      65,
+      55,
+      45,
+      50,
+      60,
+      80,
+      100,
+      90,
+      70,
+      60,
+      50,
+      55,
+      65,
+      85,
+      95,
+      85,
+      65,
+      55,
+      45,
+      50,
+      60,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      5,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement features a cinematic rise and fall in energy with minimal trip hop elements using sample layer chops and vocal treatments."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 45
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 55,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 65,
+          "verse_2": 25,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Start Vocal Chops",
+        "reason": "Introduce vocal chops sample technique to build energy"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "cue",
+        "label": "Micro Chops Layer",
+        "reason": "Add micro chops for rhythmic variation in verse 2"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "cue",
+        "label": "Reverse Chops FX",
+        "reason": "Apply reverse chops to create atmosphere in bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "cue",
+        "label": "Stutter Chops",
+        "reason": "Introduce stutter chops to intensify final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone using micro chops",
+    "bass": "supportive low-end minimal groove",
+    "chords": "harmonic texture with phrase chops",
+    "melody": "minimal melodic phrases",
+    "vocal": "vocal chops with variation techniques",
+    "fx": "atmospheric effects with reverse and stutter chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic drum patterns utilizing micro chops and stutter chops for energy rise and fall."
+    },
+    "bass_generator": {
+      "brief": "Create minimal bass grooves complementing the trip hop feel with subtle phrasing timing."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chord layers emphasizing phrase chops to support mood and texture."
+    },
+    "melody_generator": {
+      "brief": "Produce sparse melodic layers focusing on minimalism and complementing vocal samples."
+    },
+    "ai_designer": {
+      "brief": "Overall arrangement design focusing on cinematic energy curve and uplifting mood with sample chopping techniques."
+    },
+    "presetor": {
+      "brief": "Apply minimal processing presets emphasizing cinematic dynamics and clarity of chopped samples."
+    },
+    "songgps": {
+      "brief": "Guide structural transitions ensuring smooth cinematic rise and fall in energy across sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean channel audio mixes preserving sample detail and dynamic integrity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

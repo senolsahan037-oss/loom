@@ -1,0 +1,333 @@
+{
+  "project": {
+    "name": "Memphis Rap Experimental Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 95,
+    "key": "D minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      75,
+      85,
+      90,
+      80,
+      70,
+      65,
+      80,
+      90,
+      100,
+      95,
+      85,
+      90,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      75,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      70,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 70
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 70,
+          "25": 90,
+          "41": 75,
+          "57": 85,
+          "65": 95,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 60,
+          "25": 80,
+          "41": 70,
+          "57": 80,
+          "65": 90,
+          "73": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "9": 65,
+          "25": 85,
+          "41": 72,
+          "57": 82,
+          "65": 92,
+          "73": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "9": 50,
+          "25": 70,
+          "41": 60,
+          "57": 75,
+          "65": 85,
+          "73": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 30,
+          "25": 85,
+          "41": 50,
+          "57": 60,
+          "65": 85,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 60,
+          "41": 45,
+          "57": 50,
+          "65": 70,
+          "73": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Section transition"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Section transition"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Section transition"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Section transition"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Section transition"
+      },
+      {
+        "track": "melody",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Section transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and groove",
+    "bass": "groove and low-end energy",
+    "chords": "harmonic texture with experimental elements",
+    "melody": "lead melodic motifs with uplifting feel",
+    "vocal": "rap vocal lines and ad-libs",
+    "fx": "transitions and atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      64,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create rhythmic patterns with a club energy feel that support a Memphis Rap style with experimental variation."
+    },
+    "bass_generator": {
+      "brief": "Generate groovy basslines that complement the drums and enhance the uplifting mood with club energy."
+    },
+    "harmony_generator": {
+      "brief": "Design harmonic textures and chords that provide an experimental and uplifting foundation for the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic motifs that are uplifting and fit the energy profile of a club environment while allowing for experimentation."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement structure and transitions ensuring coherence and energetic build-up across sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance a modern Memphis Rap sound with experimental twists and uplifting tonal qualities."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement flow and energy curves to maintain consistent engagement and club energy dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix guidelines focusing on clarity and energy balance across all tracks, optimizing for club playability."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

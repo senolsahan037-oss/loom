@@ -1,0 +1,255 @@
+{
+  "project": {
+    "name": "Minimal Drill Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "F minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      65,
+      80,
+      90,
+      85
+    ],
+    "notes": "Arrangement follows a minimal drill style with a gradual uplifting energy build suited for club environments."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 85
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 35
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 45,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "fade_in",
+        "label": "Intro Start",
+        "reason": "beginning of track"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Entry",
+        "reason": "vocal entrance"
+      },
+      {
+        "track": "bass",
+        "bar": 25,
+        "type": "intensity_increase",
+        "label": "Hook Build",
+        "reason": "energy uplift"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "texture_change",
+        "label": "Bridge Variation",
+        "reason": "to introduce variation"
+      },
+      {
+        "track": "fx",
+        "bar": 72,
+        "type": "build_up",
+        "label": "Final Hook Lead",
+        "reason": "highlight final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro Start",
+        "reason": "track wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone",
+    "bass": "low-end groove",
+    "chords": "harmonic support",
+    "melody": "minimal melodic embellishment",
+    "vocal": "main lyrical delivery",
+    "fx": "atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal but driving drill drum arrangement with emphasis on club energy and clear rhythm."
+    },
+    "bass_generator": {
+      "brief": "Generate subtle, repetitive bass patterns supporting the minimal drill groove and uplifting mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chord elements that maintain harmonic interest without overpowering minimal texture."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic phrases that enhance the uplifting vibe without competing with vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement to ensure minimalism is preserved while energy builds progressively."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize clarity and punch suitable for an energetic club drill track."
+    },
+    "songgps": {
+      "brief": "Monitor and adjust energy curve and section transitions for maximum club impact."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix to balance minimal elements and maintain punchy dynamics for club playback."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

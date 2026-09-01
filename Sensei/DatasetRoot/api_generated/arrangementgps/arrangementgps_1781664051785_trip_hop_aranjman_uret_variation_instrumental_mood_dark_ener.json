@@ -1,0 +1,216 @@
+{
+  "project": {
+    "name": "Trip Hop Dark Instrumental Club Energy",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      45,
+      50,
+      70,
+      80,
+      40,
+      20
+    ],
+    "notes": "Trip Hop instrumental with a dark mood and club energy profile. Arrangement uses sample-based layers including texture beds and one-shot hits, with channel names based on sample slicing techniques. No melodic or harmonic content written."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 45
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "slicer": 70,
+          "chopper": 50,
+          "one_shot": 60
+        }
+      },
+      "bass": {
+        "activity": {
+          "texture_bed": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "granular_slicing": 30,
+          "time_stretch": 20
+        }
+      },
+      "melody": {
+        "activity": {}
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "reverse_slicer": 30,
+          "hit_slicer": 40
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Drums Texture Bed",
+        "reason": "Introduce dark textured beat"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Increase energy with one-shots",
+        "reason": "Mark hook section climax"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "fx",
+        "label": "Reverse slicer effect",
+        "reason": "Bridge mood enhancement"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "intensify",
+        "label": "Final hook drum hits",
+        "reason": "Maximize club energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro drum fade",
+        "reason": "Energy wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, club energy delivery",
+    "bass": "texture and low end presence",
+    "chords": "atmospheric pads with sample texture",
+    "melody": "not used",
+    "vocal": "not used",
+    "fx": "transitional effects and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample-sliced drum arrangements with one-shot hits emphasizing club energy and dark mood"
+    },
+    "bass_generator": {
+      "brief": "Create texture-bed bass layers to support dark atmospheric vibe"
+    },
+    "harmony_generator": {
+      "brief": "Provide granular and time-stretch chordal pads for texture bed only, no harmonic progression"
+    },
+    "melody_generator": {
+      "brief": "Not utilized as no melody required"
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow preserving dark mood and club energy using samples"
+    },
+    "presetor": {
+      "brief": "Apply suitable presets emphasizing sample-based texture beds and one-shot hits"
+    },
+    "songgps": {
+      "brief": "Oversee section energy transitions and ensure lane activity aligns with arrangement goals"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mixes with focus on clear club energetic drum and texture delivery"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Instrumental Uplifting Hook-Heavy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      60,
+      70,
+      90,
+      60
+    ],
+    "notes": "An uplifting West Coast Hip-Hop instrumental arrangement with emphasis on hook-heavy energy. Modern sample chopping techniques used for sample layers. Channel names inspired by chopping techniques to reflect the sample treatment."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 60
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peak with hook-heavy focus"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Culmination of uplifting hook elements"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "techniques": [
+        "slice_chopping",
+        "stutter",
+        "pitch_shift",
+        "reverse_slice",
+        "repeat_trigger"
+      ]
+    },
+    "channels": {
+      "SliceChop_1": "sample slices triggered in rhythmic pattern",
+      "Stutter_2": "glitchy stuttered sample repeats",
+      "PitchShift_3": "pitch modulated sample fragments",
+      "ReverseSlice_4": "reversed slices for texture",
+      "RepeatTrigger_5": "repeated triggering of key slice samples"
+    }
+  },
+  "sound_intent": {
+    "overall_character": "clean, punchy, modern West Coast vibe with chopped sample textures",
+    "sample_layering": "use modern chopping effects to create rhythmic catchiness",
+    "energy_profile": "hook sections maximize energy and presence"
+  },
+  "routing_intent": {
+    "channel_assignments": {
+      "SliceChop_1": "drums lane",
+      "Stutter_2": "fx lane",
+      "PitchShift_3": "chords lane",
+      "ReverseSlice_4": "melody lane",
+      "RepeatTrigger_5": "bass lane"
+    },
+    "grouping": {
+      "samples": [
+        "SliceChop_1",
+        "Stutter_2",
+        "PitchShift_3",
+        "ReverseSlice_4",
+        "RepeatTrigger_5"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample chop inspired percussion",
+    "bass": "groove support using chopped and repeated samples",
+    "chords": "harmonic layer with pitch-shifted samples",
+    "melody": "main motifs through reversed and chopped samples",
+    "vocal": "none - instrumental variation",
+    "fx": "effects lane with stutters and sample glitches"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "focus": "Create an uplifting West Coast instrumental emphasizing modern sample chopping with hook energy",
+    "avoid": "no lyrics, melodic lines must come from samples not played instruments"
+  },
+  "presetor_intent": {
+    "effects": "apply modern hip-hop presets tailored for crisp percussion and chopped samples",
+    "mixing": "balance hook energy with clarity and punch"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate and arrange drums with a focus on sample chopping inspired rhythms and maintaining groove energy"
+    },
+    "bass_generator": {
+      "brief": "Create bass parts using repeated and pitch-modulated sample snippets that support the rhythm and hook energy"
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic layers via pitch-shifted chopped sample based chords to complement the bass and melody"
+    },
+    "melody_generator": {
+      "brief": "Craft melodic phrases by employing reversed and sliced samples to keep the hook sections dynamic and uplifting"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring energy peaks in the hook and instrumentals maintain uplifting mood with sample techniques"
+    },
+    "presetor": {
+      "brief": "Set appropriate effects and mix presets tailored for West Coast hip-hop with emphasis on sample clarity and punch"
+    },
+    "songgps": {
+      "brief": "Guide sectioning with clear intro, verses, hooks and final hook focusing on energy curves and hook prominence"
+    },
+    "ai_mixmaster": {
+      "brief": "Mix raw channel audio to preserve dynamic range and highlight described arrangement energy profile"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

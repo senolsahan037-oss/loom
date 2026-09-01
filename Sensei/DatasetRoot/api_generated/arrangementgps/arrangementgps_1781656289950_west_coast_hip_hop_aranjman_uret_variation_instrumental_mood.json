@@ -1,0 +1,232 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "Cm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      30,
+      50,
+      85,
+      90,
+      25
+    ],
+    "notes": "Arrangement emphasizes a hook-heavy energy profile with emotional mood tones throughout, avoiding melodic and lyrical content."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 25
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Beginning of hook with increased energy and activity"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Introduces climax of arrangement with maximum hook energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "provides rhythmic foundation using sample chopping techniques such as beat slicing and slicing to create groove",
+    "bass": "delivers emotional low-end support with sample chopped bass hits using transient slicing",
+    "chords": "layer harmonic content constructed from chopped and rearranged sample fragments (time-stretch chopping)",
+    "melody": "presents minimal melodic fragments derived by granular chopping techniques maintaining emotional tone",
+    "vocal": "no vocal content included as per instrumental variation",
+    "fx": "enhances atmosphere with effects samples chopped and rearranged using glitch chopping methods"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design rhythmic patterns leveraging sample chopping methods such as beat slicing and transient slicing to create groove and rhythmic interest."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines focusing on emotional mood using chopped bass samples and transient slicing techniques."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic layers with sample rearrangements employing time-stretch chopping to support emotional chord progression."
+    },
+    "melody_generator": {
+      "brief": "Develop minimal melodic elements via granular chopping of emotional sample fragments emphasizing hook sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure and ensure emotional mood with hook-heavy energy while maintaining instrumental integrity."
+    },
+    "presetor": {
+      "brief": "Manage sound presets preserving sample chopping character in each channel and ensure tonal consistency."
+    },
+    "songgps": {
+      "brief": "Guide overall arrangement flow focusing on energy curve and section transitions aligned with West Coast Hip-Hop emotional instrumental style."
+    },
+    "ai_mixmaster": {
+      "brief": "Process unprocessed channel audio ensuring clarity and separation while preserving sample chop texture and hook prominence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

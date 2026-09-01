@@ -1,0 +1,266 @@
+{
+  "project": {
+    "name": "Drill Experimental Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      25,
+      40,
+      90,
+      70,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks create dramatic contrast. Experimental textures bridge typical drill elements with cinematic atmosphere."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 20,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 10,
+          "hook": 90,
+          "verse_2": 5,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 65,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro Begins",
+        "reason": "Start of arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Begins",
+        "reason": "Entry of vocals in sparse verse"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Begins",
+        "reason": "Introduction of strong melodic hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Begins",
+        "reason": "Return to sparse vocal verses"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "bridge_start",
+        "label": "Bridge Section",
+        "reason": "Experimental textures introduced"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Begins",
+        "reason": "Energy peaks with strong hooks"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro Begins",
+        "reason": "Winding down to end"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation, driving energy",
+    "bass": "support groove, add depth",
+    "chords": "harmonic texture, mood setting",
+    "melody": "hook and theme carrier",
+    "vocal": "sparse verses, rhythmic phrasing",
+    "fx": "atmosphere and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34,
+      50
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 9,
+    "vocal": 8,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic and sparse drum patterns typical of drill with attention to rhythmic interest and cinematic flavor."
+    },
+    "bass_generator": {
+      "brief": "Create a bassline that supports groove without overcrowding sparse verses, focus on depth and punch."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic textures to complement cinematic mood, supporting chords that contribute to tension and release."
+    },
+    "melody_generator": {
+      "brief": "Craft strong, memorable melodic hooks that engage during hook sections, contrast sparse verses with minimal lines."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections to balance sparse verses and high-energy hooks to achieve a cinematic, experimental drill arrangement."
+    },
+    "presetor": {
+      "brief": "Apply production presets that enhance cinematic atmosphere and maintain clarity in sparse versus densely hooked parts."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement energy levels and transitions to ensure smooth dynamic flow and clear sectional identities."
+    },
+    "ai_mixmaster": {
+      "brief": "Maintain transparency and separation among rhythmic, harmonic, and melodic elements ensuring cinematic clarity in mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

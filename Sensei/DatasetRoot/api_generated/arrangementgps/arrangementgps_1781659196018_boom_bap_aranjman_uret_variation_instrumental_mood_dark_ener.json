@@ -1,0 +1,269 @@
+{
+  "project": {
+    "name": "Boom Bap Dark Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      80,
+      65,
+      40,
+      70,
+      90,
+      60,
+      30,
+      20
+    ],
+    "notes": "Arrangement follows a cinematic rise and fall energy profile fitting a dark mood Boom Bap instrumental using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 25,
+          "final_hook": 50,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_chop",
+        "label": "Slice Start",
+        "reason": "Start of drum sample chopping technique"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "groove_shift",
+        "label": "Energy Peak",
+        "reason": "Increase in cinematic energy for hook"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "filter_sweep",
+        "label": "Bridge Effect",
+        "reason": "Introduce dark drone effect in bridge"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "modern_sample_chopping": {
+        "description": "Samples are chopped using modern digital slicing and rearranging techniques."
+      }
+    },
+    "mixing": {
+      "techniques": [
+        "dynamic compression",
+        "subtle reverb",
+        "automation of filter sweeps"
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture": "gritty, chopped sample textures with warm analog style drums",
+    "ambience": "dark, moody ambience with clear spatial effects",
+    "dynamics": "cinematic rise and fall in energy to maintain interest"
+  },
+  "routing_intent": {
+    "channels": {
+      "Slice1": "kick chops",
+      "Slice2": "snare chops",
+      "Slice3": "hi-hat chops",
+      "Slice4": "sample melodic chops",
+      "Slice5": "bass chops"
+    }
+  },
+  "track_roles": {
+    "drums": "delivering rhythm through chopped boom bap style drum hits",
+    "bass": "providing dark, deep rhythmic foundation with chopped bass samples",
+    "chords": "supporting harmonic background with filtered sample chops",
+    "melody": "adding sparse, haunting melodic slices",
+    "vocal": "none - instrumental only",
+    "fx": "adding transitions and cinematic texture with effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      64,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 9,
+    "bass": 8,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "overall_goal": "Create a cinematic Boom Bap instrumental with dark mood and expressive energy flow using contemporary sample slicing techniques."
+  },
+  "presetor_intent": {
+    "apply_processing": "Use warm analog drum presets and dynamic sample slicing effects to achieve vintage yet modern Boom Bap sound."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate groove and sample chop patterns aligning with Boom Bap rhythm and dynamic energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create deep, dark bass lines using chopped sample layers complementing drum rhythms."
+    },
+    "harmony_generator": {
+      "brief": "Develop chordal sample chops that add harmonic interest without overwhelming the dark mood."
+    },
+    "melody_generator": {
+      "brief": "Produce sparse, haunting melodic chop phrases to underscore the cinematic vibe."
+    },
+    "ai_designer": {
+      "brief": "Arrange and balance all track elements ensuring a dynamic cinematic rise and fall."
+    },
+    "presetor": {
+      "brief": "Apply and tweak audio presets to enhance Boom Bap character and cinematic texture."
+    },
+    "songgps": {
+      "brief": "Manage energy curve and section transitions reflecting cinematic mood and arrangement plan."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels with clarity and spatial depth prioritizing cinematic dynamics and dark mood."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

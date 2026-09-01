@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Dark Club Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      75,
+      40,
+      50,
+      80,
+      50,
+      30
+    ],
+    "notes": "Arrangement focuses on minimalistic West Coast hip-hop elements with a dark mood and club energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 15,
+          "9": 30,
+          "25": 65,
+          "41": 30,
+          "57": 35,
+          "65": 70,
+          "73": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 35,
+          "25": 60,
+          "41": 35,
+          "57": 40,
+          "65": 75,
+          "73": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 10,
+          "25": 30,
+          "41": 10,
+          "57": 15,
+          "65": 35,
+          "73": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 5,
+          "25": 40,
+          "41": 10,
+          "57": 20,
+          "65": 50,
+          "73": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 10,
+          "9": 35,
+          "25": 70,
+          "41": 40,
+          "57": 45,
+          "65": 75,
+          "73": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 10,
+          "25": 15,
+          "41": 10,
+          "57": 20,
+          "65": 30,
+          "73": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook",
+        "reason": "High energy vocal chops start"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Melody with reverse and stutter chops"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro",
+        "reason": "Micro chops drum pattern introduction"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "micro chops, stutter chops",
+    "bass": "phrase chops",
+    "chords": "minimal chord layers",
+    "melody": "reverse chops",
+    "vocal": "vocal chops",
+    "fx": "stutter and reverse FX"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum layers using micro chops and stutter chops to maintain minimal yet club-ready rhythm."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using phrase chops with minimal complexity matching dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Add minimal chord layers supporting the dark mood with subtle phrase chops."
+    },
+    "melody_generator": {
+      "brief": "Produce melodies focusing on reverse chops to match variation and mood."
+    },
+    "ai_designer": {
+      "brief": "Ensure arrangement flows with a dark mood, minimal variation, and club energy profile."
+    },
+    "presetor": {
+      "brief": "Apply sound presets that emphasize dark textures and club energy for each sample slicing technique."
+    },
+    "songgps": {
+      "brief": "Guide section energy and structure focusing on minimal variation and arrangement clarity."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels maintaining clarity of sample chopping techniques and overall dark club vibe."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

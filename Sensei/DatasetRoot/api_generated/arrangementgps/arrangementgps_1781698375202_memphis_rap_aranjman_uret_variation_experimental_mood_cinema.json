@@ -1,0 +1,252 @@
+{
+  "project": {
+    "name": "Memphis Rap Experimental",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 45,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 70,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "intro_start",
+        "reason": "Start of the arrangement with minimal drum patterns"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "cue",
+        "label": "verse_1_start",
+        "reason": "Bass enters to support first verse"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "hook_start",
+        "reason": "Vocal hook introduction"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "cue",
+        "label": "bridge_effects",
+        "reason": "Experimental FX to build cinematic mood"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "cue",
+        "label": "outro_start",
+        "reason": "Lower energy for outro section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with experimental textures",
+    "bass": "deep supporting low end",
+    "chords": "harmonic fill with cinematic atmosphere",
+    "melody": "subtle experimental lead lines",
+    "vocal": "main lyrical delivery and hooks",
+    "fx": "ambient and cinematic sound effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate slow build drum patterns with experimental textures that fit Memphis Rap style with cinematic mood"
+    },
+    "bass_generator": {
+      "brief": "Create a deep bassline that supports the rhythm and evolves slowly to match the energy curve"
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic chord progressions with cinematic and experimental moods complementing the bass and melody"
+    },
+    "melody_generator": {
+      "brief": "Develop subtle experimental lead lines that enhance the cinematic atmosphere without dominating"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring a slow build of energy and smooth transitions in line with Memphis Rap experimental style"
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize cinematic and ambient sound characteristics appropriate for Memphis Rap experimental arrangement"
+    },
+    "songgps": {
+      "brief": "Guide the arrangement structure and energy profile to ensure alignment with slow build and cinematic mood"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to keep clarity and cinematic depth while maintaining raw channel audio for final mix"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.65
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

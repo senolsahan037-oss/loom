@@ -1,0 +1,364 @@
+{
+  "project": {
+    "name": "Trip Hop Arrangement - Mainstream Aggressive Slow Build",
+    "genre": "Trip Hop",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      98,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      60,
+      55,
+      50,
+      45,
+      40,
+      30,
+      25,
+      20,
+      20,
+      22,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      95,
+      100,
+      100,
+      100,
+      95,
+      90,
+      80,
+      70,
+      65,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      15,
+      10,
+      10,
+      10,
+      10,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      0,
+      0
+    ],
+    "notes": "Arrangement features a slow build energy profile, starting with subdued intro leading into progressively more aggressive and dynamic sections, culminating in high energy hooks and maintaining trip hop feel."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 90
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 55,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "intro_drums_low",
+        "reason": "soft drum sample chopped with slice technique"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "drums_breakbeat_slicing",
+        "reason": "introduce chopped breakbeat samples for aggressive feel"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "layer",
+        "label": "bass_grain_stretch",
+        "reason": "add granular stretched bass layers to increase texture"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "effect",
+        "label": "chords_reverse_chops",
+        "reason": "use reversed chopped chord samples for tension"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "highlight",
+        "label": "fx_time_stretch_slicers",
+        "reason": "apply time-stretch slicing effects to FX for climax"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "samples": [
+        "slice_kicks",
+        "chop_snare_rolls",
+        "breakbeat_chops"
+      ]
+    },
+    "bass": {
+      "samples": [
+        "grain_stretch_bass",
+        "sample_slices_bass"
+      ]
+    },
+    "chords": {
+      "samples": [
+        "reverse_chops",
+        "stuttered_guitar_slices"
+      ]
+    },
+    "melody": {
+      "samples": [
+        "sample_slices_lead",
+        "granular_scatters"
+      ]
+    },
+    "vocal": {
+      "samples": [
+        "vocal_slice_stutter",
+        "vocal_chop_rearrange"
+      ]
+    },
+    "fx": {
+      "samples": [
+        "time_stretch_slicers",
+        "filter_chops"
+      ]
+    }
+  },
+  "sound_intent": {
+    "description": "Create an aggressive yet atmospheric trip hop arrangement with a slow energy build; samples and channel names reflect chopping and slicing techniques to provide rhythmic complexity."
+  },
+  "routing_intent": {
+    "description": "Channels routed to separate buses by sample chopping technique, allowing layered control of sliced, chopped, and stretched sample groups."
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using slice and chop techniques",
+    "bass": "textural low-end using grain and slice methods",
+    "chords": "atmospheric harmonic support with reversed and stuttered chops",
+    "melody": "lead motifs built from sliced and granular sample techniques",
+    "vocal": "vocal chops and stutters enhancing mood and aggression",
+    "fx": "sample-based effects with time-stretch and filter chopping"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goals": "Maintain tension and aggression while ensuring accessible mainstream trip hop appeal with slow energy build."
+  },
+  "presetor_intent": {
+    "goals": "Presets should emphasize clarity on chopped and sliced samples with space for dynamic build."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns featuring sliced and chopped breakbeat samples to drive slow build energy."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines layered with grain stretch and sample slices to complement moods and sustain aggression."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord textures using reversed chops and stutter effects to add tension and atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic elements built from sliced and granular samples without explicit melodies."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement dynamics, energy curve, and textural variation for mainstream trip hop with aggressive feel."
+    },
+    "presetor": {
+      "brief": "Assign presets to highlight sample chop techniques, emphasizing rhythmic articulation and clarity."
+    },
+    "songgps": {
+      "brief": "Manage arrangement sections and energy curve to enforce slow energy build with marked transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels preserving sample chopping clarity and dynamics, ensuring clean audio delivery."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

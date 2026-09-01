@@ -1,0 +1,248 @@
+{
+  "project": {
+    "name": "Arabesk Rap Experimental Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Arabesk Rap",
+    "bpm": 110,
+    "key": "D minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      80,
+      85,
+      90,
+      70,
+      75,
+      85,
+      80,
+      85,
+      90,
+      95,
+      100,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20
+    ],
+    "notes": "Experimental Arabesk Rap arrangement with uplifting mood and club energy profile. Focus on dynamic progression and textures without specifying exact musical elements."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 60,
+          "25": 85,
+          "41": 70,
+          "57": 75,
+          "65": 90,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 50,
+          "25": 80,
+          "41": 65,
+          "57": 70,
+          "65": 85,
+          "73": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "9": 55,
+          "25": 80,
+          "41": 60,
+          "57": 75,
+          "65": 90,
+          "73": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 80,
+          "41": 50,
+          "57": 60,
+          "65": 85,
+          "73": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 5,
+          "9": 70,
+          "25": 90,
+          "41": 75,
+          "57": 80,
+          "65": 95,
+          "73": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 15,
+          "9": 40,
+          "25": 60,
+          "41": 50,
+          "57": 60,
+          "65": 75,
+          "73": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "peak",
+        "label": "Hook Start",
+        "reason": "Elevated vocal performance and energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "transitional",
+        "label": "Bridge Change",
+        "reason": "Change in rhythmic pattern and intensity"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fadeout",
+        "label": "Outro Fade",
+        "reason": "Energy decrease and transition to ending"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation and groove enhancer",
+    "bass": "low-end drive and rhythmic support",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "lead thematic elements with dynamic variations",
+    "vocal": "main lyrical delivery and expressive focus",
+    "fx": "transitional effects and spatial enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic and evolving drum patterns reflecting an experimental Arabesk Rap style with club energy."
+    },
+    "bass_generator": {
+      "brief": "Produce an energetic bassline that supports rhythmic and harmonic movement without overpowering other elements."
+    },
+    "harmony_generator": {
+      "brief": "Create chordal textures that blend traditional Arabesk elements with experimental harmonic progressions."
+    },
+    "melody_generator": {
+      "brief": "Compose lead melodic ideas that uplift and complement vocal presence in an experimental context."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow and energy shaping across sections to maintain uplifting club energy mood."
+    },
+    "presetor": {
+      "brief": "Apply preset sound profiles fitting experimental Arabesk Rap incorporating ethnic instrument timbres and modern effects."
+    },
+    "songgps": {
+      "brief": "Manage structural transitions and ensure coherent progression according to ArrangementGPS standards."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for later mixing stages focusing on clarity and balance guidance."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

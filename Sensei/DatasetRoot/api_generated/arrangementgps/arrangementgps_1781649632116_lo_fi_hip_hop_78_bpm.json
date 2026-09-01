@@ -1,0 +1,270 @@
+{
+  "project": {
+    "name": "Lo-Fi Chill Session",
+    "genre": "Hip Hop",
+    "subgenre": "Lo-Fi",
+    "bpm": 78,
+    "key": "C Minor",
+    "mood": "Relaxed, Nostalgic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      30,
+      50,
+      40,
+      60,
+      50,
+      30,
+      20,
+      30,
+      40,
+      30,
+      50,
+      40,
+      60,
+      50,
+      30,
+      20,
+      10
+    ],
+    "notes": "Focus on smooth transitions and subtle build-ups maintaining a laid-back vibe throughout."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 50
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 70,
+          "outro": 40
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 25,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 25,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro drums fade-in",
+        "reason": "Establish rhythmic foundation"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass enters",
+        "reason": "Add warmth and groove"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Chord progression peak",
+        "reason": "Emphasize hook section"
+      },
+      {
+        "track": "melody",
+        "bar": 33,
+        "type": "start",
+        "label": "Melody introduction",
+        "reason": "Introduce lead element"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Ambient textures added",
+        "reason": "Create bridge atmosphere"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "fade_out",
+        "label": "Drums fade out",
+        "reason": "Transition to outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic backbone, subtle and warm",
+    "bass": "Groove enhancer, smooth and deep",
+    "chords": "Harmonic foundation, soft and jazzy",
+    "melody": "Lead instrument, mellow and sparse",
+    "vocal": "None",
+    "fx": "Atmospheric effects, add texture"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      16,
+      48
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 4,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate subtle and laid-back drum patterns with variation in intensity aligned with section energies."
+    },
+    "bass_generator": {
+      "brief": "Create smooth and warm basslines that complement chord progressions without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Develop soft chord progressions consistent with a relaxed Lo-Fi atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Produce minimalistic melodic lines that evoke a nostalgic and chill mood."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement dynamics and transitions to maintain a smooth flow across sections."
+    },
+    "presetor": {
+      "brief": "Select presets that yield warm, analog textures suitable for Lo-Fi Hip Hop style."
+    },
+    "songgps": {
+      "brief": "Guide overall track structure focusing on energy curve and section interplay."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix elements ensuring clarity and warmth without harshness or overcompression."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

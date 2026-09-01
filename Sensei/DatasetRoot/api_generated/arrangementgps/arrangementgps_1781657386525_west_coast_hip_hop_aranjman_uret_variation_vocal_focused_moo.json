@@ -1,0 +1,396 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Vocal Focused Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      65,
+      80,
+      70,
+      60,
+      50,
+      40,
+      55,
+      70,
+      85,
+      90,
+      80,
+      70,
+      60,
+      75,
+      85,
+      90,
+      95,
+      80,
+      60,
+      50,
+      40,
+      30,
+      50,
+      65,
+      80,
+      75,
+      65,
+      55,
+      45,
+      50,
+      65,
+      80,
+      90,
+      85,
+      75,
+      65,
+      55,
+      40,
+      50,
+      60,
+      70,
+      80,
+      95,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      25,
+      35,
+      50,
+      70,
+      85,
+      90,
+      85,
+      80,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement focuses on dynamic vocal presence with cinematic rises and falls in energy profile, blending modern sample chopping techniques in instrumental layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 55
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 10,
+          "8": 30,
+          "9": 50,
+          "24": 50,
+          "25": 75,
+          "40": 75,
+          "41": 60,
+          "56": 60,
+          "57": 40,
+          "64": 40,
+          "65": 80,
+          "72": 80,
+          "73": 20,
+          "80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 15,
+          "8": 35,
+          "9": 60,
+          "24": 60,
+          "25": 85,
+          "40": 85,
+          "41": 70,
+          "56": 70,
+          "57": 50,
+          "64": 50,
+          "65": 90,
+          "72": 90,
+          "73": 25,
+          "80": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "8": 15,
+          "9": 25,
+          "24": 25,
+          "25": 45,
+          "40": 45,
+          "41": 35,
+          "56": 35,
+          "57": 20,
+          "64": 20,
+          "65": 50,
+          "72": 50,
+          "73": 10,
+          "80": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "8": 20,
+          "9": 30,
+          "24": 30,
+          "25": 50,
+          "40": 50,
+          "41": 40,
+          "56": 40,
+          "57": 25,
+          "64": 25,
+          "65": 60,
+          "72": 60,
+          "73": 5,
+          "80": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 30,
+          "8": 50,
+          "9": 80,
+          "24": 80,
+          "25": 95,
+          "40": 95,
+          "41": 90,
+          "56": 90,
+          "57": 60,
+          "64": 60,
+          "65": 100,
+          "72": 100,
+          "73": 40,
+          "80": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 5,
+          "8": 10,
+          "9": 20,
+          "24": 20,
+          "25": 40,
+          "40": 40,
+          "41": 30,
+          "56": 30,
+          "57": 15,
+          "64": 15,
+          "65": 35,
+          "72": 35,
+          "73": 5,
+          "80": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 vocals begin",
+        "reason": "To mark the entrance of vocal focus"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "peak",
+        "label": "Hook vocals climax",
+        "reason": "Highest energy and vocal presence"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "peak",
+        "label": "Final Hook vocals peak",
+        "reason": "Climactic cinematic rise"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "technique": "modern sample chopping",
+      "channels": [
+        "slice_1",
+        "slice_2",
+        "slice_3",
+        "slice_4",
+        "slice_5"
+      ]
+    }
+  },
+  "sound_intent": {
+    "vocal_focus": true,
+    "sample_chopping_techniques": [
+      "slice",
+      "stutter",
+      "reverse",
+      "granular"
+    ],
+    "energy_profile": "cinematic rise and fall",
+    "mood": "uplifting"
+  },
+  "routing_intent": {
+    "drums": {
+      "channel_name": "slice_drums"
+    },
+    "bass": {
+      "channel_name": "slice_bass"
+    },
+    "chords": {
+      "channel_name": "slice_chords"
+    },
+    "melody": {
+      "channel_name": "slice_melody"
+    },
+    "vocal": {
+      "channel_name": "vocal_lead"
+    },
+    "fx": {
+      "channel_name": "slice_fx"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with chopped samples",
+    "bass": "groove support using chopped bass samples",
+    "chords": "harmonic texture via sample slices",
+    "melody": "motif with sample chops",
+    "vocal": "primary focus with strong presence",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1
+    ]
+  },
+  "priority": {
+    "drums": 50,
+    "bass": 50,
+    "chords": 40,
+    "melody": 40,
+    "vocal": 100,
+    "fx": 30
+  },
+  "designer_intent": {
+    "focus": "Arranged to highlight vocal presence with dynamic cinematic energy",
+    "sample_usage": "Channels and textures created from modern sample chopping techniques"
+  },
+  "presetor_intent": {
+    "preset_style": "West Coast Hip-Hop modern sample chop and vocal clarity",
+    "effect_usage": "Moderate use of reverb and delays on vocals and FX"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create rhythmic patterns using chopped drum samples emphasizing groove and dynamics supporting cinematic energy curve."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines utilizing chopped bass sample slices to create a deep groove complementing drums and vocals."
+    },
+    "harmony_generator": {
+      "brief": "Develop chordal textures with sample chopped chords, providing harmonic support without overpowering vocals."
+    },
+    "melody_generator": {
+      "brief": "Add melodic elements using sample chopping techniques that subtly complement the vocal lead."
+    },
+    "ai_designer": {
+      "brief": "Design arrangement emphasizing vocal presence with cinematic rises and falls, utilizing modern sample chopping techniques."
+    },
+    "presetor": {
+      "brief": "Apply suitable sound presets enhancing clarity and punch of chopped samples and vocals consistent with West Coast Hip-Hop."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement structure with specified sections and energy transitions matching cinematic uplifting mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix with unprocessed channel audio focusing on clarity and balance of vocal and sample chopped elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

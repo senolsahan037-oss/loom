@@ -1,0 +1,257 @@
+{
+  "project": {
+    "name": "Memphis Rap Uplifting Mainstream",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      30
+    ],
+    "notes": "Sparse verses with strong hooks; mainstream structure with an uplifting mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 90,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 95,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 75,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Verse 1 Start",
+        "reason": "Start of sparse verse section"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "Start of strong hook with high energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "verse_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse verse energy"
+      },
+      {
+        "track": "melody",
+        "bar": 49,
+        "type": "bridge_start",
+        "label": "Bridge Start",
+        "reason": "Change in section for variation"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "hook_start",
+        "label": "Final Hook Start",
+        "reason": "Recap of strong hook for climax"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro Start",
+        "reason": "Wind down section with decreased energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "lead rhythm foundation",
+    "bass": "low-end groove and rhythm support",
+    "chords": "harmonic support and texture",
+    "melody": "main melodic hooks and fills",
+    "vocal": "lead vocal performance with rap verses and hooks",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a rhythm pattern that accentuates the sparse verses and ramps up during the hooks with heavy kicks and snare hits common in Memphis Rap."
+    },
+    "bass_generator": {
+      "brief": "Generate deep basslines that are minimal in verses but full-bodied and groove-oriented during hooks and bridge."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures that support the uplifting mood, keeping harmonic content light in verses and richer during hooks and bridge."
+    },
+    "melody_generator": {
+      "brief": "Craft melodic hooks with high energy for the chorus sections, while keeping melodic elements sparse in verses."
+    },
+    "ai_designer": {
+      "brief": "Coordinate all elements to maintain a mainstream Memphis Rap style with uplifting mood, ensuring energy contrasts between sparse verses and strong hooks."
+    },
+    "presetor": {
+      "brief": "Manage presets focusing on modern Memphis Rap sounds with clean, impactful beats and melodic synths suited for uplifting energy."
+    },
+    "songgps": {
+      "brief": "Analyze arrangement flow to optimize energy dynamics and proper sectioning for sparse verses and hook emphasis."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing guidelines to highlight vocal clarity during hooks and maintain punchy low end in rhythm sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

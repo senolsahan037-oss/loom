@@ -1,0 +1,243 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Vocal Focused Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "E minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      30
+    ],
+    "notes": "Sparse verses with strong, vocal-focused hooks; sample-based arrangement featuring texture bed and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 100,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 35
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Entry",
+        "reason": "Strong vocal hook starts"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "cue",
+        "label": "Verse 2 Start",
+        "reason": "Sparse drums start in verse 2"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "cue",
+        "label": "Final Hook Start",
+        "reason": "Intensified bass for final hook"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "transition",
+        "label": "Bridge Texture",
+        "reason": "Introduce texture bed elements in bridge"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample_slicing_kicks_and_snares",
+    "bass": "compressed_sample_loops",
+    "chords": "texture_bed_pads",
+    "melody": "one_shot_hits_variations",
+    "vocal": "lead_vocal_focus",
+    "fx": "transition_fx_and_texture"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      44
+    ]
+  },
+  "priority": {
+    "drums": 7,
+    "bass": 6,
+    "chords": 5,
+    "melody": 4,
+    "vocal": 10,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design a drum pattern using sample slicing techniques emphasizing sparse verses and impactful hook sections."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using compressed sample loops to complement sparse verses and energetic hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide texture bed chord pads with sample-based sounds to fill space gently under vocals."
+    },
+    "melody_generator": {
+      "brief": "Add melodic one-shot hits in variation to support hooks without overwhelming vocals."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement energy levels aiming at uplifting mood with vocal focus and clear dynamic sections."
+    },
+    "presetor": {
+      "brief": "Apply preset settings for sample-based instruments emphasizing clarity and presence for vocals and hooks."
+    },
+    "songgps": {
+      "brief": "Manage arrangement transitions matching energy profiles and track activity for sparse verses and strong hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio to maintain vocal clarity and sample texture balance throughout arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

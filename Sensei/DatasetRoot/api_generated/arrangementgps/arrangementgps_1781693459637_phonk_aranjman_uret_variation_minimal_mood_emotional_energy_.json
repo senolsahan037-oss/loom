@@ -1,0 +1,294 @@
+{
+  "project": {
+    "name": "Phonk Minimal Emotional Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      20,
+      80,
+      20,
+      10
+    ],
+    "notes": "Sparse verses with strong emotional hooks, minimal variation focusing on impactful vocal chops and sample manipulation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 20
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 15,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 10,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 0,
+          "final_hook": 45,
+          "outro": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 5,
+          "hook": 35,
+          "verse_2": 5,
+          "bridge": 0,
+          "final_hook": 40,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 5,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy increase with vocal chops hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Climactic vocal chops and sample variations"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "Micro Chops Intro",
+        "reason": "Micro chop samples introduce rhythm texture"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Reverse Chops Bridge",
+        "reason": "Reverse sample chops as transitional effect"
+      },
+      {
+        "track": "vocal",
+        "bar": 40,
+        "type": "effect",
+        "label": "Stutter Chops End Hook",
+        "reason": "Stutter chopped vocal effect emphasize hook end"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": {
+      "channels": [
+        "micro_chops",
+        "phrase_chops"
+      ]
+    },
+    "bass": {
+      "channels": []
+    },
+    "chords": {
+      "channels": []
+    },
+    "melody": {
+      "channels": []
+    },
+    "vocal": {
+      "channels": [
+        "vocal_chops",
+        "reverse_chops",
+        "stutter_chops"
+      ]
+    },
+    "fx": {
+      "channels": []
+    }
+  },
+  "sound_intent": {
+    "vocal_chops": "Highlight emotional phrasing with chopped vocal samples emphasizing hook sections.",
+    "micro_chops": "Introduce rhythmic texture through tight micro chopped drum samples.",
+    "phrase_chops": "Support percussion with phrase chopped samples for groove reinforcement.",
+    "reverse_chops": "Use reversed sample chops to create atmospheric transitions in bridge and outro.",
+    "stutter_chops": "Add rhythmic complexity and tension with stuttered vocal chops in hooks."
+  },
+  "routing_intent": {
+    "vocal_chops": "Route vocal chops on dedicated vocal channel for fine processing.",
+    "micro_chops": "Route micro chops through drums channel with transient shaping.",
+    "phrase_chops": "Route phrase chops as layered percussion elements on drums channel.",
+    "reverse_chops": "Send reverse chops effects to fx channel for reverb/delay processing.",
+    "stutter_chops": "Process stutter chops with rhythmic gating and routing to vocal channel."
+  },
+  "track_roles": {
+    "drums": "carry groove with sample chops",
+    "bass": "subbass support with minimal activity",
+    "chords": "atmospheric minimal pads",
+    "melody": "background melodic texture",
+    "vocal": "emotional hook and vocal chopping",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      57,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "Emotional impact with minimal layers, emphasizing hooks via chopped vocal samples and selective energy spikes."
+  },
+  "presetor_intent": {
+    "instructions": "Create presets that enhance vocal presence and articulation for chopped samples, with tight drum sample shaping."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse drum patterns with micro and phrase chopped samples emphasizing rhythmic groove with minimal complexity."
+    },
+    "bass_generator": {
+      "brief": "Produce minimal bass lines that support the emotional mood without overpowering the sparse arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Create minimal chordal pads or textures for atmospheric support, avoiding dense harmonic activity."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic textures to complement emotional mood, with very low activity through the track."
+    },
+    "ai_designer": {
+      "brief": "Focus on arrangement structure emphasizing sparse verses and strong emotional hooks using sample chops as key elements."
+    },
+    "presetor": {
+      "brief": "Design presets for vocal chops and drum chops to enhance clarity, presence, and emotional impact."
+    },
+    "songgps": {
+      "brief": "Generate the overall energy curve and section layout fulfilling minimal phonk style with emotional hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix for clarity between chopped vocal elements and the sparse rhythmic background, ensuring hook prominence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

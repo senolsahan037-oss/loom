@@ -1,0 +1,237 @@
+{
+  "project": {
+    "name": "Emotional Trap Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "A minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      40,
+      60,
+      90,
+      80,
+      30
+    ],
+    "notes": "Arrangement focuses on building emotional intensity with club energy, using typical trap instrumentation and dynamic changes while avoiding explicit musical notation."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "Hook Start",
+        "reason": "Increase energy to highlight hook section"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "energy_peak",
+        "label": "Final Hook Start",
+        "reason": "Maximum energy for final hook impact"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "intro_fx",
+        "label": "Intro Build Up",
+        "reason": "Set emotional mood with atmospheric FX"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with trap percussion",
+    "bass": "driving low end supporting club energy",
+    "chords": "harmonic support for emotional mood",
+    "melody": "lead instrumental phrasing with emotional tone",
+    "vocal": "none (instrumental variation)",
+    "fx": "atmospheric and transitional effects enhancing emotion"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns with dynamic club energy fitting trap genre, emphasizing rhythmic accents and variation for emotional impact."
+    },
+    "bass_generator": {
+      "brief": "Create a powerful bassline that reinforces the rhythm section and maintains club energy while supporting emotional atmosphere."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions to enhance the emotional mood while fitting with trap style arrangement and blending with bass and melody."
+    },
+    "melody_generator": {
+      "brief": "Develop instrumental melodic lines that convey emotional feeling and complement the harmonic and rhythmic elements."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure to ensure smooth transitions, dynamic energy curve, and stylistic coherence of trap instrumental."
+    },
+    "presetor": {
+      "brief": "Apply suitable presets to instruments optimizing for clarity, warmth, and punch appropriate for emotional trap club energy."
+    },
+    "songgps": {
+      "brief": "Coordinate energy levels and section flow ensuring the arrangement matches the desired emotional and club energy profiles."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix-ready channel audio ensuring separation of elements and preserving dynamics for final mixing stages."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

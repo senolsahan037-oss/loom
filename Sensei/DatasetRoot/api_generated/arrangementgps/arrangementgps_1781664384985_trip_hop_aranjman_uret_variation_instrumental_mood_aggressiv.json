@@ -1,0 +1,352 @@
+{
+  "project": {
+    "name": "Trip Hop Instrumental Aggressive Arrangement",
+    "genre": "Trip Hop",
+    "subgenre": "Instrumental",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      95,
+      30,
+      40,
+      20,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Sample layer based arrangement using texture beds and one-shot hits with channel names based on sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Start Texture Bed",
+        "reason": "Intro atmosphere with texture bed"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "cue",
+        "label": "One-Shot Hits Enter",
+        "reason": "Increase energy in hook"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "cue",
+        "label": "Texture Variation",
+        "reason": "Bridge introduces new sample slicing textures"
+      },
+      {
+        "track": "fx",
+        "bar": 72,
+        "type": "cue",
+        "label": "Fade Out Effects",
+        "reason": "Outro transition"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "TextureBedChannel",
+          "method": "sample-based",
+          "technique": "slice_stretch"
+        },
+        {
+          "name": "OneShotHitsChannel",
+          "method": "sample-based",
+          "technique": "transient_slice"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "style": "sample-based arrangement",
+    "texture_bed": true,
+    "one_shot_hits": true,
+    "mood": "aggressive",
+    "energy_profile": "cinematic rise and fall"
+  },
+  "routing_intent": {
+    "drums": "separate",
+    "bass": "subgroup",
+    "chords": "subgroup",
+    "melody": "separate",
+    "vocal": "none",
+    "fx": "auxiliary"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation via sample slicing",
+    "bass": "low-end support with texture",
+    "chords": "harmonic texture with sample slices",
+    "melody": "minimal melodic elements",
+    "vocal": "none",
+    "fx": "spatial and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      64,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {
+    "focus": "Create an aggressive instrumental arrangement with dynamic texture beds and impactful one-shot hits, following cinematic energy curve."
+  },
+  "presetor_intent": {
+    "goal": "Apply sample slicing techniques to build texture and hits with controlled layering and rise-fall energy dynamics."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate percussive layers using sample slicing and transient hits to provide rhythm and dynamics matching aggressive mood."
+    },
+    "bass_generator": {
+      "brief": "Create low-frequency texture beds using sample stretch and loop slicing to support cinematic energy flow."
+    },
+    "harmony_generator": {
+      "brief": "Design chord textures using sample-based slicing and shifting techniques without traditional harmonic progressions."
+    },
+    "melody_generator": {
+      "brief": "Introduce minimal melodic content with sparse sample slices and one-shots to complement aggressive mood."
+    },
+    "ai_designer": {
+      "brief": "Integrate and shape arrangement per the cinematic rise and fall energy profile focusing on instrumental trip hop style."
+    },
+    "presetor": {
+      "brief": "Apply production presets emphasizing sample slicing techniques for texture and hit creation in an aggressive instrumental context."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement sections to ensure energy dynamics and section transitions follow cinematic rise and fall model."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mix by separating drum and effect channels for clarity and preserving dynamic energy curves."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

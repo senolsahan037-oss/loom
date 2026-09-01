@@ -1,0 +1,276 @@
+{
+  "project": {
+    "name": "Boom Bap Instrumental Emotional Club Energy",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      65,
+      80,
+      90,
+      40
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits; instrumental only, no melodies or basslines specified."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 60,
+          "verse_1": 70,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 50
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Kick Off",
+        "reason": "Intro drum texture bed start"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "section",
+        "label": "Hook Entry",
+        "reason": "Increased emotional texture for hook"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX Rise",
+        "reason": "Transition to bridge with atmospheric effects"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Energy decreases into outro section"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": [
+      {
+        "name": "texture_bed",
+        "technique": "wavetable slicing",
+        "content": "continuous sample loop with texture variations"
+      },
+      {
+        "name": "one-shot_hits",
+        "technique": "sample splicing",
+        "content": "percussive hits sliced and triggered at rhythmic points"
+      }
+    ]
+  },
+  "sound_intent": {
+    "sample_based": true,
+    "texture_focus": true,
+    "instrumental_only": true,
+    "mood": "emotional",
+    "energy_profile": "club energy"
+  },
+  "routing_intent": {
+    "drums_channel": "sample_slicing_drums",
+    "chords_channel": "sample_texture_chords",
+    "bass_channel": "sample_layered_bass",
+    "fx_channel": "sample_fx_textures"
+  },
+  "track_roles": {
+    "drums": "Sample slicing technique based drum hits providing rhythmic foundation",
+    "bass": "Supporting low-end sample layers",
+    "chords": "Texture bed layers with sample-based harmonic pads",
+    "melody": "None, instrumental variation focus",
+    "vocal": "None, instrumental variation focus",
+    "fx": "Sample-based atmospheric and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      15,
+      39,
+      71
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 7,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 5
+  },
+  "designer_intent": {
+    "goal": "Create variation of Boom Bap arrangement focusing on instrumental mood with emotional tone and club energy feel",
+    "sample_focus": "Use sample-based texture beds and one-shot hits with sample splicing techniques"
+  },
+  "presetor_intent": {
+    "render_mode": "clean_sample_layers",
+    "bypass_midi_generation": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slicing techniques to create rhythmic one-shot hits consistent with boom bap style and club energy."
+    },
+    "bass_generator": {
+      "brief": "Provide supportive bass layer samples with low-end frequency presence suitable for instrumental boom bap arrangements."
+    },
+    "harmony_generator": {
+      "brief": "Create texture bed harmonic layers by manipulating samples for emotional impact without melodic lines."
+    },
+    "melody_generator": {
+      "brief": "No melodic content requested; focus on instrumental variation."
+    },
+    "ai_designer": {
+      "brief": "Design overall instrumental arrangement to maximize emotional mood using club energy profile and sample-based techniques."
+    },
+    "presetor": {
+      "brief": "Manage preset selections to enable sample splicing and texture layering without MIDI note generation."
+    },
+    "songgps": {
+      "brief": "Track energy curve and section transitions to maintain arrangement flow and emotional depth."
+    },
+    "ai_mixmaster": {
+      "brief": "Maintain clean separation of sample layers and preserve sample integrity in the mix for clarity and club-friendly sound."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

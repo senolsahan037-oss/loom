@@ -1,0 +1,248 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Uplifting Club Energy",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      85,
+      60,
+      75,
+      90,
+      50
+    ],
+    "notes": "Experimental Trip Hop arrangement focused on uplifting mood and club energy profile, utilizing various sample chopping techniques for vocal and instrumental layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "sample_slice",
+        "label": "micro chops",
+        "reason": "Introduce experimental micro chopped vocal samples for texture"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "sample_slice",
+        "label": "phrase chops",
+        "reason": "Add phrase chopped vocal samples to increase energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "sample_slice",
+        "label": "reverse chops",
+        "reason": "Use reverse chopped vocals for experimental feel"
+      },
+      {
+        "track": "vocal",
+        "bar": 49,
+        "type": "sample_slice",
+        "label": "vocal chops",
+        "reason": "Apply vocal chops to keep uplifting mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "sample_slice",
+        "label": "stutter chops",
+        "reason": "Implement stutter chopped vocals for club impact"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with club energy emphasis",
+    "bass": "groove provider tuned for uplifting feel",
+    "chords": "harmonic support using layered samples",
+    "melody": "textural enhancements with sample chops",
+    "vocal": "experimental vocal sample manipulations",
+    "fx": "atmospheric elements and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 6,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that drive club energy with emphasis on groove suitable for Trip Hop and incorporate sample chopping for rhythmic interest."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the drums with a smooth uplifting feel that fits the experimental Trip Hop style."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic support using sample-based chord layers with textures matching micro chops and phrase chops techniques."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic fragments focusing on experimental sample chops and subtle textural effects without traditional melodic runs."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure ensuring energy dynamics follow club energy profile and mood remains uplifting."
+    },
+    "presetor": {
+      "brief": "Manage presets emphasizing sample chopping techniques on vocal and instrumental channels."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement transitions and section energy curve to ensure smooth flow and impact for club-oriented Trip Hop."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing approach that preserves clarity of chopped vocal and sample layers and emphasizes club energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

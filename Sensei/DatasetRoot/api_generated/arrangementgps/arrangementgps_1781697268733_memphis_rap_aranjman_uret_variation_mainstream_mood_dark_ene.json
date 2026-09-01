@@ -1,0 +1,257 @@
+{
+  "project": {
+    "name": "Memphis Rap Mainstream Dark Club",
+    "genre": "Hip-Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      70,
+      80,
+      90
+    ],
+    "notes": "Arrangement designed for mainstream Memphis Rap with dark mood and club energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "effect",
+        "label": "Intro Ambience",
+        "reason": "Sets dark club atmosphere"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Verse 1 Entry",
+        "reason": "Introduce main vocal line"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Hook Entry",
+        "reason": "Main hook for catchiness"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "change",
+        "label": "Bridge Bass Variation",
+        "reason": "Adds dynamic contrast"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "effect",
+        "label": "Final Hook Accent",
+        "reason": "Enhance hook energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro Drum Fade",
+        "reason": "Smooth ending transition"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone, club energy driver",
+    "bass": "deep low-end foundation supporting groove",
+    "chords": "harmonic support with dark textures",
+    "melody": "minimal melodic motifs for mood",
+    "vocal": "primary lyrical delivery",
+    "fx": "atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 4,
+    "vocal": 9,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns focusing on club energy and dark Memphis Rap style rhythms, varying intensity across sections."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that provide deep groove support with dark tonal qualities matching club energy."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chords with dark textures to complement the mood and add harmonic interest without dominating."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle melodic motifs that enhance the dark atmosphere but leave space for vocals."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure and energy curve to maintain variation and flow for mainstream Memphis Rap."
+    },
+    "presetor": {
+      "brief": "Apply presets aiming for a polished, dark, and club-oriented Memphis Rap sonic character."
+    },
+    "songgps": {
+      "brief": "Track arrangement progress and enforce section transitions consistent with mainstream club vibe."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix layouts ensuring balance between rhythmic and vocal elements for clarity and impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

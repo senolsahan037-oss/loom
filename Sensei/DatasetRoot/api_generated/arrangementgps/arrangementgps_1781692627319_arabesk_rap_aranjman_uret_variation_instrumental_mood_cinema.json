@@ -1,0 +1,234 @@
+{
+  "project": {
+    "name": "Arabesk Rap Instrumental Cinematic Club Energy",
+    "genre": "Arabesk Rap",
+    "subgenre": "Instrumental",
+    "bpm": 110,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      80,
+      75,
+      90,
+      30
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 85,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 75,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 80,
+          "outro": 35
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_change",
+        "label": "Hook Start",
+        "reason": "Energy increase with percussion emphasis"
+      },
+      {
+        "track": "bass",
+        "bar": 49,
+        "type": "section_change",
+        "label": "Bridge Start",
+        "reason": "Introduce new bass rhythm for variation"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "section_change",
+        "label": "Outro Start",
+        "reason": "Fade out effects to create closing atmosphere"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and energy driver",
+    "bass": "low-end groove and rhythm support",
+    "chords": "harmonic texture and mood builder",
+    "melody": "none (instrumental variation)",
+    "vocal": "none (instrumental)",
+    "fx": "atmospheric and cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic and club-energy drums that fit the Arabesk Rap instrumental style with cinematic mood."
+    },
+    "bass_generator": {
+      "brief": "Generate a groove-oriented bassline supporting the rhythm and enhancing club energy while maintaining cinematic feel."
+    },
+    "harmony_generator": {
+      "brief": "Design chord textures that evoke cinematic mood and support the Arabesk Rap instrumental arrangement."
+    },
+    "melody_generator": {
+      "brief": "No melody generation needed for this instrumental variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement energy flow and ensure cinematic and club energy moods are coherently expressed instrumentally."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance clarity and cinematic atmosphere suitable for Arabesk Rap instrumental with club energy."
+    },
+    "songgps": {
+      "brief": "Coordinate structural elements and energy curve to reflect mood and energy progression across sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing setup to maintain clarity and dynamic presence of drums, bass, chords, and FX in the instrumental mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

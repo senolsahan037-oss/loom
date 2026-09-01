@@ -1,0 +1,309 @@
+{
+  "project": {
+    "name": "Trap Vocal Cinematic",
+    "genre": "Hip Hop",
+    "subgenre": "Trap",
+    "bpm": 70,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      25,
+      30,
+      40,
+      55,
+      70,
+      85,
+      100,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "notes": "Arrangement focuses on vocal prominence with a slow energy build, cinematic atmosphere, and trap rhythm support."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 55,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Entry of main vocal"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy uplift with full drum pattern"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climax with vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy tapering off"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "bass support",
+    "chords": "harmonic pads",
+    "melody": "instrumental leads",
+    "vocal": "lead vocal presence",
+    "fx": "atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 7,
+    "bass": 6,
+    "chords": 5,
+    "melody": 4,
+    "vocal": 10,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns that support a slow energy build typical of trap, ensuring dynamics that highlight the vocal parts in key sections."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement the drums with subtlety, building energy gradually to enhance the cinematic mood without overpowering vocals."
+    },
+    "harmony_generator": {
+      "brief": "Develop chordal textures and pads that enrich the atmospheric and cinematic feel while supporting the slow build energy profile."
+    },
+    "melody_generator": {
+      "brief": "Design instrumental melody motifs that weave around vocal lines and contribute to emotional cinematic expression."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence, ensuring smooth transitions, energy balance and vocal-forward mix focus throughout the track."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance clarity and presence of vocals and cinematic elements while keeping trap rhythm integrity intact."
+    },
+    "songgps": {
+      "brief": "Guide arrangement structure, energy curves, and section definitions to balance vocal prominence within a cinematic trap slow build framework."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix levels and apply mastering processes that maintain dynamic range appropriate for a cinematic slow build trap track with vocal focus."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

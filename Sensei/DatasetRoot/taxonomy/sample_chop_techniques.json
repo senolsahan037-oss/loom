@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "techniques": [
+    {
+      "id": "micro_chop",
+      "display_name": "Micro Chop",
+      "role": "Tiny sliced sample fragments for rhythm and texture"
+    },
+    {
+      "id": "phrase_chop",
+      "display_name": "Phrase Chop",
+      "role": "Longer musical phrases rearranged across sections"
+    },
+    {
+      "id": "stutter_chop",
+      "display_name": "Stutter Chop",
+      "role": "Repeated slices for tension, bounce and fills"
+    },
+    {
+      "id": "reverse_chop",
+      "display_name": "Reverse Chop",
+      "role": "Reversed sample pieces for transitions and emotional pull"
+    },
+    {
+      "id": "texture_bed",
+      "display_name": "Texture Bed",
+      "role": "Low-volume sample ambience underneath the groove"
+    },
+    {
+      "id": "vocal_chop",
+      "display_name": "Vocal Chop",
+      "role": "Vocal fragments used as hooks, responses or ear candy"
+    },
+    {
+      "id": "one_shot_hit",
+      "display_name": "One-Shot Hit",
+      "role": "Single impactful sample hits for accents"
+    },
+    {
+      "id": "time_stretch_pad",
+      "display_name": "Time-Stretch Pad",
+      "role": "Stretched sample layer used as harmonic atmosphere"
+    },
+    {
+      "id": "granular_spray",
+      "display_name": "Granular Spray",
+      "role": "Small scattered grains for modern experimental texture"
+    },
+    {
+      "id": "filter_sweep_chop",
+      "display_name": "Filter Sweep Chop",
+      "role": "Filtered chops used for build-ups and transitions"
+    }
+  ]
+}

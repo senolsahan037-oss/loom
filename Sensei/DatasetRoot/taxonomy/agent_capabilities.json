@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "agents": {
+    "arrangementgps": {
+      "role": "Production planner and orchestration brain",
+      "accepts": ["user_prompt", "dataset_context"],
+      "produces": ["blueprint", "scene", "production_tree", "agent_dispatch"]
+    },
+    "sensei_drum": {
+      "role": "Drum MIDI generator",
+      "accepts": ["drum_brief", "scene", "sound_intent"],
+      "produces": ["midi_clip", "split_drum_outputs"]
+    },
+    "bass_generator": {
+      "role": "Bass MIDI generator",
+      "accepts": ["bass_brief", "scene", "sound_intent"],
+      "produces": ["midi_clip"]
+    },
+    "ai_designer": {
+      "role": "MIDI device and instrument rack designer",
+      "accepts": ["midi_clip", "sound_intent"],
+      "produces": ["instrument_rack_plan", "macro_settings"]
+    },
+    "presetor": {
+      "role": "Temporary arrangement chain and memory bridge",
+      "accepts": ["track_context", "sound_intent"],
+      "produces": ["temporary_chain", "preset_memory"]
+    },
+    "songgps": {
+      "role": "Clean render and analysis bridge",
+      "accepts": ["ableton_project", "render_policy"],
+      "produces": ["clean_audio_renders", "analysis_report"]
+    },
+    "ai_mixmaster": {
+      "role": "Audio mix and master engine",
+      "accepts": ["clean_audio_renders", "analysis_report", "preset_memory"],
+      "produces": ["mix_chain", "master_plan", "final_render"]
+    }
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "project": {
+    "name": "Phonk Vocal-Focused Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      70,
+      40,
+      75,
+      65,
+      90,
+      50
+    ],
+    "notes": "Phonk arrangement with a vocal focus, uplifting mood, emphasizing a hook-heavy energy profile. Sample-based layers including texture bed and one-shot hits. Channels named by sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 75,
+          "hook": 100,
+          "verse_2": 70,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Start of hook section with elevated vocal activity"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "texture_intro",
+        "label": "Sample-based texture bed intro",
+        "reason": "Introduce texture bed using sample chopping"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect_build",
+        "label": "Bridge FX buildup",
+        "reason": "Increase energy for bridge section with effects"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "texture_bed": {
+        "type": "sample_based",
+        "channel_name": "Slice_Loop",
+        "description": "Sample chopped continuous texture layer"
+      },
+      "one_shot_hits": {
+        "type": "sample_based",
+        "channel_name": "Hit_Slice",
+        "description": "One-shot drum hits sampled and arranged"
+      },
+      "vocal_layer": {
+        "type": "vocal_samples",
+        "channel_name": "Vocal_Cuts",
+        "description": "Processed vocal chops and hooks"
+      }
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal",
+    "texture": "sample-based bed with chopped hits",
+    "energy_profile": "hook-heavy, uplifting mood"
+  },
+  "routing_intent": {
+    "drums": "sample_slice_channel",
+    "bass": "midi_vs_sample_hybrid",
+    "chords": "layered_samples",
+    "melody": "sample_slices",
+    "vocal": "vocal_chunks",
+    "fx": "riser_downers"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample slices",
+    "bass": "low-end groove, supportive",
+    "chords": "harmonic texture using chopped samples",
+    "melody": "complementary sample slices",
+    "vocal": "lead vocal chops and hooks",
+    "fx": "transitions and effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 60,
+    "chords": 50,
+    "melody": 40,
+    "vocal": 100,
+    "fx": 30
+  },
+  "designer_intent": {
+    "goal": "Create an uplifting, vocal-focused phonk arrangement using sample chopping techniques emphasizing hook sections."
+  },
+  "presetor_intent": {
+    "preset_match": "vocal-centric phonk using sample-based textures and one-shot hits"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample-based drum patterns emphasizing chopped one-shot hits blending with texture bed."
+    },
+    "bass_generator": {
+      "brief": "Create a supportive bass line that complements the sample-based drums and vocal hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord-based textures using sampled sliced layers maintaining uplifting mood."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic elements with sample slicing techniques to support the vocal focus."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections focusing on vocal prominence and hook-heavy energy profiling."
+    },
+    "presetor": {
+      "brief": "Apply presets oriented towards vocal clarity and sample-based textures suitable for phonk arrangements."
+    },
+    "songgps": {
+      "brief": "Oversee arrangement energy curve, section transitions, and event marker placement for vocal-driven hooks."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio maintaining sample-based arrangement clarity and vocal presence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "project": {
+    "name": "Emotional Trap Minimal",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 70,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      78,
+      80,
+      82,
+      85,
+      87,
+      90,
+      92,
+      95,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      100,
+      98,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      38,
+      35,
+      33,
+      30,
+      28,
+      25,
+      22,
+      20,
+      18,
+      17,
+      15,
+      13,
+      12,
+      10,
+      10,
+      12,
+      15,
+      18,
+      20,
+      22,
+      25,
+      28,
+      30,
+      33,
+      35,
+      37,
+      40,
+      42,
+      45,
+      47,
+      50,
+      52,
+      55,
+      57,
+      60,
+      62,
+      65,
+      68,
+      70,
+      72
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Begin with minimal percussion to set emotional mood and slow build"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "intensify",
+        "label": "Verse 1 Start",
+        "reason": "Bass increases to support energy rise"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Hook Entry",
+        "reason": "Vocal presence spikes with emotional hook"
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "variation",
+        "label": "Bridge Variation",
+        "reason": "Introduce melodic variation to maintain interest"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Start",
+        "reason": "Reduce percussion to lower energy toward end"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Establish rhythm foundation and energy pacing",
+    "bass": "Provide tonal depth and support groove",
+    "chords": "Define harmonic texture with minimal layering",
+    "melody": "Convey emotional expression subtly",
+    "vocal": "Deliver main lyrical content with emotional impact",
+    "fx": "Add atmosphere and transitions smoothly"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal drum pattern that gradually increases in complexity and intensity to achieve a slow emotional build."
+    },
+    "bass_generator": {
+      "brief": "Design bass activity that supports slow energy build while maintaining minimalism and emotional depth."
+    },
+    "harmony_generator": {
+      "brief": "Generate harmonic layers that are sparse, complement emotional mood, and enable smooth transitions across sections."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle melodic variations that emphasize emotion without overwhelming the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring slow building energy profile and minimal variations to maintain emotional impact."
+    },
+    "presetor": {
+      "brief": "Apply presets that preserve minimalism and clarity, emphasizing emotional warmth and slow build dynamics."
+    },
+    "songgps": {
+      "brief": "Guide arrangement flow focusing on energy curve, section transitions, and emotional expression."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix to highlight slow build dynamics while preserving clarity between minimal elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

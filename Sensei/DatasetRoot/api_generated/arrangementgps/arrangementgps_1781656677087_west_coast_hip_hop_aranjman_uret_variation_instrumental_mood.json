@@ -1,0 +1,262 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Instrumental Uplifting Club Energy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast Hip-Hop",
+    "bpm": 95,
+    "key": "F minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      85,
+      75,
+      90,
+      80,
+      40
+    ],
+    "notes": "Instrumental only arrangement emphasizing club energy and uplifting mood with sample chopping techniques represented in channel naming."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 85
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 90,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 85,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 80,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 80,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 20,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 25,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "intro_start",
+        "reason": "Start of instrumental intro with sample chopped drum pattern"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "cue",
+        "label": "verse_1_start",
+        "reason": "Bass sample chopping enters to build groove"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "cue",
+        "label": "hook_start",
+        "reason": "Chord stabs introduced using sliced sample technique"
+      },
+      {
+        "track": "melody",
+        "bar": 41,
+        "type": "cue",
+        "label": "verse_2_start",
+        "reason": "Melodic sample chops layered for energy lift"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "cue",
+        "label": "bridge_start",
+        "reason": "FX samples sliced for transition effect"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "cue",
+        "label": "final_hook_start",
+        "reason": "Intensified drum chops for final hook energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "cue",
+        "label": "outro_start",
+        "reason": "Drum chops stripped down for outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Sample chopped drum patterns driving groove",
+    "bass": "Sample chopped bass lines supporting rhythm section",
+    "chords": "Sample chopped chord stabs providing harmonic color",
+    "melody": "Sample chopped melodic elements adding hooks",
+    "vocal": "No vocal content - instrumental variation",
+    "fx": "Sample chopped FX used for transitions and textures"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate energetic drum patterns employing sample chopping techniques suitable for West Coast Hip-Hop instrumental with club energy."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using chopped sample methods that complement the groove and maintain uplifting mood."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord stabs and harmonic content via sample slicing to enhance the arrangement's uplifting feel."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic elements based on sample chops that blend with the overall arrangement and energize the club vibe."
+    },
+    "ai_designer": {
+      "brief": "Arrange all instrument layers focusing on a seamless instrumental variation with uplifting, club energy flow."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize sample chopping and maintain clarity and punch in club environments."
+    },
+    "songgps": {
+      "brief": "Guide arrangement structure and energy pacing optimizing for West Coast Hip-Hop instrumental with sample chop channels."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix with focus on unprocessed channel audio ensuring each chopped sample channel sits clearly in the mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

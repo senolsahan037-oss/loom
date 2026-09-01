@@ -1,0 +1,318 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement",
+    "genre": "Arabesk",
+    "subgenre": "Rap",
+    "bpm": 85,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      40,
+      60,
+      35,
+      55,
+      75,
+      50,
+      70,
+      60,
+      55,
+      80,
+      45,
+      65,
+      85,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      75,
+      65,
+      55,
+      45,
+      35,
+      25,
+      15,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      85,
+      90,
+      85,
+      70,
+      55,
+      40,
+      30,
+      25,
+      20,
+      15,
+      20,
+      30,
+      40,
+      55,
+      65,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 65
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 40,
+          "25-40": 80,
+          "41-56": 50,
+          "57-64": 55,
+          "65-76": 85,
+          "77-80": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 70,
+          "41-56": 50,
+          "57-64": 60,
+          "65-76": 80,
+          "77-80": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 35,
+          "25-40": 75,
+          "41-56": 55,
+          "57-64": 60,
+          "65-76": 80,
+          "77-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 20,
+          "25-40": 60,
+          "41-56": 40,
+          "57-64": 50,
+          "65-76": 75,
+          "77-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 35,
+          "25-40": 90,
+          "41-56": 50,
+          "57-64": 55,
+          "65-76": 95,
+          "77-80": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 15,
+          "25-40": 40,
+          "41-56": 30,
+          "57-64": 35,
+          "65-76": 50,
+          "77-80": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduce hook for emotional impact"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Bridge to vary arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Reinforce hook-heavy energy"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Set mood with minimal energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low-end support",
+    "chords": "harmonic texture",
+    "melody": "instrumental lead",
+    "vocal": "lead vocals and rap delivery",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 0
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a hook-heavy rhythmic pattern with emotional subtlety appropriate for Arabesk Rap."
+    },
+    "bass_generator": {
+      "brief": "Generate a minimal but supportive bassline focusing on emotional depth and groove consistency."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic support with sparse chord voicings emphasizing mood and space."
+    },
+    "melody_generator": {
+      "brief": "Develop a restrained melodic line complementing the vocal rap and emotional mood."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement cohesion ensuring energy peaks at hooks and minimal variation elsewhere."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance emotional and intimate qualities fitting Arabesk Rap style."
+    },
+    "songgps": {
+      "brief": "Structure arrangement with clear section transitions and energy mapping for hook prominence."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance track roles to maintain clarity and emphasis on the vocal and hook sections."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

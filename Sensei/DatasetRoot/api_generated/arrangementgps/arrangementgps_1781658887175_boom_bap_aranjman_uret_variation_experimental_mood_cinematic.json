@@ -1,0 +1,287 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Cinematic",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      40,
+      50,
+      80,
+      60,
+      20
+    ],
+    "notes": "Arrangement emphasizes hook-heavy energy with experimental boom bap elements. Sample-based arrangement using texture beds and one-shot hits with channel names reflecting sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peak with hook-heavy rhythm"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Dynamic climax of the arrangement"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect",
+        "label": "Bridge Texture",
+        "reason": "Introduce experimental textures in bridge"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_slicing",
+        "label": "Chop Layer",
+        "reason": "Sample-based chop pattern intro"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "sample_slicing",
+        "label": "One-Shot Hits",
+        "reason": "One-shot drum hits start in verse 1"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "chop_layer": {
+        "type": "sample_slice",
+        "description": "Sample-based chopped rhythm layer"
+      },
+      "texture_bed": {
+        "type": "sample_texture",
+        "description": "Ambient texture bed layer"
+      },
+      "one_shot_drums": {
+        "type": "one_shots",
+        "description": "Single hit drum samples"
+      }
+    },
+    "routing": {
+      "mix_bus": [
+        "chop_layer",
+        "texture_bed",
+        "one_shot_drums"
+      ]
+    }
+  },
+  "sound_intent": {
+    "description": "Combine gritty boom bap drums with cinematic, atmospheric textures and experimental sample manipulations to create a hook-centric, dynamic groove."
+  },
+  "routing_intent": {
+    "drums": "route chop_layer and one_shot_drums to drums bus",
+    "bass": "dedicated bass bus with low-cut filters",
+    "chords": "ambient effect send included",
+    "melody": "pan subtle melody layers for cinematic space",
+    "fx": "modulated reverbs and delays on texture bed"
+  },
+  "track_roles": {
+    "drums": "sample slicing and one-shot hits",
+    "bass": "sub bass for groove foundation",
+    "chords": "texture and harmonic bed",
+    "melody": "sparse cinematic motifs",
+    "vocal": "none",
+    "fx": "ambient and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 7,
+    "chords": 5,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "goal": "Create an experimental boom bap arrangement rich in texture and space, emphasizing hooks and cinematic mood through sample manipulation."
+  },
+  "presetor_intent": {
+    "target": "Use presets that enhance organic gritty textures and cinematic ambience. Prioritize clarity and dynamics in sample-based drums."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slicing and one-shot hits with a boom bap aesthetic, emphasizing rhythmic variation and hook energy."
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines that complement the drum rhythm with subtle variations and support the cinematic mood without dominating."
+    },
+    "harmony_generator": {
+      "brief": "Create chordal textures combining sample-based pads and atmospheric layers suited for an ambient cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Develop sparse melodic motifs for the hook sections to enhance cinematic feeling without overshadowing drums."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring energy peaks at hooks with experimental sample manipulations and texture layering."
+    },
+    "presetor": {
+      "brief": "Apply presets emphasizing gritty drum textures, ambient effects, and dynamic range suitable for boom bap and cinematic fusion."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement structure following predefined sections, optimizing energy curves and transitions between sections."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that preserve the raw character of samples while balancing cinematic texture and hook energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

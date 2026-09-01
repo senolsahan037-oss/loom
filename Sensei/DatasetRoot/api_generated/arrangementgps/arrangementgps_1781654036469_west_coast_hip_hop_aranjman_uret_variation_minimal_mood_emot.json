@@ -1,0 +1,273 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Emotional Minimal Club",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      30
+    ],
+    "notes": "Arrangement features a minimalistic approach with emotional tones, combining sample-based texture beds with one-shot hits to maintain club energy."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 50,
+          "25": 70,
+          "41": 40,
+          "57": 60,
+          "65": 80,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 30,
+          "25": 50,
+          "41": 35,
+          "57": 45,
+          "65": 65,
+          "73": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 15,
+          "9": 25,
+          "25": 40,
+          "41": 30,
+          "57": 40,
+          "65": 55,
+          "73": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 5,
+          "9": 20,
+          "25": 25,
+          "41": 15,
+          "57": 20,
+          "65": 35,
+          "73": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 0,
+          "25": 0,
+          "41": 0,
+          "57": 0,
+          "65": 0,
+          "73": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "9": 20,
+          "25": 35,
+          "41": 20,
+          "57": 25,
+          "65": 40,
+          "73": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "slice",
+        "label": "Texture Bed Start",
+        "reason": "Beginning of sample-based texture bed"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "one-shot",
+        "label": "One-shot hit entry",
+        "reason": "Introduce one-shot hits to increase club energy"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "slice",
+        "label": "Texture Variation",
+        "reason": "Variation in sample texture for emotional impact"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "texture_bed": {
+        "description": "Continuous sample-based texture providing emotional depth",
+        "channels": [
+          "time_stretch_slices",
+          "granular_chunks"
+        ]
+      },
+      "one_shot_hits": {
+        "description": "Percussive one-shot samples for rhythmic accents",
+        "channels": [
+          "transient_glitches",
+          "reversed_hits"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "sample-based arrangement with texture bed and one-shot hits",
+    "channel_naming_convention": "using sample slicing technique names"
+  },
+  "routing_intent": {
+    "channels": {
+      "time_stretch_slices": "texture_bed",
+      "granular_chunks": "texture_bed",
+      "transient_glitches": "one_shot_hits",
+      "reversed_hits": "one_shot_hits"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation using one-shot hits and texture slices",
+    "bass": "Sub-bass support with minimal movement",
+    "chords": "Sample-based chords reinforcing emotional mood",
+    "melody": "Sparse melodic textures layered over chord samples",
+    "vocal": "No vocal samples - instrumental arrangement",
+    "fx": "Atmospheric effects and transitions with sample texture"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "minimal_arrangement": true,
+    "emotional_tone": true,
+    "club_energy_profile": true,
+    "use_sample_based_techniques": true
+  },
+  "presetor_intent": {
+    "preset_type": "West Coast Hip-Hop minimal",
+    "apply_texture_beds": true,
+    "enable_one_shots": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create rhythmic patterns using one-shot hits and sample slicing techniques to maintain club energy with minimal complexity."
+    },
+    "bass_generator": {
+      "brief": "Generate subtle bass parts complementing the emotional mood with sparse activity."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal support using sample-based textures that enhance emotional quality with minimal arrangement."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic content using sparse sample-based motifs."
+    },
+    "ai_designer": {
+      "brief": "Oversee minimal and emotional arrangement structure, maintaining club energy with sample layering."
+    },
+    "presetor": {
+      "brief": "Select and apply presets for West Coast Hip-Hop textures emphasizing slicing and one-shot sample techniques."
+    },
+    "songgps": {
+      "brief": "Map arrangement sections and control energy curve with variation in texture bed and hits per section."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels preserving clarity of sample textures and percussive hits, enhancing emotional and club vibe."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

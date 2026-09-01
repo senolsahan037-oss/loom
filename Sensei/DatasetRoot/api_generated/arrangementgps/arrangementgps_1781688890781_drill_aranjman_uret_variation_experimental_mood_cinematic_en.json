@@ -1,0 +1,316 @@
+{
+  "project": {
+    "name": "Experimental Drill Arrangement",
+    "genre": "Drill",
+    "subgenre": "Experimental",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      100,
+      60,
+      40,
+      30,
+      20,
+      10,
+      40,
+      70,
+      90,
+      100,
+      80,
+      70,
+      40,
+      20,
+      10,
+      30,
+      50,
+      60,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      30,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      30,
+      50,
+      70,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      30,
+      50,
+      70,
+      90,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 20,
+          "9": 50,
+          "25": 90,
+          "33": 70,
+          "49": 60,
+          "57": 100,
+          "73": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 10,
+          "9": 40,
+          "25": 80,
+          "33": 60,
+          "49": 50,
+          "57": 90,
+          "73": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "1": 5,
+          "9": 30,
+          "25": 70,
+          "33": 50,
+          "49": 40,
+          "57": 80,
+          "73": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "1": 0,
+          "9": 20,
+          "25": 60,
+          "33": 40,
+          "49": 30,
+          "57": 70,
+          "73": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1": 0,
+          "9": 50,
+          "25": 90,
+          "33": 70,
+          "49": 60,
+          "57": 100,
+          "73": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 15,
+          "9": 40,
+          "25": 80,
+          "33": 60,
+          "49": 50,
+          "57": 90,
+          "73": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Begin intro with cinematic drums"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Vocal Entry",
+        "reason": "Raise mood and energy for hook"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Final Hook FX Emphasis",
+        "reason": "Heighten intensity in final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Drums Fade",
+        "reason": "Bring energy down to cinematic closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation and dynamic energy driver",
+    "bass": "low-end support and groove enhancer",
+    "chords": "harmonic texture and mood support",
+    "melody": "secondary theme and atmosphere layer",
+    "vocal": "primary melodic and lyrical carrier",
+    "fx": "transitions and sound design elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      2,
+      3,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic and cinematic drum patterns with rise and fall energy matching the arrangement's emotional flow."
+    },
+    "bass_generator": {
+      "brief": "Provide a supportive bass line with subtle variation to complement the cinematic mood and energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic textures that enhance the cinematic atmosphere without overpowering other elements."
+    },
+    "melody_generator": {
+      "brief": "Add complementary melodic phrases that support the mood and variation, staying secondary to vocal."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement coherence ensuring smooth energy transitions and experimental variation adherence."
+    },
+    "presetor": {
+      "brief": "Apply suitable presets emphasizing cinematic tonal qualities and experimental character."
+    },
+    "songgps": {
+      "brief": "Guide structural progression and energy shaping across sections to match cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare raw channel audio mixes focusing on clarity and dynamic control for cinematic impact."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

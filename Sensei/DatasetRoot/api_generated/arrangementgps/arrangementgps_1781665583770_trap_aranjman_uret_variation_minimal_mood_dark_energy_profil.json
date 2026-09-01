@@ -1,0 +1,309 @@
+{
+  "project": {
+    "name": "Dark Minimal Trap Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      65,
+      80,
+      70,
+      60,
+      50,
+      55,
+      65,
+      75,
+      85,
+      90,
+      80,
+      70,
+      65,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      55,
+      65,
+      75,
+      80,
+      85,
+      90,
+      95,
+      80,
+      70,
+      60,
+      55,
+      50,
+      60,
+      70,
+      80,
+      75,
+      65,
+      55,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      10,
+      5,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      85,
+      80,
+      75,
+      70
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 15,
+          "hook": 55,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "drop",
+        "label": "Hook Drop",
+        "reason": "Energy Peak"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "drop",
+        "label": "Final Hook Drop",
+        "reason": "Energy Peak"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "intro_fx",
+        "label": "Intro Atmosphere",
+        "reason": "Set mood"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, energy driver",
+    "bass": "deep foundation, groove support",
+    "chords": "harmonic pad, mood setter",
+    "melody": "minimal thematic hints",
+    "vocal": "percussive vocal chops, atmosphere",
+    "fx": "transitions and ambient effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate minimal but hard-hitting trap drum patterns that build energy towards drops, emphasizing cinematic rises and falls."
+    },
+    "bass_generator": {
+      "brief": "Create a dark, deep bassline that supports groove minimally, evolving dynamically with the energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse chordal textures providing dark atmosphere and tension appropriate for minimal trap."
+    },
+    "melody_generator": {
+      "brief": "Compose restrained melodic elements that highlight key moments without cluttering the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee the overall arrangement ensuring cinematic energy variation and dark mood consistency."
+    },
+    "presetor": {
+      "brief": "Apply presets and effects that enhance the minimal dark trap sound and cinematic dynamics."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy curve adherence to achieve effective cinematic rise and fall."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio mix, maintaining clarity and separation for future mixing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

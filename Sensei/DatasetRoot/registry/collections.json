@@ -1,0 +1,14 @@
+{
+  "schema_version": "ai-producer.collection-registry.v1",
+  "collections": {
+    "sensei.canonical_midi": {"domain": "midi_clip", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "sensei.variation_sources": {"domain": "midi_clip", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "sensei.instrument_capabilities": {"domain": "instrument", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "sensei.preset_genre_identities": {"domain": "preset", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "sensei.genre_neighbor_graph": {"domain": "taxonomy", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "sensei.grooves": {"domain": "groove", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "sensei.bass_instruments": {"domain": "instrument", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "sensei.chord_instruments": {"domain": "instrument", "owner": "dataset", "consumers": ["sensei.midi_variation"]},
+    "arrangementgps.legacy_examples": {"domain": "arrangement", "owner": "dataset", "consumers": ["arrangementgps"]}
+  }
+}

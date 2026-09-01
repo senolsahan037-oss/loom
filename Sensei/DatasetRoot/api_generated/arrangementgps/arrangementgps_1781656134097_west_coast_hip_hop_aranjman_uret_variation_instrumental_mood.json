@@ -1,0 +1,287 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Instrumental Dark Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      70,
+      30,
+      50,
+      70,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks, designed around a dark mood and using sample chopping techniques in the arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 50,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 35,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 5,
+          "hook": 70,
+          "verse_2": 5,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy spike and main hook entry"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparse verses"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Change in arrangement and mood"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook emphasis"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "micro_chops": {
+        "channel_name": "MicroChops",
+        "description": "Samples processed with micro chopping technique"
+      },
+      "phrase_chops": {
+        "channel_name": "PhraseChops",
+        "description": "Samples segmented by phrase chopping"
+      },
+      "reverse_chops": {
+        "channel_name": "ReverseChops",
+        "description": "Samples chopped and reversed"
+      },
+      "vocal_chops": {
+        "channel_name": "VocalChops",
+        "description": "Vocal sample chops"
+      },
+      "stutter_chops": {
+        "channel_name": "StutterChops",
+        "description": "Samples chopped with stutter effect"
+      }
+    }
+  },
+  "sound_intent": {
+    "samples": {
+      "micro_chops": "Create rhythmic and percussive textures with micro chop samples",
+      "phrase_chops": "Use phrase chops for melodic and thematic variation",
+      "reverse_chops": "Apply reverse chops to create dark and atmospheric effects",
+      "vocal_chops": "Integrate chopped vocal snippets for vocal texture",
+      "stutter_chops": "Utilize stutter chops to accentuate hooks and highlights"
+    }
+  },
+  "routing_intent": {
+    "channels": {
+      "MicroChops": "drums_lane",
+      "PhraseChops": "melody_lane",
+      "ReverseChops": "fx_lane",
+      "VocalChops": "vocal_lane",
+      "StutterChops": "chords_lane"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation utilizing micro chopping techniques",
+    "bass": "Low-end support with sparse dark grooves",
+    "chords": "Harmonic textures via stutter chops",
+    "melody": "Melodic phrasing through phrase chops",
+    "vocal": "Vocal sample chops for texture and hook emphasis",
+    "fx": "Atmospheric layers using reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      40,
+      68
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 7,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 9,
+    "fx": 4
+  },
+  "designer_intent": {
+    "goal": "Create an instrumental West Coast Hip-Hop arrangement with a dark mood, emphasizing sparse verses and strong, catchy hooks using diverse sample chopping techniques."
+  },
+  "presetor_intent": {
+    "parameters": "Focus on preserving sample quality for chops while maintaining mix clarity and dark tonal balance."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing sparse verses and high-energy hooks using micro chop drum samples."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines supporting dark mood with sparse activity during verses and fuller presence on hooks."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers emphasizing stutter chop textures to enhance hooks and maintain darkness."
+    },
+    "melody_generator": {
+      "brief": "Compose melodic phrases using phrase chop samples with moderate activity and melodic variation for hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring energy curve compliance with sparse verses and strong hooks using specified sample techniques."
+    },
+    "presetor": {
+      "brief": "Apply presets optimized for sample chops, dark atmosphere, and clear mix separation."
+    },
+    "songgps": {
+      "brief": "Guide structure segmentation with clear section marking and energy shaping for West Coast Hip-Hop style."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix all channels unprocessed retaining sample chop clarity, emphasizing vocal chops during hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

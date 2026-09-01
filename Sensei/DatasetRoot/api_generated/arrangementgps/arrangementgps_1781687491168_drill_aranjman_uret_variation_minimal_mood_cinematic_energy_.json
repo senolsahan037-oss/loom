@@ -1,0 +1,253 @@
+{
+  "project": {
+    "name": "Drill Arrangement Minimal Cinematic",
+    "genre": "Drill",
+    "subgenre": "Minimal",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": "Arrangement features a cinematic rise and fall in energy, suited for a minimal drill track. Focus on spatial layering and tension building through dynamics over complex instrumental activity."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 5,
+          "final_hook": 35,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 25,
+          "bridge": 10,
+          "final_hook": 55,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "build-up",
+        "label": "drum_roll",
+        "reason": "increase tension before hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "arrival",
+        "label": "verse_2_start",
+        "reason": "signifying second verse arrival to maintain narrative flow"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "bridge_effects",
+        "reason": "sonic transition for bridge section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "climax",
+        "label": "final_hook_drop",
+        "reason": "peak energy section final hook"
+      },
+      {
+        "track": "bass",
+        "bar": 77,
+        "type": "fade_out",
+        "label": "outro_bass_reduction",
+        "reason": "gradual reduction in energy for outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "drive rhythm and energy",
+    "bass": "provide low end foundation",
+    "chords": "support harmonic atmosphere",
+    "melody": "add thematic motif minimally",
+    "vocal": "deliver primary lyrical content",
+    "fx": "enhance transitions and create ambience"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      76
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a minimal yet dynamic drum arrangement with cinematic rise and fall energy, emphasizing tension builds and drops."
+    },
+    "bass_generator": {
+      "brief": "Develop bass lines that follow the cinematic energy curve, supporting rhythm and mood without overcrowding."
+    },
+    "harmony_generator": {
+      "brief": "Generate subtle chord textures to create a minimal harmonic background that complements the cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Compose sparse melodic motifs that enhance atmosphere with minimal complexity."
+    },
+    "ai_designer": {
+      "brief": "Coordinate all musical elements ensuring minimalism and cinematic energy are maintained throughout arrangement."
+    },
+    "presetor": {
+      "brief": "Select presets that support a cinematic and minimal aesthetic across all tracks."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement structure for energy flow and section transitions, ensuring clarity and cinematic impact."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix levels to emphasize cinematic dynamics and maintain clarity during energy increases and decreases."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "project": {
+    "name": "Phonk Mainstream Emotional Club",
+    "genre": "Phonk",
+    "subgenre": "Mainstream",
+    "bpm": 100,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      85,
+      80,
+      60,
+      90,
+      100,
+      95,
+      80,
+      60,
+      70,
+      85,
+      95,
+      90,
+      100,
+      100
+    ],
+    "notes": "Arrangement emphasizes an emotional phonk vibe with club energy, using varied sample chopping techniques to build texture and dynamics."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 45
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal chops",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "High energy vocal chops introduce the hook section"
+      },
+      {
+        "track": "reverse chops",
+        "bar": 49,
+        "type": "effect_start",
+        "label": "bridge_reverse_effect",
+        "reason": "Reverse chops emphasize mood shift at bridge"
+      },
+      {
+        "track": "stutter chops",
+        "bar": 57,
+        "type": "section_start",
+        "label": "final_hook_stutter",
+        "reason": "Stutter chops add intensity for final hook climax"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": [
+      {
+        "name": "micro chops",
+        "description": "Samples chopped into very small fragments for rhythmic texture"
+      },
+      {
+        "name": "phrase chops",
+        "description": "Longer phrase segments sliced to create new rhythmic patterns"
+      },
+      {
+        "name": "reverse chops",
+        "description": "Samples played backward for atmospheric effects"
+      },
+      {
+        "name": "vocal chops",
+        "description": "Vocal samples sliced and triggered as rhythmic or melodic elements"
+      },
+      {
+        "name": "stutter chops",
+        "description": "Rapid retriggering of small sample parts for glitchy stutter effect"
+      }
+    ],
+    "channel_names": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ]
+  },
+  "sound_intent": {
+    "description": "Emotional phonk arrangement with mainstream appeal, club-energy focused, richly textured through various sample chopping techniques."
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "rhythmic support and texture",
+      "phrase_chops": "harmonic and rhythmic phrasing",
+      "reverse_chops": "ambient fills and transitions",
+      "vocal_chops": "melodic and rhythmic vocal elements",
+      "stutter_chops": "dynamic accents and builds"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using percussive chops",
+    "bass": "low-end groove and drive",
+    "chords": "harmonic pads and stabs",
+    "melody": "lead and phrase chops",
+    "vocal": "vocal chops and highlights",
+    "fx": "reverse and stutter sample effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 6,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Create an arrangement that balances emotional depth with high-energy dancefloor appeal by leveraging modern phonk sample chopping styles."
+  },
+  "presetor_intent": {
+    "goal": "Use preset chains optimized for clear articulation of chopped samples, emphasize punch and clarity in vocal chops, and maintain wet/dry balance for effects."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic patterns integrating micro chops and stutter chops to maintain a dynamic club energy."
+    },
+    "bass_generator": {
+      "brief": "Develop grooving bass lines that complement the chopped sample textures and support emotional mood."
+    },
+    "harmony_generator": {
+      "brief": "Construct chord voicings and phrase chops that add harmonic interest without cluttering the mix."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic content primarily through vocal chop manipulation and phrase chops that enhance the arrangement’s emotion."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring energy follows the target curve and sample chops are distributed for texture and impact."
+    },
+    "presetor": {
+      "brief": "Select and apply presets tailored for each chopping technique to shape tone and clarity in their respective channels."
+    },
+    "songgps": {
+      "brief": "Monitor and adjust section structuring and energy markers to maintain a cohesive and engaging arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare channel audio for mix processing with focus on preserving chopped sample detail and vocal clarity."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

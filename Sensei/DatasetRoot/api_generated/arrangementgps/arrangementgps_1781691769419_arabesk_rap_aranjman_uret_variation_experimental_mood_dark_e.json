@@ -1,0 +1,326 @@
+{
+  "project": {
+    "name": "Arabesk Rap Experimental",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 70,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      25
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "fade_in",
+        "label": "Intro fade in",
+        "reason": "Slow build of energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "enter",
+        "label": "Verse 1 vocals start",
+        "reason": "Start of the first vocal section"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "variation",
+        "label": "Experimental chord shift",
+        "reason": "Highlight hook with experimental arrangement"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect_drop",
+        "label": "Bridge atmosphere",
+        "reason": "Add dark mood with FX during bridge"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "intensify",
+        "label": "Final hook vocal intensity increase",
+        "reason": "Build to climax"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro fade out",
+        "reason": "Energy decreases for ending"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and slow build percussive elements",
+    "bass": "underpinning groove with dark tonal qualities",
+    "chords": "experimental harmonic texture supporting the mood",
+    "melody": "sparse and atmospheric motifs enhancing darkness",
+    "vocal": "rap vocals with emotional dark intensity",
+    "fx": "ambient and atmospheric effects to enrich space"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 1,
+    "bass": 1,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a slow building percussive arrangement that supports the dark experimental mood with varied beats focusing on subtle rhythmic evolution."
+    },
+    "bass_generator": {
+      "brief": "Generate a bass line that complements the dark, slow build energy profile, emphasizing minor tonalities and gradual intensification."
+    },
+    "harmony_generator": {
+      "brief": "Produce experimental chordal textures and harmonic shifts that evoke a dark mood and support the structure without conventional progressions."
+    },
+    "melody_generator": {
+      "brief": "Compose sparse melodic lines that provide atmospheric highlights and maintain the dark emotional tone during the arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement ensuring slow buildup of energy, dark mood consistency, and experimental variation across sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize dark, moody tones with spatial effects enhancing the slow build and experimental aspects."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions, energy curve management, and integration of all elements into a smooth, slow-building dark rap arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare a clean but dynamic mix that preserves unprocessed channel audio for post-processing, maintaining clarity in dark and experimental textures."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0,
+    "sound_intent": 0,
+    "agent_dispatch": 0
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

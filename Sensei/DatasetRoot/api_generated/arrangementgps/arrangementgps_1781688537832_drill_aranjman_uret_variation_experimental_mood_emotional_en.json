@@ -1,0 +1,290 @@
+{
+  "project": {
+    "name": "Drill Experimental Emotional",
+    "genre": "Hip Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "C Minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      50,
+      55,
+      80,
+      80,
+      40,
+      30,
+      60,
+      55,
+      50,
+      75,
+      85,
+      85,
+      50,
+      30,
+      20,
+      70,
+      90,
+      90,
+      50,
+      25,
+      20,
+      30,
+      70,
+      85,
+      90,
+      90,
+      40,
+      30,
+      20,
+      50,
+      70,
+      85,
+      85,
+      90,
+      40,
+      30,
+      20,
+      10,
+      20,
+      30,
+      50,
+      70,
+      90,
+      85,
+      90,
+      85,
+      80,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      30,
+      40,
+      50,
+      70,
+      90,
+      80,
+      75,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      10,
+      5,
+      5,
+      10,
+      20,
+      30
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 55
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1": 30,
+          "5": 40,
+          "9": 70,
+          "25": 90,
+          "41": 60,
+          "57": 30,
+          "65": 95,
+          "77": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "1": 20,
+          "9": 50,
+          "25": 80,
+          "41": 40,
+          "57": 20,
+          "65": 85,
+          "77": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "5": 25,
+          "25": 70,
+          "41": 40,
+          "57": 15,
+          "65": 80
+        }
+      },
+      "melody": {
+        "activity": {
+          "25": 90,
+          "65": 95,
+          "77": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "9": 60,
+          "25": 80,
+          "41": 50,
+          "65": 90
+        }
+      },
+      "fx": {
+        "activity": {
+          "1": 10,
+          "25": 50,
+          "65": 70,
+          "77": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "hook_start",
+        "reason": "hook-heavy energetic section begins"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "energy_peak",
+        "label": "final_hook_start",
+        "reason": "final hook climaxes emotionally"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, groove driver",
+    "bass": "low-end support, groove complement",
+    "chords": "harmonic padding and texture",
+    "melody": "emotional hook delivery",
+    "vocal": "lyrical expression and hooks",
+    "fx": "transitions and atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      56,
+      76
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic and evolving drum patterns emphasizing drill percussion elements and maintaining energy changes between sections."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that support groove and create momentum especially during hook-heavy sections, matching emotional tone."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord progressions that add emotional texture and support melody without overwhelming rhythmic intensity."
+    },
+    "melody_generator": {
+      "brief": "Design catchy, hook-focused melodic phrases that convey emotional content during hooks and final hook."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement ensuring energy curve flows smoothly with emotional impact and experimental variation."
+    },
+    "presetor": {
+      "brief": "Apply appropriate instrument presets to maximize expressiveness and energy in drill context."
+    },
+    "songgps": {
+      "brief": "Manage section structure and transitions focusing on hook prominence and emotional dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare guidance for mix balancing emphasizing hook clarity, emotional depth, and energy contrast."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

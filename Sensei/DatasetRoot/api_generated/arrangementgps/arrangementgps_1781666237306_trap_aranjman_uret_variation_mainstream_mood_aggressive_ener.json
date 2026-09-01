@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "Aggressive Mainstream Trap",
+    "genre": "Hip Hop",
+    "subgenre": "Trap",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      35,
+      70,
+      90,
+      100,
+      40
+    ],
+    "notes": "Arrangement designed with heavy hooks to maximize energy in hook sections while maintaining an aggressive mood typical to trap music."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 55,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 45,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 95,
+          "verse_2": 25,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "Intro drum pattern start",
+        "reason": "Setting tone for aggression and energy build"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Main hook entry",
+        "reason": "Maximize energy with hook-heavy focus"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final hook vocal emphasis",
+        "reason": "Bring track to peak aggression and energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge transition FX",
+        "reason": "Smooth transition to bridge section"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm backbone and energy driver",
+    "bass": "low end foundation",
+    "chords": "harmonic support",
+    "melody": "lead hooks and motifs",
+    "vocal": "main lyrical delivery",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 5,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create aggressive drum patterns that build energy especially in hooks while maintaining clear rhythmic consistency."
+    },
+    "bass_generator": {
+      "brief": "Generate a deep, punchy bassline that complements the drum energy and supports aggressive mood."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord progressions underlying the sections to support the mood and variation without overshadowing hooks."
+    },
+    "melody_generator": {
+      "brief": "Craft hook-centric melodic phrases that command attention, especially in hook and final_hook sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement ensuring energy builds and dissipates naturally according to section roles."
+    },
+    "presetor": {
+      "brief": "Apply appropriate trap style presets emphasizing punch and presence for drums, bass, and melody."
+    },
+    "songgps": {
+      "brief": "Analyze arrangement and energy flow to confirm adherence to aggressive, hook-heavy energy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mix stage by isolating unprocessed channels and maintaining clarity across instruments."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

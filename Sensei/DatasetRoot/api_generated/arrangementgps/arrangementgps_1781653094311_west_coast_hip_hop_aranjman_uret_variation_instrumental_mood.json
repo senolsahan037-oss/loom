@@ -1,0 +1,248 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Instrumental Uplifting Hook-Heavy",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C Minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      50,
+      60,
+      90,
+      100,
+      40
+    ],
+    "notes": "This arrangement features a clear intro, two verses, a hook emphasizing energetic and uplifting instrumentation, a bridge providing contrast, a final hook with intensified elements, and an outro."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 85,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 95,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Start",
+        "reason": "Beginning of the track with low energy drum pattern"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "High energy hook with prominent melody"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge Texture",
+        "reason": "Introduce FX for contrast and variation"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "intensity_increase",
+        "label": "Final Hook Boost",
+        "reason": "Increase drum intensity for final hook climax"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Energy drops towards the outro"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "provides groove and rhythmic backbone",
+    "bass": "delivers the low-end and groove foundation",
+    "chords": "fills harmonic texture and rhythm support",
+    "melody": "carries uplifting motifs and hooks",
+    "vocal": "none, instrumental variation",
+    "fx": "adds atmosphere and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 6,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns emphasizing groove and energy transitions, highlighting the hook sections with higher activity."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that provide a deep, rhythmic foundation aligning with the groove and energy profile of the track, particularly hook-heavy parts."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord progressions supporting the uplifting mood, with rhythmically engaging voicings and changes over sections."
+    },
+    "melody_generator": {
+      "brief": "Compose uplifting melodic hooks with high prominence in hook sections and reduced activity in verses and intro/outro."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement structure, ensuring energy flow and sectional transitions reflect a hook-heavy uplifting West Coast Hip-Hop instrumental."
+    },
+    "presetor": {
+      "brief": "Apply presets suitable for West Coast Hip-Hop instrumental sounds, maintaining clarity and emphasis on hooks."
+    },
+    "songgps": {
+      "brief": "Track and guide arrangement energy curve and sectional boundaries to ensure dynamics fit the uplifting hook-heavy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing stages, ensuring balance and separation in stems reflecting arrangement priorities."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

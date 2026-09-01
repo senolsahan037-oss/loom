@@ -1,0 +1,379 @@
+{
+  "project": {
+    "name": "Phonk Vocal-Focused Arrangement",
+    "genre": "Phonk",
+    "subgenre": "Sample-based",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      10,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": "Arrangement designed to create an emotional vocal-focused phonk track with a slow energy build, sample-based layers including texture beds and one-shot hits. Channel names reflect sample slicing techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "entry",
+        "label": "Vocal Starts",
+        "reason": "Introduce emotional vocal focus in Verse 1"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "intensify",
+        "label": "Drum Fill",
+        "reason": "Build energy into Hook"
+      },
+      {
+        "track": "fx",
+        "bar": 40,
+        "type": "transition",
+        "label": "Effect Sweep",
+        "reason": "Lead into Verse 2"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Vocal Peak",
+        "reason": "Emotional climax in Final Hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade",
+        "label": "Drum Fade Out",
+        "reason": "Smooth Outro"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "Texture Bed",
+          "type": "sample_layer",
+          "children": [
+            {
+              "name": "Slice Loop 1",
+              "type": "sample_slice"
+            },
+            {
+              "name": "Slice Loop 2",
+              "type": "sample_slice"
+            }
+          ]
+        },
+        {
+          "name": "One-Shot Hits",
+          "type": "sample_layer",
+          "children": [
+            {
+              "name": "Transient Hit 1",
+              "type": "one_shot"
+            },
+            {
+              "name": "Transient Hit 2",
+              "type": "one_shot"
+            }
+          ]
+        },
+        {
+          "name": "Vocal Layer",
+          "type": "vocal_sample"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "Create rich ambient sample layer with smooth transitions and subtle movement.",
+    "one_shot_hits": "Add punchy rhythmic elements emphasizing sample slicing techniques.",
+    "vocals": "Emotional and prominent with layered texture support.",
+    "energy_profile": "Slow build from low energy intro to emotional vocal climax."
+  },
+  "routing_intent": {
+    "channels": {
+      "Slice Loop 1": "Texture Bed",
+      "Slice Loop 2": "Texture Bed",
+      "Transient Hit 1": "One-Shot Hits",
+      "Transient Hit 2": "One-Shot Hits",
+      "Vocal Layer": "Vocal"
+    },
+    "busses": {
+      "Texture Bed": "fx_bus",
+      "One-Shot Hits": "drums_bus",
+      "Vocal": "vocal_bus"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone using sample slicing and one-shot hits",
+    "bass": "supportive low end complementing emotional feel",
+    "chords": "sample-based harmonic texture with subtle movement",
+    "melody": "light, supportive melodic fragments",
+    "vocal": "emotional lead focus with sample textures",
+    "fx": "transitions and effects enhancing atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      8,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 60,
+    "chords": 70,
+    "melody": 50,
+    "vocal": 100,
+    "fx": 40
+  },
+  "designer_intent": {
+    "goal": "Craft a slow building emotional phonk arrangement emphasizing vocal layers supported by textured sample beds and punchy one-shot elements."
+  },
+  "presetor_intent": {
+    "instructions": "Preserve sample slice integrity, maintain smooth transitions, and emphasize vocal clarity in mix."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing one-shot hits with dynamic sample slicing and rhythmic variety, supporting slow energy build."
+    },
+    "bass_generator": {
+      "brief": "Create supportive bass parts that blend with the emotional mood and sample-based textures without overpowering vocals."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord textures using sample layers with subtle movement that add emotional depth but leave space for vocals."
+    },
+    "melody_generator": {
+      "brief": "Suggest light melodic fragments using sample slices that complement vocal melodies and chordal textures."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement pacing focusing on energy curve with smooth transitions and vocal prominence."
+    },
+    "presetor": {
+      "brief": "Adjust presets to enhance sample texture clarity and vocal presence while keeping natural-sounding dynamics."
+    },
+    "songgps": {
+      "brief": "Coordinate section tempo and energy changes to achieve slow build emotional impact and maintain arrangement flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that highlight vocal clarity, sample textures, and balance one-shot hits within the arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

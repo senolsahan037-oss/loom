@@ -1,0 +1,251 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Emotional Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      70,
+      25,
+      70,
+      30,
+      75,
+      20
+    ],
+    "notes": "The arrangement features sparse, minimal verses with a gradual energy build-up in the hook sections. Emotional mood is maintained with restrained instrumentation in verses and a strong dynamic presence in hooks."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 25
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 25
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 75
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 65,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 60,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 30,
+          "verse_2": 10,
+          "bridge": 20,
+          "final_hook": 35,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "First verse begins with sparse vocals"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy rises with strong vocal hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse with sparse vocals"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climactic hook for final energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "event",
+        "label": "Intro Drums Fade In",
+        "reason": "Minimal drum activity to set mood"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation with minimal verses and energetic hooks",
+    "bass": "Sparse basslines supporting emotional depth",
+    "chords": "Minimal harmonic support, emphasizing mood",
+    "melody": "Sparse motifs complementing vocals",
+    "vocal": "Primary carrier of emotional content with strong hooks",
+    "fx": "Subtle effects to enhance transitions and mood"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 7,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create minimal yet driving drum patterns with low activity during verses and increased energy for hooks and final sections."
+    },
+    "bass_generator": {
+      "brief": "Generate sparse basslines that complement the emotional mood, with more presence during hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Provide minimal chord progressions to sustain emotional tension, with slight increases for hooks and bridge."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic motifs that support the vocal lines without overcrowding, especially sparse in verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement to maintain emotional mood with a clear energy profile focusing on strong hooks and sparse verses."
+    },
+    "presetor": {
+      "brief": "Apply preset chains that favor a warm and emotional West Coast Hip-Hop sound with minimalistic textures."
+    },
+    "songgps": {
+      "brief": "Manage the flow of the song ensuring smooth transitions and balanced energy buildup according to the defined energy curve."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix with clarity on vocal prominence and clean separation of sparse instrumental layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

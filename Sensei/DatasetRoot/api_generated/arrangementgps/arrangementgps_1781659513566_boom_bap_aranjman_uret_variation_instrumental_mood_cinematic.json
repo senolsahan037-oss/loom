@@ -1,0 +1,300 @@
+{
+  "project": {
+    "name": "Boom Bap Cinematic Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      75,
+      30,
+      40,
+      75,
+      90,
+      40
+    ],
+    "notes": "Arrangement features sparse verses with strong, energetic hooks emphasizing Boom Bap style with cinematic mood. Instrumental variation focused on sample chopping techniques as layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 50,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 30,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 35,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with strong drum hooks"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "effect",
+        "label": "Vocal Chops Layer",
+        "reason": "Introduce vocal chops on hook to enhance energy"
+      },
+      {
+        "track": "melody",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Lower energy for sparse verses"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Bridge introduces cinematic effects"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "micro_chops": {
+        "description": "Micro chop samples for rhythmic texture"
+      },
+      "phrase_chops": {
+        "description": "Phrase chop samples for melodic phrasing"
+      },
+      "reverse_chops": {
+        "description": "Reversed sample chops for cinematic flavor"
+      },
+      "vocal_chops": {
+        "description": "Vocal sample chops used on hooks"
+      },
+      "stutter_chops": {
+        "description": "Stutter chops for rhythmic interest"
+      }
+    },
+    "channels": {
+      "micro_chops": {
+        "name": "micro_chops",
+        "content": "Rhythmic micro sample chops"
+      },
+      "phrase_chops": {
+        "name": "phrase_chops",
+        "content": "Melodic phrase chopped samples"
+      },
+      "reverse_chops": {
+        "name": "reverse_chops",
+        "content": "Reversed sample chops for atmosphere"
+      },
+      "vocal_chops": {
+        "name": "vocal_chops",
+        "content": "Chopped vocal samples layered on hooks"
+      },
+      "stutter_chops": {
+        "name": "stutter_chops",
+        "content": "Stuttered chops for rhythmic variation"
+      }
+    }
+  },
+  "sound_intent": {
+    "description": "Sparse verses with cinematic mood and strong hooks enriched with chopped sample layers emphasizing classic Boom Bap groove."
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "drums",
+      "phrase_chops": "melody",
+      "reverse_chops": "fx",
+      "vocal_chops": "vocal",
+      "stutter_chops": "drums"
+    }
+  },
+  "track_roles": {
+    "drums": "Primary rhythm with micro and stutter chops to drive track",
+    "bass": "Supporting low end with sparse presence",
+    "chords": "Harmony via phrase chops creating cinematic texture",
+    "melody": "Melodic content using phrase chops layered subtly",
+    "vocal": "Chopped vocal samples on hooks only",
+    "fx": "Atmospheric effects from reverse chops and cinematic FX"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      48,
+      64
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 2
+  },
+  "designer_intent": {
+    "goal": "Create a Boom Bap instrumental arrangement with cinematic mood by using diverse chopped sample layers and varying energy."
+  },
+  "presetor_intent": {
+    "goal": "Apply presets that enhance sample chops, cinematic reverb on vocal chops, and punchy dynamics on drums for hooks."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns combining micro chops and stutter chops with dynamic variation for sparse verses and energetic hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate sparse bass lines complementing the cinematic and sparse energy profile of verses, intensifying on hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic chord layers using phrase chopped samples to reinforce cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle melodic content from phrase chops that support hooks and maintain sparse verses."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with proper energy curve focusing on sparse verses and strong, energetic hooks with sample layering."
+    },
+    "presetor": {
+      "brief": "Apply sound profiles that emphasize cinematic atmosphere and clarity in chopped sample layers."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure following the defined section ids and maintain energy curve aligned with mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix to maintain clarity of sample chops and dynamic changes between sparse verses and energetic hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

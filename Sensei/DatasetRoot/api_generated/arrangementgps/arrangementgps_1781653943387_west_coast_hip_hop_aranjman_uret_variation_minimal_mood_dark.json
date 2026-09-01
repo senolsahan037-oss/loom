@@ -1,0 +1,266 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Dark",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 92,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      60,
+      40,
+      55,
+      80,
+      50,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile applied. Minimal variation. Modern sample chopping techniques implemented."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 25
+        },
+        "channel_name": "SliceDrum"
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 15
+        },
+        "channel_name": "LoopBass"
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 10
+        },
+        "channel_name": "StabChop"
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 45,
+          "outro": 0
+        },
+        "channel_name": "GranularMelody"
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 0,
+          "final_hook": 60,
+          "outro": 0
+        },
+        "channel_name": "ChopVocals"
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 50,
+          "outro": 10
+        },
+        "channel_name": "GlitchFX"
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "marker",
+        "label": "Intro start",
+        "reason": "Begin minimal drum slices"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "marker",
+        "label": "Verse 1 bass entry",
+        "reason": "Introduce looped bass chop"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "marker",
+        "label": "Hook vocal chop",
+        "reason": "Add vocal chopping for variation"
+      },
+      {
+        "track": "melody",
+        "bar": 49,
+        "type": "marker",
+        "label": "Bridge granular texture",
+        "reason": "Introduce granular processing on melody"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "marker",
+        "label": "Final hook FX rise",
+        "reason": "Build cinematic energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "marker",
+        "label": "Outro gradual fade",
+        "reason": "Reduce drum activity for dark minimal ending"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with sample slicing",
+    "bass": "looped low-end groove using chopped loops",
+    "chords": "staccato sample stabs for harmonic support",
+    "melody": "minimal granular-sliced melodic textures",
+    "vocal": "vocal sample chopping for rhythmic phrasing",
+    "fx": "glitch and transition effects for atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns emphasizing modern sample slicing techniques for West Coast Hip-Hop style with minimal variation."
+    },
+    "bass_generator": {
+      "brief": "Produce loop-based bass lines using chopped sample layers to maintain groove and support the dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Create sparse, staccato chord stabs utilizing sample chopping to add harmonic texture."
+    },
+    "melody_generator": {
+      "brief": "Design minimal melodic phrases using granular sample chopping techniques to enhance cinematic energy dynamics."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring cinematic rise and fall energy profile with minimal variations across sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize dark mood and modern sample chopping techniques across all tracks."
+    },
+    "songgps": {
+      "brief": "Guide arrangement and energy curve adhering to West Coast Hip-Hop style and cinematic dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix setup routing unprocessed channel audio to maintain clean sound for final mixdown."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

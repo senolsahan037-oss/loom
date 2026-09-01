@@ -1,0 +1,315 @@
+{
+  "project": {
+    "name": "Boom Bap Cinematic Rise and Fall",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      60,
+      40,
+      20,
+      10
+    ],
+    "notes": "Arrangement features a cinematic rise and fall in energy profile tailored for a mainstream Boom Bap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "start_intro",
+        "reason": "Begin intro with sample chopped drums using 'stutter' technique"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "cue",
+        "label": "hook_entry",
+        "reason": "Increase drum complexity using 'reverse' samples for mainstream appeal"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "cue",
+        "label": "bridge_bass_rise",
+        "reason": "Introduce 'slice' technique bass layer for cinematic tension"
+      },
+      {
+        "track": "fx",
+        "bar": 72,
+        "type": "cue",
+        "label": "final_hook_fx",
+        "reason": "Apply 'granular' chopped FX layer to enhance climactic energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "SampleChop_Drums",
+          "attributes": {
+            "technique": [
+              "stutter",
+              "reverse",
+              "slice"
+            ]
+          }
+        },
+        {
+          "name": "SampleChop_Bass",
+          "attributes": {
+            "technique": [
+              "slice"
+            ]
+          }
+        },
+        {
+          "name": "SampleChop_Chords",
+          "attributes": {
+            "technique": [
+              "chop",
+              "reverse"
+            ]
+          }
+        },
+        {
+          "name": "SampleChop_Melody",
+          "attributes": {
+            "technique": [
+              "slice",
+              "granular"
+            ]
+          }
+        },
+        {
+          "name": "SampleChop_FX",
+          "attributes": {
+            "technique": [
+              "granular",
+              "stutter"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "target_style": "Boom Bap mainstream with cinematic mood and energy dynamics",
+    "sample_layer_naming": "Channels named by sample chop technique like 'Stutter', 'Reverse', 'Slice', 'Granular'"
+  },
+  "routing_intent": {
+    "drums": "Route chopped drum samples through parallel compression bus",
+    "bass": "Route bass sample chops with sidechain to drums",
+    "chords": "Use reversed chord chops for atmospheric layers",
+    "melody": "Layer melody chops with granular effects chain",
+    "vocal": "Minimal activity, convey vocal chops sparingly",
+    "fx": "Granular and stutter FX routed to stereo spread bus"
+  },
+  "track_roles": {
+    "drums": "primary rhythm foundation",
+    "bass": "low end groove support",
+    "chords": "harmonic texture provider",
+    "melody": "main melodic carrier",
+    "vocal": "vocal samples and vocal chops",
+    "fx": "atmospheric and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      56,
+      64
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 7,
+    "vocal": 5,
+    "fx": 4
+  },
+  "designer_intent": {
+    "focus": "Create emotional cinematic dynamics in Boom Bap using distinctive sample chopping techniques",
+    "variation": "Mainstream energy curve with controlled rise and fall"
+  },
+  "presetor_intent": {
+    "preset_usage": "Use presets that emphasize warmth, grit, and vintage textures suitable for Boom Bap",
+    "effects": "Incorporate granular and stutter effects presets on sample chop layers"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum layer using Boom Bap drum samples and apply stutter, reverse, and slice techniques for variety"
+    },
+    "bass_generator": {
+      "brief": "Create bass line using sliced samples focusing on smooth, cinematic rises and falls"
+    },
+    "harmony_generator": {
+      "brief": "Produce chord layers with chopped and reversed samples to create harmonic tension"
+    },
+    "melody_generator": {
+      "brief": "Design melody with sliced and granular sample chops to fit the cinematic mood"
+    },
+    "ai_designer": {
+      "brief": "Arrange energy curve and dynamics to support cinematic structure with mainstream Boom Bap style"
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance vintage boom bap sound and sample chop effects"
+    },
+    "songgps": {
+      "brief": "Guide arrangement sections and ensure energy profile matches cinematic rise and fall"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing for sample chop layers emphasizing clarity and dynamic range"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

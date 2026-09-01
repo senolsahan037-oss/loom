@@ -1,0 +1,319 @@
+{
+  "project": {
+    "name": "Dark Drill Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      85,
+      100,
+      85,
+      70,
+      55,
+      40,
+      25,
+      20,
+      35,
+      50,
+      70,
+      85,
+      100,
+      85,
+      70,
+      55,
+      40,
+      25,
+      20,
+      15,
+      10,
+      20,
+      40,
+      60,
+      85,
+      100,
+      85,
+      70,
+      55,
+      35,
+      20,
+      15,
+      10,
+      20,
+      40,
+      60,
+      85,
+      100,
+      85,
+      70,
+      55,
+      35,
+      20,
+      15,
+      10,
+      5,
+      20,
+      35,
+      50,
+      70,
+      85,
+      100,
+      85,
+      70,
+      55,
+      40,
+      25,
+      20,
+      15,
+      10,
+      20,
+      40,
+      60,
+      85,
+      100,
+      85,
+      70,
+      55,
+      40,
+      25,
+      20,
+      15
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 15,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 35,
+          "bridge": 10,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 80,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 10,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Hook Start",
+        "reason": "energy increase and structural change"
+      },
+      {
+        "track": "vocal",
+        "bar": 41,
+        "type": "section",
+        "label": "Verse 2 Start",
+        "reason": "lyrical continuation"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge Atmosphere",
+        "reason": "mood shift to darker tone"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "peak",
+        "label": "Final Hook Peak",
+        "reason": "maximum energy for climax"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro",
+        "label": "Outro Start",
+        "reason": "energy winding down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with driving drill beat",
+    "bass": "deep sub-bass to add weight and groove",
+    "chords": "dark, sparse harmonic layers",
+    "melody": "minimal and moody lead motifs",
+    "vocal": "aggressive rap flow",
+    "fx": "atmospheric and tension-building effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 3,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a dark and driving drill drum pattern with cinematic dynamics emphasizing rise and fall energy."
+    },
+    "bass_generator": {
+      "brief": "Generate deep, sub-bass lines that complement the drums and contribute to the dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Develop sparse and ominous chord layers matching the dark atmosphere and supporting energy changes."
+    },
+    "melody_generator": {
+      "brief": "Produce minimal, moody melodic motifs that enhance the cinematic rise and fall of the energy profile."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement transitions to ensure flow matches the cinematic energy curve and dark mood."
+    },
+    "presetor": {
+      "brief": "Apply presets that support a dark, cinematic drill soundscape emphasizing dynamics and texture."
+    },
+    "songgps": {
+      "brief": "Guide the structural layout and energy progression, enforcing section roles and energy peaks."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and mix tracks to maintain clarity and impact throughout the cinematic energy shifts."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

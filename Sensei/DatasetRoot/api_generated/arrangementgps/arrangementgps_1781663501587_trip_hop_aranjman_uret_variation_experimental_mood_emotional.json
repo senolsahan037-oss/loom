@@ -1,0 +1,280 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Emotional",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 75,
+    "key": "D minor",
+    "mood": "Emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      65,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80
+    ],
+    "notes": "Slow build arrangement with an emotional and experimental variation, focused on trip hop style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "cue",
+        "label": "hook_start",
+        "reason": "Energy peak ramp up"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "cue",
+        "label": "verse_1_start",
+        "reason": "Entry of vocals with emotional delivery"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "cue",
+        "label": "intro_ambience",
+        "reason": "Sample chop effects layer start"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "cue",
+        "label": "bridge_start",
+        "reason": "Textural change with experimental chops"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "channels": [
+        "slice",
+        "stutter",
+        "granular",
+        "reverse",
+        "loop",
+        "glitch"
+      ]
+    }
+  },
+  "sound_intent": {
+    "mood": "Emotional and atmospheric with warm textures and subtle dissonances",
+    "variation": "Experimental sample chop techniques layered progressively for slow energy build"
+  },
+  "routing_intent": {
+    "grouping": {
+      "drums": "processed with granular and stutter channels",
+      "bass": "lowpass filtered for warmth",
+      "chords": "reversed slices blending with glitch effects",
+      "melody": "sparse, textural layering",
+      "vocal": "dry to wet FX progression",
+      "fx": "ambient transitions with looped chopped samples"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation using sample chop and glitch techniques",
+    "bass": "Supporting low-end with filtered loops and slices",
+    "chords": "Harmonic texture with reversed and granular sample chops",
+    "melody": "Sparse melodic motif using stuttered chops",
+    "vocal": "Emotional delivery with dynamic FX processing",
+    "fx": "Atmospheric layers and transitions using glitch and loop chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      2,
+      10,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 3,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "Creating an emotionally charged trip hop arrangement with a slow build of energy, utilizing experimental sample chopping techniques."
+  },
+  "presetor_intent": {
+    "goal": "Apply presets that enhance atmospheric and experimental textures suitable for trip hop with emphasis on granular and glitch effects."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum layers using sample chop techniques like slice, stutter, and glitch to create an evolving rhythmic foundation with dynamic energy changes."
+    },
+    "bass_generator": {
+      "brief": "Produce bass parts focusing on filtered loops and sliced samples to support low-end warmth and groove."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chord progressions and textures employing reversed and granular chopped samples to create textured harmonic layers."
+    },
+    "melody_generator": {
+      "brief": "Develop sparse melodic elements using stuttered and looped chops that complement the arrangement’s emotional mood."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement’s progression ensuring the energy curve achieves the intended slow build and emotional impact."
+    },
+    "presetor": {
+      "brief": "Assign and adjust presets emphasizing atmospheric sound design with granular and glitch-based effects."
+    },
+    "songgps": {
+      "brief": "Manage the arrangement structure and section energy to align with the experimental trip hop style and slow build profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare tracks by balancing unprocessed channel audio to highlight sample chop techniques and maintain clarity in emotional delivery."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

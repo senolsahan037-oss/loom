@@ -1,0 +1,142 @@
+import gzip
+import sys
+import xml.etree.ElementTree as ET
+import statistics
+import math
+
+als = sys.argv[1]
+
+def v(node, default=""):
+    return node.attrib.get("Value", default) if node is not None else default
+
+
+# -----------------------------
+# FEATURE STATE
+# -----------------------------
+kick = snare = hat = bass = fx = 0
+syn = acc = 0
+total = 0
+beat_times = []
+
+
+# -----------------------------
+# LOAD ALS
+# -----------------------------
+with gzip.open(als, "rb") as f:
+    root = ET.parse(f).getroot()
+
+
+# -----------------------------
+# ANALYSIS LOOP
+# -----------------------------
+for t in root.iter():
+
+    if t.tag not in ["AudioTrack", "GroupTrack", "MidiTrack"]:
+        continue
+
+    name = v(t.find("./Name/UserName"), "").lower()
+    if not name:
+        continue
+
+    total += 1
+
+    # DRUM
+    if "kick" in name: kick += 1
+    if "snare" in name: snare += 1
+    if "hat" in name or "hh" in name: hat += 1
+    if "bass" in name or "sub" in name: bass += 1
+    if "fx" in name: fx += 1
+
+    # SOURCE
+    if "909" in name or "808" in name: syn += 1
+    if "acoustic" in name or "live" in name: acc += 1
+
+    # BPM (REAL TIMING)
+    for clip in t.iter("AudioClip"):
+        pos = clip.find(".//CurrentStart")
+        if pos is not None:
+            try:
+                beat_times.append(float(pos.attrib.get("Value", 0)))
+            except:
+                pass
+
+
+# -----------------------------
+# NORMALIZE
+# -----------------------------
+def n(x): return x / total if total else 0
+
+k = n(kick)
+s = n(snare)
+h = n(hat)
+b = n(bass)
+f = n(fx)
+syn = n(syn)
+acc = n(acc)
+
+
+# -----------------------------
+# REAL BPM ENGINE
+# -----------------------------
+beat_times.sort()
+if len(beat_times) > 2:
+    intervals = [
+        beat_times[i+1] - beat_times[i]
+        for i in range(len(beat_times)-1)
+        if beat_times[i+1] - beat_times[i] > 0
+    ]
+    avg = statistics.mean(intervals) if intervals else 0
+    bpm = round(60 / avg, 2) if avg > 0 else 0
+else:
+    bpm = 0
+
+
+# -----------------------------
+# DRUM STRUCTURE
+# -----------------------------
+density = k + s + h + b
+drum_state = "sparse" if density < 0.3 else "medium" if density < 0.6 else "dense"
+
+
+# -----------------------------
+# GENRE ENGINE (CLEANED)
+# -----------------------------
+trap = (b * 0.4) + (h * 0.3) + (syn * 0.2)
+boom = (s * 0.4) + (k * 0.3) + (acc * 0.2)
+edm = (f * 0.2) + (syn * 0.4) + (k * 0.2)
+hybrid = (f * 0.3) + (acc * 0.3) + (syn * 0.2)
+drill = (k * 0.4) + (b * 0.3) + (h * 0.2)
+
+scores = {
+    "Trap": trap,
+    "BoomBap": boom,
+    "EDM": edm,
+    "Hybrid": hybrid,
+    "Drill": drill
+}
+
+best = max(scores.items(), key=lambda x: x[1])
+
+
+# -----------------------------
+# ASCII OUTPUT (STACKED VIEW)
+# -----------------------------
+print("\n================ MIX CORE ENGINE ================\n")
+
+print("DRUM LAYER")
+print(f"Kick:{k:.3f} Snare:{s:.3f} Hat:{h:.3f} Bass:{b:.3f}")
+print(f"Density: {drum_state}")
+
+print("\nTIMING LAYER")
+print(f"BPM: {bpm}")
+
+print("\nSOURCE LAYER")
+print(f"Synth: {syn:.3f} Acoustic: {acc:.3f}")
+
+print("\nGENRE LAYER")
+for g,vv in sorted(scores.items(), key=lambda x: x[1], reverse=True):
+    print(f"{g:10} {vv:.3f}")
+
+print("\nFINAL SIGNATURE")
+print(f"{best[0]} | {drum_state} | {bpm} BPM")
+print("\n=================================================\n")

@@ -1,0 +1,288 @@
+{
+  "project": {
+    "name": "Trip Hop Mainstream Uplifting",
+    "genre": "Trip Hop",
+    "subgenre": "Mainstream",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      65,
+      75,
+      85,
+      90,
+      100
+    ],
+    "notes": "Arrangement features a slow build of energy from intro through to final_hook with uplifting mood and sample-based textures."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 65
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 10,
+          "bridge": 15,
+          "final_hook": 25,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Slow build start - sample layers begin",
+        "reason": "Marks intro opening with sample-based texture bed"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "section_entry",
+        "label": "Hook enter - energy rises",
+        "reason": "Energy increase with one-shot hits layered"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge transition with textural shift",
+        "reason": "Provide slow build and uplifting feel alteration"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro, energy winding down",
+        "reason": "Reduce activity and energy for track closure"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "Sample Layer - TextureBed",
+          "technique": "layered_sampling",
+          "children": []
+        },
+        {
+          "name": "Sample Layer - OneShotHits",
+          "technique": "sample_slicing",
+          "children": []
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_based": true,
+    "texture_bed": true,
+    "one_shot_hits": true,
+    "energy_profile": "slow_build",
+    "mood": "uplifting",
+    "arrangement_style": "mainstream"
+  },
+  "routing_intent": {
+    "channels": {
+      "drums": "sample_slices_channel",
+      "bass": "sample_slices_channel",
+      "chords": "texture_bed_channel",
+      "melody": "one_shot_channel",
+      "vocal": "effect_channel",
+      "fx": "texture_bed_channel"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic drive via sample slicing (chopping) technique",
+    "bass": "Support groove with sample slices",
+    "chords": "Texture bed built from layered samples",
+    "melody": "Lead one-shot hit samples",
+    "vocal": "Minimal vocal textures",
+    "fx": "Atmospheric effects and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 7,
+    "melody": 5,
+    "vocal": 3,
+    "fx": 4
+  },
+  "designer_intent": {
+    "goal": "Create a slow-building uplifting trip hop arrangement using sample-based layers to emphasize a smooth, textural groove",
+    "focus": "Mainstream accessibility with rich texture bed and precise one-shot hits"
+  },
+  "presetor_intent": {
+    "preset_type": "trip_hop_mainstream_uplifting",
+    "parameters": {
+      "bpm": 90,
+      "key": "C minor",
+      "energy_build": "slow"
+    }
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum arrangements focusing on chopped sample slices for rhythmic interest and slow energy build"
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines using sampled slices supporting the groove with subtle dynamic changes"
+    },
+    "harmony_generator": {
+      "brief": "Create chord textures via layered samples forming a continuous texture bed"
+    },
+    "melody_generator": {
+      "brief": "Implement lead melodic hits using one-shot samples achieving focal points within arrangement"
+    },
+    "ai_designer": {
+      "brief": "Design arrangement flow focusing on energy curve gradual buildup and mood elevation"
+    },
+    "presetor": {
+      "brief": "Apply mainstream trip hop presets emphasizing uplifting mood and sample-based instrumentation"
+    },
+    "songgps": {
+      "brief": "Monitor and adjust energy profile ensuring slow build with textural balance across sections"
+    },
+    "ai_mixmaster": {
+      "brief": "Maintain clean mixes preserving texture clarity and one-shot hits prominence"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement",
+    "genre": "Rap",
+    "subgenre": "Arabesk Rap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      25,
+      35,
+      45,
+      60,
+      75,
+      85,
+      95,
+      100,
+      95,
+      90,
+      85,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      30,
+      40,
+      55,
+      70,
+      85,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85
+    ],
+    "notes": "Arrangement focuses on gradual energy increase with vocal-centric dynamics and emotional delivery while maintaining traditional Arabesk instrumental textures."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 70,
+          "outro": 25
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 35,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "Hook Start",
+        "reason": "Energy rises and vocal focus peaks"
+      },
+      {
+        "track": "bridge",
+        "bar": 57,
+        "type": "cue",
+        "label": "Bridge Entry",
+        "reason": "Bridge introduces new emotional tension"
+      },
+      {
+        "track": "final_hook",
+        "bar": 65,
+        "type": "cue",
+        "label": "Final Hook",
+        "reason": "Climactic vocal section and maximum energy"
+      },
+      {
+        "track": "outro",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro",
+        "reason": "Energy winds down, closing the track"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "provide rhythmic foundation supporting emotional build",
+    "bass": "support groove with steady and expressive lines",
+    "chords": "create harmonic backdrop with traditional Arabesk textures",
+    "melody": "add subtle instrumental contours under vocals",
+    "vocal": "lead emotional expression with focus on delivery and dynamics",
+    "fx": "enhance atmosphere with ambient and transitional elements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 2,
+    "chords": 3,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that start minimal and grow in complexity following the slow build energy curve, emphasizing emotional support for vocals."
+    },
+    "bass_generator": {
+      "brief": "Create expressive and supportive bass lines that complement the Arabesk harmonic style and dynamics of the energy build."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord voicings and progressions using Arabesk style instrumentation to support emotional mood and gradual energy increase."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle instrumental melodic elements that enhance and interact softly with the vocal lines, maintaining emotional tone."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement dynamics ensuring the gradual energy build is smooth and vocal focus remains prominent throughout the sections."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize warm, emotional tones suitable for Arabesk Rap with clear vocal presence and natural instrument textures."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy flow to align with slow build profile and emotional progression in the arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings that keep vocals clear and present while balancing traditional Arabesk instruments and gradual dynamic changes."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

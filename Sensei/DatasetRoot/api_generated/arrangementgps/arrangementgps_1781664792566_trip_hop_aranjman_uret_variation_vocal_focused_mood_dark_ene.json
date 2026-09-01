@@ -1,0 +1,284 @@
+{
+  "project": {
+    "name": "Trip Hop Dark Vocal Variation",
+    "genre": "Trip Hop",
+    "subgenre": "Vocal-focused Variation",
+    "bpm": 95,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      40,
+      50,
+      70,
+      80,
+      40,
+      30,
+      60,
+      90,
+      80,
+      50,
+      40,
+      60,
+      80,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Arrangement focuses on vocal presence enhanced by modern sample chopping techniques. Energy profile is club-oriented with a dark mood emphasizing introspective vocal lines and atmospheric textures."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 35,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 65,
+          "final_hook": 95,
+          "outro": 30
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook",
+        "label": "Vocal Peak",
+        "reason": "Highest vocal energy and focus"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "bridge",
+        "label": "Atmospheric Shift",
+        "reason": "Transition with dark FX textures and sample chops"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro",
+        "label": "Sample Chop Setup",
+        "reason": "Introduce modern sample chopping drum techniques"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "sample_chopping": {
+        "description": "Modern sample chopping applied to vocal and drum layers",
+        "channels": [
+          "Slice 1",
+          "Slice 2",
+          "Reversed Slice",
+          "Stutter",
+          "Pitch Shifted Slice"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "vocal": {
+      "focus": "sharp, dark, and intimate vocal samples with chopping variations",
+      "processing": "delays, reverb, and subtle distortion"
+    },
+    "drums": {
+      "style": "trip-hop groove with chopped, glitchy drum hits",
+      "processing": "tight compression and transient shaping"
+    }
+  },
+  "routing_intent": {
+    "channels": {
+      "Slice 1": "vocal lane",
+      "Slice 2": "vocal lane",
+      "Reversed Slice": "fx lane",
+      "Stutter": "drums lane",
+      "Pitch Shifted Slice": "melody lane"
+    }
+  },
+  "track_roles": {
+    "drums": "Percussive backbone with chopped glitch elements",
+    "bass": "Sub-bass supporting the club energy",
+    "chords": "Dark atmospheric pads and harmonic textures",
+    "melody": "Pitch-shifted sample chops to complement vocal",
+    "vocal": "Lead vocal samples with modern chopping techniques",
+    "fx": "Transition and atmospheric effects from chopped samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      40,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 5,
+    "melody": 4,
+    "vocal": 10,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Create a dark, vocal-focused trip hop arrangement with club energy by leveraging modern sample chopping techniques across multiple channels."
+  },
+  "presetor_intent": {
+    "goal": "Implement preset chains emphasizing sample chops in vocal and drum channels with appropriate effects to enhance dark atmosphere."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate glitchy and chopped drum patterns emphasizing trip hop groove with attention to tight transient shaping."
+    },
+    "bass_generator": {
+      "brief": "Create a sub-bass line complementing the dark club energy without overpowering vocals."
+    },
+    "harmony_generator": {
+      "brief": "Design atmospheric pads using dark chords that support the vocal mood and arrangement."
+    },
+    "melody_generator": {
+      "brief": "Produce supporting melodic layers from pitch-shifted chopped samples fitting a dark trip hop style."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure to balance energy flow, emphasizing vocal focus and sample chopping technique variety."
+    },
+    "presetor": {
+      "brief": "Apply effect presets enhancing chopped sample clarity and space, ensuring a cohesive dark club vibe."
+    },
+    "songgps": {
+      "brief": "Manage arrangement sections, energy curve, and event markers ensuring clear progression aligned with design intent."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio prioritizing vocal clarity and consistent dark atmospheric blend."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

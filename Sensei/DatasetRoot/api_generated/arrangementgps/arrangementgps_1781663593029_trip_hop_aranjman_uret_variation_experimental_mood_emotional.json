@@ -1,0 +1,336 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Arrangement",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Dm",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      50,
+      70,
+      90,
+      60,
+      40,
+      20,
+      30,
+      40,
+      30,
+      20,
+      10,
+      5,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 75,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Start",
+        "reason": "Beginning of arrangement"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 Start",
+        "reason": "Energy development & sample layering"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase in cinematic energy and emotional peak"
+      },
+      {
+        "track": "melody",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Experimental variation continuation"
+      },
+      {
+        "track": "vocal",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Transition with emotional intensity variation"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climactic final emotional build"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Cinematic energy decline and closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation using sample chop and glitch techniques",
+    "bass": "sub-bass and melodic pulses with granular slicing",
+    "chords": "ambient pads and textures with time-stretch slicing",
+    "melody": "fragmented melodic samples and reverse chopping",
+    "vocal": "emotive sample chops and stutter edits",
+    "fx": "transitional glitch and glitch-repeat chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      72,
+      79
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 1,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum layers focused on sample chopping techniques such as glitch chops, stutter chops, and rhythmic slicing maintaining cinematic rise and fall energy."
+    },
+    "bass_generator": {
+      "brief": "Generate experimental bass lines using granular slicing and stutter chopping to support emotional mood and energy variations."
+    },
+    "harmony_generator": {
+      "brief": "Design ambient chord textures using time-stretch slicing and reversed chopping sample techniques to enhance emotional depth."
+    },
+    "melody_generator": {
+      "brief": "Develop fragmented melodic segments with reverse chops and sample chopping techniques keeping cinematic energy profile."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement to ensure the experimental trip hop style reflects a cinematic rise and fall energy curve with emotional feel."
+    },
+    "presetor": {
+      "brief": "Apply production presets favoring sample chop techniques for channels and preserve variation dynamics."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and event markers maintaining arrangement coherence and energy flow."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix setup to receive unprocessed channel audio for final cinematic and emotional effect refinement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

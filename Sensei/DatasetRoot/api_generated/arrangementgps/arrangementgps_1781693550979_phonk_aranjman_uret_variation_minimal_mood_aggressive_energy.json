@@ -1,0 +1,286 @@
+{
+  "project": {
+    "name": "Phonk Minimal Aggressive Club Energy",
+    "genre": "Phonk",
+    "subgenre": "Minimal",
+    "bpm": 140,
+    "key": "Cm",
+    "mood": "Aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      70,
+      90,
+      85,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20
+    ],
+    "notes": "Arrangement focuses on minimal but aggressive textures with high club energy, using sample chop techniques across layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start",
+        "label": "Vocal chops enter",
+        "reason": "Introduce vocal chops layer at hook for energy peak"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "change",
+        "label": "Drum pattern shift",
+        "reason": "Variation in drum chops for verse 2"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Reverse chops FX",
+        "reason": "Bridge uses reverse chops as transition"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "intensify",
+        "label": "Drum stutter chops intensify",
+        "reason": "Final hook boost energy with stutter chops"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ]
+  },
+  "sound_intent": {
+    "description": "Aggressive minimal phonk arrangement with club energy, focusing on various sample chopping techniques layered for texture.",
+    "sample_layers": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ]
+  },
+  "routing_intent": {
+    "channel_naming": {
+      "micro_chops": "MicroChops",
+      "phrase_chops": "PhraseChops",
+      "reverse_chops": "ReverseChops",
+      "vocal_chops": "VocalChops",
+      "stutter_chops": "StutterChops"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone using micro and stutter chops",
+    "bass": "Low end support with phrase chops",
+    "chords": "Minimal pads sampled using phrase chops",
+    "melody": "Sparse melodic phrases from micro chops",
+    "vocal": "Vocal chops delivering aggressive texture",
+    "fx": "Effects incorporating reverse chops for transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      23,
+      39,
+      55,
+      63,
+      71,
+      79
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 3
+  },
+  "designer_intent": {
+    "focus": "Maintain minimal but dynamic phonk energy with chopping sample textures emphasizing aggressiveness and club vibe"
+  },
+  "presetor_intent": {
+    "settings": "Use presets that enhance low-end punch for bass and sharp transient shaping on chops"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns that utilize micro and stutter chops to create energetic and aggressive rhythm suitable for a club environment."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines supporting the arrangement using phrase chops to complement the minimal phonk style."
+    },
+    "harmony_generator": {
+      "brief": "Generate minimal chord textures using phrase chopping techniques that enhance the mood and energy."
+    },
+    "melody_generator": {
+      "brief": "Compose sparse melodic lines using micro chops with an aggressive tone fitting the phonk genre."
+    },
+    "ai_designer": {
+      "brief": "Oversee the layering of chopped samples, ensuring arrangement cohesion and mood consistency."
+    },
+    "presetor": {
+      "brief": "Apply sound presets optimizing sample chops for clarity, aggression, and club energy impact."
+    },
+    "songgps": {
+      "brief": "Structure the arrangement sections with gradual energy build and variation using chop techniques."
+    },
+    "ai_mixmaster": {
+      "brief": "Provide mixing guidance focusing on punchy drums, clear vocal chops, and balanced club energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "Boom Bap Mainstream Uplifting",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "C Minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      90,
+      30
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits; hook-heavy energy profile focusing on uplifting mainstream boom bap style."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Increase energy with hook-heavy drums using one-shot hits."
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final uplifting hook emphasizes melodic and vocal presence."
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "Sample_Bed",
+          "technique": "texture_bed",
+          "children": []
+        },
+        {
+          "name": "One_Shot_Hits",
+          "technique": "sample_based_one_shot",
+          "children": []
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_layer": {
+      "type": "sample-based",
+      "elements": [
+        "texture bed",
+        "one-shot hits"
+      ]
+    },
+    "arrangement_variation": "mainstream",
+    "energy_profile": "hook-heavy"
+  },
+  "routing_intent": {
+    "channels": {
+      "drums": "sample_slicing_drums",
+      "bass": "sample_slicing_bass",
+      "chords": "sample_slicing_chords",
+      "melody": "sample_slicing_melody",
+      "vocal": "sample_slicing_vocal",
+      "fx": "sample_slicing_fx"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with one-shot hits and sliced samples",
+    "bass": "groove support with sliced samples",
+    "chords": "harmonic texture using sample slicing",
+    "melody": "melodic hooks from sliced samples",
+    "vocal": "main vocal samples contributing to hook heaviness",
+    "fx": "textural effects from sliced samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create an engaging boom bap arrangement with an uplifting mood, emphasizing hook sections through energetic and textured sample-based layers."
+  },
+  "presetor_intent": {
+    "goal": "Apply appropriate preset chains to enhance the sample texture bed and one-shot hits for a mainstream boom bap sound."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing one-shot hits with slice-based samples, focusing on dynamics that enhance hook sections."
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines using sliced samples supporting groove and maintaining energy through hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create chord textures from sample slices to provide harmonic support, minimizing density during verses."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic hooks with sample slicing techniques, maximizing energy during hook sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy profile aligns with an uplifting, hook-heavy mainstream boom bap track."
+    },
+    "presetor": {
+      "brief": "Assign suitable presets to each channel focusing on sample-based sound quality and clarity."
+    },
+    "songgps": {
+      "brief": "Monitor section transitions and energy curve consistency to maintain listener engagement."
+    },
+    "ai_mixmaster": {
+      "brief": "Provide mixing guidelines focusing on balance and clarity of sample layers, especially highlighting hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

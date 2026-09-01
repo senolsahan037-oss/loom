@@ -1,0 +1,240 @@
+{
+  "project": {
+    "name": "Memphis Rap Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      35,
+      60,
+      80,
+      45
+    ],
+    "notes": "Vocal-focused Memphis rap arrangement with an emotional mood and hook-heavy energy profile."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 45
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 45,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 45,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 55,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 65,
+          "bridge": 80,
+          "final_hook": 100,
+          "outro": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "Start of the emotionally charged, vocal-focused hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_change",
+        "label": "Verse 2 Start",
+        "reason": "Begin second verse with reduced energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "hook_start",
+        "label": "Final Hook Start",
+        "reason": "Start of the final energetic hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro Start",
+        "reason": "Start of outro with lowered energy for fade-out"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, groove driver",
+    "bass": "rhythmic and harmonic support",
+    "chords": "textural harmonic filler",
+    "melody": "background melodic motifs",
+    "vocal": "main lyrical and emotional expression",
+    "fx": "transitions and atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 2,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that emphasize groove and dynamics following the energy curve, highlighting hook sections with increased activity."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the drums and chords, supporting the emotional mood and enhancing hook-heavy energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce chordal textures that provide harmonic depth and maintain emotional tone, with textural variations during hooks and bridges."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic motifs that support vocals without overpowering, varying intensity according to section energy."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow, ensuring dynamic variation and balance across sections, focusing on vocal prominence and hook impact."
+    },
+    "presetor": {
+      "brief": "Apply presets to all tracks to enhance clarity and emotional tone, with emphasis on vocal presence and hook energy."
+    },
+    "songgps": {
+      "brief": "Ensure the arrangement structure and energy profile align with Memphis Rap style and vocal-focused, emotionally charged mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixes emphasizing vocals and hooks, maintaining clarity and balance to support the emotional and energetic arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

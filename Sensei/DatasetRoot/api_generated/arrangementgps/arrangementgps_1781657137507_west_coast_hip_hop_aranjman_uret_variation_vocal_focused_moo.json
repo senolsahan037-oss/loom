@@ -1,0 +1,304 @@
+{
+  "project": {
+    "name": "West Coast Vocal-Driven Aggressive Hip-Hop",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "D minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      90,
+      30,
+      50,
+      70,
+      40,
+      60,
+      80,
+      90,
+      100,
+      40,
+      70,
+      85,
+      50,
+      30
+    ],
+    "notes": "Sparse verses emphasize vocal focus; strong, catchy hooks raise energy significantly. Aggressive mood with typical West Coast vibe."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 100,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 100,
+          "outro": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 20,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "Begin vocal-focused strong hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Start",
+        "reason": "Highest energy vocal hook"
+      },
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro Start",
+        "reason": "Start with sparse drum sample chops"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": [
+      {
+        "name": "SliceChop",
+        "type": "sample_layer",
+        "description": "Chopped vocal samples sliced for rhythmic vocal texture"
+      },
+      {
+        "name": "BeatRepeat",
+        "type": "sample_layer",
+        "description": "Drum samples repeated via beat repeat technique"
+      },
+      {
+        "name": "GranularSlice",
+        "type": "sample_layer",
+        "description": "Granular sample chopping applied to FX elements"
+      },
+      {
+        "name": "TransientSplit",
+        "type": "sample_layer",
+        "description": "Percussive hits split by transient detection"
+      }
+    ]
+  },
+  "sound_intent": {
+    "focus": "vocal prominence with aggressive tone",
+    "texture": "sample chopped channels with sharp, rhythmic articulation",
+    "space": "sparse verses leaving room for vocal delivery, dense hooks with layered chops"
+  },
+  "routing_intent": {
+    "vocal": {
+      "parallel_processing": true,
+      "effects_chain": [
+        "compressor",
+        "delay",
+        "reverb"
+      ]
+    },
+    "drums": {
+      "sidechain_to": "vocal",
+      "effects_chain": [
+        "eq",
+        "saturation"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm foundation using chopped percussive samples",
+    "bass": "low-end support structured around groove",
+    "chords": "atmospheric texture and harmonic filler",
+    "melody": "accent and call-response with vocal chops",
+    "vocal": "main lyrical and melodic expression",
+    "fx": "transitional and ambient effect samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      12,
+      40,
+      70
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "vocal_driven": true,
+    "energy_distribution": "low energy sparse verses, high energy hook sections emphasizing vocal layers",
+    "sampling_technique": "chop-based rhythmic layering for rhythmic drive and vocal texture"
+  },
+  "presetor_intent": {
+    "presets": [
+      "vocal_compress_high",
+      "drum_slice_bright",
+      "fx_granular_mod",
+      "bass_smooth_sub"
+    ]
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum parts using sample chopping and beat repeat to create tight, rhythmic West Coast hip-hop drum grooves with emphasis on sparse verse sections and energetic hooks."
+    },
+    "bass_generator": {
+      "brief": "Produce basslines that complement rhythmic groove using sparse notes in verses and more driving lines in hooks, aligned with aggressive mood and tonal center."
+    },
+    "harmony_generator": {
+      "brief": "Create chordal pads and harmonic textures using chopped sustained samples to support vocal lead and maintain West Coast atmosphere without overpowering."
+    },
+    "melody_generator": {
+      "brief": "Add melodic interest with chopped vocal slices and call-response motifs emphasizing hooks; keep verses minimal to highlight vocals."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement focusing on vocal prominence, sparse verses, and strong energetic hooks, ensuring energy profile matches prompt specifications."
+    },
+    "presetor": {
+      "brief": "Select and assign appropriate sample chop based presets to channels reflecting desired texture and energy distribution."
+    },
+    "songgps": {
+      "brief": "Validate arrangement structure, section energy mapping, and marker placements corresponding to vocal-focused hip-hop with aggressive mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels prioritizing vocal clarity and energy dynamics, sidechaining drums to vocals and preserving punchy, clean mix for final output."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Mainstream Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      85,
+      90,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "slice": 80,
+          "stutter": 40,
+          "chop": 60,
+          "reverse": 30,
+          "pitchshift": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "slice": 50,
+          "chop": 30,
+          "stutter": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "slice": 60,
+          "chop": 50,
+          "pitchshift": 40
+        }
+      },
+      "melody": {
+        "activity": {
+          "slice": 70,
+          "stutter": 30,
+          "reverse": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "chop": 40,
+          "stutter": 30,
+          "slice": 50
+        }
+      },
+      "fx": {
+        "activity": {
+          "reverse": 30,
+          "slice": 40,
+          "stutter": 25,
+          "chop": 35
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro begins with sliced kick pattern",
+        "reason": "gradual energy build"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Main hook entry with chopped vocal samples",
+        "reason": "energy peak and thematic highlight"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "bridge_effect",
+        "label": "Bridge introduces reversed FX for mood shift",
+        "reason": "maintain listener interest and contrast"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro with stuttered hi-hat to wind down",
+        "reason": "energy lowering and song closure"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample slicing and rhythmic foundation",
+    "bass": "support low-end with chopped and sliced bass phrases",
+    "chords": "harmonic texture using pitch shifted and sliced samples",
+    "melody": "lead lines with stuttered and reversed sample fragments",
+    "vocal": "main vocal chops and variations",
+    "fx": "textural effects using reverse and stutter techniques"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns emphasizing modern sample chopping techniques with smooth slow energy build."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines using sliced and chopped samples to support the slow build energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic chord samples applying pitchshift and slicing to maintain cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Design melodic elements using stutter and reverse slicing for a cinematic and slow build effect."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement ensuring energy dynamics fit slow build mainstream West Coast hip-hop style."
+    },
+    "presetor": {
+      "brief": "Prepare preset chain emphasizing sample chopping and cinematic textures."
+    },
+    "songgps": {
+      "brief": "Guide structure and energy curve fitting West Coast mainstream hip-hop with a cinematic slow build."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix unprocessed channel audio ensuring clarity of chopped and sliced sample layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

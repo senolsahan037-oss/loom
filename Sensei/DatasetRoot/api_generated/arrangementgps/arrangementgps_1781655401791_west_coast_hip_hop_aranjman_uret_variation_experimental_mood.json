@@ -1,0 +1,270 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      35,
+      30,
+      90,
+      95,
+      10
+    ],
+    "notes": "Sample-based arrangement featuring texture beds and one-shot hits, focused on hook-heavy energy with experimental variations in structure and sound design."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 35
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 55,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 35,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 40,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 65,
+          "bridge": 30,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 45,
+          "verse_2": 25,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook_start",
+        "reason": "Energy peak with hook-heavy section"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook_start",
+        "reason": "Final hook buildup with highest energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": [
+      {
+        "name": "Texture Bed",
+        "type": "sample_based",
+        "technique": "granular_synthesis",
+        "role": "ambient texture"
+      },
+      {
+        "name": "One-Shot Hits",
+        "type": "sample_based",
+        "technique": "transient_shaping",
+        "role": "rhythmic accents"
+      }
+    ],
+    "channels": {
+      "drums": "transient_splitting",
+      "bass": "loop_slice",
+      "chords": "time_stretch_slice",
+      "melody": "spectral_slice",
+      "vocal": "vowel_slicing",
+      "fx": "reverse_slice"
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "dark atmospheric layers with subtle movement",
+    "one_shot_hits": "sharp, punchy samples emphasizing rhythmic hooks",
+    "overall": "experimental West Coast Hip-Hop sound with hook-focus and dark mood"
+  },
+  "routing_intent": {
+    "drums": "send to punchy compressor chain emphasizing transient definition",
+    "bass": "parallel saturation and EQ emphasizing low-mids",
+    "chords": "reverb and delay for spatial depth",
+    "melody": "filtered delays for dark texture",
+    "vocal": "dry with slight distortion for grit",
+    "fx": "automated filters for evolving ambiance"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with hook emphasis",
+    "bass": "low-end groove and texture support",
+    "chords": "harmonic pad and texture",
+    "melody": "sparse accentuating motifs",
+    "vocal": "lead lyrical delivery and hooks",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 70,
+    "chords": 50,
+    "melody": 40,
+    "vocal": 95,
+    "fx": 30
+  },
+  "designer_intent": {
+    "goal": "Create a dark, experimental West Coast Hip-Hop arrangement emphasizing hook-driven energy and texture through sample manipulation."
+  },
+  "presetor_intent": {
+    "focus": "Maintain clarity and punch in drums and hook sections while using experimental textures to enhance mood."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing hook sections using sample slicing and transient shaping for punch and variation."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using looping and subtle variations to complement drums and maintain groove within dark mood."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic textures with sample-based chord slices that contribute atmosphere and complement bass and melody."
+    },
+    "melody_generator": {
+      "brief": "Design sparse melodic motifs using spectral slicing to provide hook accents without overpowering texture."
+    },
+    "ai_designer": {
+      "brief": "Manage experimental arrangement structure, ensuring energy distribution aligns with hook-heavy profile and dark mood."
+    },
+    "presetor": {
+      "brief": "Apply effects and mixing presets that enhance transient clarity, texture depth, and overall mood consistency."
+    },
+    "songgps": {
+      "brief": "Coordinate arrangement and energy curve to maximize hook impact while supporting experimental textural elements."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and process unprocessed channel audio to maintain clarity, dynamics, and dark atmosphere throughout track."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

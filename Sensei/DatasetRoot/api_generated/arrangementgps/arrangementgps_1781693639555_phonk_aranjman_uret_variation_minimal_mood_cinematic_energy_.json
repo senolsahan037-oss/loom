@@ -1,0 +1,271 @@
+{
+  "project": {
+    "name": "Phonk Aranjmanı Minimal",
+    "genre": "Phonk",
+    "subgenre": "Minimal",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      30,
+      40,
+      70,
+      70,
+      20
+    ],
+    "notes": "Arrangement focuses on a hook-heavy energy profile with minimal variation and cinematic mood. Layering micro chops, phrase chops, reverse chops, vocal chops, and stutter chops across channels named after these chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 65,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 75,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 85,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Energy peak with hook-heavy section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook for climax"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "micro_chops": {
+        "description": "Sample layer using micro chops technique"
+      },
+      "phrase_chops": {
+        "description": "Sample layer using phrase chops technique"
+      },
+      "reverse_chops": {
+        "description": "Sample layer using reverse chops technique"
+      },
+      "vocal_chops": {
+        "description": "Sample layer using vocal chops technique"
+      },
+      "stutter_chops": {
+        "description": "Sample layer using stutter chops technique"
+      }
+    }
+  },
+  "sound_intent": {
+    "overall_character": "cinematic, minimalistic, hook-focused with chopped sample textures",
+    "sample_layers": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ]
+  },
+  "routing_intent": {
+    "channels_routed_to_layers": {
+      "micro_chops": "channel_1",
+      "phrase_chops": "channel_2",
+      "reverse_chops": "channel_3",
+      "vocal_chops": "channel_4",
+      "stutter_chops": "channel_5"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation with rhythmic chops emphasis",
+    "bass": "Low-end support and groove",
+    "chords": "Harmonic atmosphere with minimal layers",
+    "melody": "Subtle melodic lines and chops",
+    "vocal": "Hook and vocal chops as lead element",
+    "fx": "Transitions and cinematic effects using chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 6,
+    "melody": 5,
+    "vocal": 9,
+    "fx": 4
+  },
+  "designer_intent": {
+    "arrangement_style": "Minimal variation focusing on energy contrasts and hook prominence",
+    "sample_technique_integration": "Dedicated channels named and segmented by chopping technique"
+  },
+  "presetor_intent": {
+    "preset_style": "Clean, cinematic presets to complement chopped sample layers and maintain clarity"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic, hook-centric drum patterns emphasizing chops techniques with controlled energy for a cinematic minimal vibe"
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that support groove subtly without overpowering the minimal chopped sample layers"
+    },
+    "harmony_generator": {
+      "brief": "Provide sparse chordal textures that enhance cinematic mood and blend well with chopped samples"
+    },
+    "melody_generator": {
+      "brief": "Compose minimal melodic motifs integrated within micro chop sample layers to keep focus on the hook"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow ensuring energy peaks at hook sections and maintaining minimal variation structure"
+    },
+    "presetor": {
+      "brief": "Select and adjust presets that maintain clarity and cinematic feel, emphasizing hook presence"
+    },
+    "songgps": {
+      "brief": "Manage arrangement curve and section transitions to highlight hook-heavy energy profile"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixing strategy to keep chopped layers distinct and support cinematic atmosphere with dynamic balance"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

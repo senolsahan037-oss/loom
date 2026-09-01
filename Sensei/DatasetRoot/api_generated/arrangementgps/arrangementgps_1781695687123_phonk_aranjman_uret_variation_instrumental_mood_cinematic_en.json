@@ -1,0 +1,254 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      40,
+      50,
+      80,
+      70,
+      20
+    ],
+    "notes": "Hook-heavy energy profile focusing on cinematic instrumental arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 85,
+          "verse_2": 50,
+          "bridge": 55,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 35,
+          "hook": 80,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Beginning of hook section with energetic drums"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Elevating bass for heightened energy in final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "Slice": {
+        "description": "Audio slice layer with channels named after sample chop techniques.",
+        "channels": [
+          "Staccato",
+          "Legato",
+          "Glide",
+          "Chop",
+          "Roll"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "overall": "Create a cinematic instrumental phonk arrangement focusing on hook-heavy energy with sample slicing techniques used as channel naming conventions."
+  },
+  "routing_intent": {
+    "channels": {
+      "Staccato": "Lead sample chops with short percussive hits",
+      "Legato": "Smooth connected sample chops",
+      "Glide": "Pitch-gliding sample chops",
+      "Chop": "Regular sample chopping",
+      "Roll": "Repeated quick sample chops"
+    }
+  },
+  "track_roles": {
+    "drums": "Rhythmic foundation with sample chopping layers named by chop style",
+    "bass": "Low-end support complementing drumming",
+    "chords": "Harmonic backbone with cinematic textures",
+    "melody": "Hook-driven melodic elements using sliced samples",
+    "vocal": "None (instrumental only)",
+    "fx": "Atmospheric and cinematic effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 5,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus": "Emphasize sample chopping techniques with channels named accordingly to reflect the style of slicing."
+  },
+  "presetor_intent": {
+    "task": "Enable preset changes that enhance cinematic mood and hook-heavy energy profile."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns emphasizing varied sample chopping styles named by the chop technique, maintaining hook-heavy energy."
+    },
+    "bass_generator": {
+      "brief": "Create complementary bass parts that fit the cinematic mood and support hooks without overpowering."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic chord layers emphasizing cinematic textures and sustain to support mood."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic elements using sample slices with emphasis on hook sections and channel naming by slicing style."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement flow with focus on energy curve and cinematic atmosphere, ensuring sample chop channel naming conventions."
+    },
+    "presetor": {
+      "brief": "Manage preset selections to enhance cinematic feel and support instrumental phonk arrangement."
+    },
+    "songgps": {
+      "brief": "Coordinate song structure and section energy allocation for optimal hook emphasis with instrumental focus."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix balancing unprocessed channel audio focusing on clear separation of slice technique-based channels."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Cinematic Club Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast Hip-Hop",
+    "bpm": 95,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      75,
+      30
+    ],
+    "notes": "Minimal arrangement with focus on club energy and cinematic mood, maintaining a smooth flow and emphasizing groove."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 35
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 85,
+          "verse_2": 75,
+          "bridge": 65,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "arrangement",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro",
+        "reason": "Beginning of the track"
+      },
+      {
+        "track": "arrangement",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1",
+        "reason": "Start of Verse 1 with minimal instrumentation"
+      },
+      {
+        "track": "arrangement",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook",
+        "reason": "Energy peak with hook section"
+      },
+      {
+        "track": "arrangement",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2",
+        "reason": "Second verse, slight energy drop"
+      },
+      {
+        "track": "arrangement",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge",
+        "reason": "Bridge section introduces variation"
+      },
+      {
+        "track": "arrangement",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Final hook with maximal energy"
+      },
+      {
+        "track": "arrangement",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro",
+        "reason": "Track outro and energy wind down"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "Rhythmic foundation and club groove",
+    "bass": "Low-end support with minimal melodic movement",
+    "chords": "Sparse harmonic support creating cinematic atmosphere",
+    "melody": "Subtle melodic motif enhancing cinematic mood",
+    "vocal": "Rapped verses and vocal hooks",
+    "fx": "Ambient and transitional sound effects for texture"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate minimal but dynamic drum patterns that emphasize club energy while preserving cinematic tension."
+    },
+    "bass_generator": {
+      "brief": "Create simple, deep basslines supporting the rhythm without overpowering the minimalist arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Design sparse chord patterns to provide cinematic atmosphere with minimal harmonic change."
+    },
+    "melody_generator": {
+      "brief": "Develop subtle melodic elements that underscore the cinematic mood without cluttering minimal arrangement."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow to ensure energy profile matches club energy with cinematic minimalism."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance the cinematic and club energy feel without adding unnecessary sonic complexity."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and energy curve to maintain listener engagement in a minimalistic context."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channels for mixing keeping clarity and space in the minimalist arrangement."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

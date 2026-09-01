@@ -1,0 +1,320 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Aggressive Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      50,
+      80,
+      90,
+      95,
+      85,
+      80,
+      75,
+      90,
+      95,
+      85,
+      70,
+      65,
+      60,
+      50,
+      40,
+      30,
+      20,
+      50,
+      70,
+      80,
+      90,
+      95,
+      90,
+      80,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      90,
+      85,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      40,
+      60,
+      75,
+      80,
+      85,
+      90,
+      95,
+      85,
+      80,
+      75,
+      70,
+      85,
+      90,
+      95,
+      85,
+      75,
+      60,
+      50,
+      40,
+      30,
+      50,
+      70,
+      85,
+      90,
+      95,
+      85,
+      75,
+      65,
+      50,
+      45,
+      35,
+      20,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 70
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 65
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 75,
+          "bridge": 85,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Entry of main hook with increased energy"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to verse theme with sustained groove"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect_transition",
+        "label": "Bridge FX",
+        "reason": "Textural shift to highlight bridge section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Final hook emphasis with maximum energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro Start",
+        "reason": "Wind down with reduced energy elements"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone and energy driver",
+    "bass": "low-end groove and punch",
+    "chords": "harmonic support and texture",
+    "melody": "none (instrumental)",
+    "vocal": "none (instrumental)",
+    "fx": "transitional and atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns that emphasize aggressive energy and hook-heavy rhythmic elements."
+    },
+    "bass_generator": {
+      "brief": "Develop a driving bass line that supports the groove with rhythmic and tonal consistency."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic chord layers that reinforce mood and maintain aggressive West Coast vibe."
+    },
+    "melody_generator": {
+      "brief": "No melody generation required; instrumental variation without lead melodic elements."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement flow, ensuring energy builds primarily around hooks and structure sections correctly."
+    },
+    "presetor": {
+      "brief": "Select presets appropriate for West Coast Hip-Hop, emphasizing aggressive and hook-centric sounds."
+    },
+    "songgps": {
+      "brief": "Guide overall song structure with focus on energy curve shaping and sectional transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed stems for mixing, preserving dynamic range and clarity across track roles."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

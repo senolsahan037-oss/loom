@@ -1,0 +1,285 @@
+{
+  "project": {
+    "name": "Boom Bap Aggressive Minimal",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "breakbeat": 80,
+          "chop": 90,
+          "hit": 70
+        }
+      },
+      "bass": {
+        "activity": {
+          "sub": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "texture_bed": 30
+        }
+      },
+      "melody": {
+        "activity": {}
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "one_shot": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_slice_start",
+        "label": "breakbeat_loop_entry",
+        "reason": "intro drum texture start"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "chop",
+        "label": "hit_variation",
+        "reason": "hook drum hit variation"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "one_shot",
+        "label": "fx_riser",
+        "reason": "bridge build energy"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "sample_slice_start",
+        "label": "final_hook_breakbeat",
+        "reason": "final hook energy peak"
+      },
+      {
+        "track": "fx",
+        "bar": 80,
+        "type": "one_shot",
+        "label": "outro_hit",
+        "reason": "song ending effect"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "percussive backbone with sample slicing",
+    "bass": "sub bass underpinning",
+    "chords": "texture bed with sample layers",
+    "melody": "none - minimal variation",
+    "vocal": "none",
+    "fx": "one-shot hits and risers"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 100,
+    "bass": 40,
+    "chords": 30,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 20
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum arrangement using sample slicing and chop techniques to build slow energy increase with minimal variations."
+    },
+    "bass_generator": {
+      "brief": "Add a subtle sub bass layer supporting slow energy growth throughout the track."
+    },
+    "harmony_generator": {
+      "brief": "Create a minimal texture bed using sample-based chord layers to maintain aggressive mood."
+    },
+    "melody_generator": {
+      "brief": "No melody generation; maintain minimal variation as per prompt."
+    },
+    "ai_designer": {
+      "brief": "Shape arrangement and energy curve to follow slow build and aggressive mood with minimal variation."
+    },
+    "presetor": {
+      "brief": "Configure presets emphasizing raw boom bap sample textures and one-shot hit clarity."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement sections follow rules and energy profile matches slow build with aggressive feel."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix preserving unprocessed channel audio for final refinement; highlight sample textures."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

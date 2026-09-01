@@ -1,0 +1,306 @@
+{
+  "project": {
+    "name": "Boom Bap Mainstream Uplift",
+    "genre": "Hip-Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      80,
+      60,
+      80,
+      85,
+      70,
+      40,
+      75,
+      80,
+      65,
+      90,
+      85,
+      60,
+      50,
+      55,
+      40,
+      25,
+      20
+    ],
+    "notes": "Arrangement features a cinematic rise and fall in energy to create a dynamic, uplifting mainstream Boom Bap track utilizing varied sample chopping techniques for texture."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 55
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 65,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 35,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 55,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "cue",
+        "label": "micro_chops_intro",
+        "reason": "Introduce micro chops in drum channel"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "cue",
+        "label": "vocal_chops_hook",
+        "reason": "Vocal chops highlighted at hook"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "cue",
+        "label": "reverse_chops_bridge",
+        "reason": "Use reverse chops in chords during bridge"
+      },
+      {
+        "track": "melody",
+        "bar": 33,
+        "type": "cue",
+        "label": "phrase_chops_verse",
+        "reason": "Phrase chops for melody layer in verse 2"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "cue",
+        "label": "stutter_chops_final_hook",
+        "reason": "Highlight stutter chops in drums for final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "micro_chops": [
+      "drums"
+    ],
+    "phrase_chops": [
+      "melody"
+    ],
+    "reverse_chops": [
+      "chords"
+    ],
+    "vocal_chops": [
+      "vocal"
+    ],
+    "stutter_chops": [
+      "drums"
+    ]
+  },
+  "sound_intent": {
+    "timbral_focus": "clear transient hits with warm sampled textures",
+    "dynamic_range": "medium wide with cinematic swells",
+    "spatial": "moderate stereo spread with emphasis on front and center for vocals and drums"
+  },
+  "routing_intent": {
+    "channels": {
+      "micro_chops": "drums",
+      "phrase_chops": "melody",
+      "reverse_chops": "chords",
+      "vocal_chops": "vocal",
+      "stutter_chops": "drums"
+    },
+    "busses": {
+      "drum_bus": [
+        "drums"
+      ],
+      "vocal_bus": [
+        "vocal"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythm backbone with chops emphasizing groove",
+    "bass": "sub-bass foundation with supportive rhythmic patterns",
+    "chords": "harmonic texture with reverse chop accents",
+    "melody": "lead elements with phrase chops",
+    "vocal": "vocal texture and chops adding rhythm and emotion",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 5,
+    "melody": 7,
+    "vocal": 9,
+    "fx": 4
+  },
+  "designer_intent": {
+    "style": "Mainstream Boom Bap with cinematic energy shaping",
+    "sample_layering": "Highly textured using multiple chopping techniques for detail and variation"
+  },
+  "presetor_intent": {
+    "processing": "Clean and crisp transient shaping, mild compression, natural reverb",
+    "effects": "Delay and modulation on vocal chops, subtle phasing on reverse chords"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate and arrange drums emphasizing varied chops: micro and stutter for groove dynamics."
+    },
+    "bass_generator": {
+      "brief": "Create supportive bass parts with steady rhythmic presence matching the arrangement's energy curve."
+    },
+    "harmony_generator": {
+      "brief": "Produce chord voicings incorporating reverse chop elements emphasizing harmonic movement."
+    },
+    "melody_generator": {
+      "brief": "Design lead melodic elements focusing on phrase chops matching the uplifting mood."
+    },
+    "ai_designer": {
+      "brief": "Shape the overall arrangement with attention to energy curve and emotional flow."
+    },
+    "presetor": {
+      "brief": "Apply appropriate processing presets to maintain clarity and dynamic expression."
+    },
+    "songgps": {
+      "brief": "Guide section transitions and energy shaping across arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance tracks ensuring the chop techniques are perceptible and blend well in mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

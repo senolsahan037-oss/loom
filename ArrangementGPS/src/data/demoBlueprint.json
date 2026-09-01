@@ -1,0 +1,410 @@
+{
+  "project": {
+    "id": "agps_babasultan_night_drive",
+    "name": "BabaSultan Night Drive",
+    "bpm": 95,
+    "key": "D",
+    "scale": "minor",
+    "time_signature": "4/4",
+    "total_bars": 80,
+    "groove_profile": "Laid-back boom bap swing",
+    "swing_amount": 58,
+    "mood": "Emotional, dusty, cinematic",
+    "genre_tags": ["boom bap", "arabesk", "cinematic hip-hop"]
+  },
+  "daw": {
+    "target_daw": "Ableton Live",
+    "sample_rate": 48000,
+    "bit_depth": 24,
+    "global_quantization": "1 Bar",
+    "launch_mode": "Arrangement View",
+    "locator_markers": [
+      { "section_id": "intro", "name": "Intro", "bar": 1 },
+      { "section_id": "verse_1", "name": "Verse 1", "bar": 9 },
+      { "section_id": "hook", "name": "Hook", "bar": 25 },
+      { "section_id": "verse_2", "name": "Verse 2", "bar": 33 },
+      { "section_id": "bridge", "name": "Bridge", "bar": 49 },
+      { "section_id": "final_hook", "name": "Final Hook", "bar": 57 },
+      { "section_id": "outro", "name": "Outro", "bar": 73 }
+    ],
+    "tempo_automation_allowed": false,
+    "return_tracks": [
+      { "id": "return_short_room", "name": "Short Room", "intent": "Tight drum and vocal space" },
+      { "id": "return_wide_plate", "name": "Wide Plate", "intent": "Emotional hook and melody depth" },
+      { "id": "return_tape_delay", "name": "Tape Delay", "intent": "Throws, transitions, and outro tails" }
+    ],
+    "master_chain_intent": "Warm tape color, controlled low end, gentle bus compression, streaming-safe headroom"
+  },
+  "arrangement": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 28,
+        "density": "Low",
+        "intent": "Establish arabesk texture, vinyl air, and emotional palette",
+        "transition_in": "Clean start with filtered motif",
+        "transition_out": "Introduce rhythm foundation into Verse 1"
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 54,
+        "density": "Medium",
+        "intent": "Create vocal pocket with dry drums, warm bass, and restrained harmony",
+        "transition_in": "Drums and bass enter with controlled swing",
+        "transition_out": "Lift into hook with wider harmonic support"
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 78,
+        "density": "High",
+        "intent": "Deliver emotional hook payoff with wider sample and vocal focus",
+        "transition_in": "Impact lift and harmonic opening",
+        "transition_out": "Reduce width for Verse 2 reset"
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 58,
+        "density": "Medium",
+        "intent": "Return to verse pocket with slightly evolved rhythm and counter texture",
+        "transition_in": "Pull back from hook into tighter verse bed",
+        "transition_out": "Thin arrangement for bridge contrast"
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 42,
+        "density": "Low",
+        "intent": "Create space, tension, and atmospheric reset before final hook",
+        "transition_in": "Drop rhythmic weight and open vocal space",
+        "transition_out": "Build into final hook with rising atmosphere"
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90,
+        "density": "High",
+        "intent": "Maximize hook impact with full arrangement and final variations",
+        "transition_in": "Full lift with drums, bass, chords, melody, vocal, and FX",
+        "transition_out": "Strip elements into outro"
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 24,
+        "density": "Low",
+        "intent": "Resolve with tape tail, fading texture, and clean master ending",
+        "transition_in": "Remove vocal and low-end focus",
+        "transition_out": "End with controlled tail"
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "id": "track_drums",
+      "name": "Drums",
+      "type": "midi",
+      "role": "Rhythm Foundation",
+      "target_generator": "drum_generator",
+      "active_sections": ["verse_1", "hook", "verse_2", "final_hook"],
+      "muted_sections": ["intro", "bridge", "outro"],
+      "density_profile": "Medium verses, High hooks, Low bridge/outro",
+      "energy_profile": { "intro": 24, "verse_1": 66, "hook": 84, "verse_2": 72, "bridge": 22, "final_hook": 92, "outro": 18 },
+      "groove_profile": "Heavy Swing",
+      "variation_plan": "Verse foundation, hook lift, verse evolution, final hook intensification",
+      "transition_plan": "Support hook arrivals and bridge reset with non-grid-specific transition intent",
+      "automation_intent": "Increase perceived width and bus energy during hooks",
+      "sound_source_intent": "Dusty boom bap kit with tight kick, dry snare color, and warm top texture",
+      "routing_intent": "Drum group to Short Room return and master bus glue",
+      "planning_metadata": {
+        "Groove": "Heavy Swing",
+        "Swing": "Loose Pocket",
+        "Kit": "Dusty Boom Bap",
+        "Feel": "Humanized",
+        "Fills": "Section Lifts",
+        "Dynamics": "Hook Strong"
+      },
+      "generator_payload": {
+        "job_intent": "Write MIDI groove and fills",
+        "bar_scope": "9-72",
+        "constraints": ["no exact rhythm grid in blueprint", "preserve vocal space", "heavy swing feel"]
+      }
+    },
+    {
+      "id": "track_bass",
+      "name": "Bass",
+      "type": "midi",
+      "role": "Low-End Support",
+      "target_generator": "bass_generator",
+      "active_sections": ["verse_1", "hook", "verse_2", "bridge", "final_hook"],
+      "muted_sections": ["intro", "outro"],
+      "density_profile": "Medium, with higher support in hooks",
+      "energy_profile": { "intro": 8, "verse_1": 58, "hook": 76, "verse_2": 68, "bridge": 34, "final_hook": 86, "outro": 10 },
+      "groove_profile": "Medium Swing",
+      "variation_plan": "Verse foundation, hook variation, final hook variation",
+      "transition_plan": "Enter after intro, thin during bridge, exit for outro",
+      "automation_intent": "Controlled low-end presence with hook lift",
+      "sound_source_intent": "Warm rounded sub and sampled bass layer",
+      "routing_intent": "Bass group direct to master with sidechain-ready intent",
+      "planning_metadata": {
+        "Character": "Warm Sub",
+        "Weight": "Hook Heavy",
+        "Movement": "Restrained",
+        "Register": "Low Focus",
+        "Hook": "Strong Support",
+        "Sustain": "Rounded"
+      },
+      "generator_payload": {
+        "job_intent": "Create bassline variations",
+        "bar_scope": "17-72",
+        "constraints": ["support D minor", "avoid crowding vocal rhythm", "prioritize low-end clarity"]
+      }
+    },
+    {
+      "id": "track_chords",
+      "name": "Chords",
+      "type": "midi",
+      "role": "Harmonic Support",
+      "target_generator": "chord_generator",
+      "active_sections": ["intro", "hook", "bridge", "final_hook", "outro"],
+      "muted_sections": ["verse_1", "verse_2"],
+      "density_profile": "Low verses, Medium hooks, High bridge/final hook",
+      "energy_profile": { "intro": 54, "verse_1": 28, "hook": 68, "verse_2": 32, "bridge": 74, "final_hook": 82, "outro": 34 },
+      "groove_profile": "Light Swing",
+      "variation_plan": "Filtered intro, wider hooks, bridge lift, softened outro",
+      "transition_plan": "Open harmonic width into hooks and bridge",
+      "automation_intent": "Filter and width growth across hook sections",
+      "sound_source_intent": "Warm keys, dusty pad layer, minor emotional color",
+      "routing_intent": "Chords group to Wide Plate return",
+      "planning_metadata": {
+        "Harmony": "Minor Emotional",
+        "Width": "Wide Hooks",
+        "Texture": "Warm Keys",
+        "Layers": "Medium Build",
+        "Complexity": "Simple Movement"
+      },
+      "generator_payload": {
+        "job_intent": "Generate chord voicings",
+        "bar_scope": "1-80",
+        "constraints": ["D minor emotional palette", "leave verse space", "support hook lift"]
+      }
+    },
+    {
+      "id": "track_melody",
+      "name": "Melody",
+      "type": "audio_or_midi",
+      "role": "Lead Identity",
+      "target_generator": "sample_generator",
+      "active_sections": ["intro", "hook", "bridge", "final_hook", "outro"],
+      "muted_sections": ["verse_1", "verse_2"],
+      "density_profile": "Selective, hook-forward",
+      "energy_profile": { "intro": 62, "verse_1": 12, "hook": 78, "verse_2": 28, "bridge": 64, "final_hook": 88, "outro": 26 },
+      "groove_profile": "Light Swing",
+      "variation_plan": "Intro motif, hook motif, bridge swell, final double, outro fade",
+      "transition_plan": "Reintroduce identity at hook and bridge moments",
+      "automation_intent": "Texture widening and filtering for emotional movement",
+      "sound_source_intent": "Arabesk-inspired tonal motif and resampled texture",
+      "routing_intent": "Melody group to Wide Plate and Tape Delay returns",
+      "planning_metadata": {
+        "Identity": "Arabesk Motif",
+        "Motif": "Hook Expanded",
+        "Register": "Mid High",
+        "Phrasing": "Sparse Hook"
+      },
+      "generator_payload": {
+        "job_intent": "Design arabesk texture layers",
+        "bar_scope": "1-56",
+        "constraints": ["no piano roll in blueprint", "emotional hook identity", "leave vocal foreground"]
+      }
+    },
+    {
+      "id": "track_vocal",
+      "name": "Vocal",
+      "type": "guide",
+      "role": "Vocal Space Planning",
+      "target_generator": "vocal_planner",
+      "active_sections": ["verse_1", "hook", "verse_2", "final_hook"],
+      "muted_sections": ["intro", "bridge", "outro"],
+      "density_profile": "Medium verses, High hooks, silent bridge/outro",
+      "energy_profile": { "intro": 4, "verse_1": 52, "hook": 88, "verse_2": 56, "bridge": 16, "final_hook": 92, "outro": 4 },
+      "groove_profile": "Medium Swing",
+      "variation_plan": "Verse pocket, hook lead, verse return, final hook re-entry",
+      "transition_plan": "Silence planned around intro, bridge, and outro",
+      "automation_intent": "Arrangement energy supports vocal without masking",
+      "sound_source_intent": "BabaSultan vocal space, guide phrases, and hook callout intent",
+      "routing_intent": "Vocal guide to Short Room, Wide Plate, and selective Tape Delay",
+      "planning_metadata": {
+        "Space": "Clear Pocket",
+        "Verse": "Medium Presence",
+        "Hook": "Wide Lift",
+        "Adlibs": "Selective",
+        "Silence": "Bridge Space"
+      },
+      "generator_payload": {
+        "job_intent": "Map guide vocal pockets",
+        "bar_scope": "9-72",
+        "constraints": ["protect vocal space", "prioritize hook clarity", "plan silence intentionally"]
+      }
+    },
+    {
+      "id": "track_fx",
+      "name": "FX",
+      "type": "audio",
+      "role": "Transitions and Atmosphere",
+      "target_generator": "fx_generator",
+      "active_sections": ["intro", "hook", "bridge", "final_hook", "outro"],
+      "muted_sections": ["verse_1", "verse_2"],
+      "density_profile": "Medium to High around transitions",
+      "energy_profile": { "intro": 58, "verse_1": 20, "hook": 62, "verse_2": 24, "bridge": 78, "final_hook": 72, "outro": 82 },
+      "groove_profile": "Not rhythmic",
+      "variation_plan": "Intro atmosphere, hook lift, bridge build, final impact, outro release",
+      "transition_plan": "Guide section movement through rises, impacts, spatial tails, and release intent",
+      "automation_intent": "Spatial movement, delay/reverb throws, filtering, and outro release",
+      "sound_source_intent": "Vinyl noise, risers, impacts, tape stop color, atmospheric tails",
+      "routing_intent": "FX group to Tape Delay and Wide Plate returns",
+      "planning_metadata": {
+        "Atmosphere": "Cinematic Air",
+        "Transitions": "Medium High",
+        "Stereo": "Wide Controlled",
+        "Impact": "Final Strong",
+        "Build": "Subtle Rise"
+      },
+      "generator_payload": {
+        "job_intent": "Place transitions and impacts",
+        "bar_scope": "8-80",
+        "constraints": ["support arrangement boundaries", "avoid rhythmic grid details", "keep atmosphere musical"]
+      }
+    }
+  ],
+  "generator_jobs": [
+    {
+      "id": "job_drums_001",
+      "generator": "Drum Generator",
+      "target_track": "track_drums",
+      "target_sections": ["verse_1", "hook", "verse_2", "final_hook"],
+      "priority": "High",
+      "status": "Waiting",
+      "payload": {
+        "job_type": "Write MIDI groove and fills",
+        "bar_range": "9-72",
+        "source_track_payload": "track_drums.generator_payload"
+      }
+    },
+    {
+      "id": "job_bass_001",
+      "generator": "Bass Generator",
+      "target_track": "track_bass",
+      "target_sections": ["verse_1", "hook", "verse_2", "bridge", "final_hook"],
+      "priority": "High",
+      "status": "Waiting",
+      "payload": {
+        "job_type": "Create bassline variations",
+        "bar_range": "17-72",
+        "source_track_payload": "track_bass.generator_payload"
+      }
+    },
+    {
+      "id": "job_chords_001",
+      "generator": "Chord Generator",
+      "target_track": "track_chords",
+      "target_sections": ["intro", "hook", "bridge", "final_hook", "outro"],
+      "priority": "Medium",
+      "status": "Waiting",
+      "payload": {
+        "job_type": "Generate chord voicings",
+        "bar_range": "1-80",
+        "source_track_payload": "track_chords.generator_payload"
+      }
+    },
+    {
+      "id": "job_sample_001",
+      "generator": "Sample Generator",
+      "target_track": "track_melody",
+      "target_sections": ["intro", "hook", "bridge", "final_hook"],
+      "priority": "Medium",
+      "status": "Waiting",
+      "payload": {
+        "job_type": "Design arabesk texture layers",
+        "bar_range": "1-56",
+        "source_track_payload": "track_melody.generator_payload"
+      }
+    },
+    {
+      "id": "job_fx_001",
+      "generator": "FX Generator",
+      "target_track": "track_fx",
+      "target_sections": ["intro", "hook", "bridge", "final_hook", "outro"],
+      "priority": "Medium",
+      "status": "Waiting",
+      "payload": {
+        "job_type": "Place transitions and impacts",
+        "bar_range": "8-80",
+        "source_track_payload": "track_fx.generator_payload"
+      }
+    },
+    {
+      "id": "job_vocal_001",
+      "generator": "Vocal Planner",
+      "target_track": "track_vocal",
+      "target_sections": ["verse_1", "hook", "verse_2", "final_hook"],
+      "priority": "Medium",
+      "status": "Waiting",
+      "payload": {
+        "job_type": "Map guide vocal pockets",
+        "bar_range": "9-72",
+        "source_track_payload": "track_vocal.generator_payload"
+      }
+    }
+  ],
+  "export_targets": {
+    "ableton_builder": {
+      "enabled": true,
+      "payload_roots": ["project", "daw", "arrangement", "tracks"]
+    },
+    "drum_generator": {
+      "enabled": false,
+      "payload_roots": ["tracks.track_drums.generator_payload", "generator_jobs.job_drums_001.payload"]
+    },
+    "bass_generator": {
+      "enabled": false,
+      "payload_roots": ["tracks.track_bass.generator_payload", "generator_jobs.job_bass_001.payload"]
+    },
+    "chord_generator": {
+      "enabled": false,
+      "payload_roots": ["tracks.track_chords.generator_payload", "generator_jobs.job_chords_001.payload"]
+    },
+    "fx_generator": {
+      "enabled": false,
+      "payload_roots": ["tracks.track_fx.generator_payload", "generator_jobs.job_fx_001.payload"]
+    },
+    "vocal_planner": {
+      "enabled": false,
+      "payload_roots": ["tracks.track_vocal.generator_payload", "generator_jobs.job_vocal_001.payload"]
+    }
+  },
+  "production_log": [
+    { "type": "complete", "message": "Blueprint project loaded from agps_babasultan_night_drive" },
+    { "type": "complete", "message": "Ableton Live target configured at 48 kHz / 24-bit" },
+    { "type": "complete", "message": "Arrangement sections and locator markers validated" },
+    { "type": "complete", "message": "Track generator payloads prepared" },
+    { "type": "pending", "message": "Waiting for Drum Generator" },
+    { "type": "pending", "message": "Waiting for Bass Generator" }
+  ]
+}

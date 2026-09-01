@@ -1,0 +1,227 @@
+{
+  "project": {
+    "name": "Drill Arrangement Mainstream Dark Hook-Heavy",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      100,
+      30
+    ],
+    "notes": "Focus on a hook-heavy energy profile typical for mainstream drill with a dark mood. Build tension with subtle dynamic changes."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook",
+        "reason": "Start of the hook section with increased energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook",
+        "reason": "Final hook emphasizing highest energy peak"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and groove",
+    "bass": "low-end drive and mood support",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "main thematic motive and hooks",
+    "vocal": "lead vocals and lyrical delivery",
+    "fx": "transitional effects and ambiance"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 9,
+    "chords": 6,
+    "melody": 8,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a dark, syncopated drill drum pattern with varied dynamics suited for high energy hooks."
+    },
+    "bass_generator": {
+      "brief": "Create a deep, driving bassline that supports the dark mood and complements the hook-heavy structure."
+    },
+    "harmony_generator": {
+      "brief": "Produce minimal harmonic layers emphasizing dark tonalities and atmospheric chords."
+    },
+    "melody_generator": {
+      "brief": "Compose memorable hooks and motifs with a dark tonal quality to enhance the energy dynamics."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections coherently maintaining the mainstream drill groove with smooth transitions and dynamic flow."
+    },
+    "presetor": {
+      "brief": "Apply mixing presets to maintain clarity and punch in drums and vocals, emphasizing the dark theme."
+    },
+    "songgps": {
+      "brief": "Ensure energy levels follow a hook-heavy curve with clear section definitions and dynamic contrasts."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance and process tracks to highlight the hook elements while preserving the overall dark atmosphere."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

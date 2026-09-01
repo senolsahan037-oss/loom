@@ -1,0 +1,249 @@
+{
+  "project": {
+    "name": "Boom Bap Experimental Emotional",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      80,
+      60,
+      100,
+      30,
+      20
+    ],
+    "notes": "Cinematic rise and fall with emotional dynamics using modern sample chopping."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 32,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 49,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 73,
+        "end_bar": 78,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 79,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 35
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 45,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 60,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_chop",
+        "label": "Slice",
+        "reason": "Kick sample sliced for tight groove"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "sample_chop",
+        "label": "Gate",
+        "reason": "Snare gated for stuttering effect"
+      },
+      {
+        "track": "chords",
+        "bar": 33,
+        "type": "sample_chop",
+        "label": "Stutter",
+        "reason": "Chord stab chopped rhythmically"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "sample_chop",
+        "label": "Reverse",
+        "reason": "Melody sample reversed for tension build"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "sample_chop",
+        "label": "Flick",
+        "reason": "FX chopped for cinematic transitions"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "provides rhythmic foundation via modern sample chopping",
+    "bass": "supports groove and emotional depth",
+    "chords": "adds harmonic texture with sample manipulations",
+    "melody": "delivers emotional melodic phrases using chops",
+    "vocal": "contains vocal samples and hooks",
+    "fx": "includes cinematic FX and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create dynamic drum patterns with modern sample chopping techniques emphasizing tight boom bap groove and emotional dynamic movement."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines that complement the emotional mood, following the cinematic rise and fall energy profile."
+    },
+    "harmony_generator": {
+      "brief": "Produce harmonic layers and chord stabs using sample slicing and chopping, maintaining emotional and experimental arrangement style."
+    },
+    "melody_generator": {
+      "brief": "Craft melodic content focusing on chopped sample phrases, including reversed and gated effects to enhance emotional expression."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure, ensuring variation and emotional mood align with cinematic energy curve."
+    },
+    "presetor": {
+      "brief": "Set presets and routing for sample chop based channels with clear channel naming based on chopping techniques."
+    },
+    "songgps": {
+      "brief": "Maintain arrangement GPS tracking, ensuring proper section transitions and energy dynamics."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix elements to be processed with raw channel audio reflecting sample chopping techniques."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "transaction_id": "tx_1784064379_1663",
+  "action": "write_midi_clip",
+  "role": "drums",
+  "manual_trigger": true,
+  "bar_range": [
+    1,
+    1
+  ],
+  "notes": [
+    {
+      "pitch": 77,
+      "time": 0.0,
+      "duration": 0.2,
+      "velocity": 98
+    },
+    {
+      "pitch": 80,
+      "time": 0.0,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 77,
+      "time": 0.5,
+      "duration": 0.2,
+      "velocity": 95
+    },
+    {
+      "pitch": 77,
+      "time": 1.0,
+      "duration": 0.2,
+      "velocity": 103
+    },
+    {
+      "pitch": 79,
+      "time": 1.0,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 77,
+      "time": 1.5,
+      "duration": 0.2,
+      "velocity": 102
+    },
+    {
+      "pitch": 77,
+      "time": 2.0,
+      "duration": 0.2,
+      "velocity": 102
+    },
+    {
+      "pitch": 77,
+      "time": 2.5,
+      "duration": 0.2,
+      "velocity": 99
+    },
+    {
+      "pitch": 80,
+      "time": 2.5,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 77,
+      "time": 3.0,
+      "duration": 0.2,
+      "velocity": 98
+    },
+    {
+      "pitch": 79,
+      "time": 3.0,
+      "duration": 0.25,
+      "velocity": 105
+    },
+    {
+      "pitch": 77,
+      "time": 3.5,
+      "duration": 0.2,
+      "velocity": 97
+    }
+  ],
+  "metadata": {
+    "prompt": "",
+    "genre": "hiphop",
+    "seed": 42
+  }
+}

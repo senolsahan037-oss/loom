@@ -1,0 +1,275 @@
+{
+  "project": {
+    "name": "Boom Bap Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      60,
+      80,
+      60,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks using sample-based arrangement layered with texture beds and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 15,
+          "hook": 40,
+          "verse_2": 15,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Introduces highest energy hook section"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Return to sparser verse section"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Repeat of hook with energy peak"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "texture_bed": {
+        "description": "Layered sample textures providing harmonic and rhythmic bed",
+        "technique": "sample chopping sequences"
+      },
+      "one_shot_hits": {
+        "description": "Distinct sample chopper style one-shot hits for percussive accents"
+      }
+    },
+    "channels": {
+      "drums": [
+        "kick_chop",
+        "snare_chop",
+        "hat_chop"
+      ],
+      "bass": [
+        "bass_sample_loop"
+      ],
+      "chords": [
+        "texture_bed_samples"
+      ],
+      "melody": [
+        "sample_slice_lead"
+      ],
+      "vocal": [],
+      "fx": [
+        "reverse_sample_fx"
+      ]
+    }
+  },
+  "sound_intent": {
+    "description": "Uplifting boom bap instrumental with sparse verses and strong hooks using sample chopping for rhythm and texture."
+  },
+  "routing_intent": {
+    "description": "Separate drum elements routed to individual channels tagged by sample chopping technique names for precise mixing."
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation and energy driver using sample chopping hits",
+    "bass": "low-end groove and rhythmic support with sampled loops",
+    "chords": "harmonic texture layer via sampled texture beds",
+    "melody": "lead melodic elements from sample slices",
+    "vocal": "unused in instrumental variation",
+    "fx": "atmospheric effects using reversed or processed samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      9,
+      33
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 5,
+    "melody": 7,
+    "vocal": 0,
+    "fx": 4
+  },
+  "designer_intent": {
+    "goal": "Create an arrangement with sparse verses emphasizing the sampled texture bed and strong hooks with full one-shot hits and melodic samples."
+  },
+  "presetor_intent": {
+    "goal": "Provide presets that emphasize sample chopping clarity and distinct channel separation for mix clarity."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns based on sample chopping techniques emphasizing sparse verses and energetic hook hits."
+    },
+    "bass_generator": {
+      "brief": "Generate bass loops and lines that groove subtly under sparse verses and intensify during hooks."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic texture beds from layered samples suitable for a boom bap vibe."
+    },
+    "melody_generator": {
+      "brief": "Build lead melodic components using sliced samples, with higher activity during hook sections."
+    },
+    "ai_designer": {
+      "brief": "Oversee overall arrangement structure focusing on energy profile and section transitions."
+    },
+    "presetor": {
+      "brief": "Select appropriate presets emphasizing sample clarity and separation, with attention to boom bap sound."
+    },
+    "songgps": {
+      "brief": "Manage arrangement consistency following given energy curves and section definitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for downstream mixing ensuring channel separation by sample chopping techniques."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "project": {
+    "name": "Phonk Vocal Club Mix",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      70,
+      60,
+      90,
+      85,
+      30
+    ],
+    "notes": "Focus on vocal variation with club energy and emotional tone, utilizing sample chopping techniques to name sample channels."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 55,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 60,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 85,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 100,
+          "outro": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 40,
+          "final_hook": 65,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "arrangement",
+        "label": "hook_start",
+        "reason": "begin high energy vocal hook"
+      },
+      {
+        "track": "drums",
+        "bar": 40,
+        "type": "transition",
+        "label": "verse_2_entry",
+        "reason": "return to verse_2 with club rhythm"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "climax",
+        "label": "final_hook_peak",
+        "reason": "emotional vocal peak for final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": {
+      "slice_and_dice": {
+        "description": "Sample chops with slice and dice technique",
+        "channels": [
+          "slice_01",
+          "slice_02",
+          "dice_01",
+          "dice_02"
+        ]
+      },
+      "beat_repeat": {
+        "description": "Sample chops with beat repeat technique",
+        "channels": [
+          "beatrepeat_01",
+          "beatrepeat_02"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal-forward emotional expression with mid tempo club energy",
+    "techniques": [
+      "slice_and_dice",
+      "beat_repeat"
+    ],
+    "effects": [
+      "reverb",
+      "delay",
+      "sidechain_compression"
+    ]
+  },
+  "routing_intent": {
+    "vocal": "lead channel with dedicated effects bus",
+    "drums": "sidechained to bass for pump effect",
+    "fx": "send effects with return routing",
+    "bass_chords": "grouped and compressed as submix"
+  },
+  "track_roles": {
+    "drums": "rhythm foundation and drive",
+    "bass": "low end groove support",
+    "chords": "harmonic texture",
+    "melody": "supporting atmosphere",
+    "vocal": "emotional focus and lead",
+    "fx": "transitions and ambience"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      39,
+      71
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {
+    "arrangement": "Create dynamic shifts emphasizing vocal presence and emotional engagement suitable for club environment."
+  },
+  "presetor_intent": {
+    "preset_application": "Apply vocal-centric presets with emotional reverb and dynamic compression."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns with club energy using sample chopping techniques for variation and groove."
+    },
+    "bass_generator": {
+      "brief": "Generate deep basslines that complement the drums and maintain groove with emotional tone."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures supporting emotional mood using phonk harmonic style."
+    },
+    "melody_generator": {
+      "brief": "Add atmospheric melodic elements that support vocals and enhance emotional impact."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow, emphasizing vocal focus and energy dynamics throughout sections."
+    },
+    "presetor": {
+      "brief": "Apply appropriate effect presets with focus on vocal clarity and club dynamics."
+    },
+    "songgps": {
+      "brief": "Manage arrangement transitions and energy curve aligning with intended mood and focus."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio routing for clean mix preparation and mastering."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

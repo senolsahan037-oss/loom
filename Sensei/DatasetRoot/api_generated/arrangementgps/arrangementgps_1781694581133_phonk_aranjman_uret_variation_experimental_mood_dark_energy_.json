@@ -1,0 +1,213 @@
+{
+  "project": {
+    "name": "Phonk Dark Experimental",
+    "genre": "Phonk",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      90,
+      80,
+      60,
+      40,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile throughout the arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "Chop": 80,
+          "Stab": 60,
+          "Slice": 70,
+          "MicroCut": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "Chop": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "Stab": 40
+        }
+      },
+      "melody": {
+        "activity": {
+          "Slice": 20
+        }
+      },
+      "vocal": {
+        "activity": {}
+      },
+      "fx": {
+        "activity": {
+          "MicroCut": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Begin",
+        "reason": "Establish dark cinematic mood"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "transition",
+        "label": "Energy Rise",
+        "reason": "Hook entry with higher energy"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge Transition Fx",
+        "reason": "Smooth change to bridge section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook Peak",
+        "reason": "Peak energy cinematic effect"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "sample chopping and rhythmic foundation",
+    "bass": "support low end with chopped samples",
+    "chords": "harmonic stabs using sample chops",
+    "melody": "sliced melodic layers with texture",
+    "vocal": "none",
+    "fx": "micro slice effects for transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum tracks using modern sample chopping techniques emphasizing variation 'experimental' with dark mood and cinematic energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines utilizing chopped samples to complement the drum energy profile and dark atmosphere."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord stabs using sample chopping focusing on harmonic support with dark tonal quality."
+    },
+    "melody_generator": {
+      "brief": "Produce subtle melodic textures with sliced sample layers enhancing the cinematic mood without dominant melodies."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement dynamics with a cinematic rise and fall energy profile, ensuring smooth transitions and dark experimental vibe."
+    },
+    "presetor": {
+      "brief": "Apply presets optimized for sample chopping techniques and dark cinematic sound design matching the arrangement context."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure, section energy transitions, and event markers to maintain cinematic flow and dark mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mixing ensuring clarity of chopped sample layers and dynamic energy contour."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.7,
+    "sound_intent": 0.6,
+    "agent_dispatch": 0.65
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

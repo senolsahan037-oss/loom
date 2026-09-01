@@ -1,0 +1,279 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Uplift",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "D Minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      80,
+      20
+    ],
+    "notes": "Sparse verses with strong, energetic hooks featuring sample-based layers, texture beds, and one-shot hits. Experimental variation with uplifting mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 85,
+          "verse_2": 35,
+          "bridge": 45,
+          "final_hook": 90,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 75,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 45,
+          "final_hook": 70,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Strong Hook Start",
+        "reason": "Increase energy with strong one-shot hits and prominent sample chops"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Sparse Verse Start",
+        "reason": "Sparse vocal layers with experimental textures"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "bridge_transition",
+        "label": "Bridge Texture Shift",
+        "reason": "Introduce atmospheric texture bed elements with sample slicing"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "final_hook_start",
+        "label": "Final Hook Elevation",
+        "reason": "Uplifting melodic variations and increased energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "texture_bed": {
+        "type": "sample_layer",
+        "description": "Ambient textures slicing and layering"
+      },
+      "one_shots": {
+        "type": "sample_layer",
+        "description": "Percussive and melodic one-shot samples"
+      }
+    },
+    "channels": {
+      "Choppy Slice 1": "texture_bed",
+      "Granular Hit": "one_shots",
+      "Beat Repeat Snare": "one_shots",
+      "Loop Slice Kick": "one_shots"
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "Use chopped samples with texture beds that evolve slowly",
+    "one_shot_hits": "Integrate sharp percussive one-shots emphasizing rhythmic hooks"
+  },
+  "routing_intent": {
+    "drums": "Layered routing with parallel compression for one-shots",
+    "texture_bed": "Send effect for spatial widening",
+    "vocals": "Dry with subtle delay and reverb"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample-based percussive elements",
+    "bass": "minimalistic low-end support",
+    "chords": "textural harmonic support",
+    "melody": "strong hook delivery with sparse arrangement in verses",
+    "vocal": "sparse and uplifting vocal layers",
+    "fx": "atmospheric textures and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      64,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "experiment_with_texture_layers": true,
+    "focus_on_energetic_hooks": true,
+    "keep_verses_sparse": true,
+    "highlight_sample_slicing_techniques_in_channels": true
+  },
+  "presetor_intent": {
+    "emphasize_sample_clarity": true,
+    "balance_sparse_vs_dense_sections": true,
+    "ensure_uplifting_mood_tone": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create and arrange sample-based percussive elements with experimental chops and strong hooks emphasizing sparse verses and high-energy hooks."
+    },
+    "bass_generator": {
+      "brief": "Design minimalistic bass lines supporting sparse verses and reinforcing hooks rhythmically and harmonically."
+    },
+    "harmony_generator": {
+      "brief": "Generate textural chord arrangements using sliced samples and texture beds focusing on uplifting moods."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic hooks that are strong and energetic during hook sections, with sparse melodies in verses."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement to ensure clear energy curve emphasizing sparse verses and strong energetic hooks with experimental sample techniques."
+    },
+    "presetor": {
+      "brief": "Select presets that enhance sample clarity, texture richness, and maintain uplifting tonality suitable for trip hop experimental style."
+    },
+    "songgps": {
+      "brief": "Implement arrangement flow including sections, energy curve, and marker events to guide dynamic changes and transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix settings to preserve sample detail and dynamic energy flow, keeping vocal and melodic hooks prominent while respecting sparse elements."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

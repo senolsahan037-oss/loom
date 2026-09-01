@@ -1,0 +1,606 @@
+{
+  "created_at": "2026-09-01T09:19:51.893Z",
+  "project": {
+    "name": "fixture_project",
+    "user_prompt": "fixture prompt for tests",
+    "bpm": 126,
+    "key": "D Minor",
+    "bpm_source": "prompt",
+    "key_source": "default",
+    "genre": "House",
+    "total_bars": 80
+  },
+  "action_count": 29,
+  "actions": [
+    {
+      "action": "create_group_track",
+      "group_id": "drums",
+      "name": "DRUMS",
+      "priority": 1
+    },
+    {
+      "action": "create_group_track",
+      "group_id": "bass",
+      "name": "BASS",
+      "priority": 2
+    },
+    {
+      "action": "create_group_track",
+      "group_id": "music",
+      "name": "MUSIC",
+      "priority": 3
+    },
+    {
+      "action": "create_group_track",
+      "group_id": "vocal",
+      "name": "VOCALS",
+      "priority": 4
+    },
+    {
+      "action": "create_group_track",
+      "group_id": "fx",
+      "name": "FX",
+      "priority": 5
+    },
+    {
+      "action": "create_locator",
+      "id": "intro",
+      "name": "Intro",
+      "start_bar": 1,
+      "end_bar": 8,
+      "start_time": "0:00",
+      "end_time": "0:15",
+      "energy": 20
+    },
+    {
+      "action": "create_locator",
+      "id": "verse_1",
+      "name": "Verse 1",
+      "start_bar": 9,
+      "end_bar": 24,
+      "start_time": "0:15",
+      "end_time": "0:46",
+      "energy": 60
+    },
+    {
+      "action": "create_locator",
+      "id": "hook",
+      "name": "Hook",
+      "start_bar": 25,
+      "end_bar": 32,
+      "start_time": "0:46",
+      "end_time": "1:01",
+      "energy": 90
+    },
+    {
+      "action": "create_locator",
+      "id": "verse_2",
+      "name": "Verse 2",
+      "start_bar": 33,
+      "end_bar": 48,
+      "start_time": "1:01",
+      "end_time": "1:31",
+      "energy": 65
+    },
+    {
+      "action": "create_locator",
+      "id": "bridge",
+      "name": "Bridge",
+      "start_bar": 49,
+      "end_bar": 56,
+      "start_time": "1:31",
+      "end_time": "1:47",
+      "energy": 35
+    },
+    {
+      "action": "create_locator",
+      "id": "final_hook",
+      "name": "Final Hook",
+      "start_bar": 57,
+      "end_bar": 72,
+      "start_time": "1:47",
+      "end_time": "2:17",
+      "energy": 100
+    },
+    {
+      "action": "create_locator",
+      "id": "outro",
+      "name": "Outro",
+      "start_bar": 73,
+      "end_bar": 80,
+      "start_time": "2:17",
+      "end_time": "2:32",
+      "energy": 15
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "drums.kit",
+      "group": "drums",
+      "name": "Kit",
+      "writes_to": "Ableton.Track.DRUMS.Kit",
+      "clip_start_bar": 1,
+      "clip_end_bar": 72,
+      "mute_regions": [
+        {
+          "start_bar": 73,
+          "end_bar": 80,
+          "reason": "Inactive in arrangement scene"
+        }
+      ],
+      "section_activity": {
+        "intro": 30,
+        "verse_1": 75,
+        "hook": 95,
+        "verse_2": 75,
+        "bridge": 40,
+        "final_hook": 100,
+        "outro": 20
+      },
+      "source": "engine/output/agent_outputs/drums/drums_kit.json",
+      "output_type": "midi_clip",
+      "instrument_family": "Boom Bap Kit",
+      "sensei_role": "drum",
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "bass.main",
+      "group": "bass",
+      "name": "Main Bass",
+      "writes_to": "Ableton.Track.BASS.Main Bass",
+      "clip_start_bar": 9,
+      "clip_end_bar": 80,
+      "mute_regions": [
+        {
+          "start_bar": 1,
+          "end_bar": 8,
+          "reason": "Inactive in arrangement scene"
+        }
+      ],
+      "section_activity": {
+        "intro": 10,
+        "verse_1": 80,
+        "hook": 95,
+        "verse_2": 80,
+        "bridge": 30,
+        "final_hook": 100,
+        "outro": 25
+      },
+      "source": "engine/output/agent_outputs/bass/bass_main.json",
+      "output_type": "midi_clip",
+      "instrument_family": "Basic Analog Bass",
+      "sensei_role": "bass",
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "chords.keys",
+      "group": "music",
+      "name": "Keys",
+      "writes_to": "Ableton.Track.MUSIC.Keys",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 50,
+        "verse_1": 60,
+        "hook": 80,
+        "verse_2": 60,
+        "bridge": 70,
+        "final_hook": 85,
+        "outro": 40
+      },
+      "source": "engine/output/agent_outputs/chords/chords_keys.json",
+      "output_type": "midi_clip",
+      "instrument_family": "Electric Piano Daze",
+      "sensei_role": "chord",
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "melody.lead",
+      "group": "music",
+      "name": "Lead",
+      "writes_to": "Ableton.Track.MUSIC.Lead",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 25,
+        "verse_1": 35,
+        "hook": 85,
+        "verse_2": 45,
+        "bridge": 55,
+        "final_hook": 90,
+        "outro": 30
+      },
+      "source": "engine/output/agent_outputs/melody/melody_lead.json",
+      "output_type": "midi_clip",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "vocal.main",
+      "group": "vocal",
+      "name": "Main Vocal",
+      "writes_to": "Ableton.Track.VOCALS.Main Vocal",
+      "clip_start_bar": 9,
+      "clip_end_bar": 72,
+      "mute_regions": [
+        {
+          "start_bar": 1,
+          "end_bar": 8,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 49,
+          "end_bar": 56,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 73,
+          "end_bar": 80,
+          "reason": "Inactive in arrangement scene"
+        }
+      ],
+      "section_activity": {
+        "intro": 0,
+        "verse_1": 85,
+        "hook": 90,
+        "verse_2": 85,
+        "bridge": 20,
+        "final_hook": 95,
+        "outro": 10
+      },
+      "source": "engine/output/agent_outputs/vocal/vocal_main.json",
+      "output_type": "midi_clip",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "fx.risers",
+      "group": "fx",
+      "name": "Risers",
+      "writes_to": "Ableton.Track.FX.Risers",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 60,
+        "verse_1": 30,
+        "hook": 55,
+        "verse_2": 35,
+        "bridge": 75,
+        "final_hook": 85,
+        "outro": 70
+      },
+      "source": "engine/output/agent_outputs/fx/fx_risers.json",
+      "output_type": "sound_design_plan",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "bass.sub",
+      "group": "bass",
+      "name": "Sub Bass",
+      "writes_to": "Ableton.Track.BASS.Sub Bass",
+      "clip_start_bar": 9,
+      "clip_end_bar": 80,
+      "mute_regions": [
+        {
+          "start_bar": 1,
+          "end_bar": 8,
+          "reason": "Inactive in arrangement scene"
+        }
+      ],
+      "section_activity": {
+        "intro": 10,
+        "verse_1": 80,
+        "hook": 95,
+        "verse_2": 80,
+        "bridge": 30,
+        "final_hook": 100,
+        "outro": 25
+      },
+      "source": "engine/output/agent_outputs/bass/bass_sub.json",
+      "output_type": "midi_clip",
+      "instrument_family": "Hip-Hop Sub Bass",
+      "sensei_role": "bass",
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "chords.pad",
+      "group": "music",
+      "name": "Pad",
+      "writes_to": "Ableton.Track.MUSIC.Pad",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 50,
+        "verse_1": 60,
+        "hook": 80,
+        "verse_2": 60,
+        "bridge": 70,
+        "final_hook": 85,
+        "outro": 40
+      },
+      "source": "engine/output/agent_outputs/chords/chords_pad.json",
+      "output_type": "midi_clip",
+      "instrument_family": "5ths Detuned Pad",
+      "sensei_role": "chord",
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "melody.counter",
+      "group": "music",
+      "name": "Counter Melody",
+      "writes_to": "Ableton.Track.MUSIC.Counter Melody",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 25,
+        "verse_1": 35,
+        "hook": 85,
+        "verse_2": 45,
+        "bridge": 55,
+        "final_hook": 90,
+        "outro": 30
+      },
+      "source": "engine/output/agent_outputs/melody/melody_counter.json",
+      "output_type": "midi_clip",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "vocal.doubles",
+      "group": "vocal",
+      "name": "Doubles",
+      "writes_to": "Ableton.Track.VOCALS.Doubles",
+      "clip_start_bar": 9,
+      "clip_end_bar": 72,
+      "mute_regions": [
+        {
+          "start_bar": 1,
+          "end_bar": 8,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 49,
+          "end_bar": 56,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 73,
+          "end_bar": 80,
+          "reason": "Inactive in arrangement scene"
+        }
+      ],
+      "section_activity": {
+        "intro": 0,
+        "verse_1": 85,
+        "hook": 90,
+        "verse_2": 85,
+        "bridge": 20,
+        "final_hook": 95,
+        "outro": 10
+      },
+      "source": "engine/output/agent_outputs/vocal/vocal_doubles.json",
+      "output_type": "midi_clip",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "fx.impacts",
+      "group": "fx",
+      "name": "Impacts",
+      "writes_to": "Ableton.Track.FX.Impacts",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 60,
+        "verse_1": 30,
+        "hook": 55,
+        "verse_2": 35,
+        "bridge": 75,
+        "final_hook": 85,
+        "outro": 70
+      },
+      "source": "engine/output/agent_outputs/fx/fx_impacts.json",
+      "output_type": "sound_design_plan",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "chords.strings",
+      "group": "music",
+      "name": "Strings",
+      "writes_to": "Ableton.Track.MUSIC.Strings",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 50,
+        "verse_1": 60,
+        "hook": 80,
+        "verse_2": 60,
+        "bridge": 70,
+        "final_hook": 85,
+        "outro": 40
+      },
+      "source": "engine/output/agent_outputs/chords/chords_strings.json",
+      "output_type": "midi_clip",
+      "instrument_family": "Glass High Strings Pad",
+      "sensei_role": "chord",
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "melody.texture",
+      "group": "music",
+      "name": "Texture",
+      "writes_to": "Ableton.Track.MUSIC.Texture",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 25,
+        "verse_1": 35,
+        "hook": 85,
+        "verse_2": 45,
+        "bridge": 55,
+        "final_hook": 90,
+        "outro": 30
+      },
+      "source": "engine/output/agent_outputs/melody/melody_texture.json",
+      "output_type": "midi_clip",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "vocal.adlibs",
+      "group": "vocal",
+      "name": "Adlibs",
+      "writes_to": "Ableton.Track.VOCALS.Adlibs",
+      "clip_start_bar": 9,
+      "clip_end_bar": 72,
+      "mute_regions": [
+        {
+          "start_bar": 1,
+          "end_bar": 8,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 49,
+          "end_bar": 56,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 73,
+          "end_bar": 80,
+          "reason": "Inactive in arrangement scene"
+        }
+      ],
+      "section_activity": {
+        "intro": 0,
+        "verse_1": 85,
+        "hook": 90,
+        "verse_2": 85,
+        "bridge": 20,
+        "final_hook": 95,
+        "outro": 10
+      },
+      "source": "engine/output/agent_outputs/vocal/vocal_adlibs.json",
+      "output_type": "midi_clip",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "fx.atmospheres",
+      "group": "fx",
+      "name": "Atmospheres",
+      "writes_to": "Ableton.Track.FX.Atmospheres",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 60,
+        "verse_1": 30,
+        "hook": 55,
+        "verse_2": 35,
+        "bridge": 75,
+        "final_hook": 85,
+        "outro": 70
+      },
+      "source": "engine/output/agent_outputs/fx/fx_atmospheres.json",
+      "output_type": "sound_design_plan",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "vocal.fx",
+      "group": "vocal",
+      "name": "Vocal FX",
+      "writes_to": "Ableton.Track.VOCALS.Vocal FX",
+      "clip_start_bar": 9,
+      "clip_end_bar": 72,
+      "mute_regions": [
+        {
+          "start_bar": 1,
+          "end_bar": 8,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 49,
+          "end_bar": 56,
+          "reason": "Inactive in arrangement scene"
+        },
+        {
+          "start_bar": 73,
+          "end_bar": 80,
+          "reason": "Inactive in arrangement scene"
+        }
+      ],
+      "section_activity": {
+        "intro": 0,
+        "verse_1": 85,
+        "hook": 90,
+        "verse_2": 85,
+        "bridge": 20,
+        "final_hook": 95,
+        "outro": 10
+      },
+      "source": "engine/output/agent_outputs/vocal/vocal_fx.json",
+      "output_type": "sound_design_plan",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    },
+    {
+      "action": "create_midi_track",
+      "track_id": "fx.transitions",
+      "group": "fx",
+      "name": "Transitions",
+      "writes_to": "Ableton.Track.FX.Transitions",
+      "clip_start_bar": 1,
+      "clip_end_bar": 80,
+      "mute_regions": [],
+      "section_activity": {
+        "intro": 60,
+        "verse_1": 30,
+        "hook": 55,
+        "verse_2": 35,
+        "bridge": 75,
+        "final_hook": 85,
+        "outro": 70
+      },
+      "source": "engine/output/agent_outputs/fx/fx_transitions.json",
+      "output_type": "sound_design_plan",
+      "instrument_family": null,
+      "sensei_role": null,
+      "device_chain": []
+    }
+  ]
+}

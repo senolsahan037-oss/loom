@@ -1,0 +1,386 @@
+{
+  "project": {
+    "name": "Phonk Experimental Cinematic",
+    "genre": "Phonk",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      45,
+      60,
+      75,
+      85,
+      90,
+      75,
+      65,
+      55,
+      50,
+      40,
+      45,
+      60,
+      75,
+      85,
+      90,
+      80,
+      65,
+      50,
+      40,
+      30,
+      25,
+      20,
+      35,
+      50,
+      60,
+      75,
+      90,
+      100,
+      90,
+      80,
+      75,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      20,
+      35,
+      50,
+      60,
+      75,
+      85,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      20,
+      35,
+      50,
+      65,
+      80,
+      90,
+      85,
+      75,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_slice",
+        "label": "kick_slice",
+        "reason": "start texture bed with sliced kick sample"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "one_shot",
+        "label": "snare_hit",
+        "reason": "introduce one-shot snare hit for rhythmic emphasis"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "sample_slice",
+        "label": "texture_rise",
+        "reason": "build cinematic rise with sliced texture sample"
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "sample_slice",
+        "label": "bass_slice",
+        "reason": "add groove with bass sample slices"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "one_shot",
+        "label": "impact_hit",
+        "reason": "add cinematic impact with one-shot effect"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "one_shot",
+        "label": "clap_hit",
+        "reason": "final hook with sharp one-shot clap hits"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "sample_slice",
+        "label": "fade_out_texture",
+        "reason": "outro with fading sliced textures"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "texture_bed",
+          "type": "sample_based",
+          "channels": [
+            "kick_slice",
+            "texture_rise",
+            "fade_out_texture"
+          ]
+        },
+        {
+          "name": "one_shot_hits",
+          "type": "one_shot",
+          "channels": [
+            "snare_hit",
+            "clap_hit",
+            "impact_hit"
+          ]
+        },
+        {
+          "name": "bass_slices",
+          "type": "sample_based",
+          "channels": [
+            "bass_slice"
+          ]
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "texture_bed": "provide ambient cinematic texture with sample slicing techniques",
+    "one_shot_hits": "inject rhythmic punctuation and emphasis with one-shot samples",
+    "bass_slices": "sample chopped bass to maintain groove and drive"
+  },
+  "routing_intent": {
+    "kick_slice": "routed to drums group with transient shaping",
+    "snare_hit": "routed to drums group with compression for punch",
+    "clap_hit": "routed to drums group with reverb for space",
+    "impact_hit": "routed to fx group with delay for cinematic effect",
+    "texture_rise": "routed to fx group for texture depth",
+    "fade_out_texture": "routed to fx group with automated fade",
+    "bass_slice": "routed to bass group with low end enhancement"
+  },
+  "track_roles": {
+    "drums": "sample slicing focused percussive elements and one-shot hits",
+    "bass": "rhythmic sample sliced bassline layer",
+    "chords": "textural samples for harmonic layering",
+    "melody": "cinematic melodic textures layered with samples",
+    "vocal": "no vocal elements in this arrangement",
+    "fx": "ambient and transitional cinematic samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 50,
+    "melody": 50,
+    "vocal": 0,
+    "fx": 60
+  },
+  "designer_intent": {
+    "focus": "Create a cinematic emotional arc using sample slicing for texture beds and well-placed one-shot hits while maintaining experimental phonk vibe."
+  },
+  "presetor_intent": {
+    "preset_selection": "Choose cinematic reverb and delay presets alongside transient shaping for sliced samples and one-shot hits."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design and sequence sample slice-based drum channels and one-shot hit placements with dynamic variations to support cinematic energy rises and falls."
+    },
+    "bass_generator": {
+      "brief": "Generate bass sample slices that complement the energy profile with clear groove and support the cinematic mood."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic layers primarily from sample-based texture beds to enrich cinematic atmosphere without traditional chords."
+    },
+    "melody_generator": {
+      "brief": "Add experimental melodic textures from samples to blend subtly with the arrangement and maintain cinematic feel."
+    },
+    "ai_designer": {
+      "brief": "Coordinate overall arrangement focusing on energy curve synchronization and smooth transitions between sections."
+    },
+    "presetor": {
+      "brief": "Select and apply sound presets emphasizing cinematic spatial effects for sliced samples and one-shot hits."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement matches the experimental phonk genre with cinematic mood using sample slicing and one-shots technique."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix routing focusing on clear separation of sliced samples and one-shot hits, delivering a natural cinematic rise and fall."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

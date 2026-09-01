@@ -1,0 +1,274 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Minimal Emotional Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      30,
+      40,
+      70,
+      50,
+      20
+    ],
+    "notes": "Sparse verses with strong hooks. Emphasis on modern sample chopping techniques used in production. Minimal variation applied throughout."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 65,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 25,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 55,
+          "verse_2": 20,
+          "bridge": 25,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "start_section",
+        "label": "Verse 1 Start",
+        "reason": "Verse 1 begins with sparse drum patterns"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "start_section",
+        "label": "Hook Start",
+        "reason": "Strong vocal hooks introduced"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "start_section",
+        "label": "Bridge Start",
+        "reason": "Transition with atmospheric FX"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "start_section",
+        "label": "Final Hook Start",
+        "reason": "Final hook with maximum energy"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": "modern_sample_chopping",
+    "channels": [
+      "slice_trim",
+      "loop_stretch",
+      "chop_retrigger",
+      "transient_slicing"
+    ]
+  },
+  "sound_intent": {
+    "dynamic_range": "moderate",
+    "sample_texture": "chopped_detailed",
+    "ambiance": "minimal_reverb"
+  },
+  "routing_intent": {
+    "drums": "dry",
+    "bass": "compressed",
+    "chords": "wide_stereo",
+    "melody": "bright",
+    "vocal": "centered_with_comp",
+    "fx": "subtle"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with chops",
+    "bass": "low frequency support",
+    "chords": "harmonic texture with sparse use",
+    "melody": "emotional hooks",
+    "vocal": "lead lyrical delivery",
+    "fx": "transitions and atmosphere"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      13,
+      17,
+      41,
+      45
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 4,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "overall_style": "minimal West Coast hip-hop",
+    "variation_level": "minimal",
+    "energy_profile": "low energy verses, strong hooks",
+    "mood_focus": "emotional"
+  },
+  "presetor_intent": {
+    "apply_sample_chopping_presets": true,
+    "preset_variation": "minimal",
+    "emphasis_on_hooks": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sparse and precise drum patterns using sample chopping techniques appropriate for West Coast hip-hop minimal style."
+    },
+    "bass_generator": {
+      "brief": "Craft supportive basslines that complement the sparse verses and reinforce hooks with subtle sample-based textures."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse chord activity with modern sample chopping applied to chord samples to maintain minimal and emotional mood."
+    },
+    "melody_generator": {
+      "brief": "Create melodic hooks using modern sample chopping techniques that evoke emotional resonance."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement ensuring minimal variation with sparse verses and strong hooks, applying modern sample chopping across layers."
+    },
+    "presetor": {
+      "brief": "Apply and manage sample chopping and production presets focused on emotional West Coast hip-hop minimalism and rhythmic hooks."
+    },
+    "songgps": {
+      "brief": "Ensure section transitions follow the sparse-to-strong energy profile with arranged event markers and lane activity reflecting emotional tone."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed multi-channel audio for mixing, preserving the dynamic contrasts between sparse verses and energized hooks."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.7
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

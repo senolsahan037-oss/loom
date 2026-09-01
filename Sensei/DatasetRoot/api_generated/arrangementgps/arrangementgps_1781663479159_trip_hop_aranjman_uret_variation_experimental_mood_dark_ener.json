@@ -1,0 +1,267 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Arrangement",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 85,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      60,
+      50,
+      40,
+      80,
+      70,
+      90,
+      60,
+      30,
+      40,
+      50,
+      70,
+      80,
+      60,
+      30,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile with dark and experimental trip hop elements, using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 80,
+          "outro": 30
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_chop",
+        "label": "Slice",
+        "reason": "Start with subtle sliced drum samples."
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "sample_chop",
+        "label": "Stutter",
+        "reason": "Introduce stutter chopped drum fills for hook."
+      },
+      {
+        "track": "bass",
+        "bar": 33,
+        "type": "sample_chop",
+        "label": "Gate",
+        "reason": "Gate chopped bass for rhythmic movement."
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "sample_chop",
+        "label": "Granular",
+        "reason": "Granular synth layer for atmospheric bridge."
+      },
+      {
+        "track": "melody",
+        "bar": 57,
+        "type": "sample_chop",
+        "label": "Reverse",
+        "reason": "Reverse chopped samples for final hook mood lift."
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "sample_chop",
+        "label": "Loop",
+        "reason": "Loop chopped atmospheric FX for outro."
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation via sample chopping techniques",
+    "bass": "deep groove with gated sample chops",
+    "chords": "textural and atmospheric granular chopped samples",
+    "melody": "experimental reversed chopped melodic samples",
+    "vocal": "sparse sampled vocal chops for mood",
+    "fx": "atmospheric looped chopped effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      65
+    ]
+  },
+  "priority": {
+    "drums": 90,
+    "bass": 70,
+    "chords": 60,
+    "melody": 50,
+    "vocal": 40,
+    "fx": 30
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns using varied modern sample chopping techniques like slicing and stuttering to fit the dark, cinematic trip hop vibe."
+    },
+    "bass_generator": {
+      "brief": "Design deep bass grooves employing gated chopping techniques to complement the dark and experimental mood."
+    },
+    "harmony_generator": {
+      "brief": "Generate textured chord layers using granular synthesis and sample chopping to build atmospheric depth."
+    },
+    "melody_generator": {
+      "brief": "Produce experimental melodic lines focusing on reversed and chopped sample manipulations for cinematic articulation."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement ensuring a dynamic energy flow with cinematic rises and falls, integrating modern sample chopping techniques per lane."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance sample chops' clarity, cinematic ambience, and dark mood consistency."
+    },
+    "songgps": {
+      "brief": "Map out energy curves and section transitions according to the cinematic rise and fall profile for the arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare for mixing by routing unprocessed sampled-chopped channel audio while preserving clarity and dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

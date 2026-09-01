@@ -1,0 +1,315 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Experimental Arrangement",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "Dm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      8,
+      5,
+      3,
+      0,
+      0,
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0
+    ],
+    "notes": "Arrangement featuring slow build energy profile using micro chops, phrase chops, reverse chops, vocal chops, and stutter chops as sample layers to create an experimental West Coast hip-hop vibe with a dark mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 75
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 60,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 65,
+          "bridge": 55,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 50,
+          "verse_2": 45,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 75,
+          "bridge": 65,
+          "final_hook": 95,
+          "outro": 35
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "transition",
+        "label": "Hook Start",
+        "reason": "Energy boost and sample chop intensity increase"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Bridge FX",
+        "reason": "Add atmospheric reverse chops for texture"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "transition",
+        "label": "Final Hook",
+        "reason": "Max energy and full sample chopping layers"
+      },
+      {
+        "track": "vocal",
+        "bar": 73,
+        "type": "fade",
+        "label": "Outro Fade",
+        "reason": "Energy drop and reduction of chop intensity"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with stutter chops",
+    "bass": "low-end groove with micro chops",
+    "chords": "harmonic texture with phrase chops",
+    "melody": "lead lines using reverse chops",
+    "vocal": "vocal chops and stuttered samples",
+    "fx": "atmospheric effects with reverse chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      64,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 60,
+    "melody": 50,
+    "vocal": 90,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a slow build drum arrangement utilizing stutter chops, increasing energy towards hooks."
+    },
+    "bass_generator": {
+      "brief": "Generate bass lines integrating micro chop samples that complement a dark mood and give groove."
+    },
+    "harmony_generator": {
+      "brief": "Provide harmonic chord layers using phrase chops to support the experimental flavor."
+    },
+    "melody_generator": {
+      "brief": "Design melodic elements employing reverse chops that build tension and release."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement flow, ensuring energy curves and sample chop variation match the slow build and dark mood."
+    },
+    "presetor": {
+      "brief": "Manage presets to suit experimental West Coast hip-hop style focusing on sample chops."
+    },
+    "songgps": {
+      "brief": "Guide arrangement section transitions and ensure lane activity correlates to energy profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed audio for mixing with focus on clarity of chopped samples and overall balance."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

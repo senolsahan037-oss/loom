@@ -1,0 +1,335 @@
+{
+  "project": {
+    "name": "West Coast Emotional Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      90,
+      80,
+      60,
+      40,
+      20,
+      35,
+      55,
+      75,
+      95,
+      75,
+      55,
+      35,
+      20,
+      30,
+      50,
+      70,
+      90,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      95,
+      80,
+      60,
+      40,
+      20,
+      35,
+      55,
+      75,
+      90,
+      75,
+      55,
+      35,
+      20,
+      30,
+      50,
+      70,
+      85,
+      70,
+      50,
+      30,
+      20,
+      40,
+      60,
+      80,
+      90,
+      75,
+      55,
+      35,
+      20,
+      30,
+      45,
+      65,
+      85,
+      65,
+      45,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 55
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 15
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 55,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 65,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 45,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "technique",
+        "label": "Slice",
+        "reason": "start with modern slicing sample chopping"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "technique",
+        "label": "Stutter",
+        "reason": "apply stutter chopping variation for bass groove"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "technique",
+        "label": "Gate",
+        "reason": "use gated chops for brightness in hook"
+      },
+      {
+        "track": "melody",
+        "bar": 33,
+        "type": "technique",
+        "label": "Glitch",
+        "reason": "introduce glitch chopping techniques for melodic interest"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "technique",
+        "label": "Reverse",
+        "reason": "add reversed chops for transition effect"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "technique",
+        "label": "Roll",
+        "reason": "use drum roll chopping in final hook to build energy"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation with chopping techniques",
+    "bass": "groove and low end with sample chops",
+    "chords": "harmonic support using gated chops",
+    "melody": "lead melodic textures via glitch chopping",
+    "vocal": "none - instrumental variation",
+    "fx": "atmospheric transitions with reversed chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      32,
+      48,
+      56,
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns focused on modern sample chopping techniques such as slicing, rolling, and stuttering that adapt dynamically to the cinematic rise and fall energy profile."
+    },
+    "bass_generator": {
+      "brief": "Create bassline patterns utilizing chopped samples with stutter and gated effects to maintain groove and complement the emotional mood."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions and harmonic textures using chopped and gated sample techniques that enhance the emotional and cinematic feel."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic elements employing glitch and modern chopping techniques to provide emotional melodic layers without explicit note or melody data."
+    },
+    "ai_designer": {
+      "brief": "Arrange the overall structure and energy curve of the piece, ensuring smooth cinematic rises and falls matching the West Coast Hip-Hop instrumental style."
+    },
+    "presetor": {
+      "brief": "Apply suitable presets and effects to maintain the emotional and cinematic qualities while supporting sample chopping techniques."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows genre conventions for West Coast Hip-Hop instrumental with dynamic section transitions and energy shaping."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix and master the raw channel audio preserving the detailed sample chopping techniques and cinematic dynamics without overprocessing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

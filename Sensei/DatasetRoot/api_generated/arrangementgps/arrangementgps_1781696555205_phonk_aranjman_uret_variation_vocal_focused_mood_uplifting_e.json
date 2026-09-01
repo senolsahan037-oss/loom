@@ -1,0 +1,258 @@
+{
+  "project": {
+    "name": "Phonk Vocal-Focused Arrangement",
+    "genre": "Phonk",
+    "subgenre": "Vocal-focused",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      60,
+      40,
+      60,
+      70,
+      80,
+      90,
+      100,
+      90,
+      80,
+      60,
+      50,
+      40,
+      30,
+      20
+    ],
+    "notes": "Slow build with vocal chops and layered micro chops for a textured, uplifting phonk arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 5
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 0
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 55,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 90,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 45,
+          "verse_2": 35,
+          "bridge": 50,
+          "final_hook": 60,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "arrangement_change",
+        "label": "vocal chops start",
+        "reason": "introduce vocal chops and micro chops for variation and texture"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "hook vocal climax",
+        "reason": "peak vocal energy and layering using phrase chops and stutter chops"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "effect_transition",
+        "label": "reverse chops transition",
+        "reason": "bridge section introduces reverse chops for dynamic shift"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation emphasizing slow build",
+    "bass": "supportive groove complementing vocal focus",
+    "chords": "sparse harmonic texture",
+    "melody": "subtle lead elements supporting vocals",
+    "vocal": "primary expressive layer with diverse chopping techniques",
+    "fx": "transitions and atmospheric enhancement"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 30,
+    "bass": 20,
+    "chords": 10,
+    "melody": 10,
+    "vocal": 100,
+    "fx": 25
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns with a slow build energy curve, complementing the phonk style while supporting vocal focus."
+    },
+    "bass_generator": {
+      "brief": "Create subtle bass lines that enhance the groove gently with minimal complexity to keep vocals prominent."
+    },
+    "harmony_generator": {
+      "brief": "Produce minimal chordal layers to support uplifting mood without interfering with vocal chops."
+    },
+    "melody_generator": {
+      "brief": "Craft sparse melodic elements that interact tastefully with vocal chop layers, avoiding clutter."
+    },
+    "ai_designer": {
+      "brief": "Ensure arrangement supports the energy curve with rising vocal chop intensity and slow buildup."
+    },
+    "presetor": {
+      "brief": "Manage presets to emphasize vocal texture with effects suited for micro slices, phrase, reverse, vocal, and stutter chops."
+    },
+    "songgps": {
+      "brief": "Coordinate section transitions and energy changes consistent with a slow build uplifting phonk vocal arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mixes focusing on clear vocal presence and dynamic transitions using chopping techniques."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

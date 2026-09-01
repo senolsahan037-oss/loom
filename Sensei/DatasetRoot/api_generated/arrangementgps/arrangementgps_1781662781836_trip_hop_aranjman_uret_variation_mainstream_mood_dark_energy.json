@@ -1,0 +1,388 @@
+{
+  "project": {
+    "name": "Dark Trip Hop Club Mix",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 96,
+    "key": "Am",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      60,
+      70,
+      90,
+      40
+    ],
+    "notes": "Trip Hop arrangement with mainstream variation and club energy profile; sample layers named after sample chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 60
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 70
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 55,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 50,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "Intro Kick Pattern",
+        "reason": "Kick pattern begins the rhythmic foundation"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "Bass Entrance",
+        "reason": "Bass line starts to build groove"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "cue",
+        "label": "Chords Full Texture",
+        "reason": "Full chord texture to fill harmonic space in hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "Vocal Sample Layer",
+        "reason": "Vocal sample added with chopping technique"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "FX Sweep",
+        "reason": "Transition with sweep effects into bridge section"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "energy_boost",
+        "label": "drum fills and rolls",
+        "reason": "Increase club energy for final hook"
+      },
+      {
+        "track": "bass",
+        "bar": 65,
+        "type": "energy_boost",
+        "label": "bass growls and slides",
+        "reason": "Add intensity for final hook"
+      }
+    ]
+  },
+  "production_tree": {
+    "samples": {
+      "drums": [
+        "slicings",
+        "staccato chops",
+        "transient returns"
+      ],
+      "vocal": [
+        "reverse chops",
+        "time stretch slices"
+      ],
+      "fx": [
+        "filter sweeps",
+        "granular resamples"
+      ],
+      "chords": [
+        "loop chops",
+        "ramped slices"
+      ],
+      "bass": [
+        "glide chops",
+        "split sample hits"
+      ]
+    },
+    "layers": [
+      "drums",
+      "bass",
+      "chords",
+      "melody",
+      "vocal",
+      "fx"
+    ]
+  },
+  "sound_intent": {
+    "drums": {
+      "style": "sample chopped with transient emphasis and staccato hits",
+      "effects": [
+        "compression",
+        "delay"
+      ]
+    },
+    "bass": {
+      "style": "clean chopped bass samples with slide articulations",
+      "effects": [
+        "low pass filter",
+        "distortion"
+      ]
+    },
+    "chords": {
+      "style": "warm chordal sample loops with crossfade slicing",
+      "effects": [
+        "reverb",
+        "chorus"
+      ]
+    },
+    "melody": {
+      "style": "subtle chopped melody layers with smooth fade ins",
+      "effects": [
+        "delay",
+        "reverb"
+      ]
+    },
+    "vocal": {
+      "style": "vocal chops with reverse and time-stretch techniques",
+      "effects": [
+        "pitch shift",
+        "delay"
+      ]
+    },
+    "fx": {
+      "style": "filtered sweeps and granular chopped effects",
+      "effects": [
+        "filter sweep",
+        "granular synthesis"
+      ]
+    }
+  },
+  "routing_intent": {
+    "drums": {
+      "buss": "drum master",
+      "effects": [
+        "compressor",
+        "eq"
+      ]
+    },
+    "bass": {
+      "buss": "bass master",
+      "effects": [
+        "eq",
+        "saturation"
+      ]
+    },
+    "chords": {
+      "buss": "chord master",
+      "effects": [
+        "reverb",
+        "chorus"
+      ]
+    },
+    "melody": {
+      "buss": "melody master",
+      "effects": [
+        "delay",
+        "reverb"
+      ]
+    },
+    "vocal": {
+      "buss": "vocal master",
+      "effects": [
+        "pitch correction",
+        "delay"
+      ]
+    },
+    "fx": {
+      "buss": "fx master",
+      "effects": [
+        "filter",
+        "reverb"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with chopped transient hits",
+    "bass": "groove and low-end support using sample chops",
+    "chords": "harmonic bed built from sample loops",
+    "melody": "accent and texture with subtle sample chops",
+    "vocal": "vocals as chopped samples with time and pitch effects",
+    "fx": "transitions and atmosphere using chopped effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      7,
+      39,
+      71
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 2,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create a dark, club-ready trip hop arrangement emphasizing sample chopping techniques for rhythmic and textural variety."
+  },
+  "presetor_intent": {
+    "instructions": "Apply effects and mixing presets to preserve the raw energy of sample chops while ensuring clarity and punch suitable for club play."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using chopped samples emphasizing transient and staccato hits for dark trip hop rhythm."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines from sample chops with glide and slide articulation to support club energy."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chord layers from chopped harmonic samples with smooth crossfades and dark tonal color."
+    },
+    "melody_generator": {
+      "brief": "Add melodic elements with subtle sample chops and fading to complement arrangement mood."
+    },
+    "ai_designer": {
+      "brief": "Design overall arrangement structure and energy profile adhering to dark trip hop and club energy target."
+    },
+    "presetor": {
+      "brief": "Select and apply effect presets matching trip hop style with emphasis on chopped sample textures."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement aligns with mainstream trip hop variation and maintains energy curve suitable for club environment."
+    },
+    "ai_mixmaster": {
+      "brief": "Process unprocessed channel audio to balance clarity, punch, and dark atmospheric texture."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

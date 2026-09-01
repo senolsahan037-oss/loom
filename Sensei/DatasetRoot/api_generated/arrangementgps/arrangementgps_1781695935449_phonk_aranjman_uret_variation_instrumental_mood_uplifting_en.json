@@ -1,0 +1,267 @@
+{
+  "project": {
+    "name": "Phonk Instrumental Uplifting",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      35,
+      60,
+      80,
+      60,
+      40,
+      70,
+      90,
+      70,
+      45,
+      20
+    ],
+    "notes": "Instrumental phonk arrangement with a cinematic rise and fall in energy. Samples sliced using chop techniques as channel names."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 35
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 65,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 55,
+          "bridge": 20,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 15,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 35,
+          "verse_2": 20,
+          "bridge": 15,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro Begins",
+        "reason": "Start of arrangement"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook",
+        "reason": "Elevated energy section"
+      },
+      {
+        "track": "fx",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook",
+        "reason": "Climax build-up"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro",
+        "reason": "Energy winding down"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "Chop_Slices": {
+        "description": "Channels named using sample chop slicing techniques",
+        "channels": [
+          "Repeat_Slice",
+          "Reverse_Slice",
+          "Stutter_Slice",
+          "Glitch_Slice",
+          "Gate_Slice",
+          "Roll_Slice"
+        ]
+      }
+    }
+  },
+  "sound_intent": {
+    "variation": "instrumental",
+    "mood": "uplifting",
+    "energy_profile": "cinematic rise and fall"
+  },
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation with emphasis on chopped percussion",
+    "bass": "deep support with sample-based sub layers",
+    "chords": "harmonic layering using sliced sample textures",
+    "melody": "subtle melodic accents from chopped samples",
+    "vocal": "none – instrumental only",
+    "fx": "atmospheric and cinematic effects using sliced samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      8,
+      73,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum layer focusing on sample chopping techniques and rhythmic variation to support the cinematic energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create a bass line that complements drum chops, maintaining low-frequency presence with subtle sample slices."
+    },
+    "harmony_generator": {
+      "brief": "Arrange chopped chord samples to build uplifting harmonic progressions matching the mood and energy profile."
+    },
+    "melody_generator": {
+      "brief": "Design melodic accents from chopped sample slices that enhance instrumental uplift without dominating arrangement."
+    },
+    "ai_designer": {
+      "brief": "Ensure overall arrangement follows cinematic rise and fall energy, emphasizing slice-chop channel naming conventions."
+    },
+    "presetor": {
+      "brief": "Apply instrumental presets and sample chop effect chains to texture layers for sonic consistency."
+    },
+    "songgps": {
+      "brief": "Track and manage arrangement sections, ensuring smooth transitions and correct energy contour into final mix."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for final mix, preserving sample chops and dynamic energy differences."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

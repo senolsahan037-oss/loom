@@ -1,0 +1,257 @@
+{
+  "project": {
+    "name": "Phonk Minimal Uplift",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      50,
+      60,
+      90,
+      70,
+      30
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits emphasizing hook-heavy energy. Minimal variation to keep arrangement clear and uplifting."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 25,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 45,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "start",
+        "label": "hook",
+        "reason": "energy boost with hook-heavy drums"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "start",
+        "label": "final_hook",
+        "reason": "final hook melody highlight with one-shot hits"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "type": "sample_based",
+      "children": [
+        {
+          "type": "texture_bed",
+          "name": "texture_bed"
+        },
+        {
+          "type": "one_shot_hits",
+          "name": "one_shot_hits"
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "sample-based arrangement",
+    "texture_bed": true,
+    "one_shots": true,
+    "channel_naming_convention": "sample slicing technique names"
+  },
+  "routing_intent": {
+    "drums": "sample slicing drums channel",
+    "bass": "sample slicing bass channel",
+    "chords": "sample slicing chords channel",
+    "melody": "sample slicing melody channel",
+    "vocal": "not applicable",
+    "fx": "sample slicing effects channel"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample-sliced hits",
+    "bass": "low end sample slices to anchor groove",
+    "chords": "harmonic sample slices providing texture",
+    "melody": "main melodic content using one-shot samples",
+    "vocal": "none",
+    "fx": "transitional and atmospheric sample slices"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "keeping arrangement minimal while maximizing uplifting energy mainly around hooks"
+  },
+  "presetor_intent": {
+    "goal": "apply minimal sample sliced textures emphasizing one-shots and hooks"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum lane activity using sample slicing techniques focusing on hook-heavy energetic parts."
+    },
+    "bass_generator": {
+      "brief": "Create bass sample slices supporting groove with minimal variations and emphasize hooks."
+    },
+    "harmony_generator": {
+      "brief": "Provide chord sample slices forming a textured bed with minimal layering."
+    },
+    "melody_generator": {
+      "brief": "Generate melodic one-shot hits highlighting hooks with an uplifting character."
+    },
+    "ai_designer": {
+      "brief": "Ensure arrangement balance between minimalism and uplifting energy profile across sections."
+    },
+    "presetor": {
+      "brief": "Configure preset parameters to support sample-based textures and hook emphasis."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure and energy curve for smooth transitions and strong hook presence."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio passes respecting routing and mixing priorities."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.95
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

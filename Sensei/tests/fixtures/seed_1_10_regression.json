@@ -1,0 +1,24 @@
+{
+  "schema_version": "seed-regression.v1",
+  "request": {
+    "prompt": "%70 boom bap %30 trap olsun",
+    "bars": 8,
+    "bpm": 120,
+    "generation_mode": "standard_pack"
+  },
+  "source_policy": "forced_procedural_fallback",
+  "style_policy": "static_genre_profiles",
+  "seeds": {
+    "1": {"event_count": 102, "assembled_sha1": "b6f12ea3faf36df1f4435b52b70feb596ac32bf7", "roles": {"closed_hat": 64, "kick": 19, "snare": 19}},
+    "2": {"event_count": 100, "assembled_sha1": "011ae5e92782319f9d23bdc909d9ae2966d250f7", "roles": {"closed_hat": 64, "kick": 18, "snare": 18}},
+    "3": {"event_count": 102, "assembled_sha1": "6fcd82cb35ffd2cbbec3a278c8e17e6fb9235a9b", "roles": {"closed_hat": 64, "kick": 19, "snare": 19}},
+    "4": {"event_count": 102, "assembled_sha1": "c51691229ae1eaef8019d28194ca5ee0b5796974", "roles": {"closed_hat": 64, "kick": 18, "snare": 20}},
+    "5": {"event_count": 99, "assembled_sha1": "d2b547bd499215e2d1bb475218129db091e2ca02", "roles": {"closed_hat": 64, "kick": 18, "snare": 17}},
+    "6": {"event_count": 101, "assembled_sha1": "ac70f8a50d78cc625de046a4d0814204137e2358", "roles": {"closed_hat": 64, "kick": 20, "snare": 17}},
+    "7": {"event_count": 102, "assembled_sha1": "0905a65cc0166623399bc0fc96efdee9a84239ed", "roles": {"closed_hat": 64, "kick": 18, "snare": 20}},
+    "8": {"event_count": 101, "assembled_sha1": "7682eae4ab17c464bb5c78639948df7f03a97f7b", "roles": {"closed_hat": 64, "kick": 16, "snare": 21}},
+    "9": {"event_count": 103, "assembled_sha1": "09d8351a7355eb376e594142d4cb725e07bf1c5a", "roles": {"closed_hat": 64, "kick": 19, "snare": 20}},
+    "10": {"event_count": 101, "assembled_sha1": "5fb40c1a4e04f80c7d0dc05f6c3098819ba566e8", "roles": {"closed_hat": 64, "kick": 19, "snare": 18}}
+  }
+}
+

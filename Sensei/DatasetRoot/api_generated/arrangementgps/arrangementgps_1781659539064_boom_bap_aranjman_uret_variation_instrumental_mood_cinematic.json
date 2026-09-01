@@ -1,0 +1,347 @@
+{
+  "project": {
+    "name": "Boom Bap Cinematic Instrumental",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C Minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      45,
+      60,
+      75,
+      90,
+      75,
+      60,
+      80,
+      95,
+      100,
+      90,
+      80,
+      60,
+      50,
+      40,
+      60,
+      80,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      20,
+      25,
+      40,
+      60,
+      80,
+      90,
+      100,
+      90,
+      70,
+      50,
+      40,
+      30,
+      20,
+      15,
+      20,
+      40,
+      60,
+      80,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      20,
+      15,
+      10,
+      20,
+      40,
+      60,
+      80,
+      90,
+      100,
+      90,
+      80,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      30,
+      40,
+      60,
+      80,
+      90,
+      80,
+      60,
+      40,
+      20,
+      10,
+      5,
+      0,
+      0
+    ],
+    "notes": "Instrumental boom bap arrangement featuring sample-based layers with texture bed and one-shot hits. No melody or chord progressions included."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 60
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 100
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "one_shot_hit",
+        "label": "Kick Hit",
+        "reason": "sample-based one shot hit to mark start"
+      },
+      {
+        "track": "fx",
+        "bar": 8,
+        "type": "texture_bed",
+        "label": "Sweeping Pad",
+        "reason": "build cinematic atmosphere for intro"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "one_shot_hit",
+        "label": "Snare Hit",
+        "reason": "hook accentuation with punchy one shots"
+      },
+      {
+        "track": "fx",
+        "bar": 56,
+        "type": "texture_bed",
+        "label": "Ambient Noise",
+        "reason": "bridge cinematic effect"
+      },
+      {
+        "track": "drums",
+        "bar": 72,
+        "type": "one_shot_hit",
+        "label": "Crash Hit",
+        "reason": "final hook climax accent"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "technique": "sample-based arrangement",
+      "components": [
+        "texture bed",
+        "one-shot hits"
+      ]
+    },
+    "channel_names": {
+      "kick": "one_shot_kick",
+      "snare": "one_shot_snare",
+      "hh": "texture_closed_hh",
+      "pad": "texture_pad_bed"
+    }
+  },
+  "sound_intent": {
+    "sample_integration": "blend texture beds with sparse one-shot percussion for dynamic cinematic rise and fall",
+    "mix_style": "clean, spatial, cinematic depth"
+  },
+  "routing_intent": {
+    "drums": "separate bus with transient shaping for one-shot hits",
+    "fx": "reverb and delay sends for texture enhancement"
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with impactful one-shot hits",
+    "bass": "low-end support with subtle presence",
+    "chords": "harmonic texture bed",
+    "melody": "none (instrumental variation)",
+    "vocal": "none",
+    "fx": "ambient and cinematic texture"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 2,
+    "melody": 0,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "overview": "Create a cinematic boom bap instrumental showcasing dynamic energy variations using sample chopping and textural layering."
+  },
+  "presetor_intent": {
+    "focus": "Apply cinematic reverb and dynamic compression to highlight texture bed and one-shot hits"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample-based one-shot hits and texture layers matching the boom bap cinematic energy profile"
+    },
+    "bass_generator": {
+      "brief": "Design subtle low-end bass parts supporting the drums and texture bed without melodic complexity"
+    },
+    "harmony_generator": {
+      "brief": "Arrange harmonic elements as texture beds without chord progressions or melody"
+    },
+    "melody_generator": {
+      "brief": "Omit melody generation for this instrumental variation"
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement progression enforcing cinematic energy rise and fall with sample layer integration"
+    },
+    "presetor": {
+      "brief": "Apply effects and preset parameters to support cinematic, spatial mix with emphasis on texture and samples"
+    },
+    "songgps": {
+      "brief": "Identify and structure sections with appropriate energy levels and event marker placements"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio ensuring clarity of one-shot hits and texture bed for final mixing"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

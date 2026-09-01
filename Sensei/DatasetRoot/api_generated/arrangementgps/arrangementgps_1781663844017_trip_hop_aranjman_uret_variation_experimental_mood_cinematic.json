@@ -1,0 +1,368 @@
+{
+  "project": {
+    "name": "Trip Hop Experimental Cinematic",
+    "genre": "Trip Hop",
+    "subgenre": "Experimental",
+    "bpm": 90,
+    "key": "D minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      50,
+      70,
+      60,
+      80,
+      90,
+      75,
+      65,
+      50,
+      40,
+      45,
+      55,
+      60,
+      80,
+      85,
+      95,
+      90,
+      85,
+      70,
+      60,
+      50,
+      40,
+      30,
+      25,
+      20,
+      15,
+      10,
+      20,
+      30,
+      40,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      70,
+      65,
+      60,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      60,
+      70,
+      80
+    ],
+    "notes": "Sample layer arrangement using texture bed and one-shot hits with sample slicing techniques to create varied channel naming and groove."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 45,
+          "final_hook": 80,
+          "outro": 25
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 65,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 60,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "slice_start",
+        "label": "transient_cut",
+        "reason": "start of sample slice sequence"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "transition_fx",
+        "label": "texture_rise",
+        "reason": "energy build leading to hook"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "one_shot_hit",
+        "label": "glitch_hit",
+        "reason": "variation impact in final hook"
+      },
+      {
+        "track": "chords",
+        "bar": 41,
+        "type": "sample_slice",
+        "label": "reversed_slice",
+        "reason": "experimental texture in verse 2"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        {
+          "name": "texture_bed",
+          "type": "sample_layer",
+          "children": [
+            {
+              "name": "pad_slice_1",
+              "type": "sample_slice"
+            },
+            {
+              "name": "pad_slice_2",
+              "type": "sample_slice"
+            }
+          ]
+        },
+        {
+          "name": "one_shot_hits",
+          "type": "sample_layer",
+          "children": [
+            {
+              "name": "glitch_hit_1",
+              "type": "one_shot"
+            },
+            {
+              "name": "glitch_hit_2",
+              "type": "one_shot"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_based": true,
+    "texture_bed": true,
+    "one_shot_hits": true,
+    "channel_naming_based_on_sample_slicing": true,
+    "mood": "cinematic"
+  },
+  "routing_intent": {
+    "drums": "slice_chopped_samples_to_drum_bus",
+    "bass": "filtered_sample_layer",
+    "chords": "reverb_and_delay_on_slices",
+    "melody": "light_fader_and_modulation",
+    "vocal": "muted",
+    "fx": "send_to_fx_bus"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with experimental sample slices",
+    "bass": "harmonic underpinning from sample layers",
+    "chords": "atmospheric texture with sliced samples",
+    "melody": "minimal lead elements from sample slicing",
+    "vocal": "none",
+    "fx": "spatial and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      72,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 3,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {
+    "focus_on_experimental_sample_slicing_and_texture": true,
+    "energy_profile": "cinematic rise and fall"
+  },
+  "presetor_intent": {
+    "apply_sample_slicing_preset_on_channels": true,
+    "emphasize_dynamic_textures": true
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sliced drum hit layers with variations to support cinematic rise and fall energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create bass sample layers with filtered and textured samples complementing the cinematic mood."
+    },
+    "harmony_generator": {
+      "brief": "Produce chordal sample slice textures with ambient effects for atmospheric depth."
+    },
+    "melody_generator": {
+      "brief": "Generate minimal melodic content using sample slicing, focused on textures rather than lead lines."
+    },
+    "ai_designer": {
+      "brief": "Design arrangement sections with energy variations following cinematic rise and fall profile."
+    },
+    "presetor": {
+      "brief": "Set channel presets to use sample slicing and one-shot hit arrangements with appropriate effects."
+    },
+    "songgps": {
+      "brief": "Coordinate overall arrangement structure ensuring energy and section flow match cinematic mood."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio for mix stage maintaining clarity of sample slices and texture layers."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

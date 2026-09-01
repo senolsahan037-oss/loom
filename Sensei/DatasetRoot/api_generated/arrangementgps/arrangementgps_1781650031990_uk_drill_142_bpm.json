@@ -1,0 +1,252 @@
+{
+  "project": {
+    "name": "UK Drill Track",
+    "genre": "Hip-Hop",
+    "subgenre": "UK Drill",
+    "bpm": 142,
+    "key": "D Minor",
+    "mood": "Dark, Tense",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      50,
+      80,
+      90,
+      40
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 40
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 80,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 15,
+          "hook": 25,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 25,
+          "outro": 0
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 70,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 30,
+          "verse_2": 20,
+          "bridge": 10,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "hit",
+        "label": "Kick Intro",
+        "reason": "Establish rhythm foundation"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "entry",
+        "label": "Bass Verse 1",
+        "reason": "Introduce bass groove"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "entry",
+        "label": "Hook Vocals",
+        "reason": "Lead hook section"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Bridge FX",
+        "reason": "Create atmosphere transition"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "build",
+        "label": "Final Hook Drums",
+        "reason": "Increase energy for final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "groove and low-end support",
+    "chords": "harmonic texture",
+    "melody": "minimal lead motifs",
+    "vocal": "rap vocals",
+    "fx": "atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 5,
+    "melody": 3,
+    "vocal": 9,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create hard-hitting and syncopated UK drill drum patterns emphasizing hi-hats, kicks, and snares in fast-paced 142 BPM grooves."
+    },
+    "bass_generator": {
+      "brief": "Generate deep, sliding basslines aligned with the UK drill style that complement the drum rhythm and maintain a tense, dark vibe."
+    },
+    "harmony_generator": {
+      "brief": "Produce sparse harmonic chord textures using minor tonalities to support the dark and moody atmosphere characteristic of UK drill."
+    },
+    "melody_generator": {
+      "brief": "Add minimal and haunting melodic motifs that enhance the mood without overpowering vocals or rhythm."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement flow ensuring energy dynamics match typical UK drill structure with impactful hooks and verse contrasts."
+    },
+    "presetor": {
+      "brief": "Apply UK drill production presets emphasizing punchy drums, dark atmospheric textures, and clean vocal effects."
+    },
+    "songgps": {
+      "brief": "Guide structural decisions and energy distribution throughout the 80-bar arrangement consistent with UK drill genre characteristics."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance instrument levels emphasizing clarity in drums and vocals, maintaining the raw and intense feel of UK drill."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.75,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

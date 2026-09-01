@@ -1,0 +1,357 @@
+{
+  "project": {
+    "name": "Trip Hop Vocal Focus",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 80,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      65,
+      80,
+      85,
+      90,
+      85,
+      75,
+      65,
+      55,
+      45,
+      40,
+      35,
+      30,
+      50,
+      70,
+      80,
+      85,
+      90,
+      85,
+      80,
+      78,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      15,
+      25,
+      40,
+      60,
+      80,
+      85,
+      90,
+      92,
+      88,
+      80,
+      70,
+      60,
+      55,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      8,
+      5,
+      3,
+      2,
+      3,
+      5,
+      8,
+      10,
+      12,
+      15,
+      18,
+      20,
+      22,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "notes": "This arrangement follows a slow build energy profile focusing on vocal elements with cinematic mood and textured trip hop style sample chops as layers."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 55,
+          "verse_2": 45,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 40,
+          "bridge": 35,
+          "final_hook": 55,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 10,
+          "hook": 20,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 25,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 80,
+          "bridge": 75,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "highlight",
+        "label": "Vocal Hook Start",
+        "reason": "Beginning of the main vocal hook with high presence"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "intro_effect",
+        "label": "Atmospheric Sweep",
+        "reason": "Set cinematic mood with fx sample chop sweep"
+      },
+      {
+        "track": "drums",
+        "bar": 49,
+        "type": "bridge_transition",
+        "label": "Drum Fill",
+        "reason": "Transition into bridge section with drum roll chop technique"
+      }
+    ]
+  },
+  "production_tree": {
+    "vocal": {
+      "layers": [
+        "slice_chop",
+        "stutter_chop",
+        "time_stretch_chop"
+      ]
+    },
+    "drums": {
+      "layers": [
+        "beat_repeat",
+        "reverse_chop",
+        "loop_slice"
+      ]
+    },
+    "fx": {
+      "layers": [
+        "granular_chop",
+        "transient_slice"
+      ]
+    }
+  },
+  "sound_intent": {
+    "vocal": "prominent, cinematic, processed with ambient reverbs and delays",
+    "drums": "textured, broken beats with trip hop groove",
+    "bass": "warm, deep, subdued to support vocals",
+    "chords": "soft pads with atmospheric layers",
+    "melody": "sparse, subtle melodic fragments",
+    "fx": "cinematic transitions and ambient textures"
+  },
+  "routing_intent": {
+    "vocal": "processed with delay and reverb sends",
+    "drums": "parallel compression and transient shaping",
+    "bass": "sidechain compression with drums",
+    "chords": "sent to ambient reverb",
+    "melody": "dry with slight delay",
+    "fx": "wide stereo and automation controlled"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with textural emphasis",
+    "bass": "harmonic foundation with groove support",
+    "chords": "harmonic background with atmospheric presence",
+    "melody": "additional melodic interest",
+    "vocal": "lead and focal element",
+    "fx": "transitions and ambiance"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      48,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 40,
+    "bass": 30,
+    "chords": 20,
+    "melody": 10,
+    "vocal": 100,
+    "fx": 25
+  },
+  "designer_intent": {
+    "focus": "Keep vocals as the centerpiece with progressive energy build reflecting cinematic mood and trip hop style sample chops."
+  },
+  "presetor_intent": {
+    "goal": "Render clean vocal samples with ambient effects and maintain smooth transitions using sample chopping techniques."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate textured trip hop drum patterns with slice and beat repeat chopping techniques to create groove and variation."
+    },
+    "bass_generator": {
+      "brief": "Produce a warm and subdued bassline that supports the vocals and groove with subtle dynamic movement."
+    },
+    "harmony_generator": {
+      "brief": "Create soft, atmospheric chord pads using sustained samples and granular chopping to enhance cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Add sparse, subtle melodic fragments that complement the vocal focus without crowding the mix."
+    },
+    "ai_designer": {
+      "brief": "Arrange sections with a slow build energy curve emphasizing vocal presence and cinematic mood progression."
+    },
+    "presetor": {
+      "brief": "Apply effects and automate transitions with sample chopping techniques, ensuring clarity and spatial placement."
+    },
+    "songgps": {
+      "brief": "Oversee arrangement logic, ensuring section flow and energy dynamics align with slow build trip hop vocal focus."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance unprocessed audio channels, preserving the cinematic mood, with priority on vocal clarity and ambient blend."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

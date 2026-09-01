@@ -1,0 +1,326 @@
+{
+  "project": {
+    "name": "Memphis Rap Experimental",
+    "genre": "Hip Hop",
+    "subgenre": "Memphis Rap",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      10,
+      15,
+      25,
+      40,
+      55,
+      70,
+      85,
+      100,
+      90,
+      75,
+      60,
+      45,
+      35,
+      25,
+      15,
+      10,
+      5,
+      10,
+      20,
+      35,
+      50,
+      65,
+      80,
+      95,
+      80,
+      65,
+      50,
+      35,
+      20,
+      10,
+      5,
+      10,
+      15,
+      25,
+      40,
+      60,
+      80,
+      100,
+      80,
+      60,
+      40,
+      30,
+      20,
+      15,
+      10,
+      5,
+      10,
+      20,
+      35,
+      50,
+      65,
+      80,
+      95,
+      100,
+      75,
+      50,
+      30,
+      15,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      85,
+      70,
+      55,
+      40,
+      25,
+      10,
+      5,
+      0,
+      0
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 55
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 85
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 65,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 35,
+          "final_hook": 80,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 20,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 85,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "intro_start",
+        "label": "Intro Begin",
+        "reason": "Start of track with minimal drums"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "verse_start",
+        "label": "Verse 1 Start",
+        "reason": "Entry of vocals to build tension"
+      },
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Start",
+        "reason": "High energy hook with vocal emphasis"
+      },
+      {
+        "track": "bass",
+        "bar": 49,
+        "type": "bridge_start",
+        "label": "Bridge Start",
+        "reason": "Energy dips with experimental bass shift"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook_start",
+        "label": "Final Hook Start",
+        "reason": "Return to peak vocal energy"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "outro_start",
+        "label": "Outro Start",
+        "reason": "Energy winding down with sparse drums"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic backbone with dynamic accents",
+    "bass": "deep and driving low-end support",
+    "chords": "dark atmospheric pads and stabs",
+    "melody": "experimental lead lines and motifs",
+    "vocal": "rap verses and hooks with dynamic phrasing",
+    "fx": "ambient and transitional effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      72,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate dynamic, cinematic drum patterns that build and release energy with an experimental approach fitting dark Memphis Rap style."
+    },
+    "bass_generator": {
+      "brief": "Craft a deep, dark bassline that rises and falls cinematically, complementing the arrangement’s mood and energy."
+    },
+    "harmony_generator": {
+      "brief": "Produce dark and atmospheric chord progressions with experimental textures to support the overall arrangement."
+    },
+    "melody_generator": {
+      "brief": "Design melodic motifs that are experimental and moody, blending with dark cinematic energy changes."
+    },
+    "ai_designer": {
+      "brief": "Manage overall arrangement structure with attention to energy curve, ensuring smooth rises and falls suited to the cinematic nature."
+    },
+    "presetor": {
+      "brief": "Apply presets that enhance the dark, cinematic feel without overshadowing subtle arrangement dynamics."
+    },
+    "songgps": {
+      "brief": "Guide the composition through energy variations and proper section layout for a cinematic Memphis Rap arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio ensuring clarity and balance for the cinematic rise and fall in energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

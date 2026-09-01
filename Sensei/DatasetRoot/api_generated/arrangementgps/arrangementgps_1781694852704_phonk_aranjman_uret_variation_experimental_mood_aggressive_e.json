@@ -1,0 +1,271 @@
+{
+  "project": {
+    "name": "Phonk Experimental Aggression",
+    "genre": "Hip Hop",
+    "subgenre": "Phonk",
+    "bpm": 140,
+    "key": "D minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      80,
+      95,
+      70,
+      40,
+      20
+    ],
+    "notes": "Phonk aranjmanı with experimental variation focusing on aggressive mood and club energy profile using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 70,
+          "hook": 95,
+          "verse_2": 80,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 60,
+          "hook": 85,
+          "verse_2": 75,
+          "bridge": 65,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 55,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 65,
+          "bridge": 60,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 50,
+          "final_hook": 75,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "build-up",
+        "label": "Sample Chop Crescendo",
+        "reason": "increase energy for hook with chopping fills"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "transition",
+        "label": "Glitch FX",
+        "reason": "bridge experimental texture"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "drop",
+        "label": "Filtered Sample Resample",
+        "reason": "final hook highlight using sample chopping technique"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": [
+      "modern_sample_chopping",
+      "glitch_sampling",
+      "resample_filtering"
+    ],
+    "channel_names": [
+      "ChopSlice_01",
+      "StutterCut_02",
+      "GlitchFX_03",
+      "ResampleLead_04",
+      "ChopBass_05",
+      "ScratchFX_06"
+    ]
+  },
+  "sound_intent": {
+    "style": "experimental phonk with aggressive and club oriented energy",
+    "sample_processing": "modern chopping and glitch manipulation techniques",
+    "tone": "gritty, raw, punchy"
+  },
+  "routing_intent": {
+    "drums": "ChopSlice_01",
+    "bass": "ChopBass_05",
+    "chords": "ResampleLead_04",
+    "melody": "StutterCut_02",
+    "vocal": "None",
+    "fx": "GlitchFX_03"
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with chopped samples",
+    "bass": "low end groove with sample chops",
+    "chords": "harmonic pads with resampling",
+    "melody": "lead elements incorporating stutter cuts",
+    "vocal": "none",
+    "fx": "texture and transitions with glitch samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      40,
+      56,
+      64,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "overall_goal": "Create an aggressive, experimental phonk arrangement with dynamic energy suited for club environments using advanced sample chopping and glitch techniques."
+  },
+  "presetor_intent": {
+    "preset_selection": "choose presets emphasizing gritty texture and punchy transient shaping for chopped samples"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate aggressive drum patterns utilizing modern sample chopping and layering techniques consistent with phonk and club energy."
+    },
+    "bass_generator": {
+      "brief": "Create bass lines using chopped and processed samples emphasizing rhythmic groove and fullness."
+    },
+    "harmony_generator": {
+      "brief": "Develop chord textures using resampling and filtering effects to provide a dark harmonic backdrop."
+    },
+    "melody_generator": {
+      "brief": "Produce melodic layers via stutter cuts and glitch sampling to enhance experimental character."
+    },
+    "ai_designer": {
+      "brief": "Integrate all elements to maximize aggressive mood and club energy with smooth transitions across sections."
+    },
+    "presetor": {
+      "brief": "Select and adjust presets for each track to support modern sample chopping techniques and maintain sonic clarity."
+    },
+    "songgps": {
+      "brief": "Guide the arrangement structure and energy curve to achieve dynamic build-ups and breakdowns fitting aggressive phonk style."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance levels and apply processing to preserve punch and clarity of chopped samples within the mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

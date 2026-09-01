@@ -1,0 +1,301 @@
+{
+  "project": {
+    "name": "Trip Hop Cinematic Instrumental",
+    "genre": "Trip Hop",
+    "subgenre": "Instrumental",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      35,
+      50,
+      65,
+      80,
+      90,
+      75,
+      60,
+      45,
+      50,
+      60,
+      80,
+      85,
+      70,
+      50,
+      40,
+      30,
+      25,
+      20
+    ],
+    "notes": "Arrangement with cinematic rise and fall in energy profile, employing modern sample chopping techniques for instrumental trip hop atmosphere."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 20
+        },
+        "channel_names": [
+          "Slice1",
+          "ChopA",
+          "BeatCut",
+          "GranularKick"
+        ]
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 10
+        },
+        "channel_names": [
+          "SliceBass",
+          "ChopSub"
+        ]
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 15
+        },
+        "channel_names": [
+          "ChopPads",
+          "GranularStrings"
+        ]
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 55,
+          "bridge": 70,
+          "final_hook": 85,
+          "outro": 5
+        },
+        "channel_names": [
+          "GranularLead",
+          "SliceMelody"
+        ]
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        },
+        "channel_names": []
+      },
+      "fx": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 65,
+          "final_hook": 75,
+          "outro": 20
+        },
+        "channel_names": [
+          "ChopFx",
+          "SliceSweep"
+        ]
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "section_start",
+        "label": "Intro start",
+        "reason": "Begin arrangement with initial sample chops"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "section_start",
+        "label": "Verse 1 start",
+        "reason": "Introduce main instrumental groove with sample chopping"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook start",
+        "reason": "Elevate cinematic energy with melodic chops"
+      },
+      {
+        "track": "bass",
+        "bar": 41,
+        "type": "section_start",
+        "label": "Verse 2 start",
+        "reason": "Return to verse variation with bass chopping"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Bridge start",
+        "reason": "Build tension with FX chopping effects"
+      },
+      {
+        "track": "chords",
+        "bar": 65,
+        "type": "section_start",
+        "label": "Final Hook start",
+        "reason": "Maximize cinematic rise using chord chops"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "section_start",
+        "label": "Outro start",
+        "reason": "Gradual energy drop using chopped samples"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {
+    "description": "Create a cinematic instrumental trip hop arrangement with dynamic rise and fall in energy, using modern sample chopping techniques to structure the sample layers uniquely across channels."
+  },
+  "routing_intent": {
+    "description": "Route chop-based samples on dedicated channels named after chopping techniques, ensuring clarity in production layers."
+  },
+  "track_roles": {
+    "drums": "Rhythmic backbone with chopped percussive samples",
+    "bass": "Low-end foundation using sliced bass samples",
+    "chords": "Harmonic texture employing granular and chopped pads",
+    "melody": "Lead melodic motifs from granular and sliced leads",
+    "vocal": "Absent - instrumental variation",
+    "fx": "Atmospheric and transitional effects via sample chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 80,
+    "bass": 70,
+    "chords": 60,
+    "melody": 60,
+    "vocal": 0,
+    "fx": 50
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate rhythmic drum patterns utilizing modern sample chopping techniques for dynamic energy shifts across sections."
+    },
+    "bass_generator": {
+      "brief": "Create bass parts based on sliced samples focusing on groove and cinematic movement."
+    },
+    "harmony_generator": {
+      "brief": "Develop harmonic layers using chopped and granular samples to produce atmospheric chord progressions without actual chords."
+    },
+    "melody_generator": {
+      "brief": "Design melodic lines crafted from granular and sliced lead samples maintaining the instrumental, cinematic mood."
+    },
+    "ai_designer": {
+      "brief": "Orchestrate arrangement with cinematic energy curve, structuring sections to build and release tension using sample chops."
+    },
+    "presetor": {
+      "brief": "Apply presets optimized for sample chopping effect and cinematic ambiance."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement follows cinematic rise and fall energy profile with proper section transitions."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels preserving clarity of chopped sample techniques and maintaining cinematic dynamics."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

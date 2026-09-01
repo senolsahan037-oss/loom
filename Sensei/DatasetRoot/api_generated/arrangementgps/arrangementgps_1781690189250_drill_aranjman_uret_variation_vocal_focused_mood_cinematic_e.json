@@ -1,0 +1,241 @@
+{
+  "project": {
+    "name": "Drill Vocal Focus",
+    "genre": "Hip-Hop",
+    "subgenre": "Drill",
+    "bpm": 140,
+    "key": "C minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      60,
+      85,
+      100,
+      30
+    ],
+    "notes": "Vocal-driven drill arrangement featuring cinematic mood and club-level energy progression, emphasizing dynamic vocal presence and impactful sections."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 100
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 85,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 40,
+          "hook": 65,
+          "verse_2": 50,
+          "bridge": 60,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 30,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 45,
+          "outro": 5
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 80,
+          "hook": 100,
+          "verse_2": 75,
+          "bridge": 85,
+          "final_hook": 100,
+          "outro": 25
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 35,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 40,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "section_start",
+        "label": "hook",
+        "reason": "hook section begins with vocal focus"
+      },
+      {
+        "track": "drums",
+        "bar": 41,
+        "type": "section_start",
+        "label": "verse_2",
+        "reason": "energy drops slightly for verse 2"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "section_start",
+        "label": "bridge",
+        "reason": "bridge introduces atmospheric effects"
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "section_start",
+        "label": "final_hook",
+        "reason": "final hook intensifies vocal presence"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and energy drive",
+    "bass": "low-end groove and pulse",
+    "chords": "harmonic support and texture",
+    "melody": "supportive melodic motifs",
+    "vocal": "primary melodic and lyrical expression",
+    "fx": "atmospheric and transition effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 60,
+    "chords": 40,
+    "melody": 30,
+    "vocal": 100,
+    "fx": 30
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate detailed and dynamic drum patterns that fit drill style with club energy, supporting vocal focus without overpowering."
+    },
+    "bass_generator": {
+      "brief": "Create basslines that complement the drums, providing groove and energy suitable for club setting while leaving space for vocals."
+    },
+    "harmony_generator": {
+      "brief": "Add harmonic elements and chords to support the cinematic mood, maintaining simplicity to emphasize vocals."
+    },
+    "melody_generator": {
+      "brief": "Develop subtle melodic elements to enhance the arrangement while keeping the vocal track as primary focus."
+    },
+    "ai_designer": {
+      "brief": "Oversee cohesion of arrangement, ensuring energy curve matches club vibe and vocal prominence throughout."
+    },
+    "presetor": {
+      "brief": "Apply presets that bring cinematic atmosphere and club energy, emphasizing clarity and presence for vocals."
+    },
+    "songgps": {
+      "brief": "Manage arrangement structure with sections and energy progression tailored to a drill vocal-focused track."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix for clean processing, preserving dynamic energy and vocal clarity for club playback."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.75
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "project": {
+    "name": "Emotional Trip Hop Arrangement",
+    "genre": "Trip Hop",
+    "subgenre": "Minimal",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      75,
+      30,
+      45,
+      85,
+      90,
+      10
+    ],
+    "notes": "Sparse verses with strong hooks. Variation set to minimal. Emphasis on emotional mood with trip hop signature sample chops."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 45
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 10
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 15,
+          "hook": 85,
+          "verse_2": 15,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 15,
+          "hook": 95,
+          "verse_2": 15,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 10,
+          "hook": 40,
+          "verse_2": 10,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal_chops",
+        "bar": 25,
+        "type": "cue",
+        "label": "strong_hook_start",
+        "reason": "Entry point for vocal chops with strong energy hook"
+      },
+      {
+        "track": "micro_chops",
+        "bar": 9,
+        "type": "cue",
+        "label": "start_sparse_verses",
+        "reason": "Introduce minimal micro chops in sparse verses"
+      },
+      {
+        "track": "reverse_chops",
+        "bar": 49,
+        "type": "effect",
+        "label": "bridge_reverse_chops",
+        "reason": "Use reverse chops to create atmosphere in bridge"
+      },
+      {
+        "track": "stutter_chops",
+        "bar": 57,
+        "type": "cue",
+        "label": "final_hook_stutter",
+        "reason": "Add extra energy via stutter chops in final hook"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythm foundation",
+    "bass": "harmonic anchor",
+    "chords": "texture and harmony",
+    "melody": "emotional lead elements",
+    "vocal": "sample-based vocal chops",
+    "fx": "atmospheric enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      2,
+      3,
+      10,
+      11,
+      34,
+      35,
+      74,
+      75
+    ]
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 60,
+    "chords": 50,
+    "melody": 80,
+    "vocal": 90,
+    "fx": 40
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create a sparse and minimal drum pattern that supports sparse verses and powerful hooks emphasizing emotional trip hop style."
+    },
+    "bass_generator": {
+      "brief": "Generate deep, minimal bass lines that complement sparse verses and strengthen hook sections."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions and textures using minimal harmonic movements suitable for emotional trip hop ambience."
+    },
+    "melody_generator": {
+      "brief": "Compose minimal and emotive melodies using sample chops and smooth phrasing for hooks."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement ensuring energy curve suits sparse verses with strong, emotional hooks."
+    },
+    "presetor": {
+      "brief": "Apply sample chopping layering techniques: micro chops, phrase chops, reverse chops, vocal chops, and stutter chops."
+    },
+    "songgps": {
+      "brief": "Manage section transitions and ensure energy profiles match the sparse verse and strong hook requirements."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance mix emphasizing vocal chops and hooks while maintaining sparse verses with clear separation."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

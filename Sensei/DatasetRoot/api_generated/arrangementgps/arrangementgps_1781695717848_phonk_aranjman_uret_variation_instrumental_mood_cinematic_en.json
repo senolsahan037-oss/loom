@@ -1,0 +1,301 @@
+{
+  "project": {
+    "name": "Phonk Cinematic Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      60,
+      80,
+      90,
+      70,
+      50
+    ],
+    "notes": "Phonk style instrumental arrangement with club energy, emphasizing cinematic mood. Use sample layers composed of micro chops, phrase chops, reverse chops, vocal chops, and stutter chops."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 80
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 50
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 60,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 45
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 55,
+          "verse_2": 50,
+          "bridge": 70,
+          "final_hook": 80,
+          "outro": 40
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 45,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 40,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 55,
+          "outro": 25
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "begin",
+        "label": "Intro Start",
+        "reason": "Start of the arrangement"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "activity_change",
+        "label": "Vocal chops layer introduced",
+        "reason": "Beginning of Verse 1 with vocal chops"
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "intensity_peak",
+        "label": "FX peak at Hook",
+        "reason": "Enhancing cinematic effect"
+      },
+      {
+        "track": "bass",
+        "bar": 57,
+        "type": "intensity_rise",
+        "label": "Bass energy boost",
+        "reason": "Bridge leading to the final hook"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "fade_out",
+        "label": "Outro fade",
+        "reason": "Energy winding down"
+      }
+    ]
+  },
+  "production_tree": {
+    "channels": [
+      {
+        "name": "micro_chops",
+        "type": "sample_layer",
+        "technique": "micro chops"
+      },
+      {
+        "name": "phrase_chops",
+        "type": "sample_layer",
+        "technique": "phrase chops"
+      },
+      {
+        "name": "reverse_chops",
+        "type": "sample_layer",
+        "technique": "reverse chops"
+      },
+      {
+        "name": "vocal_chops",
+        "type": "sample_layer",
+        "technique": "vocal chops"
+      },
+      {
+        "name": "stutter_chops",
+        "type": "sample_layer",
+        "technique": "stutter chops"
+      }
+    ]
+  },
+  "sound_intent": {
+    "focus": "Cinematic atmosphere with club energy, utilizing chopped sample textures.",
+    "sample_techniques": [
+      "micro chops",
+      "phrase chops",
+      "reverse chops",
+      "vocal chops",
+      "stutter chops"
+    ]
+  },
+  "routing_intent": {
+    "channels": [
+      "micro_chops",
+      "phrase_chops",
+      "reverse_chops",
+      "vocal_chops",
+      "stutter_chops"
+    ],
+    "routing": "Each sample layer routed to dedicated channels to preserve texture clarity."
+  },
+  "track_roles": {
+    "drums": "Maintain rhythm with chopped percussion elements.",
+    "bass": "Provide low-end groove complementing sample chops.",
+    "chords": "Create harmonic atmosphere from chopped layers.",
+    "melody": "Lead melodic content via chopped samples.",
+    "vocal": "Use vocal chops to add texture and interest.",
+    "fx": "Add cinematic effects supporting arrangement dynamics."
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 70,
+    "bass": 60,
+    "chords": 50,
+    "melody": 40,
+    "vocal": 30,
+    "fx": 20
+  },
+  "designer_intent": {
+    "arrangement_focus": "Focus on dynamic energy build with sample chopping techniques for cinematic and club feel."
+  },
+  "presetor_intent": {
+    "mix_style": "Clean and punchy mix highlighting chopped samples textures with clarity."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design drum patterns using chopped percussion samples emphasizing groove and club energy without traditional drum patterns."
+    },
+    "bass_generator": {
+      "brief": "Create a bassline that supports the rhythm and energy of the sample chops, maintaining low-end fullness and club presence."
+    },
+    "harmony_generator": {
+      "brief": "Generate chord progressions or pads inspired by chopped phrase and reverse chops to enhance cinematic mood."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic elements using chopped sample layers including micro and vocal chops to create texture and interest."
+    },
+    "ai_designer": {
+      "brief": "Arrange the sections with energy curve in mind, applying sample chop layers progressively to build dynamics."
+    },
+    "presetor": {
+      "brief": "Apply preset effects emphasizing clarity and punch to sample layers, maintaining cinematic club vibe."
+    },
+    "songgps": {
+      "brief": "Oversee arrangement structure with correct section transitions and energy profile according to the prompt."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix the track prioritizing clarity of sample layers, preserving dynamics and space for a cinematic instrumental."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

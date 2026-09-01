@@ -1,0 +1,280 @@
+{
+  "project": {
+    "name": "Arabesk Rap Arrangement",
+    "genre": "Hip Hop",
+    "subgenre": "Arabesk Rap",
+    "bpm": 75,
+    "key": "D minor",
+    "mood": "dark",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      15,
+      10,
+      5,
+      0
+    ],
+    "notes": "The arrangement focuses on a slow build in energy, emphasizing vocal presence with dark atmospheric elements. Instrumentation is minimal in the intro to foreground vocals, gradually increasing in complexity and intensity towards the hook. Dynamics are controlled to maintain a brooding mood without abrupt changes."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 76,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 77,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 35,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 50,
+          "hook": 75,
+          "verse_2": 55,
+          "bridge": 40,
+          "final_hook": 80,
+          "outro": 20
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 65,
+          "verse_2": 40,
+          "bridge": 30,
+          "final_hook": 70,
+          "outro": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 80,
+          "verse_1": 85,
+          "hook": 95,
+          "verse_2": 90,
+          "bridge": 85,
+          "final_hook": 98,
+          "outro": 60
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 55,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 1,
+        "type": "cue",
+        "label": "Vocal Entrance",
+        "reason": "Introduce the vocal line distinctly in the intro to establish mood."
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "pattern_change",
+        "label": "Drum Pattern Kickoff",
+        "reason": "Start slow rhythmic foundation for verse 1."
+      },
+      {
+        "track": "fx",
+        "bar": 25,
+        "type": "effect",
+        "label": "Dark ambient rise",
+        "reason": "Enhance the hook's dark mood and build energy."
+      },
+      {
+        "track": "vocal",
+        "bar": 65,
+        "type": "highlight",
+        "label": "Final Hook Emphasis",
+        "reason": "Maximize vocal presence and emotional impact."
+      },
+      {
+        "track": "drums",
+        "bar": 77,
+        "type": "fade_out",
+        "label": "Ending fade",
+        "reason": "Gradually reduce drum intensity in outro."
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation and dynamic build",
+    "bass": "groove support and mood reinforcement",
+    "chords": "harmonic texture and atmosphere",
+    "melody": "background motifs supporting vocals",
+    "vocal": "primary focus of arrangement",
+    "fx": "atmospheric enhancements and transitions"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "priority": {
+    "drums": 1,
+    "bass": 1,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 2
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create drum patterns that start sparse in the intro and build slowly in complexity and intensity to support a dark mood with a slow energy build."
+    },
+    "bass_generator": {
+      "brief": "Generate basslines that complement the vocal focus, providing subtle groove and supporting the dark atmosphere with gradual energy increases."
+    },
+    "harmony_generator": {
+      "brief": "Provide chordal textures that create a tension-filled, dark harmonic background, allowing vocals to remain the centerpiece."
+    },
+    "melody_generator": {
+      "brief": "Create subtle melodic motifs that support vocals without overpowering, maintaining a brooding and atmospheric character."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement to ensure the energy build is slow and vocal-centric, maintaining the dark mood throughout the track."
+    },
+    "presetor": {
+      "brief": "Apply presets that emphasize dark tonal qualities on vocals and instrumentals, ensuring clear vocal prominence and atmospheric depth."
+    },
+    "songgps": {
+      "brief": "Ensure the structure and energy progression align with the slow build and vocal focus requested, marking key arrangement points."
+    },
+    "ai_mixmaster": {
+      "brief": "Balance the mix to keep vocals prominent while blending instruments to complement the dark and slowly building energy profile."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.65
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

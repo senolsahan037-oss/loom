@@ -1,0 +1,244 @@
+{
+  "project": {
+    "name": "Arabesk Rap Mainstream Aggressive",
+    "genre": "Arabesk",
+    "subgenre": "Rap",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      80,
+      85,
+      95,
+      30
+    ],
+    "notes": "Arrangement emphasizes high club energy with aggressive mood typical for mainstream arabesk rap."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 90
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 85
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 95
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 85,
+          "final_hook": 95,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 90,
+          "verse_2": 70,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 50,
+          "hook": 80,
+          "verse_2": 60,
+          "bridge": 75,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 55,
+          "hook": 85,
+          "verse_2": 65,
+          "bridge": 80,
+          "final_hook": 90,
+          "outro": 25
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 80,
+          "hook": 95,
+          "verse_2": 85,
+          "bridge": 60,
+          "final_hook": 100,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 40,
+          "bridge": 60,
+          "final_hook": 80,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "section_start",
+        "label": "Hook Start",
+        "reason": "Transition to high energy hook"
+      },
+      {
+        "track": "vocal",
+        "bar": 33,
+        "type": "section_start",
+        "label": "Verse 2 Start",
+        "reason": "Second verse intro"
+      },
+      {
+        "track": "chords",
+        "bar": 49,
+        "type": "section_start",
+        "label": "Bridge Start",
+        "reason": "Dynamic shift and build"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "section_start",
+        "label": "Final Hook Start",
+        "reason": "Climax of arrangement"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, emphasizes aggressive club beat",
+    "bass": "supports groove with deep, driving lines",
+    "chords": "provides harmonic texture with arabesk influences",
+    "melody": "main melodic hook with arabesk scales adapted for rap",
+    "vocal": "lead rap verses and powerful hook performance",
+    "fx": "transitions and atmosphere to enhance energy shifts"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 10,
+    "bass": 8,
+    "chords": 7,
+    "melody": 9,
+    "vocal": 10,
+    "fx": 5
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Create an aggressive and club-oriented drum pattern suitable for arabesk rap with strong rhythmic accents."
+    },
+    "bass_generator": {
+      "brief": "Design a deep, driving bass line that supports the groove and matches the arabesk rap style."
+    },
+    "harmony_generator": {
+      "brief": "Produce chordal textures with arabesk flavor that complement the aggressive mood and blend with rap elements."
+    },
+    "melody_generator": {
+      "brief": "Generate a memorable arabesk-inspired melodic hook that fits the mainstream rap vibe without vocal content."
+    },
+    "ai_designer": {
+      "brief": "Oversee the arrangement structure ensuring energy flow aligns with club intensity and arabesk rap characteristics."
+    },
+    "presetor": {
+      "brief": "Apply appropriate sound presets to reflect arabesk rap style with aggressive and club energy tones."
+    },
+    "songgps": {
+      "brief": "Manage arrangement dynamics and transitions between sections maintaining energy profiles per bar."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix-friendly audio stems keeping the aggressive and energetic character distinct and clean."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

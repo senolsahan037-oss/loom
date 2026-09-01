@@ -1,0 +1,268 @@
+{
+  "project": {
+    "name": "Trip Hop Instrumental Uplifting",
+    "genre": "Electronic",
+    "subgenre": "Trip Hop",
+    "bpm": 90,
+    "key": "Cm",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      60,
+      80,
+      70,
+      50,
+      30,
+      20
+    ],
+    "notes": "Cinematic rise and fall energy profile with uplifting mood, instrumental trip hop arrangement."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 30
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 70
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 50,
+          "hook": 70,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 50,
+          "bridge": 30,
+          "final_hook": 55,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 45,
+          "hook": 65,
+          "verse_2": 55,
+          "bridge": 35,
+          "final_hook": 60,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 60,
+          "verse_2": 40,
+          "bridge": 20,
+          "final_hook": 50,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 25,
+          "hook": 40,
+          "verse_2": 35,
+          "bridge": 20,
+          "final_hook": 30,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "hook_start",
+        "reason": "energy curve peaks at hook"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "section_change",
+        "label": "bridge_start",
+        "reason": "dynamic drop in bridge section"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": {
+      "drums": [
+        "slice",
+        "chop",
+        "stutter",
+        "reverse"
+      ],
+      "fx": [
+        "granular",
+        "time_stretch",
+        "loop_slice"
+      ],
+      "chords": [
+        "loop_slice",
+        "reverse",
+        "stutter"
+      ],
+      "melody": [
+        "slice",
+        "granular"
+      ]
+    }
+  },
+  "sound_intent": {
+    "variation": "instrumental",
+    "energy_profile": "cinematic rise and fall",
+    "mood": "uplifting"
+  },
+  "routing_intent": {
+    "channels": {
+      "drums": "sample chop with slice and reverse techniques",
+      "fx": "layers using granular and time stretch samples",
+      "chords": "loop slice and stutter effect layers",
+      "melody": "sliced and granular texture samples"
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with chopped sample technique",
+    "bass": "low-end support",
+    "chords": "harmonic atmosphere via loop slices",
+    "melody": "instrumental motifs using sample manipulation",
+    "vocal": "absent",
+    "fx": "textural and transitional effects with granular and stutter chops"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      73,
+      74
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 4,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {
+    "arrangement_focus": "Create instrumental trip hop arrangement with cinematic energy curve and uplifting mood using chopped sample layers."
+  },
+  "presetor_intent": {
+    "preset_usage": "Apply presets emphasizing sample chopping and granular FX for texture."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum parts using sample chopping techniques like slice, chop, stutter, and reverse to create a rhythmic backbone."
+    },
+    "bass_generator": {
+      "brief": "Produce bass lines that support the arrangement's uplifting mood and cinematic energy rise and fall."
+    },
+    "harmony_generator": {
+      "brief": "Create harmonic chord layers using loop slicing and stutter sample techniques for atmospheric texture."
+    },
+    "melody_generator": {
+      "brief": "Develop melodic lines with instrumental sample slicing and granular methods, avoiding vocals or lyrical content."
+    },
+    "ai_designer": {
+      "brief": "Design the flow and dynamic energy curve of the arrangement focusing on uplifting cinematic trip hop without vocals."
+    },
+    "presetor": {
+      "brief": "Select and apply presets that complement chopped sample and granular techniques for all instrument layers."
+    },
+    "songgps": {
+      "brief": "Ensure arrangement structure follows the cinematic energy rise and fall with clear section demarcation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare the mix to keep channel audio unprocessed for final clarity and detail."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.8,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

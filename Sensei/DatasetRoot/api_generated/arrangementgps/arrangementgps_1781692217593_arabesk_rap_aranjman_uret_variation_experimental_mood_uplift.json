@@ -1,0 +1,245 @@
+{
+  "project": {
+    "name": "Arabesk Rap Experimental Uplifting",
+    "genre": "Arabesk",
+    "subgenre": "Rap",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      75,
+      50,
+      60,
+      85,
+      90,
+      60,
+      70,
+      100,
+      90,
+      75,
+      80,
+      95,
+      100,
+      85,
+      70,
+      60,
+      50,
+      45,
+      30,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 75
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 55,
+          "hook": 95,
+          "verse_2": 60,
+          "bridge": 40,
+          "final_hook": 100,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 45,
+          "hook": 80,
+          "verse_2": 50,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 25,
+          "verse_1": 50,
+          "hook": 90,
+          "verse_2": 55,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 85,
+          "verse_2": 45,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 70,
+          "hook": 100,
+          "verse_2": 65,
+          "bridge": 20,
+          "final_hook": 100,
+          "outro": 5
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 70,
+          "verse_2": 15,
+          "bridge": 10,
+          "final_hook": 80,
+          "outro": 5
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "intro_hook",
+        "label": "Hook Start",
+        "reason": "Energy peak at hook section with vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 57,
+        "type": "final_hook",
+        "label": "Final Hook Start",
+        "reason": "Maximum energy final chorus with hook-heavy drums"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation, hook emphasis",
+    "bass": "low-end groove, supports vocal rhythm",
+    "chords": "harmonic texture, atmospheric layers",
+    "melody": "experimental lead lines, uplifting motifs",
+    "vocal": "rap verse delivery and melodic hooks",
+    "fx": "transitions and experimental sound design"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      32,
+      56
+    ]
+  },
+  "priority": {
+    "drums": 8,
+    "bass": 6,
+    "chords": 5,
+    "melody": 7,
+    "vocal": 9,
+    "fx": 4
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Design dynamic drum patterns with strong hook presence and experimental rhythmic variations to drive energy."
+    },
+    "bass_generator": {
+      "brief": "Create supportive bassline patterns that complement drum rhythms and maintain groove through hooks and verses."
+    },
+    "harmony_generator": {
+      "brief": "Generate rich chord textures with experimental elements suitable for uplifting arabesk rap arrangement."
+    },
+    "melody_generator": {
+      "brief": "Develop experimental melodic motifs that convey uplifting mood and emphasize hooks without traditional melody lines."
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement structure to balance energy and hook intensity with experimental variation and uplifting atmosphere."
+    },
+    "presetor": {
+      "brief": "Apply preset sound designs that enhance experimental tones while preserving clarity and uplifting character."
+    },
+    "songgps": {
+      "brief": "Guide structure progression focusing on energy curves and hook-heavy sections in an arabesk rap style."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare unprocessed channel audio to facilitate dynamic and clear mixing aligned with arrangement’s energy profile."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.7,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "project": {
+    "name": "Phonk Cinematic Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Phonk",
+    "bpm": 90,
+    "key": "A minor",
+    "mood": "cinematic",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      30,
+      40,
+      85,
+      40,
+      20
+    ],
+    "notes": "Arrangement features sparse verses with strong, energy-packed hooks. Instrumental variation with sample-based layers including texture bed and one-shot hits."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 85
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 65,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 35,
+          "final_hook": 95,
+          "outro": 15
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 40,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 60,
+          "verse_1": 25,
+          "hook": 70,
+          "verse_2": 20,
+          "bridge": 60,
+          "final_hook": 75,
+          "outro": 60
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 15,
+          "hook": 85,
+          "verse_2": 20,
+          "bridge": 40,
+          "final_hook": 90,
+          "outro": 30
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 15,
+          "hook": 60,
+          "verse_2": 15,
+          "bridge": 45,
+          "final_hook": 65,
+          "outro": 35
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "energy_peak",
+        "label": "hook_start",
+        "reason": "Strong hook with one-shot hits and dynamic drums"
+      },
+      {
+        "track": "chords",
+        "bar": 1,
+        "type": "texture_bed",
+        "label": "intro_texture_start",
+        "reason": "Sample-based texture bed introduction"
+      },
+      {
+        "track": "drums",
+        "bar": 9,
+        "type": "pattern_change",
+        "label": "verse_rhythm_sparse",
+        "reason": "Sparse drum pattern for verses"
+      },
+      {
+        "track": "fx",
+        "bar": 49,
+        "type": "transition_fx",
+        "label": "bridge_fx",
+        "reason": "FX to mark bridge section"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "layers": [
+        {
+          "name": "texture_bed",
+          "type": "sample",
+          "methods": [
+            "time-stretch",
+            "granular_synthesis"
+          ]
+        },
+        {
+          "name": "one-shot_hits",
+          "type": "sample",
+          "methods": [
+            "slice",
+            "transient_detection"
+          ]
+        }
+      ]
+    }
+  },
+  "sound_intent": {
+    "sample_layer": "sample-based arrangement with texture bed and one-shot hits",
+    "energy_profile": "sparse verses with strong hooks",
+    "mood": "cinematic",
+    "variation": "instrumental"
+  },
+  "routing_intent": {
+    "channels": {
+      "texture_bed": "chords",
+      "one_shot_hits": "drums"
+    },
+    "effects": {
+      "texture_bed": [
+        "reverb",
+        "delay"
+      ],
+      "one_shot_hits": [
+        "compression",
+        "EQ"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation using sample slicing techniques",
+    "bass": "supporting low-end tonal foundation",
+    "chords": "texture bed created by granular synthesis samples",
+    "melody": "sparse but prominent melodic elements",
+    "vocal": "none (instrumental)",
+    "fx": "transitions and ambient enhancements"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      10,
+      34
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 4,
+    "melody": 4,
+    "vocal": 0,
+    "fx": 2
+  },
+  "designer_intent": {
+    "overall_style": "Emphasize cinematic mood with minimalistic verses and impactful hooks, leveraging sample manipulation techniques for texture",
+    "arrangement_strategy": "Create dynamic contrast by reducing activity in verses and peaking during hooks"
+  },
+  "presetor_intent": {
+    "processing": "Apply effects suited to sample-based textures; keep dynamics natural for sparse verses and enhance presence during hooks"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns using sample slicing and transient detection techniques, maintaining sparse verse rhythms and impactful hook hits"
+    },
+    "bass_generator": {
+      "brief": "Create bass lines that complement the sparse verses and strong hooks, supporting low-frequency texture without overpowering"
+    },
+    "harmony_generator": {
+      "brief": "Design texture beds and harmonic layers via granular and time-stretch sample manipulation to support cinematic mood"
+    },
+    "melody_generator": {
+      "brief": "Develop minimal melodic phrases that emerge during hooks, maintaining instrumental variation without vocals"
+    },
+    "ai_designer": {
+      "brief": "Coordinate arrangement energy curve and ensure contrast between sparse verses and strong hooks using sample-based layers"
+    },
+    "presetor": {
+      "brief": "Configure effect chains for texture bed and one-shot hits to enhance cinematic quality without cluttering the mix"
+    },
+    "songgps": {
+      "brief": "Manage section transitions and event markers to highlight dynamic shifts in arrangement energy"
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix targets focusing on unprocessed audio channels, preserving clarity and depth for post-processing"
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.95,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.85
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

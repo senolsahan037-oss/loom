@@ -1,0 +1,329 @@
+{
+  "project": {
+    "name": "West Coast Hip-Hop Aggressive Cinematic",
+    "genre": "Hip-Hop",
+    "subgenre": "West Coast",
+    "bpm": 95,
+    "key": "Am",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      90,
+      60,
+      50,
+      80,
+      100,
+      70,
+      40,
+      30,
+      60,
+      90,
+      100,
+      80,
+      50,
+      30,
+      20
+    ],
+    "notes": "Sample-based arrangement with textured beds and one-shot hit layers. Uses sample slicing techniques for channel names."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 60
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 75,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 80,
+          "verse_2": 65,
+          "bridge": 45,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 35,
+          "bridge": 25,
+          "final_hook": 40,
+          "outro": 10
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 5,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 30,
+          "bridge": 20,
+          "final_hook": 55,
+          "outro": 5
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 75,
+          "hook": 80,
+          "verse_2": 70,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 40,
+          "verse_1": 25,
+          "hook": 35,
+          "verse_2": 30,
+          "bridge": 45,
+          "final_hook": 40,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start",
+        "label": "KickIn",
+        "reason": "Sample sliced kick hit introduction"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start",
+        "label": "BassDrop",
+        "reason": "Main bass entry with sub bass sample slices"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start",
+        "label": "ChordPad",
+        "reason": "Texture bed layer introduction"
+      },
+      {
+        "track": "melody",
+        "bar": 25,
+        "type": "start",
+        "label": "OneShotLead",
+        "reason": "One-shot melodic hit layers begin"
+      },
+      {
+        "track": "vocal",
+        "bar": 9,
+        "type": "start",
+        "label": "VocalSlice",
+        "reason": "Vocal chops triggered as one-shot samples"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "start",
+        "label": "RiserFX",
+        "reason": "Cinematic rise effect using samples"
+      },
+      {
+        "track": "fx",
+        "bar": 72,
+        "type": "end",
+        "label": "OutroSweep",
+        "reason": "Ending texture sweep sample"
+      }
+    ]
+  },
+  "production_tree": {
+    "drums": [
+      "KickSlice",
+      "SnareSlice",
+      "HiHatSlice",
+      "PercSlice"
+    ],
+    "bass": [
+      "SubBassSample",
+      "MidBassSample"
+    ],
+    "chords": [
+      "PadSlice",
+      "TextureLoop"
+    ],
+    "melody": [
+      "LeadOneShot",
+      "AccentHit"
+    ],
+    "vocal": [
+      "VocalChopOneShot",
+      "VocalFxSlice"
+    ],
+    "fx": [
+      "Sweeps",
+      "Risers",
+      "Hits"
+    ]
+  },
+  "sound_intent": {
+    "texture_bed": true,
+    "one_shot_hits": true,
+    "sample_slicing_techniques": true,
+    "aggressive_tone": true,
+    "cinematic_energy_dynamics": true
+  },
+  "routing_intent": {
+    "drums": "parallel compression bus",
+    "bass": "low cut to sidechain bus",
+    "chords": "reverb send",
+    "melody": "delay send",
+    "vocal": "noise gate with auto-pan",
+    "fx": "stereo widening send"
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sliced samples",
+    "bass": "low end drive using sub and mid bass slices",
+    "chords": "harmonic texture bed from looped samples",
+    "melody": "accent hits and one-shot leads",
+    "vocal": "chopped vocal one-shots for hooks and fills",
+    "fx": "ambient cinematic effects with sample risers and sweeps"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73,
+      74,
+      75,
+      76,
+      77
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 3,
+    "chords": 2,
+    "melody": 2,
+    "vocal": 4,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus_on_energy_dynamics": "true",
+    "incorporate_sample_slicing": "true",
+    "create_aggressive_west_coast_style": "true",
+    "blend_texture_beds_with_one_shot_hits": "true"
+  },
+  "presetor_intent": {
+    "create_bright_percussion_channel": "true",
+    "apply_cinematic_fx_layers": "true",
+    "balance_energy_profile_per_section": "true"
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate aggressive, sample-sliced drum patterns with kinetic one-shot hits and texture layering."
+    },
+    "bass_generator": {
+      "brief": "Create a low-end bass line emphasizing sub and mid-range samples, with energy rises and falls matching the arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Produce pad and texture bed layers using sample loops and sliced chord samples to support the arrangement."
+    },
+    "melody_generator": {
+      "brief": "Add melodic one-shot hits placed sparsely to accentuate hooks and transitions with sample-based sound sources."
+    },
+    "ai_designer": {
+      "brief": "Supervise arrangement energy dynamics focusing on cinematic rises and falls, layering samples appropriately."
+    },
+    "presetor": {
+      "brief": "Manage preset application for layered samples including drums, bass, and cinematic FX ensuring coherent texture."
+    },
+    "songgps": {
+      "brief": "Coordinate section structuring and event markers, ensuring correct placement and energy curve mapping."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare routing for parallel compression, reverb and delay sends, and manage stereo width for cinematic effect."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

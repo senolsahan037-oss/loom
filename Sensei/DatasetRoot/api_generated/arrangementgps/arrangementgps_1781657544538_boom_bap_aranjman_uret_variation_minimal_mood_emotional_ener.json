@@ -1,0 +1,281 @@
+{
+  "project": {
+    "name": "Emotional Boom Bap Club",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 92,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      50,
+      60,
+      80,
+      65
+    ],
+    "notes": "Boom Bap aranjmanı, minimal varyasyonlu, duygusal bir atmosferde, kulüp enerjisi profiliyle. Modern sample chopping teknikleri kullanılarak örnek katmanı oluşturuldu. Kanal isimleri sample parçalama tekniklerinden esinlenilmiştir."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 65
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 40,
+          "9-24": 70,
+          "25-40": 100,
+          "41-56": 70,
+          "57-64": 60,
+          "65-72": 90,
+          "73-80": 50
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 50,
+          "25-40": 75,
+          "41-56": 55,
+          "57-64": 50,
+          "65-72": 70,
+          "73-80": 40
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 30,
+          "25-40": 50,
+          "41-56": 30,
+          "57-64": 35,
+          "65-72": 45,
+          "73-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 5,
+          "9-24": 15,
+          "25-40": 25,
+          "41-56": 15,
+          "57-64": 20,
+          "65-72": 30,
+          "73-80": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-8": 0,
+          "9-24": 0,
+          "25-40": 0,
+          "41-56": 0,
+          "57-64": 0,
+          "65-72": 0,
+          "73-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 25,
+          "25-40": 40,
+          "41-56": 25,
+          "57-64": 30,
+          "65-72": 35,
+          "73-80": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "sample_chop_start",
+        "label": "Slice Transient",
+        "reason": "Starting sample chopped drum pattern"
+      },
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "variation",
+        "label": "Switch to Minimal Variation",
+        "reason": "Keeping groove minimal but emotional"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "effect",
+        "label": "Reverse Sample Chop FX",
+        "reason": "Adding emotional club vibe transition"
+      }
+    ]
+  },
+  "production_tree": {
+    "layers": {
+      "Slice Transient": {
+        "type": "drum_sample_chop",
+        "description": "Primary drum chops using transient slicing"
+      },
+      "Beat Repeat": {
+        "type": "sample_chop_loop",
+        "description": "Looped sample chopping for rhythmic consistency"
+      },
+      "Stutter Gate": {
+        "type": "effect_sample_chop",
+        "description": "Chopped stutter effect on samples for dynamic texture"
+      },
+      "Reverse Grab": {
+        "type": "effect_sample_chop",
+        "description": "Reverse chopped samples for emotional club energy"
+      }
+    },
+    "routing": {
+      "Slice Transient": [
+        "drums"
+      ],
+      "Beat Repeat": [
+        "drums",
+        "fx"
+      ],
+      "Stutter Gate": [
+        "chords",
+        "fx"
+      ],
+      "Reverse Grab": [
+        "fx"
+      ]
+    }
+  },
+  "sound_intent": {
+    "description": "Create an emotional Boom Bap arrangement with minimal variations using modern sample chopping techniques to produce a club energy profile suitable for underground hip hop venues."
+  },
+  "routing_intent": {
+    "description": "Route sample chop based drum layers through transient slicing techniques, chords and FX layers with stutter gating and reverse grabs for emotional intensity and club vibe."
+  },
+  "track_roles": {
+    "drums": "core rhythm and groove using chopped samples",
+    "bass": "support emotional depth under groove",
+    "chords": "harmonic atmosphere with chopped textures",
+    "melody": "sparse melodic motifs using chopped samples",
+    "vocal": "no vocal content in arrangement",
+    "fx": "sample chop effects to enhance transitions and texture"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      8,
+      24,
+      56,
+      72
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 3,
+    "chords": 2,
+    "melody": 1,
+    "vocal": 0,
+    "fx": 3
+  },
+  "designer_intent": {
+    "goal": "Maintain emotional impact and club energy while using minimal variation and modern chopping sample layers."
+  },
+  "presetor_intent": {
+    "goal": "Enable bypassing temporary arrangement changes for clean audio rendering during production."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum parts using modern sample chopping techniques based on transient slicing and minimal variation to support emotional club energy."
+    },
+    "bass_generator": {
+      "brief": "Create supportive bass lines that reinforce groove and emotional mood without overpowering the minimal arrangement."
+    },
+    "harmony_generator": {
+      "brief": "Develop chordal textures using chopped sample layers with subtle rhythmic elements to enhance emotional atmosphere."
+    },
+    "melody_generator": {
+      "brief": "Add sparse melodic elements using chopped samples minimizing complexity to maintain minimal variation and club energy."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement energy curve, section transitions, and ensure emotional cohesion using sample chopping approaches."
+    },
+    "presetor": {
+      "brief": "Manage arrangement-presets to ensure bypass of temporary changes for consistent rendering workflow."
+    },
+    "songgps": {
+      "brief": "Monitor arrangement structure, section markers, and energy profiles to keep arrangement aligned with emotional Boom Bap club style."
+    },
+    "ai_mixmaster": {
+      "brief": "Receive unprocessed channel audio and prepare mixes emphasizing sample chop clarity and emotional impact in club environment."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

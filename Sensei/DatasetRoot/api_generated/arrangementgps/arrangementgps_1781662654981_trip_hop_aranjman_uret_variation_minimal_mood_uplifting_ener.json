@@ -1,0 +1,306 @@
+{
+  "project": {
+    "name": "Trip Hop Minimal Uplift",
+    "genre": "Trip Hop",
+    "subgenre": "Minimal",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      30,
+      80,
+      30,
+      40,
+      80,
+      50,
+      20
+    ],
+    "notes": "Sample-based arrangement with texture bed and one-shot hits creating a hook-heavy energy profile and uplifting mood."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 30
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 30
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 40
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 80
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 90,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 70,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 70,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 30,
+          "hook": 85,
+          "verse_2": 30,
+          "bridge": 50,
+          "final_hook": 85,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 90,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 90,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 0,
+          "hook": 0,
+          "verse_2": 0,
+          "bridge": 0,
+          "final_hook": 0,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 20,
+          "hook": 60,
+          "verse_2": 20,
+          "bridge": 30,
+          "final_hook": 60,
+          "outro": 15
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "pattern_change",
+        "label": "hook entry",
+        "reason": "increase energy with hook-heavy pattern"
+      },
+      {
+        "track": "chords",
+        "bar": 57,
+        "type": "texture_change",
+        "label": "bridge shift",
+        "reason": "introduce subtle changes to maintain interest"
+      },
+      {
+        "track": "fx",
+        "bar": 73,
+        "type": "fade_out_start",
+        "label": "outro start",
+        "reason": "smooth ending with fading effects"
+      }
+    ]
+  },
+  "production_tree": {
+    "root": {
+      "children": [
+        "texture_bed",
+        "one_shot_hits"
+      ]
+    },
+    "texture_bed": {
+      "type": "sample_based",
+      "description": "underlying ambient and textural samples forming the bed"
+    },
+    "one_shot_hits": {
+      "type": "sample_based",
+      "description": "percussive one-shot hits using sample slicing techniques"
+    }
+  },
+  "sound_intent": {
+    "texture_bed": {
+      "role": "ambient foundation",
+      "character": "warm, smooth, atmospheric"
+    },
+    "one_shot_hits": {
+      "role": "rhythmic hooks",
+      "character": "crispy, short, rhythmic accents"
+    }
+  },
+  "routing_intent": {
+    "drums": {
+      "group": "rhythm",
+      "effects_chain": [
+        "compressor",
+        "eq",
+        "delay"
+      ]
+    },
+    "bass": {
+      "group": "low_end",
+      "effects_chain": [
+        "saturation",
+        "eq"
+      ]
+    },
+    "chords": {
+      "group": "harmony",
+      "effects_chain": [
+        "reverb",
+        "chorus"
+      ]
+    },
+    "melody": {
+      "group": "lead",
+      "effects_chain": [
+        "delay",
+        "eq"
+      ]
+    },
+    "vocal": {
+      "group": "vocals",
+      "effects_chain": []
+    },
+    "fx": {
+      "group": "effects",
+      "effects_chain": [
+        "reverb",
+        "auto_panner"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic foundation with sample slicing hits",
+    "bass": "sub-bass and groove anchor",
+    "chords": "texture bed with sample-based pads",
+    "melody": "occasional melodic hooks",
+    "vocal": "none",
+    "fx": "transition and atmosphere effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 3,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {
+    "overview": "Create a minimal Trip Hop arrangement with uplifting mood, emphasizing sample-based textures and hook-heavy energy."
+  },
+  "presetor_intent": {
+    "sample_selection": "Choose warm texture samples and crisp one-shot drum hits using sample slicing techniques."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate sample-based drum patterns emphasizing one-shot hits with dynamic energy increase on hooks."
+    },
+    "bass_generator": {
+      "brief": "Create a minimal bassline that supports groove and maintains low-end presence without overpowering the texture bed."
+    },
+    "harmony_generator": {
+      "brief": "Produce ambient chord textures using sampled pads, ensuring smooth transitions and minimal complexity."
+    },
+    "melody_generator": {
+      "brief": "Add minimal melodic motifs focused on hooks, avoiding complex lines to keep arrangement minimal."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring energy curve aligns with uplifting and hook-heavy profile."
+    },
+    "presetor": {
+      "brief": "Select and arrange samples based on slicing techniques to create texture bed and one-shot hits respecting minimal style."
+    },
+    "songgps": {
+      "brief": "Map arrangement flow to standard section ids with defined energy levels and transitions reflecting the mood and variation."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare routing and effects chains per instrument group to preserve clarity and emphasize hooks without overprocessing."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.85,
+    "sound_intent": 0.8,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,41 @@
+# Sanal ortamlar ve bagimliliklar
+**/.venv/
+**/node_modules/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Uretilen ciktilar
+Sensei/extensions/*/dist/
+ArrangementGPS/dist/
+mcp_server/responses/
+Renderer/Jobs/*.json
+Renderer/Renders/
+Renderer/Stems/
+
+# Kopru kuyrugu: calisma zamani durumu
+Sensei/data/bridge_queue/
+
+# Araclarin aldigi yedekler
+*.mcp_backup_*.als
+*.pre_*_backup.als
+
+.DS_Store
+
+# --- Kisisel veri: makineye ve kullaniciya ozel, urunun parcasi degil ---
+# Hepsi yeniden uretilebilir. Depo kod + fixture yayinlar, olcum yayinlamaz.
+**/.env
+Presetor/data/measured_*.json
+AISoundDesigner/data/measured_*.json
+Docs/arrangement_shapes_*.json
+AIMixMaster/reports/
+AIMixMaster/als_test/
+AIMixMaster/felekten_*.txt
+AIMixMaster/CURRENT_MIXMASTER_ALS.txt
+ArrangementGPS/Builds/*
+!ArrangementGPS/Builds/fixture_project/
+ArrangementGPS/engine/output/
+# Sensei veri kumeleri kullanicinin KENDI Ableton kurulumundan uretilir
+# (uretici: Sensei/ableton/genre_identity.py, *_instrument_catalog.py)
+Sensei/data/
+Sensei/DatasetRoot/indexes/

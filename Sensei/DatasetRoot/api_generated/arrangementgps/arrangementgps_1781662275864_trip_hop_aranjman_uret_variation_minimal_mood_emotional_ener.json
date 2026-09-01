@@ -1,0 +1,265 @@
+{
+  "project": {
+    "name": "Minimal Emotional Trip Hop",
+    "genre": "Trip Hop",
+    "subgenre": "Minimal",
+    "bpm": 90,
+    "key": "Am",
+    "mood": "emotional",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      80,
+      40,
+      50,
+      90,
+      80,
+      20
+    ],
+    "notes": "Arrangement features a hook-heavy energy profile with minimal variation, focusing on emotional delivery using modern sample chopping techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 40
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 64,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 20
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 40,
+          "hook": 90,
+          "verse_2": 40,
+          "bridge": 50,
+          "final_hook": 95,
+          "outro": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 80,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 85,
+          "outro": 10
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 35,
+          "hook": 70,
+          "verse_2": 35,
+          "bridge": 40,
+          "final_hook": 75,
+          "outro": 15
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 90,
+          "verse_2": 30,
+          "bridge": 40,
+          "final_hook": 95,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 0,
+          "verse_1": 25,
+          "hook": 80,
+          "verse_2": 25,
+          "bridge": 35,
+          "final_hook": 85,
+          "outro": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 25,
+          "hook": 60,
+          "verse_2": 25,
+          "bridge": 30,
+          "final_hook": 65,
+          "outro": 20
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 25,
+        "type": "notice",
+        "label": "Hook Start",
+        "reason": "Increased energy with hook-heavy section"
+      },
+      {
+        "track": "melody",
+        "bar": 65,
+        "type": "notice",
+        "label": "Final Hook",
+        "reason": "Peak emotional and energy focus"
+      },
+      {
+        "track": "fx",
+        "bar": 1,
+        "type": "effect",
+        "label": "Sample Chop FX Start",
+        "reason": "Introduce modern sample chopping techniques at intro"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layers": [
+      "Slice-X",
+      "Beat Detective",
+      "Serato Sample",
+      "Ableton Simpler"
+    ]
+  },
+  "sound_intent": {
+    "sample_layer": "modern sample chopping techniques",
+    "mood": "emotional",
+    "variation": "minimal",
+    "energy_profile": "hook-heavy"
+  },
+  "routing_intent": {
+    "channels": {
+      "Slicer": [
+        "drums",
+        "fx"
+      ],
+      "TimeStretch": [
+        "melody",
+        "chords"
+      ],
+      "ReverbSend": [
+        "vocal",
+        "fx"
+      ]
+    }
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone using sliced drum samples",
+    "bass": "subtle supportive role with minimal presence",
+    "chords": "textural harmonic pads with sample manipulation",
+    "melody": "leading emotional motifs via chopped samples",
+    "vocal": "processed vocal chops emphasizing hooks",
+    "fx": "ambient and transition effects using chopped samples"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": []
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 2,
+    "melody": 4,
+    "vocal": 3,
+    "fx": 1
+  },
+  "designer_intent": {
+    "focus": "Create an emotionally compelling arrangement with minimal elements, emphasizing hooks through energetic sample manipulation."
+  },
+  "presetor_intent": {
+    "focus": "Apply presets optimized for crisp sample chopping, with emphasis on clarity and emotional impact."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate a minimalistic but dynamic drum arrangement focusing on sliced and chopped drum samples that align with the hook-heavy energy curve."
+    },
+    "bass_generator": {
+      "brief": "Create a subtle bass line supporting the emotional mood without overpowering the hook sections, using minimal sample chopping techniques."
+    },
+    "harmony_generator": {
+      "brief": "Design sparse chord textures employing modern sample chopping techniques to enhance emotional depth without clutter."
+    },
+    "melody_generator": {
+      "brief": "Compose emotive and hook-driven melodic ideas using modern sample chopping, emphasizing variation within minimalism."
+    },
+    "ai_designer": {
+      "brief": "Coordinate the arrangement ensuring a balanced energy curve with emotional hooks and minimal variation, highlighting sample chopping methods."
+    },
+    "presetor": {
+      "brief": "Select and adjust sound presets tailored to modern sample chopping techniques, enhancing clarity and emotional expression."
+    },
+    "songgps": {
+      "brief": "Ensure structural coherence with the defined sections and energy profile, prioritizing hook sections within the arrangement."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare mix guidelines optimizing the dynamics and clarity of chopped samples, preserving emotional impact and hook prominence."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.75,
+    "sound_intent": 0.9,
+    "agent_dispatch": 0.8
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

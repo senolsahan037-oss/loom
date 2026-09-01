@@ -1,0 +1,259 @@
+{
+  "project": {
+    "name": "Boom Bap Vocal Aggression",
+    "genre": "Hip Hop",
+    "subgenre": "Boom Bap",
+    "bpm": 90,
+    "key": "C minor",
+    "mood": "aggressive",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      40,
+      70,
+      80,
+      50,
+      65,
+      85
+    ],
+    "notes": "Arrangement follows a vocal-focused boom bap style with aggressive mood and club energy dynamics. Sample layer channels are named by sample chop techniques."
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 40
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 32,
+        "energy": 70
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 33,
+        "end_bar": 48,
+        "energy": 80
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 49,
+        "end_bar": 56,
+        "energy": 50
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 57,
+        "end_bar": 72,
+        "energy": 65
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 85
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "intro": 30,
+          "verse_1": 70,
+          "hook": 90,
+          "verse_2": 90,
+          "bridge": 50,
+          "final_hook": 80,
+          "outro": 40
+        }
+      },
+      "bass": {
+        "activity": {
+          "intro": 20,
+          "verse_1": 60,
+          "hook": 70,
+          "verse_2": 70,
+          "bridge": 40,
+          "final_hook": 60,
+          "outro": 30
+        }
+      },
+      "chords": {
+        "activity": {
+          "intro": 15,
+          "verse_1": 40,
+          "hook": 60,
+          "verse_2": 60,
+          "bridge": 30,
+          "final_hook": 50,
+          "outro": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 30,
+          "hook": 50,
+          "verse_2": 50,
+          "bridge": 20,
+          "final_hook": 40,
+          "outro": 10
+        }
+      },
+      "vocal": {
+        "activity": {
+          "intro": 50,
+          "verse_1": 90,
+          "hook": 100,
+          "verse_2": 100,
+          "bridge": 70,
+          "final_hook": 90,
+          "outro": 60
+        }
+      },
+      "fx": {
+        "activity": {
+          "intro": 10,
+          "verse_1": 20,
+          "hook": 25,
+          "verse_2": 25,
+          "bridge": 15,
+          "final_hook": 20,
+          "outro": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "vocal",
+        "bar": 25,
+        "type": "hook_start",
+        "label": "Hook Begin",
+        "reason": "Raise energy with vocal emphasis"
+      },
+      {
+        "track": "drums",
+        "bar": 33,
+        "type": "intensity_increase",
+        "label": "Drum Fill",
+        "reason": "Increase aggression and club energy"
+      },
+      {
+        "track": "vocal",
+        "bar": 57,
+        "type": "final_hook",
+        "label": "Final Hook Entry",
+        "reason": "Climax with vocal focus"
+      }
+    ]
+  },
+  "production_tree": {
+    "sample_layer": {
+      "channels": [
+        "slice_straight",
+        "slice_chop",
+        "reverse_slice",
+        "stutter_slice",
+        "pitch_shift_slice",
+        "time_stretch_slice"
+      ]
+    }
+  },
+  "sound_intent": {
+    "focus": "vocal",
+    "style": "boom bap sample chopped with aggressive tone",
+    "energy_profile": "club energy"
+  },
+  "routing_intent": {
+    "vocal": "prominent front and center",
+    "drums": "punchy with crisp hi-hats and snappy snare",
+    "fx": "subtle effects supporting vocal transitions"
+  },
+  "track_roles": {
+    "drums": "rhythmic backbone with swing",
+    "bass": "sub bass supporting groove",
+    "chords": "sampled chord chops for harmonic texture",
+    "melody": "textural melodic samples",
+    "vocal": "lead focus with aggression",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 3,
+    "bass": 2,
+    "chords": 1,
+    "melody": 1,
+    "vocal": 5,
+    "fx": 1
+  },
+  "designer_intent": {
+    "arrangement_goals": "Create a vocal-centered boom bap arrangement with sample chops using vocal aggression and club energy for dynamic engagement."
+  },
+  "presetor_intent": {
+    "preset_selection": "Choose presets emphasizing crisp drums, vocal presence, and punchy sample chops."
+  },
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate boom bap drum tracks with aggressive transient hits, including snare and hi-hat detailing."
+    },
+    "bass_generator": {
+      "brief": "Produce supportive sub bass lines that complement the aggressive vocal tone and drum pattern."
+    },
+    "harmony_generator": {
+      "brief": "Create sampled chord chops for harmonic texture without sustained chords."
+    },
+    "melody_generator": {
+      "brief": "Add subtle melodic sample layers focusing on texture and variation."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement cohesion with focus on vocal prominence and dynamic energy flow."
+    },
+    "presetor": {
+      "brief": "Select and apply sound presets targeting vocal clarity and punchy boom bap drum samples."
+    },
+    "songgps": {
+      "brief": "Manage overall arrangement energy curve and section transitions for club energy impact."
+    },
+    "ai_mixmaster": {
+      "brief": "Prepare clean, unprocessed channel mixes for mixmaster to balance vocal focus and aggressive energy."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "project": {
+    "name": "Uplifting Slow Build Trap Instrumental",
+    "genre": "Hip-Hop",
+    "subgenre": "Trap",
+    "bpm": 75,
+    "key": "F minor",
+    "mood": "uplifting",
+    "total_bars": 80
+  },
+  "arrangement": {
+    "energy_curve": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      50,
+      60,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      90,
+      90,
+      85,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      100,
+      95,
+      90,
+      85,
+      80,
+      75,
+      70,
+      65,
+      60,
+      55,
+      50,
+      45,
+      40,
+      35,
+      30,
+      25,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "notes": ""
+  },
+  "scene": {
+    "sections": [
+      {
+        "id": "intro",
+        "name": "Intro",
+        "start_bar": 1,
+        "end_bar": 8,
+        "energy": 20
+      },
+      {
+        "id": "verse_1",
+        "name": "Verse 1",
+        "start_bar": 9,
+        "end_bar": 24,
+        "energy": 50
+      },
+      {
+        "id": "hook",
+        "name": "Hook",
+        "start_bar": 25,
+        "end_bar": 40,
+        "energy": 80
+      },
+      {
+        "id": "verse_2",
+        "name": "Verse 2",
+        "start_bar": 41,
+        "end_bar": 56,
+        "energy": 70
+      },
+      {
+        "id": "bridge",
+        "name": "Bridge",
+        "start_bar": 57,
+        "end_bar": 64,
+        "energy": 60
+      },
+      {
+        "id": "final_hook",
+        "name": "Final Hook",
+        "start_bar": 65,
+        "end_bar": 72,
+        "energy": 90
+      },
+      {
+        "id": "outro",
+        "name": "Outro",
+        "start_bar": 73,
+        "end_bar": 80,
+        "energy": 30
+      }
+    ],
+    "lanes": {
+      "drums": {
+        "activity": {
+          "1-8": 30,
+          "9-24": 50,
+          "25-40": 85,
+          "41-56": 70,
+          "57-64": 50,
+          "65-72": 90,
+          "73-80": 20
+        }
+      },
+      "bass": {
+        "activity": {
+          "1-8": 20,
+          "9-24": 45,
+          "25-40": 80,
+          "41-56": 70,
+          "57-64": 55,
+          "65-72": 85,
+          "73-80": 25
+        }
+      },
+      "chords": {
+        "activity": {
+          "1-8": 15,
+          "9-24": 40,
+          "25-40": 75,
+          "41-56": 65,
+          "57-64": 50,
+          "65-72": 80,
+          "73-80": 20
+        }
+      },
+      "melody": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 35,
+          "25-40": 70,
+          "41-56": 60,
+          "57-64": 45,
+          "65-72": 75,
+          "73-80": 15
+        }
+      },
+      "vocal": {
+        "activity": {
+          "1-80": 0
+        }
+      },
+      "fx": {
+        "activity": {
+          "1-8": 10,
+          "9-24": 20,
+          "25-40": 40,
+          "41-56": 30,
+          "57-64": 25,
+          "65-72": 45,
+          "73-80": 10
+        }
+      }
+    },
+    "event_markers": [
+      {
+        "track": "drums",
+        "bar": 1,
+        "type": "start_section",
+        "label": "Intro",
+        "reason": "Beginning low energy foundation with minimal elements"
+      },
+      {
+        "track": "bass",
+        "bar": 9,
+        "type": "start_section",
+        "label": "Verse 1",
+        "reason": "Introduce bassline for building energy"
+      },
+      {
+        "track": "chords",
+        "bar": 25,
+        "type": "start_section",
+        "label": "Hook",
+        "reason": "Peak energy point with fuller chord progression"
+      },
+      {
+        "track": "melody",
+        "bar": 41,
+        "type": "start_section",
+        "label": "Verse 2",
+        "reason": "Introduce melody variation to sustain interest"
+      },
+      {
+        "track": "fx",
+        "bar": 57,
+        "type": "start_section",
+        "label": "Bridge",
+        "reason": "Add effects to create transition"
+      },
+      {
+        "track": "drums",
+        "bar": 65,
+        "type": "start_section",
+        "label": "Final Hook",
+        "reason": "Bring back peak energy for final climax"
+      },
+      {
+        "track": "drums",
+        "bar": 73,
+        "type": "start_section",
+        "label": "Outro",
+        "reason": "Energy wind down and fadeout"
+      }
+    ]
+  },
+  "production_tree": {},
+  "sound_intent": {},
+  "routing_intent": {},
+  "track_roles": {
+    "drums": "rhythmic foundation",
+    "bass": "low frequency groove",
+    "chords": "harmonic support",
+    "melody": "lead instrumental voice",
+    "vocal": "none",
+    "fx": "transitional and atmospheric effects"
+  },
+  "silence_policy": {
+    "allow_pre_drop_space": true,
+    "allow_hook_dropout": true,
+    "preferred_empty_bars": [
+      1,
+      73
+    ]
+  },
+  "priority": {
+    "drums": 5,
+    "bass": 4,
+    "chords": 3,
+    "melody": 2,
+    "vocal": 0,
+    "fx": 1
+  },
+  "designer_intent": {},
+  "presetor_intent": {},
+  "agents": {
+    "sensei_drum": {
+      "brief": "Generate drum patterns that start minimal and gradually build energy through sections, emphasizing the slow build dynamic."
+    },
+    "bass_generator": {
+      "brief": "Create bass parts that complement the drums with a gradual increase in complexity and energy, supporting the uplifting mood."
+    },
+    "harmony_generator": {
+      "brief": "Design chord progressions that support the uplifting mood and build energy gradually without overwhelming the mix."
+    },
+    "melody_generator": {
+      "brief": "Compose a lead instrumental melody that emerges after early sections and complements the gradual energy rise."
+    },
+    "ai_designer": {
+      "brief": "Oversee arrangement structure ensuring smooth transitions and a consistent slow build energy curve for an uplifting trap instrumental."
+    },
+    "presetor": {
+      "brief": "Apply appropriate mixing presets focusing on clarity, presence, and energy progression without heavy processing."
+    },
+    "songgps": {
+      "brief": "Monitor energy curve and section transitions to maintain the slow build and uplifting emotional profile."
+    },
+    "ai_mixmaster": {
+      "brief": "Mix channels preserving dynamics and clarity to support the slow build and uplifting feel, delivering an unprocessed channel audio mix."
+    }
+  },
+  "render_policy": {
+    "presetor_render_behavior": "bypass_temporary_arrangement_chains",
+    "songgps_render_target": "clean_audio",
+    "mixmaster_receives": "unprocessed_channel_audio"
+  },
+  "confidence": {
+    "arrangement": 0.9,
+    "sound_intent": 0.85,
+    "agent_dispatch": 0.9
+  },
+  "metadata": {
+    "source": "openai",
+    "dataset_type": "arrangementgps_training_example"
+  }
+}
