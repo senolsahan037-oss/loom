@@ -27,6 +27,13 @@ sys.path.insert(0, str(SENSEI))
 
 # (label, output directory, builder) -- ordered so the cheap, always-available
 # catalogues run before the corpus, which parses real clip files and is slow.
+# Steps that read and parse real clip files rather than just the index. They
+# take minutes, so they are announced as such instead of looking frozen.
+SLOW_NOTE = {
+    "canonical midi corpus": "(parses clip files -- takes a few minutes)",
+    "variation corpus": "(parses clip files -- takes a few minutes)",
+}
+
 STEPS = [
     ("bass instruments", DATA / "bass_instruments",
      lambda out: __import__("ableton.bass_instrument_catalog", fromlist=["x"]).write_bass_instrument_catalog(output_directory=out)),
@@ -84,18 +91,23 @@ def build() -> int:
         return 1
 
     print("Ableton index:", found["readable_index"])
-    print("Building catalogues from this machine's own library.\n")
+    print("Building catalogues from this machine's own library.\n", flush=True)
     failures = []
-    for label, out, builder in STEPS:
+    for index, (label, out, builder) in enumerate(STEPS, 1):
         out.mkdir(parents=True, exist_ok=True)
+        # Announce before starting, not after. The corpus steps parse real clip
+        # files and take minutes; without this the whole thing looks frozen.
+        print("  ...  [%d/%d] %-24s %s" % (index, len(STEPS), label, SLOW_NOTE.get(label, "")), flush=True)
         started = time.time()
         try:
             result = builder(out)
             count = result.get("entry_count") if isinstance(result, dict) else None
-            print("  ok   %-24s %6.1fs  %s entries" % (label, time.time() - started, count if count is not None else "?"))
+            print("  ok   [%d/%d] %-24s %6.1fs  %s entries"
+                  % (index, len(STEPS), label, time.time() - started, count if count is not None else "?"), flush=True)
         except Exception as error:  # noqa: BLE001
             failures.append((label, error))
-            print("  FAIL %-24s %6.1fs  %s: %s" % (label, time.time() - started, type(error).__name__, str(error)[:70]))
+            print("  FAIL [%d/%d] %-24s %6.1fs  %s: %s"
+                  % (index, len(STEPS), label, time.time() - started, type(error).__name__, str(error)[:70]), flush=True)
 
     print()
     if failures:

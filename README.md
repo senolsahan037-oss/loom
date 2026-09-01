@@ -73,44 +73,55 @@ Katalog yoksa ona bağlı araçlar çalışmayı sürdürür ama bunu açıkça 
 
 ## Kurulum
 
-Sanal ortam yok, paket kurulumu yok. macOS'un kendi Python'u yeter:
+Tek komut:
 
-```json
-"loom": {
-  "command": "python3",
-  "args": ["/ABSOLUTE/PATH/TO/Loom/mcp_server/server.py"]
-}
+```bash
+python3 install.py
 ```
 
-Bunu MCP istemcinizin config'ine ekleyin (Claude Desktop:
-`~/Library/Application Support/Claude/claude_desktop_config.json`) ve
-uygulamayı yeniden başlatın.
+Bu komut üç işi birden yapar:
 
-**28 aracın 27'si sıfır bağımlılıkla çalışır.** Tek istisna `render_verify`:
-gerçek ses dosyalarını ölçtüğü için `soundfile` ister ve kurulu değilse bunu
-söyleyip durur, çökmez.
+1. Makinede bulduğu her MCP istemcisine Loom'u kaydeder (Claude Desktop,
+   Antigravity, Claude Code) — her config'in yedeğini alarak, tekrar
+   çalıştırılabilir şekilde
+2. Live Remote Script'lerini Ableton'ın `User Library`'sine kopyalar
+3. Kataloglarınızı **sizin** stok Ableton kütüphanenizden üretir
+
+Ölçülen süre: ~3 dakika. Uzun olan tek adım MIDI korpusu (~2.5 dk), çünkü
+gerçek klip dosyalarını ayrıştırır — script her adımı başlamadan önce
+duyurur, donmuş görünmez.
+
+Ne yapacağını önce görmek için:
+
+```bash
+python3 install.py --check    # hiçbir şeyi değiştirmez
+```
+
+Kurulumdan sonra iki şeyi yeniden başlatın: **MCP istemciniz** (yeni sunucuyu
+görsün) ve **Ableton Live** — sonra Settings → Link/MIDI altında
+`SenseiRemote`'u Control Surface olarak seçin.
+
+### Neden sanal ortam yok
+
+**28 aracın 27'si sıfır üçüncü-parti bağımlılıkla çalışır** ve macOS'un kendi
+Python'u yeter. Tek istisna `render_verify`: gerçek ses dosyalarını ölçtüğü
+için `soundfile` ister, kurulu değilse bunu söyler ve durur.
 
 ```bash
 python3 -m pip install soundfile numpy   # yalnızca render_verify için
 ```
 
-### İlk çalıştırma: kendi kütüphanenizi tarayın
+### Kataloglar neden yeniden üretiliyor
 
 Loom kod ve fixture yayınlar, ölçüm yayınlamaz. Akıl yürüttüğü kataloglar
 **sizin makinenizdeki stok Ableton kütüphanesinden** üretilir — Live'ın kendi
-dosya indeksi okunarak. Yol yapılandırmak gerekmez, indeks
-`~/Library/Application Support/Ableton/Live Database/` altında bulunur.
+dosya indeksi okunarak, yol yapılandırmadan.
 
 ```bash
 python3 scripts/setup_scan.py --check   # ne var, ne eksik
-python3 scripts/setup_scan.py           # eksikleri üret
 ```
 
 Aynısını istemciden `setup_scan` aracıyla da yapabilirsiniz.
-
-Live tarafı için `AbletonScripts/SenseiRemote/` klasörünü Ableton'ın
-`User Library/Remote Scripts/` dizinine kopyalayıp Live'ı yeniden başlatın ve
-Settings → Link/MIDI altında Control Surface olarak seçin.
 
 MCP sunucusunun protokol ayrıntıları: [`mcp_server/README.md`](mcp_server/README.md)
 
