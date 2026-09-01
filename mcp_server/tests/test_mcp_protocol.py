@@ -112,34 +112,34 @@ try:
     check("bilinmeyen metot -32601 donuyor", response["error"]["code"] == -32601, response)
 
     # --- 2) sema dogrulama ---
-    response = client.call("aimixmaster_inspect_als", {}, 5)
+    response = client.call("project_inspect", {}, 5)
     text = response["result"]["content"][0]["text"]
     check("eksik zorunlu alan anlamli hata veriyor", "missing required argument" in text, text[:120])
     check("eksik alan ham KeyError sizdirmiyor", "KeyError" not in text and "'als_path'" not in text.replace("missing required argument(s): als_path", ""), text[:120])
 
-    response = client.call("aimixmaster_inspect_als", {"als_path": 123}, 6)
+    response = client.call("project_inspect", {"als_path": 123}, 6)
     check("yanlis tip reddediliyor", "must be string" in response["result"]["content"][0]["text"], response["result"]["content"][0]["text"][:120])
 
-    response = client.call("presetor_chain_evidence", {"rol": "kick"}, 7)
+    response = client.call("chain_evidence", {"rol": "kick"}, 7)
     check("bilinmeyen argüman reddediliyor", "unknown argument" in response["result"]["content"][0]["text"], response["result"]["content"][0]["text"][:120])
 
-    response = client.call("sensei_prepare_variation", {"role": "guitar"}, 8)
+    response = client.call("midi_generate", {"role": "guitar"}, 8)
     check("enum disi deger reddediliyor", "must be one of" in response["result"]["content"][0]["text"], response["result"]["content"][0]["text"][:120])
 
     response = client.call("__no_such_tool__", {}, 9)
     check("bilinmeyen arac isError donduruyor", response["result"]["isError"], response)
 
     # --- 3) yol kisiti ---
-    response = client.call("aimixmaster_inspect_als", {"als_path": "/etc/hosts"}, 10)
+    response = client.call("project_inspect", {"als_path": "/etc/hosts"}, 10)
     check("izinli kok disindaki yol reddediliyor", "path_outside_allowed_roots" in response["result"]["content"][0]["text"], response["result"]["content"][0]["text"][:140])
 
-    response = client.call("aimixmaster_inspect_als", {"als_path": str(Path.home() / "Desktop" / "notes.txt")}, 11)
+    response = client.call("project_inspect", {"als_path": str(Path.home() / "Desktop" / "notes.txt")}, 11)
     check(".als olmayan dosya reddediliyor", "not_an_als_file" in response["result"]["content"][0]["text"], response["result"]["content"][0]["text"][:140])
 
-    response = client.call("aimixmaster_inspect_als", {"als_path": str(Path.home() / ".ssh" / "id_rsa.als")}, 12)
+    response = client.call("project_inspect", {"als_path": str(Path.home() / ".ssh" / "id_rsa.als")}, 12)
     check("hassas dizin reddediliyor", "path_denied" in response["result"]["content"][0]["text"], response["result"]["content"][0]["text"][:140])
 
-    response = client.call("ableton_extract_arrangement_shapes", {"roots": ["/etc"], "limit": 1}, 13)
+    response = client.call("projects_arrangement_shapes", {"roots": ["/etc"], "limit": 1}, 13)
     check("tarama kokleri de kisitli", "path_outside_allowed_roots" in response["result"]["content"][0]["text"], response["result"]["content"][0]["text"][:140])
 
     # --- sayfalama ---
@@ -194,13 +194,13 @@ try:
 
     # --- 6) yanit disiplini ---
     if SAMPLE_ALS.exists():
-        response = client.call("aimixmaster_analyze_mixer", {"als_path": str(SAMPLE_ALS)}, 21)
+        response = client.call("project_analyze_mixer", {"als_path": str(SAMPLE_ALS)}, 21)
         check("yapisal icerik de donuyor", "structuredContent" in response["result"], list(response["result"]))
         for block in response["result"]["content"]:
             check("metin blogu limitin altinda", len(block["text"]) <= 24000 or block["text"].startswith("[truncated]"), len(block["text"]))
             break
 
-    response = client.call("sounddesigner_palette", {}, 22)
+    response = client.call("palette_read", {}, 22)
     blocks = response["result"]["content"]
     total = sum(len(block["text"]) for block in blocks)
     check("buyuk yanit kirpiliyor veya limitte kaliyor",
@@ -209,7 +209,7 @@ try:
     # --- 4) eszamanlilik + ilerleme + iptal ---
     started = time.time()
     client.send({"jsonrpc": "2.0", "id": 30, "method": "tools/call", "params": {
-        "name": "ableton_extract_arrangement_shapes",
+        "name": "projects_arrangement_shapes",
         "arguments": {"roots": [str(Path.home() / "Desktop" / "solo")], "limit": 25},
         "_meta": {"progressToken": "tok1"},
     }})
@@ -232,7 +232,7 @@ try:
     check("ilerleme bildirimi gonderiliyor", progress_count > 5, progress_count)
 
     client.send({"jsonrpc": "2.0", "id": 40, "method": "tools/call", "params": {
-        "name": "ableton_extract_arrangement_shapes",
+        "name": "projects_arrangement_shapes",
         "arguments": {"roots": [str(Path.home() / "Desktop")], "limit": 60},
     }})
     time.sleep(0.5)

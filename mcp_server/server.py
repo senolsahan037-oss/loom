@@ -85,8 +85,8 @@ CAMELOT_MAP = {
 TOOLS = [
     # 1. Sensei Tools
     {
-        "name": "sensei_prepare_variation",
-        "description": "Sensei: Generate evidenced MIDI variations using Sensei's locked dataset and variation runtime for a verified target role/preset.",
+        "name": "midi_generate",
+        "description": "Generate evidenced MIDI variations using Sensei's locked dataset and variation runtime for a verified target role/preset.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -104,8 +104,8 @@ TOOLS = [
         }
     },
     {
-        "name": "sensei_write_clip_to_live",
-        "description": "Sensei: Write MIDI notes into Ableton Live through SenseiV2Bridge and wait for Live to actually consume the request. Reports WRITTEN_TO_LIVE, REJECTED_BY_LIVE or NOT_CONSUMED -- it does not just queue and claim success.",
+        "name": "midi_write_to_live",
+        "description": "Write MIDI notes into Ableton Live through SenseiV2Bridge and wait for Live to actually consume the request. Reports WRITTEN_TO_LIVE, REJECTED_BY_LIVE or NOT_CONSUMED -- it does not just queue and claim success.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -133,8 +133,8 @@ TOOLS = [
     },
     # 2. AIMixMaster Tools
     {
-        "name": "aimixmaster_inspect_als",
-        "description": "AIMixMaster: Inspect an Ableton Live Set (.als) file in detail: tempo, key, scale, Camelot code, track breakdown, mute states, and active devices.",
+        "name": "project_inspect",
+        "description": "Inspect an Ableton Live Set (.als) file in detail: tempo, key, scale, Camelot code, track breakdown, mute states, and active devices.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -144,8 +144,8 @@ TOOLS = [
         }
     },
     {
-        "name": "aimixmaster_detect_genre",
-        "description": "AIMixMaster: Analyze track names, arrangement density, and instrument presence in an .als file to predict multi-label genre tags.",
+        "name": "project_detect_genre",
+        "description": "Analyze track names, arrangement density, and instrument presence in an .als file to predict multi-label genre tags.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -155,8 +155,8 @@ TOOLS = [
         }
     },
     {
-        "name": "aimixmaster_analyze_mixer",
-        "description": "AIMixMaster: Full gain-staging and mixer analysis of an .als -- real fader values, Utility gains, routing kind, send routes, and master-chain limiter/clipper/compressor detection, with a markdown report. XML only; peak/RMS/LUFS targets need rendered audio.",
+        "name": "project_analyze_mixer",
+        "description": "Full gain-staging and mixer analysis of an .als -- real fader values, Utility gains, routing kind, send routes, and master-chain limiter/clipper/compressor detection, with a markdown report. XML only; peak/RMS/LUFS targets need rendered audio.",
         "inputSchema": {
             "type": "object",
             "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
@@ -165,8 +165,8 @@ TOOLS = [
     },
     # 3. ArrangementGPS Tools
     {
-        "name": "arrangementgps_create_action_list",
-        "description": "ArrangementGPS: Run the real pipeline from a text prompt (blueprint -> build plan -> session plan -> package -> action list) and write a build directory ArrangementGPSBuilder can pick up in Live. Tempo, key, mode, genre and instrument choice are all derived from the prompt.",
+        "name": "plan_create",
+        "description": "Run the real pipeline from a text prompt (blueprint -> build plan -> session plan -> package -> action list) and write a build directory ArrangementGPSBuilder can pick up in Live. Tempo, key, mode, genre and instrument choice are all derived from the prompt.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -176,8 +176,8 @@ TOOLS = [
         }
     },
     {
-        "name": "arrangementgps_search_library",
-        "description": "ArrangementGPS: Search Sensei's preset identity catalog (role- and genre-tagged, so a hit is something Sensei can actually generate for) with an optional filesystem fallback for name-only lookups.",
+        "name": "library_search",
+        "description": "Search Sensei's preset identity catalog (role- and genre-tagged, so a hit is something Sensei can actually generate for) with an optional filesystem fallback for name-only lookups.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -190,8 +190,8 @@ TOOLS = [
     },
     # 4. Renderer Tools
     {
-        "name": "renderer_create_export_manifest",
-        "description": "Renderer: Build a per-track stem export manifest from a real .als, deciding from the project itself which tracks can be rendered and why the others cannot (MIDI needs a freeze, groups and returns are excluded).",
+        "name": "render_plan",
+        "description": "Build a per-track stem export manifest from a real .als, deciding from the project itself which tracks can be rendered and why the others cannot (MIDI needs a freeze, groups and returns are excluded).",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -203,16 +203,16 @@ TOOLS = [
     },
     # 5. Telemetry & Gap Tracking
     {
-        "name": "ableton_get_bridge_status",
-        "description": "Telemetry: Inspect the status of SenseiV2Bridge queues, remote scripts, and recent requests.",
+        "name": "live_bridge_status",
+        "description": "Inspect the status of SenseiV2Bridge queues, remote scripts, and recent requests.",
         "inputSchema": {
             "type": "object",
             "properties": {}
         }
     },
     {
-        "name": "ableton_record_gap",
-        "description": "Telemetry: Log an identified missing control, untested path, or desired Live API feature into docs/MISSING_CONTROLS_LOG.md.",
+        "name": "gap_record",
+        "description": "Log an identified missing control, untested path, or desired Live API feature into docs/MISSING_CONTROLS_LOG.md.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -228,13 +228,13 @@ TOOLS = [
         }
     },
     {
-        "name": "arrangementgps_verify_plan",
-        "description": "ArrangementGPS: Check the current session plan against Sensei's catalog -- every track with a Sensei role must name an instrument that resolves to exactly that role. Catches the Live-side instrument_role_unresolved failure without opening Live.",
+        "name": "plan_verify",
+        "description": "Check the current session plan against Sensei's catalog -- every track with a Sensei role must name an instrument that resolves to exactly that role. Catches the Live-side instrument_role_unresolved failure without opening Live.",
         "inputSchema": {"type": "object", "properties": {}}
     },
     {
-        "name": "aimixmaster_inspect_arrangement",
-        "description": "AIMixMaster: Read an .als arrangement -- tempo, time signature, locators, and the section boundaries inferred from where clips start and stop across tracks.",
+        "name": "project_inspect_arrangement",
+        "description": "Read an .als arrangement -- tempo, time signature, locators, and the section boundaries inferred from where clips start and stop across tracks.",
         "inputSchema": {
             "type": "object",
             "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
@@ -242,8 +242,8 @@ TOOLS = [
         }
     },
     {
-        "name": "aimixmaster_build_drum_buss",
-        "description": "AIMixMaster: Build the native EQ Eight -> Glue -> Utility drum buss chain in an .als. Dry run by default; applying writes a timestamped backup first and verifies the result after saving.",
+        "name": "drumbuss_build",
+        "description": "Build the native EQ Eight -> Glue -> Utility drum buss chain in an .als. Dry run by default; applying writes a timestamped backup first and verifies the result after saving.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -255,8 +255,8 @@ TOOLS = [
         }
     },
     {
-        "name": "ableton_extract_arrangement_shapes",
-        "description": "Telemetry: Scan a library of .als projects and report how the user actually arranges -- section lengths, section counts, song lengths and tempos, inferred from clip boundaries. Evidence for arrangement templates instead of guesswork.",
+        "name": "projects_arrangement_shapes",
+        "description": "Scan a library of .als projects and report how the user actually arranges -- section lengths, section counts, song lengths and tempos, inferred from clip boundaries. Evidence for arrangement templates instead of guesswork.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -266,8 +266,8 @@ TOOLS = [
         }
     },
 {
-        "name": "aimixmaster_analyze_clip_alignment",
-        "description": "AIMixMaster: Check arrangement clips for gain/fade/automation alignment problems -- clip gain outside the allowed range, missing fades, and clip vs track volume automation conflicts.",
+        "name": "project_analyze_clips",
+        "description": "Check arrangement clips for gain/fade/automation alignment problems -- clip gain outside the allowed range, missing fades, and clip vs track volume automation conflicts.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -279,8 +279,8 @@ TOOLS = [
         }
     },
     {
-        "name": "aimixmaster_inspect_automation",
-        "description": "AIMixMaster: List every automation envelope in an .als, resolving each PointeeId to the owning device and parameter. Read-only -- nothing in this stack can write automation yet.",
+        "name": "automation_read",
+        "description": "List every automation envelope in an .als, resolving each PointeeId to the owning device and parameter. Read-only -- nothing in this stack can write automation yet.",
         "inputSchema": {
             "type": "object",
             "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
@@ -288,8 +288,8 @@ TOOLS = [
         }
     },
     {
-        "name": "aimixmaster_drum_buss_state",
-        "description": "AIMixMaster: Read the drum buss device parameters out of an .als and report whether they match the conservative preset. Read-only.",
+        "name": "drumbuss_read",
+        "description": "Read the drum buss device parameters out of an .als and report whether they match the conservative preset. Read-only.",
         "inputSchema": {
             "type": "object",
             "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
@@ -297,16 +297,16 @@ TOOLS = [
         }
     },
 {
-        "name": "presetor_chain_evidence",
-        "description": "Presetor: What device chains the user actually builds, counted from their own projects. With no role, returns the whole measured summary; with a role, the evidence-backed chain and each device's presence rate. A role with too little data returns no recommendation instead of a guess.",
+        "name": "chain_evidence",
+        "description": "What device chains the user actually builds, counted from their own projects. With no role, returns the whole measured summary; with a role, the evidence-backed chain and each device's presence rate. A role with too little data returns no recommendation instead of a guess.",
         "inputSchema": {
             "type": "object",
             "properties": {"role": {"type": "string", "description": "e.g. kick, snare, hat, bass, sub, keys, pad, lead, perc, sample, bus, fx."}}
         }
     },
     {
-        "name": "presetor_plan_chains",
-        "description": "Presetor: For every track in an .als, report its role, its current device chain, the evidence-backed chain for that role, and which track in the same project could donate it. Read-only.",
+        "name": "chain_plan",
+        "description": "For every track in an .als, report its role, its current device chain, the evidence-backed chain for that role, and which track in the same project could donate it. Read-only.",
         "inputSchema": {
             "type": "object",
             "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
@@ -314,8 +314,8 @@ TOOLS = [
         }
     },
     {
-        "name": "presetor_apply_chain",
-        "description": "Presetor: Copy a device chain from one track to another inside the same .als. Device XML is never synthesised -- it is cloned from a real device with fresh Pointee ids. Refuses to overwrite a track that already has a chain. Dry run by default; applying writes a timestamped backup first and re-reads the file to verify.",
+        "name": "chain_apply",
+        "description": "Copy a device chain from one track to another inside the same .als. Device XML is never synthesised -- it is cloned from a real device with fresh Pointee ids. Refuses to overwrite a track that already has a chain. Dry run by default; applying writes a timestamped backup first and re-reads the file to verify.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -328,16 +328,16 @@ TOOLS = [
         }
     },
     {
-        "name": "sounddesigner_palette",
-        "description": "AISoundDesigner: The user's measured sound palette -- which sample sources and instrument devices actually recur, per role, ranked by how many separate projects each appears in. Bounces, freezes and reverb impulse responses are excluded.",
+        "name": "palette_read",
+        "description": "The user's measured sound palette -- which sample sources and instrument devices actually recur, per role, ranked by how many separate projects each appears in. Bounces, freezes and reverb impulse responses are excluded.",
         "inputSchema": {
             "type": "object",
             "properties": {"role": {"type": "string", "description": "e.g. kick, snare, hat, bass, keys, pad, fx. Omit for the full summary."}}
         }
     },
     {
-        "name": "sounddesigner_inspect_project",
-        "description": "AISoundDesigner: List one project's sound sources -- instrument devices per track and the samples they load.",
+        "name": "project_sound_sources",
+        "description": "List one project's sound sources -- instrument devices per track and the samples they load.",
         "inputSchema": {
             "type": "object",
             "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
@@ -345,15 +345,15 @@ TOOLS = [
         }
     },
 {
-        "name": "aimixmaster_write_automation",
-        "description": "AIMixMaster: Write an automation envelope onto a track's mixer parameter in an .als. The envelope targets the parameter's own AutomationTarget id -- nothing is invented -- and values are checked against that parameter's real range. Dry run by default; applying writes a timestamped backup, saves atomically, then reloads the file and compares every point.",
+        "name": "automation_write",
+        "description": "Write an automation envelope onto a track's mixer parameter in an .als. The envelope targets the parameter's own AutomationTarget id -- nothing is invented -- and values are checked against that parameter's real range. Dry run by default; applying writes a timestamped backup, saves atomically, then reloads the file and compares every point.",
         "inputSchema": {
             "type": "object",
             "properties": {
                 "als_path": {"type": "string", "description": "Absolute path to the .als file."},
                 "track": {"type": "string", "description": "Track name exactly as Live shows it."},
                 "parameter": {"type": "string", "enum": ["volume", "pan"], "description": "Mixer parameter to automate. Use pointee_id instead for device parameters."},
-                "pointee_id": {"type": "string", "description": "Automation target id of a device parameter, from aimixmaster_list_automatable_parameters."},
+                "pointee_id": {"type": "string", "description": "Automation target id of a device parameter, from automation_list_targets."},
                 "points": {
                     "type": "array",
                     "description": "Breakpoints in time order.",
@@ -374,8 +374,8 @@ TOOLS = [
         }
     },
 {
-        "name": "renderer_validate_renders",
-        "description": "Renderer: Measure exported stems against the project's own render manifest -- which expected file is missing, which is silent, which has the wrong channel count. Rendering itself needs Live's audio engine and cannot be done from here; this checks the result afterwards.",
+        "name": "render_verify",
+        "description": "Measure exported stems against the project's own render manifest -- which expected file is missing, which is silent, which has the wrong channel count. Rendering itself needs Live's audio engine and cannot be done from here; this checks the result afterwards.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -387,7 +387,7 @@ TOOLS = [
         }
     },
 {
-        "name": "ableton_live_state",
+        "name": "live_state",
         "description": "Read Ableton Live's current state -- tempo, transport position, selected track, every track's mixer values and devices, and the song's locators. Published by SenseiRemote v2 running inside Live. Always reports how old the snapshot is and whether it is fresh; if Live is not running it says so instead of returning stale data as if it were live.",
         "inputSchema": {
             "type": "object",
@@ -400,7 +400,7 @@ TOOLS = [
         }
     },
     {
-        "name": "ableton_live_command",
+        "name": "live_command",
         "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, or a locator. Runs through SenseiRemote v2, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
         "inputSchema": {
             "type": "object",
@@ -426,8 +426,8 @@ TOOLS = [
         }
     },
     {
-        "name": "aimixmaster_list_automatable_parameters",
-        "description": "AIMixMaster: List every parameter on a track whose automation can be written -- mixer and device alike -- with its automation target id and declared range. A parameter that does not declare a range is left out rather than written with guessed bounds. Filter before raising the limit: a single EQ Eight carries 85 parameters.",
+        "name": "automation_list_targets",
+        "description": "List every parameter on a track whose automation can be written -- mixer and device alike -- with its automation target id and declared range. A parameter that does not declare a range is left out rather than written with guessed bounds. Filter before raising the limit: a single EQ Eight carries 85 parameters.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -590,28 +590,28 @@ def render_tool_text(payload: Any) -> tuple[str, str | None]:
 # token harcamadan okunabilmeliler.
 RESOURCES = [
     {
-        "uri": "loom://presetor/device-chains",
+        "uri": "loom://evidence/device-chains",
         "name": "Measured device chains",
         "description": "Every track's device chain across the user's own projects, with role and rack contents expanded.",
         "mimeType": "application/json",
         "path": PRESETOR_DIR / "data" / "measured_device_chains.json",
     },
     {
-        "uri": "loom://sounddesigner/sound-sources",
+        "uri": "loom://evidence/sound-sources",
         "name": "Measured sound sources",
         "description": "Instrument devices and the samples they load, per track, across the user's own projects.",
         "mimeType": "application/json",
         "path": SOUNDDESIGNER_DIR / "data" / "measured_sound_sources.json",
     },
     {
-        "uri": "loom://docs/missing-controls",
+        "uri": "loom://docs/gap-log",
         "name": "Missing controls & gap log",
         "description": "Ableton API gaps found during development, with the workaround each one currently uses.",
         "mimeType": "text/markdown",
         "path": DOCS_DIR / "MISSING_CONTROLS_LOG.md",
     },
     {
-        "uri": "loom://arrangementgps/session-plan",
+        "uri": "loom://plan/session",
         "name": "Current session plan",
         "description": "The most recently generated ArrangementGPS session plan: tracks, roles, instruments, locators.",
         "mimeType": "application/json",
@@ -648,8 +648,8 @@ PROMPTS = [
         "arguments": [{"name": "brief", "description": "e.g. 'dark rolling tech house, 126 bpm'", "required": True}],
         "template": (
             "Build an Ableton project plan for this brief: {brief}\n\n"
-            "1. Call arrangementgps_create_action_list with the brief as the prompt.\n"
-            "2. Call arrangementgps_verify_plan and stop if it reports any failure.\n"
+            "1. Call plan_create with the brief as the prompt.\n"
+            "2. Call plan_verify and stop if it reports any failure.\n"
             "3. Report the tempo, key and genre it derived, how many tracks Sensei can generate for, "
             "and which lanes are out of scope. Do not claim anything was written into Live."
         ),
@@ -660,8 +660,8 @@ PROMPTS = [
         "arguments": [{"name": "als_path", "description": "Absolute path to the .als", "required": True}],
         "template": (
             "Audit this Ableton project, read-only: {als_path}\n\n"
-            "Call aimixmaster_analyze_mixer, aimixmaster_analyze_clip_alignment, "
-            "aimixmaster_inspect_automation and aimixmaster_inspect_arrangement. "
+            "Call project_analyze_mixer, project_analyze_clips, "
+            "automation_read and project_inspect_arrangement. "
             "Report only what the tools actually returned, and say plainly which checks found nothing."
         ),
     },
@@ -671,7 +671,7 @@ PROMPTS = [
         "arguments": [{"name": "als_path", "description": "Absolute path to the .als", "required": True}],
         "template": (
             "Compare the device chains in {als_path} against the user's own measured habits.\n\n"
-            "Call presetor_plan_chains, then presetor_chain_evidence for any role you discuss. "
+            "Call chain_plan, then chain_evidence for any role you discuss. "
             "For each empty track name the donor and the evidence percentages. "
             "Do not apply anything -- report the dry run and let the user decide."
         ),
@@ -707,7 +707,7 @@ def get_prompt(name: Any, arguments: dict[str, Any]) -> dict[str, Any]:
 
 # Handlers
 
-def handle_sensei_prepare_variation(args: dict[str, Any]) -> dict[str, Any]:
+def handle_midi_generate(args: dict[str, Any]) -> dict[str, Any]:
     from core.midi_runtime import prepare_midi_variation
 
     target_context: dict[str, Any] = {}
@@ -737,7 +737,7 @@ def handle_sensei_prepare_variation(args: dict[str, Any]) -> dict[str, Any]:
     if args.get("auto_write_to_live") and result.get("generation_safe") and result.get("payload"):
         payload = result["payload"]
         clip_name = f"Sensei {args.get('genre', 'Var')} {args.get('role', '')}".strip()
-        write_res = handle_sensei_write_clip_to_live({
+        write_res = handle_midi_write_to_live({
             "name": clip_name,
             "notes": payload.get("notes", []),
             "length_beats": float(payload.get("length_beats", args.get("bars", 4) * 4.0)),
@@ -748,7 +748,7 @@ def handle_sensei_prepare_variation(args: dict[str, Any]) -> dict[str, Any]:
     return result
 
 
-def handle_sensei_write_clip_to_live(args: dict[str, Any]) -> dict[str, Any]:
+def handle_midi_write_to_live(args: dict[str, Any]) -> dict[str, Any]:
     ensure_bridge_dirs()
     req_id = f"req_{int(time.time())}_{uuid.uuid4().hex[:6]}"
     filename = f"{req_id}.json"
@@ -871,7 +871,7 @@ def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict
     return response
 
 
-def handle_ableton_live_state(args: dict[str, Any]) -> dict[str, Any]:
+def handle_live_state(args: dict[str, Any]) -> dict[str, Any]:
     """Live'in o anki durumu. SenseiRemote periyodik olarak yaziyor."""
     max_age = float(args.get("max_age_seconds", 10))
     if args.get("refresh", True):
@@ -903,7 +903,7 @@ def handle_ableton_live_state(args: dict[str, Any]) -> dict[str, Any]:
     return state
 
 
-def handle_ableton_live_command(args: dict[str, Any]) -> dict[str, Any]:
+def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
     operation = args["op"]
     payload: dict[str, Any] = {"op": operation}
     for key in ("track", "device", "parameter", "value", "bpm", "volume", "pan", "mute", "solo",
@@ -913,7 +913,7 @@ def handle_ableton_live_command(args: dict[str, Any]) -> dict[str, Any]:
     return _submit_bridge_request(payload, float(args.get("wait_seconds", 15)))
 
 
-def handle_aimixmaster_inspect_als(args: dict[str, Any]) -> dict[str, Any]:
+def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
     als_path = resolve_als_path(args["als_path"])
 
     with gzip.open(str(als_path), "rb") as f:
@@ -979,8 +979,8 @@ def handle_aimixmaster_inspect_als(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def handle_aimixmaster_detect_genre(args: dict[str, Any]) -> dict[str, Any]:
-    info = handle_aimixmaster_inspect_als(args)
+def handle_project_detect_genre(args: dict[str, Any]) -> dict[str, Any]:
+    info = handle_project_inspect(args)
     tracks = info.get("tracks", [])
 
     kick = snare = hat = bass = fx = 0
@@ -1025,7 +1025,7 @@ def handle_aimixmaster_detect_genre(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def handle_aimixmaster_analyze_mixer(args: dict[str, Any]) -> dict[str, Any]:
+def handle_project_analyze_mixer(args: dict[str, Any]) -> dict[str, Any]:
     # This used to count track types and return a hardcoded -6.0 dB "target".
     # AIMixMaster's own gain staging analysis reads real fader values, Utility
     # gains, routing and master-chain processors, so that is what runs now.
@@ -1055,7 +1055,7 @@ def handle_aimixmaster_analyze_mixer(args: dict[str, Any]) -> dict[str, Any]:
         if t["warnings"] or (t["current_fader_db"] is not None and t["current_fader_db"] > 0)
     ]
 
-    info = handle_aimixmaster_inspect_als(args)
+    info = handle_project_inspect(args)
     all_tracks = info.get("tracks", [])
     return {
         "als_path": str(als_path),
@@ -1074,7 +1074,7 @@ def handle_aimixmaster_analyze_mixer(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def handle_aimixmaster_analyze_clip_alignment(args: dict[str, Any]) -> dict[str, Any]:
+def handle_project_analyze_clips(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als
     from aimixmaster.clip_alignment import analyze_clip_alignment, markdown_clip_alignment
 
@@ -1092,7 +1092,7 @@ def handle_aimixmaster_analyze_clip_alignment(args: dict[str, Any]) -> dict[str,
     return report
 
 
-def handle_aimixmaster_inspect_automation(args: dict[str, Any]) -> dict[str, Any]:
+def handle_automation_read(args: dict[str, Any]) -> dict[str, Any]:
     # Read-only by design: nothing in the stack can write an automation
     # envelope yet (GAP-002 territory), so this reports what exists rather
     # than pretending it can change it.
@@ -1106,7 +1106,7 @@ def handle_aimixmaster_inspect_automation(args: dict[str, Any]) -> dict[str, Any
     return report
 
 
-def handle_aimixmaster_write_automation(args: dict[str, Any]) -> dict[str, Any]:
+def handle_automation_write(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als, save_als_atomic
     from aimixmaster.automation_writer import (
         normalise_points,
@@ -1125,7 +1125,7 @@ def handle_aimixmaster_write_automation(args: dict[str, Any]) -> dict[str, Any]:
     parameter = args.get("parameter", "")
     pointee_id = args.get("pointee_id", "")
     if not parameter and not pointee_id:
-        raise ValueError("need either 'parameter' (volume/pan) or 'pointee_id' from aimixmaster_list_automatable_parameters")
+        raise ValueError("need either 'parameter' (volume/pan) or 'pointee_id' from automation_list_targets")
     points = args["points"]
     unit = args.get("unit", "native")
     replace = bool(args.get("replace", False))
@@ -1181,7 +1181,7 @@ def handle_aimixmaster_write_automation(args: dict[str, Any]) -> dict[str, Any]:
     return response
 
 
-def handle_aimixmaster_list_automatable_parameters(args: dict[str, Any]) -> dict[str, Any]:
+def handle_automation_list_targets(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als
     from aimixmaster.automation_writer import list_automatable_parameters
     from aimixmaster.project_analyzer import iter_tracks
@@ -1228,7 +1228,7 @@ def handle_aimixmaster_list_automatable_parameters(args: dict[str, Any]) -> dict
     }
 
 
-def handle_aimixmaster_drum_buss_state(args: dict[str, Any]) -> dict[str, Any]:
+def handle_drumbuss_read(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als
     from aimixmaster.drum_buss_parameters import (
         read_drum_buss_parameter_state,
@@ -1292,7 +1292,7 @@ CHAIN_STEPS = [
 ]
 
 
-def handle_arrangementgps_create_action_list(args: dict[str, Any]) -> dict[str, Any]:
+def handle_plan_create(args: dict[str, Any]) -> dict[str, Any]:
     prompt = (args.get("prompt") or "").strip()
     if not prompt:
         raise ValueError("prompt is required: the whole chain is derived from it.")
@@ -1351,7 +1351,7 @@ def _load_sensei_identities() -> list[dict[str, Any]]:
     return identities
 
 
-def handle_arrangementgps_search_library(args: dict[str, Any]) -> dict[str, Any]:
+def handle_library_search(args: dict[str, Any]) -> dict[str, Any]:
     query = (args.get("query") or "").lower()
     role = args.get("role")
     genre = args.get("genre")
@@ -1434,7 +1434,7 @@ def handle_arrangementgps_search_library(args: dict[str, Any]) -> dict[str, Any]
     }
 
 
-def handle_renderer_create_export_manifest(args: dict[str, Any]) -> dict[str, Any]:
+def handle_render_plan(args: dict[str, Any]) -> dict[str, Any]:
     # Previously this wrote back whatever stem list the caller invented.
     # AIMixMaster already decides, per real track, what can be rendered and
     # why -- audio renders, MIDI needs a freeze first, groups and returns are
@@ -1482,7 +1482,7 @@ def _load_script_module(filename: str, module_name: str):
     return module
 
 
-def handle_arrangementgps_verify_plan(_args: dict[str, Any]) -> dict[str, Any]:
+def handle_plan_verify(_args: dict[str, Any]) -> dict[str, Any]:
     # Same check the headless suite runs: every track with a Sensei role must
     # name an instrument that resolves to exactly that one role in Sensei's
     # catalog. This is the Live-side instrument_role_unresolved failure,
@@ -1499,7 +1499,7 @@ def handle_arrangementgps_verify_plan(_args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def handle_aimixmaster_inspect_arrangement(args: dict[str, Any]) -> dict[str, Any]:
+def handle_project_inspect_arrangement(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als
 
     als_path = resolve_als_path(args["als_path"])
@@ -1531,7 +1531,7 @@ def handle_aimixmaster_inspect_arrangement(args: dict[str, Any]) -> dict[str, An
     }
 
 
-def handle_ableton_extract_arrangement_shapes(args: dict[str, Any]) -> dict[str, Any]:
+def handle_projects_arrangement_shapes(args: dict[str, Any]) -> dict[str, Any]:
     shapes = _load_script_module("extract_arrangement_shapes.py", "loom_shapes")
     roots = args.get("roots") or [str(Path.home() / "Desktop"), str(Path.home() / "Documents"), str(Path.home() / "Music" / "Ableton")]
     limit = args.get("limit")
@@ -1583,7 +1583,7 @@ def handle_ableton_extract_arrangement_shapes(args: dict[str, Any]) -> dict[str,
     }
 
 
-def handle_aimixmaster_build_drum_buss(args: dict[str, Any]) -> dict[str, Any]:
+def handle_drumbuss_build(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als, save_als_atomic
     from aimixmaster.buss_builder import build_drum_buss
     from aimixmaster.project_analyzer import preservation_snapshot
@@ -1626,7 +1626,7 @@ def handle_aimixmaster_build_drum_buss(args: dict[str, Any]) -> dict[str, Any]:
     return response
 
 
-def handle_presetor_plan_chains(args: dict[str, Any]) -> dict[str, Any]:
+def handle_chain_plan(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als
     from presetor.chain_planner import plan_project
 
@@ -1642,7 +1642,7 @@ def handle_presetor_plan_chains(args: dict[str, Any]) -> dict[str, Any]:
     return plan
 
 
-def handle_presetor_chain_evidence(args: dict[str, Any]) -> dict[str, Any]:
+def handle_chain_evidence(args: dict[str, Any]) -> dict[str, Any]:
     from presetor import chain_evidence
 
     rows = chain_evidence.load_tracks()
@@ -1673,7 +1673,7 @@ def handle_presetor_chain_evidence(args: dict[str, Any]) -> dict[str, Any]:
     return chain_evidence.summary(rows)
 
 
-def handle_presetor_apply_chain(args: dict[str, Any]) -> dict[str, Any]:
+def handle_chain_apply(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als, save_als_atomic
     from presetor.chain_builder import ChainBuildError, chain_of, find_track, transplant_chain
 
@@ -1723,7 +1723,7 @@ def handle_presetor_apply_chain(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def handle_sounddesigner_palette(args: dict[str, Any]) -> dict[str, Any]:
+def handle_palette_read(args: dict[str, Any]) -> dict[str, Any]:
     from sounddesigner import source_evidence
 
     rows = source_evidence.load_tracks()
@@ -1752,7 +1752,7 @@ def handle_sounddesigner_palette(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def handle_sounddesigner_inspect_project(args: dict[str, Any]) -> dict[str, Any]:
+def handle_project_sound_sources(args: dict[str, Any]) -> dict[str, Any]:
     sources = _load_script_module("extract_sound_sources.py", "loom_sources")
     from sounddesigner import source_evidence
 
@@ -1778,7 +1778,7 @@ def handle_sounddesigner_inspect_project(args: dict[str, Any]) -> dict[str, Any]
     }
 
 
-def handle_renderer_validate_renders(args: dict[str, Any]) -> dict[str, Any]:
+def handle_render_verify(args: dict[str, Any]) -> dict[str, Any]:
     """Render Live'da yapilir; burada yapilan RENDER DOGRULAMASI.
 
     Manifest hangi track'in hangi dosya adiyla cikmasi gerektigini soyluyordu;
@@ -1802,7 +1802,7 @@ def handle_renderer_validate_renders(args: dict[str, Any]) -> dict[str, Any]:
     return validation
 
 
-def handle_ableton_get_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
+def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
     ensure_bridge_dirs()
     pending = [p.name for p in REQUEST_DIR.glob("*.json")]
     done = sorted([p.name for p in DONE_DIR.glob("*.json")], reverse=True)[:5]
@@ -1822,7 +1822,7 @@ def handle_ableton_get_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def handle_ableton_record_gap(args: dict[str, Any]) -> dict[str, Any]:
+def handle_gap_record(args: dict[str, Any]) -> dict[str, Any]:
     GAP_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     existing_content = GAP_LOG_PATH.read_text(encoding="utf-8") if GAP_LOG_PATH.exists() else "# Ableton Live Missing Controls & Gap Log\n\n"
 
@@ -1850,33 +1850,33 @@ def handle_ableton_record_gap(args: dict[str, Any]) -> dict[str, Any]:
 
 def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
     handlers = {
-        "sensei_prepare_variation": handle_sensei_prepare_variation,
-        "sensei_write_clip_to_live": handle_sensei_write_clip_to_live,
-        "aimixmaster_inspect_als": handle_aimixmaster_inspect_als,
-        "aimixmaster_detect_genre": handle_aimixmaster_detect_genre,
-        "aimixmaster_analyze_mixer": handle_aimixmaster_analyze_mixer,
-        "arrangementgps_create_action_list": handle_arrangementgps_create_action_list,
-        "arrangementgps_search_library": handle_arrangementgps_search_library,
-        "renderer_create_export_manifest": handle_renderer_create_export_manifest,
-        "ableton_get_bridge_status": handle_ableton_get_bridge_status,
-        "ableton_record_gap": handle_ableton_record_gap,
-        "arrangementgps_verify_plan": handle_arrangementgps_verify_plan,
-        "aimixmaster_inspect_arrangement": handle_aimixmaster_inspect_arrangement,
-        "aimixmaster_build_drum_buss": handle_aimixmaster_build_drum_buss,
-        "ableton_extract_arrangement_shapes": handle_ableton_extract_arrangement_shapes,
-        "aimixmaster_analyze_clip_alignment": handle_aimixmaster_analyze_clip_alignment,
-        "aimixmaster_inspect_automation": handle_aimixmaster_inspect_automation,
-        "aimixmaster_drum_buss_state": handle_aimixmaster_drum_buss_state,
-        "aimixmaster_write_automation": handle_aimixmaster_write_automation,
-        "aimixmaster_list_automatable_parameters": handle_aimixmaster_list_automatable_parameters,
-        "renderer_validate_renders": handle_renderer_validate_renders,
-        "ableton_live_state": handle_ableton_live_state,
-        "ableton_live_command": handle_ableton_live_command,
-        "presetor_plan_chains": handle_presetor_plan_chains,
-        "presetor_chain_evidence": handle_presetor_chain_evidence,
-        "presetor_apply_chain": handle_presetor_apply_chain,
-        "sounddesigner_palette": handle_sounddesigner_palette,
-        "sounddesigner_inspect_project": handle_sounddesigner_inspect_project,
+        "midi_generate": handle_midi_generate,
+        "midi_write_to_live": handle_midi_write_to_live,
+        "project_inspect": handle_project_inspect,
+        "project_detect_genre": handle_project_detect_genre,
+        "project_analyze_mixer": handle_project_analyze_mixer,
+        "plan_create": handle_plan_create,
+        "library_search": handle_library_search,
+        "render_plan": handle_render_plan,
+        "live_bridge_status": handle_live_bridge_status,
+        "gap_record": handle_gap_record,
+        "plan_verify": handle_plan_verify,
+        "project_inspect_arrangement": handle_project_inspect_arrangement,
+        "drumbuss_build": handle_drumbuss_build,
+        "projects_arrangement_shapes": handle_projects_arrangement_shapes,
+        "project_analyze_clips": handle_project_analyze_clips,
+        "automation_read": handle_automation_read,
+        "drumbuss_read": handle_drumbuss_read,
+        "automation_write": handle_automation_write,
+        "automation_list_targets": handle_automation_list_targets,
+        "render_verify": handle_render_verify,
+        "live_state": handle_live_state,
+        "live_command": handle_live_command,
+        "chain_plan": handle_chain_plan,
+        "chain_evidence": handle_chain_evidence,
+        "chain_apply": handle_chain_apply,
+        "palette_read": handle_palette_read,
+        "project_sound_sources": handle_project_sound_sources,
     }
     if name not in handlers:
         raise ValueError(f"Unknown tool: {name}")
@@ -1896,8 +1896,8 @@ MAX_CONCURRENT_TOOL_CALLS = 4
 DEFAULT_TOOL_TIMEOUT_SECONDS = 300
 # Tarama araclari tum kutuphaneyi dolasabilir; olculen tam tarama ~200 sn.
 TOOL_TIMEOUT_OVERRIDES = {
-    "ableton_extract_arrangement_shapes": 900,
-    "arrangementgps_create_action_list": 600,
+    "projects_arrangement_shapes": 900,
+    "plan_create": 600,
 }
 _stdout_lock = threading.Lock()
 _cancelled_requests: set[Any] = set()

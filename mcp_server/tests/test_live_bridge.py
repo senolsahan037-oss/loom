@@ -198,31 +198,31 @@ def tool(request_id, name, arguments):
 try:
     rpc(1, "initialize", {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "t", "version": "1"}})
 
-    payload = tool(2, "ableton_live_command", {"op": "set_tempo", "bpm": 132, "wait_seconds": 6})
+    payload = tool(2, "live_command", {"op": "set_tempo", "bpm": 132, "wait_seconds": 6})
     check("MCP uzerinden canli tempo degisiyor", payload["status"] == "OK" and payload["result"]["after"] == 132.0, payload)
     check("degisiklik gercekten Live tarafinda oldu", live_song.tempo == 132.0, live_song.tempo)
 
-    payload = tool(3, "ableton_live_command", {
+    payload = tool(3, "live_command", {
         "op": "set_device_parameter", "track": "KICK", "device": "EQ Eight",
         "parameter": "Gain A", "value": -4.5, "wait_seconds": 6})
     check("MCP uzerinden cihaz parametresi yaziliyor",
           payload["status"] == "OK" and live_song.tracks[0].devices[0].parameters[1].value == -4.5, payload)
 
-    payload = tool(4, "ableton_live_command", {
+    payload = tool(4, "live_command", {
         "op": "set_device_parameter", "track": "KICK", "device": "EQ Eight",
         "parameter": "Gain A", "value": 999, "wait_seconds": 6})
     check("Live icindeki aralik kontrolu MCP'ye hata olarak donuyor",
           payload["status"] == "FAILED_IN_LIVE" and "outside" in (payload.get("error") or ""), payload)
     check("reddedilen deger Live'i degistirmedi", live_song.tracks[0].devices[0].parameters[1].value == -4.5)
 
-    payload = tool(5, "ableton_live_state", {"wait_seconds": 6, "max_age_seconds": 30})
+    payload = tool(5, "live_state", {"wait_seconds": 6, "max_age_seconds": 30})
     check("MCP Live'in durumunu okuyabiliyor", payload["available"] and payload["tempo"] == 132.0, str(payload)[:200])
     check("durumun tazeligi bildiriliyor", payload["is_fresh"] is True, payload.get("age_seconds"))
     check("track listesi durumda geliyor", payload["track_count"] == 3, payload.get("track_count"))
 
     stop_flag.set()
     thread.join(timeout=2)
-    payload = tool(6, "ableton_live_command", {"op": "set_tempo", "bpm": 100, "wait_seconds": 1.0})
+    payload = tool(6, "live_command", {"op": "set_tempo", "bpm": 100, "wait_seconds": 1.0})
     check("Live yanit vermezse bu acikca soyleniyor",
           payload["status"] == "NOT_CONSUMED" and payload["consumed"] is False, payload)
     created.append(Path(payload["request_file"]).name)

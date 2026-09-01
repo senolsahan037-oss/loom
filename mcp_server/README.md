@@ -69,12 +69,12 @@ yüzeyidir, yerel sunucu olması bunu değiştirmez.
 verildiğinde önce zaman damgalı yedek alır, yazdıktan sonra dosyayı tekrar
 okuyup doğrular:
 
-- `aimixmaster_build_drum_buss`
-- `presetor_apply_chain`
-- `presetor_apply_chain`
-- `aimixmaster_write_automation` (mikser `volume`/`pan`; hedef PointeeId
+- `drumbuss_build`
+- `chain_apply`
+- `chain_apply`
+- `automation_write` (mikser `volume`/`pan`; hedef PointeeId
   parametrenin kendi id'sidir, uydurulmaz)
-- `sensei_write_clip_to_live` (köprüye yazar ve Live'ın **gerçekten
+- `midi_write_to_live` (köprüye yazar ve Live'ın **gerçekten
   tükettiğini bekler**: `WRITTEN_TO_LIVE` / `REJECTED_BY_LIVE` /
   `NOT_CONSUMED`)
 
@@ -82,7 +82,7 @@ okuyup doğrular:
 
 24.000 karakteri aşan yanıtlar kırpılır; tamamı `mcp_server/responses/`
 altına yazılır ve yol yanıta eklenir. Ölçülen en büyük yanıt
-`aimixmaster_analyze_mixer` ile ~21.8 KB.
+`project_analyze_mixer` ile ~21.8 KB.
 
 ## Test
 
@@ -107,6 +107,6 @@ kaldırır.
   klip zarfları hâlâ yok (GAP-006)
 - Şarkı ölçüsü SDK'da yok; bar→beat çevirimi 4/4 varsayar (GAP-003)
 - Render Live'ın ses motorunu gerektirir, buradan yapılamaz.
-  `renderer_create_export_manifest` ne çıkması gerektiğini,
-  `renderer_validate_renders` çıkanın uyup uymadığını söyler — arası Live'da
+  `render_plan` ne çıkması gerektiğini,
+  `render_verify` çıkanın uyup uymadığını söyler — arası Live'da
 - Sert zaman aşımı yok (yukarıda)
