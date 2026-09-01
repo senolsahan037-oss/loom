@@ -10,6 +10,7 @@ import json
 import os
 import sys
 import types
+from pathlib import Path
 
 _framework = types.ModuleType("_Framework")
 _control_surface = types.ModuleType("_Framework.ControlSurface")
@@ -28,9 +29,12 @@ sys.modules.setdefault("_Framework.ControlSurface", _control_surface)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ArrangementGPSBuilder as builder  # noqa: E402
 
-ACTION_LIST = os.path.expanduser(
-    "~/Desktop/Loom/ArrangementGPS/Builds/"
-    "energetic_house_festival_anthem_20260814_004230/ableton_action_list.json"
+# The committed fixture plan, resolved from the repository rather than from an
+# absolute path: a hardcoded build directory only exists on the machine that
+# produced it, and dies in a clean clone and in CI.
+ACTION_LIST = str(
+    Path(__file__).resolve().parents[2]
+    / "ArrangementGPS" / "Builds" / "fixture_project" / "ableton_action_list.json"
 )
 
 with open(ACTION_LIST) as handle:
