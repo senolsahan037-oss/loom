@@ -1,5 +1,7 @@
 # Loom
 
+[![checks](https://github.com/senolsahan037-oss/loom/actions/workflows/checks.yml/badge.svg)](https://github.com/senolsahan037-oss/loom/actions/workflows/checks.yml)
+
 Ableton Live için, ölçüme dayalı bir üretim sistemi ve onu tek bir araç ad
 alanı altında toplayan MCP sunucusu.
 
@@ -34,6 +36,13 @@ Hiçbir katman tahmin üretmez.
   yedek alır ve yazdıktan sonra dosyayı tekrar okuyup karşılaştırır.
 
 ## Doğrulama
+
+İki paket var:
+
+```bash
+./scripts/check_ci.sh    # Ableton gerektirmeyen alt küme -- CI bunu koşuyor
+./scripts/check_all.sh   # tamamı, gerçek bir Ableton kurulumu ister
+```
 
 ```bash
 ./scripts/check_all.sh
