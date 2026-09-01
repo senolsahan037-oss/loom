@@ -1,0 +1,47 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  machine-independent:
+    # Everything here runs without Ableton Live and without anyone's own
+    # projects. The rest of the suite (scripts/check_all.sh) needs a real
+    # Ableton install and cannot run on a hosted runner.
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Suites that need neither Live nor personal data
+        run: ./scripts/check_ci.sh
+
+  extension-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install the extension's dev dependencies
+        working-directory: Sensei/extensions/sensei-midi-writer
+        # The Ableton SDK tarballs are referenced by local path and are not in
+        # the repository, so only the typecheck's own toolchain is installed.
+        run: npm install --no-save typescript@5.9.3 || true
+      - name: Report
+        run: echo "Extension typecheck needs the Ableton Extensions SDK, which is not redistributable. Run 'npm run build' locally."
