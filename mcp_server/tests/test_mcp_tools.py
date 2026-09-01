@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Her MCP aracini gercek stdio uzerinden cagirir. Live gerekmiyor.
+"""Call every MCP tool over real stdio. Live is not required.
 
-Kanitladigi sey: sunucu ayakta, 14 aracin sema/handler eslesmesi dogru, ve
-her arac gercek veriyle calisip beklenen alanlari donduruyor.
-Kanitlamadigi sey: Ableton Live'in bu ciktilarla ne yaptigi.
+What this proves: the server is up, every tool's schema and handler line up,
+and each one runs against real data and returns the fields it promises.
+What it does not prove: what Ableton Live does with any of those outputs.
 
-Yan etkisi olan iki arac (bridge'e istek yazan ve gap logu'na ekleyen)
-cagriliyor ve arkasindan temizleniyor; .als yazan arac sadece kuru calisiyor.
+The two tools with side effects (writing a bridge request, appending to the gap
+log) are called and then cleaned up; the tool that writes an .als is dry-run
+only.
 """
 import json
 import os
@@ -75,21 +76,21 @@ def check(label, condition, detail=""):
 
 def main():
     if not PYTHON.exists():
-        print("Sensei venv bulunamadi: %s" % PYTHON)
+        print("Sensei venv not found: %s" % PYTHON)
         return 1
 
     server = Server()
     created_request = None
-    # Zincir her calistiginda yeni bir build dizini, renderer da yeni bir job
-    # dosyasi birakir. Test kendi coplugunu toplamazsa her kosuda repoya bir
-    # klasor daha eklenir.
+    # Each chain run leaves a new build directory and the renderer leaves a new
+    # job file. Unless the test clears up after itself, every run adds another
+    # folder to the repo.
     created_build_dir = None
     created_job_file = None
     try:
         init = server.call("initialize", {"protocolVersion": "2024-11-05", "capabilities": {}, "clientInfo": {"name": "selftest", "version": "1"}})
-        check("initialize yaniti veriyor", init.get("result", {}).get("serverInfo", {}).get("name") == "loom-mcp", init)
+        check("initialize answers", init.get("result", {}).get("serverInfo", {}).get("name") == "loom-mcp", init)
 
-        # Sunucu artik sayfaliyor; istemci imleci takip etmek zorunda.
+        # The server paginates now; the client has to follow the cursor.
         listed = []
         cursor = None
         while True:
@@ -99,219 +100,220 @@ def main():
             if not cursor:
                 break
         names = [tool["name"] for tool in listed]
-        check("27 arac yayinlaniyor", len(names) == 27, len(names))
-        check("her aracin inputSchema'si var", all("inputSchema" in tool for tool in listed))
-        check("arac adlari benzersiz", len(set(names)) == len(names))
+        check("27 tools are published", len(names) == 27, len(names))
+        check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
+        check("tool names are unique", len(set(names)) == len(names))
 
         is_error, payload = server.tool("__does_not_exist__")
-        check("bilinmeyen arac hata donduruyor", is_error, payload)
+        check("an unknown tool returns an error", is_error, payload)
 
-        # --- ArrangementGPS: gercek zincir ---
+        # --- ArrangementGPS: the real chain ---
         is_error, payload = server.tool("plan_create", {"prompt": "dark rolling tech house, 126 bpm, hypnotic bassline"})
-        check("zincir prompt'tan calisiyor", not is_error, payload)
+        check("the chain runs from a prompt", not is_error, payload)
         if not is_error:
-            check("prompt'taki tempo plana gecti", payload["project"]["bpm"] == 126, payload["project"])
-            check("5 zincir adiminin hepsi calisti", len(payload["steps"]) == 5, payload["steps"])
-            check("17 track, 7 locator", payload["tracks_total"] == 17 and payload["locators"] == 7, payload)
-            check("6 track Sensei kapsaminda", payload["tracks_sensei_can_generate"] == 6, payload)
-            check("action list dosyasi gercekten yazildi", payload["action_list_file"] and Path(payload["action_list_file"]).exists(), payload["action_list_file"])
-            check("bos gorev listesi uretmiyor", payload["tracks_total"] > 0, payload)
+            check("the tempo in the prompt reached the plan", payload["project"]["bpm"] == 126, payload["project"])
+            check("all 5 chain steps ran", len(payload["steps"]) == 5, payload["steps"])
+            check("17 tracks, 7 locators", payload["tracks_total"] == 17 and payload["locators"] == 7, payload)
+            check("6 tracks are within Sensei's scope", payload["tracks_sensei_can_generate"] == 6, payload)
+            check("the action list file was really written", payload["action_list_file"] and Path(payload["action_list_file"]).exists(), payload["action_list_file"])
+            check("it does not produce an empty task list", payload["tracks_total"] > 0, payload)
             created_build_dir = Path(payload["build_dir"])
 
         is_error, payload = server.tool("plan_verify")
-        check("plan dogrulama calisiyor", not is_error, payload)
+        check("plan verification runs", not is_error, payload)
         if not is_error:
-            check("plan Sensei katalogunu geciyor", payload["ok"], payload["failures"])
-            check("kapsam disi lane'ler hata sayilmiyor", len(payload["out_of_scope"]) == 11, payload["out_of_scope"])
+            check("the plan passes Sensei's catalog", payload["ok"], payload["failures"])
+            check("out-of-scope lanes do not count as failures", len(payload["out_of_scope"]) == 11, payload["out_of_scope"])
 
         is_error, payload = server.tool("library_search", {"role": "drum", "genre": "House", "limit": 5})
-        check("kutuphane aramasi rol+tur ile calisiyor", not is_error, payload)
+        check("library search works with role and genre", not is_error, payload)
         if not is_error:
-            check("sonuclar Sensei dogrulamali", payload["results"] and all(r["sensei_verified"] for r in payload["results"]), payload)
-            check("her sonuc istenen rolde", all(r["role"] == "drum" for r in payload["results"]), payload)
-            check("katalog gercekten okundu", payload["catalog_size"] > 5000, payload["catalog_size"])
+            check("results are Sensei-verified", payload["results"] and all(r["sensei_verified"] for r in payload["results"]), payload)
+            check("every result is in the requested role", all(r["role"] == "drum" for r in payload["results"]), payload)
+            check("the catalog was really read", payload["catalog_size"] > 5000, payload["catalog_size"])
 
         # --- AIMixMaster: gercek .als ---
         if SAMPLE_ALS.exists():
             is_error, payload = server.tool("project_inspect", {"als_path": str(SAMPLE_ALS)})
-            check("als incelemesi calisiyor", not is_error and payload.get("tracks"), payload)
+            check("project inspection runs", not is_error and payload.get("tracks"), payload)
 
             is_error, payload = server.tool("project_inspect_arrangement", {"als_path": str(SAMPLE_ALS)})
-            check("arrangement incelemesi calisiyor", not is_error, payload)
+            check("arrangement inspection runs", not is_error, payload)
             if not is_error:
-                check("bolumler klip sinirlarindan cikariliyor", payload["section_count"] >= 1, payload)
-                check("tempo okunuyor", payload["tempo"], payload)
+                check("sections are inferred from clip boundaries", payload["section_count"] >= 1, payload)
+                check("tempo is read", payload["tempo"], payload)
 
             is_error, payload = server.tool("render_plan", {"als_path": str(SAMPLE_ALS)})
-            check("render manifesti gercek projeden uretiliyor", not is_error, payload)
+            check("the render manifest is produced from a real project", not is_error, payload)
             if not is_error:
-                check("her track icin karar var", payload["track_count"] > 0, payload)
-                check("render edilemeyenlerin sebebi yazili", all(item["reason"] for item in payload["excluded"]), payload["excluded"][:3])
-                check("manifest dosyaya yazildi", Path(payload["job_path"]).exists(), payload["job_path"])
+                check("there is a decision for every track", payload["track_count"] > 0, payload)
+                check("the reason is stated for anything that cannot be rendered", all(item["reason"] for item in payload["excluded"]), payload["excluded"][:3])
+                check("the manifest was written to disk", Path(payload["job_path"]).exists(), payload["job_path"])
                 created_job_file = Path(payload["job_path"])
 
             is_error, payload = server.tool("project_analyze_mixer", {"als_path": str(SAMPLE_ALS)})
-            check("mikser analizi calisiyor", not is_error, str(payload)[:200])
+            check("mixer analysis runs", not is_error, str(payload)[:200])
             if not is_error:
-                check("gercek gain staging raporu donuyor", payload.get("schema_version") and payload.get("markdown"), list(payload))
-                check("master zinciri inceleniyor", "limiter_status" in payload.get("master", {}), payload.get("master"))
-                check("sabit -6 dB hedefi artik yok", "gain_staging_target_db" not in payload, list(payload))
-                check("track basina kayit uretiliyor", payload["track_count"] > 0, payload["track_count"])
+                check("a real gain staging report comes back", payload.get("schema_version") and payload.get("markdown"), list(payload))
+                check("the master chain is inspected", "limiter_status" in payload.get("master", {}), payload.get("master"))
+                check("the hardcoded -6 dB target is gone", "gain_staging_target_db" not in payload, list(payload))
+                check("a record is produced per track", payload["track_count"] > 0, payload["track_count"])
 
             is_error, payload = server.tool("project_analyze_clips", {"als_path": str(SAMPLE_ALS)})
-            check("klip hizalama analizi calisiyor", not is_error, str(payload)[:200])
+            check("clip alignment analysis runs", not is_error, str(payload)[:200])
             if not is_error:
-                check("hizalama raporu markdown uretiyor", bool(payload.get("markdown")), list(payload))
+                check("the alignment report produces markdown", bool(payload.get("markdown")), list(payload))
 
             is_error, payload = server.tool("drumbuss_read", {"als_path": str(SAMPLE_ALS)})
-            check("drum buss durumu okunuyor", not is_error, str(payload)[:200])
+            check("drum buss state is read", not is_error, str(payload)[:200])
             if not is_error:
-                check("drum buss yoksa duruma acikca yaziliyor", "has_drum_buss" in payload, list(payload))
+                check("the absence of a drum buss is stated explicitly", "has_drum_buss" in payload, list(payload))
 
             is_error, payload = server.tool("drumbuss_build", {"als_path": str(SAMPLE_ALS)})
-            # Kaynak track yoksa hata dondurmesi dogru davranis; yazmamasi sart.
-            check("drum buss kuru calisma .als'e dokunmuyor", is_error or payload.get("applied") is False, payload)
+            # With no source track an error is the correct behaviour; what
+            # matters is that it does not write.
+            check("the drum buss dry run does not touch the .als", is_error or payload.get("applied") is False, payload)
         else:
-            check("ornek .als bulundu", False, str(SAMPLE_ALS))
+            check("a sample .als was found", False, str(SAMPLE_ALS))
 
         if AUTOMATED_ALS.exists():
             is_error, payload = server.tool("automation_read", {"als_path": str(AUTOMATED_ALS)})
-            check("otomasyon incelemesi calisiyor", not is_error, str(payload)[:200])
+            check("automation inspection runs", not is_error, str(payload)[:200])
             if not is_error:
-                check("otomasyon zarflari bulunuyor", payload["envelope_count"] == 10, payload["envelope_count"])
-                check("her hedef cozulebiliyor", payload["unresolved_targets"] == 0, payload["unresolved_targets"])
-                check("otomasyon yazmanin desteklenmedigi acikca bildiriliyor", payload["write_supported"] is False, payload)
+                check("automation envelopes are found", payload["envelope_count"] == 10, payload["envelope_count"])
+                check("every target resolves", payload["unresolved_targets"] == 0, payload["unresolved_targets"])
+                check("the lack of automation writing is stated explicitly", payload["write_supported"] is False, payload)
         else:
-            check("otomasyonlu ornek proje bulundu", False, str(AUTOMATED_ALS))
+            check("a sample project with automation was found", False, str(AUTOMATED_ALS))
 
         # --- Presetor ---
         is_error, payload = server.tool("chain_evidence", {"role": "kick"})
-        check("zincir kaniti rol bazinda geliyor", not is_error, str(payload)[:200])
+        check("chain evidence arrives per role", not is_error, str(payload)[:200])
         if not is_error:
-            check("kick icin kanit var", payload["has_recommendation"], payload)
-            check("her cihaz kac track'te goruldugunu tasiyor",
+            check("there is evidence for kick", payload["has_recommendation"], payload)
+            check("every device carries how many tracks it was seen on",
                   all("presence" in item and "occurrences" in item for item in payload["devices"]), payload.get("devices"))
-            check("kanit kac track'e dayandigini soyluyor", payload["role_sample"] >= 10, payload.get("role_sample"))
+            check("the evidence states how many tracks back it", payload["role_sample"] >= 10, payload.get("role_sample"))
 
         is_error, payload = server.tool("chain_evidence", {"role": "__yok_boyle_bir_rol__"})
-        check("kaniti olmayan rol icin oneri URETILMIYOR",
+        check("a role with no evidence yields NO recommendation",
               not is_error and payload["has_recommendation"] is False, payload)
 
         if SAMPLE_ALS.exists():
             is_error, payload = server.tool("chain_plan", {"als_path": str(SAMPLE_ALS)})
-            check("zincir plani projeden uretiliyor", not is_error, str(payload)[:200])
+            check("the chain plan is produced from the project", not is_error, str(payload)[:200])
             if not is_error:
-                check("her track icin bir plan satiri var", payload["track_count"] > 0, payload["track_count"])
-                check("plan durumlari sayiliyor", payload["status_counts"], payload.get("status_counts"))
+                check("there is one plan row per track", payload["track_count"] > 0, payload["track_count"])
+                check("plan statuses are counted", payload["status_counts"], payload.get("status_counts"))
 
             busy = next((p["track"] for p in payload.get("plans", []) if p["status"] == "already_has_chain"), None)
             if busy:
                 is_error, payload = server.tool("chain_apply", {
                     "als_path": str(SAMPLE_ALS), "target_track": busy, "donor_track": busy,
                 })
-                check("dolu track'e kuru calisma da yazmiyor",
+                check("even a dry run does not write to a track that has a chain",
                       is_error or payload.get("applied") is False, payload)
 
         # --- AISoundDesigner ---
         is_error, payload = server.tool("palette_read", {"role": "bass"})
-        check("ses paleti rol bazinda geliyor", not is_error, str(payload)[:200])
+        check("the sound palette arrives per role", not is_error, str(payload)[:200])
         if not is_error:
-            check("bass paleti var", payload["has_palette"], payload)
-            check("her sample kac projede goruldugunu tasiyor",
+            check("there is a bass palette", payload["has_palette"], payload)
+            check("every sample carries how many projects it spans",
                   all(item["projects"] >= 2 for item in payload["samples"]), payload.get("samples", [])[:3])
 
         is_error, payload = server.tool("palette_read", {})
-        check("palet ozeti bounce oranini bildiriyor",
+        check("the palette summary reports the bounce share",
               not is_error and 0 < payload["bounce_share"] < 1, str(payload)[:200])
 
         if SAMPLE_ALS.exists():
             is_error, payload = server.tool("project_sound_sources", {"als_path": str(SAMPLE_ALS)})
-            check("proje ses kaynaklari okunuyor", not is_error, str(payload)[:200])
+            check("a project's sound sources are read", not is_error, str(payload)[:200])
             if not is_error:
-                check("track sayisi bildiriliyor", payload["track_count"] > 0, payload["track_count"])
+                check("the track count is reported", payload["track_count"] > 0, payload["track_count"])
 
         is_error, payload = server.tool("projects_arrangement_shapes", {"roots": [str(Path.home() / "Desktop" / "solo")], "limit": 3})
-        check("arrangement sekli cikarimi calisiyor", not is_error, payload)
+        check("arrangement shape extraction runs", not is_error, payload)
         if not is_error:
-            check("taranan proje sayisi bildiriliyor", payload["scanned"] == 3, payload["scanned"])
+            check("the number of scanned projects is reported", payload["scanned"] == 3, payload["scanned"])
 
         # --- Sensei ---
         is_error, payload = server.tool("midi_generate", {"role": "drum", "genre": "Hip Hop", "bars": 4, "seed": 7})
-        check("sensei varyasyon uretimi cevap veriyor", not is_error, str(payload)[:200])
+        check("MIDI variation generation answers", not is_error, str(payload)[:200])
 
         before = set(BRIDGE_REQUESTS.glob("*.json")) if BRIDGE_REQUESTS.exists() else set()
-        # Live kapali: arac artik "QUEUED" deyip gecmiyor, beklemeyi deneyip
-        # tuketilmedigini soyluyor.
+        # Live is closed: the tool no longer just says "QUEUED", it waits and
+        # then reports that nothing consumed the request.
         is_error, payload = server.tool("midi_write_to_live", {
             "name": "MCP selftest", "length_beats": 4.0,
             "notes": [{"pitch": 36, "start": 0.0, "duration": 0.5, "velocity": 100}],
             "wait_seconds": 1.0,
         })
-        check("bridge yazimi sonucu bildiriyor", not is_error, payload)
+        check("the bridge write reports its outcome", not is_error, payload)
         if not is_error:
             created_request = Path(payload["request_file"])
-            check("istek dosyasi diskte gercekten var", created_request.exists(), str(created_request))
-            check("Live tuketmediyse bu acikca soyleniyor",
+            check("the request file really exists on disk", created_request.exists(), str(created_request))
+            check("if Live did not consume it, that is stated plainly",
                   payload["status"] in ("NOT_CONSUMED", "WRITTEN_TO_LIVE", "REJECTED_BY_LIVE"), payload["status"])
-            check("consumed alani tahmin degil, olculmus deger",
+            check("the consumed field is measured, not guessed",
                   isinstance(payload["consumed"], bool), payload.get("consumed"))
             after = set(BRIDGE_REQUESTS.glob("*.json"))
-            check("kuyruga tam bir istek eklendi", len(after - before) == 1, len(after - before))
+            check("exactly one request was added to the queue", len(after - before) == 1, len(after - before))
 
         is_error, payload = server.tool("midi_write_to_live", {
             "name": "MCP selftest blind", "length_beats": 4.0,
             "notes": [{"pitch": 36, "start": 0.0, "duration": 0.5, "velocity": 100}],
             "wait_seconds": 0,
         })
-        check("wait_seconds=0 kor kuyruga alma olarak isaretleniyor",
+        check("wait_seconds=0 is labelled as a blind enqueue",
               not is_error and payload["status"] == "QUEUED" and payload["consumed"] is None, payload)
         if not is_error:
             Path(payload["request_file"]).unlink(missing_ok=True)
 
-        # --- Otomasyon yazma ---
+        # --- Automation writing ---
         if SAMPLE_ALS.exists():
             is_error, payload = server.tool("automation_write", {
                 "als_path": str(SAMPLE_ALS), "track": "1-Viral Kit",
                 "parameter": "volume", "unit": "db",
                 "points": [{"time": 0, "value": -12}, {"time": 16, "value": 0}],
             })
-            check("otomasyon kuru calismasi calisiyor", not is_error, str(payload)[:200])
+            check("the automation dry run runs", not is_error, str(payload)[:200])
             if not is_error:
-                check("kuru calisma .als'e yazmiyor", payload["applied"] is False, payload)
-                check("parametrenin gercek araligi okunuyor", payload["parameter_range"][1] > 1, payload.get("parameter_range"))
-                check("hedef PointeeId cozuluyor", payload["pointee_id"], payload.get("pointee_id"))
+                check("the dry run does not write to the .als", payload["applied"] is False, payload)
+                check("the parameter's real range is read", payload["parameter_range"][1] > 1, payload.get("parameter_range"))
+                check("the target PointeeId resolves", payload["pointee_id"], payload.get("pointee_id"))
 
             is_error, payload = server.tool("automation_write", {
                 "als_path": str(SAMPLE_ALS), "track": "1-Viral Kit",
                 "parameter": "volume", "unit": "db", "points": [{"time": 0, "value": 40}],
             })
-            check("aralik disi deger reddediliyor", is_error and "outside the parameter range" in str(payload), str(payload)[:140])
+            check("a value outside the range is refused", is_error and "outside the parameter range" in str(payload), str(payload)[:140])
 
             is_error, payload = server.tool("automation_write", {
                 "als_path": str(SAMPLE_ALS), "track": "1-Viral Kit",
                 "parameter": "pan", "points": [{"time": 16, "value": 0.5}, {"time": 4, "value": -0.5}],
             })
-            check("geriye giden zaman reddediliyor", is_error and "backwards" in str(payload), str(payload)[:140])
+            check("time going backwards is refused", is_error and "backwards" in str(payload), str(payload)[:140])
 
             is_error, payload = server.tool("automation_list_targets", {
                 "als_path": str(SAMPLE_ALS), "track": "1-Viral Kit", "contains": "gain", "limit": 5})
-            check("otomasyonlanabilir parametreler listeleniyor", not is_error, str(payload)[:160])
+            check("automatable parameters are listed", not is_error, str(payload)[:160])
             if not is_error:
-                check("her parametre hedef id ve aralik tasiyor",
+                check("every parameter carries a target id and a range",
                       all(p.get("pointee_id") and p.get("min") is not None for p in payload["parameters"]),
                       payload["parameters"][:2])
-                check("araligi bildirilmemis parametreler disarida", payload["writable"] < payload["total"], (payload["writable"], payload["total"]))
-                check("filtre uygulaniyor", all("gain" in p["tag"].lower() for p in payload["parameters"]), payload["parameters"][:2])
-                check("sinir asilmiyor", payload["returned"] <= 5, payload["returned"])
+                check("parameters with no declared range are left out", payload["writable"] < payload["total"], (payload["writable"], payload["total"]))
+                check("the filter is applied", all("gain" in p["tag"].lower() for p in payload["parameters"]), payload["parameters"][:2])
+                check("the limit is not exceeded", payload["returned"] <= 5, payload["returned"])
 
             is_error, payload = server.tool("render_verify", {
                 "als_path": str(SAMPLE_ALS), "renders_dir": str(Path.home() / "Desktop"),
             })
-            check("render dogrulamasi calisiyor (soundfile kurulu)", not is_error, str(payload)[:160])
+            check("render validation runs (soundfile installed)", not is_error, str(payload)[:160])
 
-        # --- Telemetri ---
+        # --- Telemetry ---
         is_error, payload = server.tool("live_bridge_status")
-        check("bridge durumu okunuyor", not is_error and "bridge_root" in payload, payload)
+        check("bridge status is read", not is_error and "bridge_root" in payload, payload)
 
         gap_before = GAP_LOG.read_text(encoding="utf-8") if GAP_LOG.exists() else ""
         is_error, payload = server.tool("gap_record", {
@@ -320,12 +322,12 @@ def main():
             "observed_behavior": GAP_MARKER,
             "required_implementation": GAP_MARKER,
         })
-        check("gap kaydi calisiyor", not is_error, payload)
+        check("gap recording works", not is_error, payload)
         gap_after = GAP_LOG.read_text(encoding="utf-8") if GAP_LOG.exists() else ""
-        check("gap gercekten dogru dosyaya yazildi", GAP_MARKER in gap_after, GAP_LOG)
+        check("the gap was really written to the right file", GAP_MARKER in gap_after, GAP_LOG)
         if GAP_MARKER in gap_after and gap_before:
             GAP_LOG.write_text(gap_before, encoding="utf-8")
-            check("test girdisi gap logundan temizlendi", GAP_MARKER not in GAP_LOG.read_text(encoding="utf-8"))
+            check("the test entry was cleaned out of the gap log", GAP_MARKER not in GAP_LOG.read_text(encoding="utf-8"))
     finally:
         if created_request and created_request.exists():
             created_request.unlink()
@@ -335,16 +337,16 @@ def main():
             shutil.rmtree(created_build_dir)
         server.close()
 
-    print("%d kontrol gecti:" % len(checks))
+    print("%d checks passed:" % len(checks))
     for label in checks:
         print("  ok  %s" % label)
     if failures:
         print()
-        print("BASARISIZ:")
+        print("FAILED:")
         for failure in failures:
             print("  - %s" % failure)
         return 1
-    print("TUM ARACLAR CALISIYOR")
+    print("ALL TOOLS WORK")
     return 0
 
 

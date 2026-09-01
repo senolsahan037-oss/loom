@@ -50,9 +50,9 @@ _PITCH_CLASS = {
 
 
 def collect_sections(actions):
-    """create_locator aksiyonlarindan bolum listesi.
+    """Section list, taken from the create_locator actions.
 
-    Modul seviyesinde tutuluyor cunku Live'siz test edilebilmesi gerekiyor
+    Kept at module level because it has to be testable without Live
     (test_plan_extraction.py).
     """
     return [
@@ -74,9 +74,8 @@ def collect_sections(actions):
 def collect_track_plan(track_name, action, family):
     """Bir create_midi_track aksiyonundan plan girdisi.
 
-    Arrangement kurucusunun bu track'in hangi bolumlerde aktif oldugunu
-    bilmesi gerekiyor; plan bunu zaten tasiyordu, sadece eklentiye hic
-    ulasmiyordu.
+    The arrangement builder needs to know which sections this lane is active
+    in. The plan already carried that; it simply never reached the extension.
     """
     return {
         "track_name": track_name,
@@ -87,7 +86,7 @@ def collect_track_plan(track_name, action, family):
         # Per-section 0-100 intensity. Presence is already decided by
         # mute_regions; this is the part that used to be discarded.
         "section_activity": action.get("section_activity", {}),
-        # drum/bass/chord, ya da Sensei'nin rolu olmayan track'ler icin None.
+        # drum/bass/chord, or None for a lane Sensei has no role for.
         "sensei_role": action.get("sensei_role"),
     }
 

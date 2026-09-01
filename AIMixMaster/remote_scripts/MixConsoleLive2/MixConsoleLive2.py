@@ -9,8 +9,8 @@ import socket
 
 
 import os
-# Ev dizininden turetilir; sabit mutlak yol baska bir makinede ve
-# yayinlanan bir depoda anlamsizdir.
+# Derived from the home directory; a hardcoded absolute path is meaningless
+# on another machine and in a published repository.
 REQUEST_PATH = os.path.expanduser(
     "~/Desktop/Loom/AIMixMaster/reports/live_meter_active_session.json"
 )

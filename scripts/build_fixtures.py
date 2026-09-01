@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Sentetik fixture uretir: temiz bir klonda testler calisabilsin diye.
+"""Generate synthetic fixtures so the suite runs in a clean clone.
 
-Bunlar UYDURMA verilerdir ve oyle olmalidir. Gercek olculmus veri kullanicinin
-kendi projelerinden gelir, kisiseldir ve yayinlanmaz. Fixture'in isi kodun
-DOGRU HESAPLADIGINI kanitlamak; kullanici hakkinda bir sey soylemek degil.
+This data is MADE UP and must stay that way. The real measured data comes from
+the producer's own projects, is personal, and is never published. A fixture's
+job is to prove the code COMPUTES CORRECTLY, not to say anything about the
+producer.
 
-Bu ayrimin kaybolmamasi icin her fixture "synthetic": true tasir ve
-yukleyiciler hangi kaynagi kullandiklarini data_source ile raporlar.
+So the distinction cannot be lost, every fixture carries "synthetic": true and
+the loaders report which source they used through data_source.
 """
 import json
 import random
@@ -17,8 +18,8 @@ random.seed(20260901)
 
 PROJECTS = [f"demo_project_{index:02d}" for index in range(1, 13)]
 
-# Rol -> (cihaz, gorulme olasiligi). Gercek olcumun SEKLINI taklit eder,
-# degerlerini degil.
+# Role -> (device, probability of appearing). This mimics the SHAPE of the
+# real measurement, not its values.
 ROLE_CHAINS = {
     "kick":   [("EQ Eight", 0.95), ("Glue Compressor", 0.45), ("DrumBuss", 0.35)],
     "snare":  [("EQ Eight", 0.80), ("Glue Compressor", 0.45), ("Reverb", 0.25)],
@@ -71,7 +72,7 @@ def build_source_rows():
                          "track_type": "MidiTrack" if instrument else "AudioTrack", "role": role,
                          "instruments": [instrument] if instrument else [],
                          "instrument_samples": samples,
-                         # Bounce da koy ki elenme testi gercekten bir sey elesin.
+                         # Include bounces so the exclusion test actually excludes something.
                          "all_samples": samples + [f"Bounce {role} [2026-01-0{index % 9 + 1} 000000]-1.wav"]})
     return rows
 
@@ -79,16 +80,16 @@ def build_source_rows():
 def write(path: Path, payload: dict):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    print(f"  {path.relative_to(ROOT)}  ({len(payload['tracks'])} track)")
+    print(f"  {path.relative_to(ROOT)}  ({len(payload['tracks'])} tracks)")
 
 
 def main():
-    print("sentetik fixture'lar uretiliyor:")
+    print("generating synthetic fixtures:")
     write(ROOT / "Presetor" / "data" / "fixture_device_chains.json",
           {"synthetic": True, "tracks": build_chain_rows()})
     write(ROOT / "AISoundDesigner" / "data" / "fixture_sound_sources.json",
           {"synthetic": True, "tracks": build_source_rows()})
-    print("bu veriler UYDURMADIR -- kullanici hakkinda hicbir sey soylemezler.")
+    print("this data is MADE UP -- it says nothing about the producer.")
 
 
 if __name__ == "__main__":

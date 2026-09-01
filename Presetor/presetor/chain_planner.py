@@ -1,12 +1,12 @@
-"""Bir projedeki track'ler icin kanita dayali cihaz zinciri plani.
+"""An evidence-backed device chain plan for the tracks in a project.
 
-Plan uc parcadan olusur:
-  1. Track adindan rol (extract_device_chains.py ile ayni kurallar)
-  2. O rol icin olculmus zincir (chain_evidence)
-  3. Bu projede o zinciri tasiyan bir donor track (chain_builder)
+A plan has three parts:
+  1. The role, from the track name (the same rules as extract_device_chains.py)
+  2. The measured chain for that role (chain_evidence)
+  3. A donor track in this project that already carries it (chain_builder)
 
-Donor bulunamazsa plan "onerilebilir ama yerlestirilemez" olarak isaretlenir.
-Cihaz XML'i uydurulmaz -- kopyalanacak gercek bir cihaz yoksa yazma adimi yok.
+With no donor the plan is marked recommendable but not placeable. Device XML is
+never invented -- with no real device to copy there is no write step.
 """
 from __future__ import annotations
 
@@ -50,7 +50,7 @@ def plan_project(root: ET.Element, tracks_data: list[dict] | None = None) -> dic
                 "role": entry["role"],
                 "status": "no_evidence",
                 "current_chain": list(entry["chain"]),
-                "reason": f"'{entry['role']}' rolu icin yeterli olculmus veri yok",
+                "reason": f"not enough measured data for the '{entry['role']}' role",
             })
             continue
 

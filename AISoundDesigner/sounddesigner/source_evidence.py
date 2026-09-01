@@ -1,12 +1,13 @@
-"""Kullanicinin gercek ses paleti -- olculmus, onerilmemis.
+"""The producer's real sound palette -- measured, not suggested.
 
-Iki sey ayri tutulur:
-  * KIMLIK tasiyan sample'lar: kutuphaneden gelen, baska projede yeniden
-    kullanilabilir dosyalar (orn. "Kick Golden Era 46.aif").
-  * TASIMAYAN sample'lar: bounce/freeze ciktilari. Olcumun %17'si bunlar ve
-    baska bir projede hicbir anlami yok, o yuzden palete girmezler.
+Two things are kept apart:
+  * Samples that carry IDENTITY: library files reusable in another project
+    (e.g. "Kick Golden Era 46.aif").
+  * Samples that do not: bounce and freeze output. They are a fifth of the
+    measurement and mean nothing in another project, so they stay out.
 
-Bir rol icin yeterli gozlem yoksa cevap DONMEZ. Bu katman bosluk doldurmaz.
+Where a role has too few observations, nothing is returned. This layer does not
+fill gaps.
 """
 from __future__ import annotations
 
@@ -17,7 +18,7 @@ from pathlib import Path
 import re
 
 DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "measured_sound_sources.json"
-# Bkz. Presetor/presetor/chain_evidence.py -- ayni ayrim.
+# See Presetor/presetor/chain_evidence.py -- the same distinction.
 FIXTURE_PATH = Path(__file__).resolve().parents[1] / "data" / "fixture_sound_sources.json"
 
 
@@ -28,16 +29,16 @@ def active_data_path() -> Path:
 def data_source() -> str:
     return "measured" if DATA_PATH.exists() else "synthetic_fixture"
 
-# Live'in kendi render ciktilari: "Bounce ...", "... [2026-05-11 221049]",
-# "Freeze ...". Proje disina taşinmazlar.
+# Live's own render output: "Bounce ...", "... [2026-05-11 221049]",
+# "Freeze ...". None of it travels outside its project.
 _BOUNCE_PATTERNS = (
     re.compile(r"^bounce\b", re.I),
     re.compile(r"\bfreeze\b", re.I),
     re.compile(r"^\d+-audio \d+", re.I),
 )
-# Reverb/convolution impulse response'lari track'te SampleRef olarak gorunur
-# ama ses KAYNAGI degildir -- ilk olcumde snare paletine reverb IR'lari
-# karismisti.
+# Reverb and convolution impulse responses appear as a SampleRef on the track
+# but are not a sound SOURCE -- the first measurement had reverb IRs mixed into
+# the snare palette.
 _NON_SOURCE_PATTERNS = (
     re.compile(r"early[_ ]reflections", re.I),
     re.compile(r"^hybrid_", re.I),
@@ -45,8 +46,8 @@ _NON_SOURCE_PATTERNS = (
     re.compile(r"\bIR[_ ]", re.I),
 )
 MIN_ROLE_SAMPLE = 8
-# Ayni projede 6 kez gorulen bir sample bir aliskanlik degil, o projenin bir
-# karari. Palete girmek icin BIRDEN FAZLA PROJEDE gorulmek gerekir.
+# A sample seen six times inside one project is that project's decision, not a
+# habit. Entering the palette requires being seen in MORE THAN ONE PROJECT.
 MIN_PROJECTS = 2
 
 

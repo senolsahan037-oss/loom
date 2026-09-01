@@ -443,10 +443,10 @@ TOOLS = [
 ]
 
 
-# --- 2) Girdi dogrulama ---------------------------------------------------
-# inputSchema yazilmisti ama hicbir yerde uygulanmiyordu: eksik bir zorunlu
-# alan handler'in icinde KeyError'a donusup ham haliyle istemciye gidiyordu.
-# Kullanilan JSON Schema alt kumesi kadarini burada dogruluyoruz.
+# --- 2) Argument validation ------------------------------------------------
+# inputSchema was declared but never enforced anywhere: a missing required
+# field turned into a KeyError inside the handler and reached the client raw.
+# What is validated here is the subset of JSON Schema the tools actually use.
 
 class ToolArgumentError(ValueError):
     pass
@@ -509,10 +509,10 @@ def validate_arguments(tool_name: str, arguments: Any, schema: dict[str, Any]) -
     return resolved
 
 
-# --- 3) Dosya yolu kisiti -------------------------------------------------
-# Onceki surumde als_path ne verilirse aciliyordu ve tarama araci istedigi
-# dizini dolasiyordu. Yerel bir sunucu icin bile bu bir prompt-injection
-# yuzeyi: bir .als icindeki metin modeli yonlendirebilir.
+# --- 3) Path restriction ---------------------------------------------------
+# The previous version opened whatever als_path it was given, and the scan
+# tool walked any directory handed to it. Even for a local server that is a
+# prompt-injection surface: text inside a .als can steer the model.
 
 ALLOWED_ROOTS = tuple(
     path.resolve()
@@ -562,9 +562,10 @@ def resolve_scan_root(raw: str) -> Path:
     return path
 
 
-# --- 6) Yanit disiplini ---------------------------------------------------
-# Olculdu: analyze_mixer 21.8 KB (~5.5K token), tools/list 12.6 KB. Hicbirinde
-# kirpma yoktu. Buyuk yanitlar diske yazilir, istemciye ozet + yol gider.
+# --- 6) Response discipline ------------------------------------------------
+# Measured: analyze_mixer 21.8 KB (~5.5K tokens), tools/list 12.6 KB, neither
+# truncated. Oversized responses are written to disk and the client gets the
+# head plus the path to the whole thing.
 MAX_RESPONSE_CHARS = 24000
 OVERFLOW_DIR = LOOM_DIR / "mcp_server" / "responses"
 
@@ -585,9 +586,9 @@ def render_tool_text(payload: Any) -> tuple[str, str | None]:
     return head, notice
 
 
-# --- 5) Resources ve prompts ----------------------------------------------
-# Olculmus veri kumeleri ve gap logu dogal birer resource: arac cagirmadan,
-# token harcamadan okunabilmeliler.
+# --- 5) Resources and prompts ----------------------------------------------
+# The measured datasets and the gap log are natural resources: they should be
+# readable without spending a tool call, and without spending tokens.
 RESOURCES = [
     {
         "uri": "loom://evidence/device-chains",
@@ -771,9 +772,9 @@ def handle_midi_write_to_live(args: dict[str, Any]) -> dict[str, Any]:
         "length_beats": payload["length_beats"],
     }
 
-    # Bu arac eskiden dosyayi birakip "QUEUED" deyip donuyordu -- Live'in alip
-    # almadigini hicbir zaman bilmiyordu. SenseiRemote istegi ayni adla
-    # done/ veya errors/ altina TASIDIGI icin sonuc gercekten okunabilir.
+    # This tool used to drop the file, say "QUEUED" and return -- it never knew
+    # whether Live picked it up. SenseiRemote moves the request into done/ or
+    # errors/ under the same filename, so the outcome is genuinely readable.
     wait_seconds = float(args.get("wait_seconds", 15))
     if wait_seconds <= 0:
         result["status"] = "QUEUED"
@@ -823,8 +824,8 @@ def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict
     """Kopruye istek birakir ve SenseiRemote'un sonucunu geri okur.
 
     v1'de istek birakilir ve "kuyruga alindi" denirdi. SenseiRemote v2 sonucu
-    istegin icine yazip done/ veya errors/ altina tasidigi icin cagiran ne
-    oldugunu gercekten ogrenebiliyor.
+    result into the request itself before moving it to done/ or errors/, so the
+    caller can actually learn what happened.
     """
     ensure_bridge_dirs()
     STATE_DIR.mkdir(parents=True, exist_ok=True)
@@ -875,8 +876,8 @@ def handle_live_state(args: dict[str, Any]) -> dict[str, Any]:
     """Live'in o anki durumu. SenseiRemote periyodik olarak yaziyor."""
     max_age = float(args.get("max_age_seconds", 10))
     if args.get("refresh", True):
-        # Taze bir dokum istemek icin get_state komutu gonderilir; Live kapaliysa
-        # elde ne varsa o okunur ve bayatligi acikca soylenir.
+        # Ask Live for a fresh dump; if Live is closed, whatever is on disk is
+        # read instead and its staleness is stated outright.
         _submit_bridge_request({"op": "get_state", "include_devices": bool(args.get("include_devices", True))},
                                float(args.get("wait_seconds", 3)))
 
@@ -1199,9 +1200,9 @@ def handle_automation_list_targets(args: dict[str, Any]) -> dict[str, Any]:
     parameters = list_automatable_parameters(matches[0])
     writable = [item for item in parameters if item["min"] is not None and item["max"] is not None]
 
-    # Tek bir EQ Eight 85 parametre tasiyor; bir track kolayca 600'u asiyor.
-    # Hepsini birden dondurmek yaniti kirptirdigi icin filtre ve sinir aracin
-    # kendisinde: cagiran once isim ozetine bakip daraltir.
+    # A single EQ Eight carries 85 parameters and one track easily passes 600.
+    # Returning them all truncates the response, so filtering and the limit
+    # live in the tool: the caller narrows by the name summary first.
     scope = args.get("scope")
     contains = (args.get("contains") or "").lower()
     limit = int(args.get("limit", 50))
@@ -1538,7 +1539,7 @@ def handle_projects_arrangement_shapes(args: dict[str, Any]) -> dict[str, Any]:
 
     files = []
     for root in roots:
-        # Kullanicidan gelen her dizin izinli koklerin icinde olmak zorunda.
+        # Every directory the caller supplies must sit inside an allowed root.
         for dirpath, _dirnames, filenames in os.walk(resolve_scan_root(root)):
             if "/Backup" in dirpath or "/Factory" in dirpath or "/Codex/" in dirpath:
                 continue
@@ -1687,7 +1688,7 @@ def handle_chain_apply(args: dict[str, Any]) -> dict[str, Any]:
     root = tree.getroot()
 
     if not apply_changes:
-        # Kuru calisma: ayni dogrulamalari yapar, diske dokunmaz.
+        # Dry run: same validation, nothing touches the disk.
         try:
             result = transplant_chain(root, target_name=target_name, donor_name=donor_name)
         except ChainBuildError as error:
@@ -1883,16 +1884,17 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
     return handlers[name](args)
 
 
-# --- 4) Uzun is: eszamanlilik, ilerleme, iptal ----------------------------
-# Onceki surum tek bir seri donguydu: 20 projelik bir tarama olculen 7 saniye
-# boyunca ping dahil her seyi blokluyordu. Arac cagrilari artik bir havuzda
-# calisir; stdout tek kilit arkasindan yazilir.
+# --- 4) Long work: concurrency, progress, cancellation ---------------------
+# The previous version was one serial loop: a 20-project scan blocked
+# everything, ping included, for a measured 7 seconds. Tool calls now run on a
+# pool and stdout is written behind a single lock.
 MAX_CONCURRENT_TOOL_CALLS = 4
-# Bir aracin istemciyi bekletebilecegi en uzun sure. Bu SERT bir sinir DEGIL:
-# Python'da bir is parcacigi disaridan oldurulemez. Sure dolunca istemciye
-# zaman asimi hatasi doner ve istek iptal isaretlenir -- check_cancelled()
-# cagiran bir arac hemen durur, cagirmayan biri arka planda bitene kadar
-# calismaya devam eder ve sonucu atilir. README'de boyle yazili.
+# The longest a tool may keep the client waiting. This is NOT a hard limit:
+# a Python thread cannot be killed from outside. When the time is up the client
+# gets a timeout error and the request is marked cancelled -- a tool that calls
+# check_cancelled() stops at once, one that does not keeps running in the
+# background until it finishes and its result is discarded. Stated in the
+# README as such.
 DEFAULT_TOOL_TIMEOUT_SECONDS = 300
 # Tarama araclari tum kutuphaneyi dolasabilir; olculen tam tarama ~200 sn.
 TOOL_TIMEOUT_OVERRIDES = {
@@ -1928,8 +1930,8 @@ class ToolCancelled(RuntimeError):
 
 
 def check_cancelled() -> None:
-    """Uzun donguler bunu cagirir. Iptal isbirlikcidir -- Python'da bir
-    is parcacigi disaridan oldurulemez, ama dongu kendini durdurabilir."""
+    """Long loops call this. Cancellation is cooperative -- a Python thread
+    cannot be killed from outside, but a loop can stop itself."""
     request_id = _current_request.get()
     if request_id is None:
         return
@@ -1950,15 +1952,16 @@ def report_progress(progress: float, total: float | None = None, message: str | 
     write_message({"jsonrpc": "2.0", "method": "notifications/progress", "params": params})
 
 
-# --- 1) Notification'lar --------------------------------------------------
-# JSON-RPC 2.0: "id" tasimayan mesaj bir bildirimdir ve ASLA yanitlanmaz.
-# Onceki surum bilinmeyen bildirimlere {"id": null, "error": ...} donuyordu;
-# kati bir istemci bunu protokol hatasi sayip baglantiyi kapatabilir.
+# --- 1) Notifications ------------------------------------------------------
+# JSON-RPC 2.0: a message with no "id" is a notification and is NEVER answered.
+# The previous version replied to unknown notifications with
+# {"id": null, "error": ...}; a strict client can treat that as a protocol
+# violation and drop the connection.
 
-# --- 7) Surum pazarligi ---------------------------------------------------
-# Istemcinin istedigi surum destekleniyorsa o dondurulur, degilse bizim en
-# yeni destekledigimiz. Onceki surum istegi tamamen yok sayip sabit deger
-# yaziyordu.
+# --- 7) Protocol version negotiation ---------------------------------------
+# If the version the client asks for is supported it is returned, otherwise the
+# newest one we support. The previous version ignored the request entirely and
+# wrote a hardcoded value.
 SUPPORTED_PROTOCOL_VERSIONS = ("2025-06-18", "2025-03-26", "2024-11-05")
 LATEST_PROTOCOL_VERSION = SUPPORTED_PROTOCOL_VERSIONS[0]
 
@@ -1971,10 +1974,10 @@ def negotiate_protocol_version(requested: Any) -> str:
     return LATEST_PROTOCOL_VERSION
 
 
-# --- Sayfalama ------------------------------------------------------------
-# tools/list olculdu: 12.6 KB (~3.2K token) her cagride. Spec cursor tabanli
-# sayfalama tanimliyor; imlec sadece bir ofset oldugu icin opak bir dizeye
-# kodlanir -- istemci icerigine guvenmemeli.
+# --- Pagination ------------------------------------------------------------
+# tools/list measured 12.6 KB (~3.2K tokens) on every call. The spec defines
+# cursor-based pagination; the cursor is only an offset, so it is encoded into
+# an opaque string -- clients must not rely on its contents.
 PAGE_SIZE = 10
 
 

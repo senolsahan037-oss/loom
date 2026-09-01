@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Kullanicinin kendi .als projelerinden gercek cihaz zincirlerini cikarir.
+"""Extract the real device chains from the producer's own .als projects.
 
-Neden: Presetor'un ne onerecegi bir fikir sorusu degil. Kullanici zaten
-yuzlerce track'e kendi zincirlerini kurmus; burada okunan sey odur.
+Why: what Presetor should recommend is not a matter of opinion. The producer
+has already built their own chains on hundreds of tracks; that is what is read
+here.
 
-Rol, track adindan cikarilir (kick/snare/bass/keys/pad/vocal/fx...). Ad
-eslesmiyorsa rol "unknown" kalir -- uydurulmaz.
+The role is derived from the track name (kick/snare/bass/keys/pad/vocal/fx...).
+Where no name matches, the role stays "unknown" -- it is never invented.
 """
 import argparse
 import collections
@@ -21,7 +22,7 @@ from aimixmaster.als_io import load_als  # noqa: E402
 from aimixmaster.gain_staging import normalized_device_name  # noqa: E402
 from aimixmaster.project_analyzer import direct_devices, iter_tracks  # noqa: E402
 
-# Sirali: daha ozel terim once kazansin ("sub bass" -> bass degil sub).
+# Ordered so the more specific term wins ("sub bass" resolves to sub, not bass).
 ROLE_KEYWORDS = [
     ("kick", ("kick", "kck", "bd ", "bassdrum")),
     ("snare", ("snare", "clap", "rim", "sd ")),
@@ -41,12 +42,12 @@ ROLE_KEYWORDS = [
 
 
 def display_name(track):
-    """Track adi: once kullanicinin yazdigi ad, yoksa Live'in efektif adi.
+    """Track name: the name the producer typed, else Live's effective name.
 
-    project_analyzer.track_name yalnizca Name/UserName okur ve bu cogu
-    projede bos -- ilk taramada isimsiz track'ler tamamen atlanmisti.
-    Oradaki fonksiyon buss_builder'in kanitlanmis yolunda kullanildigi icin
-    degistirilmedi; genislik burada eklendi.
+    project_analyzer.track_name reads only Name/UserName, which is empty in
+    most projects -- the first scan skipped unnamed tracks entirely. That
+    function was left alone because buss_builder's proven path depends on it;
+    the widening lives here instead.
     """
     for path in ("./Name/UserName", "./Name/EffectiveName"):
         node = track.find(path)
@@ -65,16 +66,16 @@ def role_for(name):
     return "unknown"
 
 
-# Rack'ler (AudioEffectGroupDevice) direct_devices icin tek bir cihaz gibi
-# gorunur. Ilk taramada en sik "zincir" bunlar cikti, ki bu hicbir sey
-# anlatmiyor -- kullanicinin gercek zinciri rack'in ICINDE. Icerik su yoldan
-# okunur: Branches/AudioEffectBranch/DeviceChain/AudioToAudioDeviceChain/Devices
+# A rack (AudioEffectGroupDevice) looks like a single device to
+# direct_devices. In the first scan these came out as the most common "chain",
+# which says nothing -- the real chain is INSIDE the rack. Its contents are read
+# from Branches/AudioEffectBranch/DeviceChain/AudioToAudioDeviceChain/Devices
 RACK_TAGS = {"AudioEffectGroupDevice", "InstrumentGroupDevice", "MidiEffectGroupDevice"}
 MAX_RACK_DEPTH = 3
 
 
 def expand_devices(devices, depth=0):
-    """Rack'leri icerigiyle degistirir; ic ice rack'lerde derinlik sinirli."""
+    """Replace racks with their contents; nesting depth is capped."""
     expanded = []
     for device in devices:
         if device.tag in RACK_TAGS and depth < MAX_RACK_DEPTH:
@@ -126,45 +127,45 @@ def main():
     if args.limit:
         files = files[: args.limit]
 
-    print("%d proje taranacak" % len(files), flush=True)
+    print("%d projects to scan" % len(files), flush=True)
     all_rows = []
     for index, path in enumerate(files, 1):
         try:
             rows = read_chains(path)
         except Exception as error:
-            print("  [%d/%d] ATLANDI %s (%s)" % (index, len(files), Path(path).name, error), flush=True)
+            print("  [%d/%d] SKIPPED %s (%s)" % (index, len(files), Path(path).name, error), flush=True)
             continue
         for row in rows:
             row["project"] = Path(path).stem
         all_rows.extend(rows)
-        print("  [%d/%d] %-38s %d track" % (index, len(files), Path(path).stem[:38], len(rows)), flush=True)
+        print("  [%d/%d] %-38s %d tracks" % (index, len(files), Path(path).stem[:38], len(rows)), flush=True)
 
     with_devices = [r for r in all_rows if r["chain"]]
     print()
     print("=" * 62)
-    print("track: %d, cihazi olan: %d" % (len(all_rows), len(with_devices)))
+    print("tracks: %d, with devices: %d" % (len(all_rows), len(with_devices)))
 
     device_counts = collections.Counter(d for r in with_devices for d in r["chain"])
     print()
-    print("EN COK KULLANILAN CIHAZLAR:")
+    print("MOST USED DEVICES:")
     for device, count in device_counts.most_common(15):
         print("  %-28s %4d" % (device, count))
 
     print()
-    print("ROLE GORE EN SIK ZINCIRLER:")
+    print("MOST COMMON CHAINS BY ROLE:")
     by_role = collections.defaultdict(collections.Counter)
     for row in with_devices:
         by_role[row["role"]][" > ".join(row["chain"])] += 1
     for role in sorted(by_role, key=lambda r: -sum(by_role[r].values())):
         total = sum(by_role[role].values())
-        print("  [%s] %d track" % (role, total))
+        print("  [%s] %d tracks" % (role, total))
         for chain, count in by_role[role].most_common(3):
             print("      %2dx  %s" % (count, chain[:96]))
 
     if args.out:
         Path(args.out).write_text(json.dumps({"tracks": all_rows}, indent=2), encoding="utf-8")
         print()
-        print("kaydedildi: %s" % args.out)
+        print("saved: %s" % args.out)
     return 0
 
 

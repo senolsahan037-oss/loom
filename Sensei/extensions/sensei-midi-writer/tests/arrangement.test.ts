@@ -41,8 +41,8 @@ function newestActionList(): string {
     .filter((entry) => entry.isDirectory())
     .map((entry) => join(BUILDS, entry.name, "ableton_action_list.json"))
     .filter((file) => existsSync(file))
-    // En cok aksiyonu olan plan kazanir, en yeni olan degil: bos bir taslak
-    // build sirf daha yeni diye fixture'in onune gecmemeli.
+    // The plan with the most actions wins, not the newest one: an empty stub
+    // build must not outrank the fixture merely by being more recent.
     .sort((a, b) => {
       const size = (file: string) => {
         try {
@@ -316,15 +316,15 @@ for (const planTrack of planTracks) {
 }
 
 console.log(`\nPLAN: ${ACTION_LIST.split("/").slice(-2)[0]}`);
-console.log(`\n${checks.length} kontrol geçti:`);
+console.log(`\n${checks.length} checks passed:`);
 for (const label of checks) console.log(`  ok  ${label}`);
 
-console.log(`\nLOCATOR'LAR (${song.cues.length}):`);
+console.log(`\nLOCATORS (${song.cues.length}):`);
 for (const cue of [...song.cues].sort((a, b) => a.time - b.time)) {
   console.log(`  bar ${String(cue.time / BEATS_PER_BAR + 1).padStart(4)}  beat ${String(cue.time).padStart(4)}  ${cue.name}`);
 }
 
-console.log("\nARRANGEMENT (mevcut enstrüman kapsamıyla):");
+console.log("\nARRANGEMENT (with current instrument coverage):");
 const header = sections.map((s) => s.name.slice(0, 6).padEnd(7)).join("");
 console.log(`  ${"".padEnd(24)}${header}`);
 for (const planTrack of planTracks) {
@@ -347,5 +347,5 @@ const blockedCount = allResults.filter((r) => r.status === "blocked").length;
 const skippedCount = allResults.filter((r) => r.status === "skipped").length;
 assert.equal(blockedCount, 0, "no supported track should be blocked with the current plan");
 assert.equal(skippedCount, 11, "the 11 melody/vocal/fx lanes are out of Sensei's scope");
-console.log(`\nTOPLAM: ${written} klip yazılır, ${skippedCount} track kapsam dışı, ${blockedCount} track bloklu, ${generateCalls} Sensei çağrısı`);
-console.log("TÜM KONTROLLER GEÇTİ");
+console.log(`\nTOTAL: ${written} clips written, ${skippedCount} tracks out of scope, ${blockedCount} tracks blocked, ${generateCalls} Sensei calls`);
+console.log("ALL CHECKS PASSED");

@@ -145,10 +145,10 @@ def short_points(points):
     return f"first {point_time(first)}={point_value(first)} | last {point_time(last)}={point_value(last)}"
 
 def collect_automation(path):
-    """Otomasyon zarflarini yapisal olarak dondurur.
+    """Return the automation envelopes as structured data.
 
-    main() bunu yazdiriyor; MCP sunucusu da ayni fonksiyonu cagiriyor, boylece
-    metin rapor ile arac ciktisi ayni yerden gelir.
+    main() prints from this and the MCP server calls the same function, so the
+    text report and the tool output come from one place.
     """
     root = load_root(path)
     parents = parent_map(root)

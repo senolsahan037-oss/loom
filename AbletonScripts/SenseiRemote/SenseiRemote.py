@@ -1,15 +1,15 @@
-"""SenseiRemote v2 -- Ableton Live icin cift yonlu kopru.
+"""SenseiRemote v2 -- a bidirectional bridge for Ableton Live.
 
-v1 tek is yapiyordu: kuyruktan bir istek alip secili track'e klip yazmak.
-Sonuc geri yazilmiyordu ve Live'in durumu disaridan hic okunamiyordu
-(GAP-001). v2:
+v1 did one thing: take a request off the queue and write a clip into the
+selected track. No result was written back, and Live's state could not be read
+from outside at all (GAP-001). v2:
 
-  * Her istek islenip SONUCUYLA birlikte done/ veya errors/ altina tasinir
-  * Live'in durumu duzenli araliklarla state/live_state.json'a yazilir
-  * write_clip disinda genel komutlar destekler (bkz. bridge_ops.py)
+  * Every request is processed and moved into done/ or errors/ WITH its result
+  * Live's state is published to state/live_state.json on a timer
+  * General commands beyond write_clip are supported (see bridge_ops.py)
 
-Komut mantiginin tamami bridge_ops.py icinde ve Live'a bagli degil, boylece
-Ableton acilmadan test edilebilir.
+The whole command layer lives in bridge_ops.py and is not coupled to Live, so
+it can be tested without opening Ableton.
 """
 import json
 import os
@@ -21,7 +21,7 @@ from _Framework.ControlSurface import ControlSurface
 
 try:
     from . import bridge_ops
-except ImportError:  # Live bazi surumlerde paketi duz modul olarak yukler
+except ImportError:  # some Live versions load this as a flat module
     import bridge_ops
 
 
@@ -101,7 +101,7 @@ class SenseiRemote(ControlSurface):
             self._finish(request_path, payload, ERROR_DIR, error="%s: %s" % (type(error).__name__, error))
 
     def _finish(self, request_path, payload, destination, result=None, error=None):
-        """Sonucu isteginin icine yazip tasir -- cagiran ne oldugunu okuyabilsin."""
+        """Write the outcome into the request and move it, so the caller can read it."""
         record = dict(payload) if isinstance(payload, dict) else {}
         record["completed_at"] = time.time()
         record["schema_version"] = bridge_ops.SCHEMA_VERSION

@@ -1,1 +1,1 @@
-"""Presetor: Ableton cihaz zinciri planlama ve yerlestirme katmani."""
+"""Presetor: the device-chain planning and placement layer."""

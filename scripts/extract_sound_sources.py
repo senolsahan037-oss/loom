@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Kullanicinin gercekten kullandigi ses kaynaklarini cikarir.
+"""Extract the sound sources the producer actually uses.
 
-Olculen sey: MIDI track'lerin 189'undan 113'u Simpler/Sampler, yani sesi
-belirleyen cihaz tipi degil YUKLENEN SAMPLE. Bu yuzden burada cihaz tagi ile
-birlikte SampleRef/FileRef altindaki dosya adi ve paketi de okunur.
+What the measurement showed: of 189 MIDI tracks, 113 are Simpler or Sampler --
+so what defines the sound is not the device type but the SAMPLE LOADED INTO IT.
+That is why the device tag is read together with the file name under
+SampleRef/FileRef.
 
-Ayni sekilde audio klip kaynaklari da toplanir -- kullanicinin ses paleti
-ikisinin birlesimidir.
+Audio clip sources are collected the same way -- the producer's palette is the
+union of both.
 """
 import argparse
 import collections
@@ -33,7 +34,7 @@ INSTRUMENT_TAGS = {
 
 
 def _sample_name(node):
-    """SampleRef altindaki dosya adi. Yol degil ad tutulur -- ad tasinabilir."""
+    """The file name under SampleRef. The name is kept, not the path -- a name travels."""
     for path in ("./Name", "./FileRef/Name"):
         found = node.find(path)
         if found is not None:
@@ -104,31 +105,31 @@ def main():
     if args.limit:
         files = files[: args.limit]
 
-    print("%d proje taranacak" % len(files), flush=True)
+    print("%d projects to scan" % len(files), flush=True)
     all_rows = []
     for index, path in enumerate(files, 1):
         try:
             rows = read_sources(path)
         except Exception as error:
-            print("  [%d/%d] ATLANDI %s (%s)" % (index, len(files), Path(path).name, error), flush=True)
+            print("  [%d/%d] SKIPPED %s (%s)" % (index, len(files), Path(path).name, error), flush=True)
             continue
         for row in rows:
             row["project"] = Path(path).stem
         all_rows.extend(rows)
-        print("  [%d/%d] %-38s %d track" % (index, len(files), Path(path).stem[:38], len(rows)), flush=True)
+        print("  [%d/%d] %-38s %d tracks" % (index, len(files), Path(path).stem[:38], len(rows)), flush=True)
 
     print()
     print("=" * 62)
     instrument_tracks = [r for r in all_rows if r["instruments"]]
-    print("track: %d, enstrumanli: %d" % (len(all_rows), len(instrument_tracks)))
+    print("tracks: %d, with an instrument: %d" % (len(all_rows), len(instrument_tracks)))
 
     print()
-    print("EN COK KULLANILAN SES KAYNAGI CIHAZLARI:")
+    print("MOST USED SOUND SOURCE DEVICES:")
     for device, count in collections.Counter(d for r in instrument_tracks for d in r["instruments"]).most_common(12):
         print("  %-24s %4d" % (device, count))
 
     print()
-    print("EN COK TEKRAR EDEN SAMPLE'LAR:")
+    print("MOST RECURRING SAMPLES:")
     samples = collections.Counter(s for r in all_rows for s in r["all_samples"])
     for sample, count in samples.most_common(20):
         print("  %4d  %s" % (count, sample[:72]))
@@ -136,7 +137,7 @@ def main():
     if args.out:
         Path(args.out).write_text(json.dumps({"tracks": all_rows}, indent=2), encoding="utf-8")
         print()
-        print("kaydedildi: %s" % args.out)
+        print("saved: %s" % args.out)
     return 0
 
 

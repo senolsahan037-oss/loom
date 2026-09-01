@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Presetor'un headless dogrulanmasi. Ableton Live gerekmiyor.
+"""Headless verification of Presetor. Ableton Live is not required.
 
-Kanitladigi sey: zincir kanitinin esikleri, ve transplant'in hem dogru
-kopyaladigi hem de kopyalamamasi gereken durumlarda durdugu.
-Kanitlamadigi sey: Live'in bu .als'i acinca ne gosterdigi.
+What this proves: the chain-evidence thresholds, and that the transplant both
+copies correctly and stops in the cases where it must not copy.
+What it does not prove: what Live shows when it opens the resulting .als.
 """
 import sys
 import xml.etree.ElementTree as ET
@@ -36,7 +36,7 @@ def check(label, condition, detail=""):
 
 
 def make_track(name, devices, next_id_start):
-    """Live'in yazdigi yapinin, test icin gereken en kucuk hali."""
+    """The smallest form of the structure Live writes that the test needs."""
     track = ET.Element("AudioTrack", {"Id": str(next_id_start)})
     name_node = ET.SubElement(track, "Name")
     ET.SubElement(name_node, "UserName", {"Value": ""})
@@ -58,110 +58,111 @@ def make_set(next_pointee=900):
     root = ET.Element("Ableton")
     live_set = ET.SubElement(root, "LiveSet")
     ET.SubElement(live_set, "NextPointeeId", {"Value": str(next_pointee)})
-    # Adlar rol tasimali: rol cikarilamazsa plan "no_evidence" der ve
-    # planlayici hic sinanmamis olur.
+    # The names must carry a role: with no role the plan says "no_evidence"
+    # and the planner is never actually exercised.
     live_set.append(make_track("BASS DONOR", ["Eq8", "GlueCompressor", "Saturator"], 10))
     live_set.append(make_track("BASS EMPTY", [], 20))
     live_set.append(make_track("BASS BUSY", ["Eq8"], 30))
     return root
 
 
-# ---- kanit esikleri ----
+# ---- evidence thresholds ----
 rows = chain_evidence.load_tracks()
-# Depoda olculmus veri YOKTUR (kisiseldir); temiz bir klonda sentetik fixture
-# kullanilir. Test ikisinde de gecmeli, o yuzden esik kullanicinin kutuphane
-# boyutuna degil, bir onerinin anlamli olmasi icin gereken minimuma bagli.
-check("kanit verisi yuklendi", len(rows) >= chain_evidence.MIN_ROLE_SAMPLE * 5, len(rows))
-check("hangi kaynagin kullanildigi bildiriliyor",
+# The repo carries NO measured data (it is personal); a clean clone uses the
+# synthetic fixture. The test must pass on both, so the threshold is tied to
+# the minimum a recommendation needs to mean anything, not to the size of one
+# producer's library.
+check("evidence data loaded", len(rows) >= chain_evidence.MIN_ROLE_SAMPLE * 5, len(rows))
+check("the data source in use is reported",
       chain_evidence.data_source() in ("measured", "synthetic_fixture"), chain_evidence.data_source())
-check("ozet de kaynagi tasiyor", chain_evidence.summary(rows)["data_source"] == chain_evidence.data_source())
-check("kick rolu icin oneri var", chain_evidence.recommend("kick", rows) is not None)
+check("the summary carries the source too", chain_evidence.summary(rows)["data_source"] == chain_evidence.data_source())
+check("the kick role has a recommendation", chain_evidence.recommend("kick", rows) is not None)
 kick = chain_evidence.recommend("kick", rows)
 if kick:
-    check("kick onerisi EQ Eight ile basliyor", kick.chain[0] == "EQ Eight", kick.chain)
-    check("her onerilen cihazin varlik orani esigin ustunde",
+    check("the kick recommendation starts with EQ Eight", kick.chain[0] == "EQ Eight", kick.chain)
+    check("every recommended device is above the presence threshold",
           all(item.presence >= chain_evidence.PRESENCE_THRESHOLD for item in kick.devices),
           [(i.device, i.presence) for i in kick.devices])
-    check("oneri kac track'e dayandigini soyluyor", kick.role_sample >= chain_evidence.MIN_ROLE_SAMPLE, kick.role_sample)
-check("orneklemi kucuk rol icin oneri URETILMEZ",
+    check("the recommendation states how many tracks back it", kick.role_sample >= chain_evidence.MIN_ROLE_SAMPLE, kick.role_sample)
+check("a role with too small a sample yields NO recommendation",
       chain_evidence.recommend("__yok_boyle_bir_rol__", rows) is None)
 few = [{"role": "tek", "chain": ["Eq8"], "project": "p"}] * (chain_evidence.MIN_ROLE_SAMPLE - 1)
-check("MIN_ROLE_SAMPLE altinda kalan rol sessiz kalir", chain_evidence.recommend("tek", few) is None)
+check("a role below MIN_ROLE_SAMPLE stays silent", chain_evidence.recommend("tek", few) is None)
 
 # ---- transplant ----
 root = make_set()
-check("donor zinciri okunuyor", chain_of(find_track(root, "BASS DONOR")) == ("EQ Eight", "Glue Compressor", "Saturator"))
-check("bos track'in zinciri bos", chain_of(find_track(root, "BASS EMPTY")) == ())
-check("istenen zincire sahip donor bulunuyor",
+check("the donor chain is read", chain_of(find_track(root, "BASS DONOR")) == ("EQ Eight", "Glue Compressor", "Saturator"))
+check("an empty track has an empty chain", chain_of(find_track(root, "BASS EMPTY")) == ())
+check("a donor carrying the wanted chain is found",
       find_donors(root, ("EQ Eight", "Glue Compressor", "Saturator")) == ["BASS DONOR"])
 
 before_ids = {node.attrib["Id"] for node in root.iter() if "Id" in node.attrib}
 result = transplant_chain(root, target_name="BASS EMPTY", donor_name="BASS DONOR")
-check("zincir kopyalandi", result.changed and result.inserted_devices == ("EQ Eight", "Glue Compressor", "Saturator"), result)
-check("hedefte artik zincir var", chain_of(find_track(root, "BASS EMPTY")) == ("EQ Eight", "Glue Compressor", "Saturator"))
-check("donor bozulmadi", chain_of(find_track(root, "BASS DONOR")) == ("EQ Eight", "Glue Compressor", "Saturator"))
+check("the chain was copied", result.changed and result.inserted_devices == ("EQ Eight", "Glue Compressor", "Saturator"), result)
+check("the target now has a chain", chain_of(find_track(root, "BASS EMPTY")) == ("EQ Eight", "Glue Compressor", "Saturator"))
+check("the donor was not disturbed", chain_of(find_track(root, "BASS DONOR")) == ("EQ Eight", "Glue Compressor", "Saturator"))
 
-# Track'in kendi Id'si zaten vardi; sorulan sey KOPYALANAN cihazlarin
-# yeni id alip almadigi.
+# The track already had its own Id; the question is whether the COPIED devices
+# were given new ones.
 inserted_ids = {
     node.attrib["Id"]
     for device in direct_devices(find_track(root, "BASS EMPTY"))
     for node in device.iter()
     if "Id" in node.attrib
 }
-check("kopyalanan cihazlara YENI id verildi", not (inserted_ids & before_ids), sorted(inserted_ids & before_ids))
+check("the copied devices were given NEW ids", not (inserted_ids & before_ids), sorted(inserted_ids & before_ids))
 all_ids = [node.attrib["Id"] for node in root.iter() if "Id" in node.attrib and int(node.attrib["Id"]) > 0]
-check("hicbir id iki kez kullanilmiyor", len(all_ids) == len(set(all_ids)),
+check("no id is used twice", len(all_ids) == len(set(all_ids)),
       [i for i in set(all_ids) if all_ids.count(i) > 1])
-check("NextPointeeId ilerletildi", int(root.find("./LiveSet/NextPointeeId").attrib["Value"]) == result.next_pointee_id and result.next_pointee_id > 900, result.next_pointee_id)
+check("NextPointeeId was advanced", int(root.find("./LiveSet/NextPointeeId").attrib["Value"]) == result.next_pointee_id and result.next_pointee_id > 900, result.next_pointee_id)
 
 again = transplant_chain(root, target_name="BASS EMPTY", donor_name="BASS DONOR")
-check("ayni transplant ikinci kez calistirilinca degisiklik yapmaz", again.changed is False, again)
-check("ikinci calistirma cihaz sayisini iki katina cikarmaz", len(direct_devices(find_track(root, "BASS EMPTY"))) == 3,
+check("running the same transplant twice changes nothing", again.changed is False, again)
+check("a second run does not double the device count", len(direct_devices(find_track(root, "BASS EMPTY"))) == 3,
       len(direct_devices(find_track(root, "BASS EMPTY"))))
 
 try:
     transplant_chain(root, target_name="BASS BUSY", donor_name="BASS DONOR")
-    check("dolu track'in uzerine yazilmaz", False, "hata bekleniyordu")
+    check("a track that already has a chain is not overwritten", False, "an error was expected")
 except ChainBuildError as error:
-    check("dolu track'in uzerine yazilmaz", "already has a chain" in str(error), str(error))
+    check("a track that already has a chain is not overwritten", "already has a chain" in str(error), str(error))
 
 try:
     transplant_chain(root, target_name="BASS DONOR", donor_name="BASS DONOR")
-    check("track kendi kendine donor olamaz", False, "hata bekleniyordu")
+    check("a track cannot donate to itself", False, "an error was expected")
 except ChainBuildError:
-    check("track kendi kendine donor olamaz", True)
+    check("a track cannot donate to itself", True)
 
 try:
     transplant_chain(root, target_name="BASS EMPTY", donor_name="__yok__")
-    check("olmayan donor reddedilir", False, "hata bekleniyordu")
+    check("a donor that does not exist is refused", False, "an error was expected")
 except ChainBuildError:
-    check("olmayan donor reddedilir", True)
+    check("a donor that does not exist is refused", True)
 
 fresh = make_set()
 try:
     transplant_chain(fresh, target_name="BASS EMPTY", donor_name="BUSY_YOK")
-    check("cihazsiz donor reddedilir", False, "hata bekleniyordu")
+    check("a donor with no devices is refused", False, "an error was expected")
 except ChainBuildError:
-    check("cihazsiz donor reddedilir", True)
+    check("a donor with no devices is refused", True)
 
-# ---- planlayici ----
+# ---- planner ----
 plan = plan_project(make_set(), rows)
-check("plan her track icin bir satir uretir", plan["track_count"] == 3, plan["track_count"])
+check("the plan produces one row per track", plan["track_count"] == 3, plan["track_count"])
 statuses = {item["track"]: item["status"] for item in plan["plans"]}
-check("dolu track'ler 'already_has_chain' olarak isaretlenir", statuses["BASS DONOR"] == "already_has_chain", statuses)
+check("tracks with a chain are marked 'already_has_chain'", statuses["BASS DONOR"] == "already_has_chain", statuses)
 empty_plan = next(item for item in plan["plans"] if item["track"] == "BASS EMPTY")
-check("bos track icin oneri ve donor uretilir", empty_plan["status"] in ("can_transplant", "no_donor"), empty_plan["status"])
+check("an empty track gets a recommendation and a donor", empty_plan["status"] in ("can_transplant", "no_donor"), empty_plan["status"])
 if empty_plan["status"] == "can_transplant":
-    check("plan hangi kanita dayandigini tasir", empty_plan["evidence"] and empty_plan["role_sample"], empty_plan)
+    check("the plan carries the evidence it rests on", empty_plan["evidence"] and empty_plan["role_sample"], empty_plan)
 
-print("%d kontrol gecti:" % len(checks))
+print("%d checks passed:" % len(checks))
 for label in checks:
     print("  ok  %s" % label)
 if failures:
     print()
-    print("BASARISIZ:")
+    print("FAILED:")
     for failure in failures:
         print("  - %s" % failure)
     sys.exit(1)
-print("PRESETOR CALISIYOR")
+print("PRESETOR WORKS")

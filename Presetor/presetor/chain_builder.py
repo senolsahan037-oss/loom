@@ -1,12 +1,13 @@
-"""Bir track'in cihaz zincirini, ayni projedeki baska bir track'ten kopyalar.
+"""Copy a track's device chain from another track in the same project.
 
-Neden kopyalama: gecerli bir Ableton cihaz XML'ini sifirdan uretmek guvenilir
-degil, ama Live'in kendi yazdigi bir cihazi klonlamak guvenilir. AIMixMaster'in
-buss_builder'i bunu DRUM BUSS icin kanitladi; buradaki tek fark, hangi track'ten
-hangi track'e kopyalanacaginin sabit olmamasi.
+Why copying: synthesising valid Ableton device XML from nothing is not
+reliable, but cloning a device Live itself wrote is. AIMixMaster's buss_builder
+proved this for the DRUM BUSS; the only difference here is that which track
+gives and which receives is not fixed.
 
-Fail-closed: hedefin zinciri bosalmadikca yazilmaz, iki track'in de routing /
-mixer / otomasyon / klip alanlari yazma oncesi ve sonrasi ayni olmak zorundadir.
+Fail-closed: nothing is written unless the target's chain is empty, and both
+tracks' routing, mixer, automation and clip fields must be identical before and
+after the write.
 """
 from __future__ import annotations
 
@@ -48,12 +49,12 @@ class ChainBuildResult:
 
 
 def find_track(root: ET.Element, name: str) -> ET.Element:
-    """Adiyla tek bir track bulur -- UserName bos ise EffectiveName ile.
+    """Find exactly one track by name -- falling back to EffectiveName.
 
-    project_analyzer.find_unique_track yalnizca UserName'e bakar, ki cogu
-    projede bos. Buradaki plan display_name ile kuruldugu icin yerlestirme de
-    ayni adla aramak zorunda, yoksa plan bulunan track'i transplant bulamaz.
-    Ayni benzersizlik kurali korunur: tam olarak bir eslesme sart.
+    project_analyzer.find_unique_track reads only UserName, which is empty in
+    most projects. The plan here is built with display_name, so placement has
+    to search by the same name or the transplant cannot find the track the plan
+    found. The uniqueness rule is kept: exactly one match is required.
     """
     matches = [track for track in iter_tracks(root) if display_name(track) == name]
     if len(matches) != 1:
@@ -66,7 +67,7 @@ def chain_of(track_element: ET.Element) -> tuple[str, ...]:
 
 
 def find_donors(root: ET.Element, wanted_chain: tuple[str, ...]) -> list[str]:
-    """Bu projede istenen zincire birebir sahip track adlari."""
+    """Names of tracks in this project whose chain matches exactly."""
     return [
         display_name(track)
         for track in iter_tracks(root)

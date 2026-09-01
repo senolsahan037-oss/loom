@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Her track'in enstrumaninin Sensei'nin kataloguna gore cozulup cozulmedigini
-Live acmadan dogrular.
+"""Verify each track's instrument against Sensei's catalog, without opening Live.
 
-Kanitladigi sey: plan'daki instrument_family adi Sensei'nin kimlik katalogunda
-TEK bir role cozuluyor ve o rol plan'in sensei_role'u ile ayni. Bu, gercek
-Live kosusundaki instrument_role_unresolved hatasinin ta kendisidir -- Live'da
-patlamadan once burada yakalanir.
+What it proves: the plan's instrument_family resolves to exactly ONE role in
+Sensei's identity catalog, and that role matches the plan's sensei_role. This is
+the same instrument_role_unresolved failure a real Live run produces -- caught
+here before Live ever sees it.
 
-Kanitlamadigi sey: preset'in Ableton'da gercekten yuklenebildigi.
+What it does not prove: that the preset actually loads in Ableton.
 """
 import collections
 import json
@@ -28,10 +27,10 @@ def load_role_index(catalog_path=CATALOG):
 
 
 def verify_plan(plan_path=PLAN, catalog_path=CATALOG):
-    """Plan'daki her track icin enstruman/rol tutarliligini dondurur.
+    """Report instrument/role consistency for every track in the plan.
 
-    MCP sunucusu da bunu cagirir; tek dogruluk kaynagi burasi olsun diye
-    fonksiyon haline getirildi.
+    The MCP server calls this too; it was made a function so there is a single
+    source of truth.
     """
     roles_by_name = load_role_index(catalog_path)
     with open(plan_path) as handle:
@@ -74,34 +73,34 @@ def verify_plan(plan_path=PLAN, catalog_path=CATALOG):
 
 
 def main():
-    # Sensei'nin kimlik katalogu kullanicinin KENDI Ableton kurulumundan
-    # uretilir ve depoda yayinlanmaz. Temiz bir klonda yoktur; bu bir
-    # basarisizlik degil, uretilmemis bir on kosuldur.
+    # Sensei's identity catalog is generated from the producer's OWN Ableton
+    # install and is never published. It is absent in a clean clone; that is not
+    # a failure, it is a precondition that has not been generated yet.
     if not os.path.exists(CATALOG):
-        print("ATLANDI: Sensei kimlik katalogu yok.\n  %s" % CATALOG)
-        print("  Uretmek icin Sensei/ableton/genre_identity.py calistirin.")
+        print("SKIPPED: Sensei identity catalog is missing.\n  %s" % CATALOG)
+        print("  Generate it by running Sensei/ableton/genre_identity.py.")
         return 0
     if not os.path.exists(PLAN):
-        print("ATLANDI: session plan yok. Once ArrangementGPS zincirini calistirin.")
+        print("SKIPPED: no session plan. Run the ArrangementGPS chain first.")
         return 0
 
     result = verify_plan()
-    print("Sensei'nin urettigi roller (drum/bass/chord): %d track" % len(result["supported"]))
+    print("Roles Sensei generates for (drum/bass/chord): %d tracks" % len(result["supported"]))
     for item in result["supported"]:
         print("  ok  %-16s %-8s %s" % (item["track"], item["role"], item["instrument_family"]))
     print()
-    print("Sensei'nin rolu olmayan lane'ler (kapsam disi, hata degil): %d track" % len(result["out_of_scope"]))
+    print("Lanes with no Sensei role (out of scope, not a failure): %d tracks" % len(result["out_of_scope"]))
     print("  " + ", ".join(result["out_of_scope"]))
 
     if result["failures"]:
         print()
-        print("BASARISIZ:")
+        print("FAILED:")
         for failure in result["failures"]:
             print("  - " + failure)
         return 1
 
     print()
-    print("%d/%d desteklenen track tek role cozuluyor" % (len(result["supported"]), len(result["supported"])))
+    print("%d/%d supported tracks resolve to a single role" % (len(result["supported"]), len(result["supported"])))
     return 0
 
 

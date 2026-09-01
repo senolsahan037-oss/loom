@@ -1,9 +1,8 @@
-"""Kullanicinin kendi projelerinden olculmus cihaz zincirleri.
+"""Device chains measured from the producer's own projects.
 
-Bu modul oneri uretmez, sayar. Veri kaynagi
-`scripts/extract_device_chains.py` ile taranmis 840 track; bir rol icin yeterli
-gozlem yoksa oneri DONMEZ (None) -- zayif bir tahmin, tahmin olmamasindan
-kotudur.
+This module does not generate suggestions, it counts. The data comes from
+`scripts/extract_device_chains.py`; where a role has too few observations no
+recommendation is returned at all (None) -- a weak guess is worse than none.
 """
 from __future__ import annotations
 
@@ -13,10 +12,10 @@ import json
 from pathlib import Path
 
 DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "measured_device_chains.json"
-# Olculmus veri kullanicinin kendi projelerinden gelir, kisiseldir, depoda
-# yayinlanmaz. Yoksa sentetik fixture kullanilir -- ama hangisinin
-# kullanildigi HER ZAMAN raporlanir: fixture'dan cikan bir oneri kullanici
-# hakkinda hicbir sey soylemez.
+# The measured data comes from the producer's own projects, is personal, and
+# is never published in the repository. Without it a synthetic fixture is used
+# -- but which one was used is ALWAYS reported: a recommendation derived from
+# the fixture says nothing about the producer.
 FIXTURE_PATH = Path(__file__).resolve().parents[1] / "data" / "fixture_device_chains.json"
 
 
@@ -26,18 +25,18 @@ def active_data_path() -> Path:
 
 def data_source() -> str:
     return "measured" if DATA_PATH.exists() else "synthetic_fixture"
-# Bir cihazin oneriye girmesi icin o roldeki track'lerin en az bu kadarinda
-# gorulmesi gerekir. Olculen veride EQ Eight cogu rolde %80+ cikiyor, yani
-# esik gercek aliskanliklari eliyor degil, tek seferlikleri eliyor.
+# A device must appear on at least this share of a role's tracks to enter a
+# recommendation. In the measured data EQ Eight clears 80% on most roles, so
+# the threshold does not filter out real habits, only one-off decisions.
 PRESENCE_THRESHOLD = 0.40
-# Bir rol icin toplam bu kadar veri yoksa o rol hakkinda konusulmaz.
+# Below this much data for a role, the module says nothing about that role.
 MIN_ROLE_SAMPLE = 10
 
 
 @dataclass(frozen=True)
 class DeviceEvidence:
     device: str
-    presence: float       # bu rolde kac track'te goruldugu (0-1)
+    presence: float       # share of this role's tracks carrying it (0-1)
     occurrences: int
     median_position: float
 
@@ -79,13 +78,13 @@ def chains_for_role(role: str, tracks: list[dict] | None = None) -> list[tuple[t
 
 
 def recommend(role: str, tracks: list[dict] | None = None) -> ChainRecommendation | None:
-    """Bir rol icin kanita dayali cihaz zinciri.
+    """The evidence-backed device chain for a role.
 
-    Tam zincir dizisi neredeyse hic tekrarlamiyor (en sik dizi bile rolun
-    ancak %5-19'u), o yuzden dizi degil CIHAZ VARLIGI sayilir: bu rolde
-    track'lerin en az PRESENCE_THRESHOLD'unda gorulen cihazlar alinir ve
-    gorulduklerileri ortalama konuma gore siralanir. Boylece oneri, gercekten
-    tekrar eden aliskanlik olur; tek seferlik bir dizi degil.
+    The exact device sequence almost never repeats -- even a role's most common
+    sequence covers only 5-19% of it -- so what is counted is DEVICE PRESENCE,
+    not order: devices seen on at least PRESENCE_THRESHOLD of this role's tracks
+    are taken and sorted by the median position they appear at. The result is a
+    habit that genuinely recurs, rather than one project's sequence.
     """
     rows = tracks if tracks is not None else load_tracks()
     role_chains = [tuple(row["chain"]) for row in rows if row["role"] == role and row.get("chain")]
@@ -99,7 +98,7 @@ def recommend(role: str, tracks: list[dict] | None = None) -> ChainRecommendatio
         for device in set(chain):
             presence[device] += 1
         for index, device in enumerate(chain):
-            # Zincir uzunluklari farkli, mutlak indeks karsilastirilamaz.
+            # Chains differ in length, so absolute indices are not comparable.
             positions[device].append(index / max(1, len(chain) - 1) if len(chain) > 1 else 0.0)
 
     chosen = []

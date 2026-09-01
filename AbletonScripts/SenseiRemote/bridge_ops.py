@@ -1,14 +1,14 @@
-"""Live komut isleyicisi -- Ableton'a bagli DEGIL.
+"""Live command handlers -- NOT coupled to Ableton.
 
-Her fonksiyon Live'in `song` nesnesini disaridan alir. Bu kasitli: boylece
-testler sahte bir song verip komut mantiginin tamamini Ableton acmadan
-dogrulayabilir. SenseiRemote.py bu modulu cagirmaktan baska is yapmaz.
+Every function takes Live's `song` object from outside. That is deliberate: it
+lets the tests hand in a fake song and verify the whole command layer without
+opening Ableton. SenseiRemote.py does nothing but call into this module.
 
 Fail-closed:
-  * Bilinmeyen islem reddedilir
-  * Track adi tam eslesmeli ve tek olmali
-  * Deger parametrenin kendi min/max'i disina cikamaz
-  * Her islem ne yaptigini geri dondurur -- "basarili" demekle yetinmez
+  * An unknown operation is refused
+  * A track name must match exactly one track
+  * A value may not leave the parameter's own min/max
+  * Every operation reports what it did -- it never just says "ok"
 """
 
 SCHEMA_VERSION = "sensei.bridge.v2"

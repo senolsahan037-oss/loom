@@ -1,1 +1,1 @@
-"""AISoundDesigner: kullanicinin olculmus ses paleti."""
+"""AISoundDesigner: the producer's measured sound palette."""

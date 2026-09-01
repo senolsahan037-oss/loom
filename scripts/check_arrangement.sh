@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Arrangement kurucusunun tam dogrulamasi -- Ableton Live ACILMADAN.
-# Live'in kendi davranisi disinda her sey burada kanitlanir: bolum cikarimi,
-# locator yerlesimi, klip zamanlamasi, doseme, tekrar calistirilabilirlik.
+# Full verification of the arrangement builder -- WITHOUT opening Ableton Live.
+# Everything except Live's own behaviour is proven here: section extraction,
+# locator placement, clip timing, tiling and repeatability.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -26,7 +26,7 @@ python3 "$ROOT/scripts/check_instrument_coverage.py"
 
 echo
 echo "=============================================="
-echo " 4/5  Tip kontrolu (tsc --noEmit)"
+echo " 4/5  Typecheck (tsc --noEmit)"
 echo "=============================================="
 ( cd "$EXT" && npx tsc --noEmit && echo "tsc temiz" )
 
@@ -38,5 +38,5 @@ echo "=============================================="
 
 echo
 echo "=============================================="
-echo " Hepsi gecti. Live acilmadi."
+echo " All passed. Live was never opened."
 echo "=============================================="

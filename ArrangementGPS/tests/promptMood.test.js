@@ -1,4 +1,4 @@
-// Prompt -> tempo/key/genre/mode cikarimi. Saf fonksiyon, Live gerekmiyor.
+// Prompt -> tempo/key/genre/mode extraction. Pure functions, no Live needed.
 import assert from "node:assert/strict";
 import { deriveMoodFromPrompt, parseKey, parseTempo } from "../engine/core/promptMood.js";
 
@@ -56,6 +56,6 @@ check("the full prompt round-trip carries tempo and genre together", () => {
   assert.equal(result.mode, "minor");
 });
 
-console.log(`${checks.length} kontrol gecti:`);
+console.log(`${checks.length} checks passed:`);
 for (const label of checks) console.log(`  ok  ${label}`);
-console.log("TUM KONTROLLER GECTI");
+console.log("ALL CHECKS PASSED");

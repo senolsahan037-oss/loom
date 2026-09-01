@@ -1,17 +1,17 @@
 """Ableton .als icine otomasyon zarfi yazar.
 
-Bu, projede su ana kadar sadece OKUNABILEN tek seydi (GAP-002/005):
-als_automation_inspector zarflari okuyor ama hicbir sey yazamiyordu.
+Until now this was the one thing the project could only READ (GAP-002/005):
+als_automation_inspector could list envelopes but nothing could create one.
 
-Nasil calisir: her mikser parametresinin XML'inde zaten bir
-`AutomationTarget Id` var; bir zarf, `EnvelopeTarget/PointeeId` ile o id'yi
-gosterir. Yani hedef uydurulmaz -- Live'in kendi yazdigi id kullanilir.
+How it works: every mixer parameter already carries an `AutomationTarget Id`
+in the XML, and an envelope points at it through `EnvelopeTarget/PointeeId`.
+The target is never invented -- the id Live itself wrote is the one used.
 
 Fail-closed:
-  * Sadece cozulebilen parametreler yazilir
-  * Degerler parametrenin kendi MidiControllerRange'i disina cikamaz
-  * Ayni hedefte zaten zarf varsa replace=True olmadan yazilmaz
-  * Yazdiktan sonra geri okunup karsilastirilir
+  * Only parameters that resolve are written
+  * Values may not leave the parameter's own MidiControllerRange
+  * An existing envelope on the same target needs replace=True
+  * The file is read back and compared after writing
 """
 from __future__ import annotations
 
@@ -19,12 +19,12 @@ from dataclasses import dataclass
 import math
 import xml.etree.ElementTree as ET
 
-# Live'in "zamanin basi" isareti: ilk noktadan onceki deger bu satirda durur.
+# Live's "beginning of time" marker: the value before the first point sits here.
 BEGINNING_OF_TIME = "-63072000"
 
-# Baslangic kapsami mikser parametreleri: yapilari her projede ayni ve
-# aralikları XML'de yazili. Cihaz parametreleri ayni mekanizmayla eklenebilir
-# ama her cihazin kendi dogrulamasi gerekir, o yuzden simdilik disarida.
+# The starting scope is mixer parameters: their shape is the same in every
+# project and their ranges are declared in the XML. Device parameters reach
+# through the same mechanism via find_target_by_pointee.
 PARAMETER_PATHS = {
     "volume": "./DeviceChain/Mixer/Volume",
     "pan": "./DeviceChain/Mixer/Pan",
@@ -94,11 +94,11 @@ def find_automation_target(track: ET.Element, parameter: str) -> AutomationTarge
 def list_automatable_parameters(track: ET.Element) -> list[dict]:
     """Bu track'te otomasyonu yazilabilecek her parametre.
 
-    Kural basit ve kesin: bir elemanin hem `Manual` degeri hem de kendi
-    `AutomationTarget Id`'si varsa otomasyonu yazilabilir. Boylece cihaz
-    parametreleri de uydurulmadan bulunur -- Live'in kendi yazdigi id
-    kullanilir. Karsiliginda parametre adlari XML etiketleridir, Live'in
-    ekranda gosterdigi adlar degil.
+    The rule is simple and exact: an element whose automation can be written
+    has both a `Manual` value and its own `AutomationTarget Id`. Device
+    parameters are therefore found without inventing anything -- the id Live
+    itself wrote is used. The trade-off is that parameter names are XML tags,
+    not the names Live shows on screen.
     """
     found = []
     for scope, root_node in (("mixer", track.find("./DeviceChain/Mixer")), ("device", track.find("./DeviceChain/DeviceChain/Devices"))):
@@ -229,7 +229,7 @@ def write_automation(
     automation = ET.SubElement(envelope, "Automation")
     events = ET.SubElement(automation, "Events")
 
-    # Ilk noktadan onceki deger: parametrenin mevcut elle ayarlanmis degeri.
+    # The value before the first point: the parameter's current manual value.
     ET.SubElement(events, "FloatEvent", {"Id": "0", "Time": BEGINNING_OF_TIME, "Value": repr(target.manual)})
     for index, (time_beats, value) in enumerate(normalised, start=1):
         ET.SubElement(events, "FloatEvent", {"Id": str(index), "Time": repr(time_beats), "Value": repr(value)})
@@ -248,7 +248,7 @@ def write_automation(
 
 
 def read_automation(track: ET.Element, parameter: str = "", pointee_id: str = "") -> list[tuple[float, float]]:
-    """Yazilan zarfi geri okur. Zamanin basi isareti disarida birakilir."""
+    """Read the written envelope back. The beginning-of-time marker is skipped."""
     target = resolve_target(track, parameter, pointee_id)
     envelopes = track.find("./AutomationEnvelopes/Envelopes")
     if envelopes is None:
