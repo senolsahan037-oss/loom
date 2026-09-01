@@ -599,24 +599,46 @@ def render_tool_text(payload: Any) -> tuple[str, str | None]:
 # --- 5) Resources and prompts ----------------------------------------------
 # The measured datasets and the gap log are natural resources: they should be
 # readable without spending a tool call, and without spending tokens.
+def _evidence_resource(uri: str, name: str, description: str, measured: Path, fixture: Path) -> dict[str, Any]:
+    """An evidence dataset, pointing at whatever the loaders actually read.
+
+    The measured file is personal and never published, so a clean clone falls
+    back to the synthetic fixture -- exactly as chain_evidence and
+    source_evidence do. The description says which one this is, because a
+    fixture presented as measurement would be a lie by omission.
+    """
+    using_measured = measured.exists()
+    return {
+        "uri": uri,
+        "name": name,
+        "description": description + (
+            " Measured from this machine's own projects."
+            if using_measured
+            else " SYNTHETIC FIXTURE -- the measured file is absent, so this says nothing about anyone's projects."
+        ),
+        "mimeType": "application/json",
+        "path": measured if using_measured else fixture,
+    }
+
+
 RESOURCES = [
-    {
-        "uri": "loom://evidence/device-chains",
-        "name": "Measured device chains",
-        "description": "Every track's device chain across the user's own projects, with role and rack contents expanded.",
-        "mimeType": "application/json",
-        "path": PRESETOR_DIR / "data" / "measured_device_chains.json",
-    },
-    {
-        "uri": "loom://evidence/sound-sources",
-        "name": "Measured sound sources",
-        "description": "Instrument devices and the samples they load, per track, across the user's own projects.",
-        "mimeType": "application/json",
-        "path": SOUNDDESIGNER_DIR / "data" / "measured_sound_sources.json",
-    },
+    _evidence_resource(
+        "loom://evidence/device-chains",
+        "Device chain evidence",
+        "Every track's device chain, with role and rack contents expanded.",
+        PRESETOR_DIR / "data" / "measured_device_chains.json",
+        PRESETOR_DIR / "data" / "fixture_device_chains.json",
+    ),
+    _evidence_resource(
+        "loom://evidence/sound-sources",
+        "Sound source evidence",
+        "Instrument devices and the samples they load, per track.",
+        SOUNDDESIGNER_DIR / "data" / "measured_sound_sources.json",
+        SOUNDDESIGNER_DIR / "data" / "fixture_sound_sources.json",
+    ),
     {
         "uri": "loom://docs/gap-log",
-        "name": "Missing controls & gap log",
+        "name": "Missing controls and gap log",
         "description": "Ableton API gaps found during development, with the workaround each one currently uses.",
         "mimeType": "text/markdown",
         "path": DOCS_DIR / "MISSING_CONTROLS_LOG.md",

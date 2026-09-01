@@ -169,6 +169,9 @@ try:
     response = client.request("resources/list", {}, 14)
     resources = response["result"]["resources"]
     check("resources are listed", len(resources) >= 3, len(resources))
+    check("every resource says which source it is",
+          all("SYNTHETIC FIXTURE" in r["description"] or "Measured from" in r["description"] or "gap" in r["uri"] or "plan" in r["uri"] for r in resources),
+          [r["uri"] for r in resources])
     check("every resource has a uri and a mimeType", all("uri" in r and "mimeType" in r for r in resources), resources[:1])
     check("resource entries do not leak internal file paths", all("path" not in r for r in resources), resources[:1])
 
