@@ -43,8 +43,14 @@ def copy_db_to_temp(db_path: str | Path) -> Path:
 
 
 def connect_readonly(db_path: str | Path) -> sqlite3.Connection:
+    # immutable=1 is load-bearing, not a tuning flag. Live's file index is a
+    # WAL-mode database, and plain mode=ro fails on it with "unable to open
+    # database file" because SQLite still wants to create the -shm sidecar it
+    # is not allowed to write. immutable promises the file will not change, so
+    # no WAL or shared-memory file is needed. Callers reach here through
+    # copy_db_to_temp, so the promise is true even while Live is running.
     db_file = Path(db_path).expanduser().resolve()
-    connection = sqlite3.connect(f"file:{db_file}?mode=ro", uri=True)
+    connection = sqlite3.connect(f"file:{db_file}?mode=ro&immutable=1", uri=True)
     connection.row_factory = sqlite3.Row
     return connection
 
