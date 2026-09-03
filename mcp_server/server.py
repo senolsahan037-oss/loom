@@ -585,6 +585,42 @@ TOOLS = [
             "required": ["als_path", "track"]
         }
     },
+    {
+        "name": "mix_measure",
+        "description": "Direct signal measurement of one audio file (a stem, a bounce, a master): duration, sample rate, channels, sample peak dBFS, RMS dBFS, crest factor, ITU-R BS.1770 integrated loudness through pyloudnorm, and per-channel peak/RMS/DC offset. Silence and too-short files come back with null levels and a status, never a made-up floor. No true-peak guesses, no custom loudness range. The SubverseLab Mix Check engine, running locally.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Audio file to measure (wav/aiff/flac/mp3...). A rendered stem from render_plan is the usual input."},
+                "max_duration_seconds": {"type": "number", "description": "Refuse files longer than this instead of measuring them (default 360)."}
+            },
+            "required": ["path"]
+        }
+    },
+    {
+        "name": "mix_analyze",
+        "description": "Full Mix Check of one audio file: the measurements of mix_measure plus one-third-octave spectrum, tonal map with key candidate, noise floor, section summaries, mono fold-down compatibility, and evidence-backed findings. Optionally compared against a reference file or one of the stored Genre Profiles (measured from released masters: electronic, hiphop, jazz, metal, pop, rock); use_closest_profile ranks the track by technical proximity, which is not a genre classification and is labelled as such. Findings only appear when a measurement is actually outside the comparison range; limitations are listed with every result.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "The mix or master to analyse."},
+                "analysis_stage": {"type": "string", "enum": ["mix", "master"], "description": "What the file is. Master-only metrics (loudness, peak, crest) are compared only for a master.", "default": "mix"},
+                "reference_path": {"type": "string", "description": "Optional reference file to compare against."},
+                "reference_stage": {"type": "string", "enum": ["mix", "master"], "description": "Required when reference_path is given: what the reference is."},
+                "genre": {"type": "string", "description": "Optional stored Genre Profile id to compare against (see mix_profiles)."},
+                "use_closest_profile": {"type": "boolean", "description": "With no genre and no reference: compare against the technically nearest stored profile and say so.", "default": False},
+                "max_duration_seconds": {"type": "number", "description": "Refuse files longer than this (default 360)."},
+                "include_waveform": {"type": "boolean", "description": "Include the 1200-bin waveform envelope in the answer (large). Default false.", "default": False},
+                "detail": {"type": "boolean", "description": "Return every per-band table (31 one-third-octave bands for spectrum, mono fold-down and comparison deltas) instead of the compact form. The full answer exceeds the response limit and is then written to a file whose path is returned.", "default": False}
+            },
+            "required": ["path"]
+        }
+    },
+    {
+        "name": "mix_profiles",
+        "description": "List the stored Genre Profiles mix_analyze can compare against: id, name, how many released masters each was measured from, and the measurement contract version.",
+        "inputSchema": {"type": "object", "properties": {}}
+    },
 {
         "name": "setup_scan",
         "description": "First-run setup: build Loom's catalogues from the stock Ableton library on THIS machine, read out of Live's own file index. Loom ships code and fixtures but never measurements, so each user generates their own. Reports state by default and writes nothing until asked.",
@@ -2497,6 +2533,104 @@ def _bridge_candidates() -> list[dict[str, Any]]:
     return found
 
 
+
+# --- Mix Check (SubverseLab mix analyzer, ported 2026-09-03) ----------------
+MIX_ANALYZER_DIR = LOOM_DIR / "MixAnalyzer"
+
+
+def _mix_module():
+    if str(MIX_ANALYZER_DIR) not in sys.path:
+        sys.path.insert(0, str(MIX_ANALYZER_DIR))
+    import subverse_mix  # noqa: WPS433 -- optional heavy deps (librosa, pyloudnorm)
+    return subverse_mix
+
+
+def _mix_path(raw: str) -> Path:
+    path = Path(str(raw)).expanduser()
+    if not path.is_file():
+        raise FileNotFoundError(f"no audio file at {path}")
+    return path
+
+
+def handle_mix_measure(args: dict[str, Any]) -> dict[str, Any]:
+    mix = _mix_module()
+    path = _mix_path(args["path"])
+    result = mix.analyze_audio(path, max_duration_seconds=float(args.get("max_duration_seconds") or mix.settings.max_analysis_seconds))
+    return {"path": str(path), "engine": "subverse-mix-check", **result}
+
+
+def handle_mix_profiles(_args: dict[str, Any]) -> dict[str, Any]:
+    mix = _mix_module()
+    store = mix.GenreProfileStore(mix.DEFAULT_PROFILES_PATH)
+    return {"profiles": store.list(), "catalog": str(mix.DEFAULT_PROFILES_PATH),
+            "notice": "Profiles are technical measurement distributions of released masters, not genre definitions."}
+
+
+def handle_mix_analyze(args: dict[str, Any]) -> dict[str, Any]:
+    mix = _mix_module()
+    path = _mix_path(args["path"])
+    store = mix.GenreProfileStore(mix.DEFAULT_PROFILES_PATH)
+    profiles = store.all()
+    genre_profile = None
+    if args.get("genre"):
+        genre_profile = store.get(str(args["genre"]))
+        if genre_profile is None:
+            raise ValueError(f"unknown genre profile {args['genre']!r}; known: {[p['id'] for p in profiles]}")
+    reference = _mix_path(args["reference_path"]) if args.get("reference_path") else None
+    result = mix.analyze_mix(
+        path, path.name,
+        reference_path=reference, reference_filename=reference.name if reference else None,
+        selected_genre=args.get("genre"), genre_profile=genre_profile, genre_profiles=profiles,
+        use_closest_profile=bool(args.get("use_closest_profile", False)),
+        analysis_stage=str(args.get("analysis_stage") or "mix"),
+        reference_stage=args.get("reference_stage"),
+        max_duration_seconds=float(args.get("max_duration_seconds") or mix.settings.max_analysis_seconds),
+    )
+    if not args.get("include_waveform"):
+        mix_features = result.get("mix")
+        if isinstance(mix_features, dict) and "waveform" in mix_features:
+            bins = (mix_features.get("waveform") or {}).get("bin_count")
+            mix_features["waveform"] = {"omitted": True, "bin_count": bins, "note": "pass include_waveform=true for the envelope"}
+    if not args.get("detail"):
+        result = _compact_mix_result(result)
+    return {"path": str(path), "engine": "subverse-mix-check", **result}
+
+
+def _compact_mix_result(result: dict[str, Any]) -> dict[str, Any]:
+    """The full Mix Check answer carries three 31-band tables and overflows
+    the response limit; the compact form keeps every number that a finding
+    can rest on and folds each table into one line per band."""
+    compact = dict(result)
+    mix = dict(compact.get("mix") or {})
+    bands = mix.get("spectral_bands")
+    if isinstance(bands, list):
+        mix["spectral_bands"] = {str(b.get("center_hz")): b.get("loudness_relative_db") for b in bands if isinstance(b, dict)}
+        mix["spectral_bands_note"] = "center_hz -> loudness-relative dB; detail=true for absolute levels per band"
+    mono = mix.get("mono_compatibility")
+    if isinstance(mono, dict):
+        mono = dict(mono)
+        mono_bands = mono.pop("bands", None)
+        if isinstance(mono_bands, list):
+            threshold = float(getattr(_mix_module().mix_analyzer, "MONO_LOSS_DETECTION_THRESHOLD_DB", -4.0))
+            mono["bands_with_material_loss"] = [
+                {"center_hz": b.get("center_hz"), "mono_loss_db": b.get("mono_loss_db")}
+                for b in mono_bands if isinstance(b, dict) and b.get("active_for_detection") and (b.get("mono_loss_db") or 0) <= threshold
+            ]
+            mono["loss_threshold_db"] = threshold
+            mono["band_count"] = len(mono_bands)
+        mix["mono_compatibility"] = mono
+    compact["mix"] = mix
+    comparison = compact.get("comparison")
+    if isinstance(comparison, dict):
+        comparison = dict(comparison)
+        deltas = comparison.pop("spectral_deltas", None)
+        if isinstance(deltas, list):
+            comparison["spectral_deltas"] = {str(d.get("center_hz")): d.get("delta_db") for d in deltas if isinstance(d, dict)}
+        compact["comparison"] = comparison
+    compact["compact"] = True
+    return compact
+
+
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
     selection = _select_bridge_root()
     ensure_bridge_dirs()
@@ -2561,6 +2695,9 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "library_search": handle_library_search,
         "render_plan": handle_render_plan,
         "live_bridge_status": handle_live_bridge_status,
+        "mix_measure": handle_mix_measure,
+        "mix_analyze": handle_mix_analyze,
+        "mix_profiles": handle_mix_profiles,
         "setup_scan": handle_setup_scan,
         "gap_record": handle_gap_record,
         "plan_verify": handle_plan_verify,

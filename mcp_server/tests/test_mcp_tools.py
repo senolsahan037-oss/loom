@@ -53,10 +53,15 @@ class Server:
         request = {"jsonrpc": "2.0", "id": self.next_id, "method": method, "params": params or {}}
         self.process.stdin.write(json.dumps(request) + "\n")
         self.process.stdin.flush()
-        line = self.process.stdout.readline()
-        if not line:
-            raise RuntimeError("server closed the connection")
-        return json.loads(line)
+        # The server may interleave notifications (progress, cancellations)
+        # with answers; only the line carrying this request's id is the answer.
+        while True:
+            line = self.process.stdout.readline()
+            if not line:
+                raise RuntimeError("server closed the connection")
+            message = json.loads(line)
+            if message.get("id") == self.next_id:
+                return message
 
     def tool(self, name, arguments=None):
         response = self.call("tools/call", {"name": name, "arguments": arguments or {}})
@@ -109,7 +114,7 @@ def main():
         # An exact count, so a tool quietly disappearing is caught. The message
         # carries the names because a bare number tells you something moved but
         # not what.
-        check("33 tools are published", len(names) == 33, sorted(names))
+        check("36 tools are published", len(names) == 36, sorted(names))
         check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
         check("tool names are unique", len(set(names)) == len(names))
 
@@ -319,6 +324,49 @@ def main():
                 "als_path": str(SAMPLE_ALS), "renders_dir": str(Path.home() / "Desktop"),
             })
             check("render validation runs (soundfile installed)", not is_error, str(payload)[:160])
+
+        # --- Mix Check (ported measurement engine) ---
+
+        is_error, payload = server.tool("mix_profiles")
+
+        check("mix_profiles lists the stored genre profiles", not is_error and len(payload.get("profiles") or []) >= 6, payload)
+
+        try:
+
+            import numpy as _np
+
+            import soundfile as _sf
+
+            tone_path = Path(tempfile.mkdtemp()) / "tone.wav"
+
+            _t = _np.arange(48_000 * 2) / 48_000
+
+            _sf.write(tone_path, _np.column_stack((0.1 * _np.sin(2 * _np.pi * 220 * _t), 0.08 * _np.sin(2 * _np.pi * 220 * _t))), 48_000, subtype="FLOAT")
+
+            is_error, payload = server.tool("mix_measure", {"path": str(tone_path)})
+
+            check("mix_measure returns direct signal values for a known tone",
+
+                  not is_error and payload.get("channels") == 2 and payload.get("analysis_status") == "ok"
+
+                  and abs((payload.get("sample_peak_dbfs") or 0) - (-20.0)) < 0.2, payload)
+
+            is_error, payload = server.tool("mix_analyze", {"path": str(tone_path), "analysis_stage": "master", "use_closest_profile": True})
+
+            check("mix_analyze compares a master against the nearest profile and says it is not a classification",
+
+                  not is_error and payload.get("mode") in ("affinity", "general") and "not a genre classification" in str(payload.get("genre_affinity_notice")), payload if is_error else payload.get("mode"))
+
+            check("the waveform envelope is omitted unless asked", (payload.get("mix") or {}).get("waveform", {}).get("omitted") is True, (payload.get("mix") or {}).get("waveform"))
+
+            is_error, payload = server.tool("mix_analyze", {"path": str(tone_path), "genre": "no-such-genre"})
+
+            check("an unknown genre profile is refused with the known ids", is_error and "known" in str(payload), payload)
+
+        except ImportError:
+
+            print("  --  mix_measure check skipped: numpy/soundfile not installed here")
+
 
         # --- Telemetry ---
         is_error, payload = server.tool("live_bridge_status")

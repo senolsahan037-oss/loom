@@ -60,6 +60,12 @@ echo "=============================================="
 
 echo
 echo "=============================================="
+echo " MixAnalyzer (pytest, committed fixtures)"
+echo "=============================================="
+(cd "$ROOT/MixAnalyzer" && python3 -m pytest tests/ -q)
+
+echo
+echo "=============================================="
 echo " Shared dataset"
 echo "=============================================="
 (cd "$ROOT/Sensei/DatasetRoot" && python3 -m pytest tests/ -q)
