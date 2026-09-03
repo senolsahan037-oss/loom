@@ -47,7 +47,12 @@ for _module_dir in (SENSEI_DIR, AIMIXMASTER_DIR, PRESETOR_DIR, SOUNDDESIGNER_DIR
     if str(_module_dir) not in sys.path:
         sys.path.insert(0, str(_module_dir))
 
-BRIDGE_ROOT = Path.home() / "Documents" / "SenseiV2Bridge"
+# The bridge directory is overridable so a test can talk to a bridge of its own.
+# It used to be fixed, so the live-bridge test had to exercise the real one -- and
+# with Live actually running, the session picked up the test's requests and its
+# tempo really changed. A test must not be able to reach the user's session.
+BRIDGE_ROOT = Path(os.environ.get("LOOM_BRIDGE_ROOT")
+                   or Path.home() / "Documents" / "SenseiV2Bridge")
 REQUEST_DIR = BRIDGE_ROOT / "requests"
 DONE_DIR = BRIDGE_ROOT / "done"
 ERROR_DIR = BRIDGE_ROOT / "errors"
@@ -85,6 +90,35 @@ CAMELOT_MAP = {
 TOOLS = [
     # 1. Sensei Tools
     {
+        "name": "part_suggest",
+        "description": "Write a chord progression or bass line FOR A SPECIFIC PROJECT. Reads the project's own key, scale and tempo first, walks a chord sequence through transitions measured from 909 annotated songs, and returns notes already in that project's key and beats -- so the part belongs to the session rather than having to be bent to fit it. This is the thing a prompt-driven generator cannot do: it does not know your key or your tempo. Returns what it read from the project and what it counted, so every choice is traceable. A layer with no measured evidence is refused, not guessed.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "als_path": {"type": "string", "description": "The .als to read the musical context from. Omit to use the running Live session."},
+                "layer": {"type": "string", "enum": ["chord", "bass"], "description": "Which part to write."},
+                "bars": {"type": "integer", "description": "Length in bars.", "default": 8},
+                "chords_per_bar": {"type": "integer", "description": "Harmonic rhythm. 1 is one chord a bar; 2 is half-bar changes.", "default": 1},
+                "seed": {"type": "integer", "description": "Same seed and same project give the same part.", "default": 7},
+                "octave": {"type": "integer", "description": "Octave for the chord voicing.", "default": 3}
+            },
+            "required": ["layer"]
+        }
+    },
+    {
+        "name": "genre_evidence",
+        "description": "Musical evidence measured from open corpora of real performances, served one layer at a time. 'drum' returns where each drum part falls on the bar for a style, counted from 1,150 human drummer takes. 'bass' returns how the bass sits against the chord and how far it moves. 'chord' returns degree transitions and melodic intervals. 'arrangement' returns song-level shape -- chord counts, loop lengths, modes -- which is what ArrangementGPS needs to build a project rather than write notes. Layers are kept apart on purpose: a bass line judged by a kick pattern answers the drum question, not the bass one. A style that was never measured returns nothing instead of an approximation.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "layer": {"type": "string", "enum": ["drum", "bass", "chord", "arrangement"], "description": "Which layer's evidence to return."},
+                "style": {"type": "string", "description": "For the drum layer: rock, funk, jazz, hiphop, latin, reggae, soul, country, punk, gospel, afrobeat, afrocuban, neworleans, pop. Trap/rap map to hiphop, r&b to soul."},
+                "song_maps": {"type": "integer", "description": "For the arrangement layer: how many per-song maps to include (0 for the summary only)."}
+            },
+            "required": ["layer"]
+        }
+    },
+    {
         "name": "midi_generate",
         "description": "Generate evidenced MIDI variations using Sensei's locked dataset and variation runtime for a verified target role/preset.",
         "inputSchema": {
@@ -97,6 +131,8 @@ TOOLS = [
                 "bars": {"type": "integer", "description": "Number of bars to generate (e.g. 2, 4, 8).", "default": 4},
                 "seed": {"type": "integer", "description": "Random seed for deterministic generation.", "default": 42},
                 "variation_amount": {"type": "number", "description": "Variation intensity (0.0 to 1.0).", "default": 0.35},
+                "genre_style": {"type": "string", "description": "Rank candidates by how well they match drum patterns measured from real performances of this style (rock, funk, jazz, hiphop, latin, reggae, soul, country, punk, gospel, afrobeat, afrocuban, neworleans, pop). Trap/rap/boom bap map to hiphop, r&b to soul. A style with no measured pattern is reported back untouched rather than approximated."},
+                "density": {"type": "number", "description": "How busy the part should be, 0.0 sparse to 1.0 busy -- an intro against a final hook. Selects a pattern from the corpus that already has that note count for the role; notes are never dropped from a denser one. Omit to leave the whole pool in play. Reported back under diagnostics.density_applied, which is false when the pool was too small to band."},
                 "target_root": {"type": "string", "description": "Key root note (e.g. 'C', 'D#', 'F', 'A').", "default": "C"},
                 "target_mode": {"type": "string", "enum": ["Major", "Minor"], "description": "Scale mode.", "default": "Minor"},
                 "auto_write_to_live": {"type": "boolean", "description": "If true, immediately queues generated notes to Ableton Live via SenseiV2Bridge.", "default": False}
@@ -302,6 +338,20 @@ TOOLS = [
         "inputSchema": {
             "type": "object",
             "properties": {"role": {"type": "string", "description": "e.g. kick, snare, hat, bass, sub, keys, pad, lead, perc, sample, bus, fx."}}
+        }
+    },
+    {
+        "name": "live_project",
+        "description": "Open, inspect or close an Ableton Live project. Live's own scripting cannot open or close a set, so this drives it from outside and then reads Live's own log to say whether the set really loaded -- whether it was corrupt, how many clips Live had to repair, and which audio files it could not open. Opening another set while Live is running can raise Live's unsaved-changes dialog, which only the person at the keyboard can answer; nothing is discarded automatically.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "op": {"type": "string", "enum": ["status", "open", "quit"], "description": "What to do."},
+                "als_path": {"type": "string", "description": "Project to open, for op=open."},
+                "allow_switch": {"type": "boolean", "description": "Open a set even though Live is already running. A set switch also kills an installed Extension (Extension Host crashes inside the SDK), though control surfaces survive it.", "default": False},
+                "wait_seconds": {"type": "number", "description": "How long to give Live before reading the verdict.", "default": 30}
+            },
+            "required": ["op"]
         }
     },
     {
@@ -740,6 +790,59 @@ def get_prompt(name: Any, arguments: dict[str, Any]) -> dict[str, Any]:
 
 # Handlers
 
+
+def handle_part_suggest(args: dict[str, Any]) -> dict[str, Any]:
+    sys.path.insert(0, str(LOOM_DIR / "MusicalIntelligence"))
+    from mi import compose
+
+    if args.get("als_path"):
+        context = handle_project_inspect({"als_path": args["als_path"]})
+    else:
+        # No file named: take the key and tempo from the running session.
+        state = handle_live_state({})
+        context = {"key_root": state.get("key_root") or "C",
+                   "scale": state.get("scale") or "Major",
+                   "tempo": state.get("tempo"), "als_path": "live session"}
+    try:
+        return compose.render(
+            context, args["layer"],
+            bars=int(args.get("bars", 8)),
+            seed=int(args.get("seed", 7)),
+            chords_per_bar=int(args.get("chords_per_bar", 1)),
+            octave=int(args.get("octave", 3)),
+        )
+    except compose.NoEvidence as error:
+        return {"layer": args["layer"], "wrote_nothing": True, "reason": str(error)}
+
+
+def handle_genre_evidence(args: dict[str, Any]) -> dict[str, Any]:
+    sys.path.insert(0, str(LOOM_DIR / "MusicalIntelligence"))
+    from mi import profiles
+
+    layer = args["layer"]
+    if layer == "drum":
+        style = args.get("style")
+        if not style:
+            return {"layer": "drum", "known_styles": profiles.known_styles(),
+                    "note": "Name a style to get its pattern."}
+        evidence = profiles.drum_evidence(style)
+        if evidence is None:
+            return {"layer": "drum", "style": style, "has_evidence": False,
+                    "known_styles": profiles.known_styles(),
+                    "reason": "no measured pattern for this style; nothing is approximated"}
+        return {"layer": "drum", "has_evidence": True, **evidence}
+    if layer == "bass":
+        evidence = profiles.bass_evidence()
+        return {"layer": "bass", "has_evidence": evidence is not None, **(evidence or {})}
+    if layer == "chord":
+        chords = profiles.chord_evidence() or {}
+        melody = profiles.melody_evidence() or {}
+        return {"layer": "chord", "has_evidence": bool(chords), **chords,
+                "melody_interval_share": melody.get("interval_share")}
+    evidence = profiles.arrangement_evidence(int(args.get("song_maps") or 0))
+    return {"layer": "arrangement", "has_evidence": evidence is not None, **(evidence or {})}
+
+
 def handle_midi_generate(args: dict[str, Any]) -> dict[str, Any]:
     from core.midi_runtime import prepare_midi_variation
 
@@ -763,6 +866,8 @@ def handle_midi_generate(args: dict[str, Any]) -> dict[str, Any]:
         bars=int(args.get("bars", 4)),
         seed=int(args.get("seed", 42)),
         variation_amount=float(args.get("variation_amount", 0.35)),
+        density=float(args["density"]) if args.get("density") is not None else None,
+        genre_style=args.get("genre_style") or None,
         target_root=args.get("target_root", "C"),
         target_mode=args.get("target_mode", "Minor"),
     )
@@ -934,6 +1039,24 @@ def handle_live_state(args: dict[str, Any]) -> dict[str, Any]:
             "not as what Live shows right now."
         )
     return state
+
+
+def handle_live_project(args: dict[str, Any]) -> dict[str, Any]:
+    """Open / inspect / close a Live project, verified from Live's own log."""
+    import live_project as lp  # noqa: PLC0415  (mcp_server is not a package)
+
+    op = args.get("op")
+    if op == "status":
+        return lp.status()
+    if op == "quit":
+        return lp.quit_live(float(args.get("wait_seconds", 8)))
+    if op == "open":
+        als = args.get("als_path")
+        if not als:
+            return {"opened": False, "error": "als_path is required for op=open"}
+        return lp.open_project(str(als), float(args.get("wait_seconds", 30)),
+                               bool(args.get("allow_switch", False)))
+    return {"error": f"unknown op: {op}"}
 
 
 def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
@@ -1953,7 +2076,9 @@ def handle_gap_record(args: dict[str, Any]) -> dict[str, Any]:
 
 def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
     handlers = {
-        "midi_generate": handle_midi_generate,
+        "part_suggest": handle_part_suggest,
+    "genre_evidence": handle_genre_evidence,
+    "midi_generate": handle_midi_generate,
         "midi_write_to_live": handle_midi_write_to_live,
         "project_inspect": handle_project_inspect,
         "project_detect_genre": handle_project_detect_genre,
@@ -1976,6 +2101,7 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "render_verify": handle_render_verify,
         "live_state": handle_live_state,
         "live_command": handle_live_command,
+        "live_project": handle_live_project,
         "chain_plan": handle_chain_plan,
         "chain_evidence": handle_chain_evidence,
         "chain_apply": handle_chain_apply,
