@@ -392,22 +392,50 @@ def _capture_track(song, create=True):
     return track, True
 
 
-def op_capture_start(song, payload):
-    """Record Live's master output into an arrangement clip, the way an
-    armed Resampling track does: no render, no routing change on the master,
-    no OS permission -- Live records itself. capture_stop returns the file."""
-    track, created = _capture_track(song)
-    routing = None
+def _resampling_routing(track):
     for candidate in getattr(track, "available_input_routing_types", []) or []:
         if getattr(candidate, "display_name", "") in RESAMPLING_NAMES:
-            routing = candidate
-            break
-    if routing is None:
-        raise BridgeError("no Resampling input on %r; available: %s" % (
-            track.name, [getattr(c, "display_name", "?") for c in getattr(track, "available_input_routing_types", []) or []]))
-    if getattr(track.input_routing_type, "display_name", None) != routing.display_name:
+            return candidate
+    raise BridgeError("no Resampling input on %r; available: %s" % (
+        track.name, [getattr(c, "display_name", "?") for c in getattr(track, "available_input_routing_types", []) or []]))
+
+
+# The capture is deliberately five separate requests, one Live tick each.
+# Doing create + route + arm + record + play in one tick on a freshly
+# created track segfaulted Live 12.4.15b1 (2026-09-03 23:06, no Python
+# frame in the crash) -- Live had not finished building the track.
+
+def op_capture_prepare(song, payload):
+    """Adopt or create the 'Loom Capture' audio track. Nothing else."""
+    track, created = _capture_track(song)
+    return {"track": track.name, "created": created,
+            "input": getattr(getattr(track, "input_routing_type", None), "display_name", None)}
+
+
+def op_capture_route(song, payload):
+    """Point the capture track's input at Live's own Resampling."""
+    track, _created = _capture_track(song, create=False)
+    routing = _resampling_routing(track)
+    before = getattr(getattr(track, "input_routing_type", None), "display_name", None)
+    if before != routing.display_name:
         track.input_routing_type = routing
-    track.arm = True
+    return {"track": track.name, "input_before": before,
+            "input": getattr(getattr(track, "input_routing_type", None), "display_name", None)}
+
+
+def op_capture_arm(song, payload):
+    track, _created = _capture_track(song, create=False)
+    wanted = bool(payload.get("arm", True))
+    track.arm = wanted
+    return {"track": track.name, "armed": bool(track.arm)}
+
+
+def op_capture_record(song, payload):
+    """Record mode on and transport running: the armed Resampling track
+    records the master into an arrangement clip."""
+    track, _created = _capture_track(song, create=False)
+    if not bool(getattr(track, "arm", False)):
+        raise BridgeError("%r is not armed; run capture_arm first" % track.name)
     if "position" in payload:
         position = float(payload["position"])
         if position < 0:
@@ -417,8 +445,8 @@ def op_capture_start(song, payload):
     song.record_mode = True
     if not bool(getattr(song, "is_playing", False)):
         song.start_playing()
-    return {"track": track.name, "created": created, "input": routing.display_name, "armed": bool(track.arm),
-            "record_mode": bool(song.record_mode), "is_playing": bool(getattr(song, "is_playing", False)),
+    return {"track": track.name, "record_mode": bool(song.record_mode),
+            "is_playing": bool(getattr(song, "is_playing", False)),
             "start_time": getattr(song, "current_song_time", None), "clips_before": before}
 
 
@@ -555,7 +583,10 @@ OPERATIONS = {
     "write_arrangement_clip": op_write_arrangement_clip,
     "create_midi_track": op_create_midi_track,
     "set_key": op_set_key,
-    "capture_start": op_capture_start,
+    "capture_prepare": op_capture_prepare,
+    "capture_route": op_capture_route,
+    "capture_arm": op_capture_arm,
+    "capture_record": op_capture_record,
     "capture_stop": op_capture_stop,
 }
 

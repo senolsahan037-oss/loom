@@ -457,13 +457,25 @@ def run():
         check("a locator past the arrangement length is refused with the reason",
               "beyond the arrangement length" in str(error) and song.cue_points == [], str(error))
 
-    # --- capture_start / capture_stop: Live records its own output ------------
+    # --- capture: five requests, one Live tick each -----------------------------
     song = FakeSong()
-    started = bridge_ops.apply_operation(song, {"op": "capture_start", "position": 0})
+    prepared = bridge_ops.apply_operation(song, {"op": "capture_prepare"})
     cap = song.tracks[-1]
-    check("capture_start creates the capture track, routes it to Resampling, arms it and records",
-          started.get("created") is True and cap.name == "Loom Capture" and cap.input_routing_type.display_name == "Resampling"
-          and cap.arm is True and song.record_mode is True and song.is_playing is True, started)
+    check("capture_prepare only creates the capture track",
+          prepared.get("created") is True and cap.name == "Loom Capture" and cap.arm is False and song.record_mode is False, prepared)
+    try:
+        bridge_ops.apply_operation(song, {"op": "capture_record"})
+        check("capture_record refuses an unarmed track", False)
+    except bridge_ops.BridgeError as error:
+        check("capture_record refuses an unarmed track", "not armed" in str(error), str(error))
+    routed = bridge_ops.apply_operation(song, {"op": "capture_route"})
+    check("capture_route points the input at Resampling and says what it was",
+          routed.get("input") == "Resampling" and routed.get("input_before") == "Ext. In" and cap.input_routing_type.display_name == "Resampling", routed)
+    armed = bridge_ops.apply_operation(song, {"op": "capture_arm"})
+    check("capture_arm arms", armed.get("armed") is True and cap.arm is True, armed)
+    recording = bridge_ops.apply_operation(song, {"op": "capture_record", "position": 0})
+    check("capture_record turns record mode on and starts the transport",
+          song.record_mode is True and song.is_playing is True and recording.get("clips_before") == 0, recording)
     try:
         bridge_ops.apply_operation(song, {"op": "capture_stop"})
         check("capture_stop with nothing recorded says so", False)
@@ -475,7 +487,7 @@ def run():
     stopped = bridge_ops.apply_operation(song, {"op": "capture_stop"})
     check("capture_stop turns recording off, stops, disarms and returns the recorded file",
           stopped.get("file_path") == recorded.file_path and song.record_mode is False and song.is_playing is False and cap.arm is False, stopped)
-    again = bridge_ops.apply_operation(song, {"op": "capture_start"})
+    again = bridge_ops.apply_operation(song, {"op": "capture_prepare"})
     check("a second capture adopts the same track instead of adding one",
           again.get("created") is False and sum(1 for t in song.tracks if t.name == "Loom Capture") == 1, again)
 

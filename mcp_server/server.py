@@ -547,7 +547,7 @@ TOOLS = [
         "inputSchema": {
             "type": "object",
             "properties": {
-                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx", "capture_start", "capture_stop"], "description": "Operation to run inside Live."},
+                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx", "capture_prepare", "capture_route", "capture_arm", "capture_record", "capture_stop"], "description": "Operation to run inside Live."},
                 "track": {"type": "string", "description": "Track name, exactly as Live shows it. Must match exactly one track."},
                 "device": {"type": "string", "description": "Device name on that track."},
                 "parameter": {"type": "string", "description": "Parameter name on that device."},
@@ -749,7 +749,7 @@ TOOLS = [
     },
     {
         "name": "mix_capture",
-        "description": "Measure the mix from Live's own playback, no render. Two capture methods: 'resample' (default) makes Live record itself -- an audio track named 'Loom Capture' with its input set to Resampling is armed, record mode goes on with the transport, and after N seconds the recorded clip's file is measured; no OS permission, works on release Live through the control surface. 'tap' uses a Core Audio process tap on the Live process (macOS 14.2+, needs the System Audio Recording permission for the app running Loom; captures silence until granted). Then Mix Check measures or analyses the capture. follow_transport=true waits for Live to start playing first.",
+        "description": "Measure the mix from Live's own playback, no render. Two capture methods: 'resample' (default) makes Live record itself -- an audio track named 'Loom Capture' is created, routed to Resampling, armed, and record mode goes on with the transport -- four separate Live ticks, then after N seconds the recorded clip's file is measured; no OS permission, works on release Live through the control surface. 'tap' uses a Core Audio process tap on the Live process (macOS 14.2+, needs the System Audio Recording permission for the app running Loom; captures silence until granted). Then Mix Check measures or analyses the capture. follow_transport=true waits for Live to start playing first.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -2894,18 +2894,22 @@ def _mix_capture_resample(args: dict[str, Any]) -> dict[str, Any]:
     age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
     if age is None or age > STATE_FRESH_SECONDS:
         return {"status": "NO_CONTROL_SURFACE", "note": "resample capture needs the Loom control surface alive (record mode and input routing are not in the Extensions SDK)"}
-    start_payload: dict[str, Any] = {"op": "capture_start"}
-    if args.get("position") is not None:
-        start_payload["position"] = float(args["position"])
-    started = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, start_payload, wait)
-    if started.get("status") != "OK":
-        return {"status": "CAPTURE_FAILED", "stage": "capture_start", "error": started.get("error"), "answer": started}
+    # One request per Live tick: create, route, arm, record. Live 12.4.15b1
+    # segfaulted when all of it ran inside one control-surface tick.
+    steps: list[dict[str, Any]] = []
+    for op, extra, gap in (("capture_prepare", {}, 0.6), ("capture_route", {}, 0.6), ("capture_arm", {}, 0.6),
+                           ("capture_record", ({"position": float(args["position"])} if args.get("position") is not None else {}), 0.0)):
+        answer = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": op, **extra}, wait)
+        steps.append({"op": op, "status": answer.get("status"), "result": answer.get("result"), "error": answer.get("error")})
+        if answer.get("status") != "OK":
+            return {"status": "CAPTURE_FAILED", "stage": op, "error": answer.get("error"), "steps": steps}
+        time.sleep(gap)
     t0 = time.time()
     while time.time() - t0 < seconds:
         check_cancelled()
         time.sleep(0.2)
     stopped = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "capture_stop"}, wait)
-    result: dict[str, Any] = {"method": "resample", "seconds_requested": seconds, "start": started.get("result"), "stop": stopped.get("result")}
+    result: dict[str, Any] = {"method": "resample", "seconds_requested": seconds, "steps": steps, "stop": stopped.get("result")}
     if stopped.get("status") != "OK":
         result.update({"status": "CAPTURE_FAILED", "stage": "capture_stop", "error": stopped.get("error")})
         return result
