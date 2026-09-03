@@ -75,6 +75,9 @@ Each gap record contains:
 - **Still true for the optional SDK extension**: the Extensions SDK exposes no song
   time signature, so `barToBeat()` there keeps its 4/4 constant. The extension is no
   longer part of the install.
+- **Checked against Ableton on 2026-09-03**: the current Extensions SDK is
+  1.0.0-beta.1 and, in Ableton's words, "contains no API changes" — the gap is
+  unchanged upstream. Requests go to the Centercode project's feedback ("Öneri Gönder").
 - **Status**: RESOLVED
 
 ### GAP-004
