@@ -202,7 +202,7 @@ TOOLS = [
     # 3. ArrangementGPS Tools
     {
         "name": "plan_create",
-        "description": "Run the real pipeline from a text prompt (blueprint -> build plan -> session plan -> package -> action list) and write a build directory ArrangementGPSBuilder can pick up in Live. Tempo, key, mode, genre and instrument choice are all derived from the prompt.",
+        "description": "Build a project from scratch: run the real pipeline from a text prompt (blueprint -> build plan -> session plan -> package -> action list) and write a build directory ArrangementGPSBuilder picks up in Live. Tempo, key, mode, genre and instrument choice are derived from the prompt. Each section carries a 0-100 energy and the plan carries a genre; when the Live-side writer fills the sections it hands Sensei that energy as density (an intro is written from a pattern that is already sparse, a final hook from one already busy) and the genre as genre_style (candidates ranked against drum patterns measured from real performances). Every part is written in the project's own key and tempo.",
         "inputSchema": {
             "type": "object",
             "properties": {
