@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc --noEmit && tsx build.ts",
-    "start": "tsx build.ts && extensions-cli run",
+    "start": "tsx build.ts && extensions-cli run --storage-directory .dev/storage --temp-directory .dev/temp",
     "package": "npm run build -- --production && extensions-cli package -i dist/runtime -o dist/sensei-midi-writer.ablx",
     "test:arrangement": "tsx tests/arrangement.test.ts"
   },
