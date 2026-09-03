@@ -21,6 +21,7 @@
 **/.venv/
 **/__pycache__/
 **/node_modules/
+*.egg-info/
 *.mcp_backup_*.als
 *.pre_*_backup.als
 *.pyc

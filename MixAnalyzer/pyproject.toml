@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subverse-mix"
+version = "0.1.0"
+description = "SubverseLab Mix Check measurement engine: direct signal measurements, BS.1770 loudness, one-third-octave spectrum, mono fold-down, genre profiles. The engine behind Loom's mix_measure / mix_analyze MCP tools."
+requires-python = ">=3.11"
+dependencies = [
+  "librosa>=0.10.1",
+  "numpy>=1.26",
+  "pyloudnorm>=0.1.1",
+  "scipy>=1.11",
+  "soundfile>=0.12",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pydantic>=2"]
+
+[tool.setuptools.packages.find]
+include = ["subverse_mix*"]
+
+[tool.setuptools.package-data]
+subverse_mix = ["data/*.json"]
