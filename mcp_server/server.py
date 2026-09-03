@@ -547,7 +547,7 @@ TOOLS = [
         "inputSchema": {
             "type": "object",
             "properties": {
-                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx"], "description": "Operation to run inside Live."},
+                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx", "capture_start", "capture_stop"], "description": "Operation to run inside Live."},
                 "track": {"type": "string", "description": "Track name, exactly as Live shows it. Must match exactly one track."},
                 "device": {"type": "string", "description": "Device name on that track."},
                 "parameter": {"type": "string", "description": "Parameter name on that device."},
@@ -745,6 +745,25 @@ TOOLS = [
                 "wait_seconds": {"type": "number", "description": "How long to wait for the render.", "default": 60}
             },
             "required": ["track", "start_beat", "end_beat"]
+        }
+    },
+    {
+        "name": "mix_capture",
+        "description": "Measure the mix from Live's own playback, no render. Two capture methods: 'resample' (default) makes Live record itself -- an audio track named 'Loom Capture' with its input set to Resampling is armed, record mode goes on with the transport, and after N seconds the recorded clip's file is measured; no OS permission, works on release Live through the control surface. 'tap' uses a Core Audio process tap on the Live process (macOS 14.2+, needs the System Audio Recording permission for the app running Loom; captures silence until granted). Then Mix Check measures or analyses the capture. follow_transport=true waits for Live to start playing first.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "method": {"type": "string", "enum": ["resample", "tap"], "description": "resample = Live records itself (default); tap = Core Audio process tap.", "default": "resample"},
+                "position": {"type": "number", "description": "resample: arrangement position in beats to start playing from (default: where the playhead is)."},
+                "seconds": {"type": "number", "description": "How long to capture (default 8).", "default": 8},
+                "analysis": {"type": "string", "enum": ["measure", "analyze"], "description": "measure = direct signal values; analyze = full Mix Check (compact).", "default": "analyze"},
+                "analysis_stage": {"type": "string", "enum": ["mix", "master"], "default": "master"},
+                "genre": {"type": "string", "description": "Optional stored Genre Profile id to compare against."},
+                "use_closest_profile": {"type": "boolean", "default": True},
+                "follow_transport": {"type": "boolean", "description": "Wait for Live to start playing, capture while it plays.", "default": False},
+                "max_seconds": {"type": "number", "description": "Cap for follow_transport captures (default 60).", "default": 60},
+                "keep": {"type": "boolean", "description": "Keep the WAV (default true; the path is returned).", "default": True}
+            }
         }
     },
 {
@@ -2822,6 +2841,158 @@ def handle_mix_from_live(args: dict[str, Any]) -> dict[str, Any]:
         measurement = handle_mix_measure({"path": str(path)})
     return {"render": rendered, "measurement": measurement}
 
+
+# --- Live playback capture (Core Audio process tap) --------------------------
+LIVETAP_SRC = LOOM_DIR / "MixAnalyzer" / "livetap" / "main.swift"
+LIVETAP_BIN = LOOM_DIR / "MixAnalyzer" / "livetap" / "livetap"
+MIX_CAPTURE_DIR = LOOM_DIR / "Sessions" / "MixCaptures"
+
+
+def _livetap_binary() -> Path:
+    """Build the tap tool on first use (swiftc ships with Xcode CLT)."""
+    if LIVETAP_BIN.exists() and LIVETAP_BIN.stat().st_mtime >= LIVETAP_SRC.stat().st_mtime:
+        return LIVETAP_BIN
+    build = subprocess.run(["swiftc", "-O", "-o", str(LIVETAP_BIN), str(LIVETAP_SRC)], capture_output=True, text=True, timeout=300)
+    if build.returncode != 0:
+        raise RuntimeError(f"livetap build failed: {build.stderr.strip()[-800:]}")
+    return LIVETAP_BIN
+
+
+def _live_pid() -> int:
+    out = subprocess.run(["pgrep", "-f", "Ableton Live.*Contents/MacOS/Live"], capture_output=True, text=True)
+    pids = [int(x) for x in out.stdout.split() if x.strip().isdigit()]
+    if not pids:
+        raise RuntimeError("no running Ableton Live process")
+    if len(pids) > 1:
+        raise RuntimeError(f"more than one Live is running ({pids}); close the other one")
+    return pids[0]
+
+
+def _is_playing_now(wait: float = 3.0) -> bool | None:
+    """Transport state comes from the control surface only (the SDK has no
+    transport), so ask that root directly when it is alive."""
+    age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
+    if age is None or age > STATE_FRESH_SECONDS:
+        return None
+    answer = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "get_state", "include_devices": False}, wait)
+    result = answer.get("result") or {}
+    return bool(result.get("is_playing")) if answer.get("status") == "OK" else None
+
+
+def _measure_capture(path: Path, args: dict[str, Any]) -> dict[str, Any]:
+    if args.get("analysis") == "measure":
+        return handle_mix_measure({"path": str(path)})
+    return handle_mix_analyze({"path": str(path), "analysis_stage": args.get("analysis_stage") or "master",
+                               "genre": args.get("genre"), "use_closest_profile": bool(args.get("use_closest_profile", True))})
+
+
+def _mix_capture_resample(args: dict[str, Any]) -> dict[str, Any]:
+    """Live records its own output: capture_start arms a Resampling track and
+    starts recording, capture_stop returns the recorded clip's file."""
+    seconds = float(args.get("seconds") or 8)
+    wait = 15.0
+    age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
+    if age is None or age > STATE_FRESH_SECONDS:
+        return {"status": "NO_CONTROL_SURFACE", "note": "resample capture needs the Loom control surface alive (record mode and input routing are not in the Extensions SDK)"}
+    start_payload: dict[str, Any] = {"op": "capture_start"}
+    if args.get("position") is not None:
+        start_payload["position"] = float(args["position"])
+    started = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, start_payload, wait)
+    if started.get("status") != "OK":
+        return {"status": "CAPTURE_FAILED", "stage": "capture_start", "error": started.get("error"), "answer": started}
+    t0 = time.time()
+    while time.time() - t0 < seconds:
+        check_cancelled()
+        time.sleep(0.2)
+    stopped = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "capture_stop"}, wait)
+    result: dict[str, Any] = {"method": "resample", "seconds_requested": seconds, "start": started.get("result"), "stop": stopped.get("result")}
+    if stopped.get("status") != "OK":
+        result.update({"status": "CAPTURE_FAILED", "stage": "capture_stop", "error": stopped.get("error")})
+        return result
+    file_path = (stopped.get("result") or {}).get("file_path")
+    if not file_path:
+        result.update({"status": "NO_FILE", "note": "Live recorded a clip but reported no file path"})
+        return result
+    path = Path(str(file_path))
+    deadline = time.time() + 10
+    while not path.is_file() and time.time() < deadline:
+        time.sleep(0.3)
+    if not path.is_file():
+        result.update({"status": "FILE_NOT_FOUND", "path": str(path), "note": "Live named a recording the MCP cannot see"})
+        return result
+    result["path"] = str(path)
+    result["status"] = "OK"
+    result["measurement"] = _measure_capture(path, args)
+    return result
+
+
+def handle_mix_capture(args: dict[str, Any]) -> dict[str, Any]:
+    if (args.get("method") or "resample") == "resample":
+        if args.get("follow_transport"):
+            deadline = time.monotonic() + float(args.get("max_seconds") or 60)
+            playing = _is_playing_now()
+            if playing is None:
+                return {"status": "NO_TRANSPORT_STATE", "note": "follow_transport needs the control surface's state"}
+            while not playing and time.monotonic() < deadline:
+                check_cancelled()
+                time.sleep(0.5)
+                playing = _is_playing_now(1.0)
+            if not playing:
+                return {"status": "NOT_PLAYING", "note": "Live did not start playing in time"}
+        return _mix_capture_resample(args)
+    binary = _livetap_binary()
+    pid = _live_pid()
+    seconds = float(args.get("seconds") or 8)
+    follow = bool(args.get("follow_transport", False))
+    max_seconds = float(args.get("max_seconds") or 60)
+    MIX_CAPTURE_DIR.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    path = MIX_CAPTURE_DIR / f"live-{stamp}.wav"
+    waited = 0.0
+    if follow:
+        # Wait for the transport; the surface reports is_playing, the
+        # extension bridge cannot, so this needs the control surface alive.
+        deadline = time.monotonic() + max_seconds
+        playing = _is_playing_now()
+        if playing is None:
+            return {"status": "NO_TRANSPORT_STATE", "note": "follow_transport needs the control surface's state (is_playing); the extension bridge does not expose transport"}
+        while not playing and time.monotonic() < deadline:
+            check_cancelled()
+            time.sleep(0.5)
+            waited += 0.5
+            playing = _is_playing_now(1.0)
+        if not playing:
+            return {"status": "NOT_PLAYING", "waited_seconds": waited, "note": f"Live did not start playing within {max_seconds:g}s"}
+        seconds = max_seconds
+    started = time.time()
+    proc = subprocess.run([str(binary), "--pid", str(pid), "--seconds", f"{seconds:g}", "--out", str(path)],
+                          capture_output=True, text=True, timeout=seconds + 30)
+    report: dict[str, Any] = {}
+    if proc.stdout.strip():
+        try:
+            report = json.loads(proc.stdout.strip().splitlines()[-1])
+        except json.JSONDecodeError:
+            report = {"raw": proc.stdout[-400:]}
+    result: dict[str, Any] = {"pid": pid, "path": str(path), "capture": report, "seconds_requested": seconds,
+                              "elapsed_seconds": round(time.time() - started, 2), "waited_for_transport_seconds": waited if follow else None}
+    if proc.returncode != 0:
+        result["status"] = "CAPTURE_FAILED"
+        result["error"] = proc.stderr.strip()[-600:]
+        if proc.returncode == 3:
+            result["note"] = "No frames came back. Grant System Audio Recording to the app running Loom (System Settings > Privacy & Security > Screen & System Audio Recording) and try again."
+        return result
+    if report.get("peak", 0) == 0:
+        result["status"] = "SILENT"
+        result["note"] = report.get("permission_hint") or "the capture is silent"
+        return result
+    result["status"] = "OK"
+    result["method"] = "tap"
+    result["measurement"] = _measure_capture(path, args)
+    if not args.get("keep", True):
+        path.unlink(missing_ok=True)
+        result["path"] = None
+    return result
+
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
     selection = _select_bridge_root()
     ensure_bridge_dirs()
@@ -2896,6 +3067,7 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "crate_agent": handle_crate_agent,
         "crate_to_live": handle_crate_to_live,
         "mix_from_live": handle_mix_from_live,
+        "mix_capture": handle_mix_capture,
         "setup_scan": handle_setup_scan,
         "gap_record": handle_gap_record,
         "plan_verify": handle_plan_verify,

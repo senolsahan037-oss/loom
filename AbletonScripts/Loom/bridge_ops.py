@@ -370,6 +370,75 @@ def op_set_key(song, payload):
                                         "scale_name": song.scale_name}}
 
 
+CAPTURE_TRACK_NAME = "Loom Capture"
+RESAMPLING_NAMES = ("Resampling", "Resample")
+
+
+def _capture_track(song, create=True):
+    """The audio track that records Live's own output. Adopted by name,
+    created at the end of the set when missing."""
+    matches = [track for track in _tracks(song) if track.name == CAPTURE_TRACK_NAME]
+    if len(matches) > 1:
+        raise BridgeError("expected at most one track named %r, found %d" % (CAPTURE_TRACK_NAME, len(matches)))
+    if matches:
+        return matches[0], False
+    if not create:
+        raise BridgeError("no track named %r" % CAPTURE_TRACK_NAME)
+    if not hasattr(song, "create_audio_track"):
+        raise BridgeError("this Live cannot create audio tracks from a control surface")
+    song.create_audio_track(len(list(_tracks(song))))
+    track = list(_tracks(song))[-1]
+    track.name = CAPTURE_TRACK_NAME
+    return track, True
+
+
+def op_capture_start(song, payload):
+    """Record Live's master output into an arrangement clip, the way an
+    armed Resampling track does: no render, no routing change on the master,
+    no OS permission -- Live records itself. capture_stop returns the file."""
+    track, created = _capture_track(song)
+    routing = None
+    for candidate in getattr(track, "available_input_routing_types", []) or []:
+        if getattr(candidate, "display_name", "") in RESAMPLING_NAMES:
+            routing = candidate
+            break
+    if routing is None:
+        raise BridgeError("no Resampling input on %r; available: %s" % (
+            track.name, [getattr(c, "display_name", "?") for c in getattr(track, "available_input_routing_types", []) or []]))
+    if getattr(track.input_routing_type, "display_name", None) != routing.display_name:
+        track.input_routing_type = routing
+    track.arm = True
+    if "position" in payload:
+        position = float(payload["position"])
+        if position < 0:
+            raise BridgeError("position must be >= 0")
+        song.current_song_time = position
+    before = len(list(getattr(track, "arrangement_clips", []) or []))
+    song.record_mode = True
+    if not bool(getattr(song, "is_playing", False)):
+        song.start_playing()
+    return {"track": track.name, "created": created, "input": routing.display_name, "armed": bool(track.arm),
+            "record_mode": bool(song.record_mode), "is_playing": bool(getattr(song, "is_playing", False)),
+            "start_time": getattr(song, "current_song_time", None), "clips_before": before}
+
+
+def op_capture_stop(song, payload):
+    track, _created = _capture_track(song, create=False)
+    song.record_mode = False
+    if not payload.get("keep_playing"):
+        song.stop_playing()
+    if payload.get("disarm", True):
+        track.arm = False
+    clips = list(getattr(track, "arrangement_clips", []) or [])
+    if not clips:
+        raise BridgeError("no clip was recorded on %r (was record_mode on and the transport running?)" % track.name)
+    newest = max(clips, key=lambda c: float(getattr(c, "start_time", 0.0)))
+    path = getattr(newest, "file_path", None)
+    return {"track": track.name, "clip_name": getattr(newest, "name", None), "start_time": getattr(newest, "start_time", None),
+            "end_time": getattr(newest, "end_time", None), "file_path": path, "clips": len(clips),
+            "record_mode": bool(song.record_mode), "is_playing": bool(getattr(song, "is_playing", False))}
+
+
 class _NoteSpec(object):
     """Stand-in for Live.Clip.MidiNoteSpecification where Live is not importable.
 
@@ -486,6 +555,8 @@ OPERATIONS = {
     "write_arrangement_clip": op_write_arrangement_clip,
     "create_midi_track": op_create_midi_track,
     "set_key": op_set_key,
+    "capture_start": op_capture_start,
+    "capture_stop": op_capture_stop,
 }
 
 # Operations that need Live's browser as well as the song.

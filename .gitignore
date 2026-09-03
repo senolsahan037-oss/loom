@@ -36,6 +36,7 @@ ArrangementGPS/Builds/*
 ArrangementGPS/dist/
 ArrangementGPS/engine/output/
 Docs/arrangement_shapes_*.json
+MixAnalyzer/livetap/livetap
 MusicalIntelligence/data/corpus/hits_world.json
 MusicalIntelligence/data/corpus/pop_songmaps.json
 MusicalIntelligence/data/personal/
@@ -49,5 +50,6 @@ Sensei/DatasetRoot/indexes/
 Sensei/data/
 Sensei/data/bridge_queue/
 Sensei/extensions/*/dist/
+Sessions/MixCaptures/
 Sessions/SamplePacks/
 mcp_server/responses/

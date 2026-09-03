@@ -117,8 +117,15 @@ class FakeClipSlot(object):
         self.clip = FakeSessionClip(length)
 
 
+class FakeRouting(object):
+    def __init__(self, display_name):
+        self.display_name = display_name
+
+
 class FakeTrack(object):
     def __init__(self, name, midi=True, devices=None):
+        self.available_input_routing_types = [FakeRouting("Ext. In"), FakeRouting("Resampling")]
+        self.input_routing_type = self.available_input_routing_types[0]
         self.name = name
         self.has_midi_input = midi
         self.mute = False
@@ -204,6 +211,7 @@ class FakeSong(object):
         self.signature_denominator = 4
         self.cue_points = []
         self.song_length = 512.0  # beats; Live's own read-only arrangement length
+        self.record_mode = False
         # A Return track: Live raises on .arm rather than returning anything.
         self.return_tracks = [FakeReturnTrack("A-Reverb")]
         self.view = FakeView(self.tracks[1])
@@ -216,6 +224,9 @@ class FakeSong(object):
 
     def continue_playing(self):
         self.is_playing = True
+
+    def create_audio_track(self, index):
+        self.tracks.insert(index, FakeTrack("%d-Audio" % (len(self.tracks) + 1), midi=False))
 
     def create_midi_track(self, index):
         # Like Live: the new track appears at `index`, unnamed-ish, with MIDI input.
@@ -445,6 +456,28 @@ def run():
     except bridge_ops.BridgeError as error:
         check("a locator past the arrangement length is refused with the reason",
               "beyond the arrangement length" in str(error) and song.cue_points == [], str(error))
+
+    # --- capture_start / capture_stop: Live records its own output ------------
+    song = FakeSong()
+    started = bridge_ops.apply_operation(song, {"op": "capture_start", "position": 0})
+    cap = song.tracks[-1]
+    check("capture_start creates the capture track, routes it to Resampling, arms it and records",
+          started.get("created") is True and cap.name == "Loom Capture" and cap.input_routing_type.display_name == "Resampling"
+          and cap.arm is True and song.record_mode is True and song.is_playing is True, started)
+    try:
+        bridge_ops.apply_operation(song, {"op": "capture_stop"})
+        check("capture_stop with nothing recorded says so", False)
+    except bridge_ops.BridgeError as error:
+        check("capture_stop with nothing recorded says so", "no clip was recorded" in str(error), str(error))
+    recorded = FakeArrangementClip(0.0, 16.0)
+    recorded.file_path = "/tmp/Live Recordings/Loom Capture 0001.aif"
+    cap.arrangement_clips.append(recorded)
+    stopped = bridge_ops.apply_operation(song, {"op": "capture_stop"})
+    check("capture_stop turns recording off, stops, disarms and returns the recorded file",
+          stopped.get("file_path") == recorded.file_path and song.record_mode is False and song.is_playing is False and cap.arm is False, stopped)
+    again = bridge_ops.apply_operation(song, {"op": "capture_start"})
+    check("a second capture adopts the same track instead of adding one",
+          again.get("created") is False and sum(1 for t in song.tracks if t.name == "Loom Capture") == 1, again)
 
     # --- set_key --------------------------------------------------------------
     song = FakeSong()
