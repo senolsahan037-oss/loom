@@ -198,3 +198,53 @@ def test_variation_is_seeded_and_can_be_disabled_without_changing_source_notes()
     assert plain["generation_safe"] is varied["generation_safe"] is True
     assert plain["events"] != varied["events"]
     assert varied["payload"]["provenance"]["variation_amount"] == 1
+
+
+def _dense_corpus(counts):
+    """One bassline per entry, each with a different number of notes per bar."""
+    return [
+        _clip(
+            "bass-%02d" % count,
+            tags=["Clips|Music Clip|Bassline"],
+            genres=["Trap"],
+            events=[{"pitch": 48, "time": index * 0.25, "duration": 0.25, "velocity": 100}
+                    for index in range(count)],
+        )
+        for count in counts
+    ]
+
+
+def test_density_picks_a_sparser_pattern_rather_than_thinning_a_dense_one():
+    corpus = _dense_corpus([2, 3, 4, 6, 8, 10, 12, 16, 20, 24, 30, 40])
+    profile = _profile("ableton.bass.synth.v1")
+
+    sparse = generate_midi_variation(corpus, target_profile=profile, genre="Trap",
+                                     bars=1, seed=5, density=0.0)
+    busy = generate_midi_variation(corpus, target_profile=profile, genre="Trap",
+                                   bars=1, seed=5, density=1.0)
+
+    assert sparse["generation_safe"] and busy["generation_safe"]
+    assert sparse["diagnostics"]["density_applied"] is True
+    # The sparse band tops out below where the busy band starts.
+    assert sparse["diagnostics"]["density_notes_per_bar"][1] <= busy["diagnostics"]["density_notes_per_bar"][0]
+    # Notes came from a source, they were not removed from one.
+    assert len(sparse["events"]) < len(busy["events"])
+
+
+def test_density_is_ignored_and_said_so_when_the_pool_is_too_small():
+    corpus = _dense_corpus([4, 8, 16])
+    result = generate_midi_variation(corpus, target_profile=_profile("ableton.bass.synth.v1"),
+                                     genre="Trap", bars=1, seed=5, density=0.0)
+
+    assert result["generation_safe"] is True
+    assert result["diagnostics"]["density_applied"] is False
+    assert "below" in result["diagnostics"]["density_reason"]
+
+
+def test_density_out_of_range_is_refused():
+    corpus = _dense_corpus([4, 8, 16, 24, 32, 40])
+    result = generate_midi_variation(corpus, target_profile=_profile("ableton.bass.synth.v1"),
+                                     genre="Trap", bars=1, seed=5, density=1.4)
+
+    assert result["generation_safe"] is False
+    assert result["error"] == "density_must_be_between_zero_and_one"

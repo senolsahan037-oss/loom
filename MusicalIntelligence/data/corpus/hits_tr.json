@@ -1,0 +1,926 @@
+{
+  "source": "Nielsen Music Control — Türkçe Top 20 weekly number ones, via tr.wikipedia",
+  "years_covered": [
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017
+  ],
+  "years_without_chart": [],
+  "works": [
+    {
+      "artist": "Demet Akalın",
+      "title": "Afedersin",
+      "year": 2006,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Demet Akalın",
+      "title": "Herkes Hak Ettiği Gibi Yaşıyor",
+      "year": 2006,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Emre Aydın",
+      "title": "Afili Yalnızlık",
+      "year": 2006,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Gece Yolcuları",
+      "title": "Nerdesin",
+      "year": 2006,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Gülşen",
+      "title": "Yurtta Aşk Cihanda Aşk",
+      "year": 2006,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Hande Yener",
+      "title": "Aşkın Ateşi",
+      "year": 2006,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Kenan Doğulu",
+      "title": "Çakkıdı",
+      "year": 2006,
+      "weeks_at_one": 6
+    },
+    {
+      "artist": "MFÖ",
+      "title": "Sarı Laleler",
+      "year": 2006,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Nazan Öncel",
+      "title": "Aşkım Baksana Bana",
+      "year": 2006,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Serdar Ortaç",
+      "title": "Sor",
+      "year": 2006,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Serdar Ortaç",
+      "title": "Gitme",
+      "year": 2006,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Yalın",
+      "title": "Keşke",
+      "year": 2006,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Yaşar",
+      "title": "Hayırdır İnşallah",
+      "year": 2006,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Yüksek Sadakat",
+      "title": "Belki Üstümüzden Bir Kuş Geçer",
+      "year": 2006,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Burak Kut",
+      "title": "Komple",
+      "year": 2007,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Ferhat Göçer",
+      "title": "Cennet",
+      "year": 2007,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Gripin",
+      "title": "Böyle Kahpedir Dünya",
+      "year": 2007,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Gökhan Özen",
+      "title": "Tövbeliyim",
+      "year": 2007,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Hande Yener",
+      "title": "Kibir",
+      "year": 2007,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Hande Yener",
+      "title": "Romeo",
+      "year": 2007,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Keremcem",
+      "title": "Aşk Bitti",
+      "year": 2007,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Mustafa Sandal",
+      "title": "İndir",
+      "year": 2007,
+      "weeks_at_one": 9
+    },
+    {
+      "artist": "Nev",
+      "title": "Sükut-u Hayal",
+      "year": 2007,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Nil Karaibrahimgil",
+      "title": "Bu Mudur?",
+      "year": 2007,
+      "weeks_at_one": 6
+    },
+    {
+      "artist": "Sıla & Kenan Doğulu",
+      "title": "...Dan Sonra",
+      "year": 2007,
+      "weeks_at_one": 9
+    },
+    {
+      "artist": "Yaşar",
+      "title": "Hayırdır İnşallah",
+      "year": 2007,
+      "weeks_at_one": 8
+    },
+    {
+      "artist": "Aslı Güngör & Ferhat Göçer",
+      "title": "Kalp Kalbe Karşı",
+      "year": 2008,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Demet Akalın",
+      "title": "Mucize",
+      "year": 2008,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Ferhat Göçer",
+      "title": "Bizim Şarkımız",
+      "year": 2008,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Ferhat Göçer",
+      "title": "Biri Bana Gelsin",
+      "year": 2008,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Rafet El Roman & Yusuf Güney",
+      "title": "Aşk-ı Virane",
+      "year": 2008,
+      "weeks_at_one": 16
+    },
+    {
+      "artist": "Serdar Ortaç",
+      "title": "Şeytan",
+      "year": 2008,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Sıla & Kenan Doğulu",
+      "title": "...Dan Sonra",
+      "year": 2008,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Tarkan",
+      "title": "Vay Anam Vay",
+      "year": 2008,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "İsmail YK",
+      "title": "Bas Gaza",
+      "year": 2008,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Ayla Dikmen",
+      "title": "Anlamazdın",
+      "year": 2009,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Bengü",
+      "title": "İki Melek",
+      "year": 2009,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Bengü",
+      "title": "Kocaman Öpüyorum",
+      "year": 2009,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Demet Akalın",
+      "title": "Toz Pembe",
+      "year": 2009,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Gülben Ergen & Oğuzhan Koç",
+      "title": "Giden Günlerim Oldu",
+      "year": 2009,
+      "weeks_at_one": 6
+    },
+    {
+      "artist": "Manga",
+      "title": "Dünyanın Sonuna Doğmuşum",
+      "year": 2009,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Murat Dalkılıç",
+      "title": "Kasaba",
+      "year": 2009,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Mustafa Ceceli",
+      "title": "Limon Çiçekleri",
+      "year": 2009,
+      "weeks_at_one": 10
+    },
+    {
+      "artist": "Mustafa Ceceli",
+      "title": "Hastalıkta Sağlıkta",
+      "year": 2009,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Nil Karaibrahimgil",
+      "title": "Seviyorum Sevmiyorum",
+      "year": 2009,
+      "weeks_at_one": 6
+    },
+    {
+      "artist": "Rafet El Roman & Yusuf Güney",
+      "title": "Aşk-ı Virane",
+      "year": 2009,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Serdar Ortaç",
+      "title": "Gram",
+      "year": 2009,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Sertab Erener",
+      "title": "Bu Böyle",
+      "year": 2009,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Sıla",
+      "title": "Sevişmeden Uyumayalım",
+      "year": 2009,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Yalın",
+      "title": "Ah Be Kardeşim",
+      "year": 2009,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Emre Aydın",
+      "title": "Bu Yağmurlar",
+      "year": 2010,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Emre Aydın",
+      "title": "Hoşçakal",
+      "year": 2010,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Ferhat Göçer",
+      "title": "Üzüm",
+      "year": 2010,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Gripin",
+      "title": "Durma Yağmur Durma",
+      "year": 2010,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Gökhan Tepe",
+      "title": "Çok Özlüyorum Seni",
+      "year": 2010,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Gülşen",
+      "title": "Bi' An Gel",
+      "year": 2010,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Hande Yener",
+      "title": "Bodrum",
+      "year": 2010,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Mustafa Ceceli",
+      "title": "Hastalıkta Sağlıkta",
+      "year": 2010,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Ozan Doğulu & Sıla",
+      "title": "Alain Delon",
+      "year": 2010,
+      "weeks_at_one": 8
+    },
+    {
+      "artist": "Sertab Erener",
+      "title": "Rengârenk",
+      "year": 2010,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Sıla",
+      "title": "Acısa da Öldürmez",
+      "year": 2010,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Tarkan",
+      "title": "Adımı Kalbine Yaz",
+      "year": 2010,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Tarkan",
+      "title": "Öp",
+      "year": 2010,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Ziynet Sali",
+      "title": "Rüya",
+      "year": 2010,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Atiye",
+      "title": "Budur",
+      "year": 2011,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Burcu Güneş",
+      "title": "Oflaya Oflaya",
+      "year": 2011,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Funda Arar",
+      "title": "Sen ve Ben",
+      "year": 2011,
+      "weeks_at_one": 8
+    },
+    {
+      "artist": "Gökçe",
+      "title": "Tuttu Fırlattı",
+      "year": 2011,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Gülben Ergen ve Mustafa Sandal",
+      "title": "Şıkır Şıkır",
+      "year": 2011,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Gülşen",
+      "title": "Yeni Biri",
+      "year": 2011,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Gülşen",
+      "title": "Sözde Ayrılık",
+      "year": 2011,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "MFÖ",
+      "title": "Hep Yaşın 19",
+      "year": 2011,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Murat Boz",
+      "title": "Geri Dönüş Olsa",
+      "year": 2011,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Mustafa Ceceli ve Elvan Günaydın",
+      "title": "Eksik",
+      "year": 2011,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Rafet El Roman",
+      "title": "Direniyorum",
+      "year": 2011,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Sıla",
+      "title": "Acısa da Öldürmez",
+      "year": 2011,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Sıla",
+      "title": "Kafa",
+      "year": 2011,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Sıla",
+      "title": "Boş Yere",
+      "year": 2011,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Burcu Güneş",
+      "title": "Oflaya Oflaya",
+      "year": 2012,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Emir",
+      "title": "Sudan Sebep",
+      "year": 2012,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Emre Aydın",
+      "title": "Beni Biraz Böyle Hatırla",
+      "year": 2012,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Emre Aydın ve Gülden Mutlu",
+      "title": "Soğuk Odalar",
+      "year": 2012,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Fettah Can",
+      "title": "Boş Bardak",
+      "year": 2012,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Gökhan Türkmen",
+      "title": "Bitmesin",
+      "year": 2012,
+      "weeks_at_one": 10
+    },
+    {
+      "artist": "Murat Boz",
+      "title": "Kalamam Arkadaş",
+      "year": 2012,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Murat Dalkılıç",
+      "title": "Bir Güzellik Yap",
+      "year": 2012,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Murat Dalkılıç",
+      "title": "Lüzumsuz Savaş",
+      "year": 2012,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Mustafa Ceceli",
+      "title": "Es",
+      "year": 2012,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Ozan Doğulu ve Model",
+      "title": "Dağılmak İstiyorum",
+      "year": 2012,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Ozan Çolakoğlu ve Tarkan",
+      "title": "Aşk Gitti Bizden",
+      "year": 2012,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Rafet El Roman",
+      "title": "Senden Sonra",
+      "year": 2012,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "-",
+      "title": "(Yayınlanmadı)",
+      "year": 2013,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Bengü",
+      "title": "Yaralı",
+      "year": 2013,
+      "weeks_at_one": 6
+    },
+    {
+      "artist": "Ferhat Göçer",
+      "title": "Git",
+      "year": 2013,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Funda Arar & Enbe Orkestrası",
+      "title": "Hafıza",
+      "year": 2013,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Gripin",
+      "title": "Aşk Nereden Nereye",
+      "year": 2013,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Gülşen",
+      "title": "Yatcaz Kalkcaz Ordayım",
+      "year": 2013,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Gülşen",
+      "title": "Kardan Adam",
+      "year": 2013,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Murat Dalkılıç",
+      "title": "Lüzumsuz Savaş",
+      "year": 2013,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Mustafa Sandal",
+      "title": "Tesir Altında",
+      "year": 2013,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Soner Sarıkabadayı",
+      "title": "Kutsal Toprak",
+      "year": 2013,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Yalın",
+      "title": "Olmasa da Olur",
+      "year": 2013,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "-",
+      "title": "(Yayınlanmadı)",
+      "year": 2014,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Bengü",
+      "title": "Saygımdan",
+      "year": 2014,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Bengü",
+      "title": "Sahici",
+      "year": 2014,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Funda Arar & Enbe Orkestrası",
+      "title": "Hafıza",
+      "year": 2014,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Gökhan Türkmen",
+      "title": "Çatı Katı",
+      "year": 2014,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Gülşen & Murat Boz",
+      "title": "İltimas",
+      "year": 2014,
+      "weeks_at_one": 12
+    },
+    {
+      "artist": "Hadise",
+      "title": "Nerdesin Aşkım",
+      "year": 2014,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Sıla",
+      "title": "Vaziyetler",
+      "year": 2014,
+      "weeks_at_one": 11
+    },
+    {
+      "artist": "Sıla",
+      "title": "Yabancı",
+      "year": 2014,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Tarkan ft. İskender Paydaş",
+      "title": "Hop De",
+      "year": 2014,
+      "weeks_at_one": 9
+    },
+    {
+      "artist": "Betül Demir",
+      "title": "Sana N'olmuş",
+      "year": 2015,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Buray",
+      "title": "İstersen",
+      "year": 2015,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Deniz Seki",
+      "title": "İyisin Tabi",
+      "year": 2015,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Emre Kaya",
+      "title": "Yapboz",
+      "year": 2015,
+      "weeks_at_one": 6
+    },
+    {
+      "artist": "Gökhan Tepe",
+      "title": "Gelsen De Anlatsam",
+      "year": 2015,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Gökhan Türkmen",
+      "title": "Sen İstanbul'sun",
+      "year": 2015,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Gülşen",
+      "title": "Bangır Bangır",
+      "year": 2015,
+      "weeks_at_one": 13
+    },
+    {
+      "artist": "Hadise",
+      "title": "Yaz Günü",
+      "year": 2015,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Hande Yener (feat. Volga Tamöz)",
+      "title": "Sebastian",
+      "year": 2015,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Mabel Matiz",
+      "title": "Sarışın",
+      "year": 2015,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Simge",
+      "title": "Miş Miş",
+      "year": 2015,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Sıla",
+      "title": "Hediye",
+      "year": 2015,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "27 (feat. Birol Namoğlu)",
+      "title": "Muhtemel Aşk",
+      "year": 2016,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Ayla Çelik (feat. Beyazıt Öztürk)",
+      "title": "Bağdat",
+      "year": 2016,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Buray",
+      "title": "Sen Sevda Mısın",
+      "year": 2016,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Buray",
+      "title": "Aşk mı Lazım",
+      "year": 2016,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Demet Akalın",
+      "title": "Hayalet",
+      "year": 2016,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Derya Uluğ",
+      "title": "Okyanus",
+      "year": 2016,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Ece Seçkin",
+      "title": "Adeyyo",
+      "year": 2016,
+      "weeks_at_one": 9
+    },
+    {
+      "artist": "Emirhan Cengiz (feat. Betül Demir)",
+      "title": "Hacıyatmaz",
+      "year": 2016,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Emre Kaya",
+      "title": "Yapboz",
+      "year": 2016,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Emre Kaya",
+      "title": "Dın Dın",
+      "year": 2016,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Hande Yener",
+      "title": "Mor",
+      "year": 2016,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Mabel Matiz",
+      "title": "Bir Hadise Var",
+      "year": 2016,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "Murat Boz",
+      "title": "Janti",
+      "year": 2016,
+      "weeks_at_one": 3
+    },
+    {
+      "artist": "İrem Derici",
+      "title": "Dantel",
+      "year": 2016,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "-",
+      "title": "(Yayınlanmadı)",
+      "year": 2017,
+      "weeks_at_one": 7
+    },
+    {
+      "artist": "Aleyna Tilki",
+      "title": "Sen Olsan Bari",
+      "year": 2017,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Aylin Coşkun",
+      "title": "Sinsirella",
+      "year": 2017,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Buray",
+      "title": "Aşk mı Lazım",
+      "year": 2017,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Derya Uluğ",
+      "title": "Canavar",
+      "year": 2017,
+      "weeks_at_one": 8
+    },
+    {
+      "artist": "Ferhat Göçer",
+      "title": "Aşkın Mevsimi Olmaz Ki",
+      "year": 2017,
+      "weeks_at_one": 4
+    },
+    {
+      "artist": "Ferhat Göçer feat. Volga Tamöz",
+      "title": "Günah",
+      "year": 2017,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Hadise",
+      "title": "Sıfır Tolerans",
+      "year": 2017,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Murat Dalkılıç ft. Oğuzhan Koç",
+      "title": "Aşinayız",
+      "year": 2017,
+      "weeks_at_one": 2
+    },
+    {
+      "artist": "Oğuzhan Koç",
+      "title": "Küsme Aşka",
+      "year": 2017,
+      "weeks_at_one": 1
+    },
+    {
+      "artist": "Sezen Aksu",
+      "title": "İhanetten Geri Kalan",
+      "year": 2017,
+      "weeks_at_one": 5
+    },
+    {
+      "artist": "Tarkan",
+      "title": "Yolla",
+      "year": 2017,
+      "weeks_at_one": 12
+    },
+    {
+      "artist": "Tuğba Yurt",
+      "title": "İnceden İnceden",
+      "year": 2017,
+      "weeks_at_one": 3
+    }
+  ]
+}

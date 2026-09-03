@@ -56,6 +56,17 @@ def _release_artifacts(data_root: Path) -> dict[str, Path]:
         path = Path(record["path"]).expanduser()
         if not path.is_absolute():
             path = data_root / path
+        elif not path.exists():
+            # The manifest stores the absolute paths of the machine that built
+            # the release, so every one of them breaks on a rename and none of
+            # them exist on anyone else's disk. The layout under data/ is what
+            # is actually stable, so re-root on that tail. This is safe because
+            # the sha256 below is what proves the right file was found -- a
+            # wrong re-root fails the hash instead of loading bad data.
+            parts = path.parts
+            tail = [index for index, part in enumerate(parts) if part == "data"]
+            if tail:
+                path = data_root.joinpath(*parts[tail[-1] + 1:])
         path = path.resolve()
         expected_hash = record.get("sha256")
         if not expected_hash:
@@ -76,6 +87,8 @@ def prepare_midi_variation(
     target_root: str | None = None,
     target_mode: str | None = None,
     exclude_reference_ids: list[str] | None = None,
+    density: float | None = None,
+    genre_style: str | None = None,
     data_root: str | Path | None = None,
 ) -> dict[str, Any]:
     """Produce one safe SDK MIDI payload, or a structured no-write result."""
@@ -101,5 +114,7 @@ def prepare_midi_variation(
         target_root=target_root,
         target_mode=target_mode,
         exclude_reference_ids=exclude_reference_ids,
+        density=density,
+        genre_style=genre_style,
     )
     return {"schema_version": SCHEMA_VERSION, "generation_safe": result["generation_safe"], "payload": result["payload"], "resolution": resolution, "diagnostics": result["diagnostics"], "error": result["error"]}

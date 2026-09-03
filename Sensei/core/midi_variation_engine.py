@@ -4,6 +4,10 @@ from __future__ import annotations
 
 import json
 import random
+import sys
+from pathlib import Path as _Path
+
+_MI_ROOT = _Path(__file__).resolve().parents[2] / "MusicalIntelligence"
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -221,6 +225,107 @@ def _apply_variation(events: list[dict[str, Any]], profile: dict[str, Any], *, a
     return sorted(output, key=lambda event: (event["time"], event["pitch"]))
 
 
+# A section's intensity is chosen by picking a pattern that is already sparse or
+# already busy, never by dropping notes from a dense one. Thinning without
+# musical rules removes downbeats as readily as ghost notes; the corpus already
+# holds the sparse takes, so the honest move is to select one.
+MIN_DENSITY_POOL = 6
+MIN_GENRE_POOL = 6
+
+
+def _notes_per_bar(entry: dict[str, Any]) -> float:
+    timeline = entry.get("timeline") or {}
+    cycle = float(timeline.get("cycle_beats") or 0.0) or (
+        float(timeline.get("loop_end", 0.0)) - float(timeline.get("loop_start", 0.0)))
+    if cycle <= 0:
+        return 0.0
+    return len(entry.get("events") or []) / (cycle / 4.0)
+
+
+def _narrow_by_density(candidates: list[dict[str, Any]], density: float | None
+                       ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Keep the band of the pool whose note count matches the wanted intensity.
+
+    Intensity is chosen by selecting a pattern that is already sparse or already
+    busy, never by dropping notes: thinning without musical rules removes
+    downbeats as readily as ghost notes, and the corpus already holds the sparse
+    takes.
+    """
+    if density is None:
+        return candidates, {"density_applied": False, "density_reason": "not requested"}
+    if len(candidates) < MIN_DENSITY_POOL:
+        return candidates, {"density_applied": False,
+                            "density_reason": f"pool of {len(candidates)} is below "
+                                              f"{MIN_DENSITY_POOL}, density ignored"}
+    ranked = sorted(candidates, key=lambda entry: (_notes_per_bar(entry),
+                                                   str(entry.get("reference_id", ""))))
+    width = max(MIN_DENSITY_POOL, len(ranked) // 3)
+    centre = round(density * (len(ranked) - 1))
+    start = max(0, min(len(ranked) - width, centre - width // 2))
+    band = ranked[start:start + width]
+    return band, {
+        "density_applied": True,
+        "density": density,
+        "density_pool": len(band),
+        "density_notes_per_bar": [round(_notes_per_bar(entry), 2)
+                                  for entry in (band[0], band[-1])],
+    }
+
+
+def _layer_fit(entry: dict[str, Any], style: str | None, role: str) -> float | None:
+    """Score a candidate against its OWN layer's evidence.
+
+    Each writer is a separate layer and only ever sees what was measured for it.
+    Judging a bass line by a kick pattern -- which an earlier version did, on the
+    grounds that both are rhythm -- answers the drum question and not the bass
+    one. A layer with no measurable fit returns nothing rather than borrowing
+    another layer's number.
+    """
+    try:
+        sys.path.insert(0, str(_MI_ROOT))
+        from mi import profiles
+    except Exception:
+        return None
+
+    events = entry.get("events") or []
+    if not events:
+        return None
+    if role == "drum":
+        if not style:
+            return None
+        return profiles.drum_fit([float(e.get("time", 0.0)) for e in events], style)
+    if role in ("bass", "sub_bass", "bass_riff"):
+        timeline = entry.get("timeline") or {}
+        cycle = float(timeline.get("cycle_beats") or 0.0)
+        bars = (cycle / 4.0) if cycle > 0 else max(1.0, len(events) / 8.0)
+        return profiles.bass_fit([int(e["pitch"]) for e in events if "pitch" in e], bars)
+    return None
+
+
+def _narrow_by_layer(candidates: list[dict[str, Any]], style: str | None, role: str
+                     ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Keep the half of the pool that behaves most like the measured evidence."""
+    if len(candidates) < MIN_GENRE_POOL:
+        return candidates, {"layer_fit_applied": False,
+                            "layer_fit_reason": f"pool of {len(candidates)} is below "
+                                                f"{MIN_GENRE_POOL}"}
+    scored = [(entry, _layer_fit(entry, style, role)) for entry in candidates]
+    usable = [(entry, score) for entry, score in scored if score is not None]
+    if len(usable) < MIN_GENRE_POOL:
+        reason = (f"no measured drum pattern for '{style}'" if role == "drum"
+                  else f"no measured evidence for the '{role}' layer")
+        return candidates, {"layer_fit_applied": False, "layer_fit_reason": reason}
+    usable.sort(key=lambda pair: (-pair[1], str(pair[0].get("reference_id", ""))))
+    keep = max(MIN_GENRE_POOL, len(usable) // 2)
+    return [entry for entry, _ in usable[:keep]], {
+        "layer_fit_applied": True,
+        "layer_fit_layer": role,
+        "layer_fit_style": style if role == "drum" else None,
+        "layer_fit_pool": keep,
+        "layer_fit_range": [usable[0][1], usable[keep - 1][1]],
+    }
+
+
 def generate_midi_variation(
     corpus: Iterable[dict[str, Any]],
     *,
@@ -232,12 +337,16 @@ def generate_midi_variation(
     target_root: str | None = None,
     target_mode: str | None = None,
     exclude_reference_ids: list[str] | None = None,
+    density: float | None = None,
+    genre_style: str | None = None,
 ) -> dict[str, Any]:
     """Select a native-role/native-genre source and emit a safe SDK MIDI payload."""
     if bars <= 0:
         return _failure("bars_must_be_positive")
     if not 0 <= variation_amount <= 1:
         return _failure("variation_amount_must_be_between_zero_and_one")
+    if density is not None and not 0 <= density <= 1:
+        return _failure("density_must_be_between_zero_and_one")
     role = str((target_profile.get("variation_defaults") or {}).get("source_role") or target_profile.get("target_role") or "")
     if role not in _ROLE_TAGS:
         return _failure("unsupported_target_role")
@@ -247,6 +356,8 @@ def generate_midi_variation(
         return _failure("no_native_role_and_genre_candidate")
     mode_narrowed = _prefer_mode(candidates, role, target_mode)
     candidates = _exclude_used(mode_narrowed, exclude_reference_ids)
+    candidates, density_note = _narrow_by_density(candidates, density)
+    candidates, genre_note = _narrow_by_layer(candidates, genre_style, role)
     candidates.sort(key=lambda entry: str(entry.get("reference_id", "")))
     rng = random.Random(seed)
     if len(genres) > 1:
@@ -273,7 +384,7 @@ def generate_midi_variation(
             "notes": [{"pitch": event["pitch"], "time": event["time"], "duration": event["duration"], "velocity": event["velocity"]} for event in blended],
             "provenance": {"source_reference_ids": sources, "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre_mode": "synthesis", "genres": genres, "seed": seed, "variation_amount": variation_amount, "target_root": target_root, "target_mode": target_mode},
         }
-        return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": blended, "payload": payload, "diagnostics": {"source_reference_ids": sources, "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre_mode": "synthesis", "genres": genres, "candidate_count": len(candidates), "seed": seed, "variation_amount": variation_amount}, "error": None}
+        return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": blended, "payload": payload, "diagnostics": {"source_reference_ids": sources, "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre_mode": "synthesis", "genres": genres, "candidate_count": len(candidates), "seed": seed, "variation_amount": variation_amount, **density_note, **genre_note}, "error": None}
     # Excluding already-used sources can leave only candidates that fail the
     # target profile's structural checks (e.g. a "bassline"-tagged clip that
     # turns out not to be monophonic) even though a previously-used source
@@ -301,5 +412,5 @@ def generate_midi_variation(
                 "notes": [{"pitch": event["pitch"], "time": event["time"], "duration": event["duration"], "velocity": event["velocity"]} for event in events],
                 "provenance": {"source_reference_id": selected.get("reference_id"), "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre": genre, "seed": seed, "variation_amount": variation_amount, "target_root": target_root, "target_mode": target_mode},
             }
-            return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": events, "payload": payload, "diagnostics": {"source_reference_id": selected.get("reference_id"), "target_profile_id": target_profile.get("profile_id"), "source_role": role, "candidate_count": len(pool), "seed": seed, "variation_amount": variation_amount}, "error": None}
+            return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": events, "payload": payload, "diagnostics": {"source_reference_id": selected.get("reference_id"), "target_profile_id": target_profile.get("profile_id"), "source_role": role, "candidate_count": len(pool), "seed": seed, "variation_amount": variation_amount, **density_note, **genre_note}, "error": None}
     return _failure("no_candidate_satisfies_target_profile")

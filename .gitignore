@@ -39,3 +39,17 @@ ArrangementGPS/engine/output/
 # (uretici: Sensei/ableton/genre_identity.py, *_instrument_catalog.py)
 Sensei/data/
 Sensei/DatasetRoot/indexes/
+
+# MusicalIntelligence: third-party corpora are downloaded, never vendored --
+# Groove MIDI, POP909 and Lakh together are ~900 MB and are not ours to ship.
+MusicalIntelligence/data/sources/
+# One user's own record collection, measured for their own sampling work. It is
+# personal taste, and mixing it into the product's genre evidence would teach
+# every user one listener's shelf.
+MusicalIntelligence/data/personal/
+# Derived files large enough that regenerating beats storing: the per-song maps
+# and the full chart catalogue. The small aggregate profiles DO ship -- they are
+# the evidence the product reasons from, and a user should not need 900 MB of
+# downloads to get them.
+MusicalIntelligence/data/corpus/pop_songmaps.json
+MusicalIntelligence/data/corpus/hits_world.json

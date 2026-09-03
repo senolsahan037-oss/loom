@@ -1,0 +1,507 @@
+{
+  "corpus_size": 22513,
+  "sampled": 120,
+  "identified_in_musicbrainz": 86,
+  "with_acousticbrainz_analysis": 26,
+  "with_deezer_tempo": 45,
+  "with_either": 59,
+  "by_chart": {
+    "BRT Top 30": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 0
+    },
+    "Belgium": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "Billboard Hot 100": {
+      "sampled": 3,
+      "identified": 2,
+      "with_analysis": 2
+    },
+    "Billboard Hot Latin Tracks": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Billboard Hot Latin and Latin Airplay": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Billboard Hot Tropical": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "Billboard Latin Pop Airplay": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Billboard Latin Rhythm Airplay": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Billboard Latin Tropical Airplay": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Billboard Mainstream Top 40": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Billboard Pop Airplay": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Billboard Regional Mexican": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 0
+    },
+    "Billboard Streaming": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "Billboard dance": {
+      "sampled": 6,
+      "identified": 1,
+      "with_analysis": 0
+    },
+    "Billboard disco": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Canadian Hot 100": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Cash Box Top 100": {
+      "sampled": 5,
+      "identified": 4,
+      "with_analysis": 4
+    },
+    "Dutch Top 40": {
+      "sampled": 4,
+      "identified": 3,
+      "with_analysis": 2
+    },
+    "Flanders": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Gaon Digital Chart": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "German airplay": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "Hot 100": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "Hot R&B/Hip-Hop & Tracks": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "M Countdown Chart winners": {
+      "sampled": 2,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Music Bank Chart winners": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "Oricon": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "RPM alternative rock": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "RPM country": {
+      "sampled": 6,
+      "identified": 6,
+      "with_analysis": 5
+    },
+    "RPM dance": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 0
+    },
+    "Spanish": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "UK Dance Chart": {
+      "sampled": 3,
+      "identified": 2,
+      "with_analysis": 0
+    },
+    "UK Independent Chart": {
+      "sampled": 4,
+      "identified": 4,
+      "with_analysis": 0
+    },
+    "UK R&B Chart": {
+      "sampled": 3,
+      "identified": 3,
+      "with_analysis": 3
+    },
+    "UK Rock & Metal Chart": {
+      "sampled": 2,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "Ultratop 40": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "Ultratop 50": {
+      "sampled": 2,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "VRT Top 30": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "country": {
+      "sampled": 2,
+      "identified": 2,
+      "with_analysis": 2
+    },
+    "dance": {
+      "sampled": 1,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "digital": {
+      "sampled": 2,
+      "identified": 1,
+      "with_analysis": 1
+    },
+    "digital tracks": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    },
+    "national chart": {
+      "sampled": 47,
+      "identified": 38,
+      "with_analysis": 23
+    },
+    "streaming tracks": {
+      "sampled": 1,
+      "identified": 0,
+      "with_analysis": 0
+    }
+  },
+  "usable_examples": [
+    {
+      "artist": "Dire Straits",
+      "title": "Money for Nothing",
+      "year": 1985,
+      "weeks_at_one": 3,
+      "chart": "Billboard Hot 100",
+      "country": "United States",
+      "mbid": "a8c550e8-06a0-4244-afd5-b723d20ea2f9",
+      "score": 100,
+      "matched_title": "Money for Nothing",
+      "matched_artist": "Dire Straits",
+      "acousticbrainz": true,
+      "deezer_bpm": 134.2
+    },
+    {
+      "artist": "Michael Bolton",
+      "title": "When a Man Loves a Woman",
+      "year": 1991,
+      "weeks_at_one": 1,
+      "chart": "Billboard Hot 100",
+      "country": "United States",
+      "mbid": "a4308233-59fc-4652-9f10-47bc5f06983f",
+      "score": 100,
+      "matched_title": "When a Man Loves a Woman",
+      "matched_artist": "Michael Bolton",
+      "acousticbrainz": false,
+      "deezer_bpm": 164.7
+    },
+    {
+      "artist": "Luis Miguel",
+      "title": "Hasta Que Me Olvides",
+      "year": 1993,
+      "weeks_at_one": 3,
+      "chart": "Billboard Hot Latin Tracks",
+      "country": "United States",
+      "mbid": "9ef9c5f9-ad94-4614-b376-5818a5bdb049",
+      "score": 100,
+      "matched_title": "Hasta que me olvides",
+      "matched_artist": "Luis Miguel",
+      "acousticbrainz": true,
+      "deezer_bpm": 119.8
+    },
+    {
+      "artist": "Gloria Estefan",
+      "title": "Hotel Nacional",
+      "year": 2012,
+      "weeks_at_one": 1,
+      "chart": "Billboard Hot Latin and Latin Airplay",
+      "country": "United States",
+      "mbid": "6a5f92ac-aabb-4c55-bcac-e66a4f8fc10c",
+      "score": 100,
+      "matched_title": "Hotel Nacional",
+      "matched_artist": "Gloria Estefan",
+      "acousticbrainz": true,
+      "deezer_bpm": null
+    },
+    {
+      "artist": "CNCO",
+      "title": "Reggaetón Lento (Bailemos)",
+      "year": 2017,
+      "weeks_at_one": 1,
+      "chart": "Billboard Latin Pop Airplay",
+      "country": "United States",
+      "mbid": "47b5a941-72bb-40c9-924a-9b34c8f51914",
+      "score": 100,
+      "matched_title": "Reggaetón lento (Bailemos)",
+      "matched_artist": "CNCO",
+      "acousticbrainz": true,
+      "deezer_bpm": 187.93
+    },
+    {
+      "artist": "J Balvin",
+      "title": "Bobo",
+      "year": 2016,
+      "weeks_at_one": 13,
+      "chart": "Billboard Latin Rhythm Airplay",
+      "country": "United States",
+      "mbid": "5c475ea0-a1d0-4aeb-8f7b-b45346b4fb37",
+      "score": 100,
+      "matched_title": "Bobo",
+      "matched_artist": "J Balvin",
+      "acousticbrainz": false,
+      "deezer_bpm": 178.21
+    },
+    {
+      "artist": "Carlos Vives",
+      "title": "Luna Nueva",
+      "year": 2002,
+      "weeks_at_one": 3,
+      "chart": "Billboard Latin Tropical Airplay",
+      "country": "United States",
+      "mbid": "b29f1085-85b4-49ed-a8c8-3c010e71d770",
+      "score": 100,
+      "matched_title": "Luna nueva",
+      "matched_artist": "Carlos Vives",
+      "acousticbrainz": true,
+      "deezer_bpm": null
+    },
+    {
+      "artist": "Lady Gaga",
+      "title": "Born This Way",
+      "year": 2011,
+      "weeks_at_one": 1,
+      "chart": "Billboard Mainstream Top 40",
+      "country": "United States",
+      "mbid": "4e0a7956-0eb2-4886-a50e-16b764e1fe81",
+      "score": 100,
+      "matched_title": "Born This Way",
+      "matched_artist": "Lady Gaga",
+      "acousticbrainz": false,
+      "deezer_bpm": 124.2
+    },
+    {
+      "artist": "Adele",
+      "title": "Easy on Me",
+      "year": 2022,
+      "weeks_at_one": 4,
+      "chart": "Billboard Pop Airplay",
+      "country": "United States",
+      "mbid": "a7720370-b5a1-49b0-983a-85081f0bcbfe",
+      "score": 100,
+      "matched_title": "Easy on Me",
+      "matched_artist": "Adele",
+      "acousticbrainz": true,
+      "deezer_bpm": null
+    },
+    {
+      "artist": "Sylvester",
+      "title": "Dance (Disco Heat)",
+      "year": 1978,
+      "weeks_at_one": 6,
+      "chart": "Billboard disco",
+      "country": "United States",
+      "mbid": "3cfa77b9-265b-423f-ac28-5d165d83ce6f",
+      "score": 100,
+      "matched_title": "Dance (Disco Heat)",
+      "matched_artist": "Sylvester",
+      "acousticbrainz": true,
+      "deezer_bpm": 126.82
+    },
+    {
+      "artist": "Ariana Grande",
+      "title": "Thank U, Next",
+      "year": 2018,
+      "weeks_at_one": 7,
+      "chart": "Canadian Hot 100",
+      "country": "Canada",
+      "mbid": "f0d0c761-b5a3-4373-aee3-117740ab373e",
+      "score": 100,
+      "matched_title": "thank u, next",
+      "matched_artist": "Ariana Grande",
+      "acousticbrainz": false,
+      "deezer_bpm": 107.11
+    },
+    {
+      "artist": "Sonny & Cher",
+      "title": "I Got You Babe",
+      "year": 1965,
+      "weeks_at_one": 2,
+      "chart": "Cash Box Top 100",
+      "country": "United States",
+      "mbid": "6cd60f5b-1b0f-4c22-970f-37fd13bc660e",
+      "score": 100,
+      "matched_title": "I Got You Babe",
+      "matched_artist": "Sonny & Cher",
+      "acousticbrainz": false,
+      "deezer_bpm": 110.2
+    },
+    {
+      "artist": "Neil Young",
+      "title": "Heart of Gold",
+      "year": 1972,
+      "weeks_at_one": 1,
+      "chart": "Cash Box Top 100",
+      "country": "United States",
+      "mbid": "f893c555-6011-4210-a5f6-588839383a98",
+      "score": 100,
+      "matched_title": "Heart of Gold",
+      "matched_artist": "Neil Young",
+      "acousticbrainz": false,
+      "deezer_bpm": 170.8
+    },
+    {
+      "artist": "Boz Scaggs",
+      "title": "Lowdown",
+      "year": 1976,
+      "weeks_at_one": 1,
+      "chart": "Cash Box Top 100",
+      "country": "United States",
+      "mbid": "6e92e62e-c371-4552-bcd0-60c90b175122",
+      "score": 100,
+      "matched_title": "Lowdown",
+      "matched_artist": "Boz Scaggs",
+      "acousticbrainz": true,
+      "deezer_bpm": null
+    },
+    {
+      "artist": "Phil Collins",
+      "title": "One More Night",
+      "year": 1985,
+      "weeks_at_one": 1,
+      "chart": "Cash Box Top 100",
+      "country": "United States",
+      "mbid": "447a42d1-2475-47c8-adf6-c3b5e582efb5",
+      "score": 100,
+      "matched_title": "One More Night",
+      "matched_artist": "Phil Collins",
+      "acousticbrainz": true,
+      "deezer_bpm": 136.45
+    },
+    {
+      "artist": "The Beatles",
+      "title": "Get Back",
+      "year": 1969,
+      "weeks_at_one": 2,
+      "chart": "Dutch Top 40",
+      "country": "Netherlands",
+      "mbid": "9c4b54b0-80e9-449b-b3bf-5cdc5c6df918",
+      "score": 100,
+      "matched_title": "Get Back (Get Back Session)",
+      "matched_artist": "The Beatles",
+      "acousticbrainz": false,
+      "deezer_bpm": 123.05
+    },
+    {
+      "artist": "Seal",
+      "title": "Crazy",
+      "year": 1991,
+      "weeks_at_one": 3,
+      "chart": "Dutch Top 40",
+      "country": "Netherlands",
+      "mbid": "90f47b61-dcff-47a0-b670-47c08fb40972",
+      "score": 100,
+      "matched_title": "Crazy",
+      "matched_artist": "Seal",
+      "acousticbrainz": false,
+      "deezer_bpm": 102.6
+    },
+    {
+      "artist": "Nicole",
+      "title": "Ein bißchen Frieden",
+      "year": 1982,
+      "weeks_at_one": 5,
+      "chart": "Flanders",
+      "country": "Belgium",
+      "mbid": "3486f4bb-4dec-4676-97ab-1209b1e286e9",
+      "score": 100,
+      "matched_title": "Ein bisschen Frieden",
+      "matched_artist": "Nicole",
+      "acousticbrainz": true,
+      "deezer_bpm": 118.12
+    },
+    {
+      "artist": "Girls' Generation",
+      "title": "Party",
+      "year": 2015,
+      "weeks_at_one": 1,
+      "chart": "M Countdown Chart winners",
+      "country": "South Korea",
+      "mbid": "12696f92-661b-4b06-8884-4501eccbc704",
+      "score": 100,
+      "matched_title": "PARTY",
+      "matched_artist": "Girls’ Generation",
+      "acousticbrainz": true,
+      "deezer_bpm": 123.05
+    },
+    {
+      "artist": "Green Day",
+      "title": "Brain Stew",
+      "year": 1996,
+      "weeks_at_one": 3,
+      "chart": "RPM alternative rock",
+      "country": "Canada",
+      "mbid": "9e4a628e-15ae-421d-a22a-24a5bb358dcb",
+      "score": 100,
+      "matched_title": "Brain Stew",
+      "matched_artist": "Green Day",
+      "acousticbrainz": false,
+      "deezer_bpm": 151.4
+    }
+  ]
+}

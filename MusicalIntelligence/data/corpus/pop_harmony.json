@@ -1,0 +1,227 @@
+{
+  "source": "POP909 -- 909 annotated Chinese pop songs. One tradition's pop, not pop everywhere; the provenance travels with the numbers.",
+  "songs_used": 909,
+  "songs_skipped": {},
+  "chord_moves_counted": 101419,
+  "degree_share": {
+    "V": 0.132,
+    "I": 0.1047,
+    "i": 0.0906,
+    "IV": 0.0862,
+    "VII": 0.0756,
+    "VI": 0.0698,
+    "vi": 0.0653,
+    "III": 0.0519,
+    "iv": 0.0471,
+    "iii": 0.0446,
+    "ii": 0.0418,
+    "v": 0.0412,
+    "vi7": 0.0124,
+    "I7": 0.0123,
+    "II": 0.0117,
+    "i7": 0.0099,
+    "v7": 0.0089,
+    "ii7": 0.0088,
+    "iii7": 0.0085,
+    "V7": 0.0081
+  },
+  "top_transitions": [
+    {
+      "from": "V",
+      "to": "I",
+      "share": 0.0538,
+      "count": 5459
+    },
+    {
+      "from": "IV",
+      "to": "V",
+      "share": 0.0335,
+      "count": 3393
+    },
+    {
+      "from": "VI",
+      "to": "VII",
+      "share": 0.0276,
+      "count": 2800
+    },
+    {
+      "from": "ii",
+      "to": "V",
+      "share": 0.0256,
+      "count": 2601
+    },
+    {
+      "from": "VII",
+      "to": "i",
+      "share": 0.0233,
+      "count": 2365
+    },
+    {
+      "from": "I",
+      "to": "V",
+      "share": 0.0216,
+      "count": 2186
+    },
+    {
+      "from": "VII",
+      "to": "III",
+      "share": 0.0206,
+      "count": 2089
+    },
+    {
+      "from": "i",
+      "to": "VI",
+      "share": 0.0192,
+      "count": 1945
+    },
+    {
+      "from": "v",
+      "to": "i",
+      "share": 0.018,
+      "count": 1823
+    },
+    {
+      "from": "i",
+      "to": "iv",
+      "share": 0.0174,
+      "count": 1762
+    },
+    {
+      "from": "I",
+      "to": "IV",
+      "share": 0.0172,
+      "count": 1741
+    },
+    {
+      "from": "IV",
+      "to": "I",
+      "share": 0.0159,
+      "count": 1616
+    },
+    {
+      "from": "V",
+      "to": "IV",
+      "share": 0.0158,
+      "count": 1605
+    },
+    {
+      "from": "V",
+      "to": "vi",
+      "share": 0.0158,
+      "count": 1601
+    },
+    {
+      "from": "iii",
+      "to": "vi",
+      "share": 0.0153,
+      "count": 1548
+    },
+    {
+      "from": "vi",
+      "to": "IV",
+      "share": 0.0152,
+      "count": 1539
+    },
+    {
+      "from": "I",
+      "to": "vi",
+      "share": 0.0148,
+      "count": 1505
+    },
+    {
+      "from": "i",
+      "to": "VII",
+      "share": 0.0145,
+      "count": 1467
+    },
+    {
+      "from": "V",
+      "to": "i",
+      "share": 0.0142,
+      "count": 1443
+    },
+    {
+      "from": "iv",
+      "to": "VII",
+      "share": 0.0129,
+      "count": 1309
+    },
+    {
+      "from": "vi",
+      "to": "ii",
+      "share": 0.0129,
+      "count": 1306
+    },
+    {
+      "from": "vi",
+      "to": "V",
+      "share": 0.0113,
+      "count": 1144
+    },
+    {
+      "from": "IV",
+      "to": "iii",
+      "share": 0.011,
+      "count": 1113
+    },
+    {
+      "from": "iii",
+      "to": "IV",
+      "share": 0.0109,
+      "count": 1102
+    },
+    {
+      "from": "i",
+      "to": "v",
+      "share": 0.0099,
+      "count": 1000
+    },
+    {
+      "from": "VII",
+      "to": "VI",
+      "share": 0.0097,
+      "count": 987
+    },
+    {
+      "from": "I",
+      "to": "iii",
+      "share": 0.0095,
+      "count": 963
+    },
+    {
+      "from": "III",
+      "to": "i",
+      "share": 0.0083,
+      "count": 843
+    },
+    {
+      "from": "vi",
+      "to": "iii",
+      "share": 0.0082,
+      "count": 835
+    },
+    {
+      "from": "i",
+      "to": "III",
+      "share": 0.0081,
+      "count": 823
+    }
+  ],
+  "melody_interval_share": {
+    "0": 0.2364,
+    "-2": 0.1923,
+    "2": 0.1672,
+    "-3": 0.0723,
+    "3": 0.0667,
+    "-1": 0.0448,
+    "1": 0.0369,
+    "-5": 0.0331,
+    "5": 0.033,
+    "-7": 0.0209,
+    "7": 0.0207,
+    "-4": 0.0205,
+    "4": 0.0172,
+    "9": 0.0077,
+    "12": 0.0057
+  }
+}

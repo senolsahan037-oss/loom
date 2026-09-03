@@ -1,0 +1,294 @@
+{
+  "source": "en.wikipedia category tree under Category:Lists of number-one songs",
+  "countries_found": 41,
+  "countries_with_five_or_more_years": 31,
+  "countries": [
+    {
+      "country": "United States",
+      "pages": 566,
+      "year_count": 77,
+      "first_year": 1950,
+      "last_year": 2026
+    },
+    {
+      "country": "France",
+      "pages": 75,
+      "year_count": 72,
+      "first_year": 1955,
+      "last_year": 2026
+    },
+    {
+      "country": "Germany",
+      "pages": 90,
+      "year_count": 71,
+      "first_year": 1956,
+      "last_year": 2026
+    },
+    {
+      "country": "Canada",
+      "pages": 167,
+      "year_count": 70,
+      "first_year": 1957,
+      "last_year": 2026
+    },
+    {
+      "country": "Spain",
+      "pages": 72,
+      "year_count": 68,
+      "first_year": 1959,
+      "last_year": 2026
+    },
+    {
+      "country": "Italy",
+      "pages": 70,
+      "year_count": 67,
+      "first_year": 1960,
+      "last_year": 2026
+    },
+    {
+      "country": "Netherlands",
+      "pages": 70,
+      "year_count": 67,
+      "first_year": 1960,
+      "last_year": 2026
+    },
+    {
+      "country": "Ireland",
+      "pages": 67,
+      "year_count": 65,
+      "first_year": 1962,
+      "last_year": 2026
+    },
+    {
+      "country": "Japan",
+      "pages": 84,
+      "year_count": 59,
+      "first_year": 1961,
+      "last_year": 2026
+    },
+    {
+      "country": "Belgium",
+      "pages": 74,
+      "year_count": 57,
+      "first_year": 1970,
+      "last_year": 2026
+    },
+    {
+      "country": "Mexico",
+      "pages": 53,
+      "year_count": 51,
+      "first_year": 1961,
+      "last_year": 2021
+    },
+    {
+      "country": "United Kingdom",
+      "pages": 192,
+      "year_count": 43,
+      "first_year": 1952,
+      "last_year": 2026
+    },
+    {
+      "country": "Finland",
+      "pages": 41,
+      "year_count": 39,
+      "first_year": 1988,
+      "last_year": 2026
+    },
+    {
+      "country": "Austria",
+      "pages": 39,
+      "year_count": 38,
+      "first_year": 1989,
+      "last_year": 2026
+    },
+    {
+      "country": "Denmark",
+      "pages": 39,
+      "year_count": 36,
+      "first_year": 1969,
+      "last_year": 2026
+    },
+    {
+      "country": "Argentina",
+      "pages": 28,
+      "year_count": 27,
+      "first_year": 1961,
+      "last_year": 2025
+    },
+    {
+      "country": "Australia",
+      "pages": 138,
+      "year_count": 27,
+      "first_year": 2000,
+      "last_year": 2026
+    },
+    {
+      "country": "South Korea",
+      "pages": 102,
+      "year_count": 19,
+      "first_year": 2008,
+      "last_year": 2026
+    },
+    {
+      "country": "New Zealand",
+      "pages": 27,
+      "year_count": 19,
+      "first_year": 1960,
+      "last_year": 1979
+    },
+    {
+      "country": "Switzerland",
+      "pages": 22,
+      "year_count": 19,
+      "first_year": 1968,
+      "last_year": 2026
+    },
+    {
+      "country": "Poland",
+      "pages": 20,
+      "year_count": 17,
+      "first_year": 2010,
+      "last_year": 2026
+    },
+    {
+      "country": "Brazil",
+      "pages": 26,
+      "year_count": 16,
+      "first_year": 1963,
+      "last_year": 2026
+    },
+    {
+      "country": "Turkey",
+      "pages": 15,
+      "year_count": 15,
+      "first_year": 2006,
+      "last_year": 2022
+    },
+    {
+      "country": "Malaysia",
+      "pages": 10,
+      "year_count": 10,
+      "first_year": 2017,
+      "last_year": 2026
+    },
+    {
+      "country": "Singapore",
+      "pages": 9,
+      "year_count": 9,
+      "first_year": 2018,
+      "last_year": 2026
+    },
+    {
+      "country": "Slovenia",
+      "pages": 9,
+      "year_count": 9,
+      "first_year": 2013,
+      "last_year": 2021
+    },
+    {
+      "country": "Uruguay",
+      "pages": 9,
+      "year_count": 8,
+      "first_year": 2017,
+      "last_year": 2024
+    },
+    {
+      "country": "Category:Lists of Billboard Global 200 number-one songs",
+      "pages": 7,
+      "year_count": 7,
+      "first_year": 2020,
+      "last_year": 2026
+    },
+    {
+      "country": "Nigeria",
+      "pages": 8,
+      "year_count": 7,
+      "first_year": 2020,
+      "last_year": 2026
+    },
+    {
+      "country": "Croatia",
+      "pages": 5,
+      "year_count": 5,
+      "first_year": 2022,
+      "last_year": 2026
+    },
+    {
+      "country": "Indonesia",
+      "pages": 5,
+      "year_count": 5,
+      "first_year": 2022,
+      "last_year": 2026
+    },
+    {
+      "country": "South Africa",
+      "pages": 4,
+      "year_count": 4,
+      "first_year": 2013,
+      "last_year": 2016
+    },
+    {
+      "country": "China",
+      "pages": 6,
+      "year_count": 3,
+      "first_year": 2016,
+      "last_year": 2018
+    },
+    {
+      "country": "Venezuela",
+      "pages": 5,
+      "year_count": 3,
+      "first_year": 2014,
+      "last_year": 2018
+    },
+    {
+      "country": "Romania",
+      "pages": 6,
+      "year_count": 1,
+      "first_year": 2009,
+      "last_year": 2009
+    },
+    {
+      "country": "Russia",
+      "pages": 1,
+      "year_count": 1,
+      "first_year": 2011,
+      "last_year": 2011
+    },
+    {
+      "country": "Slovakia",
+      "pages": 172,
+      "year_count": 1,
+      "first_year": 1973,
+      "last_year": 1973
+    },
+    {
+      "country": "Chile",
+      "pages": 1,
+      "year_count": 0,
+      "first_year": null,
+      "last_year": null
+    },
+    {
+      "country": "Czech Republic",
+      "pages": 6,
+      "year_count": 0,
+      "first_year": null,
+      "last_year": null
+    },
+    {
+      "country": "Hungary",
+      "pages": 3,
+      "year_count": 0,
+      "first_year": null,
+      "last_year": null
+    },
+    {
+      "country": "Sweden",
+      "pages": 5,
+      "year_count": 0,
+      "first_year": null,
+      "last_year": null
+    }
+  ]
+}

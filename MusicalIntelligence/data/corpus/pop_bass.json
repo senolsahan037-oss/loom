@@ -1,0 +1,95 @@
+{
+  "source": "POP909 -- lowest voice of the annotated accompaniment. One tradition's pop; the provenance travels with the numbers.",
+  "songs_used": 909,
+  "songs_skipped": {},
+  "chord_changes_counted": 118902,
+  "bass_against_chord": {
+    "root": 0.8138,
+    "5th": 0.0756,
+    "maj3rd": 0.0286,
+    "4th": 0.0181,
+    "b7th": 0.0179,
+    "min3rd": 0.016,
+    "9th": 0.0106,
+    "maj7th": 0.01,
+    "6th": 0.0044,
+    "b6th": 0.0031,
+    "b9": 0.0014,
+    "tritone": 0.0005
+  },
+  "motion_between_chords": {
+    "5": 0.1334,
+    "2": 0.1187,
+    "0": 0.1033,
+    "-7": 0.1009,
+    "-2": 0.0922,
+    "7": 0.0636,
+    "-5": 0.0511,
+    "12": 0.045,
+    "-1": 0.0443,
+    "-3": 0.0413,
+    "-4": 0.0336,
+    "1": 0.0258,
+    "-10": 0.0232,
+    "3": 0.0194
+  },
+  "moves_within_one_chord": {
+    "1": 0.8876,
+    "2": 0.1064,
+    "3": 0.0059,
+    "4": 0.0001,
+    "5": 0.0
+  },
+  "bass_role_by_degree": {
+    "V": {
+      "root": 0.818,
+      "maj3rd": 0.064,
+      "5th": 0.059
+    },
+    "I": {
+      "root": 0.808,
+      "5th": 0.116,
+      "maj3rd": 0.038
+    },
+    "i": {
+      "root": 0.851,
+      "5th": 0.084,
+      "min3rd": 0.022
+    },
+    "IV": {
+      "root": 0.856,
+      "5th": 0.077,
+      "maj3rd": 0.025
+    },
+    "VII": {
+      "root": 0.865,
+      "5th": 0.055,
+      "maj3rd": 0.035
+    },
+    "VI": {
+      "root": 0.868,
+      "5th": 0.048,
+      "maj3rd": 0.04
+    },
+    "vi": {
+      "root": 0.856,
+      "5th": 0.066,
+      "min3rd": 0.037
+    },
+    "III": {
+      "root": 0.826,
+      "5th": 0.089,
+      "maj3rd": 0.042
+    },
+    "iv": {
+      "root": 0.848,
+      "5th": 0.073,
+      "min3rd": 0.036
+    },
+    "iii": {
+      "root": 0.774,
+      "5th": 0.098,
+      "min3rd": 0.07
+    }
+  }
+}

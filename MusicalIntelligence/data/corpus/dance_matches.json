@@ -1,0 +1,1139 @@
+{
+  "source": "Lakh clean_midi filenames matched to charted dance works",
+  "label_meaning": "charted on a national dance chart -- commercial dance, not a claim about house or techno specifically",
+  "dance_works_in_charts": 2195,
+  "midi_files_matched": 136,
+  "distinct_artists": 107,
+  "top_artists": [
+    [
+      "Madonna",
+      11
+    ],
+    [
+      "Culture Beat",
+      3
+    ],
+    [
+      "Michael Jackson",
+      3
+    ],
+    [
+      "Eiffel 65",
+      2
+    ],
+    [
+      "Jennifer Lopez",
+      2
+    ],
+    [
+      "Ace of Base",
+      2
+    ],
+    [
+      "Faithless",
+      2
+    ],
+    [
+      "Prince",
+      2
+    ],
+    [
+      "La Bouche",
+      2
+    ],
+    [
+      "Arrested Development",
+      2
+    ]
+  ],
+  "matches": [
+    {
+      "midi": "Patrick Hernandez/Born to Be Alive.mid",
+      "artist": "Patrick Hernandez",
+      "title": "Born to Be Alive",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1979
+    },
+    {
+      "midi": "Blackstreet/No Diggity.mid",
+      "artist": "Blackstreet",
+      "title": "No Diggity",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1996
+    },
+    {
+      "midi": "Kool & The Gang/Celebration.mid",
+      "artist": "Kool & the Gang",
+      "title": "Celebration",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1980
+    },
+    {
+      "midi": "Bee Gees/You Should Be Dancing.mid",
+      "artist": "Bee Gees",
+      "title": "You Should Be Dancing",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1976
+    },
+    {
+      "midi": "TLC/No Scrubs.mid",
+      "artist": "TLC",
+      "title": "No Scrubs",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Eiffel 65/Blue.mid",
+      "artist": "Eiffel 65",
+      "title": "Blue (Da Ba Dee)",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Eiffel 65/Blue (Da Ba Dee).mid",
+      "artist": "Eiffel 65",
+      "title": "Blue (Da Ba Dee)",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Technotronic/Pump Up the Jam.mid",
+      "artist": "Technotronic",
+      "title": "\"Pump Up the Jam",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Fine Young Cannibals/She Drives Me Crazy.mid",
+      "artist": "Fine Young Cannibals",
+      "title": "She Drives Me Crazy",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Corona/Baby Baby.mid",
+      "artist": "Corona",
+      "title": "Baby Baby",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "Giorgio Moroder/Chase.mid",
+      "artist": "Giorgio Moroder vs. Jam & Spoon",
+      "title": "Chase",
+      "chart": "Billboard dance",
+      "country": "United States",
+      "year": 2000
+    },
+    {
+      "midi": "Tavares/Heaven Must Be Missing an Angel.mid",
+      "artist": "Tavares",
+      "title": "Heaven Must Be Missing an Angel",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1976
+    },
+    {
+      "midi": "The Romantics/Talking In Your Sleep.mid",
+      "artist": "The Romantics",
+      "title": "Talking in Your Sleep",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1983
+    },
+    {
+      "midi": "Soul II Soul/Keep on Movin'.mid",
+      "artist": "Soul II Soul",
+      "title": "Keep On Movin'",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Whigfield/Saturday Night.mid",
+      "artist": "Whigfield",
+      "title": "Saturday Night",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "Milli Vanilli/Baby Don't Forget My Number.mid",
+      "artist": "Milli Vanilli",
+      "title": "Baby Don't Forget My Number",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Dan Hartman/Instant Replay.mid",
+      "artist": "Dan Hartman",
+      "title": "Instant Replay (all cuts)",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1978
+    },
+    {
+      "midi": "Jennifer Lopez/Waiting for Tonight.mid",
+      "artist": "Jennifer Lopez",
+      "title": "Waiting for Tonight",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Jennifer Lopez/If You Had My Love.mid",
+      "artist": "Jennifer Lopez",
+      "title": "If You Had My Love",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Whitney Houston/I'm Every Woman.mid",
+      "artist": "Whitney Houston",
+      "title": "\"I'm Every Woman",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1993
+    },
+    {
+      "midi": "Enigma/Mea Culpa.mid",
+      "artist": "Enigma",
+      "title": "Mea Culpa (Part II)",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1991
+    },
+    {
+      "midi": "Blondie/Rapture.mid",
+      "artist": "Blondie",
+      "title": "Rapture",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1981
+    },
+    {
+      "midi": "Right Said Fred/I'm Too Sexy.mid",
+      "artist": "Right Said Fred",
+      "title": "\"I'm Too Sexy",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1992
+    },
+    {
+      "midi": "Ace of Base/Beautiful Life.mid",
+      "artist": "Ace of Base",
+      "title": "Beautiful Life",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1996
+    },
+    {
+      "midi": "Ace of Base/The Sign.mid",
+      "artist": "Ace of Base",
+      "title": "The Sign",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "Faithless/Insomnia (D Donatis mix).mid",
+      "artist": "Faithless",
+      "title": "Insomnia",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Faithless/God Is A DJ.mid",
+      "artist": "Faithless",
+      "title": "God is a DJ",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1998
+    },
+    {
+      "midi": "Bobby Brown/Every Little Step.mid",
+      "artist": "Bobby Brown",
+      "title": "Every Little Step",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "William Orbit/Barber's Adagio for Strings.mid",
+      "artist": "William Orbit",
+      "title": "Barber's Adagio for Strings",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1999
+    },
+    {
+      "midi": "N-Trance/Stayin Alive.mid",
+      "artist": "N-Trance",
+      "title": "Stayin' Alive",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "David Bowie/Let's Dance.mid",
+      "artist": "David Bowie",
+      "title": "Let's Dance",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1983
+    },
+    {
+      "midi": "The O'Jays/I Love Music.mid",
+      "artist": "The O'Jays",
+      "title": "I Love Music",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1976
+    },
+    {
+      "midi": "Toni Braxton/You're Makin Me High.mid",
+      "artist": "Toni Braxton",
+      "title": "You're Makin' Me High",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1996
+    },
+    {
+      "midi": "Chic/Le Freak.mid",
+      "artist": "Chic",
+      "title": "Le Freak",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1978
+    },
+    {
+      "midi": "Spice Girls/Wannabe.mid",
+      "artist": "Spice Girls",
+      "title": "Wannabe",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "The Outhere Brothers/Boom Boom Boom.mid",
+      "artist": "The Outhere Brothers",
+      "title": "Boom Boom Boom",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "Usher/You Make Me Wanna.mid",
+      "artist": "Usher",
+      "title": "You Make Me Wanna...",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Cher/Believe.mid",
+      "artist": "Cher",
+      "title": "Believe",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "The Prodigy/Smack My Bitch Up.mid",
+      "artist": "The Prodigy",
+      "title": "Smack My Bitch Up",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1997
+    },
+    {
+      "midi": "Vanilla Ice/Ice Ice Baby.mid",
+      "artist": "Vanilla Ice",
+      "title": "Ice Ice Baby",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1990
+    },
+    {
+      "midi": "Fatboy Slim/Praise You.mid",
+      "artist": "Fatboy Slim",
+      "title": "Praise You",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1999
+    },
+    {
+      "midi": "Prince/1999.mid",
+      "artist": "Prince",
+      "title": "1999",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1999
+    },
+    {
+      "midi": "Prince/When Doves Cry.mid",
+      "artist": "Prince",
+      "title": "When Doves Cry",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Tone-Loc/Wild Thing.mid",
+      "artist": "Tone Loc",
+      "title": "Wild Thing",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "The Whispers/And The Beat Goes On.mid",
+      "artist": "The Whispers",
+      "title": "And the Beat Goes On",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1980
+    },
+    {
+      "midi": "Real McCoy/One More Time.mid",
+      "artist": "Real McCoy",
+      "title": "One More Time",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Alphaville/Big in Japan.mid",
+      "artist": "Alphaville",
+      "title": "Big in Japan",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Black Box/Everybody Everybody.mid",
+      "artist": "Black Box",
+      "title": "Everybody Everybody",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1990
+    },
+    {
+      "midi": "Vengaboys/We Like to Party.mid",
+      "artist": "Vengaboys",
+      "title": "\"We Like to Party",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Robert Miles/Children.mid",
+      "artist": "Robert Miles",
+      "title": "Children",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1996
+    },
+    {
+      "midi": "No Mercy/Where Do You Go.mid",
+      "artist": "No Mercy",
+      "title": "Where Do You Go",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1996
+    },
+    {
+      "midi": "Haddaway/Life.mid",
+      "artist": "Haddaway",
+      "title": "Life",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "Thompson Twins/Hold Me Now.mid",
+      "artist": "Thompson Twins",
+      "title": "Hold Me Now",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Babylon Zoo/Spaceman.mid",
+      "artist": "Babylon Zoo",
+      "title": "Spaceman",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1996
+    },
+    {
+      "midi": "La Bouche/Sweet Dreams.mid",
+      "artist": "La Bouche",
+      "title": "Sweet Dreams",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "La Bouche/Be My Lover.mid",
+      "artist": "La Bouche",
+      "title": "Be My Lover",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "Nicki French/Total Eclipse of the Heart.mid",
+      "artist": "Nicki French",
+      "title": "Total Eclipse of the Heart",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "Gloria Gaynor/I Will Survive.mid",
+      "artist": "Gloria Gaynor",
+      "title": "I Will Survive",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1979
+    },
+    {
+      "midi": "Jam & Spoon/Right In The Night.mid",
+      "artist": "Jam & Spoon",
+      "title": "Right in the Night",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "Beastie Boys/Intergalactic.mid",
+      "artist": "Beastie Boys",
+      "title": "Intergalactic",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1998
+    },
+    {
+      "midi": "Culture Beat/Got to Get It.mid",
+      "artist": "Culture Beat",
+      "title": "Got to Get It",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "Culture Beat/Crying in the Rain.mid",
+      "artist": "Culture Beat",
+      "title": "Crying in the Rain",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1996
+    },
+    {
+      "midi": "Culture Beat/Mr Vain (Mr Trance).mid",
+      "artist": "Culture Beat",
+      "title": "Mr. Vain",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1993
+    },
+    {
+      "midi": "Rick James/Give It To Me Baby.mid",
+      "artist": "Rick James",
+      "title": "Give It to Me Baby",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1981
+    },
+    {
+      "midi": "A Taste of Honey/Boogie Oogie Oogie.mid",
+      "artist": "A Taste of Honey",
+      "title": "Boogie Oogie Oogie",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1978
+    },
+    {
+      "midi": "Arrested Development/People Everyday.mid",
+      "artist": "Arrested Development",
+      "title": "People Everyday",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1992
+    },
+    {
+      "midi": "Arrested Development/Mr Wendal.mid",
+      "artist": "Arrested Development",
+      "title": "Mr. Wendal",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1993
+    },
+    {
+      "midi": "Reel 2 Real/I Like to Move It.mid",
+      "artist": "Reel 2 Real",
+      "title": "I Like to Move It",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "All Saints/I Know Where It's At.mid",
+      "artist": "All Saints",
+      "title": "I Know Where It's At",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1998
+    },
+    {
+      "midi": "Tina Turner/Let's Stay Together.mid",
+      "artist": "Tina Turner",
+      "title": "Let's Stay Together",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "U2/Discotheque.mid",
+      "artist": "U2",
+      "title": "Discothèque",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "The Notorious B.I.G./Mo Money Mo Problems.mid",
+      "artist": "The Notorious B.I.G.",
+      "title": "Mo Money Mo Problems",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Maxi Priest/Close to You.mid",
+      "artist": "Maxi Priest",
+      "title": "Close to You",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1990
+    },
+    {
+      "midi": "Inner City/Good Life.mid",
+      "artist": "Inner City",
+      "title": "Good Life",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Mark Morrison/Return of the Mack.mid",
+      "artist": "Mark Morrison",
+      "title": "Return of the Mack",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Fun Factory/Close to You.mid",
+      "artist": "Fun Factory",
+      "title": "Close to You",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "Deniece Williams/Let's Hear It For The Boy.mid",
+      "artist": "Deniece Williams",
+      "title": "Let's Hear It for the Boy",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Busta Rhymes/Turn It Up (remix)   Fire It Up.mid",
+      "artist": "Busta Rhymes",
+      "title": "Turn It Up (Remix)/Fire It Up",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1998
+    },
+    {
+      "midi": "Madonna/What It Feels Like For a Girl.mid",
+      "artist": "Madonna",
+      "title": "What It Feels Like for a Girl",
+      "chart": "dance",
+      "country": "Australia",
+      "year": 2001
+    },
+    {
+      "midi": "Madonna/Music.mid",
+      "artist": "Madonna",
+      "title": "Music",
+      "chart": "Billboard dance",
+      "country": "United States",
+      "year": 2000
+    },
+    {
+      "midi": "Madonna/Express Yourself.mid",
+      "artist": "Madonna",
+      "title": "Express Yourself",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Madonna/Hollywood (remix).mid",
+      "artist": "Madonna",
+      "title": "Hollywood",
+      "chart": "dance",
+      "country": "Australia",
+      "year": 2003
+    },
+    {
+      "midi": "Madonna/Deeper and Deeper.mid",
+      "artist": "Madonna",
+      "title": "Deeper and Deeper",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1993
+    },
+    {
+      "midi": "Madonna/Like a Prayer.mid",
+      "artist": "Madonna",
+      "title": "Like a Prayer",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Madonna/Holiday.mid",
+      "artist": "Madonna",
+      "title": "Holiday",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1983
+    },
+    {
+      "midi": "Madonna/Deeper and Deeper (Shep's Deep Beats).mid",
+      "artist": "Madonna",
+      "title": "Deeper and Deeper",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1993
+    },
+    {
+      "midi": "Madonna/Hung Up (Tracy Young's Get Up And Dance Groove Edit).mid",
+      "artist": "Madonna",
+      "title": "Hung Up",
+      "chart": "dance",
+      "country": "Australia",
+      "year": 2005
+    },
+    {
+      "midi": "Madonna/Vogue.mid",
+      "artist": "Madonna",
+      "title": "Vogue",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1990
+    },
+    {
+      "midi": "Madonna/Like A Virgin.mid",
+      "artist": "Madonna",
+      "title": "Like a Virgin",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Rednex/Cotton Eyed Joe.mid",
+      "artist": "Rednex",
+      "title": "Cotton-Eyed Joe",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "Wang Chung/Dance Hall Days.mid",
+      "artist": "Wang Chung",
+      "title": "Dance Hall Days",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Aqua/Barbie Girl.mid",
+      "artist": "Aqua",
+      "title": "Barbie Girl",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Donna Summer/Bad Girls.mid",
+      "artist": "Donna Summer",
+      "title": "Bad Girls (all cuts)",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1979
+    },
+    {
+      "midi": "Donna Summer/I Feel Love.mid",
+      "artist": "Donna Summer",
+      "title": "I Feel Love",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1995
+    },
+    {
+      "midi": "Chaka Khan/I Feel For You.mid",
+      "artist": "Chaka Khan",
+      "title": "I Feel for You",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Snap/Mary Had a Little Boy.mid",
+      "artist": "Snap!",
+      "title": "Mary Had a Little Boy",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1991
+    },
+    {
+      "midi": "Snap/Rhythm Is a Dancer.mid",
+      "artist": "Snap!",
+      "title": "Rhythm Is a Dancer",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1992
+    },
+    {
+      "midi": "M People/Moving On Up.mid",
+      "artist": "M People",
+      "title": "Moving on Up",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1994
+    },
+    {
+      "midi": "Puff Daddy/I'll Be Missing You.mid",
+      "artist": "Puff Daddy",
+      "title": "I'll Be Missing You",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Captain Hollywood Project/More and More.mid",
+      "artist": "Captain Hollywood Project",
+      "title": "More and More",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1993
+    },
+    {
+      "midi": "SASH!/Encore Une Fois.mid",
+      "artist": "Sash!",
+      "title": "Encore Une Fois",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 1997
+    },
+    {
+      "midi": "Destiny's Child/Bills Bills Bills.mid",
+      "artist": "Destiny's Child",
+      "title": "Bills, Bills, Bills",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Vicki Sue Robinson/Turn the Beat Around.mid",
+      "artist": "Vicki Sue Robinson",
+      "title": "Turn the Beat Around",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1976
+    },
+    {
+      "midi": "Darude/Sandstorm.mid",
+      "artist": "Darude",
+      "title": "Sandstorm",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 2000
+    },
+    {
+      "midi": "Thelma Houston/Don't Leave Me This Way.mid",
+      "artist": "Thelma Houston",
+      "title": "Don't Leave Me This Way",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1976
+    },
+    {
+      "midi": "Michael Jackson/Thriller.mid",
+      "artist": "Michael Jackson",
+      "title": "Thriller (all cuts)",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1983
+    },
+    {
+      "midi": "Michael Jackson/Remember the Time.mid",
+      "artist": "Michael Jackson",
+      "title": "Remember the Time",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1992
+    },
+    {
+      "midi": "Michael Jackson/Black or White.mid",
+      "artist": "Michael Jackson",
+      "title": "Black or White",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1991
+    },
+    {
+      "midi": "Elvis Presley/A Little Less Conversation.mid",
+      "artist": "Elvis Presley vs. JXL",
+      "title": "A Little Less Conversation",
+      "chart": "dance",
+      "country": "Australia",
+      "year": 2002
+    },
+    {
+      "midi": "Rod Stewart/Da Ya Think I'm Sexy.mid",
+      "artist": "Rod Stewart",
+      "title": "Da Ya Think I'm Sexy?",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1979
+    },
+    {
+      "midi": "Frankie Goes to Hollywood/The Power of Love.mid",
+      "artist": "Frankie Goes to Hollywood",
+      "title": "The Power of Love",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 2000
+    },
+    {
+      "midi": "Janet Jackson/Together Again.mid",
+      "artist": "Janet Jackson",
+      "title": "Together Again",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1998
+    },
+    {
+      "midi": "Janet Jackson/Escapade.mid",
+      "artist": "Janet Jackson",
+      "title": "Escapade",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1990
+    },
+    {
+      "midi": "Sister Sledge/We Are Family.mid",
+      "artist": "Sister Sledge",
+      "title": "We Are Family",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1979
+    },
+    {
+      "midi": "Paula Abdul/Straight Up.mid",
+      "artist": "Paula Abdul",
+      "title": "Straight Up",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1989
+    },
+    {
+      "midi": "Paula Abdul/Opposites Attract.mid",
+      "artist": "Paula Abdul",
+      "title": "Opposites Attract",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1990
+    },
+    {
+      "midi": "The Weather Girls/It's Raining Men.mid",
+      "artist": "The Weather Girls",
+      "title": "It's Raining Men",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1982
+    },
+    {
+      "midi": "2 Unlimited/Tribal Dance (edit).mid",
+      "artist": "2 Unlimited",
+      "title": "Tribal Dance",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1993
+    },
+    {
+      "midi": "2 Unlimited/Twilight Zone.mid",
+      "artist": "2 Unlimited",
+      "title": "Twilight Zone",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1992
+    },
+    {
+      "midi": "Ricky Martin/Livin La Vida Loca.mid",
+      "artist": "Ricky Martin",
+      "title": "Livin' la Vida Loca",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1999
+    },
+    {
+      "midi": "Will Smith/Gettin' Jiggy Wit It.mid",
+      "artist": "Will Smith",
+      "title": "Gettin' Jiggy wit It",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1998
+    },
+    {
+      "midi": "Will Smith/Men in Black.mid",
+      "artist": "Will Smith",
+      "title": "Men in Black",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Filter/Take a Picture.mid",
+      "artist": "Filter",
+      "title": "Take a Picture",
+      "chart": "Billboard dance",
+      "country": "United States",
+      "year": 2000
+    },
+    {
+      "midi": "Daft Punk/One More Time.mid",
+      "artist": "Daft Punk",
+      "title": "One More Time",
+      "chart": "UK Dance Chart",
+      "country": "United Kingdom",
+      "year": 2000
+    },
+    {
+      "midi": "Daft Punk/Da Funk.mid",
+      "artist": "Daft Punk",
+      "title": "Da Funk",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    },
+    {
+      "midi": "Diana Ross/Upside Down.mid",
+      "artist": "Diana Ross",
+      "title": "Upside Down",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1980
+    },
+    {
+      "midi": "Scatman John/Scatman.mid",
+      "artist": "Scatman John",
+      "title": "Scatman (Ski Ba Bop Ba Dop Bop)",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "LaTour/People Are Still Having Sex.mid",
+      "artist": "LaTour",
+      "title": "People Are Still Having Sex",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1991
+    },
+    {
+      "midi": "Enrique Iglesias/Be With You.mid",
+      "artist": "Enrique Iglesias",
+      "title": "Be with You",
+      "chart": "Billboard dance",
+      "country": "United States",
+      "year": 2000
+    },
+    {
+      "midi": "Lisa Stansfield/All Around the World.mid",
+      "artist": "Lisa Stansfield",
+      "title": "All Around the World",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1990
+    },
+    {
+      "midi": "Talk Talk/It's My Life.mid",
+      "artist": "Talk Talk",
+      "title": "It's My Life",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1984
+    },
+    {
+      "midi": "Anita Ward/Ring My Bell.mid",
+      "artist": "Anita Ward",
+      "title": "Ring My Bell",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1979
+    },
+    {
+      "midi": "Men Without Hats/The Safety Dance.mid",
+      "artist": "Men Without Hats",
+      "title": "The Safety Dance",
+      "chart": "Billboard dance/disco",
+      "country": "United States",
+      "year": 1983
+    },
+    {
+      "midi": "ABBA/Lay All Your Love on Me.mid",
+      "artist": "ABBA",
+      "title": "Lay All Your Love on Me",
+      "chart": "Billboard disco",
+      "country": "United States",
+      "year": 1981
+    },
+    {
+      "midi": "Mariah Carey/Fantasy.mid",
+      "artist": "Mariah Carey",
+      "title": "Fantasy",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1995
+    },
+    {
+      "midi": "Mariah Carey/Honey.mid",
+      "artist": "Mariah Carey",
+      "title": "Honey (Remix)",
+      "chart": "RPM dance",
+      "country": "Canada",
+      "year": 1997
+    }
+  ]
+}
