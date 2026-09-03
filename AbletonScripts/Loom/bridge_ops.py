@@ -330,7 +330,10 @@ def op_create_midi_track(song, payload, browser=None):
     result = {"created": created, "adopted": not created, "name": track.name,
               "index": list(_tracks(song)).index(track), "instrument": "skipped"}
     family = str(payload.get("instrument_family") or "").strip()
-    if family and created:
+    # load_instrument_on_adopt: the extension bridge creates tracks but cannot
+    # load presets; when the MCP hands the preset step to this surface the
+    # track already exists and must still get its instrument.
+    if family and (created or payload.get("load_instrument_on_adopt")):
         if browser is None:
             result["instrument"] = "unavailable: no browser"
         else:
@@ -346,6 +349,8 @@ def op_create_midi_track(song, payload, browser=None):
                     result["instrument"] = "failed: %s" % error
     elif family and not created:
         result["instrument"] = "kept: track already existed"
+    if family and not created and payload.get("load_instrument_on_adopt") and result["instrument"].startswith("loaded"):
+        result["adopted_and_loaded"] = True
     return result
 
 

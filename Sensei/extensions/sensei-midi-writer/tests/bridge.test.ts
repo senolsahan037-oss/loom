@@ -202,6 +202,8 @@ async function main() {
   ok("a refused request lands in errors/ with the reason", failed.status === "error" && String(failed.error).includes("unsupported_in_extension"));
   ok("an unreadable request is moved out of the queue too", existsSync(join(dirs.errors, "req_3.json")) && readdirSync(dirs.requests).length === 0);
   ok("the surface's own log lines are kept", logs[0] === "Loom ok: set_tempo" && logs[1].startsWith("Loom error: BridgeError"));
+  const afterRequest = JSON.parse(readFileSync(dirs.stateFile, "utf8"));
+  ok("answering a request republishes the state file at once", afterRequest.tempo === 100 && afterRequest.surface_version === "loom-extension/0.1.0");
   const published = await publishState(live, dirs);
   const onDisk = JSON.parse(readFileSync(dirs.stateFile, "utf8"));
   ok("state is published atomically where live_state expects it", onDisk.captured_at === published.captured_at && onDisk.tempo === 100 && !existsSync(`${dirs.stateFile}.tmp`));

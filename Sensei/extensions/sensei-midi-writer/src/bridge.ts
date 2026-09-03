@@ -395,6 +395,18 @@ export function pendingRequests(dirs: BridgeDirs): string[] {
 // outcome into done/ or errors/ and removes the request. Returns what was
 // written so a caller (or a test) can look at it without re-reading.
 export async function processRequestFile(live: LiveLike, dirs: BridgeDirs, fileName: string, log: (line: string) => void = () => {}) {
+  const record = await processRequestFileOnly(live, dirs, fileName, log);
+  // Every answered request republishes the state file, so a caller that reads
+  // live_state.json right after a write sees the write, not the last timer tick.
+  try {
+    await publishState(live, dirs);
+  } catch (error) {
+    log(`Loom bridge state after request failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
+  return record;
+}
+
+async function processRequestFileOnly(live: LiveLike, dirs: BridgeDirs, fileName: string, log: (line: string) => void) {
   const requestPath = join(dirs.requests, fileName);
   let payload: BridgeRequest = {};
   let record: Record<string, unknown>;
@@ -452,28 +464,31 @@ export function startBridge(
 ): BridgeHandle {
   const dirs = bridgeDirs(root);
   ensureBridgeDirs(dirs);
-  let busy = false;
+  let processing = false;
+  let publishing = false;
   const tick = async () => {
-    if (busy) return;
-    busy = true;
+    if (processing) return;
+    processing = true;
     try {
       const [next] = pendingRequests(dirs);
       if (next) await processRequestFile(live, dirs, next, log);
     } catch (error) {
       log(`Loom bridge tick failed: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
-      busy = false;
+      processing = false;
     }
   };
   const publish = async () => {
-    if (busy) return;
-    busy = true;
+    // Skip a timer tick while a request is being answered: that request
+    // republishes on completion anyway, and two writers would race the file.
+    if (publishing || processing) return;
+    publishing = true;
     try {
       await publishState(live, dirs);
     } catch (error) {
       log(`Loom bridge state failed: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
-      busy = false;
+      publishing = false;
     }
   };
   const requestTimer = setInterval(() => void tick(), intervals.requestMs ?? 250);

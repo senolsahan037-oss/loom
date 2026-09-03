@@ -402,6 +402,11 @@ def run():
     check("a rebuild adopts the existing track instead of duplicating it",
           again.get("adopted") is True and sum(1 for t in song.tracks if t.name == "Main Bass") == 1
           and again.get("instrument") == "kept: track already existed", again)
+    handed = bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "Main Bass",
+                                               "instrument_family": "Drum Rack", "load_instrument_on_adopt": True}, browser=browser)
+    check("the surface can load the preset onto a track the extension already created",
+          handed.get("adopted") is True and handed.get("instrument") == "loaded: Drum Rack" and handed.get("adopted_and_loaded") is True,
+          handed)
     missing = bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "Keys",
                                                 "instrument_family": "Electric Piano Daze"}, browser=browser)
     check("an unknown instrument family is reported, not raised",

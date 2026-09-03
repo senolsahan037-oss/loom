@@ -126,7 +126,10 @@ mekanizmasıyla konuşur ve `live_bridge_status` hangisinin canlı olduğunu sö
   için yol ve yukarıdaki beş boşluğun tamamını kapatan taraf; Python LOM ile
   preset yükler, transport sürer, metre okur.
 
-`LOOM_BRIDGE_ROOT` hangi ucun kullanılacağını seçer; boşsa control surface'ın kökü.
+`LOOM_BRIDGE_ROOT` hangi ucun kullanılacağını sabitler. Boşsa MCP her çağrıda
+kendisi seçer: taze bir extension köprüsü varsa o, yoksa control surface. Extension'ın
+reddettiği bir işlem (transport, song key, preset) surface da canlıysa ona devredilir
+ve cevapta `fallback` olarak görünür; `live_bridge_status` iki ucu da tazelikleriyle listeler.
 
 Bütün proje tek çağrıyla kurulur:
 

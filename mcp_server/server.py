@@ -57,6 +57,65 @@ REQUEST_DIR = BRIDGE_ROOT / "requests"
 DONE_DIR = BRIDGE_ROOT / "done"
 ERROR_DIR = BRIDGE_ROOT / "errors"
 PROCESSED_DIR = BRIDGE_ROOT / "processed"
+DEFAULT_SURFACE_ROOT = Path.home() / "Documents" / "SenseiV2Bridge"
+STATE_FRESH_SECONDS = 10.0
+
+
+def _bind_bridge_root(root: Path) -> None:
+    """Point every bridge path at `root`. Called once at import and again by
+    _select_bridge_root when a live extension bridge is found."""
+    global BRIDGE_ROOT, REQUEST_DIR, DONE_DIR, ERROR_DIR, PROCESSED_DIR, STATE_DIR, STATE_FILE
+    BRIDGE_ROOT = root
+    REQUEST_DIR = root / "requests"
+    DONE_DIR = root / "done"
+    ERROR_DIR = root / "errors"
+    PROCESSED_DIR = root / "processed"
+    STATE_DIR = root / "state"
+    STATE_FILE = STATE_DIR / "live_state.json"
+
+
+def _state_freshness(root: Path) -> tuple[float | None, str | None]:
+    """(age in seconds, surface_version) of the state a bridge root last
+    published, or (None, None) if it never did."""
+    state_file = root / "state" / "live_state.json"
+    if not state_file.exists():
+        return None, None
+    try:
+        state = json.loads(state_file.read_text(encoding="utf-8"))
+        captured = float(state.get("captured_at") or 0)
+    except Exception:  # noqa: BLE001
+        return None, None
+    return (time.time() - captured if captured else None), state.get("surface_version")
+
+
+def _extension_bridge_roots() -> list[Path]:
+    data = Path.home() / "Library" / "Application Support" / "Ableton" / "Extensions Data"
+    if not data.exists():
+        return []
+    return sorted(p / "bridge" for p in data.iterdir() if (p / "bridge" / "state" / "live_state.json").exists())
+
+
+def _select_bridge_root() -> str:
+    """Which Live-side endpoint to talk to, decided per call.
+
+    LOOM_BRIDGE_ROOT (or a test rebinding the paths) wins outright. Otherwise
+    a *fresh* extension bridge is preferred -- that is the one-install path,
+    the user only added the .ablx -- and the control surface's root is the
+    fallback. Returns why, for the status tool."""
+    if os.environ.get("LOOM_BRIDGE_ROOT"):
+        return "LOOM_BRIDGE_ROOT"
+    if BRIDGE_ROOT not in (DEFAULT_SURFACE_ROOT, *_extension_bridge_roots()):
+        return "rebound_by_caller"
+    for root in _extension_bridge_roots():
+        age, version = _state_freshness(root)
+        if age is not None and age < STATE_FRESH_SECONDS and str(version or "").startswith("loom-extension"):
+            if root != BRIDGE_ROOT:
+                _bind_bridge_root(root)
+            return "fresh_extension_bridge"
+    if BRIDGE_ROOT != DEFAULT_SURFACE_ROOT:
+        _bind_bridge_root(DEFAULT_SURFACE_ROOT)
+    return "control_surface_default"
+
 GAP_LOG_PATH = DOCS_DIR / "MISSING_CONTROLS_LOG.md"
 
 
@@ -989,6 +1048,7 @@ def handle_midi_write_to_live(args: dict[str, Any]) -> dict[str, Any]:
 
 STATE_DIR = BRIDGE_ROOT / "state"
 STATE_FILE = STATE_DIR / "live_state.json"
+_bind_bridge_root(BRIDGE_ROOT)
 
 
 def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict[str, Any]:
@@ -998,11 +1058,31 @@ def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict
     result into the request itself before moving it to done/ or errors/, so the
     caller can actually learn what happened.
     """
-    ensure_bridge_dirs()
-    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    selection = _select_bridge_root()
+    response = _submit_bridge_request_to(BRIDGE_ROOT, payload, wait_seconds)
+    response["bridge_selection"] = selection
+    error = str(response.get("error") or "")
+    if "unsupported_in_extension" in error and BRIDGE_ROOT != DEFAULT_SURFACE_ROOT:
+        # The extension cannot do this one (transport, key write, preset
+        # loading). If the control surface is also alive, hand it over and say
+        # so; otherwise the refusal stands.
+        age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
+        if age is not None and age < STATE_FRESH_SECONDS:
+            fallback = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, payload, wait_seconds)
+            fallback["bridge_selection"] = selection
+            fallback["fallback"] = {"from": str(BRIDGE_ROOT), "to": str(DEFAULT_SURFACE_ROOT), "reason": error}
+            return fallback
+        response["fallback"] = {"available": False, "reason": "control surface not fresh"}
+    return response
+
+
+def _submit_bridge_request_to(root: Path, payload: dict[str, Any], wait_seconds: float) -> dict[str, Any]:
+    request_dir, done_dir, error_dir = root / "requests", root / "done", root / "errors"
+    for d in (request_dir, done_dir, error_dir, root / "processed", root / "state"):
+        d.mkdir(parents=True, exist_ok=True)
     request_id = f"req_{int(time.time())}_{uuid.uuid4().hex[:6]}"
     filename = f"{request_id}.json"
-    request_file = REQUEST_DIR / filename
+    request_file = request_dir / filename
     body = dict(payload)
     body["id"] = request_id
     body["created_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
@@ -1014,8 +1094,8 @@ def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict
         response["consumed"] = None
         return response
 
-    done_file = DONE_DIR / filename
-    error_file = ERROR_DIR / filename
+    done_file = done_dir / filename
+    error_file = error_dir / filename
     deadline = time.monotonic() + wait_seconds
     while time.monotonic() < deadline:
         check_cancelled()
@@ -1046,11 +1126,23 @@ def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict
 def handle_live_state(args: dict[str, Any]) -> dict[str, Any]:
     """Live'in o anki durumu. SenseiRemote periyodik olarak yaziyor."""
     max_age = float(args.get("max_age_seconds", 10))
+    _select_bridge_root()
     if args.get("refresh", True):
         # Ask Live for a fresh dump; if Live is closed, whatever is on disk is
         # read instead and its staleness is stated outright.
-        _submit_bridge_request({"op": "get_state", "include_devices": bool(args.get("include_devices", True))},
-                               float(args.get("wait_seconds", 3)))
+        answer = _submit_bridge_request({"op": "get_state", "include_devices": bool(args.get("include_devices", True))},
+                                        float(args.get("wait_seconds", 3)))
+        fresh = answer.get("result") if isinstance(answer.get("result"), dict) else None
+        if fresh and fresh.get("tracks") is not None:
+            # The answer itself is the freshest state there is; no need to
+            # race the bridge's own timer for the file.
+            fresh = dict(fresh)
+            fresh["available"] = True
+            fresh["state_file"] = str(STATE_FILE)
+            fresh["state_source"] = "get_state_answer"
+            fresh["age_seconds"] = 0.0
+            fresh["is_fresh"] = True
+            return fresh
 
     if not STATE_FILE.exists():
         return {
@@ -1181,14 +1273,38 @@ def _profile_for_role(role: str, instrument_family: str | None = None) -> str | 
     return _ROLE_DEFAULT_PROFILE[role]
 
 
+def _create_midi_track_request(name: str, instrument_family: str | None, wait: float) -> dict[str, Any]:
+    """create_midi_track through whichever bridge is active. The extension can
+    make the track but not load a preset; when it says so and the control
+    surface is alive, the surface adopts the track and loads the family, and
+    the answer records which side did what."""
+    outcome = _submit_bridge_request({"op": "create_midi_track", "name": name,
+                                      "instrument_family": instrument_family}, wait)
+    instrument = str((outcome.get("result") or {}).get("instrument") or "")
+    if instrument.startswith("not_loadable_in_extension") and BRIDGE_ROOT != DEFAULT_SURFACE_ROOT:
+        age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
+        if age is not None and age < STATE_FRESH_SECONDS:
+            handed = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {
+                "op": "create_midi_track", "name": name,
+                "instrument_family": instrument_family, "load_instrument_on_adopt": True}, wait)
+            outcome["instrument_via_surface"] = (handed.get("result") or {}).get("instrument") or handed.get("error")
+            outcome["fallback"] = {"from": str(BRIDGE_ROOT), "to": str(DEFAULT_SURFACE_ROOT), "reason": instrument}
+        else:
+            outcome["instrument_via_surface"] = "control surface not fresh; preset not loaded"
+    return outcome
+
+
 def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
     operation = args["op"]
+    wait = float(args.get("wait_seconds", 15))
+    if operation == "create_midi_track":
+        return _create_midi_track_request(str(args.get("name") or ""), args.get("instrument_family"), wait)
     payload: dict[str, Any] = {"op": operation}
     for key in ("track", "device", "parameter", "value", "bpm", "volume", "pan", "mute", "solo",
                 "action", "position", "beat", "name", "include_devices", "instrument_family", "root", "mode"):
         if key in args:
             payload[key] = args[key]
-    return _submit_bridge_request(payload, float(args.get("wait_seconds", 15)))
+    return _submit_bridge_request(payload, wait)
 
 
 def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
@@ -1645,12 +1761,13 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
                 entry["status"] = "exists" if name in live_names else "would_create"
             tracks.append(entry)
             continue
-        outcome = _submit_bridge_request({"op": "create_midi_track", "name": name,
-                                          "instrument_family": track.get("instrument_family")}, wait)
+        outcome = _create_midi_track_request(str(name), track.get("instrument_family"), wait)
         result = outcome.get("result") or {}
         entry["status"] = outcome.get("status")
         entry["created"] = result.get("created")
         entry["instrument"] = result.get("instrument")
+        if outcome.get("instrument_via_surface"):
+            entry["instrument_via_surface"] = outcome["instrument_via_surface"]
         if outcome.get("error"):
             entry["error"] = outcome.get("error")
         tracks.append(entry)
@@ -2368,6 +2485,7 @@ def _bridge_candidates() -> list[dict[str, Any]]:
 
 
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
+    selection = _select_bridge_root()
     ensure_bridge_dirs()
     pending = [p.name for p in REQUEST_DIR.glob("*.json")]
     done = sorted([p.name for p in DONE_DIR.glob("*.json")], reverse=True)[:5]
@@ -2379,7 +2497,7 @@ def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "bridge_root": str(BRIDGE_ROOT),
-        "bridge_root_source": "LOOM_BRIDGE_ROOT" if os.environ.get("LOOM_BRIDGE_ROOT") else "default_control_surface",
+        "bridge_root_source": selection,
         "bridge_candidates": _bridge_candidates(),
         "pending_requests": pending,
         "recent_done": done,
