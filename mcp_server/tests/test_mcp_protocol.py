@@ -225,8 +225,15 @@ try:
     client.send({"jsonrpc": "2.0", "id": 31, "method": "ping", "params": {}})
 
     order, progress_count, scanned = [], 0, None
-    while 30 not in order:
-        message = client.read()
+    started = time.monotonic()
+    pooled_seconds = 0.0
+    # Read until BOTH answers are in. This loop used to stop at the pooled
+    # answer, so on a runner whose scan root is empty -- the scan finishes
+    # before the reader has parsed the ping line -- it stopped listening with
+    # the ping still in flight and reported it as lost. Ubuntu/3.9 in CI
+    # showed it; a Mac with projects on the Desktop never could.
+    while not {30, 31} <= set(order):
+        message = client.read(timeout=30)
         if message is None:
             break
         if message.get("method") == "notifications/progress":
@@ -237,8 +244,15 @@ try:
             order.append(message["id"])
             if message["id"] == 30:
                 scanned = payload_of(message).get("scanned")
+                pooled_seconds = time.monotonic() - started
 
-    check("ping is answered before the pooled tool call", order[:1] == [31], order)
+    # The design promise is that inline methods are not queued behind the pool,
+    # not that the ping wins a race the pool can finish in microseconds. Ordering
+    # is evidence only when the pooled call was genuinely in flight.
+    if scanned and pooled_seconds >= 0.2:
+        check("ping is answered before the pooled tool call", order[:1] == [31], order)
+    else:
+        print("  --  ping ordering not testable here: pooled scan took %.3fs over %s file(s)" % (pooled_seconds, scanned))
     check("both answers arrive", sorted(order) == [30, 31], order)
 
     # Progress and cancellation need something to actually work through. On a
