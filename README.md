@@ -128,7 +128,11 @@ kopyayı kullanır.
 
 `mix_measure`, `mix_analyze`, `mix_profiles`: SubverseLab Mix Check ölçüm motoru
 (`MixAnalyzer/`), tepe/RMS/crest/BS.1770 loudness, 1/3 oktav spektrum, mono
-fold-down, referans ya da ölçülmüş tür profiliyle karşılaştırma.
+fold-down, referans ya da ölçülmüş tür profiliyle karşılaştırma. `mix_capture` ise
+render almadan Live'ın çaldığını ölçer: control surface `Loom Capture` adlı bir
+audio kanalı Live'ın kendi Resampling girişine bağlayıp kayıt alır, Live'ın yazdığı
+dosyayı Mix Check'e verir (`method="tap"` ile Core Audio süreç musluğu, macOS
+izni gerektirir).
 
 ### Tek kurulum, tek tetik
 
