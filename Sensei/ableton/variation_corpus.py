@@ -36,7 +36,7 @@ def _read_alc_payload(path: Path) -> bytes:
     raw = path.read_bytes()
     try:
         return gzip.decompress(raw)
-    except OSError:
+    except (OSError, EOFError):
         return raw
 
 
@@ -57,7 +57,10 @@ def _midi_note_event_count(path: Path) -> int | None:
 def _native_midi_event_count(path: Path) -> int | None:
     try:
         events = read_midi_events(path)
-    except (OSError, ValueError, ImportError):
+    except Exception:
+        # Library scans must be resilient to any malformed third-party MIDI
+        # file. mido raises several parser-specific exceptions (for example
+        # KeySignatureError) that do not share one public base class.
         return None
     return len(events) or None
 
