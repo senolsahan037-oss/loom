@@ -543,11 +543,11 @@ TOOLS = [
     },
     {
         "name": "live_command",
-        "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, a locator, a new MIDI track (with an instrument family from the browser), or the song key. Runs through the Loom control surface, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
+        "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, a locator, a new MIDI track (with an instrument family from the browser), the song key, an audio file imported into the project as a clip (extension bridge), or a pre-effects render of an audio track range (extension bridge). Runs through the Loom control surface, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
         "inputSchema": {
             "type": "object",
             "properties": {
-                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key"], "description": "Operation to run inside Live."},
+                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx"], "description": "Operation to run inside Live."},
                 "track": {"type": "string", "description": "Track name, exactly as Live shows it. Must match exactly one track."},
                 "device": {"type": "string", "description": "Device name on that track."},
                 "parameter": {"type": "string", "description": "Parameter name on that device."},
@@ -562,6 +562,12 @@ TOOLS = [
                 "beat": {"type": "number", "description": "Locator position in beats."},
                 "name": {"type": "string", "description": "Locator name, or the exact name of the MIDI track to create (create_midi_track adopts an existing MIDI track of that name rather than duplicating it)."},
                 "instrument_family": {"type": "string", "description": "For create_midi_track: a browser search term (e.g. 'Drum Rack', 'Basic Analog Bass'); the first loadable match is loaded onto the new track and the outcome is reported, never assumed."},
+                "path": {"type": "string", "description": "For import_audio_clip: the audio file to import (Live copies it into the project)."},
+                "slot": {"type": "integer", "description": "For import_audio_clip: session clip slot index; omitted = first empty slot; omitted together with start_beat = arrangement."},
+                "start_beat": {"type": "number", "description": "For import_audio_clip: arrangement position in beats (instead of a slot). For render_pre_fx: range start."},
+                "end_beat": {"type": "number", "description": "For render_pre_fx: range end in beats."},
+                "duration_beats": {"type": "number", "description": "For import_audio_clip in the arrangement: clip length in beats (default: the sample's natural length)."},
+                "warped": {"type": "boolean", "description": "For import_audio_clip: warp the clip (default true)."},
                 "root": {"type": "string", "description": "For set_key: root note, e.g. 'F' or 'A#'."},
                 "mode": {"type": "string", "description": "For set_key: Live scale name, e.g. 'Minor'."},
                 "include_devices": {"type": "boolean", "description": "For get_state."},
@@ -705,6 +711,40 @@ TOOLS = [
                 "dry_run": {"type": "boolean", "description": "true: fetch, read and plan only; false: also slice and write the pack.", "default": True}
             },
             "required": ["source"]
+        }
+    },
+    {
+        "name": "crate_to_live",
+        "description": "Put a crate slice (or any audio file) into the running Live set as an audio clip: Live imports the file into the project folder (its own managed copy) and creates the clip in a session slot or at an arrangement position on the named audio track. Needs the extension bridge; the control surface cannot import audio. The answer carries the imported path Live chose and the clip it made.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Audio file, e.g. a slice from a crate pack."},
+                "track": {"type": "string", "description": "Audio track name, exactly as Live shows it."},
+                "slot": {"type": "integer", "description": "Session slot index; omitted = first empty slot."},
+                "start_beat": {"type": "number", "description": "Arrangement position in beats instead of a slot."},
+                "duration_beats": {"type": "number", "description": "Arrangement clip length in beats."},
+                "warped": {"type": "boolean", "description": "Warp the clip (default true).", "default": True},
+                "name": {"type": "string", "description": "Clip name."},
+                "wait_seconds": {"type": "number", "description": "How long to wait for Live.", "default": 20}
+            },
+            "required": ["path", "track"]
+        }
+    },
+    {
+        "name": "mix_from_live",
+        "description": "Measure what a track in the running Live set actually sounds like before its effects: the extension bridge renders the audio track's arrangement range pre-fx into its temp directory, then Mix Check measures the file (mix_measure) or analyses it (mix_analyze). One call from Live to numbers.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "track": {"type": "string", "description": "Audio track name."},
+                "start_beat": {"type": "number", "description": "Range start in beats."},
+                "end_beat": {"type": "number", "description": "Range end in beats."},
+                "analysis": {"type": "string", "enum": ["measure", "analyze"], "description": "measure = direct signal values; analyze = full Mix Check (compact).", "default": "measure"},
+                "analysis_stage": {"type": "string", "enum": ["mix", "master"], "default": "mix"},
+                "wait_seconds": {"type": "number", "description": "How long to wait for the render.", "default": 60}
+            },
+            "required": ["track", "start_beat", "end_beat"]
         }
     },
 {
@@ -1436,7 +1476,8 @@ def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
         return _create_midi_track_request(str(args.get("name") or ""), args.get("instrument_family"), wait)
     payload: dict[str, Any] = {"op": operation}
     for key in ("track", "device", "parameter", "value", "bpm", "volume", "pan", "mute", "solo",
-                "action", "position", "beat", "name", "include_devices", "instrument_family", "root", "mode"):
+                "action", "position", "beat", "name", "include_devices", "instrument_family", "root", "mode",
+                "path", "slot", "start_beat", "end_beat", "duration_beats", "warped"):
         if key in args:
             payload[key] = args[key]
     return _submit_bridge_request(payload, wait)
@@ -2748,6 +2789,39 @@ def handle_crate_chop(args: dict[str, Any]) -> dict[str, Any]:
 def handle_crate_agent(args: dict[str, Any]) -> dict[str, Any]:
     return _crate_module().run(args["source"], **{k: v for k, v in args.items() if k != "source"})
 
+
+def handle_crate_to_live(args: dict[str, Any]) -> dict[str, Any]:
+    path = Path(str(args["path"])).expanduser()
+    if not path.is_file():
+        raise FileNotFoundError(f"no audio file at {path}")
+    payload: dict[str, Any] = {"op": "import_audio_clip", "path": str(path), "track": args["track"]}
+    for key in ("slot", "start_beat", "duration_beats", "warped", "name"):
+        if key in args:
+            payload[key] = args[key]
+    answer = _submit_bridge_request(payload, float(args.get("wait_seconds", 20)))
+    if "unsupported_in_extension" not in str(answer.get("error") or "") and answer.get("status") == "FAILED_IN_LIVE" \
+            and "unknown op" in str(answer.get("error") or ""):
+        answer["note"] = "The active bridge is the control surface, which cannot import audio; the extension bridge is needed."
+    return answer
+
+
+def handle_mix_from_live(args: dict[str, Any]) -> dict[str, Any]:
+    rendered = _submit_bridge_request({"op": "render_pre_fx", "track": args["track"],
+                                       "start_beat": float(args["start_beat"]), "end_beat": float(args["end_beat"])},
+                                      float(args.get("wait_seconds", 60)))
+    result = rendered.get("result") or {}
+    if rendered.get("status") != "OK" or not result.get("path"):
+        return {"render": rendered, "measurement": None,
+                "note": "no render came back; the extension bridge is needed for render_pre_fx" if "unknown op" in str(rendered.get("error") or "") else None}
+    path = Path(str(result["path"]))
+    if not path.is_file():
+        return {"render": rendered, "measurement": None, "error": f"Live reported a render at {path} but the MCP cannot read it"}
+    if args.get("analysis") == "analyze":
+        measurement = handle_mix_analyze({"path": str(path), "analysis_stage": args.get("analysis_stage") or "mix"})
+    else:
+        measurement = handle_mix_measure({"path": str(path)})
+    return {"render": rendered, "measurement": measurement}
+
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
     selection = _select_bridge_root()
     ensure_bridge_dirs()
@@ -2820,6 +2894,8 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "crate_spots": handle_crate_spots,
         "crate_chop": handle_crate_chop,
         "crate_agent": handle_crate_agent,
+        "crate_to_live": handle_crate_to_live,
+        "mix_from_live": handle_mix_from_live,
         "setup_scan": handle_setup_scan,
         "gap_record": handle_gap_record,
         "plan_verify": handle_plan_verify,

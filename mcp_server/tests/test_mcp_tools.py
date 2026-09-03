@@ -114,7 +114,7 @@ def main():
         # An exact count, so a tool quietly disappearing is caught. The message
         # carries the names because a bare number tells you something moved but
         # not what.
-        check("41 tools are published", len(names) == 41, sorted(names))
+        check("43 tools are published", len(names) == 43, sorted(names))
         check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
         check("tool names are unique", len(set(names)) == len(names))
 
@@ -438,6 +438,27 @@ def main():
 
 
             print("  --  crate checks skipped: numpy/soundfile not installed here")
+
+
+
+        # --- crate_to_live / mix_from_live without a Live: honest refusals ---
+
+
+
+        is_error, payload = server.tool("crate_to_live", {"path": "/nowhere/slice.wav", "track": "Vocal"})
+
+
+
+        check("crate_to_live refuses a missing file before touching Live", is_error and "no audio file" in str(payload), payload)
+
+
+
+        is_error, payload = server.tool("mix_from_live", {"track": "Vocal", "start_beat": 0, "end_beat": 8, "wait_seconds": 0.3})
+
+
+
+        check("mix_from_live without a Live says no render came back", not is_error and payload.get("measurement") is None and payload.get("render", {}).get("status") in ("NOT_CONSUMED", "FAILED_IN_LIVE"), payload)
+
 
 
 

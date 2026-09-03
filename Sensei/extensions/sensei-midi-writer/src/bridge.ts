@@ -39,6 +39,8 @@ export const CAPABILITIES = {
   locators: true,
   mixer: true,
   device_parameters: true,
+  audio_import: true,
+  render_pre_fx: true,
 } as const;
 
 export interface ParamLike {
@@ -57,9 +59,15 @@ export interface BridgeClipLike {
   notes: NoteDescription[];
   name: string;
 }
+export interface AudioClipLike {
+  readonly filePath: string;
+  name: string;
+}
 export interface SlotLike {
-  readonly clip: BridgeClipLike | null;
+  // A slot may hold a MIDI clip (notes) or an audio clip (filePath).
+  readonly clip: BridgeClipLike | AudioClipLike | null;
   createMidiClip(length: number): Promise<BridgeClipLike>;
+  createAudioClip(filePath: string, isWarped?: boolean): Promise<AudioClipLike>;
 }
 export interface TrackLike {
   name: string;
@@ -67,6 +75,8 @@ export interface TrackLike {
   solo: boolean;
   arm: boolean;
   readonly isMidi: boolean;
+  readonly isAudio: boolean;
+  createAudioClipInArrangement(startTime: number, filePath: string, duration?: number, isWarped?: boolean): Promise<AudioClipLike>;
   readonly devices: DeviceLike[];
   readonly mixer: { volume: ParamLike; panning: ParamLike };
   readonly clipSlots: SlotLike[];
@@ -87,6 +97,11 @@ export interface LiveLike {
   createCuePoint(time: number): Promise<CueLike>;
   createMidiTrack(): Promise<TrackLike>;
   withinTransaction<T>(fn: () => T): T;
+  // Live copies the file into the project and returns the managed copy's path.
+  importIntoProject(filePath: string): Promise<string>;
+  // Pre-effects render of an audio track's arrangement range, in beats; the
+  // file lands in the extension's temp directory.
+  renderPreFxAudio(trackName: string, startTime: number, endTime: number): Promise<string>;
 }
 
 export type BridgeRequest = { op?: string; id?: string; [key: string]: unknown };
@@ -152,6 +167,7 @@ export async function captureState(live: LiveLike, includeDevices = true): Promi
       index,
       name: track.name,
       has_midi_input: track.isMidi,
+      is_audio: track.isAudio,
       mute: track.mute,
       solo: track.solo,
       arm: track.arm,
@@ -286,7 +302,9 @@ async function opWriteClip(live: LiveLike, payload: BridgeRequest) {
   }
   const slot = track.clipSlots[slotIndex];
   if (!slot) throw new BridgeError(`track ${JSON.stringify(track.name)} has no clip slot ${slotIndex}`);
-  const clip = slot.clip ?? (await slot.createMidiClip(length));
+  const existing = slot.clip;
+  if (existing !== null && !("notes" in existing)) throw new BridgeError(`clip slot ${slotIndex} on ${JSON.stringify(track.name)} holds an audio clip`);
+  const clip = (existing as BridgeClipLike | null) ?? (await slot.createMidiClip(length));
   clip.notes = notes;
   if (payload.name) clip.name = String(payload.name);
   return { track: track.name, slot: slotIndex, clip_name: clip.name, length_beats: length, note_count: clip.notes.length, note_api: "sdk" };
@@ -326,6 +344,51 @@ async function opCreateMidiTrack(live: LiveLike, payload: BridgeRequest) {
   return { created, adopted: !created, name: track.name, index: live.tracks.findIndex((t) => t.name === track.name), instrument };
 }
 
+async function opImportAudioClip(live: LiveLike, payload: BridgeRequest) {
+  const track = findTrack(live, payload.track);
+  if (!track.isAudio) throw new BridgeError(`track ${JSON.stringify(track.name)} is not an audio track`);
+  const source = String(payload.path ?? "").trim();
+  if (!source) throw new BridgeError("path is required");
+  const warped = payload.warped === undefined ? true : Boolean(payload.warped);
+  // The import is Live's own copy step: it is what keeps the clip valid after
+  // the pack folder moves, and it is the permission question this op exists
+  // to answer -- the file lives outside the extension's storage.
+  const imported = payload.import === false ? source : await live.importIntoProject(source);
+  if (payload.start_beat !== undefined) {
+    const start = num(payload.start_beat, "start_beat");
+    if (start < 0) throw new BridgeError("start_beat must be >= 0");
+    const duration = payload.duration_beats === undefined ? undefined : num(payload.duration_beats, "duration_beats");
+    const clip = await track.createAudioClipInArrangement(start, imported, duration, warped);
+    if (payload.name) clip.name = String(payload.name);
+    return { track: track.name, placed: "arrangement", start_beat: start, duration_beats: duration ?? null,
+             source_path: source, imported_path: imported, clip_file: clip.filePath, clip_name: clip.name, warped };
+  }
+  let slotIndex: number;
+  if (payload.slot !== undefined) {
+    slotIndex = num(payload.slot, "slot");
+  } else {
+    slotIndex = track.clipSlots.findIndex((slot) => slot.clip === null);
+    if (slotIndex < 0) throw new BridgeError(`no empty clip slot on ${JSON.stringify(track.name)}`);
+  }
+  const slot = track.clipSlots[slotIndex];
+  if (!slot) throw new BridgeError(`track ${JSON.stringify(track.name)} has no clip slot ${slotIndex}`);
+  if (slot.clip !== null) throw new BridgeError(`clip slot ${slotIndex} on ${JSON.stringify(track.name)} is occupied`);
+  const clip = await slot.createAudioClip(imported, warped);
+  if (payload.name) clip.name = String(payload.name);
+  return { track: track.name, placed: "session", slot: slotIndex, source_path: source, imported_path: imported,
+           clip_file: clip.filePath, clip_name: clip.name, warped };
+}
+
+async function opRenderPreFx(live: LiveLike, payload: BridgeRequest) {
+  const track = findTrack(live, payload.track);
+  if (!track.isAudio) throw new BridgeError(`track ${JSON.stringify(track.name)} is not an audio track`);
+  const start = num(payload.start_beat, "start_beat");
+  const end = num(payload.end_beat, "end_beat");
+  if (start < 0 || end <= start) throw new BridgeError("need 0 <= start_beat < end_beat");
+  const path = await live.renderPreFxAudio(track.name, start, end);
+  return { track: track.name, start_beat: start, end_beat: end, path, note: "pre-effects render in the extension's temp directory; measure it with mix_measure / mix_analyze" };
+}
+
 const UNSUPPORTED: Record<string, string> = {
   transport: "the Extensions SDK exposes no transport (play/stop/position)",
   set_key: "the Extensions SDK exposes rootNote/scaleName read-only",
@@ -353,6 +416,10 @@ export async function applyOperation(live: LiveLike, payload: BridgeRequest): Pr
       return opWriteClip(live, payload);
     case "create_midi_track":
       return opCreateMidiTrack(live, payload);
+    case "import_audio_clip":
+      return opImportAudioClip(live, payload);
+    case "render_pre_fx":
+      return opRenderPreFx(live, payload);
     default:
       throw new BridgeError(`unknown op ${JSON.stringify(op)}`);
   }

@@ -1,4 +1,6 @@
 import {
+  AudioClip,
+  AudioTrack,
   ClipSlot,
   DataModelObject,
   DrumChain,
@@ -19,6 +21,7 @@ import {
 } from "@ableton-extensions/sdk";
 import {
   startBridge,
+  type AudioClipLike,
   type BridgeClipLike,
   type CueLike,
   type DeviceLike,
@@ -396,8 +399,18 @@ function wrapClip(clip: MidiClip<"1.0.0">): BridgeClipLike {
   };
 }
 
+function wrapAudioClip(clip: AudioClip<"1.0.0">): AudioClipLike {
+  return {
+    get filePath() { return clip.filePath; },
+    get name() { return clip.name; },
+    set name(value: string) { clip.name = value; },
+  };
+}
+
 function wrapSlot(slot: ClipSlot<"1.0.0">): SlotLike {
   return {
+    createAudioClip: (filePath: string, isWarped?: boolean) =>
+      slot.createAudioClip({ filePath, isWarped: isWarped ?? true }).then(wrapAudioClip),
     get clip() {
       const clip = slot.clip;
       if (!clip) return null;
@@ -415,7 +428,13 @@ function wrapSlot(slot: ClipSlot<"1.0.0">): SlotLike {
 
 function wrapTrack(track: Track<"1.0.0">): TrackLike {
   const midi = track instanceof MidiTrack ? track : null;
+  const audio = track instanceof AudioTrack ? track : null;
   return {
+    isAudio: audio !== null,
+    createAudioClipInArrangement: (startTime: number, filePath: string, duration?: number, isWarped?: boolean) =>
+      audio
+        ? audio.createAudioClip({ filePath, startTime, ...(duration === undefined ? {} : { duration }), isWarped: isWarped ?? true }).then(wrapAudioClip)
+        : Promise.reject(new Error(`${track.name} is not an audio track`)),
     get name() { return track.name; },
     set name(value: string) { track.name = value; },
     get mute() { return track.mute; },
@@ -455,6 +474,12 @@ function liveFromContext(context: ExtensionContext<"1.0.0">): LiveLike {
     createCuePoint: (time: number) => song.createCuePoint(time).then(wrapCue),
     createMidiTrack: () => song.createMidiTrack().then(wrapTrack),
     withinTransaction: <T,>(fn: () => T) => context.withinTransaction(fn),
+    importIntoProject: (filePath: string) => context.resources.importIntoProject(filePath),
+    renderPreFxAudio: (trackName: string, startTime: number, endTime: number) => {
+      const target = song.tracks.find((t) => t.name === trackName);
+      if (!(target instanceof AudioTrack)) return Promise.reject(new Error(`${trackName} is not an audio track`));
+      return context.resources.renderPreFxAudio(target, startTime, endTime);
+    },
   };
 }
 

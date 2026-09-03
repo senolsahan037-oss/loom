@@ -15,6 +15,7 @@ import {
   ensureBridgeDirs,
   processRequestFile,
   publishState,
+  type AudioClipLike,
   type BridgeClipLike,
   type CueLike,
   type DeviceLike,
@@ -44,11 +45,20 @@ class FakeClip implements BridgeClipLike {
   name = "";
   constructor(readonly startTime: number, readonly length: number) {}
 }
+class FakeAudioClip implements AudioClipLike {
+  name = "";
+  constructor(readonly filePath: string, readonly startTime = 0, readonly duration?: number, readonly warped = true) {}
+}
 class FakeSlot implements SlotLike {
-  clip: FakeClip | null = null;
+  clip: FakeClip | FakeAudioClip | null = null;
   async createMidiClip(length: number) {
     this.clip = new FakeClip(0, length);
     return this.clip;
+  }
+  async createAudioClip(filePath: string, isWarped = true) {
+    const clip = new FakeAudioClip(filePath, 0, undefined, isWarped);
+    this.clip = clip;
+    return clip;
   }
 }
 class FakeTrack implements TrackLike {
@@ -60,8 +70,17 @@ class FakeTrack implements TrackLike {
   clipSlots: FakeSlot[] = [new FakeSlot(), new FakeSlot()];
   arrangement: FakeClip[] = [];
   cleared: Array<[number, number]> = [];
+  audioClips: FakeAudioClip[] = [];
   constructor(public name: string, readonly isMidi = true, devices: DeviceLike[] = []) {
     this.devices = devices;
+  }
+  get isAudio() {
+    return !this.isMidi;
+  }
+  async createAudioClipInArrangement(startTime: number, filePath: string, duration?: number, isWarped = true) {
+    const clip = new FakeAudioClip(filePath, startTime, duration, isWarped);
+    this.audioClips.push(clip);
+    return clip;
   }
   async clearClipsInRange(start: number, end: number) {
     this.cleared.push([start, end]);
@@ -106,6 +125,16 @@ class FakeLive implements LiveLike {
   withinTransaction<T>(fn: () => T): T {
     this.transactions++;
     return fn();
+  }
+  imports: string[] = [];
+  renders: Array<[string, number, number]> = [];
+  async importIntoProject(filePath: string) {
+    this.imports.push(filePath);
+    return `/Project/Samples/Imported/${filePath.split("/").pop()}`;
+  }
+  async renderPreFxAudio(trackName: string, startTime: number, endTime: number) {
+    this.renders.push([trackName, startTime, endTime]);
+    return `/tmp/ext/render_${trackName}_${startTime}_${endTime}.wav`;
   }
 }
 
@@ -179,6 +208,20 @@ async function main() {
   const again = await applyOperation(live, { op: "create_midi_track", name: "Kit", instrument_family: "Drum Rack" });
   ok("a rebuild adopts the track", again.adopted === true && live.tracks.filter((t) => t.name === "Kit").length === 1);
   await rejects("an audio track wearing the name is refused", () => applyOperation(live, { op: "create_midi_track", name: "Vocal" }), "non-MIDI");
+
+  // --- audio import and pre-fx render (the SDK permission questions) --------
+  const imported = await applyOperation(live, { op: "import_audio_clip", track: "Vocal", path: "/packs/x/bars/001.wav", name: "bar 1" });
+  ok("an audio file is imported by Live and dropped into the first empty slot",
+     imported.placed === "session" && imported.slot === 0 && String(imported.imported_path).startsWith("/Project/Samples/Imported/")
+     && live.imports[0] === "/packs/x/bars/001.wav" && live.tracks[2].clipSlots[0].clip !== null, imported);
+  const arranged = await applyOperation(live, { op: "import_audio_clip", track: "Vocal", path: "/packs/x/bars/002.wav", start_beat: 32, duration_beats: 8, warped: false });
+  ok("an audio file can be placed in the arrangement with duration and warp settings",
+     arranged.placed === "arrangement" && arranged.start_beat === 32 && live.tracks[2].audioClips[0].duration === 8 && live.tracks[2].audioClips[0].warped === false, arranged);
+  await rejects("importing onto a MIDI track is refused", () => applyOperation(live, { op: "import_audio_clip", track: "BASS", path: "/x.wav" }), "not an audio track");
+  await rejects("an occupied slot is refused, never overwritten", () => applyOperation(live, { op: "import_audio_clip", track: "Vocal", path: "/x.wav", slot: 0 }), "occupied");
+  const rendered = await applyOperation(live, { op: "render_pre_fx", track: "Vocal", start_beat: 0, end_beat: 16 });
+  ok("a pre-fx render returns the path Live wrote", String(rendered.path).endsWith("render_Vocal_0_16.wav") && live.renders.length === 1, rendered);
+  await rejects("a render with an empty range is refused", () => applyOperation(live, { op: "render_pre_fx", track: "Vocal", start_beat: 8, end_beat: 8 }), "start_beat < end_beat");
 
   // --- honest refusals ------------------------------------------------------
   await rejects("transport is refused with the SDK reason", () => applyOperation(live, { op: "transport", action: "play" }), "unsupported_in_extension");

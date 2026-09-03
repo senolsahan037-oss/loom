@@ -117,7 +117,10 @@ okur (tempo, ton, seviye, kalite; ölçemediğinde nedenini söyler), chop
 adaylarını sıralar, chop modunu bu kanıttan seçer (ölçülmüş tempo chop
 aralığındaysa bar grid'i, yoksa transient), dilimler ve manifestine her ölçümü
 ve her kararın gerekçesini yazar. Aşamalar ayrı ayrı da çağrılır: `crate_fetch`,
-`crate_read`, `crate_spots`, `crate_chop`. Motor SubverseLab'in sample-reader ve
+`crate_read`, `crate_spots`, `crate_chop`. `crate_to_live` bir dilimi Live'ın kendi
+import adımıyla projeye kopyalatıp session slot'una ya da arrangement'a clip olarak
+koyar; `mix_from_live` bir audio kanalının efekt öncesi sesini render ettirip Mix
+Check'e verir. İkisi de extension köprüsünü ister. Motor SubverseLab'in sample-reader ve
 Sampler araçlarının kendi kodu (`SampleAgent/`), Launchpad'deki CLI'lar da aynı
 kopyayı kullanır.
 
