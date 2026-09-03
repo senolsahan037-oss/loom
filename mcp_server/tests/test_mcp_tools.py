@@ -101,7 +101,7 @@ def main():
         # An exact count, so a tool quietly disappearing is caught. The message
         # carries the names because a bare number tells you something moved but
         # not what.
-        check("32 tools are published", len(names) == 32, sorted(names))
+        check("33 tools are published", len(names) == 33, sorted(names))
         check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
         check("tool names are unique", len(set(names)) == len(names))
 

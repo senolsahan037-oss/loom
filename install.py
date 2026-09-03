@@ -38,7 +38,7 @@ ABLETON_REMOTE_DIR = Path.home() / "Music/Ableton/User Library/Remote Scripts"
 
 
 def entry() -> dict:
-    # Plain python3 on purpose: 27 of the 32 tools have no third-party
+    # Plain python3 on purpose: 27 of the 33 tools have no third-party
     # dependency, so there is no environment to point at.
     return {"command": "python3", "args": [str(SERVER)]}
 

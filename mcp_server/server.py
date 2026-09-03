@@ -218,6 +218,20 @@ TOOLS = [
     },
     # 3. ArrangementGPS Tools
     {
+        "name": "project_build",
+        "description": "THE single trigger: build a whole project into the running Live session from one prompt. Runs plan_create, then for every section and every track Sensei can write (drum, bass, chord) generates a part in the project's own key and tempo -- the section's energy as density, the plan's genre as genre_style -- and writes it into the Arrangement through the Loom control surface, with a locator per section. Everything goes through the one surface install.py installs; no extension, nothing else to load into Live. Dry run by default: it reports exactly what it would write, per track and section, and touches Live only with dry_run=false. Parts Sensei cannot write (melody, vocal, fx lanes) are reported as out of scope, not as failures.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "prompt": {"type": "string", "description": "Musical brief, e.g. 'dark rolling tech house, 126 bpm, in F minor'. Omit when plan_path is given."},
+                "plan_path": {"type": "string", "description": "Use an existing session plan instead of running plan_create -- for a rebuild, or to test the write list without the Node chain."},
+                "dry_run": {"type": "boolean", "description": "true: report the write list, change nothing in Live. false: write.", "default": True},
+                "wait_seconds": {"type": "number", "description": "Per request, how long to wait for Live to consume it.", "default": 15},
+                "seed": {"type": "integer", "description": "Base seed; each track and section derives its own from it.", "default": 7}
+            }
+        }
+    },
+    {
         "name": "plan_create",
         "description": "Build a project from scratch: run the real pipeline from a text prompt (blueprint -> build plan -> session plan -> package -> action list) and write a build directory ArrangementGPSBuilder picks up in Live. Tempo, key, mode, genre and instrument choice are derived from the prompt. Each section carries a 0-100 energy and the plan carries a genre; when the Live-side writer fills the sections it hands Sensei that energy as density (an intro is written from a pattern that is already sparse, a final hook from one already busy) and the genre as genre_style (candidates ranked against drum patterns measured from real performances). Every part is written in the project's own key and tempo.",
         "inputSchema": {
@@ -1484,6 +1498,116 @@ CHAIN_STEPS = [
 ]
 
 
+
+_KEY_NAMES = {"C": "C", "C#": "C#", "DB": "C#", "D": "D", "D#": "D#", "EB": "D#", "E": "E", "F": "F",
+              "F#": "F#", "GB": "F#", "G": "G", "G#": "G#", "AB": "G#", "A": "A", "A#": "A#", "BB": "A#", "B": "B"}
+
+
+def _plan_key(text: str) -> tuple[str, str]:
+    """'D Minor' -> ('D', 'Minor'); anything unreadable falls back to C Minor and says so via the caller."""
+    parts = (text or "").replace("-", " ").split()
+    root = _KEY_NAMES.get((parts[0] if parts else "C").upper().replace("♭", "B").replace("♯", "#"), "C")
+    mode = "Major" if any(p.lower().startswith("maj") for p in parts[1:]) else "Minor"
+    return root, mode
+
+
+def _track_plays_in(track: dict[str, Any], section: dict[str, Any]) -> bool:
+    for region in track.get("mute_regions") or []:
+        if section["start_bar"] >= region.get("start_bar", 1) and section["end_bar"] <= region.get("end_bar", 0):
+            return False
+    return True
+
+
+def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
+    dry_run = bool(args.get("dry_run", True))
+    wait = float(args.get("wait_seconds", 15))
+    base_seed = int(args.get("seed", 7))
+
+    if args.get("plan_path"):
+        plan_path = Path(args["plan_path"]).expanduser()
+        created = {"status": "REUSED", "plan_path": str(plan_path)}
+    else:
+        if not (args.get("prompt") or "").strip():
+            raise ValueError("Give a prompt to build from, or a plan_path to rebuild from.")
+        created = handle_plan_create({"prompt": args["prompt"]})
+        plan_path = ARRANGEMENTGPS_DIR / "engine" / "output" / "ableton_session_plan.json"
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    project = plan.get("project") or {}
+    sections = plan.get("locators") or []
+    root, mode = _plan_key(str(project.get("key") or ""))
+    genre = str(project.get("genre") or "").strip()
+    genre_style = genre.lower() or None
+    writers = [t for t in plan.get("tracks") or [] if t.get("sensei_role")]
+    out_of_scope = [t.get("ableton_name") or t.get("display_name") for t in plan.get("tracks") or [] if not t.get("sensei_role")]
+
+    steps: list[dict[str, Any]] = []
+    if project.get("bpm"):
+        steps.append({"kind": "tempo", "op": "set_tempo", "bpm": float(project["bpm"])})
+    for section in sections:
+        steps.append({"kind": "locator", "section": section["name"],
+                      "beat": (int(section["start_bar"]) - 1) * 4.0})
+
+    results: list[dict[str, Any]] = []
+    for track_index, track in enumerate(writers):
+        name = track.get("ableton_name") or track.get("display_name") or track.get("name")
+        role = track["sensei_role"]
+        activity = track.get("section_activity") or {}
+        for section_index, section in enumerate(sections):
+            if not _track_plays_in(track, section):
+                results.append({"track": name, "section": section["name"], "status": "muted_by_plan"})
+                continue
+            bars = int(section["end_bar"]) - int(section["start_bar"]) + 1
+            energy = activity.get(section.get("id"), section.get("energy"))
+            density = None if energy is None else max(0.0, min(1.0, float(energy) / 100.0))
+            request = {"role": role, "genre": genre or "Trap", "bars": bars,
+                       "seed": base_seed + track_index * 100 + section_index,
+                       "density": density, "genre_style": genre_style,
+                       "target_root": root, "target_mode": mode}
+            entry = {"track": name, "role": role, "section": section["name"],
+                     "start_bar": int(section["start_bar"]), "bars": bars,
+                     "density": density, "genre_style": genre_style}
+            if dry_run:
+                results.append({**entry, "status": "would_write"})
+                continue
+            generated = handle_midi_generate(request)
+            if not generated.get("generation_safe"):
+                results.append({**entry, "status": "blocked", "reason": generated.get("error")})
+                continue
+            notes = [{"pitch": n["pitch"], "start": n.get("time", n.get("start", 0.0)),
+                      "duration": n["duration"], "velocity": n.get("velocity", 100)}
+                     for n in (generated.get("payload") or {}).get("notes") or []]
+            written = handle_midi_write_arrangement({
+                "track": name, "start_bar": int(section["start_bar"]), "length_beats": bars * 4.0,
+                "name": section["name"], "notes": notes, "wait_seconds": wait})
+            results.append({**entry, "status": written.get("status"),
+                            "notes": len(notes), "verified": (written.get("result") or {}).get("verified_note_count"),
+                            "diagnostics": {k: v for k, v in (generated.get("diagnostics") or {}).items()
+                                            if k.startswith(("density", "layer_fit"))}})
+
+    if not dry_run:
+        for step in steps:
+            if step["kind"] == "tempo":
+                step["outcome"] = _submit_bridge_request({"op": "set_tempo", "bpm": step["bpm"]}, wait).get("status")
+            else:
+                step["outcome"] = _submit_bridge_request({"op": "create_locator", "beat": step["beat"],
+                                                          "name": step["section"]}, wait).get("status")
+
+    counts = Counter(r["status"] for r in results)
+    return {
+        "dry_run": dry_run,
+        "plan": created,
+        "project": {"name": project.get("name"), "bpm": project.get("bpm"), "key": f"{root} {mode}",
+                    "genre": genre, "sections": len(sections), "total_bars": project.get("total_bars")},
+        "trigger": "Loom control surface (install.py); no extension involved",
+        "session_steps": steps,
+        "writes": results,
+        "totals": dict(counts),
+        "tracks_out_of_scope": out_of_scope,
+        "note": ("Nothing was sent to Live. Call again with dry_run=false to write." if dry_run
+                 else "Every write reports the status Live returned; NOT_CONSUMED means Live did not answer."),
+    }
+
+
 def handle_plan_create(args: dict[str, Any]) -> dict[str, Any]:
     prompt = (args.get("prompt") or "").strip()
     if not prompt:
@@ -2120,7 +2244,8 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "project_inspect": handle_project_inspect,
         "project_detect_genre": handle_project_detect_genre,
         "project_analyze_mixer": handle_project_analyze_mixer,
-        "plan_create": handle_plan_create,
+        "project_build": handle_project_build,
+    "plan_create": handle_plan_create,
         "library_search": handle_library_search,
         "render_plan": handle_render_plan,
         "live_bridge_status": handle_live_bridge_status,

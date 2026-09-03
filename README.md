@@ -110,6 +110,32 @@ Kurulumdan sonra iki şeyi yeniden başlatın: **MCP istemciniz** (yeni sunucuyu
 görsün) ve **Ableton Live** — sonra Settings → Link/MIDI altında
 `Loom`'u Control Surface olarak seçin.
 
+### Tek kurulum, tek tetik
+
+`install.py` Live tarafında tek bir şey kurar: Loom control surface. Köprü de,
+MIDI yazarları da onun içinden çalışır — tempo, mikser, cihaz parametresi,
+locator ve **Arrangement clip'leri** aynı istek/`done` mekanizmasıyla yazılır.
+Python LOM bunu zaten yapabiliyor (`Track.create_midi_clip`, `Clip.add_new_notes`;
+Live'ın kendi derlenmiş script'lerinden doğrulandı), o yüzden Live'a ayrıca bir
+extension yüklemek gerekmez.
+
+Bütün proje tek çağrıyla kurulur:
+
+```
+project_build(prompt="dark rolling tech house, 126 bpm, in F minor")
+```
+
+Bu, `plan_create` ile projeyi planlar; her bölüm ve Sensei'nin yazabildiği her
+kanal (drum, bass, chord) için projenin kendi ton ve temposunda bir parça üretir
+— bölümün enerjisi `density`, planın türü `genre_style` olarak — ve control
+surface üzerinden Arrangement'a yazar, bölüm başına bir locator ile. Varsayılan
+**dry run**: ne yazacağını kanal ve bölüm bazında raporlar, Live'a `dry_run=false`
+denmeden dokunmaz.
+
+`Sensei/extensions/sensei-midi-writer` (Ableton Extensions SDK, beta) artık
+isteğe bağlı: aynı kanıt zinciri orada da çalışır, ama kurulum için gerekli
+değildir.
+
 ### Neden sanal ortam yok
 
 **28 aracın 27'si sıfır üçüncü-parti bağımlılıkla çalışır** ve macOS'un kendi
@@ -140,7 +166,7 @@ Bunlar `Docs/MISSING_CONTROLS_LOG.md` içinde numaralı olarak tutulur.
 
 - Render, Live'ın ses motorunu gerektirir — buradan yapılamaz. Sistem ne
   çıkması gerektiğini ve çıkanın uyup uymadığını söyler, arasını Live doldurur
-- Şarkı ölçüsü Extensions SDK'da yok; bar→beat çevirimi 4/4 varsayar (GAP-003)
+- Bar→beat çevirimi 4/4 varsayar (GAP-003). Yazıcı artık control surface'te çalıştığı için `song.signature_numerator` erişilebilir; kaldırılacak.
 - Otomasyon yazma mikser ve cihaz parametrelerini kapsar; klip zarfları henüz yok
 - Araç zaman aşımı sert değildir (Python'da iş parçacığı öldürülemez)
 
