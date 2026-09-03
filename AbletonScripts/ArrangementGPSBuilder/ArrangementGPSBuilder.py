@@ -63,6 +63,10 @@ def collect_sections(actions):
             "name": a.get("name", "Section"),
             "start_bar": a.get("start_bar"),
             "end_bar": a.get("end_bar"),
+            # The plan's 0-100 energy for the section. The writer turns it into
+            # density (which pattern) and dynamics (how hard), so it has to
+            # survive the trip through Live's build.
+            "energy": a.get("energy"),
         }
         for a in actions
         if a.get("action") == "create_locator"
@@ -216,6 +220,9 @@ class ArrangementGPSBuilder(ControlSurface):
             "target_root": target_root,
             "target_mode": target_mode,
             "total_bars": project.get("total_bars"),
+            # Names the measured drum pattern the writer ranks candidates
+            # against; the plan already chose it, the build only carries it.
+            "genre": project.get("genre"),
             "sections": sections or [],
             "tracks": built_tracks,
         }

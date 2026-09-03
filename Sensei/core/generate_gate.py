@@ -51,6 +51,8 @@ def evaluate_generate(project_context: dict[str, Any], *, data_root: str | Path 
         target_root=project_context.get("target_root"),
         target_mode=project_context.get("target_mode"),
         exclude_reference_ids=project_context.get("exclude_reference_ids"),
+        density=project_context.get("density"),
+        genre_style=project_context.get("genre_style"),
         data_root=data_root,
     )
     if not result["generation_safe"]:
@@ -61,4 +63,8 @@ def evaluate_generate(project_context: dict[str, Any], *, data_root: str | Path 
         "write_authorized": True,
         "report": {"code": "ready", "detail": "Target, dataset and generated MIDI passed all checks.", "checks": checks + [{"name": "generation", "passed": True, "resolution": result["resolution"]}]},
         "payload": result["payload"],
+        # What the section evidence actually did -- density band, genre fit --
+        # travels out with the payload; a passthrough nobody can observe is
+        # indistinguishable from one that silently does nothing.
+        "diagnostics": result.get("diagnostics"),
     }

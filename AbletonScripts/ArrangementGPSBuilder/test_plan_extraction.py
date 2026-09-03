@@ -96,6 +96,8 @@ check(
     ),
 )
 check("every section carries an id", all(s["id"] for s in sections), sections)
+check("every section carries its energy", all(isinstance(s.get("energy"), int) for s in sections),
+      [(s["id"], s.get("energy")) for s in sections])
 check(
     "section ids match the plan side",
     [s["id"] for s in sections] == ["intro", "verse_1", "hook", "verse_2", "bridge", "final_hook", "outro"],

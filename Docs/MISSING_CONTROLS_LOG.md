@@ -98,11 +98,18 @@ Each gap record contains:
   - `density` outside 0–1 is refused, like `variation_amount`.
   - Measured on a 12-entry pool: density 0.0 selects from 2–10 notes/bar, density 1.0
     from 12–40.
-- **Still Missing**: nothing on the generation side. The arrangement builder still has
-  to decide *which* density a section deserves; `velocityScaleFor()` in
-  `sensei-midi-writer/src/arrangement.ts` maps the scene's activity to a 0.6–1.0
-  velocity multiplier, and that activity value is the natural input to feed here.
-- **Status**: PARTIALLY RESOLVED
+- **Arrangement side resolved 2026-09-03**: the section's 0–100 activity now reaches
+  Sensei as `density` (`densityFor()` in `sensei-midi-writer/src/arrangement.ts`),
+  alongside the plan's genre as `genre_style`, through the live target →
+  `live_context_resolver` → `generate_gate` → engine. The gate's report carries the
+  engine's diagnostics, so what the evidence did is observable from the CLI.
+  Proven headlessly from the *built* extension runtime: density 0.2 selects a
+  3.5–4.5 notes/bar band, `layer_fit_applied: true`, `ready_to_write`.
+  Two traps closed on the way: the embedded runtime did not carry `mi/` and would
+  have reported "no measured evidence" inside Live while the source tree said
+  otherwise (build.ts now copies it and RUNTIME_VERSION is bumped), and the packer
+  assumed absolute manifest paths after the manifest had been made relative.
+- **Status**: RESOLVED
 
 ### GAP-006
 - **Timestamp**: 2026-09-01T17:40:00+03:00

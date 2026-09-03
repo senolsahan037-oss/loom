@@ -66,7 +66,10 @@ type BatchGenerationResult = {
 };
 
 const execFileAsync = promisify(execFile);
-const RUNTIME_VERSION = "phase6-v11";
+// Bumped whenever the embedded Python runtime changes: the extension unpacks
+// it once per version into storage and reuses it, so an unbumped change would
+// leave Live running the old CLI while the source says otherwise.
+const RUNTIME_VERSION = "phase6-v12";
 
 function payloadDialog() {
   const html = `<!doctype html><html><body style="background:#292929;color:#ddd;font:13px system-ui;padding:16px">
@@ -234,9 +237,18 @@ async function generateForTarget(
   targetRoot: string | undefined,
   targetMode: string | undefined,
   excludeReferenceIds: string[],
+  section?: { density?: number; genreStyle?: string },
 ): Promise<{ payload: SenseiPayload; outcome: GenerationOutcome }> {
   const liveTarget: Record<string, unknown> = { ...baseTarget, seed };
   if (defaultGenre) liveTarget.default_genre = defaultGenre;
+  // Section evidence for the arrangement path. Density is the section's
+  // activity as 0..1 -- Sensei picks a pattern that is already that sparse or
+  // that busy rather than thinning one. genre_style names the measured drum
+  // pattern candidates are ranked against; an unmeasured style comes back
+  // reported, not approximated. Both apply to every role, like
+  // exclude_reference_ids.
+  if (section?.density !== undefined) liveTarget.density = section.density;
+  if (section?.genreStyle) liveTarget.genre_style = section.genreStyle;
   // A drum rack's pitch selects a pad, not a scale degree -- key/mode never
   // applies there, so it's only ever sent for the bass/chord instrument path.
   if (!("role" in baseTarget)) {
@@ -425,6 +437,10 @@ export function activate(activation: ActivationContext) {
       if (!storageDirectory) throw new Error("extension_storage_unavailable: Live did not provide a persistent storage directory.");
       const plan = readLastArrangementGpsBuild(storageDirectory);
       const sections = plan.sections ?? [];
+      // The plan's genre names the measured drum pattern every section is
+      // ranked against. Read defensively: older last_build files carry none.
+      const planGenre = (plan as { genre?: unknown }).genre;
+      const projectGenreStyle = typeof planGenre === "string" && planGenre.trim() ? planGenre.trim().toLowerCase() : undefined;
       if (sections.length === 0) throw new Error("arrangementgps_sections_missing: The plan has no sections. Re-run ArrangementGPSBuilder in Live to write a plan that includes them.");
       validateSections(sections);
       const song = context.application.song;
@@ -461,7 +477,7 @@ export function activate(activation: ActivationContext) {
               planTrack,
               sections,
               baseTarget !== null,
-              (seed, excludeReferenceIds) => generateForTarget(baseTarget!, seed, storageDirectory, projectDefaultGenre, targetRoot, targetMode, excludeReferenceIds),
+              (seed, excludeReferenceIds, section) => generateForTarget(baseTarget!, seed, storageDirectory, projectDefaultGenre, targetRoot, targetMode, excludeReferenceIds, { density: section.density, genreStyle: projectGenreStyle }),
             );
             allResults.push(...trackResults);
             // Same fallback the Session batch uses: the first track that

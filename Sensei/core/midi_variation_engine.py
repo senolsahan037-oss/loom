@@ -7,7 +7,18 @@ import random
 import sys
 from pathlib import Path as _Path
 
-_MI_ROOT = _Path(__file__).resolve().parents[2] / "MusicalIntelligence"
+# Where the measured evidence lives. In the source tree it is the sibling
+# package MusicalIntelligence/; inside the extension's embedded runtime
+# build.ts copies mi/ next to core/, so the runtime root is the fallback. The
+# first candidate that actually holds mi/profiles.py wins; a runtime without
+# it simply reports "no measured evidence" rather than failing to import.
+_MI_ROOT = next(
+    (candidate for candidate in (
+        _Path(__file__).resolve().parents[2] / "MusicalIntelligence",
+        _Path(__file__).resolve().parents[1],
+    ) if (candidate / "mi" / "profiles.py").exists()),
+    _Path(__file__).resolve().parents[2] / "MusicalIntelligence",
+)
 from pathlib import Path
 from typing import Any, Iterable
 

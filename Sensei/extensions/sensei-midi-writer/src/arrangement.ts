@@ -8,6 +8,8 @@ import type { NoteDescription } from "@ableton-extensions/sdk";
 
 export type SenseiNote = { pitch: number; time: number; duration: number; velocity: number };
 export type SenseiPayload = { schema_version?: string; notes: SenseiNote[]; clip_length?: number; provenance?: Record<string, unknown> };
+// What the arrangement path tells Sensei about the section being written.
+export type SectionEvidence = { density?: number };
 export type GenerationOutcome = { role?: string; genre?: string | string[]; source?: unknown; target_root?: string; target_mode?: string };
 
 export type ArrangementGpsBarRange = { start_bar: number; end_bar: number };
@@ -47,6 +49,8 @@ export type ArrangementBuildResult = {
   source?: unknown;
   activity?: number;
   velocity_scale?: number;
+  // The section's activity as the 0..1 density Sensei was asked for.
+  density?: number;
   reason?: string;
 };
 
@@ -86,14 +90,16 @@ export function barToBeat(bar: number) {
 }
 
 // Whether a lane plays in a section at all is already decided upstream by
-// mute_regions. What used to be thrown away is the rest of the 0-100 number:
-// a lane at 30 and a lane at 100 both arrived fully on. That difference is
-// applied here as dynamics -- the one intensity lever that needs no new
-// Sensei capability and stays musically sensible for every role. Real
-// density variation (fewer hits in an intro, not just quieter ones) needs a
-// density parameter Sensei does not have; logged as GAP-005 rather than
-// faked by dropping notes at random.
+// mute_regions. The rest of the 0-100 activity number is used twice: as
+// dynamics here (velocityScaleFor), and as density -- Sensei now selects a
+// pattern that is already sparse or already busy for the section, which is
+// what GAP-005 asked for. Notes are never dropped to thin a part; that would
+// remove downbeats as readily as ghost notes.
 export const MIN_VELOCITY_SCALE = 0.6;
+export function densityFor(activity: number | undefined): number | undefined {
+  if (activity === undefined || !Number.isFinite(activity)) return undefined;
+  return Math.min(100, Math.max(0, activity)) / 100;
+}
 
 export function velocityScaleFor(activity: number | undefined): number {
   if (activity === undefined || !Number.isFinite(activity)) return 1;
@@ -221,7 +227,7 @@ export async function buildArrangementForTrack(
   planTrack: ArrangementGpsPlanTrack,
   sections: ArrangementGpsSection[],
   hasVerifiedTarget: boolean,
-  generate: (seed: number, excludeReferenceIds: string[]) => Promise<{ payload: SenseiPayload; outcome: GenerationOutcome }>,
+  generate: (seed: number, excludeReferenceIds: string[], section: SectionEvidence) => Promise<{ payload: SenseiPayload; outcome: GenerationOutcome }>,
 ): Promise<ArrangementBuildResult[]> {
   const trackName = planTrack.track_name;
   const activeSections = sectionsForTrack(sections, planTrack);
@@ -244,10 +250,11 @@ export async function buildArrangementForTrack(
     try {
       const activity = section.id === undefined ? undefined : planTrack.section_activity?.[section.id];
       const velocityScale = velocityScaleFor(activity);
-      const { payload, outcome } = await generate(index + 1, [...usedSources]);
+      const density = densityFor(activity);
+      const { payload, outcome } = await generate(index + 1, [...usedSources], { density });
       const noteCount = await writeArrangementClip(runner, track, barToBeat(section.start_bar), lengthBars * BEATS_PER_BAR, payload, section.name, velocityScale);
       recordSource(outcome.source);
-      results.push({ track: trackName, section: section.name, status: "written", start_bar: section.start_bar, length_bars: lengthBars, notes: noteCount, role: outcome.role, genre: outcome.genre, source: outcome.source, activity, velocity_scale: Number(velocityScale.toFixed(3)) });
+      results.push({ track: trackName, section: section.name, status: "written", start_bar: section.start_bar, length_bars: lengthBars, notes: noteCount, role: outcome.role, genre: outcome.genre, source: outcome.source, activity, velocity_scale: Number(velocityScale.toFixed(3)), density });
     } catch (error) {
       const reason = error instanceof Error ? error.message : String(error);
       results.push({ track: trackName, section: section.name, status: "blocked", start_bar: section.start_bar, length_bars: lengthBars, reason });

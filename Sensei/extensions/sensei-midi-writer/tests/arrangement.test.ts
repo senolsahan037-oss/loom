@@ -18,6 +18,7 @@ import {
   tileNotes,
   validateSections,
   velocityScaleFor,
+  densityFor,
   type ArrangementBuildResult,
   type ArrangementGpsPlanTrack,
   type ArrangementGpsSection,
@@ -174,6 +175,15 @@ check("validateSections rejects an inverted bar range", () => {
 });
 
 // ---- activity -> dynamics ----------------------------------------------
+check("densityFor maps activity onto Sensei's 0..1 density, and nothing onto nothing", () => {
+  assert.equal(densityFor(100), 1);
+  assert.equal(densityFor(0), 0);
+  assert.equal(densityFor(50), 0.5);
+  assert.equal(densityFor(140), 1);
+  assert.equal(densityFor(undefined), undefined);
+  assert.equal(densityFor(Number.NaN), undefined);
+});
+
 check("velocityScaleFor maps 100 to full and 0 to the floor", () => {
   assert.equal(velocityScaleFor(100), 1);
   assert.equal(velocityScaleFor(0), 0.6);

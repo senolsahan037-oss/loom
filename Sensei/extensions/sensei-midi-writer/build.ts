@@ -30,10 +30,32 @@ for (const relativePath of [
   fs.copyFileSync(path.join(senseiRoot, relativePath), destination);
 }
 
+// The measured genre evidence lives beside Sensei, not inside it. Without this
+// block the embedded runtime imported mi/ through a try/except, got nothing,
+// and reported "no measured evidence" for every section -- silently, in Live,
+// while the source tree said otherwise. Only the small aggregate profiles
+// travel; the per-song maps are regenerated, not shipped.
+const intelligenceRoot = path.resolve(senseiRoot, "..", "MusicalIntelligence");
+for (const relativePath of ["mi/__init__.py", "mi/profiles.py"]) {
+  const destination = path.join(runtimeRoot, relativePath);
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  fs.copyFileSync(path.join(intelligenceRoot, relativePath), destination);
+}
+for (const name of ["drum_patterns.json", "pop_harmony.json", "pop_bass.json"]) {
+  const source = path.join(intelligenceRoot, "data", "corpus", name);
+  if (!fs.existsSync(source)) throw new Error(`Evidence profile missing, run the MusicalIntelligence scans first: ${source}`);
+  const destination = path.join(runtimeRoot, "data", "corpus", name);
+  fs.mkdirSync(path.dirname(destination), { recursive: true });
+  fs.copyFileSync(source, destination);
+}
+
 const releaseSource = path.join(senseiRoot, "data", "dataset_releases", "phase6", "dataset_release.manifest.json");
 const release = JSON.parse(fs.readFileSync(releaseSource, "utf8"));
 for (const artifact of Object.values(release.artifacts) as Array<{ path: string }>) {
-  const source = artifact.path;
+  // The manifest records artifact paths relative to the data root (an
+  // absolute path here is the build machine's and exists on no other disk).
+  // Older manifests still carry absolute paths; both forms resolve.
+  const source = path.isAbsolute(artifact.path) ? artifact.path : path.join(senseiRoot, "data", artifact.path);
   const relativePath = path.relative(path.join(senseiRoot, "data"), source);
   if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) throw new Error(`Release artifact is outside data root: ${source}`);
   const destination = path.join(runtimeRoot, "data", relativePath);

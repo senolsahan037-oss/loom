@@ -16,8 +16,21 @@ def _jsonl(path: Path) -> list[dict[str, Any]]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
+_PRESET_SUFFIXES = (".adg", ".adv", ".alc", ".als")
+
+
 def _normalized_name(value: str) -> str:
-    return " ".join(str(value).casefold().split())
+    """The catalogue stores names without their preset extension, because Live
+    shows a loaded preset without it. A name that still carries .adg -- from a
+    catalogue row, a file listing, a test -- would otherwise never match the
+    very row that describes it."""
+    text = str(value).strip()
+    lowered = text.casefold()
+    for suffix in _PRESET_SUFFIXES:
+        if lowered.endswith(suffix):
+            text = text[: -len(suffix)]
+            break
+    return " ".join(text.casefold().split())
 
 
 def _resolve_instrument_target(device_names: list[str], identities: list[dict[str, Any]]) -> tuple[str, str]:
@@ -100,4 +113,15 @@ def resolve_live_context(live_target: dict[str, Any], *, identity_path: Path, gr
     exclude_reference_ids = [str(value) for value in live_target.get("exclude_reference_ids") or [] if str(value).strip()]
     if exclude_reference_ids:
         context["exclude_reference_ids"] = exclude_reference_ids
+
+    # Section evidence from the arrangement path. Like exclude_reference_ids
+    # these apply to every role: density says how busy a section should be
+    # (an intro against a final hook), genre_style names the measured drum
+    # pattern candidates are judged against. Values are passed through, not
+    # validated here -- the engine refuses a density outside 0..1 and reports
+    # an unmeasured style back rather than approximating it.
+    if live_target.get("density") is not None:
+        context["density"] = float(live_target["density"])
+    if live_target.get("genre_style"):
+        context["genre_style"] = str(live_target["genre_style"])
     return context
