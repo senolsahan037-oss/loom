@@ -370,7 +370,7 @@ def main():
                       [s.get("kind") for s in build.get("session_steps", [])])
                 _, fallback = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True})
                 check("without a session or an explicit value, 4/4 is an admitted assumption",
-                      fallback.get("beats_per_bar_source") in ("live_session", "assumed_4_4"), fallback.get("beats_per_bar_source"))
+                      fallback.get("beats_per_bar_source") in ("live_session", "live_session_via_surface", "assumed_4_4"), fallback.get("beats_per_bar_source"))
             else:
                 print("  --  GAP-003 check skipped: no session plan on this machine (run plan_create once)")
 

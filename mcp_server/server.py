@@ -1207,6 +1207,19 @@ def _beats_per_bar(args: dict[str, Any]) -> tuple[float, str]:
             return float(numerator) * 4.0 / float(denominator), "live_session"
     except Exception:  # noqa: BLE001 -- a stale or missing state is not an error here
         pass
+    # The extension bridge publishes no signature (the SDK has none). If the
+    # control surface is alive too, its state carries the real one.
+    try:
+        surface_state = DEFAULT_SURFACE_ROOT / "state" / "live_state.json"
+        if BRIDGE_ROOT != DEFAULT_SURFACE_ROOT and surface_state.exists():
+            state = json.loads(surface_state.read_text(encoding="utf-8"))
+            age = time.time() - float(state.get("captured_at") or 0)
+            numerator = state.get("signature_numerator")
+            denominator = state.get("signature_denominator") or 4
+            if age < 120 and numerator:
+                return float(numerator) * 4.0 / float(denominator), "live_session_via_surface"
+    except Exception:  # noqa: BLE001
+        pass
     if args.get("als_path"):
         try:
             return float(handle_project_inspect_arrangement({"als_path": args["als_path"]})["beats_per_bar"]), "als"
