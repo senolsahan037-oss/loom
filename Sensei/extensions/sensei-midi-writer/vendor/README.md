@@ -8,3 +8,6 @@ them through Centercode to beta members):
 
 Then `npm install`. Requires Node 24+ and the Live 12.4.x **beta** build for
 Developer Mode (`npm start`). `npm run package` works without Live.
+
+Developer Mode only connects when the beta is the **only** Live instance running;
+quit any release Live first.
