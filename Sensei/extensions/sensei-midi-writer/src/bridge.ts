@@ -353,12 +353,25 @@ async function opImportAudioClip(live: LiveLike, payload: BridgeRequest) {
   // The import is Live's own copy step: it is what keeps the clip valid after
   // the pack folder moves, and it is the permission question this op exists
   // to answer -- the file lives outside the extension's storage.
-  const imported = payload.import === false ? source : await live.importIntoProject(source);
+  let imported = source;
+  if (payload.import !== false) {
+    try {
+      imported = await live.importIntoProject(source);
+    } catch (error) {
+      // Live's importIntoProject rejects with an undefined reason when the set
+      // has no project folder yet (unsaved set). Name the stage so the caller
+      // can tell that apart from a permission refusal.
+      const reason = error instanceof Error ? error.message : String(error);
+      throw new BridgeError(`import_into_project failed for ${source}: ${reason === "undefined" || reason === "" ? "Live gave no reason (is the set saved to a project folder?)" : reason}`);
+    }
+  }
   if (payload.start_beat !== undefined) {
     const start = num(payload.start_beat, "start_beat");
     if (start < 0) throw new BridgeError("start_beat must be >= 0");
     const duration = payload.duration_beats === undefined ? undefined : num(payload.duration_beats, "duration_beats");
-    const clip = await track.createAudioClipInArrangement(start, imported, duration, warped);
+    const clip = await track.createAudioClipInArrangement(start, imported, duration, warped).catch((error) => {
+      throw new BridgeError(`create_audio_clip (arrangement) failed for ${imported}: ${error instanceof Error ? error.message : String(error)}`);
+    });
     if (payload.name) clip.name = String(payload.name);
     return { track: track.name, placed: "arrangement", start_beat: start, duration_beats: duration ?? null,
              source_path: source, imported_path: imported, clip_file: clip.filePath, clip_name: clip.name, warped };
@@ -373,7 +386,9 @@ async function opImportAudioClip(live: LiveLike, payload: BridgeRequest) {
   const slot = track.clipSlots[slotIndex];
   if (!slot) throw new BridgeError(`track ${JSON.stringify(track.name)} has no clip slot ${slotIndex}`);
   if (slot.clip !== null) throw new BridgeError(`clip slot ${slotIndex} on ${JSON.stringify(track.name)} is occupied`);
-  const clip = await slot.createAudioClip(imported, warped);
+  const clip = await slot.createAudioClip(imported, warped).catch((error) => {
+    throw new BridgeError(`create_audio_clip (session slot ${slotIndex}) failed for ${imported}: ${error instanceof Error ? error.message : String(error)}`);
+  });
   if (payload.name) clip.name = String(payload.name);
   return { track: track.name, placed: "session", slot: slotIndex, source_path: source, imported_path: imported,
            clip_file: clip.filePath, clip_name: clip.name, warped };
