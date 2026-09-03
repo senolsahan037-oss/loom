@@ -7,7 +7,9 @@
     "build": "tsc --noEmit && tsx build.ts",
     "start": "tsx build.ts && extensions-cli run --storage-directory .dev/storage --temp-directory .dev/temp",
     "package": "npm run build -- --production && extensions-cli package -i dist/runtime -o dist/sensei-midi-writer.ablx",
-    "test:arrangement": "tsx tests/arrangement.test.ts"
+    "test:arrangement": "tsx tests/arrangement.test.ts",
+    "test:bridge": "tsx tests/bridge.test.ts",
+    "test": "npm run test:arrangement && npm run test:bridge"
   },
   "dependencies": {
     "@ableton-extensions/sdk": "file:vendor/ableton-extensions-sdk-1.0.0-beta.1.tgz"

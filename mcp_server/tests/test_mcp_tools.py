@@ -323,6 +323,9 @@ def main():
         # --- Telemetry ---
         is_error, payload = server.tool("live_bridge_status")
         check("bridge status is read", not is_error and "bridge_root" in payload, payload)
+        check("live_bridge_status lists every bridge root with its freshness",
+              isinstance(payload.get("bridge_candidates"), list) and any(c.get("active") for c in payload["bridge_candidates"]),
+              payload.get("bridge_candidates"))
 
         gap_before = GAP_LOG.read_text(encoding="utf-8") if GAP_LOG.exists() else ""
         is_error, payload = server.tool("gap_record", {

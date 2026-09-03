@@ -147,3 +147,13 @@ Each gap record contains:
 - **Proven 2026-09-03 20:44 on Live 12.4.15b1**: from an empty default set, `project_build(dry_run=false)` created 17 tracks, loaded 6 instruments by family name, set tempo 126 and key D minor, wrote 39 arrangement clips verified note-for-note, in 56 s. The run also exposed that the chord default profile id had never existed (fixed, tested against the catalogue) and that Live defers its cue-list refresh (fixed, verified from the arrangement).
 - **Still Missing**: `ArrangementGPSBuilder` remains in the tree for its instrument-family search history; the surface no longer needs it.
 - **Status**: RESOLVED
+
+### GAP-008
+- **Timestamp**: 2026-09-03T21:05:00+03:00
+- **Category**: Architecture / Extension as the Live-side endpoint
+- **Description**: The user's target is "the only thing I do in Live is add the .ablx". Today the MCP's Live side is the Loom control surface; the SDK extension only registers context-menu commands. Measured (SDK 1.0.0-beta.1 API docs + host logs) what a bridge inside the extension can and cannot do.
+- **Observed Behavior — covered by the SDK**: track list with name/mute/solo/arm, devices and parameters (`getValue/setValue/min/max`), mixer volume/pan as `DeviceParameter`, `song.tempo` (read+write), `cuePoints` and `createCuePoint(time)`, `rootNote/scaleName` (read), `createMidiTrack()` + `name`, `MidiTrack.createMidiClip(start, duration)` and `ClipSlot.createMidiClip(length)` with `clip.notes = [...]`, `insertDevice(builtInDeviceName, index)` for native devices with their *default* preset, `withinTransaction` for undo grouping, child processes allowed (`--allow-child-process`).
+- **Observed Behavior — not in the SDK**: transport (no play/stop, no `isPlaying`, no `currentSongTime`), meters, song time signature, arrangement length, **song key write** (`rootNote`/`scaleName` are getters only), **preset/browser loading** (no `.adg/.adv`, no browser search — the surface loaded "Boom Bap Kit.adg" by family name; the SDK can only drop a bare "Drum Rack").
+- **Filesystem**: hosted extensions may read/write only `storageDirectory` and `tempDirectory` (Node `--allow-fs-read/--allow-fs-write`; proven by the 2026-08-12 host log `ERR_ACCESS_DENIED FileSystemRead` when the extension read outside them). The bridge root must therefore live under the extension's storage directory, and the MCP must be pointed there; `~/Documents/SenseiV2Bridge` is unreachable from a hosted extension.
+- **Decision (user, 2026-09-03)**: move the bridge into the extension. Ops the SDK lacks stay on the control surface as the release-Live fallback and are logged as Centercode feature requests: transport, meters, time signature, key setter, preset loading.
+- **Status**: OPEN — implementation in progress

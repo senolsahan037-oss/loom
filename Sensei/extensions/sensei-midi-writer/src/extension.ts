@@ -8,11 +8,25 @@ import {
   RackDevice,
   initialize,
   type ActivationContext,
+  type CuePoint,
+  type Device,
+  type DeviceParameter,
   type ExtensionContext,
   type Handle,
   type NoteDescription,
   type Song,
+  type Track,
 } from "@ableton-extensions/sdk";
+import {
+  startBridge,
+  type BridgeClipLike,
+  type CueLike,
+  type DeviceLike,
+  type LiveLike,
+  type ParamLike,
+  type SlotLike,
+  type TrackLike,
+} from "./bridge.js";
 import { execFile } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -349,6 +363,101 @@ async function generateVariationsForTrack(
   return results;
 }
 
+
+// ---------------------------------------------------------------------------
+// The bridge sees Live through bridge.ts's structural interfaces; these
+// wrappers are the only place the real SDK objects meet them. Each wrapper
+// is a thin view -- getters read Live at access time, nothing is cached.
+
+function wrapParam(param: DeviceParameter<"1.0.0">): ParamLike {
+  return {
+    get name() { return param.name; },
+    get min() { return param.min; },
+    get max() { return param.max; },
+    getValue: () => param.getValue(),
+    setValue: (value: number) => param.setValue(value),
+  };
+}
+
+function wrapDevice(device: Device<"1.0.0">): DeviceLike {
+  return {
+    get name() { return device.name; },
+    get className() { return String((device.constructor as { className?: string }).className ?? "Device"); },
+    get parameters() { return device.parameters.map(wrapParam); },
+  };
+}
+
+function wrapClip(clip: MidiClip<"1.0.0">): BridgeClipLike {
+  return {
+    get notes() { return clip.notes; },
+    set notes(value: NoteDescription[]) { clip.notes = value; },
+    get name() { return clip.name; },
+    set name(value: string) { clip.name = value; },
+  };
+}
+
+function wrapSlot(slot: ClipSlot<"1.0.0">): SlotLike {
+  return {
+    get clip() {
+      const clip = slot.clip;
+      if (!clip) return null;
+      if (clip instanceof MidiClip) return wrapClip(clip);
+      return {
+        get notes(): NoteDescription[] { return []; },
+        set notes(_value: NoteDescription[]) { throw new Error("slot holds an audio clip"); },
+        get name() { return clip.name; },
+        set name(_value: string) { throw new Error("slot holds an audio clip"); },
+      };
+    },
+    createMidiClip: (length: number) => slot.createMidiClip(length).then(wrapClip),
+  };
+}
+
+function wrapTrack(track: Track<"1.0.0">): TrackLike {
+  const midi = track instanceof MidiTrack ? track : null;
+  return {
+    get name() { return track.name; },
+    set name(value: string) { track.name = value; },
+    get mute() { return track.mute; },
+    set mute(value: boolean) { track.mute = value; },
+    get solo() { return track.solo; },
+    set solo(value: boolean) { track.solo = value; },
+    get arm() { return track.arm; },
+    set arm(value: boolean) { track.arm = value; },
+    isMidi: midi !== null,
+    get devices() { return track.devices.map(wrapDevice); },
+    get mixer() { return { volume: wrapParam(track.mixer.volume), panning: wrapParam(track.mixer.panning) }; },
+    get clipSlots() { return track.clipSlots.map(wrapSlot); },
+    clearClipsInRange: (start: number, end: number) => track.clearClipsInRange(start, end),
+    createMidiClip: (start: number, duration: number) =>
+      midi ? midi.createMidiClip(start, duration).then(wrapClip) : Promise.reject(new Error(`${track.name} is not a MIDI track`)),
+    insertDevice: (deviceName: string, index: number) => track.insertDevice(deviceName, index).then(wrapDevice),
+  };
+}
+
+function wrapCue(cue: CuePoint<"1.0.0">): CueLike {
+  return {
+    get name() { return cue.name; },
+    set name(value: string) { cue.name = value; },
+    get time() { return cue.time; },
+  };
+}
+
+function liveFromContext(context: ExtensionContext<"1.0.0">): LiveLike {
+  const song = context.application.song;
+  return {
+    get tempo() { return song.tempo; },
+    set tempo(value: number) { song.tempo = value; },
+    get rootNote() { return song.rootNote; },
+    get scaleName() { return song.scaleName; },
+    get tracks() { return song.tracks.map(wrapTrack); },
+    get cuePoints() { return song.cuePoints.map(wrapCue); },
+    createCuePoint: (time: number) => song.createCuePoint(time).then(wrapCue),
+    createMidiTrack: () => song.createMidiTrack().then(wrapTrack),
+    withinTransaction: <T,>(fn: () => T) => context.withinTransaction(fn),
+  };
+}
+
 export function activate(activation: ActivationContext) {
   const context = initialize(activation, "1.0.0");
   context.commands.registerCommand("sensei.generate", (arg: unknown) => void (async () => {
@@ -547,5 +656,15 @@ export function activate(activation: ActivationContext) {
   ]).catch((error) => console.error("Sensei context-menu registration failed:", error));
   if (process.env.SENSEI_ENABLE_MANUAL_MIDI === "1") {
     void context.ui.registerContextMenuAction("ClipSlot", "Sensei: Write MIDI JSON…", "sensei.writeMidi");
+  }
+
+  // The Loom bridge: the MCP's Live-side endpoint, now inside the extension.
+  // A hosted extension may only touch its own storage, so the queue lives
+  // there; mcp_server reads LOOM_BRIDGE_ROOT or discovers this directory.
+  const storageDirectory = context.environment.storageDirectory;
+  if (storageDirectory) {
+    startBridge(liveFromContext(context), join(storageDirectory, "bridge"), (line) => console.log(line));
+  } else {
+    console.error("Loom bridge not started: Live provided no storage directory");
   }
 }

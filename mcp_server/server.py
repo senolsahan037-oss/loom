@@ -1724,7 +1724,7 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
         "plan": created,
         "project": {"name": project.get("name"), "bpm": project.get("bpm"), "key": f"{root} {mode}",
                     "genre": genre, "sections": len(sections), "total_bars": project.get("total_bars")},
-        "trigger": "Loom control surface (install.py); no extension involved",
+        "trigger": _active_bridge_label(),
         "beats_per_bar": beats_per_bar,
         "beats_per_bar_source": bpb_source,
         "tracks": tracks,
@@ -2318,6 +2318,55 @@ def handle_setup_scan(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _active_bridge_label() -> str:
+    """Which Live-side endpoint the active bridge root is talking to, from
+    the surface_version its last state dump carries."""
+    state_file = BRIDGE_ROOT / "state" / "live_state.json"
+    version = None
+    if state_file.exists():
+        try:
+            version = json.loads(state_file.read_text(encoding="utf-8")).get("surface_version")
+        except Exception:  # noqa: BLE001
+            version = None
+    if version and str(version).startswith("loom-extension"):
+        return f"Loom extension bridge ({version}) at {BRIDGE_ROOT}"
+    if version:
+        return f"Loom control surface ({version}) at {BRIDGE_ROOT}"
+    return f"bridge at {BRIDGE_ROOT} (no state published yet)"
+
+
+def _bridge_candidates() -> list[dict[str, Any]]:
+    """Every bridge root on this machine that has ever published state: the
+    Loom control surface's, and each installed extension's (they may only
+    write inside their own storage directory, see GAP-008). The active root is
+    LOOM_BRIDGE_ROOT or the surface's; this list is how a caller finds the
+    extension's and switches."""
+    roots = [Path.home() / "Documents" / "SenseiV2Bridge"]
+    extensions_data = Path.home() / "Library" / "Application Support" / "Ableton" / "Extensions Data"
+    if extensions_data.exists():
+        roots.extend(sorted(p / "bridge" for p in extensions_data.iterdir() if (p / "bridge").is_dir()))
+    if BRIDGE_ROOT not in roots:
+        roots.insert(0, BRIDGE_ROOT)
+    found = []
+    for root in roots:
+        state_file = root / "state" / "live_state.json"
+        entry: dict[str, Any] = {"root": str(root), "active": root == BRIDGE_ROOT, "state": "never_published"}
+        if state_file.exists():
+            try:
+                state = json.loads(state_file.read_text(encoding="utf-8"))
+                captured = float(state.get("captured_at") or 0)
+                entry.update({
+                    "state": "fresh" if captured and time.time() - captured < 10 else "stale",
+                    "age_seconds": round(time.time() - captured, 1) if captured else None,
+                    "surface_version": state.get("surface_version"),
+                    "capabilities": state.get("capabilities"),
+                })
+            except Exception as error:  # noqa: BLE001
+                entry.update({"state": "unreadable", "error": str(error)})
+        found.append(entry)
+    return found
+
+
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
     ensure_bridge_dirs()
     pending = [p.name for p in REQUEST_DIR.glob("*.json")]
@@ -2330,6 +2379,8 @@ def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "bridge_root": str(BRIDGE_ROOT),
+        "bridge_root_source": "LOOM_BRIDGE_ROOT" if os.environ.get("LOOM_BRIDGE_ROOT") else "default_control_surface",
+        "bridge_candidates": _bridge_candidates(),
         "pending_requests": pending,
         "recent_done": done,
         "recent_errors": errors,
