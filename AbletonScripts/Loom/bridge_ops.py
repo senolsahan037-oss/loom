@@ -245,6 +245,108 @@ def op_create_locator(song, payload):
     raise BridgeError("locator was not created at beat %g" % beat)
 
 
+_PITCH_CLASS = {
+    "C": 0, "C#": 1, "Db": 1, "D": 2, "D#": 3, "Eb": 3, "E": 4, "F": 5,
+    "F#": 6, "Gb": 6, "G": 7, "G#": 8, "Ab": 8, "A": 9, "A#": 10, "Bb": 10, "B": 11,
+}
+_PITCH_NAME = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+
+def _find_browser_item(browser, term, depth=0, item=None):
+    """Depth-first search of Live's browser for the first loadable item whose
+    name contains `term`. Ported from ArrangementGPSBuilder so the Loom surface
+    can load an instrument family itself; roots are tried in the order Live's
+    own browser shows them."""
+    if item is None:
+        term = term.lower()
+        for attr in ("drums", "instruments", "sounds", "packs", "user_library"):
+            try:
+                root = getattr(browser, attr)
+            except Exception:
+                root = None
+            if root is None:
+                continue
+            found = _find_browser_item(browser, term, 0, root)
+            if found is not None:
+                return found
+        return None
+    if depth > 6:
+        return None
+    try:
+        if term in item.name.lower() and item.is_loadable:
+            return item
+    except Exception:
+        pass
+    try:
+        children = list(item.children)
+    except Exception:
+        children = []
+    for child in children:
+        found = _find_browser_item(browser, term, depth + 1, child)
+        if found is not None:
+            return found
+    return None
+
+
+def op_create_midi_track(song, payload, browser=None):
+    """Create (or adopt) a MIDI track by exact name, optionally loading an
+    instrument family from the browser onto it. Adopting an existing MIDI
+    track of that name is deliberate: a rebuild must not duplicate tracks."""
+    name = str(payload.get("name") or "").strip()
+    if not name:
+        raise BridgeError("track name is required")
+    same_name = [track for track in _tracks(song) if track.name == name]
+    if len(same_name) > 1:
+        raise BridgeError("expected at most one track named %r, found %d" % (name, len(same_name)))
+    if same_name and not getattr(same_name[0], "has_midi_input", False):
+        raise BridgeError("a non-MIDI track is already named %r" % name)
+    if same_name:
+        track = same_name[0]
+        created = False
+    else:
+        if not hasattr(song, "create_midi_track"):
+            raise BridgeError("this Live cannot create MIDI tracks from a control surface")
+        song.create_midi_track(len(list(_tracks(song))))
+        track = list(_tracks(song))[-1]
+        track.name = name
+        created = True
+    result = {"created": created, "adopted": not created, "name": track.name,
+              "index": list(_tracks(song)).index(track), "instrument": "skipped"}
+    family = str(payload.get("instrument_family") or "").strip()
+    if family and created:
+        if browser is None:
+            result["instrument"] = "unavailable: no browser"
+        else:
+            item = _find_browser_item(browser, family)
+            if item is None:
+                result["instrument"] = "not_found: %s" % family
+            else:
+                try:
+                    song.view.selected_track = track
+                    browser.load_item(item)
+                    result["instrument"] = "loaded: %s" % item.name
+                except Exception as error:
+                    result["instrument"] = "failed: %s" % error
+    elif family and not created:
+        result["instrument"] = "kept: track already existed"
+    return result
+
+
+def op_set_key(song, payload):
+    """Set Live's own Song Key display (root + scale name)."""
+    root = str(payload.get("root") or "").strip().replace(u"\u266f", "#").replace(u"\u266d", "b")
+    mode = str(payload.get("mode") or "").strip()
+    if root not in _PITCH_CLASS:
+        raise BridgeError("unknown root %r" % root)
+    if not mode:
+        raise BridgeError("mode (scale name) is required")
+    before = {"root": _PITCH_NAME[int(getattr(song, "root_note", 0)) % 12],
+              "scale_name": getattr(song, "scale_name", None)}
+    song.root_note = _PITCH_CLASS[root]
+    song.scale_name = mode
+    return {"before": before, "after": {"root": _PITCH_NAME[int(song.root_note) % 12],
+                                        "scale_name": song.scale_name}}
+
 
 class _NoteSpec(object):
     """Stand-in for Live.Clip.MidiNoteSpecification where Live is not importable.
@@ -360,15 +462,24 @@ OPERATIONS = {
     "transport": op_transport,
     "create_locator": op_create_locator,
     "write_arrangement_clip": op_write_arrangement_clip,
+    "create_midi_track": op_create_midi_track,
+    "set_key": op_set_key,
 }
 
+# Operations that need Live's browser as well as the song.
+_BROWSER_OPERATIONS = frozenset(["create_midi_track"])
 
-def apply_operation(song, payload):
-    """Tek giris noktasi. write_clip disindaki her islem buradan gecer."""
+
+def apply_operation(song, payload, browser=None):
+    """Tek giris noktasi. write_clip disindaki her islem buradan gecer.
+    `browser` is Live's application browser, only needed by operations that
+    load content (create_midi_track with an instrument family)."""
     operation = payload.get("op")
     if operation is None:
         raise BridgeError("payload has no 'op'")
     handler = OPERATIONS.get(operation)
     if handler is None:
         raise BridgeError("unknown op %r. Known: %s" % (operation, ", ".join(sorted(OPERATIONS))))
+    if operation in _BROWSER_OPERATIONS:
+        return handler(song, payload, browser)
     return handler(song, payload)

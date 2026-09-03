@@ -125,7 +125,8 @@ Bütün proje tek çağrıyla kurulur:
 project_build(prompt="dark rolling tech house, 126 bpm, in F minor")
 ```
 
-Bu, `plan_create` ile projeyi planlar; her bölüm ve Sensei'nin yazabildiği her
+Bu, `plan_create` ile projeyi planlar; planın adlandırdığı ve sette olmayan her
+kanalı yaratır (enstrüman ailesini browser'dan yükleyerek), song key'i yazar; her bölüm ve Sensei'nin yazabildiği her
 kanal (drum, bass, chord) için projenin kendi ton ve temposunda bir parça üretir
 — bölümün enerjisi `density`, planın türü `genre_style` olarak — ve control
 surface üzerinden Arrangement'a yazar, bölüm başına bir locator ile. Varsayılan

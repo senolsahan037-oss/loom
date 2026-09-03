@@ -137,3 +137,12 @@ Each gap record contains:
 - **Still Missing**: clip-level envelopes. Track-level mixer and device parameters both
   work; per-clip modulation does not.
 - **Status**: PARTIALLY RESOLVED
+
+### GAP-007
+- **Timestamp**: 2026-09-03T20:40:00+03:00
+- **Category**: Project / Track creation
+- **Description**: `project_build` promised a project "from scratch" but wrote every part to a track *by name*; on an empty set none of the plan's tracks exist, so every write would be rejected. Track creation, naming, instrument loading and the song key lived only in a second control surface (`ArrangementGPSBuilder`) that watches a build directory -- a second trigger, against the one-install-one-trigger rule.
+- **Observed Behavior**: Proven on Live 12.4.15b1 (2026-09-03): the MCP wrote a 4-note clip through the Loom surface, but the dry run of a tech-house build named 17 tracks the default set does not have.
+- **Resolved 2026-09-03**: the Loom surface gained `create_midi_track` (exact name; adopts an existing MIDI track, refuses an audio track wearing the name or an ambiguous name; loads an `instrument_family` from the browser and reports `loaded / not_found / unavailable / failed` instead of assuming) and `set_key` (Live's own Song Key, before/after). `project_build` now runs a track phase before the writes -- dry run says `exists / would_create` per plan track against the fresh session state -- and a key step after the tempo. Both ops are also reachable standalone through `live_command`. Fakes: `FakeSong.create_midi_track`, `FakeBrowser`; 10 new checks in `test_bridge_ops.py`, 3 in `test_mcp_tools.py`.
+- **Still Missing**: `ArrangementGPSBuilder` remains in the tree for its instrument-family search history; the surface no longer needs it.
+- **Status**: RESOLVED

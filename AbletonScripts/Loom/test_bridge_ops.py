@@ -166,6 +166,31 @@ class FakeView(object):
         self.highlighted_clip_slot = None
 
 
+class FakeBrowserItem(object):
+    def __init__(self, name, loadable=False, children=None):
+        self.name = name
+        self.is_loadable = loadable
+        self.children = children or []
+
+
+class FakeBrowser(object):
+    """A three-level browser: Instruments > Bass > 'Basic Analog Bass'. Loading
+    an item drops a device of that name onto the selected track, as Live does."""
+    def __init__(self, song):
+        self._song = song
+        self.loaded = []
+        self.drums = FakeBrowserItem("Drums", children=[FakeBrowserItem("Drum Rack", loadable=True)])
+        self.instruments = FakeBrowserItem("Instruments", children=[
+            FakeBrowserItem("Bass", children=[FakeBrowserItem("Basic Analog Bass", loadable=True)])])
+        self.sounds = None
+        self.packs = FakeBrowserItem("Packs")
+        self.user_library = FakeBrowserItem("User Library")
+
+    def load_item(self, item):
+        self.loaded.append(item.name)
+        self._song.view.selected_track.devices.append(FakeDevice(item.name, []))
+
+
 class FakeSong(object):
     def __init__(self):
         eq = FakeDevice("EQ Eight", [FakeParameter("Frequency A", 100.0, 20.0, 20000.0),
@@ -190,6 +215,10 @@ class FakeSong(object):
 
     def continue_playing(self):
         self.is_playing = True
+
+    def create_midi_track(self, index):
+        # Like Live: the new track appears at `index`, unnamed-ish, with MIDI input.
+        self.tracks.insert(index, FakeTrack("%d-MIDI" % (len(self.tracks) + 1)))
 
     def set_or_delete_cue(self):
         for cue in self.cue_points:
@@ -356,6 +385,55 @@ def run():
         check("the fake really raises like Live does", False)
     except RuntimeError:
         check("the fake really raises like Live does", True)
+
+    # --- create_midi_track: the "from scratch" gap ----------------------------
+    song = FakeSong()
+    browser = FakeBrowser(song)
+    made = bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "Main Bass",
+                                             "instrument_family": "Basic Analog Bass"}, browser=browser)
+    check("a missing track is created at the end and named exactly",
+          made.get("created") is True and song.tracks[-1].name == "Main Bass" and made.get("index") == 3, made)
+    check("the instrument family lands on that very track",
+          made.get("instrument") == "loaded: Basic Analog Bass" and [d.name for d in song.tracks[-1].devices] == ["Basic Analog Bass"],
+          (made.get("instrument"), [d.name for d in song.tracks[-1].devices]))
+    again = bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "Main Bass",
+                                              "instrument_family": "Basic Analog Bass"}, browser=browser)
+    check("a rebuild adopts the existing track instead of duplicating it",
+          again.get("adopted") is True and sum(1 for t in song.tracks if t.name == "Main Bass") == 1
+          and again.get("instrument") == "kept: track already existed", again)
+    missing = bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "Keys",
+                                                "instrument_family": "Electric Piano Daze"}, browser=browser)
+    check("an unknown instrument family is reported, not raised",
+          missing.get("created") is True and missing.get("instrument", "").startswith("not_found"), missing)
+    nobrowser = bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "Pad",
+                                                  "instrument_family": "Drum Rack"})
+    check("without a browser the track is still created and the gap is named",
+          nobrowser.get("created") is True and nobrowser.get("instrument", "").startswith("unavailable"), nobrowser)
+    song.tracks.append(FakeTrack("Vocal", midi=False))
+    try:
+        bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "Vocal"}, browser=browser)
+        check("an audio track wearing the name is refused, never adopted", False)
+    except bridge_ops.BridgeError as error:
+        check("an audio track wearing the name is refused, never adopted", "non-MIDI" in str(error), str(error))
+    try:
+        bridge_ops.apply_operation(song, {"op": "create_midi_track", "name": "KICK"}, browser=browser)
+        check("an ambiguous name is refused", False)
+    except bridge_ops.BridgeError as error:
+        check("an ambiguous name is refused", "found 2" in str(error), str(error))
+
+    # --- set_key --------------------------------------------------------------
+    song = FakeSong()
+    song.root_note = 0
+    song.scale_name = "Major"
+    keyed = bridge_ops.apply_operation(song, {"op": "set_key", "root": "F", "mode": "Minor"})
+    check("set_key writes Live's own song key and reports before/after",
+          song.root_note == 5 and song.scale_name == "Minor" and keyed.get("before", {}).get("root") == "C"
+          and keyed.get("after") == {"root": "F", "scale_name": "Minor"}, keyed)
+    try:
+        bridge_ops.apply_operation(song, {"op": "set_key", "root": "H", "mode": "Minor"})
+        check("an unknown root is refused", False)
+    except bridge_ops.BridgeError:
+        check("an unknown root is refused", True)
 
     print("%d checks passed:" % len(checks))
     for label in checks:

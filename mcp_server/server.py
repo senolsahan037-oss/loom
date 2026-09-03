@@ -220,7 +220,7 @@ TOOLS = [
     # 3. ArrangementGPS Tools
     {
         "name": "project_build",
-        "description": "THE single trigger: build a whole project into the running Live session from one prompt. Runs plan_create, then for every section and every track Sensei can write (drum, bass, chord) generates a part in the project's own key and tempo -- the section's energy as density, the plan's genre as genre_style -- and writes it into the Arrangement through the Loom control surface, with a locator per section. Everything goes through the one surface install.py installs; no extension, nothing else to load into Live. Dry run by default: it reports exactly what it would write, per track and section, and touches Live only with dry_run=false. Parts Sensei cannot write (melody, vocal, fx lanes) are reported as out of scope, not as failures.",
+        "description": "THE single trigger: build a whole project into the running Live session from one prompt. Runs plan_create, then for every section and every track Sensei can write (drum, bass, chord) generates a part in the project's own key and tempo -- the section's energy as density, the plan's genre as genre_style -- and writes it into the Arrangement through the Loom control surface, with a locator per section. Before writing it creates every track the plan names that the set does not have yet (loading the plan's instrument family from the browser) and sets the song key, so an empty set really is built from scratch; an existing track of the same name is adopted, never duplicated. Everything goes through the one surface install.py installs; no extension, nothing else to load into Live. Dry run by default: it reports exactly what it would write, per track and section, and touches Live only with dry_run=false. Parts Sensei cannot write (melody, vocal, fx lanes) are reported as out of scope, not as failures.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -484,11 +484,11 @@ TOOLS = [
     },
     {
         "name": "live_command",
-        "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, or a locator. Runs through the Loom control surface, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
+        "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, a locator, a new MIDI track (with an instrument family from the browser), or the song key. Runs through the Loom control surface, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
         "inputSchema": {
             "type": "object",
             "properties": {
-                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator"], "description": "Operation to run inside Live."},
+                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key"], "description": "Operation to run inside Live."},
                 "track": {"type": "string", "description": "Track name, exactly as Live shows it. Must match exactly one track."},
                 "device": {"type": "string", "description": "Device name on that track."},
                 "parameter": {"type": "string", "description": "Parameter name on that device."},
@@ -501,7 +501,10 @@ TOOLS = [
                 "action": {"type": "string", "enum": ["play", "stop", "continue"], "description": "Transport action."},
                 "position": {"type": "number", "description": "Playhead position in beats."},
                 "beat": {"type": "number", "description": "Locator position in beats."},
-                "name": {"type": "string", "description": "Locator name."},
+                "name": {"type": "string", "description": "Locator name, or the exact name of the MIDI track to create (create_midi_track adopts an existing MIDI track of that name rather than duplicating it)."},
+                "instrument_family": {"type": "string", "description": "For create_midi_track: a browser search term (e.g. 'Drum Rack', 'Basic Analog Bass'); the first loadable match is loaded onto the new track and the outcome is reported, never assumed."},
+                "root": {"type": "string", "description": "For set_key: root note, e.g. 'F' or 'A#'."},
+                "mode": {"type": "string", "description": "For set_key: Live scale name, e.g. 'Minor'."},
                 "include_devices": {"type": "boolean", "description": "For get_state."},
                 "wait_seconds": {"type": "number", "description": "How long to wait for Live to process it. 0 queues without verifying.", "default": 15}
             },
@@ -1148,7 +1151,7 @@ def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
     operation = args["op"]
     payload: dict[str, Any] = {"op": operation}
     for key in ("track", "device", "parameter", "value", "bpm", "volume", "pan", "mute", "solo",
-                "action", "position", "beat", "name", "include_devices"):
+                "action", "position", "beat", "name", "include_devices", "instrument_family", "root", "mode"):
         if key in args:
             payload[key] = args[key]
     return _submit_bridge_request(payload, float(args.get("wait_seconds", 15)))
@@ -1579,9 +1582,44 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
     steps: list[dict[str, Any]] = []
     if project.get("bpm"):
         steps.append({"kind": "tempo", "op": "set_tempo", "bpm": float(project["bpm"])})
+    if root and mode:
+        steps.append({"kind": "key", "op": "set_key", "root": root, "mode": mode})
     for section in sections:
         steps.append({"kind": "locator", "section": section["name"],
                       "beat": (int(section["start_bar"]) - 1) * beats_per_bar})
+
+    # Tracks first: an empty set has none of the plan's tracks, and every
+    # write below addresses a track by name. A dry run compares against the
+    # running session's track list when the bridge has a fresh one.
+    live_names: set[str] | None = None
+    if dry_run:
+        try:
+            state = handle_live_state({})
+            if state.get("is_fresh"):
+                live_names = {str(tr.get("name")) for tr in state.get("tracks") or []}
+        except Exception:  # noqa: BLE001 -- no session is a valid dry-run state
+            live_names = None
+    tracks: list[dict[str, Any]] = []
+    for track in plan.get("tracks") or []:
+        name = track.get("ableton_name") or track.get("display_name") or track.get("name")
+        entry = {"track": name, "instrument_family": track.get("instrument_family"),
+                 "role": track.get("sensei_role")}
+        if dry_run:
+            if live_names is None:
+                entry["status"] = "unknown_no_session"
+            else:
+                entry["status"] = "exists" if name in live_names else "would_create"
+            tracks.append(entry)
+            continue
+        outcome = _submit_bridge_request({"op": "create_midi_track", "name": name,
+                                          "instrument_family": track.get("instrument_family")}, wait)
+        result = outcome.get("result") or {}
+        entry["status"] = outcome.get("status")
+        entry["created"] = result.get("created")
+        entry["instrument"] = result.get("instrument")
+        if outcome.get("error"):
+            entry["error"] = outcome.get("error")
+        tracks.append(entry)
 
     results: list[dict[str, Any]] = []
     for track_index, track in enumerate(writers):
@@ -1625,6 +1663,9 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
         for step in steps:
             if step["kind"] == "tempo":
                 step["outcome"] = _submit_bridge_request({"op": "set_tempo", "bpm": step["bpm"]}, wait).get("status")
+            elif step["kind"] == "key":
+                step["outcome"] = _submit_bridge_request({"op": "set_key", "root": step["root"],
+                                                          "mode": step["mode"]}, wait).get("status")
             else:
                 step["outcome"] = _submit_bridge_request({"op": "create_locator", "beat": step["beat"],
                                                           "name": step["section"]}, wait).get("status")
@@ -1638,6 +1679,8 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
         "trigger": "Loom control surface (install.py); no extension involved",
         "beats_per_bar": beats_per_bar,
         "beats_per_bar_source": bpb_source,
+        "tracks": tracks,
+        "track_totals": dict(Counter(tr["status"] for tr in tracks)),
         "session_steps": steps,
         "writes": results,
         "totals": dict(counts),

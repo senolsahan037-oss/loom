@@ -155,12 +155,21 @@ class Loom(ControlSurface):
             if payload.get("op") in (None, "write_clip"):
                 result = self._write_clip(payload)
             else:
-                result = bridge_ops.apply_operation(self.song(), payload)
+                result = bridge_ops.apply_operation(self.song(), payload, browser=self._browser())
             self._finish(request_path, payload, DONE_DIR, result=result)
             self.log_message("Loom ok: %s" % (payload.get("op") or "write_clip"))
         except Exception as error:
             self.log_message("Loom error: %s" % error)
             self._finish(request_path, payload, ERROR_DIR, error="%s: %s" % (type(error).__name__, error))
+
+    def _browser(self):
+        """Live's browser, for operations that load content. None when Live
+        does not expose it (older API) -- the op then reports that instead of
+        failing the whole request."""
+        try:
+            return self.application().browser
+        except Exception:
+            return None
 
     def _finish(self, request_path, payload, destination, result=None, error=None):
         """Write the outcome into the request and move it, so the caller can read it."""

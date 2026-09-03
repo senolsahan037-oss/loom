@@ -354,6 +354,17 @@ def main():
                 check("the response says where the beats-per-bar came from",
                       build.get("beats_per_bar") == 3 and build.get("beats_per_bar_source") == "explicit",
                       (build.get("beats_per_bar"), build.get("beats_per_bar_source")))
+                plan_tracks = json.loads(plan_file.read_text(encoding="utf-8")).get("tracks") or []
+                statuses = {tr.get("status") for tr in build.get("tracks") or []}
+                check("a dry run lists every plan track with a create/exists verdict",
+                      len(build.get("tracks") or []) == len(plan_tracks)
+                      and statuses <= {"exists", "would_create", "unknown_no_session"},
+                      (len(build.get("tracks") or []), len(plan_tracks), statuses))
+                check("track verdicts are totalled like the writes are",
+                      sum((build.get("track_totals") or {}).values()) == len(plan_tracks), build.get("track_totals"))
+                check("the song key is a session step before any write",
+                      any(s.get("kind") == "key" and s.get("root") and s.get("mode") for s in build.get("session_steps", [])),
+                      [s.get("kind") for s in build.get("session_steps", [])])
                 _, fallback = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True})
                 check("without a session or an explicit value, 4/4 is an admitted assumption",
                       fallback.get("beats_per_bar_source") in ("live_session", "assumed_4_4"), fallback.get("beats_per_bar_source"))
