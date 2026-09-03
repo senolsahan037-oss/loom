@@ -112,12 +112,21 @@ görsün) ve **Ableton Live** — sonra Settings → Link/MIDI altında
 
 ### Tek kurulum, tek tetik
 
-`install.py` Live tarafında tek bir şey kurar: Loom control surface. Köprü de,
-MIDI yazarları da onun içinden çalışır — tempo, mikser, cihaz parametresi,
-locator ve **Arrangement clip'leri** aynı istek/`done` mekanizmasıyla yazılır.
-Python LOM bunu zaten yapabiliyor (`Track.create_midi_clip`, `Clip.add_new_notes`;
-Live'ın kendi derlenmiş script'lerinden doğrulandı), o yüzden Live'a ayrıca bir
-extension yüklemek gerekmez.
+Live tarafında iki eşdeğer uç var; MCP ikisine de aynı istek/`done` dosya
+mekanizmasıyla konuşur ve `live_bridge_status` hangisinin canlı olduğunu söyler:
+
+- **Extension** (`Sensei/extensions/sensei-midi-writer`, Ableton Extensions SDK,
+  şu an Live beta'da): `.ablx` dosyasını Live'a eklemek yeter, köprü uzantının
+  kendi depolama dizininde çalışır (`~/Library/Application Support/Ableton/Extensions
+  Data/loom.sensei-midi-writer/bridge`). Kanal yaratma, arrangement ve session
+  clip'leri, tempo, mikser, cihaz parametreleri, locator buradan yazılır.
+  SDK'nın vermediği beş şey (transport, metre, ölçü işareti, song key yazma,
+  preset yükleme) burada dürüstçe reddedilir.
+- **Control surface** (`AbletonScripts/Loom`, `install.py` kurar): release Live
+  için yol ve yukarıdaki beş boşluğun tamamını kapatan taraf; Python LOM ile
+  preset yükler, transport sürer, metre okur.
+
+`LOOM_BRIDGE_ROOT` hangi ucun kullanılacağını seçer; boşsa control surface'ın kökü.
 
 Bütün proje tek çağrıyla kurulur:
 

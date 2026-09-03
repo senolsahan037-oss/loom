@@ -413,7 +413,8 @@ export async function processRequestFile(live: LiveLike, dirs: BridgeDirs, fileN
     destination = dirs.done;
     log(`Loom ok: ${payload.op ?? "write_clip"}`);
   } catch (error) {
-    const name = error instanceof Error ? error.constructor.name : "Error";
+    // Not constructor.name: the bundle minifies class names to one letter.
+    const name = error instanceof BridgeError ? "BridgeError" : error instanceof Error ? error.name || "Error" : "Error";
     const message = error instanceof Error ? error.message : String(error);
     record = { ...payload, completed_at: Date.now() / 1000, schema_version: SCHEMA_VERSION, surface_version: EXTENSION_SURFACE_VERSION, status: "error", error: `${name}: ${message}` };
     destination = dirs.errors;
