@@ -56,12 +56,18 @@ class FakeArrangementClip(object):
         self.notes = []
 
     def add_new_notes(self, specs):
-        self.notes.extend(dict(spec) for spec in specs)
+        # Live's add_new_notes takes MidiNoteSpecification objects; handing it a
+        # dict is a Boost.Python ArgumentError. The fake refuses dicts the same
+        # way, so a writer that builds dicts fails here instead of in Live.
+        for spec in specs:
+            if isinstance(spec, dict):
+                raise TypeError("add_new_notes: expected MidiNoteSpecification, got dict")
+            self.notes.append(spec)
 
     def get_notes_extended(self, from_pitch, pitch_span, from_time, time_span):
         return [n for n in self.notes
-                if from_pitch <= n["pitch"] < from_pitch + pitch_span
-                and from_time <= n["start_time"] < from_time + time_span]
+                if from_pitch <= n.pitch < from_pitch + pitch_span
+                and from_time <= n.start_time < from_time + time_span]
 
 
 class FakeSessionClip(object):
@@ -81,11 +87,14 @@ class FakeSessionClip(object):
 
     def add_new_notes(self, specs):
         self.calls["add_new_notes"] += 1
-        self.notes.extend(dict(spec) for spec in specs)
+        for spec in specs:
+            if isinstance(spec, dict):
+                raise TypeError("add_new_notes: expected MidiNoteSpecification, got dict")
+            self.notes.append(spec)
 
     def remove_notes_extended(self, from_pitch, pitch_span, from_time, time_span):
         self.calls["remove_notes_extended"] += 1
-        self.notes = [n for n in self.notes if not (from_time <= n["start_time"] < from_time + time_span)]
+        self.notes = [n for n in self.notes if not (from_time <= n.start_time < from_time + time_span)]
 
     def set_notes(self, tuples):
         self.calls["set_notes"] += 1

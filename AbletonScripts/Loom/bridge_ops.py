@@ -245,6 +245,53 @@ def op_create_locator(song, payload):
     raise BridgeError("locator was not created at beat %g" % beat)
 
 
+
+class _NoteSpec(object):
+    """Stand-in for Live.Clip.MidiNoteSpecification where Live is not importable.
+
+    Only the test harness ever sees this; inside Live the real class is used.
+    Same attribute names, so a caller cannot tell them apart -- which is the
+    point: the fakes read attributes, and a dict would fail them the way it
+    fails Live.
+    """
+    def __init__(self, pitch, start_time, duration, velocity, mute=False):
+        self.pitch = pitch
+        self.start_time = start_time
+        self.duration = duration
+        self.velocity = velocity
+        self.mute = mute
+
+
+def note_specs(notes):
+    """Live.Clip.MidiNoteSpecification objects for add_new_notes.
+
+    add_new_notes on the Python side takes MidiNoteSpecification objects, NOT
+    dicts -- a dict is a Boost.Python ArgumentError in Live. The Max-for-Live
+    docs show the dict form because that is the JavaScript API; Ableton's own
+    pushbase and the working SenseiPadProbe script both construct
+    MidiNoteSpecification(pitch=, start_time=, duration=, velocity=, mute=).
+    Live is imported lazily so this module stays importable without it.
+    """
+    try:
+        from Live.Clip import MidiNoteSpecification as spec_class  # type: ignore
+    except Exception:
+        spec_class = _NoteSpec
+    specs = []
+    for note in notes or []:
+        specs.append(spec_class(
+            pitch=int(note["pitch"]),
+            start_time=float(note.get("start", note.get("time", 0.0))),
+            duration=max(0.01, float(note["duration"])),
+            velocity=max(1, min(127, int(note.get("velocity", 100)))),
+            mute=False,
+        ))
+    return specs
+
+
+def legacy_note_tuples(specs):
+    """(pitch, time, duration, velocity, mute) for the pre-Live-11 set_notes."""
+    return tuple((s.pitch, s.start_time, s.duration, s.velocity, False) for s in specs)
+
 def op_write_arrangement_clip(song, payload):
     """Write a MIDI clip straight into the Arrangement, on a named track.
 
@@ -279,20 +326,11 @@ def op_write_arrangement_clip(song, payload):
 
     clip = track.create_midi_clip(start_beat, length_beats)
     clip.name = name
-    specs = []
-    for note in payload.get("notes", []):
-        specs.append({
-            "pitch": int(note["pitch"]),
-            "start_time": float(note.get("start", note.get("time", 0.0))),
-            "duration": max(0.01, float(note["duration"])),
-            "velocity": max(1, min(127, int(note.get("velocity", 100)))),
-            "mute": False,
-        })
+    specs = note_specs(payload.get("notes", []))
     if hasattr(clip, "add_new_notes"):
         clip.add_new_notes(tuple(specs))
     else:
-        clip.set_notes(tuple((n["pitch"], n["start_time"], n["duration"], n["velocity"], False)
-                             for n in specs))
+        clip.set_notes(legacy_note_tuples(specs))
 
     written = None
     if hasattr(clip, "get_notes_extended"):

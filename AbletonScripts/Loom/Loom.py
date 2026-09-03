@@ -198,15 +198,9 @@ class Loom(ControlSurface):
         clip.loop_end = length_beats
         clip.end_marker = length_beats
 
-        specs = []
-        for note in payload.get("notes", []):
-            specs.append({
-                "pitch": int(note["pitch"]),
-                "start_time": float(note.get("start", note.get("time", 0.0))),
-                "duration": max(0.01, float(note["duration"])),
-                "velocity": max(1, min(127, int(note.get("velocity", 100)))),
-                "mute": False,
-            })
+        # Real Live.Clip.MidiNoteSpecification objects -- add_new_notes rejects
+        # dicts on the Python side (see bridge_ops.note_specs).
+        specs = bridge_ops.note_specs(payload.get("notes", []))
 
         # Live 11 replaced set_notes/remove_notes with add_new_notes and
         # remove_notes_extended, and warns -- with a modal that blocks the
@@ -221,8 +215,7 @@ class Loom(ControlSurface):
         else:
             if hasattr(clip, "remove_notes"):
                 clip.remove_notes(0.0, 0, length_beats, 128)
-            clip.set_notes(tuple((n["pitch"], n["start_time"], n["duration"], n["velocity"], False)
-                                 for n in specs))
+            clip.set_notes(bridge_ops.legacy_note_tuples(specs))
             api = "legacy"
         return {
             "track": track.name,
