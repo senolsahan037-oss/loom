@@ -10,6 +10,7 @@ log) are called and then cleaned up; the tool that writes an .als is dry-run
 only.
 """
 import json
+import tempfile
 import os
 import shutil
 import subprocess
@@ -22,7 +23,14 @@ SERVER = ROOT / "mcp_server" / "server.py"
 # running this test. Hardcoding a venv path breaks a clean clone and CI.
 PYTHON = Path(sys.executable)
 GAP_LOG = ROOT / "Docs" / "MISSING_CONTROLS_LOG.md"
-BRIDGE_REQUESTS = Path.home() / "Documents" / "SenseiV2Bridge" / "requests"
+# The server's bridge directory is redirected to a scratch folder BEFORE the
+# server is spawned, so no test request can reach a running Live. Until this,
+# the two write checks below went to ~/Documents/SenseiV2Bridge on the
+# assumption that Live was closed -- and with Live open they put a real clip
+# named "MCP selftest" into the user's set every time the suite ran.
+BRIDGE_ROOT = Path(tempfile.mkdtemp(prefix="loom_tools_bridge_"))
+os.environ["LOOM_BRIDGE_ROOT"] = str(BRIDGE_ROOT)
+BRIDGE_REQUESTS = BRIDGE_ROOT / "requests"
 SAMPLE_ALS = Path.home() / "Desktop" / "solo" / "Turtle.als"
 # Turtle has no automation at all; this one has ten envelopes, so the
 # automation tool is tested against something that actually exists.
@@ -243,8 +251,8 @@ def main():
         check("MIDI variation generation answers", not is_error, str(payload)[:200])
 
         before = set(BRIDGE_REQUESTS.glob("*.json")) if BRIDGE_REQUESTS.exists() else set()
-        # Live is closed: the tool no longer just says "QUEUED", it waits and
-        # then reports that nothing consumed the request.
+        # The bridge is the test's own scratch folder, so nothing consumes the
+        # request: the tool waits and then says so, rather than claiming success.
         is_error, payload = server.tool("midi_write_to_live", {
             "name": "MCP selftest", "length_beats": 4.0,
             "notes": [{"pitch": 36, "start": 0.0, "duration": 0.5, "velocity": 100}],
@@ -336,6 +344,22 @@ def main():
             created_job_file.unlink()
         if created_build_dir and created_build_dir.exists() and created_build_dir.parent.name == "Builds":
             shutil.rmtree(created_build_dir)
+        # --- GAP-003: bars are converted with a real time signature, not an assumed 4/4 --
+            plan_file = ROOT / "ArrangementGPS" / "engine" / "output" / "ableton_session_plan.json"
+            if plan_file.exists():
+                _, build = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True, "beats_per_bar": 3})
+                beats = [step["beat"] for step in build.get("session_steps", []) if step.get("kind") == "locator"]
+                check("an explicit beats_per_bar drives every locator beat",
+                      beats == [(s - 1) * 3 for s in (1, 9, 25, 33, 49, 57, 73)], beats)
+                check("the response says where the beats-per-bar came from",
+                      build.get("beats_per_bar") == 3 and build.get("beats_per_bar_source") == "explicit",
+                      (build.get("beats_per_bar"), build.get("beats_per_bar_source")))
+                _, fallback = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True})
+                check("without a session or an explicit value, 4/4 is an admitted assumption",
+                      fallback.get("beats_per_bar_source") in ("live_session", "assumed_4_4"), fallback.get("beats_per_bar_source"))
+            else:
+                print("  --  GAP-003 check skipped: no session plan on this machine (run plan_create once)")
+
         server.close()
 
     print("%d checks passed:" % len(checks))

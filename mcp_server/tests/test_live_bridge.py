@@ -133,6 +133,21 @@ surface._process_next_request()
 record = json.loads((remote.ERROR_DIR / "bozuk.json").read_text())
 check("a corrupt request file does not jam the queue", "unreadable request" in record["error"], record.get("error"))
 
+# A Session clip write must use Live 11's note API. The old set_notes pair
+# still works but Live 12 answers it with a modal that blocks the surface
+# until a person clicks -- which is exactly what the user saw.
+filename = send({"op": "write_clip", "name": "API check", "length_beats": 4.0,
+                 "notes": [{"pitch": 36, "start": 0.0, "duration": 0.5, "velocity": 100},
+                           {"pitch": 38, "start": 1.0, "duration": 0.5, "velocity": 96}]})
+surface._process_next_request()
+record = json.loads((remote.DONE_DIR / filename).read_text())
+written_clip = next(slot.clip for slot in song.view.selected_track.clip_slots if slot.has_clip)
+check("a session clip is written through the Live 11 note API, not the legacy pair",
+      record["status"] == "ok" and record["result"]["note_api"] == "live11_extended"
+      and written_clip.calls["add_new_notes"] == 1 and written_clip.calls["set_notes"] == 0,
+      (record.get("result"), written_clip.calls))
+check("the notes land in the clip", len(written_clip.notes) == 2, written_clip.notes)
+
 filename = send({"op": "create_locator", "beat": 96, "name": "Drop"})
 surface._process_next_request()
 check("the locator is created inside Live",

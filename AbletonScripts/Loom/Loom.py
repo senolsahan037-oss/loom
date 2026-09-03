@@ -198,26 +198,38 @@ class Loom(ControlSurface):
         clip.loop_end = length_beats
         clip.end_marker = length_beats
 
-        notes = []
+        specs = []
         for note in payload.get("notes", []):
-            notes.append(
-                (
-                    int(note["pitch"]),
-                    float(note["start"]),
-                    max(0.01, float(note["duration"])),
-                    max(1, min(127, int(note["velocity"]))),
-                    False,
-                )
-            )
+            specs.append({
+                "pitch": int(note["pitch"]),
+                "start_time": float(note.get("start", note.get("time", 0.0))),
+                "duration": max(0.01, float(note["duration"])),
+                "velocity": max(1, min(127, int(note.get("velocity", 100)))),
+                "mute": False,
+            })
 
-        if hasattr(clip, "remove_notes"):
-            clip.remove_notes(0.0, 0, length_beats, 128)
-        clip.set_notes(tuple(notes))
+        # Live 11 replaced set_notes/remove_notes with add_new_notes and
+        # remove_notes_extended, and warns -- with a modal that blocks the
+        # surface until someone clicks -- whenever a script still uses the old
+        # pair, because the old pair drops MPE, probability and release
+        # velocity. The new pair is used wherever it exists; the old one stays
+        # only for a Live that has nothing else.
+        if hasattr(clip, "remove_notes_extended") and hasattr(clip, "add_new_notes"):
+            clip.remove_notes_extended(0, 128, 0.0, length_beats)
+            clip.add_new_notes(tuple(specs))
+            api = "live11_extended"
+        else:
+            if hasattr(clip, "remove_notes"):
+                clip.remove_notes(0.0, 0, length_beats, 128)
+            clip.set_notes(tuple((n["pitch"], n["start_time"], n["duration"], n["velocity"], False)
+                                 for n in specs))
+            api = "legacy"
         return {
             "track": track.name,
             "clip_name": clip.name,
             "length_beats": length_beats,
-            "note_count": len(notes),
+            "note_count": len(specs),
+            "note_api": api,
         }
 
     def _target_clip_slot(self, track):

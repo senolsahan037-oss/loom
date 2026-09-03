@@ -166,7 +166,7 @@ Bunlar `Docs/MISSING_CONTROLS_LOG.md` içinde numaralı olarak tutulur.
 
 - Render, Live'ın ses motorunu gerektirir — buradan yapılamaz. Sistem ne
   çıkması gerektiğini ve çıkanın uyup uymadığını söyler, arasını Live doldurur
-- Bar→beat çevirimi 4/4 varsayar (GAP-003). Yazıcı artık control surface'te çalıştığı için `song.signature_numerator` erişilebilir; kaldırılacak.
+- Bar→beat çevirimi oturumun kendi ölçüsünü okur (`signature_numerator`); ölçü ne oturumdan ne `.als`'ten okunabiliyorsa 4/4 varsayılır ve yanıt bunu `beats_per_bar_source` ile söyler (GAP-003 kapandı). İsteğe bağlı SDK extension'ı hâlâ 4/4 sabitiyle çalışır.
 - Otomasyon yazma mikser ve cihaz parametrelerini kapsar; klip zarfları henüz yok
 - Araç zaman aşımı sert değildir (Python'da iş parçacığı öldürülemez)
 

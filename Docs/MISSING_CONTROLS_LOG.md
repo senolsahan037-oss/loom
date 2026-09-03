@@ -64,10 +64,18 @@ Each gap record contains:
 - **Observed Behavior**: The Extensions SDK exposes no song time signature. `Song` has `tempo`, `rootNote`, `scaleName`, `gridQuantization` and `gridIsTriplet`, but the only time-signature accessor in the whole API surface is on `Scene`. The Python LOM's `song.signature_numerator`/`signature_denominator` are not mirrored in the SDK.
 - **Required Implementation**: A song-level time signature accessor on `Song` in the Extensions SDK, or read it from the Remote Script side and pass it through `arrangementgps_last_build.json`.
 - **Current Workaround**: `BEATS_PER_BAR = 4` in `sensei-midi-writer/src/extension.ts`, applied through a single `barToBeat()` helper so there is exactly one place to change. Any project not in 4/4 will place locators and clips at the wrong times.
-- **Note**: arrangements in 4/4 are built correctly today; this blocks only non-4/4
-  projects. The escape hatch is the Python side, where `song.signature_numerator`
-  does exist and could be passed through the bridge.
-- **Status**: WORKED AROUND
+- **Resolved 2026-09-03 on the control-surface path**: the writers now run in the
+  Remote Script, and every state it publishes carries `signature_numerator` /
+  `signature_denominator`. `_beats_per_bar()` in `mcp_server/server.py` resolves, in
+  order: an explicit `beats_per_bar` argument, the running session's own signature
+  (fresh state, no bridge round-trip), the `.als` via `project_inspect_arrangement`,
+  and only then 4/4 — reported as `beats_per_bar_source: "assumed_4_4"` rather than
+  passed off as a reading. Used by `midi_write_arrangement` and `project_build`.
+  Checked over real stdio: an explicit 3 beats/bar drives every locator beat.
+- **Still true for the optional SDK extension**: the Extensions SDK exposes no song
+  time signature, so `barToBeat()` there keeps its 4/4 constant. The extension is no
+  longer part of the install.
+- **Status**: RESOLVED
 
 ### GAP-004
 - **Timestamp**: 2026-09-01T01:15:00+03:00

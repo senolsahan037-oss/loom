@@ -146,8 +146,9 @@ TOOLS = [
             "type": "object",
             "properties": {
                 "track": {"type": "string", "description": "Track name in the session. Omit to use the selected track."},
-                "start_bar": {"type": "integer", "description": "1-based bar the clip starts on (4/4 assumed, as the arrangement builder does)."},
+                "start_bar": {"type": "integer", "description": "1-based bar the clip starts on, converted with the session's own time signature."},
                 "start_beat": {"type": "number", "description": "Alternative to start_bar: absolute start in beats."},
+                "beats_per_bar": {"type": "number", "description": "Beats in a bar. Omit to take it from the running session's own time signature (or the .als if als_path is given); 4/4 is assumed only when neither is available, and the response says which."},
                 "length_beats": {"type": "number", "description": "Clip length in beats.", "default": 16},
                 "name": {"type": "string", "description": "Clip name, e.g. the section: Intro, Verse 1, Hook.", "default": "Loom"},
                 "notes": {"type": "array", "items": {"type": "object", "properties": {"pitch": {"type": "integer"}, "start": {"type": "number"}, "duration": {"type": "number"}, "velocity": {"type": "integer"}}, "required": ["pitch", "start", "duration"]}, "description": "Notes relative to the clip start, in beats."},
@@ -227,7 +228,8 @@ TOOLS = [
                 "plan_path": {"type": "string", "description": "Use an existing session plan instead of running plan_create -- for a rebuild, or to test the write list without the Node chain."},
                 "dry_run": {"type": "boolean", "description": "true: report the write list, change nothing in Live. false: write.", "default": True},
                 "wait_seconds": {"type": "number", "description": "Per request, how long to wait for Live to consume it.", "default": 15},
-                "seed": {"type": "integer", "description": "Base seed; each track and section derives its own from it.", "default": 7}
+                "seed": {"type": "integer", "description": "Base seed; each track and section derives its own from it.", "default": 7},
+                "beats_per_bar": {"type": "number", "description": "Beats in a bar. Omit to read the running session's time signature; 4/4 is assumed only as a last resort and reported as such."}
             }
         }
     },
@@ -1091,12 +1093,42 @@ def handle_live_project(args: dict[str, Any]) -> dict[str, Any]:
 
 
 
+
+def _beats_per_bar(args: dict[str, Any]) -> tuple[float, str]:
+    """How many beats a bar has, and where that number came from.
+
+    The Extensions SDK never exposed a song time signature, which is why every
+    bar-to-beat conversion assumed 4/4 (GAP-003). The control surface does see
+    it -- Song.signature_numerator/denominator are in every state it publishes
+    -- and the .als carries it too. So: an explicit value wins, then the running
+    session's own signature, then the project file, and only then 4/4, which is
+    reported as an assumption rather than passed off as a reading.
+    """
+    if args.get("beats_per_bar"):
+        return float(args["beats_per_bar"]), "explicit"
+    try:
+        state = handle_live_state({"refresh": False, "max_age_seconds": 120})
+        numerator = state.get("signature_numerator")
+        denominator = state.get("signature_denominator") or 4
+        if state.get("available") and state.get("is_fresh") and numerator:
+            return float(numerator) * 4.0 / float(denominator), "live_session"
+    except Exception:  # noqa: BLE001 -- a stale or missing state is not an error here
+        pass
+    if args.get("als_path"):
+        try:
+            return float(handle_project_inspect_arrangement({"als_path": args["als_path"]})["beats_per_bar"]), "als"
+        except Exception:  # noqa: BLE001
+            pass
+    return 4.0, "assumed_4_4"
+
+
 def handle_midi_write_arrangement(args: dict[str, Any]) -> dict[str, Any]:
+    beats_per_bar, bpb_source = _beats_per_bar(args)
     if "start_beat" in args:
         start_beat = float(args["start_beat"])
     else:
         # Bars are 1-based in every plan this repo writes; beat 0 is bar 1.
-        start_beat = (int(args.get("start_bar", 1)) - 1) * 4.0
+        start_beat = (int(args.get("start_bar", 1)) - 1) * beats_per_bar
     payload: dict[str, Any] = {
         "op": "write_arrangement_clip",
         "start_beat": start_beat,
@@ -1106,7 +1138,10 @@ def handle_midi_write_arrangement(args: dict[str, Any]) -> dict[str, Any]:
     }
     if args.get("track"):
         payload["track"] = args["track"]
-    return _submit_bridge_request(payload, float(args.get("wait_seconds", 15)))
+    response = _submit_bridge_request(payload, float(args.get("wait_seconds", 15)))
+    response["beats_per_bar"] = beats_per_bar
+    response["beats_per_bar_source"] = bpb_source
+    return response
 
 
 def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
@@ -1540,12 +1575,13 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
     writers = [t for t in plan.get("tracks") or [] if t.get("sensei_role")]
     out_of_scope = [t.get("ableton_name") or t.get("display_name") for t in plan.get("tracks") or [] if not t.get("sensei_role")]
 
+    beats_per_bar, bpb_source = _beats_per_bar(args)
     steps: list[dict[str, Any]] = []
     if project.get("bpm"):
         steps.append({"kind": "tempo", "op": "set_tempo", "bpm": float(project["bpm"])})
     for section in sections:
         steps.append({"kind": "locator", "section": section["name"],
-                      "beat": (int(section["start_bar"]) - 1) * 4.0})
+                      "beat": (int(section["start_bar"]) - 1) * beats_per_bar})
 
     results: list[dict[str, Any]] = []
     for track_index, track in enumerate(writers):
@@ -1577,7 +1613,8 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
                       "duration": n["duration"], "velocity": n.get("velocity", 100)}
                      for n in (generated.get("payload") or {}).get("notes") or []]
             written = handle_midi_write_arrangement({
-                "track": name, "start_bar": int(section["start_bar"]), "length_beats": bars * 4.0,
+                "track": name, "start_bar": int(section["start_bar"]), "length_beats": bars * beats_per_bar,
+                "beats_per_bar": beats_per_bar,
                 "name": section["name"], "notes": notes, "wait_seconds": wait})
             results.append({**entry, "status": written.get("status"),
                             "notes": len(notes), "verified": (written.get("result") or {}).get("verified_note_count"),
@@ -1599,6 +1636,8 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
         "project": {"name": project.get("name"), "bpm": project.get("bpm"), "key": f"{root} {mode}",
                     "genre": genre, "sections": len(sections), "total_bars": project.get("total_bars")},
         "trigger": "Loom control surface (install.py); no extension involved",
+        "beats_per_bar": beats_per_bar,
+        "beats_per_bar_source": bpb_source,
         "session_steps": steps,
         "writes": results,
         "totals": dict(counts),

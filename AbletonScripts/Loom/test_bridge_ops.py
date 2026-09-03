@@ -64,6 +64,50 @@ class FakeArrangementClip(object):
                 and from_time <= n["start_time"] < from_time + time_span]
 
 
+class FakeSessionClip(object):
+    """A Session clip that speaks both note APIs and counts which one was used.
+
+    Live 11's add_new_notes/remove_notes_extended is what a script must call;
+    the old set_notes/remove_notes pair still exists but trips a modal warning
+    in Live 12. The counters let a test prove the surface took the new road.
+    """
+    def __init__(self, length):
+        self.name = ""
+        self.loop_start = 0.0
+        self.loop_end = float(length)
+        self.end_marker = float(length)
+        self.notes = []
+        self.calls = {"add_new_notes": 0, "remove_notes_extended": 0, "set_notes": 0, "remove_notes": 0}
+
+    def add_new_notes(self, specs):
+        self.calls["add_new_notes"] += 1
+        self.notes.extend(dict(spec) for spec in specs)
+
+    def remove_notes_extended(self, from_pitch, pitch_span, from_time, time_span):
+        self.calls["remove_notes_extended"] += 1
+        self.notes = [n for n in self.notes if not (from_time <= n["start_time"] < from_time + time_span)]
+
+    def set_notes(self, tuples):
+        self.calls["set_notes"] += 1
+        self.notes = [{"pitch": t[0], "start_time": t[1], "duration": t[2], "velocity": t[3]} for t in tuples]
+
+    def remove_notes(self, from_time, from_pitch, time_span, pitch_span):
+        self.calls["remove_notes"] += 1
+        self.notes = []
+
+
+class FakeClipSlot(object):
+    def __init__(self):
+        self.clip = None
+
+    @property
+    def has_clip(self):
+        return self.clip is not None
+
+    def create_clip(self, length):
+        self.clip = FakeSessionClip(length)
+
+
 class FakeTrack(object):
     def __init__(self, name, midi=True, devices=None):
         self.name = name
@@ -74,6 +118,7 @@ class FakeTrack(object):
         self.mixer_device = FakeMixer()
         self.devices = devices or []
         self.arrangement_clips = []
+        self.clip_slots = [FakeClipSlot() for _ in range(8)]
 
     def create_midi_clip(self, start_time, length):
         clip = FakeArrangementClip(start_time, length)
@@ -90,9 +135,26 @@ class FakeCue(object):
         self.time = time_
 
 
+class FakeReturnTrack(FakeTrack):
+    def __init__(self, name):
+        FakeTrack.__init__(self, name, midi=False)
+        self.can_be_armed = False
+
+    @property
+    def arm(self):
+        raise RuntimeError("Main and Return Tracks have no 'Arm' state!")
+
+    @arm.setter
+    def arm(self, value):
+        # FakeTrack.__init__ assigns arm; Live's Return track would refuse that
+        # too, but the point of this fake is the read, so the write is ignored.
+        pass
+
+
 class FakeView(object):
     def __init__(self, selected):
         self.selected_track = selected
+        self.highlighted_clip_slot = None
 
 
 class FakeSong(object):
@@ -107,6 +169,8 @@ class FakeSong(object):
         self.signature_numerator = 4
         self.signature_denominator = 4
         self.cue_points = []
+        # A Return track: Live raises on .arm rather than returning anything.
+        self.return_tracks = [FakeReturnTrack("A-Reverb")]
         self.view = FakeView(self.tracks[1])
 
     def start_playing(self):
@@ -272,6 +336,17 @@ def run():
         check("a negative start beat is refused", False)
     except bridge_ops.BridgeError:
         check("a negative start beat is refused", True)
+
+    # --- state capture survives tracks that refuse .arm ---------------------------
+    song = FakeSong()
+    state = bridge_ops.apply_operation(song, {"op": "get_state"})
+    check("get_state does not die on a Return track that raises on .arm",
+          isinstance(state, dict) and state.get("track_count") == 3, state if not isinstance(state, dict) else state.get("track_count"))
+    try:
+        song.return_tracks[0].arm
+        check("the fake really raises like Live does", False)
+    except RuntimeError:
+        check("the fake really raises like Live does", True)
 
     print("%d checks passed:" % len(checks))
     for label in checks:

@@ -89,6 +89,8 @@ def _attr(obj, name, default=None):
         return default
 
 
+
+
 def capture_state(song, include_devices=True):
     """Live'in o anki durumu. GAP-001'in okuma yarisi burasi."""
     view = getattr(song, "view", None)
@@ -103,7 +105,8 @@ def capture_state(song, include_devices=True):
             "has_midi_input": bool(_attr(track, "has_midi_input", False)),
             "mute": bool(_attr(track, "mute", False)),
             "solo": bool(_attr(track, "solo", False)),
-            "arm": bool(_attr(track, "arm", False)),
+            # None where Live refuses to say (Main/Return raise on .arm); see _attr.
+            "arm": _attr(track, "arm", None),
             "is_selected": selected is not None and track is selected,
         }
         if mixer is not None:
