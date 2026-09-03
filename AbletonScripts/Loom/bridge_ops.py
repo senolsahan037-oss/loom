@@ -235,21 +235,31 @@ def op_create_locator(song, payload):
         # playhead would drop the cue at the wrong beat. Say so instead.
         raise BridgeError("beat %g is beyond the arrangement length %g; write clips there first"
                           % (beat, float(length)))
-    existing = {cue.time: cue for cue in getattr(song, "cue_points", [])}
-    if beat in existing:
-        cue = existing[beat]
+    def _at_beat():
+        for cue in getattr(song, "cue_points", []):
+            if abs(float(cue.time) - beat) < 1e-6:
+                return cue
+        return None
+
+    cue = _at_beat()
+    if cue is not None:
         before = cue.name
         if payload.get("name"):
             cue.name = str(payload["name"])
         return {"created": False, "adopted": True, "beat": beat, "name_before": before, "name": cue.name}
     song.current_song_time = beat
     song.set_or_delete_cue()
-    for cue in getattr(song, "cue_points", []):
-        if cue.time == beat:
-            if payload.get("name"):
-                cue.name = str(payload["name"])
-            return {"created": True, "adopted": False, "beat": beat, "name": cue.name}
-    raise BridgeError("locator was not created at beat %g" % beat)
+    cue = _at_beat()
+    if cue is not None:
+        if payload.get("name"):
+            cue.name = str(payload["name"])
+        return {"created": True, "adopted": False, "beat": beat, "name": cue.name, "verified": True}
+    # Live toggles the cue synchronously but may not refresh cue_points until
+    # the next tick. Measured on 12.4.15b1: raising here made the caller retry,
+    # and the retry *deleted* the cue it could not see. Report it unverified
+    # instead; the caller checks the cue list afterwards.
+    return {"created": True, "adopted": False, "beat": beat, "name": payload.get("name"), "verified": False,
+            "note": "cue toggled; cue_points not refreshed yet, verify with get_state"}
 
 
 _PITCH_CLASS = {

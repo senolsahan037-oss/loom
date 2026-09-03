@@ -422,6 +422,16 @@ def run():
     except bridge_ops.BridgeError as error:
         check("an ambiguous name is refused", "found 2" in str(error), str(error))
 
+    # --- create_locator when Live has not refreshed cue_points yet -------------
+    class LaggingSong(FakeSong):
+        """set_or_delete_cue creates the cue but cue_points only shows it later."""
+        def set_or_delete_cue(self):
+            self._pending = FakeCue("", self.current_song_time)
+    song = LaggingSong()
+    lagging = bridge_ops.apply_operation(song, {"op": "create_locator", "beat": 64, "name": "Drop"})
+    check("an unrefreshed cue list yields created-but-unverified, never an error, never a second toggle",
+          lagging.get("created") is True and lagging.get("verified") is False and song.cue_points == [], lagging)
+
     # --- create_locator beyond the arrangement end ----------------------------
     song = FakeSong()
     try:

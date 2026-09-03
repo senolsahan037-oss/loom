@@ -1709,6 +1709,14 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
             else:
                 step["outcome"] = _submit_bridge_request({"op": "create_locator", "beat": step["beat"],
                                                           "name": step["section"]}, wait).get("status")
+        # The surface may answer a locator before Live refreshes its cue list;
+        # the arrangement is the truth, so read it back once at the end.
+        state = _submit_bridge_request({"op": "get_state"}, wait)
+        cues = (state.get("result") or {}).get("cue_points") or []
+        for step in steps:
+            if step["kind"] == "locator":
+                step["verified"] = any(abs(float(c.get("time", -1)) - step["beat"]) < 1e-6
+                                       and c.get("name") == step["section"] for c in cues)
 
     counts = Counter(r["status"] for r in results)
     return {
