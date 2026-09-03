@@ -125,7 +125,7 @@ TOOLS = [
             "type": "object",
             "properties": {
                 "preset_path": {"type": "string", "description": "Optional path or name of the Suite native instrument preset."},
-                "explicit_profile_id": {"type": "string", "description": "Explicit instrument profile ID (e.g. 'ableton.bass.808.v1', 'ableton.bass.synth.v1', 'ableton.chord.polyphonic.v1')."},
+                "explicit_profile_id": {"type": "string", "description": "Explicit instrument profile ID (e.g. 'ableton.bass.808.v1', 'ableton.bass.synth.v1', 'ableton.chord.piano.v1', 'ableton.chord.pad.v1')."},
                 "role": {"type": "string", "enum": ["bass", "chord", "drum"], "description": "Musical role of the target track."},
                 "genre": {"type": "string", "description": "Native Ableton genre (e.g. 'Trap', 'Hip Hop', 'House', 'Techno', 'Ambient').", "default": "Trap"},
                 "bars": {"type": "integer", "description": "Number of bars to generate (e.g. 2, 4, 8).", "default": 4},
@@ -887,10 +887,8 @@ def handle_midi_generate(args: dict[str, Any]) -> dict[str, Any]:
         target_context["loaded_preset_path"] = args["preset_path"]
     if args.get("explicit_profile_id"):
         target_context["explicit_profile_id"] = args["explicit_profile_id"]
-    elif args.get("role") == "bass":
-        target_context["explicit_profile_id"] = "ableton.bass.808.v1"
-    elif args.get("role") == "chord":
-        target_context["explicit_profile_id"] = "ableton.chord.polyphonic.v1"
+    elif args.get("role") in ("bass", "chord"):
+        target_context["explicit_profile_id"] = _profile_for_role(args["role"], args.get("instrument_family"))
     elif args.get("role") == "drum":
         target_context["device_classes"] = ["DrumGroupDevice"]
         target_context["verified_pad_map"] = True
@@ -1145,6 +1143,42 @@ def handle_midi_write_arrangement(args: dict[str, Any]) -> dict[str, Any]:
     response["beats_per_bar"] = beats_per_bar
     response["beats_per_bar_source"] = bpb_source
     return response
+
+
+
+# Instrument profile ids that actually exist in Sensei's catalogue
+# (Sensei/data/instrument_capabilities). The old chord default,
+# "ableton.chord.polyphonic.v1", never did -- every chord write was blocked
+# with explicit_profile_unknown until 2026-09-03.
+_CHORD_FAMILY_PROFILES = [
+    (("electric piano", "e-piano", "rhodes", "wurli", "daze"), "ableton.chord.electric-piano.v1"),
+    (("organ",), "ableton.chord.organ.v1"),
+    (("clav",), "ableton.chord.clav.v1"),
+    (("pad", "string", "ambient", "texture"), "ableton.chord.pad.v1"),
+    (("piano", "grand", "keys"), "ableton.chord.piano.v1"),
+    (("synth", "lead", "poly"), "ableton.chord.synth-keys.v1"),
+]
+_BASS_FAMILY_PROFILES = [
+    (("808", "sub"), "ableton.bass.808.v1"),
+    (("upright", "double bass", "acoustic"), "ableton.bass.upright.v1"),
+    (("electric", "finger", "pick", "slap"), "ableton.bass.electric.v1"),
+    (("mono",), "ableton.bass.monophonic.v1"),
+    (("synth", "analog", "reese", "acid"), "ableton.bass.synth.v1"),
+]
+_ROLE_DEFAULT_PROFILE = {"bass": "ableton.bass.synth.v1", "chord": "ableton.chord.piano.v1"}
+
+
+def _profile_for_role(role: str, instrument_family: str | None = None) -> str | None:
+    """Pick a real profile id for a role from the plan's instrument family name.
+    Drums are resolved from the verified device, never from a default."""
+    table = {"chord": _CHORD_FAMILY_PROFILES, "bass": _BASS_FAMILY_PROFILES}.get(role)
+    if table is None:
+        return None
+    family = (instrument_family or "").lower()
+    for keywords, profile_id in table:
+        if family and any(word in family for word in keywords):
+            return profile_id
+    return _ROLE_DEFAULT_PROFILE[role]
 
 
 def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
@@ -1634,12 +1668,14 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
             energy = activity.get(section.get("id"), section.get("energy"))
             density = None if energy is None else max(0.0, min(1.0, float(energy) / 100.0))
             request = {"role": role, "genre": genre or "Trap", "bars": bars,
+                       "instrument_family": track.get("instrument_family"),
                        "seed": base_seed + track_index * 100 + section_index,
                        "density": density, "genre_style": genre_style,
                        "target_root": root, "target_mode": mode}
             entry = {"track": name, "role": role, "section": section["name"],
                      "start_bar": int(section["start_bar"]), "bars": bars,
-                     "density": density, "genre_style": genre_style}
+                     "density": density, "genre_style": genre_style,
+                     "profile": _profile_for_role(role, track.get("instrument_family"))}
             if dry_run:
                 results.append({**entry, "status": "would_write"})
                 continue
@@ -1660,7 +1696,11 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
                                             if k.startswith(("density", "layer_fit"))}})
 
     if not dry_run:
-        for step in steps:
+        # Tempo and key first, locators last: an empty arrangement is a few
+        # beats long and Live refuses a cue past its end, so the section
+        # markers can only be placed once the clips have extended it.
+        ordered = [s for s in steps if s["kind"] != "locator"] + [s for s in steps if s["kind"] == "locator"]
+        for step in ordered:
             if step["kind"] == "tempo":
                 step["outcome"] = _submit_bridge_request({"op": "set_tempo", "bpm": step["bpm"]}, wait).get("status")
             elif step["kind"] == "key":

@@ -373,6 +373,33 @@ def main():
 
         server.close()
 
+    # --- role -> real profile id (the polyphonic default never existed) --------
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("loom_server", ROOT / "mcp_server" / "server.py")
+    loom_server = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(loom_server)
+    catalog_file = ROOT / "Sensei" / "data" / "instrument_capabilities" / "instrument_target_profiles.jsonl"
+    known = set()
+    if catalog_file.exists():
+        known = {json.loads(line).get("profile_id") for line in catalog_file.read_text(encoding="utf-8").splitlines() if line.strip()}
+    picks = {
+        ("chord", "Electric Piano Daze"): "ableton.chord.electric-piano.v1",
+        ("chord", "Warm Pad"): "ableton.chord.pad.v1",
+        ("chord", None): "ableton.chord.piano.v1",
+        ("bass", "Basic Analog Bass"): "ableton.bass.synth.v1",
+        ("bass", "808 Sub"): "ableton.bass.808.v1",
+        ("drum", "Drum Rack"): None,
+    }
+    for (role, family), expected in picks.items():
+        got = loom_server._profile_for_role(role, family)
+        check("profile for %s / %s is %s" % (role, family, expected), got == expected, got)
+    if known:
+        bad = {pid for _, pid in loom_server._CHORD_FAMILY_PROFILES + loom_server._BASS_FAMILY_PROFILES
+               if pid not in known} | {pid for pid in loom_server._ROLE_DEFAULT_PROFILE.values() if pid not in known}
+        check("every default profile id exists in this machine's catalogue", not bad, sorted(bad))
+    else:
+        print("  --  profile catalogue check skipped: no instrument_target_profiles.jsonl on this machine")
+
     print("%d checks passed:" % len(checks))
     for label in checks:
         print("  ok  %s" % label)

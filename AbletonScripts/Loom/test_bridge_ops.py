@@ -203,6 +203,7 @@ class FakeSong(object):
         self.signature_numerator = 4
         self.signature_denominator = 4
         self.cue_points = []
+        self.song_length = 512.0  # beats; Live's own read-only arrangement length
         # A Return track: Live raises on .arm rather than returning anything.
         self.return_tracks = [FakeReturnTrack("A-Reverb")]
         self.view = FakeView(self.tracks[1])
@@ -420,6 +421,15 @@ def run():
         check("an ambiguous name is refused", False)
     except bridge_ops.BridgeError as error:
         check("an ambiguous name is refused", "found 2" in str(error), str(error))
+
+    # --- create_locator beyond the arrangement end ----------------------------
+    song = FakeSong()
+    try:
+        bridge_ops.apply_operation(song, {"op": "create_locator", "beat": 4096, "name": "Outro"})
+        check("a locator past the arrangement length is refused with the reason", False)
+    except bridge_ops.BridgeError as error:
+        check("a locator past the arrangement length is refused with the reason",
+              "beyond the arrangement length" in str(error) and song.cue_points == [], str(error))
 
     # --- set_key --------------------------------------------------------------
     song = FakeSong()

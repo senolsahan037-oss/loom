@@ -228,6 +228,13 @@ def op_create_locator(song, payload):
     beat = float(payload["beat"])
     if beat < 0:
         raise BridgeError("beat must be >= 0")
+    length = getattr(song, "song_length", None)
+    if length is not None and beat > float(length):
+        # Live refuses to move the playhead past the end of the arrangement
+        # ("Cannot set the Songtime behind the Songlength"), and a clamped
+        # playhead would drop the cue at the wrong beat. Say so instead.
+        raise BridgeError("beat %g is beyond the arrangement length %g; write clips there first"
+                          % (beat, float(length)))
     existing = {cue.time: cue for cue in getattr(song, "cue_points", [])}
     if beat in existing:
         cue = existing[beat]
