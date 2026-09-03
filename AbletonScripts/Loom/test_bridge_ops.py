@@ -476,17 +476,19 @@ def run():
     recording = bridge_ops.apply_operation(song, {"op": "capture_record", "position": 0})
     check("capture_record turns record mode on and starts the transport",
           song.record_mode is True and song.is_playing is True and recording.get("clips_before") == 0, recording)
+    stopped = bridge_ops.apply_operation(song, {"op": "capture_stop"})
+    check("capture_stop turns recording off, stops and disarms without needing the clip yet",
+          song.record_mode is False and song.is_playing is False and cap.arm is False and stopped.get("clips") == 0, stopped)
     try:
-        bridge_ops.apply_operation(song, {"op": "capture_stop"})
-        check("capture_stop with nothing recorded says so", False)
+        bridge_ops.apply_operation(song, {"op": "capture_result"})
+        check("capture_result with no clip yet says the clip comes later", False)
     except bridge_ops.BridgeError as error:
-        check("capture_stop with nothing recorded says so", "no clip was recorded" in str(error), str(error))
+        check("capture_result with no clip yet says the clip comes later", "a moment after" in str(error), str(error))
     recorded = FakeArrangementClip(0.0, 16.0)
     recorded.file_path = "/tmp/Live Recordings/Loom Capture 0001.aif"
     cap.arrangement_clips.append(recorded)
-    stopped = bridge_ops.apply_operation(song, {"op": "capture_stop"})
-    check("capture_stop turns recording off, stops, disarms and returns the recorded file",
-          stopped.get("file_path") == recorded.file_path and song.record_mode is False and song.is_playing is False and cap.arm is False, stopped)
+    result = bridge_ops.apply_operation(song, {"op": "capture_result"})
+    check("capture_result returns the newest recorded clip's file", result.get("file_path") == recorded.file_path and result.get("clips") == 1, result)
     again = bridge_ops.apply_operation(song, {"op": "capture_prepare"})
     check("a second capture adopts the same track instead of adding one",
           again.get("created") is False and sum(1 for t in song.tracks if t.name == "Loom Capture") == 1, again)

@@ -451,20 +451,29 @@ def op_capture_record(song, payload):
 
 
 def op_capture_stop(song, payload):
+    """Recording off, transport stopped, track disarmed. The recorded clip
+    only appears on a later tick, so it is read by capture_result."""
     track, _created = _capture_track(song, create=False)
     song.record_mode = False
     if not payload.get("keep_playing"):
         song.stop_playing()
     if payload.get("disarm", True):
         track.arm = False
+    return {"track": track.name, "record_mode": bool(song.record_mode),
+            "is_playing": bool(getattr(song, "is_playing", False)),
+            "clips": len(list(getattr(track, "arrangement_clips", []) or []))}
+
+
+def op_capture_result(song, payload):
+    """The newest arrangement clip on the capture track and its file."""
+    track, _created = _capture_track(song, create=False)
     clips = list(getattr(track, "arrangement_clips", []) or [])
     if not clips:
-        raise BridgeError("no clip was recorded on %r (was record_mode on and the transport running?)" % track.name)
+        raise BridgeError("no clip on %r yet (Live creates the recorded clip a moment after recording stops)" % track.name)
     newest = max(clips, key=lambda c: float(getattr(c, "start_time", 0.0)))
-    path = getattr(newest, "file_path", None)
-    return {"track": track.name, "clip_name": getattr(newest, "name", None), "start_time": getattr(newest, "start_time", None),
-            "end_time": getattr(newest, "end_time", None), "file_path": path, "clips": len(clips),
-            "record_mode": bool(song.record_mode), "is_playing": bool(getattr(song, "is_playing", False))}
+    return {"track": track.name, "clip_name": getattr(newest, "name", None),
+            "start_time": getattr(newest, "start_time", None), "end_time": getattr(newest, "end_time", None),
+            "file_path": getattr(newest, "file_path", None), "clips": len(clips)}
 
 
 class _NoteSpec(object):
@@ -588,6 +597,7 @@ OPERATIONS = {
     "capture_arm": op_capture_arm,
     "capture_record": op_capture_record,
     "capture_stop": op_capture_stop,
+    "capture_result": op_capture_result,
 }
 
 # Operations that need Live's browser as well as the song.

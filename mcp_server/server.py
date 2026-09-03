@@ -547,7 +547,7 @@ TOOLS = [
         "inputSchema": {
             "type": "object",
             "properties": {
-                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx", "capture_prepare", "capture_route", "capture_arm", "capture_record", "capture_stop"], "description": "Operation to run inside Live."},
+                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx", "capture_prepare", "capture_route", "capture_arm", "capture_record", "capture_stop", "capture_result"], "description": "Operation to run inside Live."},
                 "track": {"type": "string", "description": "Track name, exactly as Live shows it. Must match exactly one track."},
                 "device": {"type": "string", "description": "Device name on that track."},
                 "parameter": {"type": "string", "description": "Parameter name on that device."},
@@ -2818,8 +2818,14 @@ def handle_crate_to_live(args: dict[str, Any]) -> dict[str, Any]:
         if key in args:
             payload[key] = args[key]
     answer = _submit_bridge_request(payload, float(args.get("wait_seconds", 20)))
-    if "unsupported_in_extension" not in str(answer.get("error") or "") and answer.get("status") == "FAILED_IN_LIVE" \
-            and "unknown op" in str(answer.get("error") or ""):
+    error = str(answer.get("error") or "")
+    if answer.get("status") == "FAILED_IN_LIVE" and "import_into_project failed" in error and args.get("import", True):
+        # No project folder (unsaved set): reference the file where it is
+        # and say so, instead of failing the whole placement.
+        retry = _submit_bridge_request({**payload, "import": False}, float(args.get("wait_seconds", 20)))
+        retry["import_fallback"] = {"reason": error[:200], "note": "the clip references the file in place; save the set to a project and re-run to let Live copy it"}
+        return retry
+    if answer.get("status") == "FAILED_IN_LIVE" and "unknown op" in error:
         answer["note"] = "The active bridge is the control surface, which cannot import audio; the extension bridge is needed."
     return answer
 
@@ -2904,16 +2910,34 @@ def _mix_capture_resample(args: dict[str, Any]) -> dict[str, Any]:
         if answer.get("status") != "OK":
             return {"status": "CAPTURE_FAILED", "stage": op, "error": answer.get("error"), "steps": steps}
         time.sleep(gap)
+    # Live applies record_mode/start_playing after the tick that set them;
+    # confirm from a later state read that the transport really runs.
     t0 = time.time()
+    time.sleep(min(1.5, seconds))
+    probe = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "get_state", "include_devices": False}, wait)
+    recording_confirmed = bool((probe.get("result") or {}).get("is_playing"))
     while time.time() - t0 < seconds:
         check_cancelled()
         time.sleep(0.2)
     stopped = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "capture_stop"}, wait)
-    result: dict[str, Any] = {"method": "resample", "seconds_requested": seconds, "steps": steps, "stop": stopped.get("result")}
+    result: dict[str, Any] = {"method": "resample", "seconds_requested": seconds, "steps": steps,
+                              "recording_confirmed": recording_confirmed, "stop": stopped.get("result")}
     if stopped.get("status") != "OK":
         result.update({"status": "CAPTURE_FAILED", "stage": "capture_stop", "error": stopped.get("error")})
         return result
-    file_path = (stopped.get("result") or {}).get("file_path")
+    # The recorded clip materialises a moment after recording stops.
+    clip_answer: dict[str, Any] = {}
+    for _attempt in range(6):
+        time.sleep(1.0)
+        clip_answer = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "capture_result"}, wait)
+        if clip_answer.get("status") == "OK":
+            break
+    result["clip"] = clip_answer.get("result")
+    if clip_answer.get("status") != "OK":
+        result.update({"status": "NO_CLIP", "error": clip_answer.get("error"),
+                       "note": "Live recorded nothing on 'Loom Capture'" + ("" if recording_confirmed else "; the transport was not running during the window")})
+        return result
+    file_path = (clip_answer.get("result") or {}).get("file_path")
     if not file_path:
         result.update({"status": "NO_FILE", "note": "Live recorded a clip but reported no file path"})
         return result
