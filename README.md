@@ -110,6 +110,23 @@ Kurulumdan sonra iki şeyi yeniden başlatın: **MCP istemciniz** (yeni sunucuyu
 görsün) ve **Ableton Live** — sonra Settings → Link/MIDI altında
 `Loom`'u Control Surface olarak seçin.
 
+### Crate: YouTube'dan sample paketine tek tetik
+
+`crate_agent(source)` bir YouTube bağlantısını ya da yerel dosyayı alır, sesi
+okur (tempo, ton, seviye, kalite; ölçemediğinde nedenini söyler), chop
+adaylarını sıralar, chop modunu bu kanıttan seçer (ölçülmüş tempo chop
+aralığındaysa bar grid'i, yoksa transient), dilimler ve manifestine her ölçümü
+ve her kararın gerekçesini yazar. Aşamalar ayrı ayrı da çağrılır: `crate_fetch`,
+`crate_read`, `crate_spots`, `crate_chop`. Motor SubverseLab'in sample-reader ve
+Sampler araçlarının kendi kodu (`SampleAgent/`), Launchpad'deki CLI'lar da aynı
+kopyayı kullanır.
+
+### Mix Check
+
+`mix_measure`, `mix_analyze`, `mix_profiles`: SubverseLab Mix Check ölçüm motoru
+(`MixAnalyzer/`), tepe/RMS/crest/BS.1770 loudness, 1/3 oktav spektrum, mono
+fold-down, referans ya da ölçülmüş tür profiliyle karşılaştırma.
+
 ### Tek kurulum, tek tetik
 
 Live tarafında iki eşdeğer uç var; MCP ikisine de aynı istek/`done` dosya

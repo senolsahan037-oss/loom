@@ -114,7 +114,7 @@ def main():
         # An exact count, so a tool quietly disappearing is caught. The message
         # carries the names because a bare number tells you something moved but
         # not what.
-        check("36 tools are published", len(names) == 36, sorted(names))
+        check("41 tools are published", len(names) == 41, sorted(names))
         check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
         check("tool names are unique", len(set(names)) == len(names))
 
@@ -366,6 +366,79 @@ def main():
         except ImportError:
 
             print("  --  mix_measure check skipped: numpy/soundfile not installed here")
+
+
+        # --- Crate agent (reader + sampler under one trigger) ---
+
+
+        try:
+
+
+            import numpy as _np
+
+
+            import soundfile as _sf
+
+
+            crate_dir = Path(tempfile.mkdtemp())
+
+
+            click = crate_dir / "click.wav"
+
+
+            _sr, _bpm = 44_100, 120.0
+
+
+            _sig = _np.zeros(int(_sr * 0.5 * 4 * 8), dtype=_np.float32)
+
+
+            for _i in range(32):
+
+
+                _s = int(_i * 0.5 * _sr); _n = int(0.06 * _sr)
+
+
+                _sig[_s:_s + _n] += 0.6 * _np.exp(-_np.linspace(0, 6, _n)) * _np.sin(2 * _np.pi * 220 * _np.arange(_n) / _sr)
+
+
+            _sf.write(click, _np.column_stack((_sig, _sig)), _sr, subtype="FLOAT")
+
+
+            is_error, payload = server.tool("crate_read", {"path": str(click)})
+
+
+            check("crate_read measures the file and carries the reader's refusal fields",
+
+
+                  not is_error and payload.get("ok") is True and "tempo_reason" in payload, payload)
+
+
+            is_error, payload = server.tool("crate_chop", {"path": str(click), "modes": ["fixed"], "out_dir": str(crate_dir / "packs"), "name": "mcpclick", "seconds": 2.0, "keep_source": False})
+
+
+            check("crate_chop writes a pack with a manifest", not is_error and payload.get("slices_total", 0) > 0 and Path(payload.get("manifest", "")).exists(), payload)
+
+
+            is_error, payload = server.tool("crate_agent", {"source": str(click), "dry_run": True})
+
+
+            check("crate_agent dry run plans from the reading and writes nothing",
+
+
+                  not is_error and payload.get("dry_run") is True and payload.get("plan", {}).get("reason") and "pack" not in payload, payload)
+
+
+            is_error, payload = server.tool("crate_chop", {"path": str(click), "modes": ["magic"]})
+
+
+            check("an unknown chop mode is refused", is_error and "unknown chop mode" in str(payload), payload)
+
+
+        except ImportError:
+
+
+            print("  --  crate checks skipped: numpy/soundfile not installed here")
+
 
 
         # --- Telemetry ---

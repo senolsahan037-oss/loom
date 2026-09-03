@@ -21,6 +21,7 @@ run "Bridge command layer"      python3 "$ROOT/AbletonScripts/Loom/test_bridge_o
 run "Presetor"                  python3 "$ROOT/Presetor/tests/test_presetor.py"
 run "AISoundDesigner"           python3 "$ROOT/AISoundDesigner/tests/test_sounddesigner.py"
 run "Mix Check"                 sh -c "cd \"$ROOT/MixAnalyzer\" && python3 -m pytest tests/ -q"
+run "Crate agent"               sh -c "cd \"$ROOT/SampleAgent\" && python3 -m pytest tests/ -q"
 run "MCP protocol conformance"  python3 "$ROOT/mcp_server/tests/test_mcp_protocol.py"
 
 echo

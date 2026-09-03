@@ -621,6 +621,92 @@ TOOLS = [
         "description": "List the stored Genre Profiles mix_analyze can compare against: id, name, how many released masters each was measured from, and the measurement contract version.",
         "inputSchema": {"type": "object", "properties": {}}
     },
+    {
+        "name": "crate_fetch",
+        "description": "Bring a source into the crate: a YouTube URL (yt-dlp + ffmpeg) or a local audio/video file, optionally trimmed, decoded to a 44.1 kHz stereo WAV in the crate's work directory. Returns the WAV path and the source metadata (title, video id, duration, trim). The SubverseLab Sampler's fetch stage.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "source": {"type": "string", "description": "YouTube URL or a local file path."},
+                "start": {"type": "string", "description": "Trim start, e.g. '1:12' or '72'."},
+                "end": {"type": "string", "description": "Trim end."},
+                "workdir": {"type": "string", "description": "Where to keep the decoded WAV (default: the crate work directory under Sessions)."}
+            },
+            "required": ["source"]
+        }
+    },
+    {
+        "name": "crate_read",
+        "description": "Measure the audio itself, not its file name: level, noise floor, silence share, stereo width, tempo (from loop length + autocorrelation octave choice, 82% measured accuracy vs 31% for beat tracking) with its chop-range fold, onset rate, key with confidence, brightness and harmonic ratio. Says why when it cannot answer (one_shot, no_plausible_bar_count, ambiguous key, ableton_compressed). The SubverseLab sample-reader.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Audio file to read."}
+            },
+            "required": ["path"]
+        }
+    },
+    {
+        "name": "crate_spots",
+        "description": "Find chop candidates inside a longer recording: the top N windows ranked by harmonic content, onset density and level, each with a bar count, a score and the reason, plus the beat grid the ranking used. With a YouTube video id, the watch URLs that loop each spot. The sample-reader's spots stage.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Audio file to scan."},
+                "top": {"type": "integer", "description": "How many candidates (default 6).", "default": 6},
+                "video_id": {"type": "string", "description": "YouTube video id, to return loop URLs for each spot."}
+            },
+            "required": ["path"]
+        }
+    },
+    {
+        "name": "crate_chop",
+        "description": "Slice a recording into a sample pack the way the Sampler CLI does: modes transient, bars, fixed, silence, leftover or all; WAV slices per mode with fades, optional normalisation, a manifest that records how the slices were really produced (a given --bpm writes that grid, not librosa's estimate). Returns the pack directory, per-mode slice counts and the analysis.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Decoded WAV (from crate_fetch) or any local audio file."},
+                "modes": {"type": "array", "items": {"type": "string", "enum": ["transient", "bars", "fixed", "silence", "leftover", "all"]}, "description": "Chop modes (default ['transient'])."},
+                "out_dir": {"type": "string", "description": "Pack root (default: Sessions/SamplePacks under Loom)."},
+                "name": {"type": "string", "description": "Pack folder name (default: from the source title)."},
+                "bpm": {"type": "number", "description": "Known tempo; overrides the estimate and writes that grid."},
+                "grid_offset": {"type": "string", "description": "Where the bar grid starts, as a timestamp, with bpm."},
+                "bars": {"type": "integer", "description": "Bars per slice in bars mode (default 2).", "default": 2},
+                "beats_per_bar": {"type": "integer", "description": "Default 4.", "default": 4},
+                "seconds": {"type": "number", "description": "Slice length in fixed mode (default 2.0).", "default": 2.0},
+                "min_len": {"type": "number", "description": "Shortest slice in seconds (default 0.08).", "default": 0.08},
+                "max_len": {"type": "number", "description": "Longest slice in seconds."},
+                "tail": {"type": "number", "description": "Extra seconds after each transient slice.", "default": 0.0},
+                "top_db": {"type": "number", "description": "Silence threshold below peak for silence/leftover modes (default 30).", "default": 30.0},
+                "fade_ms": {"type": "number", "description": "Fade at slice edges in ms (default 5).", "default": 5.0},
+                "normalize_dbfs": {"type": "number", "description": "Peak-normalise every slice to this dBFS (omit for none)."},
+                "bit_depth": {"type": "integer", "enum": [16, 24, 32], "description": "Default 24.", "default": 24},
+                "max_slices": {"type": "integer", "description": "Per-mode cap (default 200).", "default": 200},
+                "keep_source": {"type": "boolean", "description": "Copy the decoded source into the pack as _source.wav (default true).", "default": True},
+                "source_meta": {"type": "object", "description": "Metadata from crate_fetch, recorded in the manifest."}
+            },
+            "required": ["path"]
+        }
+    },
+    {
+        "name": "crate_agent",
+        "description": "THE crate trigger: from one source (YouTube URL or file) to a measured sample pack in one call. Fetches, reads the audio (tempo, key, quality), finds the chop spots, picks the chop mode from the evidence -- bars on the reader's own grid when the tempo is measured and inside the chop range, transients otherwise -- slices, and writes a pack whose manifest carries the reading, the spots and the reason for every choice. Nothing is guessed: a tempo the reader could not measure is reported as such and the pack falls back to transients. Dry run by default reports the plan without writing.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "source": {"type": "string", "description": "YouTube URL or local file."},
+                "start": {"type": "string", "description": "Trim start."},
+                "end": {"type": "string", "description": "Trim end."},
+                "out_dir": {"type": "string", "description": "Pack root (default: Sessions/SamplePacks under Loom)."},
+                "name": {"type": "string", "description": "Pack folder name."},
+                "modes": {"type": "array", "items": {"type": "string"}, "description": "Force these chop modes instead of choosing from the reading."},
+                "bpm": {"type": "number", "description": "Known tempo, wins over the reading."},
+                "top_spots": {"type": "integer", "description": "How many chop spots to rank (default 6).", "default": 6},
+                "dry_run": {"type": "boolean", "description": "true: fetch, read and plan only; false: also slice and write the pack.", "default": True}
+            },
+            "required": ["source"]
+        }
+    },
 {
         "name": "setup_scan",
         "description": "First-run setup: build Loom's catalogues from the stock Ableton library on THIS machine, read out of Live's own file index. Loom ships code and fixtures but never measurements, so each user generates their own. Reports state by default and writes nothing until asked.",
@@ -2631,6 +2717,37 @@ def _compact_mix_result(result: dict[str, Any]) -> dict[str, Any]:
     return compact
 
 
+
+# --- Crate agent (SubverseLab sample-reader + Sampler, ported 2026-09-03) ----
+SAMPLE_AGENT_DIR = LOOM_DIR / "SampleAgent"
+
+
+def _crate_module():
+    if str(SAMPLE_AGENT_DIR) not in sys.path:
+        sys.path.insert(0, str(SAMPLE_AGENT_DIR))
+    import crate_agent  # noqa: WPS433 -- librosa, soundfile, yt-dlp/ffmpeg at call time
+    return crate_agent
+
+
+def handle_crate_fetch(args: dict[str, Any]) -> dict[str, Any]:
+    return _crate_module().fetch(args["source"], start=args.get("start"), end=args.get("end"), workdir=args.get("workdir"))
+
+
+def handle_crate_read(args: dict[str, Any]) -> dict[str, Any]:
+    return _crate_module().read(args["path"])
+
+
+def handle_crate_spots(args: dict[str, Any]) -> dict[str, Any]:
+    return _crate_module().spots(args["path"], top=int(args.get("top") or 6), video_id=args.get("video_id"))
+
+
+def handle_crate_chop(args: dict[str, Any]) -> dict[str, Any]:
+    return _crate_module().chop(args["path"], **{k: v for k, v in args.items() if k != "path"})
+
+
+def handle_crate_agent(args: dict[str, Any]) -> dict[str, Any]:
+    return _crate_module().run(args["source"], **{k: v for k, v in args.items() if k != "source"})
+
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
     selection = _select_bridge_root()
     ensure_bridge_dirs()
@@ -2698,6 +2815,11 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "mix_measure": handle_mix_measure,
         "mix_analyze": handle_mix_analyze,
         "mix_profiles": handle_mix_profiles,
+        "crate_fetch": handle_crate_fetch,
+        "crate_read": handle_crate_read,
+        "crate_spots": handle_crate_spots,
+        "crate_chop": handle_crate_chop,
+        "crate_agent": handle_crate_agent,
         "setup_scan": handle_setup_scan,
         "gap_record": handle_gap_record,
         "plan_verify": handle_plan_verify,

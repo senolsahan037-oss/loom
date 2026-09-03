@@ -1,55 +1,52 @@
+
+!ArrangementGPS/Builds/fixture_project/
+# (uretici: Sensei/ableton/genre_identity.py, *_instrument_catalog.py)
+# --- Kisisel veri: makineye ve kullaniciya ozel, urunun parcasi degil ---
+# Araclarin aldigi yedekler
+# Derived files large enough that regenerating beats storing: the per-song maps
+# Groove MIDI, POP909 and Lakh together are ~900 MB and are not ours to ship.
+# Hepsi yeniden uretilebilir. Depo kod + fixture yayinlar, olcum yayinlamaz.
+# Kopru kuyrugu: calisma zamani durumu
+# MusicalIntelligence: third-party corpora are downloaded, never vendored --
+# One user's own record collection, measured for their own sampling work. It is
 # Sanal ortamlar ve bagimliliklar
+# Sensei veri kumeleri kullanicinin KENDI Ableton kurulumundan uretilir
+# Uretilen ciktilar
+# and the full chart catalogue. The small aggregate profiles DO ship -- they are
+# downloads to get them.
+# every user one listener's shelf.
+# personal taste, and mixing it into the product's genre evidence would teach
+# the evidence the product reasons from, and a user should not need 900 MB of
+**/.env
 **/.venv/
-**/node_modules/
 **/__pycache__/
+**/node_modules/
+*.mcp_backup_*.als
+*.pre_*_backup.als
 *.pyc
 *.pyo
-
-# Uretilen ciktilar
-Sensei/extensions/*/dist/
+.DS_Store
+AIMixMaster/CURRENT_MIXMASTER_ALS.txt
+AIMixMaster/als_test/
+AIMixMaster/felekten_*.txt
+AIMixMaster/reports/
+AISoundDesigner/data/measured_*.json
+ArrangementGPS/Builds/*
 ArrangementGPS/dist/
-mcp_server/responses/
+ArrangementGPS/engine/output/
+Docs/arrangement_shapes_*.json
+MusicalIntelligence/data/corpus/hits_world.json
+MusicalIntelligence/data/corpus/pop_songmaps.json
+MusicalIntelligence/data/personal/
+MusicalIntelligence/data/sources/
+Presetor/data/measured_*.json
 Renderer/Jobs/*.json
 Renderer/Renders/
 Renderer/Stems/
-
-# Kopru kuyrugu: calisma zamani durumu
-Sensei/data/bridge_queue/
-
-# Araclarin aldigi yedekler
-*.mcp_backup_*.als
-*.pre_*_backup.als
-
-.DS_Store
-
-# --- Kisisel veri: makineye ve kullaniciya ozel, urunun parcasi degil ---
-# Hepsi yeniden uretilebilir. Depo kod + fixture yayinlar, olcum yayinlamaz.
-**/.env
-Presetor/data/measured_*.json
-AISoundDesigner/data/measured_*.json
-Docs/arrangement_shapes_*.json
-AIMixMaster/reports/
-AIMixMaster/als_test/
-AIMixMaster/felekten_*.txt
-AIMixMaster/CURRENT_MIXMASTER_ALS.txt
-ArrangementGPS/Builds/*
-!ArrangementGPS/Builds/fixture_project/
-ArrangementGPS/engine/output/
-# Sensei veri kumeleri kullanicinin KENDI Ableton kurulumundan uretilir
-# (uretici: Sensei/ableton/genre_identity.py, *_instrument_catalog.py)
-Sensei/data/
+SampleAgent/sampler_engine/fixtures/
 Sensei/DatasetRoot/indexes/
-
-# MusicalIntelligence: third-party corpora are downloaded, never vendored --
-# Groove MIDI, POP909 and Lakh together are ~900 MB and are not ours to ship.
-MusicalIntelligence/data/sources/
-# One user's own record collection, measured for their own sampling work. It is
-# personal taste, and mixing it into the product's genre evidence would teach
-# every user one listener's shelf.
-MusicalIntelligence/data/personal/
-# Derived files large enough that regenerating beats storing: the per-song maps
-# and the full chart catalogue. The small aggregate profiles DO ship -- they are
-# the evidence the product reasons from, and a user should not need 900 MB of
-# downloads to get them.
-MusicalIntelligence/data/corpus/pop_songmaps.json
-MusicalIntelligence/data/corpus/hits_world.json
+Sensei/data/
+Sensei/data/bridge_queue/
+Sensei/extensions/*/dist/
+Sessions/SamplePacks/
+mcp_server/responses/
