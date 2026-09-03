@@ -30,7 +30,15 @@ def write_dataset_release_manifest(output_directory: str | Path, *, artifacts: M
         path = Path(value).expanduser().resolve()
         if not path.is_file():
             raise FileNotFoundError(f"Dataset artifact is missing: {name} ({path})")
-        normalized[name] = {"path": str(path), "sha256": _sha256(path), "bytes": path.stat().st_size}
+        # Recorded relative to the data root whenever the artifact lives under
+        # it. An absolute path here is the build machine's, which exists on no
+        # other disk and breaks the moment the project is renamed.
+        data_root = Path(output_directory).resolve().parents[1]
+        try:
+            recorded = path.resolve().relative_to(data_root)
+        except ValueError:
+            recorded = path
+        normalized[name] = {"path": str(recorded), "sha256": _sha256(path), "bytes": path.stat().st_size}
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "generated_at": datetime.now(timezone.utc).isoformat(),

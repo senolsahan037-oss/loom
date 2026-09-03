@@ -1,22 +1,78 @@
 {
-  "schema_version": "ai-producer.dataset-release.v1",
-  "release_id": "shared-phase6-v1",
+  "collections": {
+    "arrangementgps.legacy_examples": {
+      "format": "directory",
+      "path": "../../api_generated/arrangementgps",
+      "records": 1128,
+      "status": "legacy"
+    },
+    "sensei.bass_instruments": {
+      "bytes": 1361808,
+      "format": "jsonl",
+      "path": "../../../data/bass_instruments/ableton_bass_instruments.jsonl",
+      "sha256": "e8be3ce8e1631ff569f21cee516498fdbca5db71a385e931bc498a4baf321e02",
+      "status": "locked"
+    },
+    "sensei.canonical_midi": {
+      "bytes": 11308138,
+      "format": "jsonl",
+      "path": "../../../data/canonical_midi_corpus/canonical_midi_clips.jsonl",
+      "records": 1812,
+      "sha256": "b6fe219b2c2eeceefca5ba08957f467a1b1a5cead6defaa07c9c4b59b9d31fd2",
+      "status": "locked"
+    },
+    "sensei.chord_instruments": {
+      "bytes": 2771831,
+      "format": "jsonl",
+      "path": "../../../data/chord_instruments/ableton_chord_instruments.jsonl",
+      "sha256": "a166608e5fdb2802cab26bdb2c6c63f19e265317ada52c2b6ce4a51548e5d55c",
+      "status": "locked"
+    },
+    "sensei.genre_neighbor_graph": {
+      "bytes": 34913,
+      "format": "json",
+      "path": "../../../data/genre_identity/ableton_genre_neighbor_graph.json",
+      "sha256": "3b3fd0df4ea6199a9c13306216b01f29441ee3fa4ed5ea1e07c7f25fb0afdd92",
+      "status": "locked"
+    },
+    "sensei.grooves": {
+      "bytes": 101478,
+      "format": "jsonl",
+      "path": "../../../data/groove_corpus/ableton_groove_catalog.jsonl",
+      "sha256": "6eef2c2af2803a55ba3163c80a14d5aca4bd5e15415022aa663fe5758d0ef474",
+      "status": "locked"
+    },
+    "sensei.instrument_capabilities": {
+      "bytes": 9524,
+      "format": "jsonl",
+      "path": "../../../data/instrument_capabilities/instrument_target_profiles.jsonl",
+      "sha256": "cb7285252459ea04e4e73da0e263f5410ba0d4cc4870f1bb3aa749e4c9a7f23d",
+      "status": "locked"
+    },
+    "sensei.preset_genre_identities": {
+      "bytes": 2502191,
+      "format": "jsonl",
+      "path": "../../../data/genre_identity/ableton_preset_genre_identities.jsonl",
+      "records": 2252,
+      "sha256": "8d4c1e174cc48714376d8c05a586b03854d27ef4e30b0b7c8b880b594ad842a2",
+      "status": "locked"
+    },
+    "sensei.variation_sources": {
+      "bytes": 1394165,
+      "format": "jsonl",
+      "path": "../../../data/variation_corpus/clean_midi_variation_corpus.jsonl",
+      "records": 2240,
+      "sha256": "b3df383243a7f54165f99735c8d65bec5b2ecd30c810e944232045d1f9a58164",
+      "status": "locked"
+    }
+  },
   "generated_at": "2026-08-09T02:38:56.587889+00:00",
   "policy": {
     "consumers_are_read_only": true,
-    "verify_hashes_before_generation": true,
     "generator_must_consume_registered_collections": true,
-    "source_native_and_derived_are_separate": true
+    "source_native_and_derived_are_separate": true,
+    "verify_hashes_before_generation": true
   },
-  "collections": {
-    "sensei.bass_instruments": {"path": "../../../data/bass_instruments/ableton_bass_instruments.jsonl", "format": "jsonl", "status": "locked", "bytes": 436388, "sha256": "88f76d788a1e2fdc270184217bf878d87ce1c3669906185e15e0cac1b35644c4"},
-    "sensei.canonical_midi": {"path": "../../../data/canonical_midi_corpus/canonical_midi_clips.jsonl", "format": "jsonl", "status": "locked", "bytes": 11284866, "sha256": "6a14c36a31884faa622d93a0b2d50185dfc296249d8d10ff8ce4b129f0321398", "records": 1812},
-    "sensei.chord_instruments": {"path": "../../../data/chord_instruments/ableton_chord_instruments.jsonl", "format": "jsonl", "status": "locked", "bytes": 730906, "sha256": "05d2f4bb7472fdaa29ac8bed4e6439824949b1b7f23839c6da463f332057829f"},
-    "sensei.genre_neighbor_graph": {"path": "../../../data/genre_identity/ableton_genre_neighbor_graph.json", "format": "json", "status": "locked", "bytes": 34913, "sha256": "3b3fd0df4ea6199a9c13306216b01f29441ee3fa4ed5ea1e07c7f25fb0afdd92"},
-    "sensei.grooves": {"path": "../../../data/groove_corpus/ableton_groove_catalog.jsonl", "format": "jsonl", "status": "locked", "bytes": 101488, "sha256": "55e5b3940c5a9547dbd1ad00176a1ff24579ec90fc56ffbfaf64fd9675c830b1"},
-    "sensei.instrument_capabilities": {"path": "../../../data/instrument_capabilities/instrument_target_profiles.jsonl", "format": "jsonl", "status": "locked", "bytes": 9524, "sha256": "cb7285252459ea04e4e73da0e263f5410ba0d4cc4870f1bb3aa749e4c9a7f23d"},
-    "sensei.preset_genre_identities": {"path": "../../../data/genre_identity/ableton_preset_genre_identities.jsonl", "format": "jsonl", "status": "locked", "bytes": 1048061, "sha256": "c3be682d2e521973852e2c21edad83ae18ee98ffa545637479383960fb489b8d", "records": 2252},
-    "sensei.variation_sources": {"path": "../../../data/variation_corpus/clean_midi_variation_corpus.jsonl", "format": "jsonl", "status": "locked", "bytes": 1435345, "sha256": "c1b88ebc78e4f593eeb15e22f077a98c0712e0d99e62f0490c297cb3fa47df19", "records": 2240},
-    "arrangementgps.legacy_examples": {"path": "../../api_generated/arrangementgps", "format": "directory", "status": "legacy", "records": 1128}
-  }
+  "release_id": "shared-phase6-v1",
+  "schema_version": "ai-producer.dataset-release.v1"
 }
