@@ -33,6 +33,9 @@ def data_source() -> str:
 # "Freeze ...". None of it travels outside its project.
 _BOUNCE_PATTERNS = (
     re.compile(r"^bounce\b", re.I),
+    # Live's own marker sits mid-name: "Love Train C1 2 (Bounce) [2025-09-17].wav".
+    # Anchoring at the start missed every bounce the program itself named.
+    re.compile(r"\(bounce\)", re.I),
     re.compile(r"\bfreeze\b", re.I),
     re.compile(r"^\d+-audio \d+", re.I),
 )
@@ -49,6 +52,14 @@ MIN_ROLE_SAMPLE = 8
 # A sample seen six times inside one project is that project's decision, not a
 # habit. Entering the palette requires being seen in MORE THAN ONE PROJECT.
 MIN_PROJECTS = 2
+
+# A multisample instrument ships one file per pitch -- "Zero Hour Bass A0.aif"
+# through "Zero Hour Bass D3.aif" is one bass, not thirty-six sounds. Counting
+# them separately buries every other source in a role's palette. Only a musical
+# note name collapses a family; a numeric tail does not, because "Kick Golden
+# Era 46" and "Kick Golden Era 48" really are two different kicks.
+MIN_MULTISAMPLE_NOTES = 4
+_NOTE_SUFFIX = re.compile(r"^(?P<base>.+?)[ _-]*(?P<note>[A-G](?:#|b)?-?[0-8])$")
 
 
 @dataclass(frozen=True)
@@ -84,6 +95,23 @@ def load_tracks(data_path: Path | None = None) -> list[dict]:
     return json.loads(path.read_text(encoding="utf-8"))["tracks"]
 
 
+def _note_family(name: str) -> tuple[str, str] | None:
+    """("Zero Hour Bass", "A0") for a pitched member of a multisample family."""
+    match = _NOTE_SUFFIX.match(name.rsplit(".", 1)[0])
+    return (match.group("base").strip(), match.group("note")) if match else None
+
+
+def multisample_families(names: Iterable[str]) -> dict[str, int]:
+    """Base name -> how many distinct pitches of it appear across `names`."""
+    pitches: dict[str, set] = defaultdict(set)
+    for name in names:
+        family = _note_family(name)
+        if family:
+            pitches[family[0]].add(family[1])
+    return {base: len(notes) for base, notes in pitches.items()
+            if len(notes) >= MIN_MULTISAMPLE_NOTES}
+
+
 def identity_samples(row: dict) -> list[str]:
     return [
         name
@@ -98,10 +126,21 @@ def palette(role: str, tracks: list[dict] | None = None) -> RolePalette | None:
     if len(role_rows) < MIN_ROLE_SAMPLE:
         return None
 
+    families = multisample_families(
+        name for row in role_rows for name in identity_samples(row))
+
+    def entry(name: str) -> str:
+        family = _note_family(name)
+        if family and family[0] in families:
+            return f"{family[0]} (multisample, {families[family[0]]} notes)"
+        return name
+
     occurrences: Counter = Counter()
     projects: dict[str, set] = defaultdict(set)
     for row in role_rows:
-        for name in identity_samples(row):
+        # A family counts once per track, however many of its pitches are loaded.
+        seen = {entry(name) for name in identity_samples(row)}
+        for name in seen:
             occurrences[name] += 1
             projects[name].add(row.get("project"))
 

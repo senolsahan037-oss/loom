@@ -63,6 +63,41 @@ check("a sample seen in two separate projects does enter the palette",
       spread_result is not None and [item.sample for item in spread_result.samples] == ["a.wav"],
       spread_result)
 
+# Live names its own bounces with the marker in the middle, not at the start.
+check("a mid-name (Bounce) marker is excluded",
+      se.is_bounce("Love Train C1 2 (Bounce) [2025-09-17 033035].wav"))
+check("case does not matter", se.is_bounce("Yin Yang 3 (BOUNCE).wav"))
+check("a name that merely contains the word is kept",
+      not se.is_bounce("Bouncing Ball Perc.wav"))
+
+# --- multisample families ---------------------------------------------------
+# One instrument shipped as one file per pitch must not crowd out every other
+# source in a role's palette, while numbered one-shots must stay separate.
+families = se.multisample_families([
+    "Zero Hour Bass A0.aif", "Zero Hour Bass C1.aif",
+    "Zero Hour Bass D2.aif", "Zero Hour BassG4.aif",
+    "Kick Golden Era 46.aif", "Kick Golden Era 48.aif", "Kick Golden Era 50.aif",
+])
+check("pitched files collapse into one family", families.get("Zero Hour Bass") == 4, families)
+check("a missing separator does not split the family",
+      "Zero Hour" not in families and "Zero Hour BassG" not in families, families)
+check("numbered one-shots are not a family", "Kick Golden Era" not in families, families)
+
+pitched = [
+    {"role": "bas", "project": "p%d" % index, "all_samples": [
+        "Zero Hour Bass A0.aif", "Zero Hour Bass C1.aif",
+        "Zero Hour Bass D2.aif", "Zero Hour Bass G4.aif", "other.wav"]}
+    for index in range(se.MIN_ROLE_SAMPLE)
+]
+pitched_result = se.palette("bas", pitched)
+labels = [item.sample for item in pitched_result.samples]
+check("the palette lists the family once, not once per pitch",
+      sum(1 for label in labels if label.startswith("Zero Hour Bass")) == 1, labels)
+check("the family label says how many pitches it stands for",
+      any("multisample, 4 notes" in label for label in labels), labels)
+check("a family loaded beside other samples does not hide them",
+      "other.wav" in labels, labels)
+
 summary = se.summary(rows)
 check("the summary reports the bounce share", 0 < summary["bounce_share"] < 1, summary["bounce_share"])
 check("roles with no palette are listed explicitly", isinstance(summary["roles_without_palette"], list))
