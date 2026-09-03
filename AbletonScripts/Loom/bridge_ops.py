@@ -75,6 +75,20 @@ def _set_parameter(parameter, value):
 
 # --- durum okuma ----------------------------------------------------------
 
+def _attr(obj, name, default=None):
+    """Live'de bazi ozellikler VAR ama okununca hata atar.
+
+    Olculdu 2026-09-03: return ve main track'lerde `arm` okumak
+    "RuntimeError: Main and Return Tracks have no 'Arm' state!" veriyor.
+    getattr'in varsayilani burada ise yaramaz cunku ozellik eksik degil,
+    okumasi patliyor — bu yuzden durum yayini her turda dusuyordu.
+    """
+    try:
+        return getattr(obj, name, default)
+    except Exception:
+        return default
+
+
 def capture_state(song, include_devices=True):
     """Live'in o anki durumu. GAP-001'in okuma yarisi burasi."""
     view = getattr(song, "view", None)
@@ -86,15 +100,19 @@ def capture_state(song, include_devices=True):
         entry = {
             "index": index,
             "name": track.name,
-            "has_midi_input": bool(getattr(track, "has_midi_input", False)),
-            "mute": bool(getattr(track, "mute", False)),
-            "solo": bool(getattr(track, "solo", False)),
-            "arm": bool(getattr(track, "arm", False)),
+            "has_midi_input": bool(_attr(track, "has_midi_input", False)),
+            "mute": bool(_attr(track, "mute", False)),
+            "solo": bool(_attr(track, "solo", False)),
+            "arm": bool(_attr(track, "arm", False)),
             "is_selected": selected is not None and track is selected,
         }
         if mixer is not None:
-            entry["volume"] = _describe(mixer.volume)
-            entry["panning"] = _describe(mixer.panning)
+            volume = _attr(mixer, "volume")
+            panning = _attr(mixer, "panning")
+            if volume is not None:
+                entry["volume"] = _describe(volume)
+            if panning is not None:
+                entry["panning"] = _describe(panning)
         if include_devices:
             entry["devices"] = [
                 {"name": device.name, "class_name": getattr(device, "class_name", None),

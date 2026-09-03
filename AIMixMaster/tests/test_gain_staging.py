@@ -29,7 +29,11 @@ import gain_stage
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECT = Path((ROOT / "CURRENT_MIXMASTER_ALS.txt").read_text(encoding="utf-8").strip())
+# A committed fixture, not a pointer to whichever project was open at the time.
+# The pointer form passed only while that project stayed where it was left, and
+# took all seven of these tests down with it the day it moved -- unnoticed,
+# because the suite never ran them. Rebuild it with tests/make_fixture.py.
+PROJECT = ROOT / "tests" / "fixtures" / "gain_staging.als"
 
 
 def _track(tag: str, track_id: int, name: str, volume: str = "1", group_id: str = "-1") -> ET.Element:

@@ -149,8 +149,13 @@ check("a request with no op is still read as write_clip (backwards compatible)",
 
 shutil.rmtree(temporary_root, ignore_errors=True)
 
-# ============ 2) The MCP tools, against the real bridge directory ==========
-REAL_ROOT = Path.home() / "Documents" / "SenseiV2Bridge"
+# ============ 2) The MCP tools, against a bridge of the test's own ========
+# This half used to run against ~/Documents/SenseiV2Bridge on the grounds that
+# the server's bridge path was fixed. With Live open and the surface loaded,
+# the real session consumed the test's requests and its tempo changed from 140
+# to 100. The server now honours LOOM_BRIDGE_ROOT, so the test gets its own.
+REAL_ROOT = Path(tempfile.mkdtemp(prefix="loom_bridge_mcp_"))
+os.environ["LOOM_BRIDGE_ROOT"] = str(REAL_ROOT)
 point_bridge_at(REAL_ROOT)
 live_song = FakeSong()
 live_song.tracks[2].name = "SNARE"

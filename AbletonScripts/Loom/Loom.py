@@ -38,6 +38,7 @@ STATE_FILE = STATE_DIR / "live_state.json"
 
 REQUEST_EVERY_TICKS = 8
 STATE_EVERY_TICKS = 40
+SURFACE_VERSION = "loom-surface/2.0.0"
 
 
 def create_instance(c_instance):
@@ -46,15 +47,27 @@ def create_instance(c_instance):
 
 class Loom(ControlSurface):
     def __init__(self, c_instance):
+        self._peak_hold = {}
         super().__init__(c_instance)
         self._tick_count = 0
         self._ensure_dirs()
         self.log_message("Loom control surface loaded (%s)" % bridge_ops.SCHEMA_VERSION)
-        self._register_timer_callback(self._on_timer)
+        # Live 12'nin ControlSurface'inde _register_timer_callback YOK; cagirmak
+        # 'Loom object has no attribute' hatasi veriyor ve zamanlayici hic
+        # calismiyordu (olculdu 2026-09-03: kuyruktaki istekler Haziran'dan beri
+        # islenmemis, durum dosyasi saatlerce bayat). Live periyodik olarak
+        # update_display() cagirir; kanca odur.
+
+    def update_display(self):
+        """Live'in periyodik cagrisi — koprunun kalp atisi."""
+        try:
+            self._on_timer()
+        except Exception as error:
+            self.log_message("Loom timer failed: %s" % error)
 
     def disconnect(self):
         try:
-            self._unregister_timer_callback(self._on_timer)
+            pass
         finally:
             super().disconnect()
 
@@ -67,10 +80,55 @@ class Loom(ControlSurface):
 
     # --- durum yayini -----------------------------------------------------
 
+    def _meters(self):
+        """Track basina tepe/anlik seviye, dB.
+
+        MixConsoleLive2'den devralindi. Oradaki hali her yoklamada TRACK BASINA
+        bir log satiri yaziyordu; olculdu 2026-09-02, Live'in Log.txt'sine
+        1.955.378 satir yazmis (dakikada ~40 bin) ve dosyayi 768 MB'a cikarmisti.
+        Burada hicbir sey loglanmaz, olcum yalnizca durum dosyasina gider.
+
+        MIDI ciktili track'lerde output_meter_* yoktur; sessizce atlanir.
+        """
+        out = {}
+        # A Song without return tracks is not an error: the per-track guard below
+        # was already there for tracks that carry no meters, but the collection
+        # access sat outside it, so one missing attribute lost the whole state
+        # dump -- silently, because the caller logs and moves on.
+        song = self.song()
+        tracks = list(getattr(song, "tracks", []) or [])
+        tracks += list(getattr(song, "return_tracks", []) or [])
+        for track in tracks:
+            try:
+                left = track.output_meter_left
+                right = track.output_meter_right
+            except Exception:
+                continue
+            name = track.name
+            peak = max(left, right)
+            held = max(self._peak_hold.get(name, 0.0), peak)
+            self._peak_hold[name] = held
+            out[name] = {
+                "left_db": self._meter_db(left),
+                "right_db": self._meter_db(right),
+                "peak_db": self._meter_db(peak),
+                "peak_hold_db": self._meter_db(held),
+            }
+        return out
+
+    @staticmethod
+    def _meter_db(value):
+        if value is None or value <= 0.0:
+            return None
+        import math
+        return round(20.0 * math.log10(value), 2)
+
     def _dump_state(self):
         try:
             state = bridge_ops.capture_state(self.song())
             state["captured_at"] = time.time()
+            state["meters"] = self._meters()
+            state["surface_version"] = SURFACE_VERSION
             self._ensure_dirs()
             temporary = STATE_FILE.with_suffix(".tmp")
             temporary.write_text(json.dumps(state, indent=2))

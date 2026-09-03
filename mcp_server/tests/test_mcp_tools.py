@@ -98,7 +98,10 @@ def main():
             if not cursor:
                 break
         names = [tool["name"] for tool in listed]
-        check("28 tools are published", len(names) == 28, len(names))
+        # An exact count, so a tool quietly disappearing is caught. The message
+        # carries the names because a bare number tells you something moved but
+        # not what.
+        check("31 tools are published", len(names) == 31, sorted(names))
         check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
         check("tool names are unique", len(set(names)) == len(names))
 
