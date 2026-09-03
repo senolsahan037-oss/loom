@@ -47,6 +47,23 @@ class FakeMixer(object):
         self.panning = FakeParameter("Pan", 0.0, -1.0, 1.0)
 
 
+class FakeArrangementClip(object):
+    """What Track.create_midi_clip hands back: a clip already in the Arrangement."""
+    def __init__(self, start_time, length):
+        self.name = ""
+        self.start_time = float(start_time)
+        self.end_time = float(start_time) + float(length)
+        self.notes = []
+
+    def add_new_notes(self, specs):
+        self.notes.extend(dict(spec) for spec in specs)
+
+    def get_notes_extended(self, from_pitch, pitch_span, from_time, time_span):
+        return [n for n in self.notes
+                if from_pitch <= n["pitch"] < from_pitch + pitch_span
+                and from_time <= n["start_time"] < from_time + time_span]
+
+
 class FakeTrack(object):
     def __init__(self, name, midi=True, devices=None):
         self.name = name
@@ -56,6 +73,15 @@ class FakeTrack(object):
         self.arm = False
         self.mixer_device = FakeMixer()
         self.devices = devices or []
+        self.arrangement_clips = []
+
+    def create_midi_clip(self, start_time, length):
+        clip = FakeArrangementClip(start_time, length)
+        self.arrangement_clips.append(clip)
+        return clip
+
+    def delete_clip(self, clip):
+        self.arrangement_clips.remove(clip)
 
 
 class FakeCue(object):
@@ -211,6 +237,41 @@ def run():
         check("a request with no op is refused", False, "an error was expected")
     except bridge_ops.BridgeError:
         check("a request with no op is refused", True)
+
+    # --- Arrangement clip writing (the writer the SDK extension used to own) ----
+    song = FakeSong()
+    notes = [{"pitch": 36, "start": 0.0, "duration": 0.5, "velocity": 110},
+             {"pitch": 36, "start": 2.0, "duration": 0.5, "velocity": 100}]
+    result = bridge_ops.apply_operation(song, {"op": "write_arrangement_clip", "track": "BASS",
+                                    "start_beat": 32.0, "length_beats": 16.0, "name": "Verse",
+                                    "notes": notes})
+    bass = song.tracks[1]
+    check("an arrangement clip is created on the named track at the beat",
+          len(bass.arrangement_clips) == 1 and bass.arrangement_clips[0].start_time == 32.0,
+          [(c.name, c.start_time) for c in bass.arrangement_clips])
+    check("the notes land in it and the count is read back from Live",
+          result["note_count"] == 2 and result["verified_note_count"] == 2, result)
+    again = bridge_ops.apply_operation(song, {"op": "write_arrangement_clip", "track": "BASS",
+                                   "start_beat": 32.0, "length_beats": 16.0, "name": "Verse",
+                                   "notes": notes[:1]})
+    check("writing the same section again replaces the clip instead of stacking one on it",
+          len(bass.arrangement_clips) == 1 and again["replaced"] == 1 and again["note_count"] == 1,
+          (len(bass.arrangement_clips), again))
+    bridge_ops.apply_operation(song, {"op": "write_arrangement_clip", "track": "BASS",
+                           "start_beat": 48.0, "length_beats": 8.0, "name": "Hook", "notes": notes})
+    check("a different section on the same track is a second clip, untouched by the first",
+          len(bass.arrangement_clips) == 2, [c.name for c in bass.arrangement_clips])
+    try:
+        bridge_ops.apply_operation(song, {"op": "write_arrangement_clip", "track": "NOPE", "notes": notes})
+        check("an unknown track is refused", False)
+    except bridge_ops.BridgeError:
+        check("an unknown track is refused", True)
+    try:
+        bridge_ops.apply_operation(song, {"op": "write_arrangement_clip", "track": "BASS", "start_beat": -1,
+                               "notes": notes})
+        check("a negative start beat is refused", False)
+    except bridge_ops.BridgeError:
+        check("a negative start beat is refused", True)
 
     print("%d checks passed:" % len(checks))
     for label in checks:

@@ -242,6 +242,74 @@ def op_create_locator(song, payload):
     raise BridgeError("locator was not created at beat %g" % beat)
 
 
+def op_write_arrangement_clip(song, payload):
+    """Write a MIDI clip straight into the Arrangement, on a named track.
+
+    This is the writer the SDK extension used to own. The Python LOM can do it
+    too -- Track.create_midi_clip(start, length) places a clip in the
+    Arrangement in beats, and Clip.add_new_notes fills it -- so the whole build
+    runs through the one control surface install.py already installs, with
+    nothing else to load into Live.
+
+    A rebuild must replace, not stack: a clip of the same name overlapping the
+    target range is deleted first. The note count is read back from Live
+    rather than trusted, the same posture as create_locator.
+    """
+    track = _find_track(song, payload.get("track")) if payload.get("track") else song.view.selected_track
+    if not getattr(track, "has_midi_input", False):
+        raise BridgeError("track %r is not a MIDI track" % getattr(track, "name", "?"))
+    start_beat = float(payload.get("start_beat", 0.0))
+    length_beats = float(payload.get("length_beats", 16.0))
+    if start_beat < 0 or length_beats <= 0:
+        raise BridgeError("start_beat must be >= 0 and length_beats > 0")
+    if not hasattr(track, "create_midi_clip"):
+        raise BridgeError("this Live cannot create Arrangement MIDI clips from a control surface")
+    name = str(payload.get("name") or "Loom")
+    end_beat = start_beat + length_beats
+
+    replaced = 0
+    for clip in list(getattr(track, "arrangement_clips", []) or []):
+        overlaps = float(clip.start_time) < end_beat and float(clip.end_time) > start_beat
+        if overlaps and getattr(clip, "name", "") == name:
+            track.delete_clip(clip)
+            replaced += 1
+
+    clip = track.create_midi_clip(start_beat, length_beats)
+    clip.name = name
+    specs = []
+    for note in payload.get("notes", []):
+        specs.append({
+            "pitch": int(note["pitch"]),
+            "start_time": float(note.get("start", note.get("time", 0.0))),
+            "duration": max(0.01, float(note["duration"])),
+            "velocity": max(1, min(127, int(note.get("velocity", 100)))),
+            "mute": False,
+        })
+    if hasattr(clip, "add_new_notes"):
+        clip.add_new_notes(tuple(specs))
+    else:
+        clip.set_notes(tuple((n["pitch"], n["start_time"], n["duration"], n["velocity"], False)
+                             for n in specs))
+
+    written = None
+    if hasattr(clip, "get_notes_extended"):
+        try:
+            written = len(clip.get_notes_extended(0, 128, 0.0, length_beats))
+        except Exception:
+            written = None
+    if written is not None and written != len(specs):
+        raise BridgeError("wrote %d notes but Live holds %d" % (len(specs), written))
+    return {
+        "track": track.name,
+        "clip_name": clip.name,
+        "start_beat": start_beat,
+        "length_beats": length_beats,
+        "note_count": len(specs),
+        "verified_note_count": written,
+        "replaced": replaced,
+    }
+
+
 OPERATIONS = {
     "get_state": op_get_state,
     "set_tempo": op_set_tempo,
@@ -250,6 +318,7 @@ OPERATIONS = {
     "list_device_parameters": op_list_device_parameters,
     "transport": op_transport,
     "create_locator": op_create_locator,
+    "write_arrangement_clip": op_write_arrangement_clip,
 }
 
 

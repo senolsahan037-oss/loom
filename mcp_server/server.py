@@ -140,6 +140,23 @@ TOOLS = [
         }
     },
     {
+        "name": "midi_write_arrangement",
+        "description": "Write MIDI notes into the ARRANGEMENT of a running Live session -- a named track, a bar position, a length -- through the Loom control surface. This is the single Live-side trigger: the same surface install.py installs handles it, so nothing else has to be loaded into Live. A clip of the same name overlapping the range is replaced, not stacked, so rebuilding a section is safe. Waits for Live to consume the request and reports the note count Live actually holds; NOT_CONSUMED means Live did not answer.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "track": {"type": "string", "description": "Track name in the session. Omit to use the selected track."},
+                "start_bar": {"type": "integer", "description": "1-based bar the clip starts on (4/4 assumed, as the arrangement builder does)."},
+                "start_beat": {"type": "number", "description": "Alternative to start_bar: absolute start in beats."},
+                "length_beats": {"type": "number", "description": "Clip length in beats.", "default": 16},
+                "name": {"type": "string", "description": "Clip name, e.g. the section: Intro, Verse 1, Hook.", "default": "Loom"},
+                "notes": {"type": "array", "items": {"type": "object", "properties": {"pitch": {"type": "integer"}, "start": {"type": "number"}, "duration": {"type": "number"}, "velocity": {"type": "integer"}}, "required": ["pitch", "start", "duration"]}, "description": "Notes relative to the clip start, in beats."},
+                "wait_seconds": {"type": "number", "description": "How long to wait for Live to consume the request.", "default": 15}
+            },
+            "required": ["notes"]
+        }
+    },
+    {
         "name": "midi_write_to_live",
         "description": "Write MIDI notes into Ableton Live through SenseiV2Bridge and wait for Live to actually consume the request. Reports WRITTEN_TO_LIVE, REJECTED_BY_LIVE or NOT_CONSUMED -- it does not just queue and claim success.",
         "inputSchema": {
@@ -1057,6 +1074,25 @@ def handle_live_project(args: dict[str, Any]) -> dict[str, Any]:
         return lp.open_project(str(als), float(args.get("wait_seconds", 30)),
                                bool(args.get("allow_switch", False)))
     return {"error": f"unknown op: {op}"}
+
+
+
+def handle_midi_write_arrangement(args: dict[str, Any]) -> dict[str, Any]:
+    if "start_beat" in args:
+        start_beat = float(args["start_beat"])
+    else:
+        # Bars are 1-based in every plan this repo writes; beat 0 is bar 1.
+        start_beat = (int(args.get("start_bar", 1)) - 1) * 4.0
+    payload: dict[str, Any] = {
+        "op": "write_arrangement_clip",
+        "start_beat": start_beat,
+        "length_beats": float(args.get("length_beats", 16.0)),
+        "name": str(args.get("name") or "Loom"),
+        "notes": args.get("notes") or [],
+    }
+    if args.get("track"):
+        payload["track"] = args["track"]
+    return _submit_bridge_request(payload, float(args.get("wait_seconds", 15)))
 
 
 def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
@@ -2080,6 +2116,7 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
     "genre_evidence": handle_genre_evidence,
     "midi_generate": handle_midi_generate,
         "midi_write_to_live": handle_midi_write_to_live,
+    "midi_write_arrangement": handle_midi_write_arrangement,
         "project_inspect": handle_project_inspect,
         "project_detect_genre": handle_project_detect_genre,
         "project_analyze_mixer": handle_project_analyze_mixer,
