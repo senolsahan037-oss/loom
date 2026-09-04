@@ -104,6 +104,13 @@ def test_unknown_mode_is_refused(tmp_path: Path) -> None:
         assert "unknown chop mode" in str(error)
 
 
+import shutil
+
+import pytest
+
+
+@pytest.mark.skipif(shutil.which("ffprobe") is None or shutil.which("ffmpeg") is None,
+                    reason="the fetch stage decodes through ffmpeg/ffprobe, which this machine lacks")
 def test_run_dry_plans_without_writing_and_real_run_writes_with_reasons(tmp_path: Path) -> None:
     wav = tmp_path / "click.wav"
     _click_track(wav)
