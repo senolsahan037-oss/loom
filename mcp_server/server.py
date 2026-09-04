@@ -2948,9 +2948,18 @@ def _mix_capture_resample(args: dict[str, Any]) -> dict[str, Any]:
     if not path.is_file():
         result.update({"status": "FILE_NOT_FOUND", "path": str(path), "note": "Live named a recording the MCP cannot see"})
         return result
-    result["path"] = str(path)
+    # Live deletes the "Temp Project" folder when an unsaved set closes, so
+    # the recording is copied into Loom's own capture directory at once.
+    MIX_CAPTURE_DIR.mkdir(parents=True, exist_ok=True)
+    kept = MIX_CAPTURE_DIR / f"live-{datetime.datetime.now().strftime('%Y%m%d-%H%M%S')}-resample{path.suffix or '.wav'}"
+    shutil.copy2(path, kept)
+    result["live_path"] = str(path)
+    result["path"] = str(kept)
     result["status"] = "OK"
-    result["measurement"] = _measure_capture(path, args)
+    result["measurement"] = _measure_capture(kept, args)
+    if not args.get("keep", True):
+        kept.unlink(missing_ok=True)
+        result["path"] = None
     return result
 
 
