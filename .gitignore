@@ -36,7 +36,7 @@ ArrangementGPS/Builds/*
 ArrangementGPS/dist/
 ArrangementGPS/engine/output/
 Docs/arrangement_shapes_*.json
-MixAnalyzer/livetap/livetap
+MixAnalyzer/livetap/LiveTap.app/
 MusicalIntelligence/data/corpus/hits_world.json
 MusicalIntelligence/data/corpus/pop_songmaps.json
 MusicalIntelligence/data/personal/

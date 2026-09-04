@@ -2849,18 +2849,28 @@ def handle_mix_from_live(args: dict[str, Any]) -> dict[str, Any]:
 
 
 # --- Live playback capture (Core Audio process tap) --------------------------
-LIVETAP_SRC = LOOM_DIR / "MixAnalyzer" / "livetap" / "main.swift"
-LIVETAP_BIN = LOOM_DIR / "MixAnalyzer" / "livetap" / "livetap"
+LIVETAP_DIR = LOOM_DIR / "MixAnalyzer" / "livetap"
+LIVETAP_SRC = LIVETAP_DIR / "main.swift"
+LIVETAP_PLIST = LIVETAP_DIR / "Info.plist"
+LIVETAP_APP = LIVETAP_DIR / "LiveTap.app"
+LIVETAP_BIN = LIVETAP_APP / "Contents" / "MacOS" / "livetap"
 MIX_CAPTURE_DIR = LOOM_DIR / "Sessions" / "MixCaptures"
 
 
 def _livetap_binary() -> Path:
-    """Build the tap tool on first use (swiftc ships with Xcode CLT)."""
-    if LIVETAP_BIN.exists() and LIVETAP_BIN.stat().st_mtime >= LIVETAP_SRC.stat().st_mtime:
+    """Build the tap tool on first use as a signed app bundle. macOS only
+    prompts for System Audio Recording when the caller is an app whose
+    Info.plist carries NSAudioCaptureUsageDescription; a bare binary is
+    refused silently and never appears in Privacy & Security."""
+    fresh = LIVETAP_BIN.exists() and LIVETAP_BIN.stat().st_mtime >= max(LIVETAP_SRC.stat().st_mtime, LIVETAP_PLIST.stat().st_mtime)
+    if fresh:
         return LIVETAP_BIN
+    LIVETAP_BIN.parent.mkdir(parents=True, exist_ok=True)
     build = subprocess.run(["swiftc", "-O", "-o", str(LIVETAP_BIN), str(LIVETAP_SRC)], capture_output=True, text=True, timeout=300)
     if build.returncode != 0:
         raise RuntimeError(f"livetap build failed: {build.stderr.strip()[-800:]}")
+    shutil.copy2(LIVETAP_PLIST, LIVETAP_APP / "Contents" / "Info.plist")
+    subprocess.run(["codesign", "--force", "--sign", "-", str(LIVETAP_APP)], capture_output=True, text=True, timeout=120)
     return LIVETAP_BIN
 
 
