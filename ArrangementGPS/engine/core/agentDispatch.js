@@ -1,4 +1,7 @@
-const OUTPUT_ROOT = "engine/output/agent_outputs";
+import path from "path";
+
+// Per-run output directory from the caller, like every other stage.
+const OUTPUT_ROOT = path.join(process.env.ARRANGEMENTGPS_OUTPUT_DIR || "engine/output", "agent_outputs");
 
 export function buildAgentDispatch(productionTree) {
   const jobs = [];

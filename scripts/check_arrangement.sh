@@ -1,40 +1,35 @@
 #!/usr/bin/env bash
-# Full verification of the arrangement builder -- WITHOUT opening Ableton Live.
-# Everything except Live's own behaviour is proven here: section extraction,
-# locator placement, clip timing, tiling and repeatability.
+# The arrangement chain WITHOUT opening Ableton Live: prompt parsing, the
+# instrument coverage of the plan against Sensei's catalogue, the extension's
+# typecheck and its bridge (the arrangement writer IS the bridge's
+# write_arrangement_clip; project_build in the MCP drives it).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-EXT="$ROOT/Sensei/extensions/sensei-midi-writer"
+EXT="$ROOT/extension"
 
 echo "=============================================="
-echo " 1/5  Prompt cozumleme (promptMood.js)"
+echo " 1/4  Prompt cozumleme (promptMood.js)"
 echo "=============================================="
 ( cd "$ROOT/ArrangementGPS" && node tests/promptMood.test.js )
 
 echo
 echo "=============================================="
-echo " 2/5  Plan cikarimi (ArrangementGPSBuilder.py)"
-echo "=============================================="
-python3 "$ROOT/AbletonScripts/ArrangementGPSBuilder/test_plan_extraction.py"
-
-echo
-echo "=============================================="
-echo " 3/5  Enstruman kapsami (Sensei katalogu)"
+echo " 2/4  Enstruman kapsami (Sensei katalogu)"
 echo "=============================================="
 python3 "$ROOT/scripts/check_instrument_coverage.py"
 
 echo
 echo "=============================================="
-echo " 4/5  Typecheck (tsc --noEmit)"
+echo " 3/4  Typecheck (tsc --noEmit)"
 echo "=============================================="
 ( cd "$EXT" && npx tsc --noEmit && echo "tsc temiz" )
 
 echo
 echo "=============================================="
-echo " 5/5  Arrangement kurucusu (sahte Live)"
+echo " 4/4  Extension koprusu (sahte Live, gercek kuyruk kodu)"
 echo "=============================================="
-( cd "$EXT" && npm run --silent test:arrangement )
+( cd "$EXT" && npm run --silent test:bridge )
 
 echo
 echo "=============================================="

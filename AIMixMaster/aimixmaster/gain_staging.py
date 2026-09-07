@@ -21,7 +21,7 @@ import xml.etree.ElementTree as ET
 # analysis functions -- unimportable anywhere the audio stack is not
 # installed, e.g. the MCP server running on Sensei's venv.
 
-from .project_analyzer import analyze_tracks, direct_devices, track_name, value
+from .project_analyzer import analyze_tracks, device_name, direct_devices, track_name, value
 
 
 SCHEMA_VERSION = "1.0"
@@ -99,14 +99,9 @@ def linear_to_db(raw: str) -> float | None:
     return round(20 * math.log10(linear), 6)
 
 
-def normalized_device_name(device: ET.Element) -> str:
-    aliases = {
-        "Eq8": "EQ Eight",
-        "Compressor2": "Compressor",
-        "GlueCompressor": "Glue Compressor",
-        "StereoGain": "Utility",
-    }
-    return aliases.get(device.tag, device.tag)
+# The device display name is project_analyzer's fact; this name is kept
+# because gain_staging's callers and tests already import it from here.
+normalized_device_name = device_name
 
 
 def classify_master_processor(device: ET.Element) -> str | None:

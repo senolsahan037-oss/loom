@@ -11,6 +11,9 @@ import subprocess
 import sys
 import threading
 import time
+import os
+import tempfile
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -18,7 +21,10 @@ SERVER = ROOT / "mcp_server" / "server.py"
 # The server has no third-party dependency, so it runs on whatever Python is
 # running this test. Hardcoding a venv path breaks a clean clone and CI.
 PYTHON = Path(sys.executable)
-SAMPLE_ALS = Path.home() / "Desktop" / "solo" / "Turtle.als"
+SCRATCH = tempfile.TemporaryDirectory(prefix="loom_protocol_")
+os.environ["LOOM_BRIDGE_ROOT"] = str(Path(SCRATCH.name) / "bridge")
+os.environ["LOOM_OUTPUT_ROOT"] = SCRATCH.name
+SAMPLE_ALS = ROOT / "AIMixMaster/tests/fixtures/drum_buss_before.als"
 
 checks = []
 failures = []
@@ -212,11 +218,24 @@ try:
     check("a large response is truncated or stays within the limit",
           all(len(b["text"]) <= 24000 or b["text"].startswith("[truncated]") for b in blocks), total)
 
+    def decodes(text):
+        try:
+            json.loads(text)
+            return True
+        except json.JSONDecodeError:
+            return False
+    check("every text block is complete JSON or the truncation notice -- never a cut-off object",
+          decodes(blocks[0]["text"]) and all(decodes(b["text"]) or b["text"].startswith("[truncated]") for b in blocks[1:]), [b["text"][:60] for b in blocks])
+
     # --- 4) concurrency, progress and cancellation ---
     # The ordering property is tested without depending on how much data this
     # machine has: the ping goes out immediately after the tool call, so if
     # inline methods were blocked behind the pool it could not come back first.
-    scan_root = str(Path.home() / "Desktop")
+    scan_path = Path(SCRATCH.name) / "scan"
+    scan_path.mkdir()
+    for index in range(30):
+        shutil.copy2(SAMPLE_ALS, scan_path / f"fixture_{index}.als")
+    scan_root = str(scan_path)
     client.send({"jsonrpc": "2.0", "id": 30, "method": "tools/call", "params": {
         "name": "projects_arrangement_shapes",
         "arguments": {"roots": [scan_root], "limit": 25},
@@ -279,6 +298,7 @@ try:
         print("  note  no .als projects on this machine, so progress and cancellation were not exercised")
 finally:
     client.close()
+    SCRATCH.cleanup()
 
 print("%d checks passed:" % len(checks))
 for label in checks:

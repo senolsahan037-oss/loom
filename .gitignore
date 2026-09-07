@@ -35,8 +35,10 @@ AISoundDesigner/data/measured_*.json
 ArrangementGPS/Builds/*
 ArrangementGPS/dist/
 ArrangementGPS/engine/output/
+ArrangementGPS/engine/runs/
 Docs/arrangement_shapes_*.json
 MixAnalyzer/livetap/LiveTap.app/
+MixAnalyzer/livetap/livetap
 MusicalIntelligence/data/corpus/hits_world.json
 MusicalIntelligence/data/corpus/pop_songmaps.json
 MusicalIntelligence/data/personal/
@@ -49,7 +51,7 @@ SampleAgent/sampler_engine/fixtures/
 Sensei/DatasetRoot/indexes/
 Sensei/data/
 Sensei/data/bridge_queue/
-Sensei/extensions/*/dist/
+extension/dist/
 Sessions/MixCaptures/
 Sessions/SamplePacks/
 mcp_server/responses/

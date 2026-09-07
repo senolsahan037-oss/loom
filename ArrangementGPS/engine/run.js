@@ -32,7 +32,9 @@ const DEFAULT_ROOT = "D";
 const timestamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/, "").replace("T", "-");
 const projectName = `${prompt.slice(0, 60)} ${timestamp}`;
 
-const outputDir = path.resolve("engine/output");
+// Each run gets its own output directory from the caller (ARRANGEMENTGPS_OUTPUT_DIR),
+// so two builds started at the same time never read each other's files.
+const outputDir = path.resolve(process.env.ARRANGEMENTGPS_OUTPUT_DIR || "engine/output");
 fs.mkdirSync(outputDir, { recursive: true });
 
 const scene = buildScene();
@@ -81,4 +83,4 @@ fs.writeFileSync(
 );
 
 console.log("ArrangementGPS local scene builder ready.");
-console.log("Saved: engine/output/normalized_blueprint.json");
+console.log(`Saved: ${path.join(outputDir, "normalized_blueprint.json")}`);

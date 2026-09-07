@@ -90,8 +90,12 @@ def prepare_midi_variation(
     density: float | None = None,
     genre_style: str | None = None,
     data_root: str | Path | None = None,
+    beats_per_bar: float = 4.0,
 ) -> dict[str, Any]:
-    """Produce one safe SDK MIDI payload, or a structured no-write result."""
+    """Produce one safe SDK MIDI payload, or a structured no-write result.
+
+    beats_per_bar is in Live beats (quarter notes): 4 for 4/4, 3 for 3/4 and
+    6/8. It sizes the clip and the tiling; the corpus itself is in beats."""
     root = Path(data_root or DEFAULT_DATA_ROOT).expanduser().resolve()
     try:
         artifacts = _release_artifacts(root)
@@ -116,5 +120,6 @@ def prepare_midi_variation(
         exclude_reference_ids=exclude_reference_ids,
         density=density,
         genre_style=genre_style,
+        beats_per_bar=beats_per_bar,
     )
     return {"schema_version": SCHEMA_VERSION, "generation_safe": result["generation_safe"], "payload": result["payload"], "resolution": resolution, "diagnostics": result["diagnostics"], "error": result["error"]}

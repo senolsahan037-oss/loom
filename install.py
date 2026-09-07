@@ -1,21 +1,26 @@
 #!/usr/bin/env python3
 """Install Loom in one command.
 
-Registers the MCP server with every client found on this machine, copies the
-Live Remote Scripts into Ableton's User Library, and builds the catalogues from
-this machine's own Ableton install.
+Registers the MCP server with every client found on this machine, prepares
+the Loom extension package (.ablx) for Live 12.4 beta, and builds the
+catalogues from this machine's own Ableton install.
+
+Live integration is the extension and nothing else: the MCP talks to the
+extension's own file bridge. Adding the .ablx to Live is the one step Live
+does not let a script do; this script builds the package, checks whether the
+extension is installed and running, checks that the running one speaks the
+protocol this checkout's MCP speaks, and says exactly what is left.
 
 Nothing here needs a virtual environment or a package install -- it runs on the
 Python that ships with macOS.
 
-  python3 install.py            install
-  python3 install.py --check    report what would happen, change nothing
+  python3 install.py                    install
+  python3 install.py --check            report what would happen, change nothing
 """
 from __future__ import annotations
 
 import argparse
 import json
-import os
 import shutil
 import subprocess
 import sys
@@ -24,6 +29,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SERVER = ROOT / "mcp_server" / "server.py"
+sys.path.insert(0, str(ROOT / "mcp_server"))
+import bridge_client  # noqa: E402  (the one place the protocol version is defined on the MCP side)
 
 # Every MCP client that keeps its servers in a JSON file, and the key the
 # server list lives under.
@@ -33,13 +40,10 @@ CLIENTS = [
     ("Claude Code", Path.home() / ".claude.json", "mcpServers"),
 ]
 
-REMOTE_SCRIPTS = ["Loom", "ArrangementGPSBuilder"]
-ABLETON_REMOTE_DIR = Path.home() / "Music/Ableton/User Library/Remote Scripts"
-
 
 def entry() -> dict:
-    # Plain python3 on purpose: 27 of the 33 tools have no third-party
-    # dependency, so there is no environment to point at.
+    # Plain python3 on purpose: the server has no third-party dependency, so
+    # there is no environment to point at.
     return {"command": "python3", "args": [str(SERVER)]}
 
 
@@ -72,55 +76,85 @@ def register(check: bool) -> list[str]:
     return notes
 
 
-def install_remote_scripts(check: bool) -> list[str]:
+EXTENSION_DIR = ROOT / "extension"
+EXTENSION_PACKAGE = EXTENSION_DIR / "dist" / "loom.ablx"
+EXTENSION_MANIFEST = EXTENSION_DIR / "manifest.json"
+EXTENSION_ID = bridge_client.LOOM_EXTENSION_IDS[0]
+EXTENSION_DATA = bridge_client.EXTENSIONS_DATA_DIR / EXTENSION_ID
+
+
+def source_versions() -> dict:
+    """The versions this checkout would install: one package version
+    (manifest.json, checked against package.json by the build) and the
+    bridge protocol the MCP speaks."""
+    manifest = json.loads(EXTENSION_MANIFEST.read_text(encoding="utf-8"))
+    package = json.loads((EXTENSION_DIR / "package.json").read_text(encoding="utf-8"))
+    return {"manifest_version": manifest.get("version"), "package_version": package.get("version"),
+            "sdk_api_version": manifest.get("minimumApiVersion"),
+            "bridge_protocol": bridge_client.SUPPORTED_BRIDGE_PROTOCOLS[0]}
+
+
+def package_extension(check: bool) -> list[str]:
+    """Build the .ablx from source when the toolchain is here (node + the
+    Ableton SDK, which is not redistributable and must be vendored locally)."""
     notes = []
-    if not ABLETON_REMOTE_DIR.parent.exists():
-        return ["  skipped  Ableton User Library not found; Live integration not installed"]
-    for script in REMOTE_SCRIPTS:
-        source = ROOT / "AbletonScripts" / script
-        if not source.is_dir():
-            notes.append(f"  FAILED   {script:<22} missing from this copy of Loom")
-            continue
-        target = ABLETON_REMOTE_DIR / script
-        if check:
-            notes.append(f"  would    {script:<22} copy into {ABLETON_REMOTE_DIR}")
-            continue
-        target.mkdir(parents=True, exist_ok=True)
-        copied = 0
-        for item in source.glob("*.py"):
-            shutil.copy2(item, target / item.name)
-            copied += 1
-        shutil.rmtree(target / "__pycache__", ignore_errors=True)
-        notes.append(f"  ok       {script:<22} {copied} files -> {target}")
+    versions = source_versions()
+    if versions["manifest_version"] != versions["package_version"]:
+        notes.append(f"  FAILED   versions               manifest.json {versions['manifest_version']} != package.json {versions['package_version']}; fix before packaging")
+        return notes
+    notes.append(f"  ok       versions               extension {versions['manifest_version']}, SDK API {versions['sdk_api_version']}, bridge protocol {versions['bridge_protocol']}")
+    sdk = EXTENSION_DIR / "node_modules" / "@ableton-extensions" / "sdk"
+    stale = EXTENSION_PACKAGE.exists() and EXTENSION_PACKAGE.stat().st_mtime < max(
+        p.stat().st_mtime for p in [EXTENSION_MANIFEST, *(EXTENSION_DIR / "src").glob("*.ts")])
+    if EXTENSION_PACKAGE.exists() and not stale:
+        notes.append(f"  ok       package                {EXTENSION_PACKAGE}")
+        return notes
+    if not shutil.which("npm") or not sdk.exists():
+        notes.append("  TODO     package                " + ("the .ablx is older than the source" if stale else "no .ablx built yet")
+                     + ", and the toolchain to build it is missing (needs npm and the Ableton Extensions SDK vendored under "
+                     "extension/vendor)")
+        return notes
+    if check:
+        notes.append("  would    package                run 'npm run package' in extension/" + (" (the .ablx is older than the source)" if stale else ""))
+        return notes
+    sys.stdout.flush()
+    result = subprocess.run(["npm", "run", "package"], cwd=str(EXTENSION_DIR), capture_output=True, text=True)
+    if result.returncode == 0 and EXTENSION_PACKAGE.exists():
+        notes.append(f"  ok       package                built {EXTENSION_PACKAGE}")
+    else:
+        notes.append(f"  FAILED   package                npm run package: {(result.stderr or result.stdout).strip()[-300:]}")
     return notes
 
 
-LIVE_PREFS = Path.home() / "Library/Preferences/Ableton"
-
-
-def control_surface_status() -> tuple[bool, str]:
-    """Has Live actually loaded the Loom control surface?
-
-    Selecting a Control Surface cannot be automated. Live stores that choice in
-    Preferences.cfg, an undocumented binary format that differs between
-    versions; writing it would risk the user's whole preference file for the
-    sake of one dropdown. What can be automated is the check: Live logs every
-    remote script it loads, and the surface announces itself on load.
-    """
-    logs = sorted(LIVE_PREFS.glob("Live */Log.txt"), key=lambda p: p.stat().st_mtime, reverse=True)
-    if not logs:
-        return False, "no Live log found -- has Ableton Live been run on this machine?"
-    newest = logs[0]
-    try:
-        text = newest.read_text(encoding="utf-8", errors="ignore")
-    except OSError as error:
-        return False, f"could not read {newest}: {error}"
-    version = newest.parent.name
-    if "Loom control surface loaded" in text:
-        return True, f"loaded, according to {version}'s log"
-    if "SenseiRemote" in text:
-        return False, f"{version} last loaded the old SenseiRemote surface -- re-select Loom"
-    return False, f"not loaded yet, according to {version}'s log"
+def extension_status() -> tuple[bool, str]:
+    """Is the Loom extension installed in Live, is its bridge alive, and does
+    the running one speak this checkout's protocol? Installation is Live's
+    own step (the .ablx is added inside Live); what can be checked is the
+    storage directory Live creates for it and the state its bridge publishes."""
+    if not EXTENSION_DATA.exists():
+        legacy = bridge_client.legacy_bridge_roots()
+        if legacy:
+            return False, ("not installed yet; an earlier package is (" + ", ".join(i for i, _ in legacy) + ") -- add loom.ablx, remove the "
+                           "old extension from Live's Extensions, restart Live, then carry the old journal over with live_command op=journal_import")
+        return False, "not installed in Live yet (no Extensions Data directory for it)"
+    target = bridge_client.target_from(EXTENSION_DATA / "bridge", "loom_extension")
+    if target.state is None:
+        if target.state_file.exists():
+            return False, "installed, but its state file is unreadable"
+        return False, "installed, but its bridge has never published state -- restart Live with the extension enabled"
+    versions = source_versions()
+    running = f"{target.surface_version} / {target.bridge_protocol or 'no protocol'}"
+    wanted = f"loom-extension/{versions['manifest_version']} / {versions['bridge_protocol']}"
+    report = target.protocol_report()
+    if target.age is not None and target.age >= bridge_client.STATE_FRESH_SECONDS:
+        where = f"installed; bridge last seen {target.age / 60:.0f} min ago ({running}) -- Live is probably closed"
+    else:
+        where = f"running ({running}, state {target.age:.0f}s old)"
+    if report["status"] in ("UPGRADE_REQUIRED", "PROTOCOL_MISMATCH"):
+        return False, f"{where}; the MCP will NOT send it mutations: {report['status']} -- this checkout ships {wanted}; add the new .ablx and restart Live"
+    if target.surface_version != f"loom-extension/{versions['manifest_version']}":
+        return True, f"{where}; protocol compatible, but the package differs from this checkout ({wanted}) -- add the new .ablx when convenient"
+    return True, where
 
 
 def scan(check: bool) -> int:
@@ -144,21 +178,18 @@ def main() -> int:
     for line in register(args.check):
         print(line)
 
-    print("\n2. Ableton Live integration")
-    for line in install_remote_scripts(args.check):
+    print("\n2. Ableton Live integration: the Loom extension (Live 12.4 beta)")
+    for line in package_extension(args.check):
         print(line)
+    loaded, detail = extension_status()
+    print("  %s  extension              %s" % ("ok      " if loaded else "TODO    ", detail))
+    if not loaded:
+        print("     Adding an extension is Live's own step. Once, in Live 12.4 beta:")
+        print(f"     add {EXTENSION_PACKAGE.name} from the Extensions settings, then restart Live.")
+        print("     Then 'python3 install.py --check' or the MCP tool live_bridge_status confirms the bridge.")
 
     print("\n3. Catalogues from this machine's Ableton library")
     code = scan(args.check)
-
-    print("\n4. Live Control Surface")
-    loaded, detail = control_surface_status()
-    print("  %s  %s" % ("ok      " if loaded else "TODO    ", detail))
-    if not loaded:
-        print("     Live cannot be told to select a Control Surface from outside -- that")
-        print("     choice lives in an undocumented binary preferences file. Do it once:")
-        print("     Live -> Settings -> Link/MIDI -> Control Surface -> Loom")
-        print("     Then run 'python3 install.py --check' to confirm it took.")
 
     print("\n" + "=" * 62)
     if args.check:
@@ -166,7 +197,7 @@ def main() -> int:
         return code
     print("Installed. Restart your MCP client so it picks up the new server.")
     if not loaded:
-        print("Then restart Ableton Live and select Loom as a Control Surface (step 4).")
+        print("Then add the Loom extension to Live 12.4 beta (step 2) and restart Live.")
     return code
 
 

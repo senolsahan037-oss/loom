@@ -117,14 +117,15 @@ def _fit_octave(events: list[dict[str, Any]], low: int, high: int) -> list[dict[
     return None
 
 
-def _tile_and_normalize(entry: dict[str, Any], profile: dict[str, Any], bars: int) -> list[dict[str, Any]] | None:
+def _tile_and_normalize(entry: dict[str, Any], profile: dict[str, Any], bars: int, beats_per_bar: float = 4.0) -> list[dict[str, Any]] | None:
     timeline = entry.get("timeline") or {}
     loop_start = float(timeline.get("loop_start", 0.0))
     loop_end = float(timeline.get("loop_end", 0.0))
     cycle = loop_end - loop_start
     if cycle <= 0:
         return None
-    target_beats = float(bars) * 4.0
+    # Live beats are quarter notes: 4 per bar in 4/4, 3 in 3/4 and in 6/8.
+    target_beats = float(bars) * float(beats_per_bar)
     source = []
     allowed_pitches = (profile.get("constraints") or {}).get("allowed_pitches")
     for raw in entry.get("events") or []:
@@ -350,6 +351,7 @@ def generate_midi_variation(
     exclude_reference_ids: list[str] | None = None,
     density: float | None = None,
     genre_style: str | None = None,
+    beats_per_bar: float = 4.0,
 ) -> dict[str, Any]:
     """Select a native-role/native-genre source and emit a safe SDK MIDI payload."""
     if bars <= 0:
@@ -381,17 +383,17 @@ def generate_midi_variation(
                 return _failure("genre_synthesis_source_missing")
             selected = genre_candidates[random.Random(f"genre-synthesis:{seed}:{genre_name}").randrange(len(genre_candidates))]
             selected = _apply_target_key(selected, role, target_root)
-            events = _tile_and_normalize(selected, target_profile, bars)
+            events = _tile_and_normalize(selected, target_profile, bars, beats_per_bar)
             if events is None:
                 return _failure("genre_synthesis_source_invalid")
-            blended.extend(event for event in events if int(float(event["time"]) // 4) % len(genres) == genre_index)
+            blended.extend(event for event in events if int(float(event["time"]) // float(beats_per_bar)) % len(genres) == genre_index)
             sources.append(selected.get("reference_id"))
         blended = _apply_variation(sorted(blended, key=lambda event: (event["time"], event["pitch"])), target_profile, amount=variation_amount, seed=seed)
         valid, reason = validate_target_profile(target_profile, requested_role=role, events=blended)
         if not blended or not valid:
             return _failure(reason or "genre_synthesis_empty")
         payload = {
-            "schema_version": SDK_SCHEMA_VERSION, "clip_length": float(bars) * 4.0,
+            "schema_version": SDK_SCHEMA_VERSION, "clip_length": float(bars) * float(beats_per_bar),
             "notes": [{"pitch": event["pitch"], "time": event["time"], "duration": event["duration"], "velocity": event["velocity"]} for event in blended],
             "provenance": {"source_reference_ids": sources, "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre_mode": "synthesis", "genres": genres, "seed": seed, "variation_amount": variation_amount, "target_root": target_root, "target_mode": target_mode},
         }
@@ -410,7 +412,7 @@ def generate_midi_variation(
         random.Random(seed).shuffle(order)
         for index in order:
             selected = _apply_target_key(pool[index], role, target_root)
-            events = _tile_and_normalize(selected, target_profile, bars)
+            events = _tile_and_normalize(selected, target_profile, bars, beats_per_bar)
             if events is None:
                 continue
             events = _apply_variation(events, target_profile, amount=variation_amount, seed=seed)
@@ -419,7 +421,7 @@ def generate_midi_variation(
                 continue
             payload = {
                 "schema_version": SDK_SCHEMA_VERSION,
-                "clip_length": float(bars) * 4.0,
+                "clip_length": float(bars) * float(beats_per_bar),
                 "notes": [{"pitch": event["pitch"], "time": event["time"], "duration": event["duration"], "velocity": event["velocity"]} for event in events],
                 "provenance": {"source_reference_id": selected.get("reference_id"), "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre": genre, "seed": seed, "variation_amount": variation_amount, "target_root": target_root, "target_mode": target_mode},
             }

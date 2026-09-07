@@ -16,6 +16,19 @@ import os
 import sys
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "AIMixMaster"))
+
+# Track names, tempo and time signature are read by their owner. This scan
+# used to prefer EffectiveName while every other reader preferred UserName --
+# the same project could therefore be reported under two different track names
+# depending on which tool asked (measured 2026-09-06).
+from aimixmaster.project_analyzer import (  # noqa: E402
+    resolve_tempo,
+    resolve_time_signature,
+    track_name as display_name,
+)
 
 CLIP_TAGS = ("AudioClip", "MidiClip")
 # How many separate tracks must change at the same bar to count as a section
@@ -47,46 +60,98 @@ def _value(node, path, cast=str, default=None):
         return default
 
 
+# Where a track keeps its ARRANGEMENT clips. Session clips live under
+# ClipSlot/Value and are not on the timeline; counting them as events was a
+# measured defect (Diplomat, 2026-09-07: a 32-beat session clip on Bass Loom).
+ARRANGEMENT_EVENT_PATHS = (
+    "./DeviceChain/MainSequencer/ClipTimeable/ArrangerAutomation/Events",   # MIDI tracks
+    "./DeviceChain/MainSequencer/Sample/ArrangerAutomation/Events",         # audio tracks
+)
+# A clip this far past every other clip is a leftover, not the song's end
+# (Diplomat: a 2-beat clip at bar 188 of a 60-bar song).
+OUTLIER_GAP_BARS = 16
+
+
+def arrangement_clips(track):
+    """(start_beat, end_beat, tag, clip) for every enabled arrangement clip.
+
+    The timeline position is the clip's `Time` ATTRIBUTE -- Live reads that;
+    CurrentStart/CurrentEnd are the clip's own bounds and only give the length
+    (measured: reference_als_safe_edit rule 6)."""
+    out = []
+    for path in ARRANGEMENT_EVENT_PATHS:
+        events = track.find(path)
+        if events is None:
+            continue
+        for clip in events:
+            if clip.tag not in CLIP_TAGS or _value(clip, "./Disabled") == "true":
+                continue
+            start = _value(clip, "./CurrentStart", float)
+            end = _value(clip, "./CurrentEnd", float)
+            if start is None or end is None or end <= start:
+                continue
+            time = float(clip.attrib.get("Time", start))
+            out.append((time, time + (end - start), clip.tag, clip))
+    return out
+
+
 def read_project(path):
     with gzip.open(path, "rb") as handle:
         root = ET.parse(handle).getroot()
 
-    tempo = None
-    beats_per_bar = None
-    for node in root.iter("Tempo"):
-        tempo = _value(node, "./Manual", float)
-        if tempo:
-            break
-    for node in root.iter("TimeSignature"):
-        numerator = _value(node, ".//Numerator", int)
-        if numerator:
-            beats_per_bar = numerator
-            break
+    tempo_resolved = resolve_tempo(root)
+    signature = resolve_time_signature(root)
+    tempo = tempo_resolved.value
+    beats_per_bar = signature.value or 4
 
     events = []          # (beat, track_index)
     track_names = []
-    for index, track in enumerate(root.iter()):
+    tracks = []
+    all_clips = []       # (start, end, track_index, tag, notes)
+    for track in root.iter():
         if track.tag not in ("AudioTrack", "MidiTrack"):
             continue
-        name = _value(track, "./Name/EffectiveName") or _value(track, "./Name/UserName") or "(unnamed)"
+        name = display_name(track) or "(unnamed)"
         track_index = len(track_names)
         track_names.append(name)
-        for clip_tag in CLIP_TAGS:
-            for clip in track.iter(clip_tag):
-                if _value(clip, "./Disabled") == "true":
-                    continue
-                start = _value(clip, "./CurrentStart", float)
-                end = _value(clip, "./CurrentEnd", float)
-                if start is None or end is None or end <= start:
-                    continue
-                events.append((start, track_index))
-                events.append((end, track_index))
+        row = {"track": name, "type": track.tag, "midi_clips": 0, "audio_clips": 0, "notes": 0, "first_beat": None, "last_beat": None, "outlier_clips": 0}
+        for start, end, tag, clip in arrangement_clips(track):
+            notes = len(clip.findall(".//KeyTrack/Notes/MidiNoteEvent")) if tag == "MidiClip" else 0
+            row["midi_clips" if tag == "MidiClip" else "audio_clips"] += 1
+            row["notes"] += notes
+            row["first_beat"] = start if row["first_beat"] is None else min(row["first_beat"], start)
+            row["last_beat"] = end if row["last_beat"] is None else max(row["last_beat"], end)
+            all_clips.append((start, end, track_index, tag, notes))
+        tracks.append(row)
+
+    # The song's end is the last clip end before a gap of OUTLIER_GAP_BARS with
+    # nothing on any track; clips after such a gap are reported, not counted.
+    ordered = sorted(all_clips)
+    main_end = 0.0
+    outliers = []
+    for start, end, track_index, tag, notes in ordered:
+        if main_end and start - main_end >= OUTLIER_GAP_BARS * beats_per_bar:
+            outliers.append({"track": track_names[track_index], "clip": tag, "start_beat": start, "end_beat": end,
+                             "start_bar": start / beats_per_bar + 1, "gap_bars": round((start - main_end) / beats_per_bar, 1)})
+            tracks[track_index]["outlier_clips"] += 1
+            continue
+        main_end = max(main_end, end)
+        events.append((start, track_index))
+        events.append((end, track_index))
 
     return {
         "tempo": tempo,
-        "beats_per_bar": beats_per_bar or 4,
+        "tempo_source": tempo_resolved.source,
+        "beats_per_bar": beats_per_bar,
+        # 4 is a fallback, not a reading: say so rather than let the number pass
+        # for the project's own signature.
+        "beats_per_bar_source": signature.source or "assumed_4_4",
         "track_count": len(track_names),
+        "tracks": tracks,
         "events": events,
+        "song_end_beat": main_end,
+        "last_clip_end_beat": max((c[1] for c in all_clips), default=0.0),
+        "outlier_clips": outliers,
     }
 
 

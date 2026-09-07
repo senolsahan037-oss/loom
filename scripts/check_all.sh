@@ -3,12 +3,20 @@
 #   1) prompt parsing, plan extraction, instrument coverage, typecheck,
 #      arrangement builder   (scripts/check_arrangement.sh)
 #   2) the Presetor and AISoundDesigner evidence layers
-#   3) every one of the MCP server's 33 tools, over real stdio
+#   3) the extension-only MCP path (Python fake), the REAL extension consumer
+#      (bridge.ts over a fake Live), then every one of the MCP server's 44
+#      tools, over real stdio
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 "$ROOT/scripts/check_arrangement.sh"
+
+echo
+echo "=============================================="
+echo " Reader contract (one owner per fact)"
+echo "=============================================="
+python3 "$ROOT/tests/test_reader_contract.py"
 
 echo
 echo "=============================================="
@@ -24,15 +32,21 @@ python3 "$ROOT/AISoundDesigner/tests/test_sounddesigner.py"
 
 echo
 echo "=============================================="
-echo " Bridge command layer (fake Live)"
+echo " Extension-only MCP path (fake extension bridge)"
 echo "=============================================="
-python3 "$ROOT/AbletonScripts/Loom/test_bridge_ops.py"
+python3 "$ROOT/mcp_server/tests/test_extension_path.py"
 
 echo
 echo "=============================================="
-echo " Live bridge (real remote script + MCP)"
+echo " Live project open verification (fake log + crash dir)"
 echo "=============================================="
-python3 "$ROOT/mcp_server/tests/test_live_bridge.py"
+python3 "$ROOT/mcp_server/tests/test_live_project.py"
+
+echo
+echo "=============================================="
+echo " Real extension consumer (bridge.ts over a fake Live)"
+echo "=============================================="
+python3 "$ROOT/mcp_server/tests/test_bridge_consumer_real.py"
 
 echo
 echo "=============================================="
@@ -42,7 +56,7 @@ python3 "$ROOT/mcp_server/tests/test_mcp_protocol.py"
 
 echo
 echo "=============================================="
-echo " MCP tools (33 tools, real stdio)"
+echo " MCP tools (44 tools, real stdio)"
 echo "=============================================="
 python3 "$ROOT/mcp_server/tests/test_mcp_tools.py"
 
@@ -75,12 +89,6 @@ echo "=============================================="
 echo " Shared dataset"
 echo "=============================================="
 (cd "$ROOT/Sensei/DatasetRoot" && python3 -m pytest tests/ -q)
-
-echo
-echo "=============================================="
-echo " ArrangementGPS plan extraction"
-echo "=============================================="
-python3 "$ROOT/AbletonScripts/ArrangementGPSBuilder/test_plan_extraction.py"
 
 echo
 echo "=============================================="

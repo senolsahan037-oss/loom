@@ -18,11 +18,11 @@ _SCRIPTS = Path(__file__).resolve().parents[2] / "scripts"
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from extract_device_chains import display_name, role_for  # noqa: E402
+from extract_device_chains import role_for  # noqa: E402  (role vocabulary lives with the scan)
 
 from . import chain_evidence  # noqa: E402
 from .chain_builder import chain_of  # noqa: E402
-from aimixmaster.project_analyzer import iter_tracks  # noqa: E402
+from aimixmaster.project_analyzer import iter_tracks, track_name as display_name  # noqa: E402
 
 
 def _coverage(candidate: tuple[str, ...], wanted: tuple[str, ...]) -> float:

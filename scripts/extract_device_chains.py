@@ -19,8 +19,15 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "AIMixMaster"))
 
 from aimixmaster.als_io import load_als  # noqa: E402
-from aimixmaster.gain_staging import normalized_device_name  # noqa: E402
-from aimixmaster.project_analyzer import direct_devices, iter_tracks  # noqa: E402
+from aimixmaster.project_analyzer import (  # noqa: E402
+    RACK_TAGS,
+    device_chain,
+    device_name as normalized_device_name,
+    direct_devices,
+    expand_devices,
+    iter_tracks,
+    track_name as display_name,
+)
 
 # Ordered so the more specific term wins ("sub bass" resolves to sub, not bass).
 ROLE_KEYWORDS = [
@@ -41,21 +48,11 @@ ROLE_KEYWORDS = [
 ]
 
 
-def display_name(track):
-    """Track name: the name the producer typed, else Live's effective name.
-
-    project_analyzer.track_name reads only Name/UserName, which is empty in
-    most projects -- the first scan skipped unnamed tracks entirely. That
-    function was left alone because buss_builder's proven path depends on it;
-    the widening lives here instead.
-    """
-    for path in ("./Name/UserName", "./Name/EffectiveName"):
-        node = track.find(path)
-        if node is not None:
-            text = (node.attrib.get("Value") or "").strip()
-            if text:
-                return text
-    return ""
+# display_name / expand_devices / normalized_device_name are re-exported from
+# project_analyzer above: the widening this script once carried alone (UserName
+# then EffectiveName) is now the canonical rule everywhere, so there is one
+# precedence instead of two. The names are kept because chain_builder,
+# chain_planner, extract_sound_sources and the MCP import them from here.
 
 
 def role_for(name):
@@ -66,30 +63,6 @@ def role_for(name):
     return "unknown"
 
 
-# A rack (AudioEffectGroupDevice) looks like a single device to
-# direct_devices. In the first scan these came out as the most common "chain",
-# which says nothing -- the real chain is INSIDE the rack. Its contents are read
-# from Branches/AudioEffectBranch/DeviceChain/AudioToAudioDeviceChain/Devices
-RACK_TAGS = {"AudioEffectGroupDevice", "InstrumentGroupDevice", "MidiEffectGroupDevice"}
-MAX_RACK_DEPTH = 3
-
-
-def expand_devices(devices, depth=0):
-    """Replace racks with their contents; nesting depth is capped."""
-    expanded = []
-    for device in devices:
-        if device.tag in RACK_TAGS and depth < MAX_RACK_DEPTH:
-            inner = []
-            for branch in device.findall("./Branches/*"):
-                inner.extend(branch.findall("./DeviceChain/AudioToAudioDeviceChain/Devices/*"))
-                inner.extend(branch.findall("./DeviceChain/MidiToAudioDeviceChain/Devices/*"))
-            if inner:
-                expanded.extend(expand_devices(inner, depth + 1))
-                continue
-        expanded.append(device)
-    return expanded
-
-
 def read_chains(als_path):
     root = load_als(Path(als_path)).getroot()
     rows = []
@@ -97,13 +70,14 @@ def read_chains(als_path):
         name = display_name(track)
         if not name:
             continue
+        expanded = device_chain(track, expand=True)
         top_level = direct_devices(track)
         rows.append({
             "track": name,
             "track_type": track.tag,
             "role": role_for(name),
-            "chain": [normalized_device_name(device) for device in expand_devices(top_level)],
-            "top_level_chain": [normalized_device_name(device) for device in top_level],
+            "chain": list(expanded),
+            "top_level_chain": list(device_chain(track)),
             "uses_rack": any(device.tag in RACK_TAGS for device in top_level),
         })
     return rows

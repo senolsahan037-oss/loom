@@ -4,11 +4,13 @@ import path from "path";
 // The package directory name is derived from the project name the same way
 // createProjectPackage.js derived it -- reading it back from the pre-package
 // session plan keeps the two in sync without a shared module for two lines.
-const sourceSessionPlan = JSON.parse(fs.readFileSync("engine/output/ableton_session_plan.json", "utf8"));
-const safeName = (sourceSessionPlan.project?.name || "ArrangementGPS_Project")
-  .replace(/[^a-z0-9]+/gi, "_")
-  .replace(/^_+|_+$/g, "");
-const packageDir = path.join("Builds", safeName);
+const OUTPUT_DIR = path.resolve(process.env.ARRANGEMENTGPS_OUTPUT_DIR || "engine/output");
+const sourceSessionPlan = JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR, "ableton_session_plan.json"), "utf8"));
+// The package stage records where it wrote; this stage reads that instead of
+// deriving the directory name a second time.
+const packageLocation = JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR, "package_location.json"), "utf8"));
+const safeName = packageLocation.safe_name;
+const packageDir = packageLocation.build_dir;
 const manifestPath = path.join(packageDir, "package_manifest.json");
 const sessionPath = path.join(packageDir, "ableton_session_plan.json");
 const outPath = path.join(packageDir, "ableton_action_list.json");

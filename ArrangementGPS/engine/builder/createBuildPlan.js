@@ -1,9 +1,10 @@
 import fs from "fs";
 import path from "path";
 
-const statusPath = path.resolve("engine/output/status.json");
-const blueprintPath = path.resolve("engine/output/normalized_blueprint.json");
-const outPath = path.resolve("engine/output/ableton_build_plan.json");
+const OUTPUT_DIR = path.resolve(process.env.ARRANGEMENTGPS_OUTPUT_DIR || "engine/output");
+const statusPath = path.join(OUTPUT_DIR, "status.json");
+const blueprintPath = path.join(OUTPUT_DIR, "normalized_blueprint.json");
+const outPath = path.join(OUTPUT_DIR, "ableton_build_plan.json");
 
 if (!fs.existsSync(blueprintPath)) {
   console.error("Missing normalized_blueprint.json. Run the engine first.");

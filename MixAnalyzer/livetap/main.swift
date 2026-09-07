@@ -120,7 +120,11 @@ let outSettings: [String: Any] = [
     AVLinearPCMIsFloatKey: true,
     AVLinearPCMIsNonInterleaved: !inFormat.isInterleaved,
 ]
-let file: AVAudioFile
+// Optional on purpose: AVAudioFile writes the WAV header (the data chunk
+// length) only when it is released. Calling exit() with the file alive left
+// every capture with a 0-byte data chunk -- 2 MB files that every reader saw
+// as empty (measured 2026-09-06). The file is dropped before the report.
+var file: AVAudioFile?
 do {
     file = try AVAudioFile(forWriting: url, settings: outSettings, commonFormat: .pcmFormatFloat32, interleaved: inFormat.isInterleaved)
 } catch {
@@ -146,6 +150,7 @@ let ioBlock: AudioDeviceIOBlock = { _, inData, _, _, _ in
             for i in 0..<n { let v = abs(ch[c][i]); if v > peak { peak = v } }
         }
     }
+    guard let file = file else { return }
     do { try file.write(from: pcm) } catch { return }
     framesWritten += Int64(frames)
     if framesWritten >= wanted { done.signal() }
@@ -160,6 +165,8 @@ AudioDeviceStop(aggregateID, procID)
 if let procID = procID { AudioDeviceDestroyIOProcID(aggregateID, procID) }
 AudioHardwareDestroyAggregateDevice(aggregateID)
 AudioHardwareDestroyProcessTap(tapID)
+// Release the file so the header is finalised before anyone reads the WAV.
+file = nil
 
 let seconds = Double(framesWritten) / sampleRate
 let report: [String: Any] = [

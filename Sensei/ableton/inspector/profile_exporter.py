@@ -9,6 +9,13 @@ from ableton.inspector.alc_inspector import read_ableton_xml, extract_drum_pads_
 from ableton.inspector.midi_reader import read_midi_events
 
 
+
+def _decode_receiving_note(raw):
+    """Live stores a pad's ReceivingNote inverted (128 - note); the pad-notes owner decodes it."""
+    from ..kit_resolver import decode_receiving_note  # noqa: PLC0415  (circular at import time)
+
+    return decode_receiving_note(raw)
+
 def slugify(text: str) -> str:
     text = text.lower()
     text = re.sub(r"[^a-z0-9]+", "_", text)
@@ -539,7 +546,7 @@ def inspect_kit_device_chains(root, path: Path) -> dict:
         if rec_val is None:
             continue
         try:
-            note = int(float(rec_val))
+            note = _decode_receiving_note(rec_val)
         except ValueError:
             continue
 
@@ -573,7 +580,7 @@ def inspect_kit_device_chains(root, path: Path) -> dict:
         if branch_has_simpler:
             has_simpler = True
 
-        effects = [d for d in devices if d not in {"MultiSampler", "OriginalSimpler", "InstrumentGroupDevice"}]
+        effects = [d for d in devices if d not in {"MultiSampler", "OriginalSimpler", "DrumCell", "InstrumentGroupDevice"}]
         effect_count += len(effects)
 
         if any(d == "InstrumentGroupDevice" for d in devices):
@@ -589,6 +596,8 @@ def inspect_kit_device_chains(root, path: Path) -> dict:
         simpler_elem = branch.find(".//OriginalSimpler")
         sampler_elem = branch.find(".//MultiSampler")
         device_elem = simpler_elem if simpler_elem is not None else sampler_elem
+        if device_elem is None:
+            device_elem = branch.find(".//DrumCell")
 
         device_profile = extract_device_param_details(device_elem)
         device_profile["choke_group"] = choke_group
@@ -879,6 +888,7 @@ def extract_clip_events(root) -> list[dict]:
 
             events.append({
                 "note": note,
+                "raw_receiving_note": rec_val,
                 "beat": beat,
                 "velocity": velocity,
                 "duration": duration,
@@ -925,7 +935,7 @@ def inspect_alc_embedded_kit(path: str | Path) -> dict:
             continue
 
         try:
-            note = int(float(receiving))
+            note = _decode_receiving_note(receiving)
         except (TypeError, ValueError):
             continue
 
@@ -946,7 +956,7 @@ def inspect_alc_embedded_kit(path: str | Path) -> dict:
             pads[note] = {
                 "note": note,
                 "label": label,
-                "receiving_note": receiving,
+                "raw_receiving_note": receiving,
                 "sending_note": sending,
                 "sample_names": [label] if label else [],
                 "choke_group": choke_group,

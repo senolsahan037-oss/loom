@@ -22,7 +22,11 @@ SERVER = ROOT / "mcp_server" / "server.py"
 # The server has no third-party dependency, so it runs on whatever Python is
 # running this test. Hardcoding a venv path breaks a clean clone and CI.
 PYTHON = Path(sys.executable)
-GAP_LOG = ROOT / "Docs" / "MISSING_CONTROLS_LOG.md"
+SCRATCH = tempfile.TemporaryDirectory(prefix="loom_tools_outputs_")
+os.environ["LOOM_OUTPUT_ROOT"] = SCRATCH.name
+GAP_LOG = Path(SCRATCH.name) / "Docs" / "MISSING_CONTROLS_LOG.md"
+GAP_LOG.parent.mkdir(parents=True)
+GAP_LOG.write_text("# Isolated test log\n", encoding="utf-8")
 # The server's bridge directory is redirected to a scratch folder BEFORE the
 # server is spawned, so no test request can reach a running Live. Until this,
 # the two write checks below went to ~/Documents/SenseiV2Bridge on the
@@ -31,23 +35,21 @@ GAP_LOG = ROOT / "Docs" / "MISSING_CONTROLS_LOG.md"
 BRIDGE_ROOT = Path(tempfile.mkdtemp(prefix="loom_tools_bridge_"))
 os.environ["LOOM_BRIDGE_ROOT"] = str(BRIDGE_ROOT)
 BRIDGE_REQUESTS = BRIDGE_ROOT / "requests"
+# A compatible bridge state is published once (no consumer runs): the
+# server's protocol gate lets requests through and nobody answers them, so
+# the write checks below exercise NOT_CONSUMED / QUEUED rather than NO_STATE.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fake_extension_bridge import FakeExtensionBridge  # noqa: E402
 # A personal project (Turtle) is the richest sample and is used wherever it
 # is found -- it has moved once already, so several locations are tried; the
 # committed fixture is the fallback. Checks that need Turtle's own tracks
 # stay tied to it.
-_TURTLE_CANDIDATES = (
-    Path.home() / "Desktop" / "solo" / "Turtle.als",
-    Path.home() / "Desktop" / "solo" / "Ableton New" / "Turtle.als",
-    Path.home() / "Desktop" / "solo" / "Turtle Project" / "Turtle.als",
-)
+_TURTLE_CANDIDATES = ()  # Personal projects are never test fixtures.
 _FIXTURE_ALS = ROOT / "AIMixMaster" / "tests" / "fixtures" / "drum_buss_before.als"
 SAMPLE_ALS = next((p for p in _TURTLE_CANDIDATES if p.exists()), _FIXTURE_ALS)
 # A project with ten automation envelopes; no committed fixture carries
 # automation yet, so these checks run only where the project exists.
-AUTOMATED_ALS = next((p for p in (
-    Path.home() / "Desktop" / "solo" / "overdozz Project" / "overdozz.als",
-    Path.home() / "Desktop" / "solo" / "Ableton New" / "overdozz Project" / "overdozz.als",
-) if p.exists()), Path.home() / "Desktop" / "solo" / "overdozz Project" / "overdozz.als")
+AUTOMATED_ALS = Path(SCRATCH.name) / "automation_fixture_unavailable.als"
 
 GAP_MARKER = "MCP_SELFTEST_ENTRY_DO_NOT_KEEP"
 
@@ -80,6 +82,7 @@ class Server:
         response = self.call("tools/call", {"name": name, "arguments": arguments or {}})
         result = response.get("result", {})
         text = (result.get("content") or [{}])[0].get("text", "")
+        self.last_text_chars = len(text)
         try:
             payload = json.loads(text)
         except json.JSONDecodeError:
@@ -103,12 +106,13 @@ def check(label, condition, detail=""):
 
 
 def main():
+    FakeExtensionBridge(BRIDGE_ROOT).publish_state()
     server = Server()
     created_request = None
     # Each chain run leaves a new build directory and the renderer leaves a new
     # job file. Unless the test clears up after itself, every run adds another
     # folder to the repo.
-    created_build_dir = None
+    created_run_dir = None
     created_job_file = None
     try:
         init = server.call("initialize", {"protocolVersion": "2024-11-05", "capabilities": {}, "clientInfo": {"name": "selftest", "version": "1"}})
@@ -127,7 +131,7 @@ def main():
         # An exact count, so a tool quietly disappearing is caught. The message
         # carries the names because a bare number tells you something moved but
         # not what.
-        check("44 tools are published", len(names) == 44, sorted(names))
+        check("45 tools are published", len(names) == 45, sorted(names))
         check("every tool has an inputSchema", all("inputSchema" in tool for tool in listed))
         check("tool names are unique", len(set(names)) == len(names))
 
@@ -144,7 +148,55 @@ def main():
             check("6 tracks are within Sensei's scope", payload["tracks_sensei_can_generate"] == 6, payload)
             check("the action list file was really written", payload["action_list_file"] and Path(payload["action_list_file"]).exists(), payload["action_list_file"])
             check("it does not produce an empty task list", payload["tracks_total"] > 0, payload)
-            created_build_dir = Path(payload["build_dir"])
+            check("the run has its own directory and every path is inside it",
+                  payload.get("run_id") and Path(payload["plan_path"]).is_relative_to(Path(payload["run_dir"]))
+                  and Path(payload["build_dir"]).is_relative_to(Path(payload["run_dir"])), payload.get("run_dir"))
+            created_run_dir = Path(payload["run_dir"])
+
+            # --- GAP-003: bars are converted with a real time signature, not an assumed 4/4 --
+            plan_file = Path(payload["plan_path"])
+            _, build = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True, "beats_per_bar": 3})
+            # 2026-09-07: this answer reached 66,750 characters (the kit's
+            # per-pad parameters repeated three times), was cut at the limit
+            # and the client got a JSONDecodeError -- seven checks failed
+            # at once. The answer must parse, fit, and carry the kit once.
+            check("the dry-run answer is one complete JSON value the client decodes", "_raw" not in build and "truncated" not in build, list(build)[:5])
+            check("the dry-run answer fits the text limit", server.last_text_chars <= 24000, server.last_text_chars)
+            check("the kit is carried once, under kits, keyed by drum channel",
+                  "kit" not in build and isinstance(build.get("kits"), dict) and build["kits"]
+                  and not any("kit_resolution" in tr for tr in build.get("tracks") or []), (list(build.get("kits") or {}), "kit" in build))
+            drum_channel = next(iter(build.get("kits") or {}), None)
+            kit_block = (build.get("kits") or {}).get(drum_channel) or {}
+            check("the plan's own kit is selected as a preset FILE: decoded pads and raw ReceivingNotes stated apart, no rebuild and no fidelity-loss talk in the answer",
+                  kit_block.get("selection_source") == "plan" and kit_block.get("rebuild_blocker") is None and "fidelity_summary" not in kit_block and "fidelity" not in kit_block
+                  and kit_block.get("expected_pad_notes") and all(0 <= n <= 127 for n in kit_block["expected_pad_notes"])
+                  and kit_block.get("raw_receiving_notes") and all(128 - r in kit_block["expected_pad_notes"] for r in kit_block["raw_receiving_notes"]),
+                  {k: kit_block.get(k) for k in ("selection_source", "rebuild_blocker", "expected_pad_notes", "raw_receiving_notes", "load_path")})
+            drum = next((t for t in build.get("tracks") or [] if t.get("role") == "drum"), {})
+            check("over stdio the dry run says how the drum track's real kit would be loaded and which decoded pads it has -- no rebuild anywhere",
+                  drum.get("preset", {}).get("path", "").endswith(".adg") and kit_block.get("rebuild_blocker") is None and kit_block.get("expected_pad_notes")
+                  and "load_path" in kit_block and "would_build" not in str(drum.get("kit")), (drum.get("preset"), drum.get("kit"), kit_block.get("load_path")))
+            beats = [step["beat"] for step in build.get("session_steps", []) if step.get("kind") == "locator"]
+            check("an explicit beats_per_bar drives every locator beat",
+                  beats == [(s - 1) * 3 for s in (1, 9, 25, 33, 49, 57, 73)], beats)
+            check("the response says where the beats-per-bar came from",
+                  build.get("beats_per_bar") == 3 and build.get("beats_per_bar_source") == "explicit",
+                  (build.get("beats_per_bar"), build.get("beats_per_bar_source")))
+            plan_tracks = json.loads(plan_file.read_text(encoding="utf-8")).get("tracks") or []
+            statuses = {tr.get("status") for tr in build.get("tracks") or []}
+            check("a dry run lists every plan track with a create/exists verdict",
+                  len(build.get("tracks") or []) == len(plan_tracks)
+                  and statuses <= {"exists", "would_create", "unknown_no_session"},
+                  (len(build.get("tracks") or []), len(plan_tracks), statuses))
+            check("track verdicts are totalled like the writes are",
+                  sum((build.get("track_totals") or {}).values()) == len(plan_tracks), build.get("track_totals"))
+            check("the song key is a session step reported as unsupported by the SDK, never faked",
+                  any(s.get("kind") == "key" and s.get("outcome") == "UNSUPPORTED_BY_SDK" for s in build.get("session_steps", [])),
+                  [(s.get("kind"), s.get("outcome")) for s in build.get("session_steps", [])])
+            check("a dry run says so in its status", build.get("status") == "dry_run", build.get("status"))
+            _, fallback = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True})
+            check("without a session or an explicit value, 4/4 is an admitted assumption",
+                  fallback.get("beats_per_bar_source") in ("live_session", "assumed_4_4"), fallback.get("beats_per_bar_source"))
 
         is_error, payload = server.tool("plan_verify")
         check("plan verification runs", not is_error, payload)
@@ -167,8 +219,8 @@ def main():
             is_error, payload = server.tool("project_inspect_arrangement", {"als_path": str(SAMPLE_ALS)})
             check("arrangement inspection runs", not is_error, payload)
             if not is_error:
-                check("sections are inferred from clip boundaries", payload["section_count"] >= 1, payload)
-                check("tempo is read", payload["tempo"], payload)
+                check("section count is reported even for a clipless fixture", isinstance(payload["section_count"], int), payload)
+                check("missing fixture tempo is reported as missing", payload["tempo"] is None, payload)
 
             is_error, payload = server.tool("render_plan", {"als_path": str(SAMPLE_ALS)})
             check("the render manifest is produced from a real project", not is_error, payload)
@@ -259,7 +311,7 @@ def main():
             if not is_error:
                 check("the track count is reported", payload["track_count"] > 0, payload["track_count"])
 
-        is_error, payload = server.tool("projects_arrangement_shapes", {"roots": [str(Path.home() / "Desktop" / "solo")], "limit": 3})
+        is_error, payload = server.tool("projects_arrangement_shapes", {"roots": [str(_FIXTURE_ALS.parent)], "limit": 3})
         check("arrangement shape extraction runs", not is_error, payload)
         if not is_error:
             check("the number of scanned projects is reported", payload["scanned"] == 3, payload["scanned"])
@@ -279,13 +331,16 @@ def main():
         check("the bridge write reports its outcome", not is_error, payload)
         if not is_error:
             created_request = Path(payload["request_file"])
-            check("the request file really exists on disk", created_request.exists(), str(created_request))
+            check("the request went through the common protocol as a write_clip", payload.get("op") == "write_clip", payload.get("op"))
             check("if Live did not consume it, that is stated plainly",
-                  payload["status"] in ("NOT_CONSUMED", "WRITTEN_TO_LIVE", "REJECTED_BY_LIVE"), payload["status"])
+                  payload["status"] in ("NOT_CONSUMED", "WRITTEN_TO_LIVE", "REJECTED_BY_LIVE", "INDETERMINATE", "STALE_STATE"), payload["status"])
+            check("the answer carries a structured outcome", isinstance(payload.get("outcome"), dict) and "applied" in payload["outcome"], payload.get("outcome"))
             check("the consumed field is measured, not guessed",
                   isinstance(payload["consumed"], bool), payload.get("consumed"))
             after = set(BRIDGE_REQUESTS.glob("*.json"))
-            check("exactly one request was added to the queue", len(after - before) == 1, len(after - before))
+            if payload["status"] == "NOT_CONSUMED":
+                check("an unanswered request is withdrawn so no later Live can apply it",
+                      not created_request.exists() and after == before, (created_request.exists(), len(after - before)))
 
         is_error, payload = server.tool("midi_write_to_live", {
             "name": "MCP selftest blind", "length_beats": 4.0,
@@ -298,7 +353,9 @@ def main():
             Path(payload["request_file"]).unlink(missing_ok=True)
 
         # --- Automation writing ---
-        if SAMPLE_ALS.exists():
+        if not AUTOMATED_ALS.exists():
+            print("  SKIPPED: automation write/target checks need a committed fixture with the expected parameter ranges")
+        if AUTOMATED_ALS.exists():
             is_error, payload = server.tool("automation_write", {
                 "als_path": str(SAMPLE_ALS), "track": "1-Viral Kit",
                 "parameter": "volume", "unit": "db",
@@ -334,7 +391,7 @@ def main():
                 check("the limit is not exceeded", payload["returned"] <= 5, payload["returned"])
 
             is_error, payload = server.tool("render_verify", {
-                "als_path": str(SAMPLE_ALS), "renders_dir": str(Path.home() / "Desktop"),
+                "als_path": str(SAMPLE_ALS), "renders_dir": SCRATCH.name,
             })
             check("render validation runs (soundfile installed)", not is_error, str(payload)[:160])
 
@@ -470,7 +527,7 @@ def main():
 
 
 
-        check("mix_from_live without a Live says no render came back", not is_error and payload.get("measurement") is None and payload.get("render", {}).get("status") in ("NOT_CONSUMED", "FAILED_IN_LIVE"), payload)
+        check("mix_from_live without a Live says no render came back", not is_error and payload.get("measurement") is None and payload.get("render", {}).get("status") in ("NOT_CONSUMED", "STALE_STATE"), payload)
 
 
 
@@ -478,9 +535,12 @@ def main():
         # --- Telemetry ---
         is_error, payload = server.tool("live_bridge_status")
         check("bridge status is read", not is_error and "bridge_root" in payload, payload)
-        check("live_bridge_status lists every bridge root with its freshness",
-              isinstance(payload.get("bridge_candidates"), list) and any(c.get("active") for c in payload["bridge_candidates"]),
-              payload.get("bridge_candidates"))
+        check("live_bridge_status names one extension endpoint, no fallback, the protocol verdict and the SDK's gaps",
+              payload.get("endpoint") == "loom_extension" and payload.get("fallback") is None
+              and isinstance(payload.get("bridge_candidates"), list) and any(c.get("active") for c in payload["bridge_candidates"])
+              and "set_key" in (payload.get("unsupported_by_sdk") or {}) and isinstance(payload.get("protocol"), dict)
+              and "mutations_allowed" in payload,
+              payload)
 
         gap_before = GAP_LOG.read_text(encoding="utf-8") if GAP_LOG.exists() else ""
         is_error, payload = server.tool("gap_record", {
@@ -500,35 +560,8 @@ def main():
             created_request.unlink()
         if created_job_file and created_job_file.exists():
             created_job_file.unlink()
-        if created_build_dir and created_build_dir.exists() and created_build_dir.parent.name == "Builds":
-            shutil.rmtree(created_build_dir)
-        # --- GAP-003: bars are converted with a real time signature, not an assumed 4/4 --
-            plan_file = ROOT / "ArrangementGPS" / "engine" / "output" / "ableton_session_plan.json"
-            if plan_file.exists():
-                _, build = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True, "beats_per_bar": 3})
-                beats = [step["beat"] for step in build.get("session_steps", []) if step.get("kind") == "locator"]
-                check("an explicit beats_per_bar drives every locator beat",
-                      beats == [(s - 1) * 3 for s in (1, 9, 25, 33, 49, 57, 73)], beats)
-                check("the response says where the beats-per-bar came from",
-                      build.get("beats_per_bar") == 3 and build.get("beats_per_bar_source") == "explicit",
-                      (build.get("beats_per_bar"), build.get("beats_per_bar_source")))
-                plan_tracks = json.loads(plan_file.read_text(encoding="utf-8")).get("tracks") or []
-                statuses = {tr.get("status") for tr in build.get("tracks") or []}
-                check("a dry run lists every plan track with a create/exists verdict",
-                      len(build.get("tracks") or []) == len(plan_tracks)
-                      and statuses <= {"exists", "would_create", "unknown_no_session"},
-                      (len(build.get("tracks") or []), len(plan_tracks), statuses))
-                check("track verdicts are totalled like the writes are",
-                      sum((build.get("track_totals") or {}).values()) == len(plan_tracks), build.get("track_totals"))
-                check("the song key is a session step before any write",
-                      any(s.get("kind") == "key" and s.get("root") and s.get("mode") for s in build.get("session_steps", [])),
-                      [s.get("kind") for s in build.get("session_steps", [])])
-                _, fallback = server.tool("project_build", {"plan_path": str(plan_file), "dry_run": True})
-                check("without a session or an explicit value, 4/4 is an admitted assumption",
-                      fallback.get("beats_per_bar_source") in ("live_session", "live_session_via_surface", "assumed_4_4"), fallback.get("beats_per_bar_source"))
-            else:
-                print("  --  GAP-003 check skipped: no session plan on this machine (run plan_create once)")
-
+        if created_run_dir and created_run_dir.exists() and created_run_dir.parent.name == "runs":
+            shutil.rmtree(created_run_dir)
         server.close()
 
     # --- role -> real profile id (the polyphonic default never existed) --------

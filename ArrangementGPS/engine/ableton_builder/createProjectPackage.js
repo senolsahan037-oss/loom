@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
 
-const sessionPlanPath = "engine/output/ableton_session_plan.json";
-const sourceRoot = "engine/output";
+const OUTPUT_DIR = path.resolve(process.env.ARRANGEMENTGPS_OUTPUT_DIR || "engine/output");
+const BUILDS_DIR = path.resolve(process.env.ARRANGEMENTGPS_BUILDS_DIR || "Builds");
+const sessionPlanPath = path.join(OUTPUT_DIR, "ableton_session_plan.json");
+const sourceRoot = OUTPUT_DIR;
 
 if (!fs.existsSync(sessionPlanPath)) {
   console.error("Missing ableton_session_plan.json");
@@ -11,11 +13,13 @@ if (!fs.existsSync(sessionPlanPath)) {
 
 const sessionPlan = JSON.parse(fs.readFileSync(sessionPlanPath, "utf8"));
 
+// Letters of any script survive (a Turkish project name keeps its name);
+// a name with no letters or digits at all falls back instead of becoming "".
 const safeName = (sessionPlan.project?.name || "ArrangementGPS_Project")
-  .replace(/[^a-z0-9]+/gi, "_")
-  .replace(/^_+|_+$/g, "");
+  .replace(/[^\p{L}\p{N}]+/gu, "_")
+  .replace(/^_+|_+$/g, "") || "ArrangementGPS_Project";
 
-const buildDir = path.join("Builds", safeName);
+const buildDir = path.join(BUILDS_DIR, safeName);
 const tracksDir = path.join(buildDir, "tracks");
 
 fs.mkdirSync(tracksDir, { recursive: true });
@@ -84,3 +88,10 @@ fs.writeFileSync(
 console.log("Project package created:");
 console.log(buildDir);
 console.log(`Tracks: ${trackManifest.length}`);
+
+// Where this run's package went, for the next stage and the caller: nobody
+// has to recompute the directory name from the project name.
+fs.writeFileSync(
+  path.join(OUTPUT_DIR, "package_location.json"),
+  JSON.stringify({ build_dir: path.resolve(buildDir), safe_name: safeName, project_name: sessionPlan.project?.name || null }, null, 2)
+);

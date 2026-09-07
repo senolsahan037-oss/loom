@@ -21,7 +21,7 @@ It does not scan mutable source material during generation, infer an instrument 
 
 It reads the immutable Phase 6 release manifest, resolves the target from either a native preset path, an explicit profile, or a verified Drum Rack, then returns either:
 
-- a `sensei.sdk-midi-write.v1` payload for the official `sensei-midi-writer` extension; or
+- a `sensei.sdk-midi-write.v1` payload for the Loom extension (`extension/`, id `subverselab.loom`); or
 - a structured no-write response explaining why the target/data is not safe.
 
 The runtime never writes to Live itself. The SDK extension owns that final action.

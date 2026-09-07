@@ -1,12 +1,15 @@
 import fs from "fs";
-import os from "os";
 import path from "path";
+import { fileURLToPath } from "url";
 
 // Sensei's own instrument-genre catalog (Core Library included as of
 // 2026-08-12) is the source of truth for "which real, loadable instrument
 // carries which genre tag" -- reading it directly avoids ArrangementGPS
 // maintaining a second, parallel genre-tagging system.
-const SENSEI_IDENTITY_PATH = path.join(os.homedir(), "Desktop", "Loom", "Sensei", "data", "genre_identity", "ableton_preset_genre_identities.jsonl");
+// Resolved from this file's own location (ArrangementGPS/engine/builder),
+// never from a fixed Desktop path: the repo may live anywhere.
+const LOOM_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
+const SENSEI_IDENTITY_PATH = process.env.LOOM_SENSEI_IDENTITY_PATH || path.join(LOOM_ROOT, "Sensei", "data", "genre_identity", "ableton_preset_genre_identities.jsonl");
 const ROLE_BY_SOURCE_GROUP = { drums: "drum", bass: "bass", chords: "chord" };
 
 function stripPresetExtension(name) {
@@ -44,8 +47,9 @@ function buildGenreInstrumentIndex() {
   return index;
 }
 
-const buildPlanPath = path.resolve("engine/output/ableton_build_plan.json");
-const outPath = path.resolve("engine/output/ableton_session_plan.json");
+const OUTPUT_DIR = path.resolve(process.env.ARRANGEMENTGPS_OUTPUT_DIR || "engine/output");
+const buildPlanPath = path.join(OUTPUT_DIR, "ableton_build_plan.json");
+const outPath = path.join(OUTPUT_DIR, "ableton_session_plan.json");
 
 if (!fs.existsSync(buildPlanPath)) {
   console.error("Missing ableton_build_plan.json");

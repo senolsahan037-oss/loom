@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 export function createStatusFile(agentDispatch) {
-  const statusPath = path.resolve("engine/output/status.json");
+  const statusPath = path.resolve(process.env.ARRANGEMENTGPS_OUTPUT_DIR || "engine/output", "status.json");
 
   const status = {
     created_at: new Date().toISOString(),

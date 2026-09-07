@@ -22,9 +22,14 @@ sys.path.insert(0, str(ROOT / "AIMixMaster"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from aimixmaster.als_io import load_als  # noqa: E402
-from aimixmaster.gain_staging import normalized_device_name  # noqa: E402
-from aimixmaster.project_analyzer import direct_devices, iter_tracks  # noqa: E402
-from extract_device_chains import display_name, expand_devices, role_for  # noqa: E402
+from aimixmaster.project_analyzer import (  # noqa: E402
+    device_name as normalized_device_name,
+    direct_devices,
+    expand_devices,
+    iter_tracks,
+    track_name as display_name,
+)
+from extract_device_chains import role_for  # noqa: E402
 
 INSTRUMENT_TAGS = {
     "OriginalSimpler", "MultiSampler", "Operator", "UltraAnalog", "InstrumentVector",

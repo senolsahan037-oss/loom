@@ -5,6 +5,13 @@ import gzip
 import xml.etree.ElementTree as ET
 
 
+
+def _decode_receiving_note(raw):
+    """Live stores a pad's ReceivingNote inverted (128 - note); the pad-notes owner decodes it."""
+    from ..kit_resolver import decode_receiving_note  # noqa: PLC0415  (circular at import time)
+
+    return decode_receiving_note(raw)
+
 def read_ableton_xml(path: str | Path) -> ET.Element:
     path = Path(path)
     raw = path.read_bytes()
@@ -61,12 +68,12 @@ def extract_drum_pads(path: str | Path) -> list[dict]:
         receiving = _first_value(branch, ["ReceivingNote", "ReceiveNote"])
         sending = _first_value(branch, ["SendingNote", "SendNote"])
 
-        note_raw = receiving or sending
-        if note_raw is None:
+        if receiving is None and sending is None:
             continue
 
         try:
-            note = int(float(note_raw))
+            # ReceivingNote is stored inverted (128 - note); SendingNote is not.
+            note = _decode_receiving_note(receiving) if receiving is not None else int(float(sending))
         except ValueError:
             continue
 
@@ -83,7 +90,7 @@ def extract_drum_pads(path: str | Path) -> list[dict]:
         pads.append({
             "note": note,
             "label": label,
-            "receiving_note": receiving,
+            "raw_receiving_note": receiving,
             "sending_note": sending,
             "sample_names": sample_names,
             "source_tag": branch.tag,
@@ -150,14 +157,14 @@ def extract_drum_pads_loose(path: str | Path) -> list[dict]:
             sending = _first_value(best_context, ["SendingNote", "SendNote"])
 
             try:
-                note = int(float(receiving))
+                note = _decode_receiving_note(receiving)  # stored inverted (128 - note)
             except (TypeError, ValueError):
                 return
 
             pads.append({
                 "note": note,
                 "label": sample_names[0] if sample_names else f"Note {note}",
-                "receiving_note": receiving,
+                "raw_receiving_note": receiving,
                 "sending_note": sending,
                 "sample_names": sample_names,
                 "source_tag": best_context.tag,

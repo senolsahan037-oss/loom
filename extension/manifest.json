@@ -1,0 +1,7 @@
+{
+  "name": "Loom",
+  "author": "SubverseLab",
+  "entry": "dist/extension.js",
+  "version": "0.4.3",
+  "minimumApiVersion": "1.0.0"
+}

@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
-"""Loom Full Suite MCP Server for Ableton Live Integration.
+"""The Loom MCP server (stdio JSON-RPC).
 
-Connects all Loom capabilities:
-- Sensei: Dataset-pinned MIDI variation engine & safe target resolver
-- AIMixMaster: Ableton Live Set (.als) project inspection, genre detection, mixer & routing analysis, gain staging
-- ArrangementGPS: Arrangement timeline action lists & Ableton library indexing
-- Presetor / AISoundDesigner: Preset discovery & device chain templating
-- Renderer: Stem export manifests & render job structuring
-- Bridge & Telemetry: SenseiV2Bridge status & gap tracking ledger
+One tool namespace over Loom's engines. Responsibilities, in file order:
+  1. paths, argument validation, response discipline, resources and prompts
+  2. engine handlers -- Sensei (MIDI), AIMixMaster (.als analysis and
+     automation), ArrangementGPS (plans), Presetor, AISoundDesigner,
+     MusicalIntelligence, Mix Check, the crate agent
+  3. Live handlers -- every read or write of a running Live goes through
+     bridge_client.submit_request(), the Loom extension's file bridge; there
+     is no other Live endpoint
+  4. project_build -- the one orchestration: plan -> validate -> gate ->
+     tempo -> tracks (with target evidence) -> clips -> locators -> readback
+  5. the JSON-RPC loop: concurrency, progress, cooperative cancellation
+
+Tool names and input schemas live in tool_schemas.py; the bridge protocol
+and its status vocabulary in bridge_client.py.
 """
 
 from __future__ import annotations
@@ -15,12 +22,15 @@ from __future__ import annotations
 import datetime
 import glob
 import gzip
+import hashlib
 import json
 import base64
 import contextvars
 import os
+import re
 import shutil
 import subprocess
+import tempfile
 import sys
 import threading
 import time
@@ -31,7 +41,15 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+# mcp_server is not a package: its sibling modules are imported by name.
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+import bridge_client  # noqa: E402
+from bridge_client import BridgeTarget, BridgeUnavailable, resolve_bridge_target  # noqa: E402
+
 LOOM_DIR = Path(__file__).resolve().parents[1]
+# Optional output relocation for isolated runs; source/data roots stay fixed.
+OUTPUT_ROOT = Path(os.environ.get("LOOM_OUTPUT_ROOT", str(LOOM_DIR))).expanduser().resolve()
 SENSEI_DIR = LOOM_DIR / "Sensei"
 AIMIXMASTER_DIR = LOOM_DIR / "AIMixMaster"
 ARRANGEMENTGPS_DIR = LOOM_DIR / "ArrangementGPS"
@@ -47,92 +65,13 @@ for _module_dir in (SENSEI_DIR, AIMIXMASTER_DIR, PRESETOR_DIR, SOUNDDESIGNER_DIR
     if str(_module_dir) not in sys.path:
         sys.path.insert(0, str(_module_dir))
 
-# The bridge directory is overridable so a test can talk to a bridge of its own.
-# It used to be fixed, so the live-bridge test had to exercise the real one -- and
-# with Live actually running, the session picked up the test's requests and its
-# tempo really changed. A test must not be able to reach the user's session.
-BRIDGE_ROOT = Path(os.environ.get("LOOM_BRIDGE_ROOT")
-                   or Path.home() / "Documents" / "SenseiV2Bridge")
-REQUEST_DIR = BRIDGE_ROOT / "requests"
-DONE_DIR = BRIDGE_ROOT / "done"
-ERROR_DIR = BRIDGE_ROOT / "errors"
-PROCESSED_DIR = BRIDGE_ROOT / "processed"
-DEFAULT_SURFACE_ROOT = Path.home() / "Documents" / "SenseiV2Bridge"
-STATE_FRESH_SECONDS = 10.0
-
-
-def _bind_bridge_root(root: Path) -> None:
-    """Point every bridge path at `root`. Called once at import and again by
-    _select_bridge_root when a live extension bridge is found."""
-    global BRIDGE_ROOT, REQUEST_DIR, DONE_DIR, ERROR_DIR, PROCESSED_DIR, STATE_DIR, STATE_FILE
-    BRIDGE_ROOT = root
-    REQUEST_DIR = root / "requests"
-    DONE_DIR = root / "done"
-    ERROR_DIR = root / "errors"
-    PROCESSED_DIR = root / "processed"
-    STATE_DIR = root / "state"
-    STATE_FILE = STATE_DIR / "live_state.json"
-
-
-def _state_freshness(root: Path) -> tuple[float | None, str | None]:
-    """(age in seconds, surface_version) of the state a bridge root last
-    published, or (None, None) if it never did."""
-    state_file = root / "state" / "live_state.json"
-    if not state_file.exists():
-        return None, None
-    try:
-        state = json.loads(state_file.read_text(encoding="utf-8"))
-        captured = float(state.get("captured_at") or 0)
-    except Exception:  # noqa: BLE001
-        return None, None
-    return (time.time() - captured if captured else None), state.get("surface_version")
-
-
-def _extension_bridge_roots() -> list[Path]:
-    data = Path.home() / "Library" / "Application Support" / "Ableton" / "Extensions Data"
-    if not data.exists():
-        return []
-    return sorted(p / "bridge" for p in data.iterdir() if (p / "bridge" / "state" / "live_state.json").exists())
-
-
-def _select_bridge_root() -> str:
-    """Which Live-side endpoint to talk to, decided per call.
-
-    LOOM_BRIDGE_ROOT (or a test rebinding the paths) wins outright. Otherwise
-    a *fresh* extension bridge is preferred -- that is the one-install path,
-    the user only added the .ablx -- and the control surface's root is the
-    fallback. Returns why, for the status tool."""
-    if os.environ.get("LOOM_BRIDGE_ROOT"):
-        return "LOOM_BRIDGE_ROOT"
-    if BRIDGE_ROOT not in (DEFAULT_SURFACE_ROOT, *_extension_bridge_roots()):
-        return "rebound_by_caller"
-    for root in _extension_bridge_roots():
-        age, version = _state_freshness(root)
-        if age is not None and age < STATE_FRESH_SECONDS and str(version or "").startswith("loom-extension"):
-            if root != BRIDGE_ROOT:
-                _bind_bridge_root(root)
-            return "fresh_extension_bridge"
-    if BRIDGE_ROOT != DEFAULT_SURFACE_ROOT:
-        _bind_bridge_root(DEFAULT_SURFACE_ROOT)
-    return "control_surface_default"
-
-GAP_LOG_PATH = DOCS_DIR / "MISSING_CONTROLS_LOG.md"
+GAP_LOG_PATH = OUTPUT_ROOT / "Docs" / "MISSING_CONTROLS_LOG.md"
 
 
 def log_debug(msg: str) -> None:
     sys.stderr.write(f"[loom-mcp] {msg}\n")
     sys.stderr.flush()
 
-
-def ensure_bridge_dirs() -> None:
-    for d in (REQUEST_DIR, DONE_DIR, ERROR_DIR, PROCESSED_DIR, DOCS_DIR):
-        d.mkdir(parents=True, exist_ok=True)
-
-
-ROOT_MAP = {
-    "0": "C", "1": "C#", "2": "D", "3": "D#", "4": "E", "5": "F",
-    "6": "F#", "7": "G", "8": "G#", "9": "A", "10": "A#", "11": "B"
-}
 
 CAMELOT_MAP = {
     ("C", "Major"): "8B", ("G", "Major"): "9B", ("D", "Major"): "10B",
@@ -146,643 +85,8 @@ CAMELOT_MAP = {
 }
 
 
-TOOLS = [
-    # 1. Sensei Tools
-    {
-        "name": "part_suggest",
-        "description": "Write a chord progression or bass line FOR A SPECIFIC PROJECT. Reads the project's own key, scale and tempo first, walks a chord sequence through transitions measured from 909 annotated songs, and returns notes already in that project's key and beats -- so the part belongs to the session rather than having to be bent to fit it. This is the thing a prompt-driven generator cannot do: it does not know your key or your tempo. Returns what it read from the project and what it counted, so every choice is traceable. A layer with no measured evidence is refused, not guessed.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "The .als to read the musical context from. Omit to use the running Live session."},
-                "layer": {"type": "string", "enum": ["chord", "bass"], "description": "Which part to write."},
-                "bars": {"type": "integer", "description": "Length in bars.", "default": 8},
-                "chords_per_bar": {"type": "integer", "description": "Harmonic rhythm. 1 is one chord a bar; 2 is half-bar changes.", "default": 1},
-                "seed": {"type": "integer", "description": "Same seed and same project give the same part.", "default": 7},
-                "octave": {"type": "integer", "description": "Octave for the chord voicing.", "default": 3}
-            },
-            "required": ["layer"]
-        }
-    },
-    {
-        "name": "genre_evidence",
-        "description": "Musical evidence measured from open corpora of real performances, served one layer at a time. 'drum' returns where each drum part falls on the bar for a style, counted from 1,150 human drummer takes. 'bass' returns how the bass sits against the chord and how far it moves. 'chord' returns degree transitions and melodic intervals. 'arrangement' returns song-level shape -- chord counts, loop lengths, modes -- which is what ArrangementGPS needs to build a project rather than write notes. Layers are kept apart on purpose: a bass line judged by a kick pattern answers the drum question, not the bass one. A style that was never measured returns nothing instead of an approximation.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "layer": {"type": "string", "enum": ["drum", "bass", "chord", "arrangement"], "description": "Which layer's evidence to return."},
-                "style": {"type": "string", "description": "For the drum layer: rock, funk, jazz, hiphop, latin, reggae, soul, country, punk, gospel, afrobeat, afrocuban, neworleans, pop. Trap/rap map to hiphop, r&b to soul."},
-                "song_maps": {"type": "integer", "description": "For the arrangement layer: how many per-song maps to include (0 for the summary only)."}
-            },
-            "required": ["layer"]
-        }
-    },
-    {
-        "name": "midi_generate",
-        "description": "Generate evidenced MIDI variations using Sensei's locked dataset and variation runtime for a verified target role/preset.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "preset_path": {"type": "string", "description": "Optional path or name of the Suite native instrument preset."},
-                "explicit_profile_id": {"type": "string", "description": "Explicit instrument profile ID (e.g. 'ableton.bass.808.v1', 'ableton.bass.synth.v1', 'ableton.chord.piano.v1', 'ableton.chord.pad.v1')."},
-                "role": {"type": "string", "enum": ["bass", "chord", "drum"], "description": "Musical role of the target track."},
-                "genre": {"type": "string", "description": "Native Ableton genre (e.g. 'Trap', 'Hip Hop', 'House', 'Techno', 'Ambient').", "default": "Trap"},
-                "bars": {"type": "integer", "description": "Number of bars to generate (e.g. 2, 4, 8).", "default": 4},
-                "seed": {"type": "integer", "description": "Random seed for deterministic generation.", "default": 42},
-                "variation_amount": {"type": "number", "description": "Variation intensity (0.0 to 1.0).", "default": 0.35},
-                "genre_style": {"type": "string", "description": "Rank candidates by how well they match drum patterns measured from real performances of this style (rock, funk, jazz, hiphop, latin, reggae, soul, country, punk, gospel, afrobeat, afrocuban, neworleans, pop). Trap/rap/boom bap map to hiphop, r&b to soul. A style with no measured pattern is reported back untouched rather than approximated."},
-                "density": {"type": "number", "description": "How busy the part should be, 0.0 sparse to 1.0 busy -- an intro against a final hook. Selects a pattern from the corpus that already has that note count for the role; notes are never dropped from a denser one. Omit to leave the whole pool in play. Reported back under diagnostics.density_applied, which is false when the pool was too small to band."},
-                "target_root": {"type": "string", "description": "Key root note (e.g. 'C', 'D#', 'F', 'A').", "default": "C"},
-                "target_mode": {"type": "string", "enum": ["Major", "Minor"], "description": "Scale mode.", "default": "Minor"},
-                "auto_write_to_live": {"type": "boolean", "description": "If true, immediately queues generated notes to Ableton Live via SenseiV2Bridge.", "default": False}
-            }
-        }
-    },
-    {
-        "name": "midi_write_arrangement",
-        "description": "Write MIDI notes into the ARRANGEMENT of a running Live session -- a named track, a bar position, a length -- through the Loom control surface. This is the single Live-side trigger: the same surface install.py installs handles it, so nothing else has to be loaded into Live. A clip of the same name overlapping the range is replaced, not stacked, so rebuilding a section is safe. Waits for Live to consume the request and reports the note count Live actually holds; NOT_CONSUMED means Live did not answer.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "track": {"type": "string", "description": "Track name in the session. Omit to use the selected track."},
-                "start_bar": {"type": "integer", "description": "1-based bar the clip starts on, converted with the session's own time signature."},
-                "start_beat": {"type": "number", "description": "Alternative to start_bar: absolute start in beats."},
-                "beats_per_bar": {"type": "number", "description": "Beats in a bar. Omit to take it from the running session's own time signature (or the .als if als_path is given); 4/4 is assumed only when neither is available, and the response says which."},
-                "length_beats": {"type": "number", "description": "Clip length in beats.", "default": 16},
-                "name": {"type": "string", "description": "Clip name, e.g. the section: Intro, Verse 1, Hook.", "default": "Loom"},
-                "notes": {"type": "array", "items": {"type": "object", "properties": {"pitch": {"type": "integer"}, "start": {"type": "number"}, "duration": {"type": "number"}, "velocity": {"type": "integer"}}, "required": ["pitch", "start", "duration"]}, "description": "Notes relative to the clip start, in beats."},
-                "wait_seconds": {"type": "number", "description": "How long to wait for Live to consume the request.", "default": 15}
-            },
-            "required": ["notes"]
-        }
-    },
-    {
-        "name": "midi_write_to_live",
-        "description": "Write MIDI notes into Ableton Live through SenseiV2Bridge and wait for Live to actually consume the request. Reports WRITTEN_TO_LIVE, REJECTED_BY_LIVE or NOT_CONSUMED -- it does not just queue and claim success.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "name": {"type": "string", "description": "Name for the generated clip in Ableton Live."},
-                "notes": {
-                    "type": "array",
-                    "description": "List of note objects with pitch, start, duration, velocity.",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "pitch": {"type": "integer", "description": "MIDI pitch (0-127)."},
-                            "start": {"type": "number", "description": "Start position in beats."},
-                            "duration": {"type": "number", "description": "Duration in beats."},
-                            "velocity": {"type": "integer", "description": "Velocity (1-127)."}
-                        },
-                        "required": ["pitch", "start", "duration", "velocity"]
-                    }
-                },
-                "length_beats": {"type": "number", "description": "Total length of the clip in beats (default 16.0 = 4 bars in 4/4).", "default": 16.0},
-                "prompt": {"type": "string", "description": "Optional descriptive text or prompt string for audit trail."},
-                "wait_seconds": {"type": "number", "description": "How long to wait for Live to actually consume the request before reporting. 0 queues blindly without verifying anything.", "default": 15}
-            },
-            "required": ["name", "notes"]
-        }
-    },
-    # 2. AIMixMaster Tools
-    {
-        "name": "project_inspect",
-        "description": "Inspect an Ableton Live Set (.als) file in detail: tempo, key, scale, Camelot code, track breakdown, mute states, and active devices.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute or relative path to the .als project file."}
-            },
-            "required": ["als_path"]
-        }
-    },
-    {
-        "name": "project_detect_genre",
-        "description": "Analyze track names, arrangement density, and instrument presence in an .als file to predict multi-label genre tags.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Path to the .als file."}
-            },
-            "required": ["als_path"]
-        }
-    },
-    {
-        "name": "project_analyze_mixer",
-        "description": "Full gain-staging and mixer analysis of an .als -- real fader values, Utility gains, routing kind, send routes, and master-chain limiter/clipper/compressor detection, with a markdown report. XML only; peak/RMS/LUFS targets need rendered audio.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
-            "required": ["als_path"]
-        }
-    },
-    # 3. ArrangementGPS Tools
-    {
-        "name": "project_build",
-        "description": "THE single trigger: build a whole project into the running Live session from one prompt. Runs plan_create, then for every section and every track Sensei can write (drum, bass, chord) generates a part in the project's own key and tempo -- the section's energy as density, the plan's genre as genre_style -- and writes it into the Arrangement through the Loom control surface, with a locator per section. Before writing it creates every track the plan names that the set does not have yet (loading the plan's instrument family from the browser) and sets the song key, so an empty set really is built from scratch; an existing track of the same name is adopted, never duplicated. Everything goes through the one surface install.py installs; no extension, nothing else to load into Live. Dry run by default: it reports exactly what it would write, per track and section, and touches Live only with dry_run=false. Parts Sensei cannot write (melody, vocal, fx lanes) are reported as out of scope, not as failures.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "prompt": {"type": "string", "description": "Musical brief, e.g. 'dark rolling tech house, 126 bpm, in F minor'. Omit when plan_path is given."},
-                "plan_path": {"type": "string", "description": "Use an existing session plan instead of running plan_create -- for a rebuild, or to test the write list without the Node chain."},
-                "dry_run": {"type": "boolean", "description": "true: report the write list, change nothing in Live. false: write.", "default": True},
-                "wait_seconds": {"type": "number", "description": "Per request, how long to wait for Live to consume it.", "default": 15},
-                "seed": {"type": "integer", "description": "Base seed; each track and section derives its own from it.", "default": 7},
-                "beats_per_bar": {"type": "number", "description": "Beats in a bar. Omit to read the running session's time signature; 4/4 is assumed only as a last resort and reported as such."}
-            }
-        }
-    },
-    {
-        "name": "plan_create",
-        "description": "Build a project from scratch: run the real pipeline from a text prompt (blueprint -> build plan -> session plan -> package -> action list) and write a build directory ArrangementGPSBuilder picks up in Live. Tempo, key, mode, genre and instrument choice are derived from the prompt. Each section carries a 0-100 energy and the plan carries a genre; when the Live-side writer fills the sections it hands Sensei that energy as density (an intro is written from a pattern that is already sparse, a final hook from one already busy) and the genre as genre_style (candidates ranked against drum patterns measured from real performances). Every part is written in the project's own key and tempo.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "prompt": {"type": "string", "description": "Free-text musical brief, e.g. 'dark rolling tech house, 126 bpm, hypnotic bassline'. State a tempo as '<n> bpm' and a key as 'in F minor' to have them honoured."}
-            },
-            "required": ["prompt"]
-        }
-    },
-    {
-        "name": "library_search",
-        "description": "Search Sensei's preset identity catalog (role- and genre-tagged, so a hit is something Sensei can actually generate for) with an optional filesystem fallback for name-only lookups.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "query": {"type": "string", "description": "Substring of the preset name (lowercase match)."},
-                "role": {"type": "string", "enum": ["drum", "bass", "chord"], "description": "Restrict to presets Sensei resolves to this role."},
-                "genre": {"type": "string", "description": "Restrict to presets carrying this native Ableton genre tag, e.g. 'House', 'Hip Hop'."},
-                "limit": {"type": "integer", "description": "Maximum results.", "default": 20}
-            }
-        }
-    },
-    # 4. Renderer Tools
-    {
-        "name": "render_plan",
-        "description": "Build a per-track stem export manifest from a real .als, deciding from the project itself which tracks can be rendered and why the others cannot (MIDI needs a freeze, groups and returns are excluded).",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute path to the .als file."},
-                "project_title": {"type": "string", "description": "Optional title; defaults to the .als filename."}
-            },
-            "required": ["als_path"]
-        }
-    },
-    # 5. Telemetry & Gap Tracking
-    {
-        "name": "live_bridge_status",
-        "description": "Inspect the status of SenseiV2Bridge queues, remote scripts, and recent requests.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {}
-        }
-    },
-    {
-        "name": "gap_record",
-        "description": "Log an identified missing control, untested path, or desired Live API feature into docs/MISSING_CONTROLS_LOG.md.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "category": {
-                    "type": "string",
-                    "enum": ["Transport", "MIDI", "Device", "Routing", "Arrangement", "Session", "Telemetry"]
-                },
-                "description": {"type": "string", "description": "Detailed description of what operation was attempted or needed."},
-                "observed_behavior": {"type": "string", "description": "What occurred or why current tools were insufficient."},
-                "required_implementation": {"type": "string", "description": "Recommended remote script, M4L, OSC, or bridge implementation."}
-            },
-            "required": ["category", "description", "observed_behavior", "required_implementation"]
-        }
-    },
-    {
-        "name": "plan_verify",
-        "description": "Check the current session plan against Sensei's catalog -- every track with a Sensei role must name an instrument that resolves to exactly that role. Catches the Live-side instrument_role_unresolved failure without opening Live.",
-        "inputSchema": {"type": "object", "properties": {}}
-    },
-    {
-        "name": "project_inspect_arrangement",
-        "description": "Read an .als arrangement -- tempo, time signature, locators, and the section boundaries inferred from where clips start and stop across tracks.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
-            "required": ["als_path"]
-        }
-    },
-    {
-        "name": "drumbuss_build",
-        "description": "Build the native EQ Eight -> Glue -> Utility drum buss chain in an .als. Dry run by default; applying writes a timestamped backup first and verifies the result after saving.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute path to the .als file."},
-                "source": {"type": "string", "description": "Source track name to build the buss from.", "default": "KICK BUSS"},
-                "apply": {"type": "boolean", "description": "Write the .als. Leave false to preview only.", "default": False}
-            },
-            "required": ["als_path"]
-        }
-    },
-    {
-        "name": "projects_arrangement_shapes",
-        "description": "Scan a library of .als projects and report how the user actually arranges -- section lengths, section counts, song lengths and tempos, inferred from clip boundaries. Evidence for arrangement templates instead of guesswork.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "roots": {"type": "array", "items": {"type": "string"}, "description": "Directories to scan. Defaults to ~/Desktop, ~/Documents and ~/Music/Ableton."},
-                "limit": {"type": "integer", "description": "Maximum number of .als files to read."}
-            }
-        }
-    },
-{
-        "name": "project_analyze_clips",
-        "description": "Check arrangement clips for gain/fade/automation alignment problems -- clip gain outside the allowed range, missing fades, and clip vs track volume automation conflicts.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute path to the .als file."},
-                "limit_db": {"type": "number", "description": "Maximum absolute clip gain in dB before it is flagged.", "default": 12.0},
-                "threshold_db": {"type": "number", "description": "Clip gain below this is treated as unity.", "default": 0.25}
-            },
-            "required": ["als_path"]
-        }
-    },
-    {
-        "name": "automation_read",
-        "description": "List every automation envelope in an .als, resolving each PointeeId to the owning device and parameter. Read-only -- nothing in this stack can write automation yet.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
-            "required": ["als_path"]
-        }
-    },
-    {
-        "name": "drumbuss_read",
-        "description": "Read the drum buss device parameters out of an .als and report whether they match the conservative preset. Read-only.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
-            "required": ["als_path"]
-        }
-    },
-{
-        "name": "chain_evidence",
-        "description": "What device chains the user actually builds, counted from their own projects. With no role, returns the whole measured summary; with a role, the evidence-backed chain and each device's presence rate. A role with too little data returns no recommendation instead of a guess.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"role": {"type": "string", "description": "e.g. kick, snare, hat, bass, sub, keys, pad, lead, perc, sample, bus, fx."}}
-        }
-    },
-    {
-        "name": "live_project",
-        "description": "Open, inspect or close an Ableton Live project. Live's own scripting cannot open or close a set, so this drives it from outside and then reads Live's own log to say whether the set really loaded -- whether it was corrupt, how many clips Live had to repair, and which audio files it could not open. Opening another set while Live is running can raise Live's unsaved-changes dialog, which only the person at the keyboard can answer; nothing is discarded automatically.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "op": {"type": "string", "enum": ["status", "open", "quit"], "description": "What to do."},
-                "als_path": {"type": "string", "description": "Project to open, for op=open."},
-                "allow_switch": {"type": "boolean", "description": "Open a set even though Live is already running. A set switch also kills an installed Extension (Extension Host crashes inside the SDK), though control surfaces survive it.", "default": False},
-                "wait_seconds": {"type": "number", "description": "How long to give Live before reading the verdict.", "default": 30}
-            },
-            "required": ["op"]
-        }
-    },
-    {
-        "name": "chain_plan",
-        "description": "For every track in an .als, report its role, its current device chain, the evidence-backed chain for that role, and which track in the same project could donate it. Read-only.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
-            "required": ["als_path"]
-        }
-    },
-    {
-        "name": "chain_apply",
-        "description": "Copy a device chain from one track to another inside the same .als. Device XML is never synthesised -- it is cloned from a real device with fresh Pointee ids. Refuses to overwrite a track that already has a chain. Dry run by default; applying writes a timestamped backup first and re-reads the file to verify.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute path to the .als file."},
-                "target_track": {"type": "string", "description": "Track that should receive the chain. Must currently be empty."},
-                "donor_track": {"type": "string", "description": "Track whose chain is copied."},
-                "apply": {"type": "boolean", "description": "Write the .als. Leave false to preview only.", "default": False}
-            },
-            "required": ["als_path", "target_track", "donor_track"]
-        }
-    },
-    {
-        "name": "palette_read",
-        "description": "The user's measured sound palette -- which sample sources and instrument devices actually recur, per role, ranked by how many separate projects each appears in. Bounces, freezes and reverb impulse responses are excluded.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"role": {"type": "string", "description": "e.g. kick, snare, hat, bass, keys, pad, fx. Omit for the full summary."}}
-        }
-    },
-    {
-        "name": "project_sound_sources",
-        "description": "List one project's sound sources -- instrument devices per track and the samples they load.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {"als_path": {"type": "string", "description": "Absolute path to the .als file."}},
-            "required": ["als_path"]
-        }
-    },
-{
-        "name": "automation_write",
-        "description": "Write an automation envelope onto a track's mixer parameter in an .als. The envelope targets the parameter's own AutomationTarget id -- nothing is invented -- and values are checked against that parameter's real range. Dry run by default; applying writes a timestamped backup, saves atomically, then reloads the file and compares every point.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute path to the .als file."},
-                "track": {"type": "string", "description": "Track name exactly as Live shows it."},
-                "parameter": {"type": "string", "enum": ["volume", "pan"], "description": "Mixer parameter to automate. Use pointee_id instead for device parameters."},
-                "pointee_id": {"type": "string", "description": "Automation target id of a device parameter, from automation_list_targets."},
-                "points": {
-                    "type": "array",
-                    "description": "Breakpoints in time order.",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "time": {"type": "number", "description": "Position in beats from the start of the arrangement."},
-                            "value": {"type": "number", "description": "Target value. Native units unless unit is 'db'."}
-                        },
-                        "required": ["time", "value"]
-                    }
-                },
-                "unit": {"type": "string", "enum": ["native", "db"], "description": "'db' is accepted for volume only and is converted to Live's linear gain.", "default": "native"},
-                "replace": {"type": "boolean", "description": "Overwrite an envelope that already exists on this parameter.", "default": False},
-                "apply": {"type": "boolean", "description": "Write the .als. Leave false to validate only.", "default": False}
-            },
-            "required": ["als_path", "track", "points"]
-        }
-    },
-{
-        "name": "render_verify",
-        "description": "Measure exported stems against the project's own render manifest -- which expected file is missing, which is silent, which has the wrong channel count. Rendering itself needs Live's audio engine and cannot be done from here; this checks the result afterwards.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute path to the .als the stems were rendered from."},
-                "renders_dir": {"type": "string", "description": "Directory holding the exported .wav/.aif stems."},
-                "project_title": {"type": "string", "description": "Optional title; defaults to the .als filename."}
-            },
-            "required": ["als_path", "renders_dir"]
-        }
-    },
-{
-        "name": "live_state",
-        "description": "Read Ableton Live's current state -- tempo, transport position, selected track, every track's mixer values and devices, and the song's locators. Published by the Loom control surface running inside Live. Always reports how old the snapshot is and whether it is fresh; if Live is not running it says so instead of returning stale data as if it were live.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "refresh": {"type": "boolean", "description": "Ask Live for a fresh dump before reading.", "default": True},
-                "include_devices": {"type": "boolean", "description": "Include each track's device list.", "default": True},
-                "wait_seconds": {"type": "number", "description": "How long to wait for the refresh.", "default": 3},
-                "max_age_seconds": {"type": "number", "description": "Above this age the snapshot is reported as not fresh.", "default": 10}
-            }
-        }
-    },
-    {
-        "name": "live_command",
-        "description": "Make a live change inside a running Ableton Live: set tempo, mixer volume/pan/mute/solo, a device parameter, transport, a locator, a new MIDI track (with an instrument family from the browser), the song key, an audio file imported into the project as a clip (extension bridge), or a pre-effects render of an audio track range (extension bridge). Runs through the Loom control surface, which writes the real before/after values back -- so the answer is what Live actually did, not what was requested. Every value is checked against the parameter's own range inside Live before it is applied.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "op": {"type": "string", "enum": ["get_state", "set_tempo", "set_mixer", "set_device_parameter", "list_device_parameters", "transport", "create_locator", "create_midi_track", "set_key", "import_audio_clip", "render_pre_fx", "capture_prepare", "capture_route", "capture_arm", "capture_record", "capture_stop", "capture_result"], "description": "Operation to run inside Live."},
-                "track": {"type": "string", "description": "Track name, exactly as Live shows it. Must match exactly one track."},
-                "device": {"type": "string", "description": "Device name on that track."},
-                "parameter": {"type": "string", "description": "Parameter name on that device."},
-                "value": {"type": "number", "description": "New value for set_device_parameter."},
-                "bpm": {"type": "number", "description": "Tempo for set_tempo."},
-                "volume": {"type": "number", "description": "Mixer volume, in Live's own parameter range."},
-                "pan": {"type": "number", "description": "Mixer pan, -1 to 1."},
-                "mute": {"type": "boolean", "description": "Mute state."},
-                "solo": {"type": "boolean", "description": "Solo state."},
-                "action": {"type": "string", "enum": ["play", "stop", "continue"], "description": "Transport action."},
-                "position": {"type": "number", "description": "Playhead position in beats."},
-                "beat": {"type": "number", "description": "Locator position in beats."},
-                "name": {"type": "string", "description": "Locator name, or the exact name of the MIDI track to create (create_midi_track adopts an existing MIDI track of that name rather than duplicating it)."},
-                "instrument_family": {"type": "string", "description": "For create_midi_track: a browser search term (e.g. 'Drum Rack', 'Basic Analog Bass'); the first loadable match is loaded onto the new track and the outcome is reported, never assumed."},
-                "path": {"type": "string", "description": "For import_audio_clip: the audio file to import (Live copies it into the project)."},
-                "slot": {"type": "integer", "description": "For import_audio_clip: session clip slot index; omitted = first empty slot; omitted together with start_beat = arrangement."},
-                "start_beat": {"type": "number", "description": "For import_audio_clip: arrangement position in beats (instead of a slot). For render_pre_fx: range start."},
-                "end_beat": {"type": "number", "description": "For render_pre_fx: range end in beats."},
-                "duration_beats": {"type": "number", "description": "For import_audio_clip in the arrangement: clip length in beats (default: the sample's natural length)."},
-                "warped": {"type": "boolean", "description": "For import_audio_clip: warp the clip (default true)."},
-                "root": {"type": "string", "description": "For set_key: root note, e.g. 'F' or 'A#'."},
-                "mode": {"type": "string", "description": "For set_key: Live scale name, e.g. 'Minor'."},
-                "include_devices": {"type": "boolean", "description": "For get_state."},
-                "wait_seconds": {"type": "number", "description": "How long to wait for Live to process it. 0 queues without verifying.", "default": 15}
-            },
-            "required": ["op"]
-        }
-    },
-    {
-        "name": "automation_list_targets",
-        "description": "List every parameter on a track whose automation can be written -- mixer and device alike -- with its automation target id and declared range. A parameter that does not declare a range is left out rather than written with guessed bounds. Filter before raising the limit: a single EQ Eight carries 85 parameters.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "als_path": {"type": "string", "description": "Absolute path to the .als file."},
-                "track": {"type": "string", "description": "Track name exactly as Live shows it."},
-                "scope": {"type": "string", "enum": ["mixer", "device"], "description": "Restrict to mixer or device parameters."},
-                "contains": {"type": "string", "description": "Case-insensitive substring of the parameter tag, e.g. 'gain', 'freq'."},
-                "limit": {"type": "integer", "description": "Maximum parameters returned.", "default": 50}
-            },
-            "required": ["als_path", "track"]
-        }
-    },
-    {
-        "name": "mix_measure",
-        "description": "Direct signal measurement of one audio file (a stem, a bounce, a master): duration, sample rate, channels, sample peak dBFS, RMS dBFS, crest factor, ITU-R BS.1770 integrated loudness through pyloudnorm, and per-channel peak/RMS/DC offset. Silence and too-short files come back with null levels and a status, never a made-up floor. No true-peak guesses, no custom loudness range. The SubverseLab Mix Check engine, running locally.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "path": {"type": "string", "description": "Audio file to measure (wav/aiff/flac/mp3...). A rendered stem from render_plan is the usual input."},
-                "max_duration_seconds": {"type": "number", "description": "Refuse files longer than this instead of measuring them (default 360)."}
-            },
-            "required": ["path"]
-        }
-    },
-    {
-        "name": "mix_analyze",
-        "description": "Full Mix Check of one audio file: the measurements of mix_measure plus one-third-octave spectrum, tonal map with key candidate, noise floor, section summaries, mono fold-down compatibility, and evidence-backed findings. Optionally compared against a reference file or one of the stored Genre Profiles (measured from released masters: electronic, hiphop, jazz, metal, pop, rock); use_closest_profile ranks the track by technical proximity, which is not a genre classification and is labelled as such. Findings only appear when a measurement is actually outside the comparison range; limitations are listed with every result.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "path": {"type": "string", "description": "The mix or master to analyse."},
-                "analysis_stage": {"type": "string", "enum": ["mix", "master"], "description": "What the file is. Master-only metrics (loudness, peak, crest) are compared only for a master.", "default": "mix"},
-                "reference_path": {"type": "string", "description": "Optional reference file to compare against."},
-                "reference_stage": {"type": "string", "enum": ["mix", "master"], "description": "Required when reference_path is given: what the reference is."},
-                "genre": {"type": "string", "description": "Optional stored Genre Profile id to compare against (see mix_profiles)."},
-                "use_closest_profile": {"type": "boolean", "description": "With no genre and no reference: compare against the technically nearest stored profile and say so.", "default": False},
-                "max_duration_seconds": {"type": "number", "description": "Refuse files longer than this (default 360)."},
-                "include_waveform": {"type": "boolean", "description": "Include the 1200-bin waveform envelope in the answer (large). Default false.", "default": False},
-                "detail": {"type": "boolean", "description": "Return every per-band table (31 one-third-octave bands for spectrum, mono fold-down and comparison deltas) instead of the compact form. The full answer exceeds the response limit and is then written to a file whose path is returned.", "default": False}
-            },
-            "required": ["path"]
-        }
-    },
-    {
-        "name": "mix_profiles",
-        "description": "List the stored Genre Profiles mix_analyze can compare against: id, name, how many released masters each was measured from, and the measurement contract version.",
-        "inputSchema": {"type": "object", "properties": {}}
-    },
-    {
-        "name": "crate_fetch",
-        "description": "Bring a source into the crate: a YouTube URL (yt-dlp + ffmpeg) or a local audio/video file, optionally trimmed, decoded to a 44.1 kHz stereo WAV in the crate's work directory. Returns the WAV path and the source metadata (title, video id, duration, trim). The SubverseLab Sampler's fetch stage.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "source": {"type": "string", "description": "YouTube URL or a local file path."},
-                "start": {"type": "string", "description": "Trim start, e.g. '1:12' or '72'."},
-                "end": {"type": "string", "description": "Trim end."},
-                "workdir": {"type": "string", "description": "Where to keep the decoded WAV (default: the crate work directory under Sessions)."}
-            },
-            "required": ["source"]
-        }
-    },
-    {
-        "name": "crate_read",
-        "description": "Measure the audio itself, not its file name: level, noise floor, silence share, stereo width, tempo (from loop length + autocorrelation octave choice, 82% measured accuracy vs 31% for beat tracking) with its chop-range fold, onset rate, key with confidence, brightness and harmonic ratio. Says why when it cannot answer (one_shot, no_plausible_bar_count, ambiguous key, ableton_compressed). The SubverseLab sample-reader.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "path": {"type": "string", "description": "Audio file to read."}
-            },
-            "required": ["path"]
-        }
-    },
-    {
-        "name": "crate_spots",
-        "description": "Find chop candidates inside a longer recording: the top N windows ranked by harmonic content, onset density and level, each with a bar count, a score and the reason, plus the beat grid the ranking used. With a YouTube video id, the watch URLs that loop each spot. The sample-reader's spots stage.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "path": {"type": "string", "description": "Audio file to scan."},
-                "top": {"type": "integer", "description": "How many candidates (default 6).", "default": 6},
-                "video_id": {"type": "string", "description": "YouTube video id, to return loop URLs for each spot."}
-            },
-            "required": ["path"]
-        }
-    },
-    {
-        "name": "crate_chop",
-        "description": "Slice a recording into a sample pack the way the Sampler CLI does: modes transient, bars, fixed, silence, leftover or all; WAV slices per mode with fades, optional normalisation, a manifest that records how the slices were really produced (a given --bpm writes that grid, not librosa's estimate). Returns the pack directory, per-mode slice counts and the analysis.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "path": {"type": "string", "description": "Decoded WAV (from crate_fetch) or any local audio file."},
-                "modes": {"type": "array", "items": {"type": "string", "enum": ["transient", "bars", "fixed", "silence", "leftover", "all"]}, "description": "Chop modes (default ['transient'])."},
-                "out_dir": {"type": "string", "description": "Pack root (default: Sessions/SamplePacks under Loom)."},
-                "name": {"type": "string", "description": "Pack folder name (default: from the source title)."},
-                "bpm": {"type": "number", "description": "Known tempo; overrides the estimate and writes that grid."},
-                "grid_offset": {"type": "string", "description": "Where the bar grid starts, as a timestamp, with bpm."},
-                "bars": {"type": "integer", "description": "Bars per slice in bars mode (default 2).", "default": 2},
-                "beats_per_bar": {"type": "integer", "description": "Default 4.", "default": 4},
-                "seconds": {"type": "number", "description": "Slice length in fixed mode (default 2.0).", "default": 2.0},
-                "min_len": {"type": "number", "description": "Shortest slice in seconds (default 0.08).", "default": 0.08},
-                "max_len": {"type": "number", "description": "Longest slice in seconds."},
-                "tail": {"type": "number", "description": "Extra seconds after each transient slice.", "default": 0.0},
-                "top_db": {"type": "number", "description": "Silence threshold below peak for silence/leftover modes (default 30).", "default": 30.0},
-                "fade_ms": {"type": "number", "description": "Fade at slice edges in ms (default 5).", "default": 5.0},
-                "normalize_dbfs": {"type": "number", "description": "Peak-normalise every slice to this dBFS (omit for none)."},
-                "bit_depth": {"type": "integer", "enum": [16, 24, 32], "description": "Default 24.", "default": 24},
-                "max_slices": {"type": "integer", "description": "Per-mode cap (default 200).", "default": 200},
-                "keep_source": {"type": "boolean", "description": "Copy the decoded source into the pack as _source.wav (default true).", "default": True},
-                "source_meta": {"type": "object", "description": "Metadata from crate_fetch, recorded in the manifest."}
-            },
-            "required": ["path"]
-        }
-    },
-    {
-        "name": "crate_agent",
-        "description": "THE crate trigger: from one source (YouTube URL or file) to a measured sample pack in one call. Fetches, reads the audio (tempo, key, quality), finds the chop spots, picks the chop mode from the evidence -- bars on the reader's own grid when the tempo is measured and inside the chop range, transients otherwise -- slices, and writes a pack whose manifest carries the reading, the spots and the reason for every choice. Nothing is guessed: a tempo the reader could not measure is reported as such and the pack falls back to transients. Dry run by default reports the plan without writing.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "source": {"type": "string", "description": "YouTube URL or local file."},
-                "start": {"type": "string", "description": "Trim start."},
-                "end": {"type": "string", "description": "Trim end."},
-                "out_dir": {"type": "string", "description": "Pack root (default: Sessions/SamplePacks under Loom)."},
-                "name": {"type": "string", "description": "Pack folder name."},
-                "modes": {"type": "array", "items": {"type": "string"}, "description": "Force these chop modes instead of choosing from the reading."},
-                "bpm": {"type": "number", "description": "Known tempo, wins over the reading."},
-                "top_spots": {"type": "integer", "description": "How many chop spots to rank (default 6).", "default": 6},
-                "dry_run": {"type": "boolean", "description": "true: fetch, read and plan only; false: also slice and write the pack.", "default": True}
-            },
-            "required": ["source"]
-        }
-    },
-    {
-        "name": "crate_to_live",
-        "description": "Put a crate slice (or any audio file) into the running Live set as an audio clip: Live imports the file into the project folder (its own managed copy) and creates the clip in a session slot or at an arrangement position on the named audio track. Needs the extension bridge; the control surface cannot import audio. The answer carries the imported path Live chose and the clip it made.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "path": {"type": "string", "description": "Audio file, e.g. a slice from a crate pack."},
-                "track": {"type": "string", "description": "Audio track name, exactly as Live shows it."},
-                "slot": {"type": "integer", "description": "Session slot index; omitted = first empty slot."},
-                "start_beat": {"type": "number", "description": "Arrangement position in beats instead of a slot."},
-                "duration_beats": {"type": "number", "description": "Arrangement clip length in beats."},
-                "warped": {"type": "boolean", "description": "Warp the clip (default true).", "default": True},
-                "name": {"type": "string", "description": "Clip name."},
-                "wait_seconds": {"type": "number", "description": "How long to wait for Live.", "default": 20}
-            },
-            "required": ["path", "track"]
-        }
-    },
-    {
-        "name": "mix_from_live",
-        "description": "Measure what a track in the running Live set actually sounds like before its effects: the extension bridge renders the audio track's arrangement range pre-fx into its temp directory, then Mix Check measures the file (mix_measure) or analyses it (mix_analyze). One call from Live to numbers.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "track": {"type": "string", "description": "Audio track name."},
-                "start_beat": {"type": "number", "description": "Range start in beats."},
-                "end_beat": {"type": "number", "description": "Range end in beats."},
-                "analysis": {"type": "string", "enum": ["measure", "analyze"], "description": "measure = direct signal values; analyze = full Mix Check (compact).", "default": "measure"},
-                "analysis_stage": {"type": "string", "enum": ["mix", "master"], "default": "mix"},
-                "wait_seconds": {"type": "number", "description": "How long to wait for the render.", "default": 60}
-            },
-            "required": ["track", "start_beat", "end_beat"]
-        }
-    },
-    {
-        "name": "mix_capture",
-        "description": "Measure the mix from Live's own playback, no render. Two capture methods: 'resample' (default) makes Live record itself -- an audio track named 'Loom Capture' is created, routed to Resampling, armed, and record mode goes on with the transport -- four separate Live ticks, then after N seconds the recorded clip's file is measured; no OS permission, works on release Live through the control surface. 'tap' uses a Core Audio process tap on the Live process (macOS 14.2+, needs the System Audio Recording permission for the app running Loom; captures silence until granted). Then Mix Check measures or analyses the capture. follow_transport=true waits for Live to start playing first.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "method": {"type": "string", "enum": ["resample", "tap"], "description": "resample = Live records itself (default); tap = Core Audio process tap.", "default": "resample"},
-                "position": {"type": "number", "description": "resample: arrangement position in beats to start playing from (default: where the playhead is)."},
-                "seconds": {"type": "number", "description": "How long to capture (default 8).", "default": 8},
-                "analysis": {"type": "string", "enum": ["measure", "analyze"], "description": "measure = direct signal values; analyze = full Mix Check (compact).", "default": "analyze"},
-                "analysis_stage": {"type": "string", "enum": ["mix", "master"], "default": "master"},
-                "genre": {"type": "string", "description": "Optional stored Genre Profile id to compare against."},
-                "use_closest_profile": {"type": "boolean", "default": True},
-                "follow_transport": {"type": "boolean", "description": "Wait for Live to start playing, capture while it plays.", "default": False},
-                "max_seconds": {"type": "number", "description": "Cap for follow_transport captures (default 60).", "default": 60},
-                "keep": {"type": "boolean", "description": "Keep the WAV (default true; the path is returned).", "default": True}
-            }
-        }
-    },
-{
-        "name": "setup_scan",
-        "description": "First-run setup: build Loom's catalogues from the stock Ableton library on THIS machine, read out of Live's own file index. Loom ships code and fixtures but never measurements, so each user generates their own. Reports state by default and writes nothing until asked.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "check_only": {"type": "boolean", "description": "Report which catalogues exist and whether Ableton's index is readable, without writing anything.", "default": True}
-            }
-        }
-    },
-]
+from tool_schemas import TOOLS  # noqa: E402
 
-
-# --- 2) Argument validation ------------------------------------------------
-# inputSchema was declared but never enforced anywhere: a missing required
-# field turned into a KeyError inside the handler and reached the client raw.
-# What is validated here is the subset of JSON Schema the tools actually use.
 
 class ToolArgumentError(ValueError):
     pass
@@ -854,10 +158,11 @@ ALLOWED_ROOTS = tuple(
     path.resolve()
     for path in (
         LOOM_DIR,
+        OUTPUT_ROOT,
         Path.home() / "Desktop",
         Path.home() / "Documents",
         Path.home() / "Music",
-        BRIDGE_ROOT,
+        *([bridge_client.BRIDGE_ROOT] if bridge_client.BRIDGE_ROOT is not None else []),
     )
 )
 # Ev dizini altinda olsalar bile asla dolasilmayacak yerler.
@@ -903,23 +208,59 @@ def resolve_scan_root(raw: str) -> Path:
 # truncated. Oversized responses are written to disk and the client gets the
 # head plus the path to the whole thing.
 MAX_RESPONSE_CHARS = 24000
-OVERFLOW_DIR = LOOM_DIR / "mcp_server" / "responses"
+OVERFLOW_DIR = OUTPUT_ROOT / "mcp_server" / "responses"
+
+
+def write_overflow(kind: str, payload: Any) -> Path:
+    """The whole of a payload the answer cannot carry, as a file the client can read."""
+    OVERFLOW_DIR.mkdir(parents=True, exist_ok=True)
+    stem = "".join(ch if ch.isalnum() else "_" for ch in kind)[:40] or "response"
+    path = OVERFLOW_DIR / f"{stem}_{int(time.time())}_{uuid.uuid4().hex[:6]}.json"
+    path.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
+    return path
 
 
 def render_tool_text(payload: Any) -> tuple[str, str | None]:
+    """The text block of a tool answer: always one complete JSON value.
+
+    An oversized answer is not cut at the character limit -- a client
+    parsing the text block would get half an object and a JSONDecodeError
+    (measured 2026-09-07: project_build at 66,750 characters). It is written
+    whole to the overflow directory and the text block becomes a structured
+    envelope naming that file, with the status and top-level keys of the
+    real answer and as much of its head as fits, inside a string.
+    """
     text = json.dumps(payload, indent=2, default=str)
     if len(text) <= MAX_RESPONSE_CHARS:
         return text, None
 
-    OVERFLOW_DIR.mkdir(parents=True, exist_ok=True)
-    overflow_path = OVERFLOW_DIR / f"response_{int(time.time())}_{uuid.uuid4().hex[:6]}.json"
-    overflow_path.write_text(text, encoding="utf-8")
-    head = text[:MAX_RESPONSE_CHARS]
+    overflow_path = write_overflow("response", payload)
+    envelope: dict[str, Any] = {
+        "truncated": True,
+        "overflow_path": str(overflow_path),
+        "full_response_chars": len(text),
+        "limit": MAX_RESPONSE_CHARS,
+        "note": "The answer was over the text limit. This envelope is complete JSON; the whole answer is in overflow_path.",
+    }
+    if isinstance(payload, dict):
+        envelope["status"] = payload.get("status")
+        envelope["keys"] = sorted(str(k) for k in payload)
+    envelope["preview"] = ""
+    budget = MAX_RESPONSE_CHARS - len(json.dumps(envelope, indent=2)) - 64
+    while budget > 0:
+        envelope["preview"] = text[:budget]
+        rendered = json.dumps(envelope, indent=2, default=str)
+        if len(rendered) <= MAX_RESPONSE_CHARS:
+            break
+        budget -= max(64, len(rendered) - MAX_RESPONSE_CHARS)
+    else:
+        envelope["preview"] = ""
+        rendered = json.dumps(envelope, indent=2, default=str)
     notice = (
         f"[truncated] Full response was {len(text)} characters, over the {MAX_RESPONSE_CHARS} limit. "
         f"Complete JSON written to {overflow_path}"
     )
-    return head, notice
+    return rendered, notice
 
 
 # --- 5) Resources and prompts ----------------------------------------------
@@ -974,7 +315,7 @@ RESOURCES = [
         "name": "Current session plan",
         "description": "The most recently generated ArrangementGPS session plan: tracks, roles, instruments, locators.",
         "mimeType": "application/json",
-        "path": ARRANGEMENTGPS_DIR / "engine" / "output" / "ableton_session_plan.json",
+        "path": OUTPUT_ROOT / "ArrangementGPS" / "engine" / "output" / "ableton_session_plan.json",
     },
 ]
 
@@ -1086,6 +427,7 @@ def handle_part_suggest(args: dict[str, Any]) -> dict[str, Any]:
             seed=int(args.get("seed", 7)),
             chords_per_bar=int(args.get("chords_per_bar", 1)),
             octave=int(args.get("octave", 3)),
+            beats_per_bar=float(args.get("beats_per_bar") or 4.0),
         )
     except compose.NoEvidence as error:
         return {"layer": args["layer"], "wrote_nothing": True, "reason": str(error)}
@@ -1122,17 +464,36 @@ def handle_genre_evidence(args: dict[str, Any]) -> dict[str, Any]:
 def handle_midi_generate(args: dict[str, Any]) -> dict[str, Any]:
     from core.midi_runtime import prepare_midi_variation
 
+    role = args.get("role")
+    beats_per_bar = float(args.get("beats_per_bar") or 4.0)
     target_context: dict[str, Any] = {}
+    # What the generated part is good for is stated separately from whether
+    # it was generated: an offline suggestion is not a verified Live target.
+    evidence: dict[str, Any] = {"target_evidence": "offline_profile", "writable_to_live": False,
+                                "writable_reason": "no Live target was verified for this part"}
     if args.get("preset_path"):
         target_context["loaded_preset_path"] = args["preset_path"]
     if args.get("explicit_profile_id"):
         target_context["explicit_profile_id"] = args["explicit_profile_id"]
-    elif args.get("role") in ("bass", "chord"):
-        target_context["explicit_profile_id"] = _profile_for_role(args["role"], args.get("instrument_family"))
-    elif args.get("role") == "drum":
+    elif role in ("bass", "chord"):
+        target_context["explicit_profile_id"] = _profile_for_role(role, args.get("instrument_family"))
+    elif role == "drum":
+        # One pad resolver decides which notes this part is written against and
+        # says where they came from; the General MIDI map is a named source,
+        # not a silent default, and a part built on it is not writable.
+        resolved_pads = pad_notes_resolver()(args.get("pad_notes"))
         target_context["device_classes"] = ["DrumGroupDevice"]
         target_context["verified_pad_map"] = True
-        target_context["verified_pad_notes"] = [36, 38, 42, 46]
+        target_context["verified_pad_notes"] = list(resolved_pads["value"])
+        evidence = {"target_evidence": {"live_drum_rack": "live_drum_rack_pads",
+                                        "preset_xml": "preset_kit_pads"}.get(resolved_pads["source"], "assumed_general_midi_pads"),
+                    "pad_source": resolved_pads["source"],
+                    "writable_to_live": resolved_pads["writable"],
+                    "pad_notes": list(resolved_pads["value"])}
+        if not resolved_pads["writable"]:
+            evidence["writable_reason"] = resolved_pads["reason"]
+    if role in ("bass", "chord") and args.get("instrument_verified"):
+        evidence = {"target_evidence": "live_instrument_device", "writable_to_live": True}
 
     result = prepare_midi_variation(
         target_context=target_context,
@@ -1144,202 +505,98 @@ def handle_midi_generate(args: dict[str, Any]) -> dict[str, Any]:
         genre_style=args.get("genre_style") or None,
         target_root=args.get("target_root", "C"),
         target_mode=args.get("target_mode", "Minor"),
+        beats_per_bar=beats_per_bar,
     )
+    result.update(evidence)
+    result["beats_per_bar"] = beats_per_bar
 
-    if args.get("auto_write_to_live") and result.get("generation_safe") and result.get("payload"):
-        payload = result["payload"]
-        clip_name = f"Sensei {args.get('genre', 'Var')} {args.get('role', '')}".strip()
-        write_res = handle_midi_write_to_live({
-            "name": clip_name,
-            "notes": payload.get("notes", []),
-            "length_beats": float(payload.get("length_beats", args.get("bars", 4) * 4.0)),
-            "prompt": f"Auto-write variation: {args.get('genre')} {args.get('role')}"
-        })
-        result["bridge_write_status"] = write_res
-
+    if args.get("auto_write_to_live"):
+        if not (result.get("generation_safe") and result.get("payload")):
+            result["bridge_write_status"] = {"status": "NOT_WRITTEN", "reason": result.get("error")}
+        elif not evidence["writable_to_live"]:
+            result["bridge_write_status"] = {"status": "BLOCKED", "reason": evidence.get("writable_reason")}
+        else:
+            payload = result["payload"]
+            clip_name = f"Sensei {args.get('genre', 'Var')} {role or ''}".strip()
+            result["bridge_write_status"] = handle_midi_write_to_live({
+                "name": clip_name,
+                "notes": [{"pitch": n["pitch"], "start": n.get("time", n.get("start", 0.0)),
+                           "duration": n["duration"], "velocity": n.get("velocity", 100)} for n in payload.get("notes", [])],
+                "length_beats": float(payload.get("clip_length") or int(args.get("bars", 4)) * beats_per_bar),
+                "track": args.get("track"),
+                "prompt": f"Auto-write variation: {args.get('genre')} {role}",
+            })
     return result
 
 
 def handle_midi_write_to_live(args: dict[str, Any]) -> dict[str, Any]:
-    ensure_bridge_dirs()
-    req_id = f"req_{int(time.time())}_{uuid.uuid4().hex[:6]}"
-    filename = f"{req_id}.json"
-    target_file = REQUEST_DIR / filename
-
-    payload = {
-        "id": req_id,
+    """The legacy session-clip writer, on the common protocol: one request
+    file with op=write_clip, answered by the extension like every other op."""
+    payload: dict[str, Any] = {
+        "op": "write_clip",
         "name": args.get("name", "Sensei MCP Clip"),
         "notes": args.get("notes", []),
         "length_beats": float(args.get("length_beats", 16.0)),
         "prompt": args.get("prompt", "Generated by Loom MCP"),
-        "created_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
     }
-    target_file.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-
-    result: dict[str, Any] = {
-        "request_id": req_id,
-        "request_file": str(target_file),
-        "note_count": len(payload["notes"]),
-        "length_beats": payload["length_beats"],
-    }
-
-    # This tool used to drop the file, say "QUEUED" and return -- it never knew
-    # whether Live picked it up. SenseiRemote moves the request into done/ or
-    # errors/ under the same filename, so the outcome is genuinely readable.
-    wait_seconds = float(args.get("wait_seconds", 15))
-    if wait_seconds <= 0:
-        result["status"] = "QUEUED"
-        result["consumed"] = None
-        result["message"] = "Queued without waiting. Live may or may not pick it up; nothing here verifies it."
-        return result
-
-    done_file = DONE_DIR / filename
-    error_file = ERROR_DIR / filename
-    deadline = time.monotonic() + wait_seconds
-    while time.monotonic() < deadline:
-        check_cancelled()
-        if done_file.exists():
-            result["status"] = "WRITTEN_TO_LIVE"
-            result["consumed"] = True
-            result["result_file"] = str(done_file)
-            result["waited_seconds"] = round(wait_seconds - (deadline - time.monotonic()), 2)
-            return result
-        if error_file.exists():
-            result["status"] = "REJECTED_BY_LIVE"
-            result["consumed"] = True
-            result["result_file"] = str(error_file)
-            try:
-                result["error_detail"] = json.loads(error_file.read_text(encoding="utf-8")).get("error")
-            except Exception:  # noqa: BLE001
-                result["error_detail"] = None
-            return result
-        report_progress(wait_seconds - (deadline - time.monotonic()), wait_seconds, "waiting for Live")
-        time.sleep(0.25)
-
-    result["status"] = "NOT_CONSUMED"
-    result["consumed"] = False
-    result["waited_seconds"] = wait_seconds
-    result["message"] = (
-        f"Live did not pick the request up within {wait_seconds}s. The file is still in "
-        f"{REQUEST_DIR}. Usual cause: Live is not running, or the Loom control surface is not enabled "
-        f"as a Control Surface."
-    )
-    return result
-
-
-STATE_DIR = BRIDGE_ROOT / "state"
-STATE_FILE = STATE_DIR / "live_state.json"
-_bind_bridge_root(BRIDGE_ROOT)
-
-
-def _submit_bridge_request(payload: dict[str, Any], wait_seconds: float) -> dict[str, Any]:
-    """Kopruye istek birakir ve SenseiRemote'un sonucunu geri okur.
-
-    v1'de istek birakilir ve "kuyruga alindi" denirdi. SenseiRemote v2 sonucu
-    result into the request itself before moving it to done/ or errors/, so the
-    caller can actually learn what happened.
-    """
-    selection = _select_bridge_root()
-    response = _submit_bridge_request_to(BRIDGE_ROOT, payload, wait_seconds)
-    response["bridge_selection"] = selection
-    error = str(response.get("error") or "")
-    if "unsupported_in_extension" in error and BRIDGE_ROOT != DEFAULT_SURFACE_ROOT:
-        # The extension cannot do this one (transport, key write, preset
-        # loading). If the control surface is also alive, hand it over and say
-        # so; otherwise the refusal stands.
-        age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
-        if age is not None and age < STATE_FRESH_SECONDS:
-            fallback = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, payload, wait_seconds)
-            fallback["bridge_selection"] = selection
-            fallback["fallback"] = {"from": str(BRIDGE_ROOT), "to": str(DEFAULT_SURFACE_ROOT), "reason": error}
-            return fallback
-        response["fallback"] = {"available": False, "reason": "control surface not fresh"}
-    return response
-
-
-def _submit_bridge_request_to(root: Path, payload: dict[str, Any], wait_seconds: float) -> dict[str, Any]:
-    request_dir, done_dir, error_dir = root / "requests", root / "done", root / "errors"
-    for d in (request_dir, done_dir, error_dir, root / "processed", root / "state"):
-        d.mkdir(parents=True, exist_ok=True)
-    request_id = f"req_{int(time.time())}_{uuid.uuid4().hex[:6]}"
-    filename = f"{request_id}.json"
-    request_file = request_dir / filename
-    body = dict(payload)
-    body["id"] = request_id
-    body["created_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
-    request_file.write_text(json.dumps(body, indent=2), encoding="utf-8")
-
-    response: dict[str, Any] = {"request_id": request_id, "request_file": str(request_file)}
-    if wait_seconds <= 0:
-        response["status"] = "QUEUED"
-        response["consumed"] = None
-        return response
-
-    done_file = done_dir / filename
-    error_file = error_dir / filename
-    deadline = time.monotonic() + wait_seconds
-    while time.monotonic() < deadline:
-        check_cancelled()
-        for path, status in ((done_file, "OK"), (error_file, "FAILED_IN_LIVE")):
-            if path.exists():
-                try:
-                    record = json.loads(path.read_text(encoding="utf-8"))
-                except Exception:  # noqa: BLE001
-                    record = {}
-                response["status"] = status
-                response["consumed"] = True
-                response["result"] = record.get("result")
-                response["error"] = record.get("error")
-                response["result_file"] = str(path)
-                return response
-        report_progress(wait_seconds - (deadline - time.monotonic()), wait_seconds, "waiting for Live")
-        time.sleep(0.2)
-
-    response["status"] = "NOT_CONSUMED"
-    response["consumed"] = False
-    response["message"] = (
-        f"Live did not process the request within {wait_seconds}s. Usual cause: Live is not running, "
-        "or the Loom control surface is not enabled as a Control Surface in Settings -> Link/MIDI."
-    )
-    return response
+    for key in ("track", "slot", "on_conflict"):
+        if args.get(key) is not None:
+            payload[key] = args[key]
+    answer = bridge_client.submit_request(payload, float(args.get("wait_seconds", 15)))
+    answer["status"] = {"OK": "WRITTEN_TO_LIVE", "REFUSED_IN_LIVE": "REJECTED_BY_LIVE"}.get(answer.get("status"), answer.get("status"))
+    answer["note_count"] = len(payload["notes"])
+    answer["length_beats"] = payload["length_beats"]
+    if answer["status"] in ("REJECTED_BY_LIVE", "FAILED_IN_LIVE"):
+        answer["error_detail"] = answer.get("error")
+    return answer
 
 
 def handle_live_state(args: dict[str, Any]) -> dict[str, Any]:
-    """Live'in o anki durumu. SenseiRemote periyodik olarak yaziyor."""
+    """Live's current state as the Loom extension publishes it."""
     max_age = float(args.get("max_age_seconds", 10))
-    _select_bridge_root()
+    try:
+        target = resolve_bridge_target()
+    except BridgeUnavailable as error:
+        return {"available": False, "reason": error.status, "message": str(error), "candidates": error.candidates}
+    state_file = target.state_file
     if args.get("refresh", True):
         # Ask Live for a fresh dump; if Live is closed, whatever is on disk is
         # read instead and its staleness is stated outright.
-        answer = _submit_bridge_request({"op": "get_state", "include_devices": bool(args.get("include_devices", True))},
-                                        float(args.get("wait_seconds", 3)))
+        answer = bridge_client.submit_request({"op": "get_state", "include_devices": bool(args.get("include_devices", True))},
+                                              float(args.get("wait_seconds", 3)), target=target)
         fresh = answer.get("result") if isinstance(answer.get("result"), dict) else None
         if fresh and fresh.get("tracks") is not None:
-            # The answer itself is the freshest state there is; no need to
-            # race the bridge's own timer for the file.
             fresh = dict(fresh)
             fresh["available"] = True
-            fresh["state_file"] = str(STATE_FILE)
+            fresh["state_file"] = str(state_file)
             fresh["state_source"] = "get_state_answer"
             fresh["age_seconds"] = 0.0
             fresh["is_fresh"] = True
+            fresh["set"] = _open_set_info()
+            fresh["bridge"] = target.describe()
             return fresh
 
-    if not STATE_FILE.exists():
+    if not state_file.exists():
         return {
             "available": False,
-            "state_file": str(STATE_FILE),
+            "state_file": str(state_file),
             "reason": "no_state_published_yet",
-            "message": "SenseiRemote v2 has never published state here. Live may not be running, or the "
-                       "installed remote script is still v1.",
+            "message": "The Loom extension has never published state here. Live may not be running, or the "
+                       "extension is not loaded in it.",
+            "bridge": target.describe(),
         }
-    state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+    try:
+        state = json.loads(state_file.read_text(encoding="utf-8"))
+    except Exception as error:  # noqa: BLE001
+        return {"available": False, "state_file": str(state_file), "reason": "state_unreadable", "message": str(error)}
     captured_at = float(state.get("captured_at") or 0)
     age = time.time() - captured_at if captured_at else None
     state["available"] = True
-    state["state_file"] = str(STATE_FILE)
+    state["state_file"] = str(state_file)
+    state["state_source"] = "state_file"
     state["age_seconds"] = round(age, 2) if age is not None else None
     state["is_fresh"] = bool(age is not None and age <= max_age)
+    state["bridge"] = target.describe()
     if not state["is_fresh"]:
         state["warning"] = (
             f"State is {state['age_seconds']}s old (limit {max_age}s). Treat it as a last-known snapshot, "
@@ -1371,12 +628,10 @@ def handle_live_project(args: dict[str, Any]) -> dict[str, Any]:
 def _beats_per_bar(args: dict[str, Any]) -> tuple[float, str]:
     """How many beats a bar has, and where that number came from.
 
-    The Extensions SDK never exposed a song time signature, which is why every
-    bar-to-beat conversion assumed 4/4 (GAP-003). The control surface does see
-    it -- Song.signature_numerator/denominator are in every state it publishes
-    -- and the .als carries it too. So: an explicit value wins, then the running
-    session's own signature, then the project file, and only then 4/4, which is
-    reported as an assumption rather than passed off as a reading.
+    The Extensions SDK exposes no song time signature (GAP-003), so the
+    running session cannot be asked. An explicit value wins, then a state that
+    happens to carry a signature, then the project file, and only then 4/4,
+    which is reported as an assumption rather than passed off as a reading.
     """
     if args.get("beats_per_bar"):
         return float(args["beats_per_bar"]), "explicit"
@@ -1388,19 +643,6 @@ def _beats_per_bar(args: dict[str, Any]) -> tuple[float, str]:
             return float(numerator) * 4.0 / float(denominator), "live_session"
     except Exception:  # noqa: BLE001 -- a stale or missing state is not an error here
         pass
-    # The extension bridge publishes no signature (the SDK has none). If the
-    # control surface is alive too, its state carries the real one.
-    try:
-        surface_state = DEFAULT_SURFACE_ROOT / "state" / "live_state.json"
-        if BRIDGE_ROOT != DEFAULT_SURFACE_ROOT and surface_state.exists():
-            state = json.loads(surface_state.read_text(encoding="utf-8"))
-            age = time.time() - float(state.get("captured_at") or 0)
-            numerator = state.get("signature_numerator")
-            denominator = state.get("signature_denominator") or 4
-            if age < 120 and numerator:
-                return float(numerator) * 4.0 / float(denominator), "live_session_via_surface"
-    except Exception:  # noqa: BLE001
-        pass
     if args.get("als_path"):
         try:
             return float(handle_project_inspect_arrangement({"als_path": args["als_path"]})["beats_per_bar"]), "als"
@@ -1409,7 +651,11 @@ def _beats_per_bar(args: dict[str, Any]) -> tuple[float, str]:
     return 4.0, "assumed_4_4"
 
 
-def handle_midi_write_arrangement(args: dict[str, Any]) -> dict[str, Any]:
+def write_arrangement_clip(args: dict[str, Any], *, target: BridgeTarget | None = None,
+                           idempotency_key: str | None = None) -> dict[str, Any]:
+    """One arrangement clip through the extension. `target` and the key are
+    internal context (a build holds one resolved target for all its writes);
+    they never travel inside the user-facing argument dictionary."""
     beats_per_bar, bpb_source = _beats_per_bar(args)
     if "start_beat" in args:
         start_beat = float(args["start_beat"])
@@ -1425,10 +671,17 @@ def handle_midi_write_arrangement(args: dict[str, Any]) -> dict[str, Any]:
     }
     if args.get("track"):
         payload["track"] = args["track"]
-    response = _submit_bridge_request(payload, float(args.get("wait_seconds", 15)))
+    if args.get("on_conflict"):
+        payload["on_conflict"] = args["on_conflict"]
+    response = bridge_client.submit_request(payload, float(args.get("wait_seconds", 15)),
+                                            target=target, idempotency_key=idempotency_key)
     response["beats_per_bar"] = beats_per_bar
     response["beats_per_bar_source"] = bpb_source
     return response
+
+
+def handle_midi_write_arrangement(args: dict[str, Any]) -> dict[str, Any]:
+    return write_arrangement_clip(args, idempotency_key=args.get("idempotency_key"))
 
 
 
@@ -1467,25 +720,103 @@ def _profile_for_role(role: str, instrument_family: str | None = None) -> str | 
     return _ROLE_DEFAULT_PROFILE[role]
 
 
-def _create_midi_track_request(name: str, instrument_family: str | None, wait: float) -> dict[str, Any]:
-    """create_midi_track through whichever bridge is active. The extension can
-    make the track but not load a preset; when it says so and the control
-    surface is alive, the surface adopts the track and loads the family, and
-    the answer records which side did what."""
-    outcome = _submit_bridge_request({"op": "create_midi_track", "name": name,
-                                      "instrument_family": instrument_family}, wait)
-    instrument = str((outcome.get("result") or {}).get("instrument") or "")
-    if instrument.startswith("not_loadable_in_extension") and BRIDGE_ROOT != DEFAULT_SURFACE_ROOT:
-        age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
-        if age is not None and age < STATE_FRESH_SECONDS:
-            handed = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {
-                "op": "create_midi_track", "name": name,
-                "instrument_family": instrument_family, "load_instrument_on_adopt": True}, wait)
-            outcome["instrument_via_surface"] = (handed.get("result") or {}).get("instrument") or handed.get("error")
-            outcome["fallback"] = {"from": str(BRIDGE_ROOT), "to": str(DEFAULT_SURFACE_ROOT), "reason": instrument}
-        else:
-            outcome["instrument_via_surface"] = "control surface not fresh; preset not loaded"
-    return outcome
+def _create_midi_track_request(name: str, instrument_family: str | None, wait: float,
+                               target: BridgeTarget | None = None, idempotency_key: str | None = None) -> dict[str, Any]:
+    """create_midi_track through the extension. The SDK can make the track and
+    insert a native device with its default preset; a browser preset cannot be
+    loaded and the answer says so -- nothing else is asked to do it."""
+    return bridge_client.submit_request({"op": "create_midi_track", "name": name, "instrument_family": instrument_family},
+                                        wait, target=target, idempotency_key=idempotency_key)
+
+
+def _catalog_entry(name: str, role: str | None = None) -> dict[str, Any] | None:
+    """The identity-catalogue entry for a preset name (first whose file exists)."""
+    wanted = str(name or "").strip().lower().removesuffix(".adg").removesuffix(".adv")
+    if not wanted:
+        return None
+    for entry in _load_sensei_identities():
+        if role and entry.get("role") != role:
+            continue
+        if str(entry.get("normalized_name") or "").lower() == wanted and Path(str(entry.get("path") or "")).is_file():
+            return entry
+    return None
+
+
+def resolve_kit_reference(reference: str) -> dict[str, Any]:
+    """A Drum Rack preset -> pads the extension can rebuild, with what the SDK
+    path drops stated. Raises KitResolveError when nothing matches."""
+    from ableton.kit_resolver import resolve_kit  # noqa: PLC0415  (Sensei owns the .adg reading)
+
+    return resolve_kit(reference, _load_sensei_identities())
+
+
+def _kit_pads_payload(kit: dict[str, Any]) -> list[dict[str, Any]]:
+    return [{"note": p["note"], "sample": p["sample"], "name": p["name"]} for p in kit["pads"]]
+
+
+def _kit_answer(kit: dict[str, Any], *, include_fidelity: bool = True) -> dict[str, Any]:
+    """What a tool answer says about a resolved kit.
+
+    The full resolution (every pad, every device parameter read from the
+    preset) goes to the overflow directory and is referenced by path; the
+    answer keeps the facts a caller decides on and a fidelity summary that
+    names every loss category. Measured before this: one 16-pad kit put 15 KB
+    into project_build three times over, the answer passed MAX_RESPONSE_CHARS
+    and the client received cut-off, unparseable JSON.
+    """
+    from ableton.kit_resolver import fidelity_summary  # noqa: PLC0415  (Sensei owns the kit facts)
+
+    try:
+        overflow = str(write_overflow(f"kit_{kit.get('kit') or 'kit'}", kit))
+    except OSError as error:
+        overflow = f"not written: {error}"
+    answer = {**{k: kit.get(k) for k in ("kit", "path", "pad_count", "missing", "sample_states", "profile_write_safety")},
+              "pads_resolved": len(kit.get("pads") or []), "overflow_path": overflow}
+    if include_fidelity:
+        # Only the sample-reconstruction op (live_command build_drum_kit) loses fidelity; say what.
+        answer.update({"preset_preserved": False, "fidelity_summary": fidelity_summary(kit)})
+    return answer
+
+
+def _kit_rebuild_problem(kit: dict[str, Any], allow_lossy: bool) -> str | None:
+    if not kit.get("pads") or kit.get("missing"):
+        return "kit_samples_missing"
+    if not allow_lossy:
+        return "kit_rebuild_requires_consent"
+    return None
+
+
+# The pad vocabulary -- which note is which drum role, the General MIDI map,
+# and how generated notes reach a kit whose pads sit elsewhere -- lives with
+# the kit reader (Sensei/ableton/kit_resolver.py). These are thin accessors so
+# the MCP has one import site and no second copy of the table.
+def pad_notes_resolver():
+    from ableton.kit_resolver import resolve_pad_notes  # noqa: PLC0415
+
+    return resolve_pad_notes
+
+
+def kit_pad_mapping(kit_pads: list[dict[str, Any]]) -> dict[str, Any]:
+    from ableton.kit_resolver import pad_mapping  # noqa: PLC0415
+
+    return pad_mapping(kit_pads)
+
+
+def _journal_import(args: dict[str, Any], wait: float) -> dict[str, Any]:
+    """Carry the replay journal of an earlier extension id into the current
+    bridge, one journal_import request per legacy root."""
+    roots = [(Path(str(args["source"])).name, Path(str(args["source"])).expanduser())] if args.get("source") else bridge_client.legacy_bridge_roots()
+    imports = []
+    for ext_id, root in roots:
+        entries = bridge_client.legacy_journal_entries(root)
+        if not entries:
+            imports.append({"source": ext_id, "root": str(root), "status": "NOTHING_TO_IMPORT", "entries": 0})
+            continue
+        answer = bridge_client.submit_request({"op": "journal_import", "source": ext_id, "entries": entries}, wait)
+        imports.append({"source": ext_id, "root": str(root), "entries": len(entries), **{k: answer.get(k) for k in ("status", "result", "error", "outcome")}})
+    overall = "OK" if imports and all(i["status"] in ("OK", "NOTHING_TO_IMPORT") for i in imports) else (imports[-1]["status"] if imports else "NOTHING_TO_IMPORT")
+    return {"status": overall, "op": "journal_import", "imports": imports,
+            "note": "imported entries belong to other Live sessions: their keys are refused here (replay_refused_other_session / indeterminate_earlier_attempt), never replayed or re-applied"}
 
 
 def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
@@ -1493,13 +824,35 @@ def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
     wait = float(args.get("wait_seconds", 15))
     if operation == "create_midi_track":
         return _create_midi_track_request(str(args.get("name") or ""), args.get("instrument_family"), wait)
+    if operation == "journal_import":
+        return _journal_import(args, wait)
+    kit_info: dict[str, Any] | None = None
+    if operation == "build_drum_kit" and args.get("kit"):
+        try:
+            kit_info = resolve_kit_reference(str(args["kit"]))
+        except Exception as error:  # noqa: BLE001 -- KitResolveError or an unreadable preset
+            return bridge_client.refusal("REFUSED_IN_LIVE", f"kit_unresolved: {error}", code="kit_unresolved", op=operation)
+        problem = _kit_rebuild_problem(kit_info, args.get("allow_lossy_kit") is True)
+        if problem:
+            return bridge_client.refusal("REFUSED_IN_LIVE", problem,
+                                         code=problem, op=operation, kit=kit_info)
+        args = {**args, "pads": _kit_pads_payload(kit_info)}
     payload: dict[str, Any] = {"op": operation}
     for key in ("track", "device", "parameter", "value", "bpm", "volume", "pan", "mute", "solo",
                 "action", "position", "beat", "name", "include_devices", "instrument_family", "root", "mode",
-                "path", "slot", "start_beat", "end_beat", "duration_beats", "warped"):
+                "path", "slot", "start_beat", "end_beat", "duration_beats", "warped", "pads"):
         if key in args:
             payload[key] = args[key]
-    return _submit_bridge_request(payload, wait)
+    if operation == "build_drum_kit":
+        # The extension cannot read outside its storage; the MCP checks the
+        # files exist before Live is asked to load them.
+        missing = [str(p.get("sample")) for p in (args.get("pads") or []) if not Path(str(p.get("sample") or "")).is_file()]
+        if missing:
+            return bridge_client.refusal("REFUSED_IN_LIVE", f"sample files not found: {missing}", code="sample_missing", op=operation)
+    answer = bridge_client.submit_request(payload, wait)
+    if kit_info is not None:
+        answer["kit"] = {**_kit_answer(kit_info), "pads_requested": len(kit_info["pads"])}
+    return answer
 
 
 def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
@@ -1510,17 +863,19 @@ def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
 
     creator = root.attrib.get("Creator", "Unknown")
 
-    # Tempo
-    tempo = "120.0"
-    tempo_node = root.find(".//MasterTrack//Tempo/Manual") or root.find(".//Tempo/Manual")
-    if tempo_node is not None:
-        tempo = tempo_node.attrib.get("Value", tempo)
+    # Tempo, key and track names come from the one .als reader
+    # (aimixmaster.project_analyzer), so this tool and every scan report the
+    # same fact for the same file. Each answer says where its value came from.
+    from aimixmaster.project_analyzer import musical_context, resolve_track_name  # noqa: PLC0415
 
-    # Scale / Key
-    scale_root_raw = (root.find(".//ScaleInformation/Root") or ET.Element("")).attrib.get("Value", "")
-    scale_name = (root.find(".//ScaleInformation/Name") or ET.Element("")).attrib.get("Value", "")
-    root_name = ROOT_MAP.get(scale_root_raw, scale_root_raw)
-    scale_title = scale_name.capitalize() if scale_name else "Major"
+    context = musical_context(root)
+    tempo_resolved, key_resolved = context["tempo"], context["key"]
+    tempo = tempo_resolved.value if tempo_resolved.value is not None else 120.0
+    key = key_resolved.value or {}
+    root_name = key.get("root") or ""
+    # No ScaleInformation in the set is the common case: reported as unknown
+    # rather than presented as C major.
+    scale_title = key.get("scale") or ("Major" if root_name else "")
     camelot = CAMELOT_MAP.get((root_name, scale_title), "Unknown")
 
     # Track breakdown
@@ -1531,11 +886,8 @@ def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
     for elem in root.iter():
         if elem.tag in track_tags:
             track_counts[elem.tag] += 1
-            uname = elem.find("./Name/UserName")
-            tname = uname.attrib.get("Value", "") if uname is not None else ""
-            if not tname:
-                eff_name = elem.find("./Name/EffectiveName")
-                tname = eff_name.attrib.get("Value", "") if eff_name is not None else elem.tag
+            resolved_name = resolve_track_name(elem)
+            tname = resolved_name.value or elem.tag
 
             mute_node = elem.find(".//Speaker/Manual")
             is_muted = mute_node.attrib.get("Value", "true") == "false" if mute_node is not None else False
@@ -1550,6 +902,7 @@ def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
             tracks_list.append({
                 "type": elem.tag,
                 "name": tname,
+                "name_source": resolved_name.source or "track_tag",
                 "is_muted": is_muted,
                 "device_count": len(devices),
                 "devices": devices[:5]
@@ -1558,9 +911,11 @@ def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
     return {
         "als_path": str(als_path),
         "creator": creator,
-        "tempo": float(tempo) if tempo.replace(".", "", 1).isdigit() else tempo,
+        "tempo": tempo,
+        "tempo_source": tempo_resolved.source or "assumed_120",
         "key_root": root_name or "Unknown",
-        "scale": scale_title,
+        "scale": scale_title or "Unknown",
+        "key_source": key_resolved.source or "absent_in_set",
         "camelot": camelot,
         "track_counts": dict(track_counts),
         "total_tracks": sum(track_counts.values()),
@@ -1568,20 +923,73 @@ def handle_project_inspect(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+_NAME_ROLE_WORDS = {"kick": ("kick", "bd"), "snare": ("snare", "clap", "sd", "snr"), "hat": ("hat", "hh", "hihat"),
+                    "bass": ("bass", "sub", "808"), "fx": ("fx", "glitch", "riser", "impact")}
+_ROLE_TO_FEATURE = {"kick": "kick", "snare": "snare", "clap": "snare", "rim": "snare", "closed_hat": "hat", "open_hat": "hat"}
+
+
+def role_evidence(root: ET.Element) -> dict[str, Any]:
+    """Which drum/bass roles a set holds, from three NAMED sources per track:
+    the track name (words), the sample file names on the track (Sensei's role
+    vocabulary, the one owner), and the MIDI pitches played into a Drum Rack
+    (the General MIDI map, same owner). A Drum Rack track called "Kit" with
+    a kick sample and notes on 36 counts as a kick; the old name-only reading
+    counted it as nothing (Diplomat, 2026-09-07: kick/snare/hat = 0)."""
+    from ableton.kit_resolver import GM_PAD_ROLES, resolve_pad_role  # noqa: PLC0415  (Sensei owns the role vocabulary)
+
+    features: dict[str, dict[str, Any]] = {f: {"tracks": [], "sources": Counter(), "examples": []} for f in ("kick", "snare", "hat", "bass", "fx")}
+
+    def hit(feature: str, track: str, source: str, example: str | None = None) -> None:
+        if track not in features[feature]["tracks"]:
+            features[feature]["tracks"].append(track)
+        features[feature]["sources"][source] += 1
+        if example and example not in features[feature]["examples"] and len(features[feature]["examples"]) < 5:
+            features[feature]["examples"].append(example)
+
+    tracks_node = root.find("LiveSet/Tracks")
+    for track in (tracks_node if tracks_node is not None else []):
+        if track.tag not in ("MidiTrack", "AudioTrack"):
+            continue
+        name_node = track.find("Name/UserName")
+        eff = track.find("Name/EffectiveName")
+        name = (name_node.get("Value") if name_node is not None and name_node.get("Value") else (eff.get("Value") if eff is not None else "")) or track.tag
+        words = re.sub(r"[_\-]", " ", name.lower())
+        for feature, needles in _NAME_ROLE_WORDS.items():
+            if any(re.search(r"\b" + re.escape(w) + r"\b", words) for w in needles):
+                hit(feature, name, "track_name")
+        # sample file names anywhere on the track (instrument or clips)
+        seen: set[str] = set()
+        for ref in track.iter("FileRef"):
+            rel = ref.find("RelativePath")
+            value = rel.get("Value") if rel is not None else None
+            if not value or value.endswith((".adg", ".adv", ".alp")) or value in seen:
+                continue
+            seen.add(value)
+            stem = Path(value).stem
+            role = resolve_pad_role("", None, value)["value"]
+            if role in _ROLE_TO_FEATURE:
+                hit(_ROLE_TO_FEATURE[role], name, "sample_name", stem)
+            elif role == "unknown_pad" and re.search(r"\b(808|bass|sub)\b", stem.lower()) and not re.search(r"\bbass\s*drum\b", stem.lower()):
+                hit("bass", name, "sample_name", stem)
+        # notes played into a Drum Rack: pitch -> General MIDI role
+        if track.tag == "MidiTrack" and track.find(".//DrumGroupDevice") is not None:
+            pitches = {int(k.find("MidiKey").get("Value")) for k in track.findall("DeviceChain/MainSequencer/ClipTimeable/ArrangerAutomation/Events/MidiClip//KeyTrack")
+                       if k.find("MidiKey") is not None and k.find("Notes/MidiNoteEvent") is not None}
+            for pitch in pitches:
+                role = GM_PAD_ROLES.get(pitch)
+                if role in _ROLE_TO_FEATURE:
+                    hit(_ROLE_TO_FEATURE[role], name, "drum_rack_midi_notes", f"pitch {pitch} ({role})")
+    return {f: {"count": len(v["tracks"]), "tracks": v["tracks"], "sources": dict(v["sources"]), "examples": v["examples"]} for f, v in features.items()}
+
+
 def handle_project_detect_genre(args: dict[str, Any]) -> dict[str, Any]:
     info = handle_project_inspect(args)
     tracks = info.get("tracks", [])
-
-    kick = snare = hat = bass = fx = 0
     total = len(tracks)
 
-    for t in tracks:
-        lname = t["name"].lower()
-        if "kick" in lname or "bd" in lname: kick += 1
-        if "snare" in lname or "clap" in lname or "sd" in lname: snare += 1
-        if "hat" in lname or "hh" in lname: hat += 1
-        if "bass" in lname or "sub" in lname or "808" in lname: bass += 1
-        if "fx" in lname or "glitch" in lname: fx += 1
+    with gzip.open(str(resolve_als_path(args["als_path"])), "rb") as handle:
+        evidence = role_evidence(ET.fromstring(handle.read()))
+    kick, snare, hat, bass, fx = (evidence[f]["count"] for f in ("kick", "snare", "hat", "bass", "fx"))
 
     tempo = float(info["tempo"]) if isinstance(info["tempo"], (int, float)) else 120.0
 
@@ -1608,6 +1016,8 @@ def handle_project_detect_genre(args: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "als_path": info["als_path"],
+        "evidence": evidence,
+        "note": "a heuristic over tempo and role evidence (track names, sample names, Drum Rack MIDI pitches), not a classification",
         "tempo": tempo,
         "feature_counts": {"kick": kick, "snare": snare, "hat": hat, "bass": bass, "fx": fx, "total_tracks": total},
         "genre_ranking": [{"genre": g, "confidence": round(s, 2)} for g, s in predicted if s > 0]
@@ -1704,10 +1114,7 @@ def handle_automation_write(args: dict[str, Any]) -> dict[str, Any]:
         verify_automation,
         write_automation,
     )
-    from aimixmaster.project_analyzer import iter_tracks
-
-    sys.path.insert(0, str(SCRIPTS_DIR)) if str(SCRIPTS_DIR) not in sys.path else None
-    from extract_device_chains import display_name
+    from aimixmaster.project_analyzer import iter_tracks, track_name as display_name
 
     als_path = resolve_als_path(args["als_path"])
     track_name = args["track"]
@@ -1773,10 +1180,7 @@ def handle_automation_write(args: dict[str, Any]) -> dict[str, Any]:
 def handle_automation_list_targets(args: dict[str, Any]) -> dict[str, Any]:
     from aimixmaster.als_io import load_als
     from aimixmaster.automation_writer import list_automatable_parameters
-    from aimixmaster.project_analyzer import iter_tracks
-
-    sys.path.insert(0, str(SCRIPTS_DIR)) if str(SCRIPTS_DIR) not in sys.path else None
-    from extract_device_chains import display_name
+    from aimixmaster.project_analyzer import iter_tracks, track_name as display_name
 
     als_path = resolve_als_path(args["als_path"])
     track_name = args["track"]
@@ -1852,7 +1256,7 @@ def handle_drumbuss_read(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _run_node(script: str, *script_args: str) -> str:
+def _run_node(script: str, *script_args: str, env: dict[str, str] | None = None) -> str:
     node = shutil.which("node")
     if not node:
         raise RuntimeError("node_not_found: Node.js is required to run the ArrangementGPS chain.")
@@ -1862,6 +1266,7 @@ def _run_node(script: str, *script_args: str) -> str:
         capture_output=True,
         text=True,
         timeout=180,
+        env={**os.environ, **(env or {})},
     )
     if result.returncode != 0:
         raise RuntimeError(f"{Path(script).name} failed: {(result.stderr or result.stdout).strip()[:400]}")
@@ -1872,6 +1277,11 @@ def _run_node(script: str, *script_args: str) -> str:
 # wrote whatever the caller handed it into a JSON file, so an LLM that passed
 # no tracks produced a 349-byte "plan" with an empty track list while the real
 # engine sat unused. This runs the actual chain end to end.
+# Every run of the chain gets its own directory: the stages read and write
+# only inside it (ARRANGEMENTGPS_OUTPUT_DIR / ARRANGEMENTGPS_BUILDS_DIR), so two
+# builds started together never see each other's files, and project_build
+# reads the plan of the run it started, not "the last plan".
+ARRANGEMENTGPS_RUNS_DIR = OUTPUT_ROOT / "ArrangementGPS" / "engine" / "runs"
 CHAIN_STEPS = [
     ("engine/run.js", "blueprint"),
     ("engine/builder/createBuildPlan.js", "build_plan"),
@@ -1901,6 +1311,254 @@ def _track_plays_in(track: dict[str, Any], section: dict[str, Any]) -> bool:
     return True
 
 
+BUILD_REQUIRED_CAPABILITIES = ("tracks", "arrangement_clips", "locators")
+# Answers after which further writes are pointless or unsafe: the bridge is
+# not answering, cannot be trusted, or is not one this client may mutate.
+BRIDGE_DEAD_STATUSES = bridge_client.DEAD_STATUSES
+
+
+def _plan_track_name(track: dict[str, Any]) -> str:
+    return str(track.get("ableton_name") or track.get("display_name") or track.get("name") or "").strip()
+
+
+def _validate_plan(plan: dict[str, Any]) -> list[str]:
+    """Everything the build would rely on, checked before any mutation."""
+    problems: list[str] = []
+    project = plan.get("project")
+    if not isinstance(project, dict):
+        problems.append("plan has no project object")
+        project = {}
+    bpm = project.get("bpm")
+    if bpm is not None and not (isinstance(bpm, (int, float)) and 20 <= float(bpm) <= 999):
+        problems.append(f"bpm {bpm!r} is not a usable tempo")
+    sections = plan.get("locators") or []
+    if not sections:
+        problems.append("plan has no sections (locators)")
+    for index, section in enumerate(sections):
+        try:
+            start, end = int(section["start_bar"]), int(section["end_bar"])
+        except (KeyError, TypeError, ValueError):
+            problems.append(f"section {index} lacks integer start_bar/end_bar")
+            continue
+        if start < 1 or end < start:
+            problems.append(f"section {section.get('name', index)!r} spans bars {start}-{end}")
+        if not str(section.get("name") or "").strip():
+            problems.append(f"section {index} has no name")
+    names: list[str] = []
+    for index, track in enumerate(plan.get("tracks") or []):
+        name = _plan_track_name(track)
+        if not name:
+            problems.append(f"track {index} has no name")
+            continue
+        names.append(name)
+        if track.get("sensei_role") not in (None, "drum", "bass", "chord"):
+            problems.append(f"track {name!r} has an unknown role {track.get('sensei_role')!r}")
+    duplicates = sorted({name for name in names if names.count(name) > 1})
+    if duplicates:
+        problems.append(f"duplicate track names {duplicates}: a write could not name its target")
+    return problems
+
+
+def _build_overall_status(writes: list[dict[str, Any]], aborted: str | None, locators_ok: bool | None, tempo_ok: bool | None) -> str:
+    statuses = [w["status"] for w in writes if w["status"] != "muted_by_plan"]
+    if "INDETERMINATE" in statuses or (aborted and "INDETERMINATE" in aborted):
+        return "indeterminate"
+    good = [s for s in statuses if s == "OK"]
+    if not statuses:
+        return "blocked"
+    if not good:
+        return "blocked" if all(s == "blocked" for s in statuses) else "failed"
+    if len(good) == len(statuses) and not aborted and locators_ok is not False and tempo_ok is not False:
+        return "completed"
+    return "partial"
+
+
+def handle_project_file_build(args: dict[str, Any]) -> dict[str, Any]:
+    """The plan's tracks with their REAL presets, as a Live set file.
+
+    The SDK cannot load a preset into an open set, so the set is built on
+    disk from Live's own template: one MIDI track per plan track, the
+    preset ArrangementGPS chose converted into set XML (Presetor owns the
+    conversion and refuses anything that does not match what Live writes),
+    the plan's tempo. The user opens the file; project_build then writes
+    MIDI and locators into those tracks, the kit verified through the
+    manifest written next to the set. No representative device is ever
+    inserted: a track whose preset is not on this machine is not created,
+    and is listed.
+    """
+    sys.path.insert(0, str(LOOM_DIR / "Presetor"))
+    from presetor import preset_transplant as pt  # noqa: PLC0415
+
+    if args.get("plan_path"):
+        plan_path = Path(str(args["plan_path"])).expanduser()
+        created = {"status": "REUSED", "plan_path": str(plan_path)}
+    else:
+        if not (args.get("prompt") or "").strip():
+            raise ValueError("Give a prompt to build from, or a plan_path.")
+        created = handle_plan_create({"prompt": args["prompt"]})
+        plan_path = Path(created["plan_path"])
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    project = plan.get("project") or {}
+    wanted = [str(n) for n in (args.get("tracks") or [])] or [_plan_track_name(t) for t in plan.get("tracks") or [] if t.get("sensei_role")]
+    answer: dict[str, Any] = {"plan": created, "template": str(pt.TEMPLATE), "tracks": [], "unresolved": [], "written": False}
+    if not pt.TEMPLATE.is_file():
+        return {**answer, "status": "refused", "reason": f"Live's template is not at {pt.TEMPLATE}"}
+    try:
+        builder = pt.SetBuilder()
+        for track in plan.get("tracks") or []:
+            name = _plan_track_name(track)
+            if name not in wanted:
+                continue
+            family = str(track.get("instrument_family") or "").strip()
+            path: str | None = None
+            source = None
+            if track.get("sensei_role") == "drum" and family:
+                try:
+                    path, source = resolve_kit_reference(family)["path"], "kit_catalogue"
+                except Exception as error:  # noqa: BLE001
+                    answer["unresolved"].append({"track": name, "family": family, "reason": f"kit_unresolved: {error}"})
+                    continue
+            elif family:
+                entry = _catalog_entry(family)
+                if entry and entry.get("path") and Path(str(entry["path"])).is_file():
+                    path, source = str(entry["path"]), "identity_catalogue"
+            if not path:
+                answer["unresolved"].append({"track": name, "family": family or None, "reason": "no preset file for this family on this machine"})
+                continue
+            element = builder.add_midi_track(name)
+            try:
+                info = builder.place_preset(element, Path(path))
+            except pt.Refused as error:
+                return {**answer, "status": "refused", "stage": f"preset:{name}", "reason": str(error), "note": "Nothing was written."}
+            answer["tracks"].append({"track": name, "role": track.get("sensei_role"), "family": family, "preset_path": path, "preset_source": source,
+                                     "device": info["device"], "preset_name": info["name"], "preset_version": info["version"],
+                                     "devices": info["carried"]["devices"], "pads": len(info["pad_notes"]), "macros": info["macros"],
+                                     "choke_groups": info["choke_groups"], "version_drift": sorted(info["version_drift_between_references"])})
+        if not answer["tracks"]:
+            return {**answer, "status": "refused", "reason": "no plan track has a real preset on this machine; nothing to build", "note": "Nothing was written."}
+        if project.get("bpm"):
+            builder.set_tempo(float(project["bpm"]))
+        out_dir = Path(str(args.get("out_dir") or (Path.home() / "Desktop" / "Loom Builds"))).expanduser()
+        name = str(args.get("name") or project.get("name") or "Loom Build").strip() or "Loom Build"
+        stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        out_path = out_dir / f"{name} {stamp} Project" / f"{name} {stamp}.als"
+        report = builder.finish(out_path)
+    except pt.Refused as error:
+        return {**answer, "status": "refused", "reason": str(error), "note": "Nothing was written."}
+    answer.update({"written": True, "status": "written", "artifact": report["artifact"], "manifest": report["manifest"], "bytes": report["bytes"],
+                   "tempo": report.get("tempo"), "static_validation": report["static_validation"], "ids": report["ids"], "samples": report["samples"],
+                   "preset_back_references": report.get("preset_back_references"),
+                   "next": "open the artifact in Live (File > Open Live Set), restart the Extension Host if Live shows it stopped, "
+                           "then project_build with the same plan_path, set_manifest=<manifest>, dry_run=false"})
+    return answer
+
+
+def _preset_file_for(track: dict[str, Any], kit_resolution: dict[str, Any] | None) -> tuple[str | None, str | None]:
+    """The real preset file the plan's instrument family names, if this machine has it."""
+    if track.get("sensei_role") == "drum":
+        return (kit_resolution.get("path"), kit_resolution.get("kit")) if kit_resolution else (None, None)
+    family = str(track.get("instrument_family") or "").strip()
+    entry = _catalog_entry(family) if family else None
+    if entry and entry.get("path") and Path(str(entry["path"])).is_file():
+        return str(entry["path"]), Path(str(entry["path"])).stem
+    return None, None
+
+
+def _os_preset_loader_available() -> tuple[bool, str]:
+    """Handing a preset file to Live through the OS reaches whatever Live is
+    running: allowed only against the real bridge (a test's redirected
+    bridge root must never touch a live session)."""
+    if os.environ.get("LOOM_BRIDGE_ROOT"):
+        return False, "os preset loading is disabled while LOOM_BRIDGE_ROOT redirects the bridge (test isolation)"
+    if os.environ.get("LOOM_OS_PRESET_LOAD", "1") == "0":
+        return False, "os preset loading disabled by LOOM_OS_PRESET_LOAD=0"
+    if sys.platform != "darwin":
+        return False, "os preset loading needs macOS (open -a)"
+    return True, "ok"
+
+
+def _os_open(app: str, path: str) -> None:
+    """Hand a preset file to Live through macOS. Replaceable by tests, which
+    must never reach a running Live."""
+    subprocess.run(["open", "-a", app, path], check=True, capture_output=True, timeout=20)
+
+
+def _os_load_preset(path: str, track_name: str, expected_name: str, wait: float, send, expected_index: int | None = None) -> dict[str, Any]:
+    """Load a real preset onto ONE track of the open set, the way a Finder
+    double-click does, and prove where it landed.
+
+    The SDK has no API for this. Live puts an opened preset on the selected
+    track, which after create_midi_track is the new one (measured twice on
+    2026-09-07, 1.7 s) -- but "the selected track was the right one" is not
+    evidence, so the target is locked and checked on both sides:
+      before: the target exists at the recorded index, with that exact name,
+              and without the expected device; every track's device list is
+              snapshotted;
+      after:  exactly one track changed, it is the target (index and name),
+              and what it gained is exactly the expected device.
+    Anything else is refused with a named status and no MIDI follows.
+    """
+    from live_project import default_app  # noqa: PLC0415
+
+    available, why = _os_preset_loader_available()
+    if not available:
+        return {"loaded": False, "verified": False, "status": "PRESET_LOAD_REQUIRED", "reason": why}
+    app = default_app() or "Ableton Live 12 Beta"
+
+    def snapshot(label: str) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+        answer = send({"op": "get_state", "include_devices": True}, f"state:{label}:{track_name}:{int(time.time() * 10)}")
+        rows = (answer.get("result") or {}).get("tracks") or []
+        return answer, {str(t.get("name")): {"index": t.get("index"), "devices": [d.get("name") for d in t.get("devices") or []]} for t in rows}
+
+    answer, before = snapshot("before_preset")
+    if answer.get("status") != "OK":
+        return {"loaded": False, "verified": False, "status": str(answer.get("status")), "reason": f"state before load: {answer.get('error')}"}
+    target = before.get(track_name)
+    if target is None:
+        return {"loaded": False, "verified": False, "status": "PRESET_LOAD_REQUIRED", "reason": f"target track {track_name!r} is not in the set"}
+    if expected_index is not None and target["index"] != expected_index:
+        return {"loaded": False, "verified": False, "status": "PRESET_LOAD_REQUIRED",
+                "reason": f"target track {track_name!r} is at index {target['index']}, create_midi_track reported {expected_index}"}
+    if expected_name in target["devices"]:
+        return {"loaded": True, "verified": True, "status": "OK", "via": "already_present", "track": track_name, "index": target["index"], "device": expected_name}
+    started = time.time()
+    try:
+        _os_open(app, path)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError) as error:
+        return {"loaded": False, "verified": False, "status": "PRESET_LOAD_REQUIRED", "reason": f"open failed: {error}"}
+    deadline = started + max(5.0, wait)
+    after: dict[str, dict[str, Any]] = {}
+    while time.time() < deadline:
+        time.sleep(0.6)
+        answer, after = snapshot("after_preset")
+        if answer.get("status") != "OK":
+            continue
+        changed = [n for n in set(before) | set(after) if (before.get(n) or {}).get("devices") != (after.get(n) or {}).get("devices")]
+        if not changed:
+            continue
+        gained_on_target = [d for d in (after.get(track_name) or {}).get("devices", []) if d not in target["devices"]]
+        if changed == [track_name] and gained_on_target == [expected_name] and (after[track_name]["index"] == target["index"]):
+            return {"loaded": True, "verified": True, "status": "OK", "via": "os_open", "track": track_name, "index": target["index"],
+                    "device": expected_name, "seconds": round(time.time() - started, 1)}
+        # Something changed and it is not exactly the target gaining exactly the preset.
+        return {"loaded": True, "verified": False, "status": "PRESET_LANDED_ELSEWHERE", "via": "os_open",
+                "reason": f"changed tracks {sorted(changed)}, target gained {gained_on_target}; expected only {track_name!r} to gain {expected_name!r}",
+                "changed": {n: after.get(n, {}).get("devices") for n in changed}}
+    return {"loaded": False, "verified": False, "status": "PRESET_LOAD_REQUIRED", "via": "os_open",
+            "reason": f"{expected_name} did not appear on {track_name} within {max(5.0, wait):.0f}s", "devices_now": (after.get(track_name) or {}).get("devices")}
+
+
+def _set_manifest(args: dict[str, Any]) -> dict[str, Any] | None:
+    """What project_file_build put into the set the caller says is open."""
+    path = args.get("set_manifest")
+    if not path:
+        return None
+    manifest = json.loads(Path(str(path)).expanduser().read_text(encoding="utf-8"))
+    if not Path(str(manifest.get("artifact") or "")).is_file():
+        raise ValueError(f"set_manifest points at a set file that does not exist: {manifest.get('artifact')}")
+    return manifest
+
+
 def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
     dry_run = bool(args.get("dry_run", True))
     wait = float(args.get("wait_seconds", 15))
@@ -1908,20 +1566,96 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
 
     if args.get("plan_path"):
         plan_path = Path(args["plan_path"]).expanduser()
-        created = {"status": "REUSED", "plan_path": str(plan_path)}
+        # The key of a rebuild is the plan's contents, not its file name: two
+        # different plans called ableton_session_plan.json must not share keys.
+        digest = hashlib.sha256(plan_path.read_bytes()).hexdigest()[:12] if plan_path.exists() else "missing"
+        created = {"status": "REUSED", "plan_path": str(plan_path), "run_id": f"reuse-{digest}"}
     else:
         if not (args.get("prompt") or "").strip():
             raise ValueError("Give a prompt to build from, or a plan_path to rebuild from.")
         created = handle_plan_create({"prompt": args["prompt"]})
-        plan_path = ARRANGEMENTGPS_DIR / "engine" / "output" / "ableton_session_plan.json"
+        # This run's plan, never "the last plan" some other call produced.
+        plan_path = Path(created["plan_path"])
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    base: dict[str, Any] = {"dry_run": dry_run, "plan": created, "trigger": bridge_client.active_bridge_label(),
+                            "step_order": ["plan", "preset_resolution", "tempo", "track", "preset_load", "preset_verify", "pads",
+                                           "clips", "clip_readback", "locators", "state_readback"]}
+    if args.get("allow_lossy_kit"):
+        base["allow_lossy_kit"] = "ignored: project_build never reconstructs a plan kit from samples; a kit that cannot be loaded is PRESET_LOAD_REQUIRED (live_command build_drum_kit is the explicit, separate op)"
+
+    # Explicit simplification, never a silent one: which plan tracks are
+    # built and which native device stands in for a preset name are the
+    # caller's decisions, and the answer repeats them.
+    all_names = [_plan_track_name(t) for t in plan.get("tracks") or []]
+    simplification: dict[str, Any] = {"plan_tracks": all_names, "built_tracks": all_names, "dropped": [], "device_overrides": [], "reason": None}
+    if args.get("tracks"):
+        wanted = [str(n) for n in args["tracks"]]
+        unknown = [n for n in wanted if n not in all_names]
+        if unknown:
+            return {**base, "status": "failed", "stage": "track_selection", "problems": [f"tracks not in the plan: {unknown}"],
+                    "plan_tracks": all_names, "note": "Nothing was sent to Live."}
+        plan["tracks"] = [t for t in plan.get("tracks") or [] if _plan_track_name(t) in wanted]
+        simplification.update({"built_tracks": wanted, "dropped": [n for n in all_names if n not in wanted],
+                               "reason": "tracks selected by the caller (project_build tracks=...)"})
+    for track in plan.get("tracks") or []:
+        override = (args.get("device_map") or {}).get(_plan_track_name(track))
+        if override:
+            simplification["device_overrides"].append({"track": _plan_track_name(track), "plan_family": track.get("instrument_family"), "device": str(override)})
+            track["instrument_family"] = str(override)
+    base["simplification"] = simplification
+
+    # The drum kit: the caller's, else the plan's drum instrument_family as a
+    # catalogue name. Resolved once, from the preset's own XML; the SDK
+    # rebuilds pads from its samples. What that drops is in the answer.
+    kits: dict[str, dict[str, Any]] = {}
+    base["kits"] = {}
+    manifest = _set_manifest(args)
+    if manifest:
+        base["set_manifest"] = {"path": str(args.get("set_manifest")), "artifact": manifest.get("artifact"),
+                                "tracks": sorted(t for t, p in (manifest.get("tracks") or {}).items() if p)}
+    for track in plan.get("tracks") or []:
+        if track.get("sensei_role") != "drum":
+            continue
+        name = _plan_track_name(track)
+        plan_ref = track.get("instrument_family")
+        kit_ref = args.get("kit") or plan_ref
+        info = {"reference": kit_ref, "plan_reference": plan_ref,
+                "selection_source": "explicit_kit" if args.get("kit") else "plan", "resolved": False}
+        if kit_ref and kit_ref != "Drum Rack":
+            try:
+                kit = resolve_kit_reference(str(kit_ref))
+                kits[name] = kit
+                info.update(_kit_answer(kit, include_fidelity=False))
+                info.update({"resolved": True, "profile_write_safety": kit.get("profile_write_safety", "unknown"),
+                             "expected_pad_notes": sorted(int(p["note"]) for p in kit["pads"]),
+                             "raw_receiving_notes": sorted(int(p["raw_receiving_note"]) for p in kit["pads"] if p.get("raw_receiving_note") is not None),
+                             "rebuild_blocker": None})  # project_build never rebuilds a plan kit
+                placed = ((manifest or {}).get("tracks") or {}).get(name)
+                if placed and placed.get("path") == kit.get("path"):
+                    info.update({"native_in_set_file": True, "preset_preserved": True, "load_path": {"via": "set_file_manifest"}})
+                elif args.get("preset_load", "os") == "os" and not (args.get("device_map") or {}).get(name):
+                    available, why = _os_preset_loader_available()
+                    info.update({"native_preset_load": "os_open" if available else None, "preset_preserved": True if available else None,
+                                 "load_path": {"via": "os_open" if available else None, "note": why,
+                                               "blocked_as": None if available else "PRESET_LOAD_REQUIRED"}})
+                else:
+                    info["load_path"] = {"via": None, "blocked_as": "PRESET_LOAD_REQUIRED", "note": "no load path for this kit"}
+            except Exception as error:  # noqa: BLE001
+                info["reason"] = str(error)
+        base["kits"][name] = info
+
+    problems = _validate_plan(plan)
+    if problems:
+        return {**base, "status": "failed", "stage": "plan_validation", "problems": problems,
+                "note": "Nothing was sent to Live: the plan is not buildable as written."}
+
     project = plan.get("project") or {}
     sections = plan.get("locators") or []
     root, mode = _plan_key(str(project.get("key") or ""))
     genre = str(project.get("genre") or "").strip()
     genre_style = genre.lower() or None
     writers = [t for t in plan.get("tracks") or [] if t.get("sensei_role")]
-    out_of_scope = [t.get("ableton_name") or t.get("display_name") for t in plan.get("tracks") or [] if not t.get("sensei_role")]
+    out_of_scope = [_plan_track_name(t) for t in plan.get("tracks") or [] if not t.get("sensei_role")]
 
     beats_per_bar, bpb_source = _beats_per_bar(args)
     steps: list[dict[str, Any]] = []
@@ -1932,122 +1666,426 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
     for section in sections:
         steps.append({"kind": "locator", "section": section["name"],
                       "beat": (int(section["start_bar"]) - 1) * beats_per_bar})
+    summary = {"project": {"name": project.get("name"), "bpm": project.get("bpm"), "key": f"{root} {mode}",
+                           "genre": genre, "sections": len(sections), "total_bars": project.get("total_bars")},
+               "beats_per_bar": beats_per_bar, "beats_per_bar_source": bpb_source,
+               "tracks_out_of_scope": out_of_scope}
 
-    # Tracks first: an empty set has none of the plan's tracks, and every
-    # write below addresses a track by name. A dry run compares against the
-    # running session's track list when the bridge has a fresh one.
-    live_names: set[str] | None = None
+    def write_entry(track: dict[str, Any], section: dict[str, Any]) -> dict[str, Any]:
+        bars = int(section["end_bar"]) - int(section["start_bar"]) + 1
+        energy = (track.get("section_activity") or {}).get(section.get("id"), section.get("energy"))
+        density = None if energy is None else max(0.0, min(1.0, float(energy) / 100.0))
+        return {"track": _plan_track_name(track), "role": track["sensei_role"], "section": section["name"],
+                "start_bar": int(section["start_bar"]), "bars": bars, "density": density, "genre_style": genre_style,
+                "profile": _profile_for_role(track["sensei_role"], track.get("instrument_family"))}
+
     if dry_run:
+        live_names: set[str] | None = None
         try:
             state = handle_live_state({})
             if state.get("is_fresh"):
                 live_names = {str(tr.get("name")) for tr in state.get("tracks") or []}
         except Exception:  # noqa: BLE001 -- no session is a valid dry-run state
             live_names = None
-    tracks: list[dict[str, Any]] = []
-    for track in plan.get("tracks") or []:
-        name = track.get("ableton_name") or track.get("display_name") or track.get("name")
-        entry = {"track": name, "instrument_family": track.get("instrument_family"),
-                 "role": track.get("sensei_role")}
-        if dry_run:
+        tracks = []
+        for track in plan.get("tracks") or []:
+            name = _plan_track_name(track)
+            kit_resolution = kits.get(name)
+            entry = {"track": name, "instrument_family": track.get("instrument_family"), "role": track.get("sensei_role")}
             if live_names is None:
                 entry["status"] = "unknown_no_session"
             else:
                 entry["status"] = "exists" if name in live_names else "would_create"
+            preset_path, preset_name = _preset_file_for(track, kit_resolution) if args.get("preset_load", "os") == "os" else (None, None)
+            if preset_path and (track.get("sensei_role") == "drum" and args.get("allow_lossy_kit") is True):
+                preset_path, preset_name = None, None
+            if preset_path and not (args.get("device_map") or {}).get(name):
+                available, why = _os_preset_loader_available()
+                entry["preset"] = {"path": preset_path, "name": preset_name, "would_load_via": "os_open" if available else None, "note": why}
+            if track.get("sensei_role") == "drum":
+                entry["kit"] = ("would_build %d pads from %s" % (len(kit_resolution["pads"]), kit_resolution["kit"])) if kit_resolution else "no kit resolved: an empty Drum Rack has no pads, drum writes would be blocked"
+                if kit_resolution and preset_path and entry.get("preset", {}).get("would_load_via"):
+                    entry["kit"] = "would load the real %s through the OS and read its pads back; nothing rebuilt" % kit_resolution["kit"]
+                if kit_resolution and base["kits"][name].get("native_in_set_file"):
+                    entry["kit"] = "native %s in the set file (manifest); pads read from Live, nothing rebuilt" % kit_resolution["kit"]
+                if kit_resolution and (base["kits"][name].get("load_path") or {}).get("blocked_as"):
+                    entry["kit"] = "%s: %s" % (base["kits"][name]["load_path"]["blocked_as"], base["kits"][name]["load_path"].get("note"))
+            elif track.get("sensei_role") in ("bass", "chord") and track.get("instrument_family") and _catalog_entry(str(track["instrument_family"])):
+                entry["needs_preset"] = {"family": track["instrument_family"], "note": "a catalogue preset the SDK cannot load; map it with device_map or load it in Live yourself and rebuild"}
             tracks.append(entry)
-            continue
-        outcome = _create_midi_track_request(str(name), track.get("instrument_family"), wait)
+        results = []
+        for track in writers:
+            for section in sections:
+                if not _track_plays_in(track, section):
+                    results.append({"track": _plan_track_name(track), "section": section["name"], "status": "muted_by_plan"})
+                else:
+                    blocker = ((base["kits"].get(_plan_track_name(track)) or {}).get("load_path") or {}).get("blocked_as")
+                    results.append({**write_entry(track, section), "status": "target_verification_required" if blocker else "would_write",
+                                    **({"reason": blocker} if blocker else {})})
+        for step in steps:
+            if step["kind"] == "key":
+                step["outcome"] = "UNSUPPORTED_BY_SDK"
+        return {**base, **summary, "status": "dry_run", "tracks": tracks,
+                "track_totals": dict(Counter(tr["status"] for tr in tracks)), "session_steps": steps,
+                "writes": results, "totals": dict(Counter(r["status"] for r in results)),
+                "note": "Nothing was sent to Live. Call again with dry_run=false to write."}
+
+    # --- Live. Nothing is written before the bridge and its capabilities are known.
+    check_cancelled()
+    try:
+        target = resolve_bridge_target()
+    except BridgeUnavailable as error:
+        return {**base, **summary, "status": "blocked", "stage": "bridge", "reason": str(error),
+                "candidates": error.candidates, "tracks": [], "writes": [], "session_steps": steps,
+                "note": "Nothing was sent to Live."}
+    # The protocol gate, once for the whole build: an extension that does not
+    # publish a compatible queue protocol, a session id and a fresh state gets
+    # no mutation at all (each request is gated again on its way out).
+    gate = bridge_client.mutation_gate(target, "write_arrangement_clip")
+    if gate:
+        return {**base, **summary, "status": "blocked", "stage": "bridge", "reason": gate.get("error"),
+                "gate_status": gate.get("status"), "protocol": gate.get("protocol"), "outcome": gate.get("outcome"),
+                "bridge": target.describe(), "tracks": [], "writes": [], "session_steps": steps, "note": "Nothing was sent to Live."}
+    capabilities = target.capabilities
+    missing = [c for c in BUILD_REQUIRED_CAPABILITIES if not capabilities.get(c)]
+    if missing:
+        return {**base, **summary, "status": "blocked", "stage": "capabilities",
+                "reason": f"the running extension does not publish {missing}", "bridge": target.describe(),
+                "tracks": [], "writes": [], "session_steps": steps, "note": "Nothing was sent to Live."}
+    # Idempotency keys are scoped to the Live session the build targets and to
+    # this plan's contents, so a key can never replay an outcome from another
+    # set or another plan.
+    # Keep existing keys, including interrupted builds. A changed payload on
+    # the same key is refused by the journal, never silently re-applied.
+    plan_digest = hashlib.sha256(plan_path.read_bytes()).hexdigest()[:12]
+    run_key = f"{target.session_id or 'nosession'}:{plan_digest}:{created.get('run_id') or 'plan'}"
+    aborted: str | None = None
+
+    def send(payload: dict[str, Any], key: str) -> dict[str, Any]:
+        return bridge_client.submit_request(payload, wait, target=target, idempotency_key=f"{run_key}:{key}")
+
+    # 1) settings
+    for step in steps:
+        if step["kind"] == "tempo":
+            answer = send({"op": "set_tempo", "bpm": step["bpm"]}, "tempo")
+            step["outcome"] = answer.get("status")
+            step["bridge_outcome"] = answer.get("outcome")
+            if answer.get("error"):
+                step["error"] = answer.get("error")
+            if answer.get("status") in BRIDGE_DEAD_STATUSES:
+                aborted = f"tempo: {answer.get('status')}"
+        elif step["kind"] == "key":
+            # Reported, not attempted: the SDK cannot write the song key.
+            step["outcome"] = "UNSUPPORTED_BY_SDK"
+            step["note"] = bridge_client.SDK_UNSUPPORTED_OPS["set_key"][1]
+
+    # 2) tracks, with the evidence each writer needs
+    tracks = []
+    gate: dict[str, dict[str, Any]] = {}
+    needs_device_check: list[str] = []
+    for track in plan.get("tracks") or []:
+        if aborted:
+            break
+        name = _plan_track_name(track)
+        kit_resolution = kits.get(name)
+        kit_verified = False
+        role = track.get("sensei_role")
+        entry: dict[str, Any] = {"track": name, "instrument_family": track.get("instrument_family"), "role": role}
+        # The real preset, when this machine has its file: the track is made
+        # empty and the file is handed to Live through the OS (no native
+        # stand-in, no Simpler rebuild). Without a file, the family goes to
+        # the SDK as before (a native device name, or a reported refusal).
+        preset_path, preset_name = _preset_file_for(track, kit_resolution) if args.get("preset_load", "os") == "os" else (None, None)
+        if preset_path and (args.get("device_map") or {}).get(name):
+            preset_path, preset_name = None, None  # an explicit device override wins
+        # A drum track whose plan names a real kit gets NO device from the SDK:
+        # the kit is loaded (verified) or the track stays empty and blocked.
+        family_to_insert = None if (preset_path or (role == "drum" and kit_resolution)) else track.get("instrument_family")
+        outcome = _create_midi_track_request(name, family_to_insert, wait, target=target,
+                                             idempotency_key=f"{run_key}:track:{name}")
         result = outcome.get("result") or {}
         entry["status"] = outcome.get("status")
+        entry["bridge_outcome"] = outcome.get("outcome")
         entry["created"] = result.get("created")
         entry["instrument"] = result.get("instrument")
-        if outcome.get("instrument_via_surface"):
-            entry["instrument_via_surface"] = outcome["instrument_via_surface"]
         if outcome.get("error"):
             entry["error"] = outcome.get("error")
         tracks.append(entry)
+        if outcome.get("status") in BRIDGE_DEAD_STATUSES:
+            aborted = f"track {name}: {outcome.get('status')}"
+            break
+        if outcome.get("status") != "OK":
+            gate[name] = {"ok": False, "reason": f"track_not_created: {outcome.get('error')}"}
+            continue
+        preset_loaded: dict[str, Any] | None = None
+        if preset_path:
+            placed = ((manifest or {}).get("tracks") or {}).get(name)
+            if placed and placed.get("path") == preset_path:
+                preset_loaded = {"loaded": True, "verified": True, "status": "OK", "via": "set_file_manifest", "device": preset_name}
+            else:
+                preset_loaded = _os_load_preset(preset_path, name, str(preset_name), wait, send, expected_index=result.get("index"))
+            entry["preset"] = {"path": preset_path, "name": preset_name, **preset_loaded}
+            if not preset_loaded.get("verified"):
+                # No verified preset on the target: nothing is written to it.
+                # Never a native stand-in, never a Simpler rebuild of the kit.
+                entry["target_evidence"] = "none"
+                code = preset_loaded.get("status") or "PRESET_LOAD_REQUIRED"
+                gate[name] = {"ok": False, "code": code, "reason": f"{code}: {preset_loaded.get('reason')}"}
+                if role == "drum" and kit_resolution:
+                    entry["kit"] = {"kit": kit_resolution["kit"], "status": code, "reason": preset_loaded.get("reason"), "rebuilt": False}
+                if code == "PRESET_LANDED_ELSEWHERE":
+                    aborted = f"preset for {name} landed elsewhere: {preset_loaded.get('reason')}"
+                    break
+                continue
+        if role == "drum":
+            pads = send({"op": "drum_pads", "track": name}, f"pads:{name}")
+            if pads.get("status") in BRIDGE_DEAD_STATUSES:
+                aborted = f"drum_pads {name}: {pads.get('status')}"
+                break
+            pad_result = pads.get("result") or {}
+            pad_notes = [int(n) for n in (pad_result.get("pad_notes") or [])]
+            live_chains = {int(c["note"]): list(c.get("devices") or []) for rack in (pad_result.get("drum_racks") or []) for c in (rack.get("chains") or []) if c.get("note") is not None}
+            live_chain_names = {int(c["note"]): list(c.get("device_names") or []) for rack in (pad_result.get("drum_racks") or []) for c in (rack.get("chains") or []) if c.get("note") is not None}
+            expected_pads = sorted(int(p["note"]) for p in kit_resolution["pads"]) if kit_resolution else []
+            if kit_resolution and pad_notes and preset_loaded and preset_loaded.get("verified"):
+                if sorted(pad_notes) == expected_pads:
+                    # The preset on this track is the file we read: Live reports
+                    # exactly the pads the file declares (decoded ReceivingNote).
+                    kit_verified = True
+                    file_devices = {int(p["note"]): list(p.get("source_devices") or []) for p in kit_resolution["pads"]}
+                    if live_chains and not any(file_devices.values()):
+                        device_evidence = {"reported_by_extension": True, "verified": None, "live_first_devices": sorted({(live_chains.get(n) or ["?"])[0] for n in expected_pads}),
+                                           "note": "the preset file declares no chain devices to compare against"}
+                    elif live_chains:
+                        # Compared per pad on the first chain device (the instrument). The
+                        # SDK's className is "Device" for anything it does not specialise
+                        # (a DrumCell included, measured 2026-09-07), so the comparison
+                        # accepts either the XML class or Live's display name for it.
+                        # A pad whose file entry names no device cannot be compared.
+                        display = {"DrumCell": "Drum Sampler", "OriginalSimpler": "Simpler", "MultiSampler": "Sampler", "InstrumentGroupDevice": "Instrument Rack"}
+                        comparable = [n for n in expected_pads if file_devices.get(n)]
 
+                        # Live names a pad's Drum Sampler after its sample ("Kick BNYX 1",
+                        # measured 2026-09-07 with extension 0.4.3), so the name proves WHICH
+                        # sample sits on WHICH pad -- the file's own pairing -- while the
+                        # device class stays unexposed by the SDK.
+                        file_samples = {int(p["note"]): Path(str(p.get("sample") or "")).stem for p in kit_resolution["pads"]}
+
+                        def matches(n: int) -> bool:
+                            wanted = file_devices[n][0]
+                            live_class = [d for d in live_chains.get(n, []) if d not in ("AudioBranchMixerDevice",)][:1]
+                            live_name = [d for d in live_chain_names.get(n, []) if d not in ("AudioBranchMixerDevice",)][:1]
+                            return live_class == [wanted] or live_name == [wanted] or live_name == [display.get(wanted)] or (bool(file_samples.get(n)) and live_name == [file_samples[n]])
+
+                        agree = [n for n in comparable if matches(n)]
+                        sample_named = [n for n in expected_pads if file_samples.get(n) and (live_chain_names.get(n) or [None])[0] == file_samples[n]]
+                        generic = all((live_chains.get(n) or ["?"])[0] == "Device" for n in expected_pads)
+                        device_evidence = {"reported_by_extension": True, "pads": len(expected_pads), "comparable_pads": len(comparable),
+                                           "pads_with_matching_first_device": len(agree), "uncomparable_pads": [n for n in expected_pads if n not in comparable],
+                                           "pads_whose_device_is_named_after_the_files_sample": len(sample_named),
+                                           "live_first_devices": sorted({(live_chains.get(n) or ["?"])[0] for n in expected_pads}),
+                                           "live_first_device_names": sorted({(live_chain_names.get(n) or ["?"])[0] for n in expected_pads}),
+                                           "file_first_devices": sorted({file_devices[n][0] for n in comparable}),
+                                           "verified": bool(comparable) and len(agree) == len(comparable),
+                                           "device_class_verified": None if generic else (bool(comparable) and len(agree) == len(comparable)),
+                                           "note": ("the SDK exposes className 'Device' for these chains: the device CLASS cannot be read; "
+                                                    "what is verified is each pad's device name = the file's sample for that pad") if generic else None}
+                    else:
+                        device_evidence = {"reported_by_extension": False, "verified": None,
+                                           "note": "the running extension does not report chain devices (needs >= 0.4.2)"}
+                    entry["kit"] = {"kit": kit_resolution["kit"], "status": "native_preset_loaded", "via": preset_loaded.get("via"),
+                                    "preset_preserved": True, "pads": len(pad_notes), "pad_notes": sorted(pad_notes),
+                                    "device_evidence": device_evidence}
+                else:
+                    entry["kit"] = {"kit": kit_resolution["kit"], "status": "loaded_pads_differ", "expected": expected_pads, "live": sorted(pad_notes)}
+                    gate[name] = {"ok": False, "code": "INDETERMINATE", "reason": f"INDETERMINATE: {kit_resolution['kit']} is on the track but Live reports pads {sorted(pad_notes)}, the file declares {expected_pads}"}
+                    continue
+            elif kit_resolution and not pad_notes:
+                # A real kit was named and nothing readable is on the track:
+                # the kit has to be loaded, it is not rebuilt.
+                entry["kit"] = {"kit": kit_resolution["kit"], "status": "PRESET_LOAD_REQUIRED", "reason": pad_result.get("reason") or pads.get("error")}
+                gate[name] = {"ok": False, "code": "PRESET_LOAD_REQUIRED", "reason": f"PRESET_LOAD_REQUIRED: {kit_resolution['kit']} is not on {name!r} ({pad_result.get('reason') or pads.get('error')})"}
+                continue
+            entry["pad_notes"] = pad_notes
+            entry["target_evidence"] = "live_drum_rack_pads" if pad_notes else "none"
+            reason = pad_result.get("reason") or pads.get("error")
+            gate[name] = {"ok": bool(pad_notes), "pad_notes": pad_notes,
+                          "reason": None if pad_notes else f"drum_rack_not_verified: {reason}"}
+            if pad_notes:
+                resolved_pads = pad_notes_resolver()(pad_notes, kit_resolution, kit_verified=kit_verified)
+                gate[name]["pad_mapping"] = resolved_pads["mapping"]
+                entry["pad_mapping"] = resolved_pads["mapping"]
+                entry["pad_targets"] = resolved_pads["mapping"].get("targets")
+                entry["pad_source"] = resolved_pads["source"]
+                entry["note_semantics"] = resolved_pads.get("note_semantics")
+                entry["preset_identity_verified"] = kit_verified
+                entry["role_source"] = resolved_pads.get("role_source")
+                if not resolved_pads["mapping"]["generate_pads"]:
+                    gate[name] = {"ok": False, "code": "INDETERMINATE", "reason": "kit_roles_unverified: pad numbers alone do not identify samples or drum roles"}
+        elif role in ("bass", "chord"):
+            instrument = str(result.get("instrument") or "")
+            if preset_loaded and preset_loaded.get("verified"):
+                entry["target_evidence"] = f"native_preset_loaded: {preset_loaded.get('device')} ({preset_loaded.get('via')})"
+                gate[name] = {"ok": True}
+            elif instrument.startswith("inserted:"):
+                entry["target_evidence"] = "native_device_inserted"
+                gate[name] = {"ok": True}
+            elif instrument.startswith("kept:"):
+                needs_device_check.append(name)  # decided from the state below
+            else:
+                entry["target_evidence"] = "none"
+                gate[name] = {"ok": False, "reason": f"instrument_not_loaded: {instrument or 'no instrument family in the plan'}"}
+                catalogue = _catalog_entry(str(track.get("instrument_family") or ""))
+                if instrument.startswith("not_loadable_in_extension"):
+                    entry["needs_preset"] = {
+                        "family": track.get("instrument_family"), "preset_path": catalogue.get("path") if catalogue else None,
+                        "options": ["project_build(device_map={%r: '<native device, e.g. Operator / Electric / Wavetable>'})" % name,
+                                    "load the preset onto the track in Live yourself, then rebuild the same plan: the track is adopted and its device is read from the state"],
+                        "note": "the Extensions SDK inserts native devices with their default preset only; browser presets cannot be loaded through it"}
+    if needs_device_check and not aborted:
+        state = send({"op": "get_state", "include_devices": True}, "state:devices")
+        if state.get("status") in BRIDGE_DEAD_STATUSES:
+            aborted = f"get_state: {state.get('status')}"
+        devices = {str(tr.get("name")): tr.get("devices") or [] for tr in (state.get("result") or {}).get("tracks") or []}
+        for name in needs_device_check:
+            present = [d.get("name") for d in devices.get(name) or []]
+            for entry in tracks:
+                if entry["track"] == name:
+                    entry["target_evidence"] = f"devices_present: {present}" if present else "none"
+            gate[name] = {"ok": bool(present), "reason": None if present else "instrument_not_loaded: the adopted track has no device"}
+
+    # 3) clips
     results: list[dict[str, Any]] = []
+    written_targets: dict[str, set[int]] = {}  # drum track -> every pad note a written clip carries
     for track_index, track in enumerate(writers):
-        name = track.get("ableton_name") or track.get("display_name") or track.get("name")
+        name = _plan_track_name(track)
         role = track["sensei_role"]
-        activity = track.get("section_activity") or {}
         for section_index, section in enumerate(sections):
             if not _track_plays_in(track, section):
                 results.append({"track": name, "section": section["name"], "status": "muted_by_plan"})
                 continue
-            bars = int(section["end_bar"]) - int(section["start_bar"]) + 1
-            energy = activity.get(section.get("id"), section.get("energy"))
-            density = None if energy is None else max(0.0, min(1.0, float(energy) / 100.0))
-            request = {"role": role, "genre": genre or "Trap", "bars": bars,
-                       "instrument_family": track.get("instrument_family"),
-                       "seed": base_seed + track_index * 100 + section_index,
-                       "density": density, "genre_style": genre_style,
-                       "target_root": root, "target_mode": mode}
-            entry = {"track": name, "role": role, "section": section["name"],
-                     "start_bar": int(section["start_bar"]), "bars": bars,
-                     "density": density, "genre_style": genre_style,
-                     "profile": _profile_for_role(role, track.get("instrument_family"))}
-            if dry_run:
-                results.append({**entry, "status": "would_write"})
+            entry = write_entry(track, section)
+            if aborted:
+                results.append({**entry, "status": "aborted", "reason": aborted})
                 continue
-            generated = handle_midi_generate(request)
+            verdict = gate.get(name) or {"ok": False, "reason": "track_not_created"}
+            if not verdict.get("ok"):
+                results.append({**entry, "status": "blocked", "code": verdict.get("code"), "reason": verdict.get("reason") or "target_unverified"})
+                continue
+            mapping = verdict.get("pad_mapping") or {"mode": "direct", "generate_pads": verdict.get("pad_notes"), "map": {}}
+            generated = handle_midi_generate({
+                "role": role, "genre": genre or "Trap", "bars": entry["bars"],
+                "instrument_family": track.get("instrument_family"),
+                "seed": base_seed + track_index * 100 + section_index,
+                "density": entry["density"], "genre_style": genre_style,
+                "target_root": root, "target_mode": mode, "beats_per_bar": beats_per_bar,
+                "pad_notes": mapping["generate_pads"] if role == "drum" else None, "instrument_verified": role in ("bass", "chord")})
             if not generated.get("generation_safe"):
                 results.append({**entry, "status": "blocked", "reason": generated.get("error")})
                 continue
+            if not generated.get("writable_to_live"):
+                results.append({**entry, "status": "blocked", "reason": generated.get("writable_reason")})
+                continue
+            raw_notes = (generated.get("payload") or {}).get("notes") or []
+            if mapping.get("mode") == "by_role":
+                raw_notes = [{**n, "pitch": mapping["map"][int(n["pitch"])]} for n in raw_notes if int(n["pitch"]) in mapping["map"]]
             notes = [{"pitch": n["pitch"], "start": n.get("time", n.get("start", 0.0)),
-                      "duration": n["duration"], "velocity": n.get("velocity", 100)}
-                     for n in (generated.get("payload") or {}).get("notes") or []]
-            written = handle_midi_write_arrangement({
-                "track": name, "start_bar": int(section["start_bar"]), "length_beats": bars * beats_per_bar,
-                "beats_per_bar": beats_per_bar,
-                "name": section["name"], "notes": notes, "wait_seconds": wait})
-            results.append({**entry, "status": written.get("status"),
-                            "notes": len(notes), "verified": (written.get("result") or {}).get("verified_note_count"),
+                      "duration": n["duration"], "velocity": n.get("velocity", 100)} for n in raw_notes]
+            if not notes:
+                results.append({**entry, "status": "blocked", "reason": "no_notes_for_pads: the generated part has no note on this kit's pads"
+                                + (f" (kit lacks {mapping.get('unmapped_roles')})" if mapping.get("unmapped_roles") else "")})
+                continue
+            if role == "drum":
+                allowed = set(verdict.get("pad_notes") or [])
+                outside = sorted({int(n["pitch"]) for n in notes} - allowed)
+                if outside:
+                    results.append({**entry, "status": "blocked", "code": "INDETERMINATE",
+                                    "reason": f"notes_outside_pads: {outside} are not pads Live reported; nothing written"})
+                    continue
+                written_targets.setdefault(name, set()).update(int(n["pitch"]) for n in notes)
+            written = write_arrangement_clip({
+                "track": name, "start_bar": int(section["start_bar"]), "length_beats": entry["bars"] * beats_per_bar,
+                "beats_per_bar": beats_per_bar, "name": section["name"], "notes": notes, "wait_seconds": wait,
+                "on_conflict": args.get("on_conflict") or "refuse"},
+                target=target, idempotency_key=f"{run_key}:clip:{name}:{section['name']}")
+            status = str(written.get("status"))
+            held = written.get("result") or {}
+            match = held.get("verified_notes_match")
+            if match is None and held.get("verified_note_count") is not None:
+                match = held.get("verified_note_count") == len(notes)
+            if status == "OK":
+                status = "OK" if match else ("CONTENT_MISMATCH" if match is False else "OK_UNCHECKED")
+            results.append({**entry, "status": status, "notes": len(notes), "verified": match,
+                            "verified_note_count": held.get("verified_note_count"), "error": written.get("error"),
+                            "bridge_outcome": written.get("outcome"), "replayed": bool(written.get("replayed")),
+                            "pad_mapping": mapping.get("mode") if role == "drum" else None,
                             "diagnostics": {k: v for k, v in (generated.get("diagnostics") or {}).items()
                                             if k.startswith(("density", "layer_fit"))}})
+            if written.get("status") in BRIDGE_DEAD_STATUSES:
+                aborted = f"clip {name}/{section['name']}: {written.get('status')}"
 
-    if not dry_run:
-        # Tempo and key first, locators last: an empty arrangement is a few
-        # beats long and Live refuses a cue past its end, so the section
-        # markers can only be placed once the clips have extended it.
-        ordered = [s for s in steps if s["kind"] != "locator"] + [s for s in steps if s["kind"] == "locator"]
-        for step in ordered:
-            if step["kind"] == "tempo":
-                step["outcome"] = _submit_bridge_request({"op": "set_tempo", "bpm": step["bpm"]}, wait).get("status")
-            elif step["kind"] == "key":
-                step["outcome"] = _submit_bridge_request({"op": "set_key", "root": step["root"],
-                                                          "mode": step["mode"]}, wait).get("status")
-            else:
-                step["outcome"] = _submit_bridge_request({"op": "create_locator", "beat": step["beat"],
-                                                          "name": step["section"]}, wait).get("status")
-        # The surface may answer a locator before Live refreshes its cue list;
-        # the arrangement is the truth, so read it back once at the end.
-        state = _submit_bridge_request({"op": "get_state"}, wait)
-        cues = (state.get("result") or {}).get("cue_points") or []
+    for track_entry in tracks:
+        if track_entry["track"] in written_targets:
+            pads_allowed = set((gate.get(track_entry["track"]) or {}).get("pad_notes") or [])
+            track_entry["target_notes"] = sorted(written_targets[track_entry["track"]])
+            track_entry["notes_outside_pads"] = sorted(written_targets[track_entry["track"]] - pads_allowed)
+
+    # 4) locators, after the clips have given the arrangement its length
+    if not aborted:
         for step in steps:
-            if step["kind"] == "locator":
-                step["verified"] = any(abs(float(c.get("time", -1)) - step["beat"]) < 1e-6
-                                       and c.get("name") == step["section"] for c in cues)
+            if step["kind"] != "locator":
+                continue
+            answer = send({"op": "create_locator", "beat": step["beat"], "name": step["section"]}, f"locator:{step['section']}")
+            step["outcome"] = answer.get("status")
+            step["bridge_outcome"] = answer.get("outcome")
+            if answer.get("error"):
+                step["error"] = answer.get("error")
+            if answer.get("status") in BRIDGE_DEAD_STATUSES:
+                aborted = f"locator {step['section']}: {answer.get('status')}"
+                break
 
-    counts = Counter(r["status"] for r in results)
-    return {
-        "dry_run": dry_run,
-        "plan": created,
-        "project": {"name": project.get("name"), "bpm": project.get("bpm"), "key": f"{root} {mode}",
-                    "genre": genre, "sections": len(sections), "total_bars": project.get("total_bars")},
-        "trigger": _active_bridge_label(),
-        "beats_per_bar": beats_per_bar,
-        "beats_per_bar_source": bpb_source,
-        "tracks": tracks,
-        "track_totals": dict(Counter(tr["status"] for tr in tracks)),
-        "session_steps": steps,
-        "writes": results,
-        "totals": dict(counts),
-        "tracks_out_of_scope": out_of_scope,
-        "note": ("Nothing was sent to Live. Call again with dry_run=false to write." if dry_run
-                 else "Every write reports the status Live returned; NOT_CONSUMED means Live did not answer."),
-    }
+    # 5) read back what Live holds now
+    locators_ok: bool | None = None
+    tempo_ok: bool | None = None
+    readback: dict[str, Any] = {"status": "skipped"}
+    if not aborted:
+        state = send({"op": "get_state", "include_devices": False}, "state:readback")
+        readback = {"status": state.get("status")}
+        held = state.get("result") or {}
+        if state.get("status") == "OK":
+            cues = held.get("cue_points") or []
+            for step in steps:
+                if step["kind"] == "locator":
+                    step["verified"] = any(abs(float(c.get("time", -1)) - step["beat"]) < 1e-6 and c.get("name") == step["section"] for c in cues)
+            locator_steps = [s for s in steps if s["kind"] == "locator"]
+            locators_ok = all(s.get("verified") for s in locator_steps) if locator_steps else None
+            for step in steps:
+                if step["kind"] == "tempo" and held.get("tempo") is not None:
+                    step["verified"] = abs(float(held["tempo"]) - step["bpm"]) < 1e-6
+                    tempo_ok = step["verified"]
+            readback.update({"tempo": held.get("tempo"), "cue_points": len(cues), "track_count": held.get("track_count")})
+
+    status = _build_overall_status(results, aborted, locators_ok, tempo_ok)
+    # What may have happened without an answer: carried up unchanged so the
+    # caller sees the side effects and the safe next step, and retries nothing.
+    indeterminate = [
+        {"step": label, "code": (bo or {}).get("code"), "side_effects": (bo or {}).get("side_effects"), "next_step": (bo or {}).get("next_step")}
+        for label, bo in (
+            [(f"{s['kind']}:{s.get('section') or ''}", s.get("bridge_outcome")) for s in steps]
+            + [(f"track:{t['track']}", t.get("bridge_outcome")) for t in tracks]
+            + [(f"kit:{t['track']}", t["kit"].get("bridge_outcome")) for t in tracks if isinstance(t.get("kit"), dict)]
+            + [(f"clip:{w['track']}/{w.get('section')}", w.get("bridge_outcome")) for w in results]
+        )
+        if isinstance(bo, dict) and bo.get("kind") == "indeterminate"
+    ]
+    return {**base, **summary, "status": status, "aborted": aborted, "bridge": target.describe(), "indeterminate": indeterminate,
+            "tracks": tracks, "track_totals": dict(Counter(tr["status"] for tr in tracks)),
+            "session_steps": steps, "writes": results, "totals": dict(Counter(r["status"] for r in results)),
+            "readback": readback,
+            "note": "Every write reports the status Live returned: OK means Live holds the notes note-for-note; "
+                    "blocked means the target could not be verified and nothing was written there; "
+                    "NOT_CONSUMED means the request was withdrawn unapplied; INDETERMINATE means Live picked it up "
+                    "and never answered -- read the state before retrying."}
 
 
 def handle_plan_create(args: dict[str, Any]) -> dict[str, Any]:
@@ -2055,29 +2093,51 @@ def handle_plan_create(args: dict[str, Any]) -> dict[str, Any]:
     if not prompt:
         raise ValueError("prompt is required: the whole chain is derived from it.")
 
+    run_id = f"{datetime.datetime.now():%Y%m%d-%H%M%S}-{uuid.uuid4().hex[:6]}"
+    run_dir = ARRANGEMENTGPS_RUNS_DIR / run_id
+    output_dir = run_dir / "output"
+    builds_dir = run_dir / "Builds"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    env = {"ARRANGEMENTGPS_OUTPUT_DIR": str(output_dir), "ARRANGEMENTGPS_BUILDS_DIR": str(builds_dir)}
+
     steps = []
     for index, (script, label) in enumerate(CHAIN_STEPS):
         check_cancelled()
         report_progress(index, len(CHAIN_STEPS), label)
         script_args = (prompt,) if label == "blueprint" else ()
-        steps.append({"step": label, "output": _run_node(script, *script_args)})
+        steps.append({"step": label, "output": _run_node(script, *script_args, env=env)})
     report_progress(len(CHAIN_STEPS), len(CHAIN_STEPS), "done")
 
-    session_plan_path = ARRANGEMENTGPS_DIR / "engine" / "output" / "ableton_session_plan.json"
+    session_plan_path = output_dir / "ableton_session_plan.json"
     session_plan = json.loads(session_plan_path.read_text(encoding="utf-8"))
     project = session_plan.get("project", {})
-
-    safe_name = "".join(c if c.isalnum() else "_" for c in project.get("name", "ArrangementGPS_Project"))
-    while "__" in safe_name:
-        safe_name = safe_name.replace("__", "_")
-    build_dir = ARRANGEMENTGPS_DIR / "Builds" / safe_name.strip("_")
+    # The package stage records where it wrote; nothing here recomputes it.
+    location = json.loads((output_dir / "package_location.json").read_text(encoding="utf-8"))
+    build_dir = Path(location["build_dir"])
     action_list_file = build_dir / "ableton_action_list.json"
+
+    # A convenience mirror of the newest plan for the loom://plan/session
+    # resource and plan_verify. No build stage reads it.
+    mirror = OUTPUT_ROOT / "ArrangementGPS" / "engine" / "output" / "ableton_session_plan.json"
+    try:
+        mirror.parent.mkdir(parents=True, exist_ok=True)
+        # Atomic: two parallel plan_create calls copying into the same mirror
+        # left a torn file behind once (2026-09-06), and every reader of the
+        # mirror -- plan_verify, the resource, check_instrument_coverage --
+        # then failed on a plan that no run had actually produced.
+        bridge_client.write_atomic(mirror, session_plan_path.read_text(encoding="utf-8"))
+    except OSError:
+        pass
 
     tracks = session_plan.get("tracks", [])
     generatable = [t for t in tracks if t.get("sensei_role")]
     return {
         "status": "CREATED",
         "prompt": prompt,
+        "run_id": run_id,
+        "run_dir": str(run_dir),
+        "plan_path": str(session_plan_path),
+        "output_dir": str(output_dir),
         "project": project,
         "build_dir": str(build_dir),
         "action_list_file": str(action_list_file) if action_list_file.exists() else None,
@@ -2086,7 +2146,7 @@ def handle_plan_create(args: dict[str, Any]) -> dict[str, Any]:
         "tracks_sensei_can_generate": len(generatable),
         "tracks_out_of_scope": len(tracks) - len(generatable),
         "steps": steps,
-        "message": "Run ArrangementGPSBuilder in Live to build the tracks, then 'Sensei: Build Arrangement (ArrangementGPS Plan)'.",
+        "message": "Build it into Live with project_build(plan_path=...) -- dry run first, then dry_run=false.",
     }
 
 
@@ -2209,7 +2269,7 @@ def handle_render_plan(args: dict[str, Any]) -> dict[str, Any]:
     renderable = [t for t in manifest["tracks"] if t["should_render"]]
     excluded = [t for t in manifest["tracks"] if not t["should_render"]]
 
-    job_path = LOOM_DIR / "Renderer" / "Jobs" / f"{int(time.time())}_{_safe_filename(project_title)}_render_job.json"
+    job_path = OUTPUT_ROOT / "Renderer" / "Jobs" / f"{int(time.time())}_{_safe_filename(project_title)}_render_job.json"
     job_path.parent.mkdir(parents=True, exist_ok=True)
     job_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
@@ -2246,7 +2306,7 @@ def handle_plan_verify(_args: dict[str, Any]) -> dict[str, Any]:
     # catalog. This is the Live-side instrument_role_unresolved failure,
     # caught before Live is ever opened.
     coverage = _load_script_module("check_instrument_coverage.py", "loom_coverage")
-    result = coverage.verify_plan()
+    result = coverage.verify_plan(plan_path=OUTPUT_ROOT / "ArrangementGPS" / "engine" / "output" / "ableton_session_plan.json")
     return {
         "ok": result["ok"],
         "catalog_size": result["catalog_size"],
@@ -2275,16 +2335,32 @@ def handle_project_inspect_arrangement(args: dict[str, Any]) -> dict[str, Any]:
         for node in root.iter("Locator")
     ]
 
+    bpb = project["beats_per_bar"]
+    total_bars = round(song_end / bpb) if song_end else 0
+    # Locators, when the set has them, are the author's own sections.
+    named = sorted((l for l in locators if l["beat"] is not None), key=lambda l: l["beat"])
+    from_locators = []
+    for index, loc in enumerate(named):
+        end_beat = named[index + 1]["beat"] if index + 1 < len(named) else song_end
+        if end_beat > loc["beat"]:
+            from_locators.append({"name": loc["name"], "start_bar": round(loc["beat"] / bpb) + 1, "end_bar": round(end_beat / bpb),
+                                  "length_bars": round((end_beat - loc["beat"]) / bpb, 1)})
     return {
         "als_path": str(als_path),
         "tempo": project["tempo"],
-        "beats_per_bar": project["beats_per_bar"],
+        "beats_per_bar": bpb,
+        "beats_per_bar_source": project.get("beats_per_bar_source"),
         "track_count": project["track_count"],
-        "total_bars": round(song_end / project["beats_per_bar"]) if song_end else 0,
+        "total_bars": total_bars,
+        "last_clip_end_bar": round(project.get("last_clip_end_beat", song_end) / bpb) if project.get("last_clip_end_beat") else total_bars,
+        # Clips after a 16-bar gap with nothing on any track: leftovers, listed, not counted in total_bars.
+        "outlier_clips": project.get("outlier_clips") or [],
+        "tracks": project.get("tracks") or [],
         "locators": locators,
+        "sections_from_locators": from_locators,
         "section_count": len(sections),
-        # Inferred from where clips start and stop across tracks, not read
-        # from locators -- locators are usually absent in these projects.
+        # Inferred from where clips start and stop across tracks (arrangement
+        # clips only, by their Time attribute), for sets without locators.
         "sections_inferred_from_clips": sections,
     }
 
@@ -2630,56 +2706,6 @@ def handle_setup_scan(args: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _active_bridge_label() -> str:
-    """Which Live-side endpoint the active bridge root is talking to, from
-    the surface_version its last state dump carries."""
-    state_file = BRIDGE_ROOT / "state" / "live_state.json"
-    version = None
-    if state_file.exists():
-        try:
-            version = json.loads(state_file.read_text(encoding="utf-8")).get("surface_version")
-        except Exception:  # noqa: BLE001
-            version = None
-    if version and str(version).startswith("loom-extension"):
-        return f"Loom extension bridge ({version}) at {BRIDGE_ROOT}"
-    if version:
-        return f"Loom control surface ({version}) at {BRIDGE_ROOT}"
-    return f"bridge at {BRIDGE_ROOT} (no state published yet)"
-
-
-def _bridge_candidates() -> list[dict[str, Any]]:
-    """Every bridge root on this machine that has ever published state: the
-    Loom control surface's, and each installed extension's (they may only
-    write inside their own storage directory, see GAP-008). The active root is
-    LOOM_BRIDGE_ROOT or the surface's; this list is how a caller finds the
-    extension's and switches."""
-    roots = [Path.home() / "Documents" / "SenseiV2Bridge"]
-    extensions_data = Path.home() / "Library" / "Application Support" / "Ableton" / "Extensions Data"
-    if extensions_data.exists():
-        roots.extend(sorted(p / "bridge" for p in extensions_data.iterdir() if (p / "bridge").is_dir()))
-    if BRIDGE_ROOT not in roots:
-        roots.insert(0, BRIDGE_ROOT)
-    found = []
-    for root in roots:
-        state_file = root / "state" / "live_state.json"
-        entry: dict[str, Any] = {"root": str(root), "active": root == BRIDGE_ROOT, "state": "never_published"}
-        if state_file.exists():
-            try:
-                state = json.loads(state_file.read_text(encoding="utf-8"))
-                captured = float(state.get("captured_at") or 0)
-                entry.update({
-                    "state": "fresh" if captured and time.time() - captured < 10 else "stale",
-                    "age_seconds": round(time.time() - captured, 1) if captured else None,
-                    "surface_version": state.get("surface_version"),
-                    "capabilities": state.get("capabilities"),
-                })
-            except Exception as error:  # noqa: BLE001
-                entry.update({"state": "unreadable", "error": str(error)})
-        found.append(entry)
-    return found
-
-
-
 # --- Mix Check (SubverseLab mix analyzer, ported 2026-09-03) ----------------
 MIX_ANALYZER_DIR = LOOM_DIR / "MixAnalyzer"
 
@@ -2817,27 +2843,27 @@ def handle_crate_to_live(args: dict[str, Any]) -> dict[str, Any]:
     for key in ("slot", "start_beat", "duration_beats", "warped", "name"):
         if key in args:
             payload[key] = args[key]
-    answer = _submit_bridge_request(payload, float(args.get("wait_seconds", 20)))
+    answer = bridge_client.submit_request(payload, float(args.get("wait_seconds", 20)))
     error = str(answer.get("error") or "")
-    if answer.get("status") == "FAILED_IN_LIVE" and "import_into_project failed" in error and args.get("import", True):
-        # No project folder (unsaved set): reference the file where it is
-        # and say so, instead of failing the whole placement.
-        retry = _submit_bridge_request({**payload, "import": False}, float(args.get("wait_seconds", 20)))
+    if (answer.get("status") == "FAILED_IN_LIVE" and (answer.get("outcome") or {}).get("code") == "import_into_project_failed"
+            and args.get("import", True)):
+        # Live's copy step failed before any clip existed (kind=failed,
+        # applied=false; typically an unsaved set with no project folder):
+        # reference the file where it is and say so. An indeterminate answer
+        # is never retried here.
+        retry = bridge_client.submit_request({**payload, "import": False}, float(args.get("wait_seconds", 20)))
         retry["import_fallback"] = {"reason": error[:200], "note": "the clip references the file in place; save the set to a project and re-run to let Live copy it"}
         return retry
-    if answer.get("status") == "FAILED_IN_LIVE" and "unknown op" in error:
-        answer["note"] = "The active bridge is the control surface, which cannot import audio; the extension bridge is needed."
     return answer
 
 
 def handle_mix_from_live(args: dict[str, Any]) -> dict[str, Any]:
-    rendered = _submit_bridge_request({"op": "render_pre_fx", "track": args["track"],
-                                       "start_beat": float(args["start_beat"]), "end_beat": float(args["end_beat"])},
-                                      float(args.get("wait_seconds", 60)))
+    rendered = bridge_client.submit_request({"op": "render_pre_fx", "track": args["track"],
+                                             "start_beat": float(args["start_beat"]), "end_beat": float(args["end_beat"])},
+                                            float(args.get("wait_seconds", 60)))
     result = rendered.get("result") or {}
     if rendered.get("status") != "OK" or not result.get("path"):
-        return {"render": rendered, "measurement": None,
-                "note": "no render came back; the extension bridge is needed for render_pre_fx" if "unknown op" in str(rendered.get("error") or "") else None}
+        return {"render": rendered, "measurement": None, "note": "no render came back; see render.status and render.outcome"}
     path = Path(str(result["path"]))
     if not path.is_file():
         return {"render": rendered, "measurement": None, "error": f"Live reported a render at {path} but the MCP cannot read it"}
@@ -2884,17 +2910,6 @@ def _live_pid() -> int:
     return pids[0]
 
 
-def _is_playing_now(wait: float = 3.0) -> bool | None:
-    """Transport state comes from the control surface only (the SDK has no
-    transport), so ask that root directly when it is alive."""
-    age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
-    if age is None or age > STATE_FRESH_SECONDS:
-        return None
-    answer = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "get_state", "include_devices": False}, wait)
-    result = answer.get("result") or {}
-    return bool(result.get("is_playing")) if answer.get("status") == "OK" else None
-
-
 def _measure_capture(path: Path, args: dict[str, Any]) -> dict[str, Any]:
     if args.get("analysis") == "measure":
         return handle_mix_measure({"path": str(path)})
@@ -2902,135 +2917,57 @@ def _measure_capture(path: Path, args: dict[str, Any]) -> dict[str, Any]:
                                "genre": args.get("genre"), "use_closest_profile": bool(args.get("use_closest_profile", True))})
 
 
-def _mix_capture_resample(args: dict[str, Any]) -> dict[str, Any]:
-    """Live records its own output: capture_start arms a Resampling track and
-    starts recording, capture_stop returns the recorded clip's file."""
-    seconds = float(args.get("seconds") or 8)
-    wait = 15.0
-    age, _version = _state_freshness(DEFAULT_SURFACE_ROOT)
-    if age is None or age > STATE_FRESH_SECONDS:
-        return {"status": "NO_CONTROL_SURFACE", "note": "resample capture needs the Loom control surface alive (record mode and input routing are not in the Extensions SDK)"}
-    # One request per Live tick: create, route, arm, record. Live 12.4.15b1
-    # segfaulted when all of it ran inside one control-surface tick.
-    steps: list[dict[str, Any]] = []
-    for op, extra, gap in (("capture_prepare", {}, 0.6), ("capture_route", {}, 0.6), ("capture_arm", {}, 0.6),
-                           ("capture_record", ({"position": float(args["position"])} if args.get("position") is not None else {}), 0.0)):
-        answer = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": op, **extra}, wait)
-        steps.append({"op": op, "status": answer.get("status"), "result": answer.get("result"), "error": answer.get("error")})
-        if answer.get("status") != "OK":
-            return {"status": "CAPTURE_FAILED", "stage": op, "error": answer.get("error"), "steps": steps}
-        time.sleep(gap)
-    # Live applies record_mode/start_playing after the tick that set them;
-    # confirm from a later state read that the transport really runs.
-    t0 = time.time()
-    time.sleep(min(1.5, seconds))
-    probe = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "get_state", "include_devices": False}, wait)
-    recording_confirmed = bool((probe.get("result") or {}).get("is_playing"))
-    while time.time() - t0 < seconds:
-        check_cancelled()
-        time.sleep(0.2)
-    stopped = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "capture_stop"}, wait)
-    result: dict[str, Any] = {"method": "resample", "seconds_requested": seconds, "steps": steps,
-                              "recording_confirmed": recording_confirmed, "stop": stopped.get("result")}
-    if stopped.get("status") != "OK":
-        result.update({"status": "CAPTURE_FAILED", "stage": "capture_stop", "error": stopped.get("error")})
-        return result
-    # The recorded clip materialises a moment after recording stops.
-    clip_answer: dict[str, Any] = {}
-    for _attempt in range(6):
-        time.sleep(1.0)
-        clip_answer = _submit_bridge_request_to(DEFAULT_SURFACE_ROOT, {"op": "capture_result"}, wait)
-        if clip_answer.get("status") == "OK":
-            break
-    result["clip"] = clip_answer.get("result")
-    if clip_answer.get("status") != "OK":
-        result.update({"status": "NO_CLIP", "error": clip_answer.get("error"),
-                       "note": "Live recorded nothing on 'Loom Capture'" + ("" if recording_confirmed else "; the transport was not running during the window")})
-        return result
-    file_path = (clip_answer.get("result") or {}).get("file_path")
-    if not file_path:
-        result.update({"status": "NO_FILE", "note": "Live recorded a clip but reported no file path"})
-        return result
-    path = Path(str(file_path))
-    deadline = time.time() + 10
-    while not path.is_file() and time.time() < deadline:
-        time.sleep(0.3)
-    if not path.is_file():
-        result.update({"status": "FILE_NOT_FOUND", "path": str(path), "note": "Live named a recording the MCP cannot see"})
-        return result
-    # Live deletes the "Temp Project" folder when an unsaved set closes, so
-    # the recording is copied into Loom's own capture directory at once.
-    MIX_CAPTURE_DIR.mkdir(parents=True, exist_ok=True)
-    kept = MIX_CAPTURE_DIR / f"live-{datetime.datetime.now().strftime('%Y%m%d-%H%M%S')}-resample{path.suffix or '.wav'}"
-    shutil.copy2(path, kept)
-    result["live_path"] = str(path)
-    result["path"] = str(kept)
-    result["status"] = "OK"
-    result["measurement"] = _measure_capture(kept, args)
-    if not args.get("keep", True):
-        kept.unlink(missing_ok=True)
-        result["path"] = None
-    return result
+def _mix_capture_resample(_args: dict[str, Any]) -> dict[str, Any]:
+    """Live recording itself needed record mode, resampling routing and arming,
+    none of which the Extensions SDK exposes. Reported, not emulated."""
+    return {"status": "UNSUPPORTED_BY_SDK", "method": "resample", "capability": "recording",
+            "error": "unsupported_by_sdk: resample capture needs record mode, resampling input routing and arming, "
+                     "which the Extensions SDK does not expose; use method='tap'"}
 
 
 def handle_mix_capture(args: dict[str, Any]) -> dict[str, Any]:
-    if (args.get("method") or "resample") == "resample":
-        if args.get("follow_transport"):
-            deadline = time.monotonic() + float(args.get("max_seconds") or 60)
-            playing = _is_playing_now()
-            if playing is None:
-                return {"status": "NO_TRANSPORT_STATE", "note": "follow_transport needs the control surface's state"}
-            while not playing and time.monotonic() < deadline:
-                check_cancelled()
-                time.sleep(0.5)
-                playing = _is_playing_now(1.0)
-            if not playing:
-                return {"status": "NOT_PLAYING", "note": "Live did not start playing in time"}
+    if (args.get("method") or "tap") == "resample":
         return _mix_capture_resample(args)
+    if args.get("follow_transport"):
+        return {"status": "UNSUPPORTED_BY_SDK", "capability": "transport",
+                "error": "unsupported_by_sdk: follow_transport needs the transport state, which the Extensions SDK "
+                         "does not expose; start playback and call again with a fixed 'seconds'"}
     binary = _livetap_binary()
     pid = _live_pid()
     seconds = float(args.get("seconds") or 8)
-    follow = bool(args.get("follow_transport", False))
-    max_seconds = float(args.get("max_seconds") or 60)
     MIX_CAPTURE_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     path = MIX_CAPTURE_DIR / f"live-{stamp}.wav"
-    waited = 0.0
-    if follow:
-        # Wait for the transport; the surface reports is_playing, the
-        # extension bridge cannot, so this needs the control surface alive.
-        deadline = time.monotonic() + max_seconds
-        playing = _is_playing_now()
-        if playing is None:
-            return {"status": "NO_TRANSPORT_STATE", "note": "follow_transport needs the control surface's state (is_playing); the extension bridge does not expose transport"}
-        while not playing and time.monotonic() < deadline:
-            check_cancelled()
-            time.sleep(0.5)
-            waited += 0.5
-            playing = _is_playing_now(1.0)
-        if not playing:
-            return {"status": "NOT_PLAYING", "waited_seconds": waited, "note": f"Live did not start playing within {max_seconds:g}s"}
-        seconds = max_seconds
     started = time.time()
-    proc = subprocess.run([str(binary), "--pid", str(pid), "--seconds", f"{seconds:g}", "--out", str(path)],
-                          capture_output=True, text=True, timeout=seconds + 30)
+    # Launched through LaunchServices, not as a child process: macOS charges
+    # the System Audio Recording permission to the RESPONSIBLE process, and a
+    # child of the MCP is charged to whatever host runs the MCP (Claude,
+    # Terminal, an IDE). Measured 2026-09-06: as a child the tap captured
+    # silence with LiveTap's own permission granted; via `open -a` it captured
+    # Live at peak 0.25. So the permission belongs to "LiveTap", once.
+    with tempfile.TemporaryDirectory(prefix="loom_livetap_") as scratch:
+        out_path, err_path = Path(scratch) / "stdout.txt", Path(scratch) / "stderr.txt"
+        launch = subprocess.run(["open", "-W", "--stdout", str(out_path), "--stderr", str(err_path), "-a", str(binary.parents[2]),
+                                 "--args", "--pid", str(pid), "--seconds", f"{seconds:g}", "--out", str(path)],
+                                capture_output=True, text=True, timeout=seconds + 30)
+        stdout = out_path.read_text(encoding="utf-8", errors="ignore") if out_path.exists() else ""
+        stderr = err_path.read_text(encoding="utf-8", errors="ignore") if err_path.exists() else launch.stderr
     report: dict[str, Any] = {}
-    if proc.stdout.strip():
+    if stdout.strip():
         try:
-            report = json.loads(proc.stdout.strip().splitlines()[-1])
+            report = json.loads(stdout.strip().splitlines()[-1])
         except json.JSONDecodeError:
-            report = {"raw": proc.stdout[-400:]}
+            report = {"raw": stdout[-400:]}
     result: dict[str, Any] = {"pid": pid, "path": str(path), "capture": report, "seconds_requested": seconds,
-                              "elapsed_seconds": round(time.time() - started, 2), "waited_for_transport_seconds": waited if follow else None}
-    if proc.returncode != 0:
+                              "elapsed_seconds": round(time.time() - started, 2), "launched_via": "LaunchServices (open -a LiveTap.app)"}
+    if launch.returncode != 0 or not report or not path.exists():
         result["status"] = "CAPTURE_FAILED"
-        result["error"] = proc.stderr.strip()[-600:]
-        if proc.returncode == 3:
-            result["note"] = "No frames came back. Grant System Audio Recording to the app running Loom (System Settings > Privacy & Security > Screen & System Audio Recording) and try again."
+        result["error"] = (stderr.strip() or launch.stderr.strip() or "the tap wrote no report")[-600:]
+        result["note"] = "No frames came back. In System Settings > Privacy & Security > Screen & System Audio Recording, 'LiveTap' must be allowed; then try again."
         return result
     if report.get("peak", 0) == 0:
         result["status"] = "SILENT"
-        result["note"] = report.get("permission_hint") or "the capture is silent"
+        result["note"] = (report.get("permission_hint") or "the capture is silent") + " -- the permission that matters is the 'LiveTap' entry, and Live must be playing (the SDK cannot tell)."
         return result
     result["status"] = "OK"
     result["method"] = "tap"
@@ -3040,27 +2977,48 @@ def handle_mix_capture(args: dict[str, Any]) -> dict[str, Any]:
         result["path"] = None
     return result
 
+def _open_set_info() -> dict[str, Any]:
+    """Which set is open (name/path), from Live's log and window title: the SDK
+    has no such field. Disabled under a redirected bridge root so tests never
+    read the real Live's log or drive System Events."""
+    if os.environ.get("LOOM_BRIDGE_ROOT"):
+        return {"kind": "unknown", "sources": [], "note": "disabled while LOOM_BRIDGE_ROOT redirects the bridge (test isolation)"}
+    try:
+        import live_project as lp  # noqa: PLC0415  (mcp_server is not a package)
+
+        return lp.open_set()
+    except Exception as error:  # noqa: BLE001 -- the set name is information, never a blocker
+        return {"kind": "unknown", "sources": [], "error": str(error)}
+
+
 def handle_live_bridge_status(_args: dict[str, Any]) -> dict[str, Any]:
-    selection = _select_bridge_root()
-    ensure_bridge_dirs()
-    pending = [p.name for p in REQUEST_DIR.glob("*.json")]
-    done = sorted([p.name for p in DONE_DIR.glob("*.json")], reverse=True)[:5]
-    errors = sorted([p.name for p in ERROR_DIR.glob("*.json")], reverse=True)[:5]
-    processed = sorted([p.name for p in PROCESSED_DIR.glob("*.json")], reverse=True)[:5]
-
-    remote_scripts_dir = Path.home() / "Music" / "Ableton" / "User Library" / "Remote Scripts"
-    installed_scripts = [d.name for d in remote_scripts_dir.iterdir() if d.is_dir()] if remote_scripts_dir.exists() else []
-
-    return {
-        "bridge_root": str(BRIDGE_ROOT),
-        "bridge_root_source": selection,
-        "bridge_candidates": _bridge_candidates(),
-        "pending_requests": pending,
-        "recent_done": done,
-        "recent_errors": errors,
-        "recent_processed": processed,
-        "installed_remote_scripts": installed_scripts
-    }
+    """The one connection diagnosis: which extension bridge would be used, why,
+    what it can do, and what is waiting in its queue."""
+    report: dict[str, Any] = {"endpoint": "loom_extension", "fallback": None, "open_set": _open_set_info(),
+                              "supported_protocols": list(bridge_client.SUPPORTED_BRIDGE_PROTOCOLS),
+                              "bridge_candidates": bridge_client.bridge_candidates(),
+                              "unsupported_by_sdk": {op: cap for op, (cap, _why) in bridge_client.SDK_UNSUPPORTED_OPS.items()}}
+    try:
+        target = resolve_bridge_target()
+    except BridgeUnavailable as error:
+        report.update({"available": False, "mutations_allowed": False, "bridge_root": None, "bridge_root_source": error.status,
+                       "error": str(error), "candidates": error.candidates, "legacy_bridges": bridge_client.legacy_report(None)})
+        return report
+    protocol = target.protocol_report()
+    report["legacy_bridges"] = bridge_client.legacy_report(target)
+    report.update({
+        "available": target.state is not None,
+        "mutations_allowed": protocol["compatible"],
+        "protocol": protocol,
+        "bridge_root": str(target.root),
+        "bridge_root_source": target.source,
+        "bridge": target.describe(),
+        "pending_requests": sorted(p.name for p in target.requests.glob("*.json")) if target.requests.exists() else [],
+        "in_flight": sorted(p.name for p in target.processing.glob("*.json")) if target.processing.exists() else [],
+        "recent_done": sorted([p.name for p in target.done.glob("*.json")], reverse=True)[:5] if target.done.exists() else [],
+        "recent_errors": sorted([p.name for p in target.errors.glob("*.json")], reverse=True)[:5] if target.errors.exists() else [],
+    })
+    return report
 
 
 def handle_gap_record(args: dict[str, Any]) -> dict[str, Any]:
@@ -3100,6 +3058,7 @@ def dispatch_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
         "project_detect_genre": handle_project_detect_genre,
         "project_analyze_mixer": handle_project_analyze_mixer,
         "project_build": handle_project_build,
+        "project_file_build": handle_project_file_build,
     "plan_create": handle_plan_create,
         "library_search": handle_library_search,
         "render_plan": handle_render_plan,
@@ -3157,6 +3116,7 @@ DEFAULT_TOOL_TIMEOUT_SECONDS = 300
 TOOL_TIMEOUT_OVERRIDES = {
     "projects_arrangement_shapes": 900,
     "plan_create": 600,
+    "project_file_build": 600,
 }
 _stdout_lock = threading.Lock()
 _cancelled_requests: set[Any] = set()
@@ -3207,6 +3167,11 @@ def report_progress(progress: float, total: float | None = None, message: str | 
     if message:
         params["message"] = message
     write_message({"jsonrpc": "2.0", "method": "notifications/progress", "params": params})
+
+
+# The bridge client refuses to start a mutation for a cancelled call and
+# reports its waiting as progress; it gets both primitives from here.
+bridge_client.bind(check_cancelled=check_cancelled, report_progress=report_progress, cancelled_type=ToolCancelled)
 
 
 # --- 1) Notifications ------------------------------------------------------

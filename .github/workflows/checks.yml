@@ -39,16 +39,27 @@ jobs:
         run: ./scripts/check_ci.sh
 
   extension-typecheck:
+    # A real `tsc --noEmit` over the extension. The Ableton Extensions SDK is
+    # not redistributable, so it cannot be installed on a hosted runner; when
+    # it is absent the job reports SKIPPED and fails on purpose under
+    # continue-on-error, so it is never shown as a passing typecheck.
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Install the extension's dev dependencies
-        working-directory: Sensei/extensions/sensei-midi-writer
-        # The Ableton SDK tarballs are referenced by local path and are not in
-        # the repository, so only the typecheck's own toolchain is installed.
-        run: npm install --no-save typescript@5.9.3 || true
-      - name: Report
-        run: echo "Extension typecheck needs the Ableton Extensions SDK, which is not redistributable. Run 'npm run build' locally."
+      - name: Typecheck the extension, or report that the SDK is unavailable
+        working-directory: extension
+        run: |
+          if [ -f vendor/ableton-extensions-sdk-1.0.0-beta.1.tgz ]; then
+            npm ci
+            npx tsc --noEmit
+            npx tsx tests/bridge.test.ts
+            echo "extension typecheck + bridge tests: PASSED"
+          else
+            echo "::warning title=extension-typecheck skipped::The Ableton Extensions SDK tarball is not in the repository (not redistributable). Run 'npm run build' locally; this job is SKIPPED, not passed."
+            echo "extension typecheck: SKIPPED (SDK unavailable on this runner)"
+            exit 1
+          fi

@@ -86,8 +86,11 @@ def progression(bars: int, minor: bool, seed: int, chords_per_bar: int = 1) -> l
 
 
 def render(als_context: dict, layer: str, bars: int = 8, seed: int = 7,
-           chords_per_bar: int = 1, octave: int = 3) -> dict:
-    """Notes in the project's own key, plus what was read and what was counted."""
+           chords_per_bar: int = 1, octave: int = 3, beats_per_bar: float = 4.0) -> dict:
+    """Notes in the project's own key, plus what was read and what was counted.
+
+    beats_per_bar is in Live beats (quarter notes): 4 for 4/4, 3 for 3/4 and
+    6/8; a chord spans beats_per_bar / chords_per_bar."""
     root_name = (als_context.get("key_root") or "C").strip()
     scale = (als_context.get("scale") or "Major").strip()
     minor = scale.lower().startswith("min")
@@ -97,7 +100,7 @@ def render(als_context: dict, layer: str, bars: int = 8, seed: int = 7,
     tonic = PITCH_NAMES.index(root_name)
 
     degrees = progression(bars, minor, seed, chords_per_bar)
-    beats_per_chord = 4.0 / chords_per_bar
+    beats_per_chord = float(beats_per_bar) / chords_per_bar
     rng = random.Random(seed + 1)
 
     notes: list[dict] = []

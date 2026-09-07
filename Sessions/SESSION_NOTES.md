@@ -1,3 +1,5 @@
+> Historical (2026-06/07). The Remote Scripts named below (ArrangementGPSBuilder, MidiImportTest) and the runSensei.js path were removed on 2026-09-06; the Loom extension and `project_build` replaced them. See Docs/ARCHITECTURE.md.
+
 # Loom Session Log
 
 Date: 2026-06-18

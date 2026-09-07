@@ -24,6 +24,19 @@ Each gap record contains:
 
 ---
 
+## Read this first (2026-09-06)
+
+Since 2026-09-05 Loom has ONE Live endpoint: the Loom extension (Extensions
+SDK). The control surface, its fallback and the Remote Scripts were removed on
+2026-09-06. Entries below that say "resolved on the control-surface path" or
+"through the surface" describe a path that no longer exists; they are kept as
+history. What the extension path can and cannot do today is the table in
+`Docs/ARCHITECTURE.md`; the SDK gaps still open upstream (transport, meters,
+time signature, key write, preset loading, recording) are answered
+`UNSUPPORTED_BY_SDK` by the MCP and were filed with Ableton on 2026-09-03.
+
+---
+
 ## Log Entries
 
 ### GAP-001
@@ -55,7 +68,9 @@ Each gap record contains:
   `song.current_song_time` before starting, so playback can begin at a chosen beat.
   Reached through the `live_command` tool. No OSC listener was needed — the file
   bridge carries it, and the same request/`done` move makes the call verifiable.
-- **Status**: RESOLVED
+- **2026-09-06**: the control surface is gone. The Extensions SDK has no
+  transport API; `live_command op=transport` answers `UNSUPPORTED_BY_SDK`.
+- **Status**: OPEN on the extension path (SDK gap, filed with Ableton); the control-surface resolution above is historical
 
 ### GAP-003
 - **Timestamp**: 2026-09-01T01:15:00+03:00
@@ -72,9 +87,9 @@ Each gap record contains:
   and only then 4/4 — reported as `beats_per_bar_source: "assumed_4_4"` rather than
   passed off as a reading. Used by `midi_write_arrangement` and `project_build`.
   Checked over real stdio: an explicit 3 beats/bar drives every locator beat.
-- **Still true for the optional SDK extension**: the Extensions SDK exposes no song
-  time signature, so `barToBeat()` there keeps its 4/4 constant. The extension is no
-  longer part of the install.
+- **2026-09-06**: the extension's own `barToBeat()` 4/4 constant is gone with the
+  arrangement writer it belonged to; every bar→beat conversion now happens in the
+  MCP (`_beats_per_bar()`), which reports its source. The extension writes beats only.
 - **Checked against Ableton on 2026-09-03**: the current Extensions SDK is
   1.0.0-beta.1 and, in Ableton's words, "contains no API changes" — the gap is
   unchanged upstream. Requests go to the Centercode project's feedback ("Öneri Gönder").
@@ -145,8 +160,11 @@ Each gap record contains:
 - **Observed Behavior**: Proven on Live 12.4.15b1 (2026-09-03): the MCP wrote a 4-note clip through the Loom surface, but the dry run of a tech-house build named 17 tracks the default set does not have.
 - **Resolved 2026-09-03**: the Loom surface gained `create_midi_track` (exact name; adopts an existing MIDI track, refuses an audio track wearing the name or an ambiguous name; loads an `instrument_family` from the browser and reports `loaded / not_found / unavailable / failed` instead of assuming) and `set_key` (Live's own Song Key, before/after). `project_build` now runs a track phase before the writes -- dry run says `exists / would_create` per plan track against the fresh session state -- and a key step after the tempo. Both ops are also reachable standalone through `live_command`. Fakes: `FakeSong.create_midi_track`, `FakeBrowser`; 10 new checks in `test_bridge_ops.py`, 3 in `test_mcp_tools.py`.
 - **Proven 2026-09-03 20:44 on Live 12.4.15b1**: from an empty default set, `project_build(dry_run=false)` created 17 tracks, loaded 6 instruments by family name, set tempo 126 and key D minor, wrote 39 arrangement clips verified note-for-note, in 56 s. The run also exposed that the chord default profile id had never existed (fixed, tested against the catalogue) and that Live defers its cue-list refresh (fixed, verified from the arrangement).
-- **Still Missing**: `ArrangementGPSBuilder` remains in the tree for its instrument-family search history; the surface no longer needs it.
-- **Status**: RESOLVED
+- **2026-09-06**: the control surface and `ArrangementGPSBuilder` were removed. On the
+  extension path `create_midi_track` inserts a native device by name only; browser
+  presets cannot be loaded (SDK gap, `not_loadable_in_extension`), and `set_key` is
+  `UNSUPPORTED_BY_SDK`. The from-scratch build proven above ran through the surface.
+- **Status**: RESOLVED for track creation and clip writing on the extension path; preset loading and song key are OPEN SDK gaps
 
 ### GAP-008
 - **Timestamp**: 2026-09-03T21:05:00+03:00
@@ -162,6 +180,7 @@ Each gap record contains:
 - **From-scratch build through the extension (2026-09-03 21:34, Live 12.4.15b1, fresh default set)**: `project_build(dry_run=false)` with the extension bridge selected automatically — 17 tracks created by the extension, all 6 presets handed to the surface and loaded (`Boom Bap Kit.adg`, `Basic Analog Bass.adg`, `Electric Piano Daze.adg`, `Hip-Hop Sub Bass.adg`, `5ths Detuned Pad.adv`, `Glass High Strings Pad.adv`), tempo 126 via the extension, key D minor via the surface fallback, 7 locators created and verified, 39 clips written and read back note-for-note, 0 failures, 69 s.
 - **Filed with Ableton 2026-09-03**: the five SDK gaps (preset/browser loading, key write, transport + playhead, song signature + length, meters) plus the selected-track accessor, the Developer-Mode stale-host trap and the `--verbose` CLI bug were submitted as one public suggestion in the Centercode Live 12 project, category Extensions SDK.
 - **Audio in and out, measured 2026-09-03 22:38 on the hosted extension (Live 12.4.15b1, unsaved default set)**: `createAudioClip` from a file **outside** the extension's storage (a crate pack slice under Loom/Sessions) works for both a session slot and an arrangement position — the file is read by Live, not by the extension, so the Node fs permission model does not apply. `renderPreFxAudio` works and writes to `$TMPDIR/Ableton Extensions/AudioRender-…/`, which the MCP can read; Mix Check on that render gave real numbers (8 beats of the Sükrü 1986 slice: peak −1.6 dBFS, RMS −15.4, crest 13.8 dB, −11.7 LUFS, key candidate D minor). `importIntoProject` rejected with an undefined reason on the unsaved set — most likely no project folder yet; untested on a saved project. Side effect to remember: Live renames an unnamed track to the clip's name when a clip is dropped in, so follow-up calls must use the new name (or name tracks first).
+- **2026-09-05/06**: the surface fallback and hand-over described above were removed; the extension is the only endpoint and the MCP refuses (never emulates) what the SDK lacks. The queue protocol is now `loom.bridge/3` (claim, expiry, session, journal, structured outcome); older extensions are read but not mutated (`UPGRADE_REQUIRED`).
 - **Status**: RESOLVED for everything the SDK exposes; the five SDK gaps above are filed with Ableton
 
 ### GAP-009
@@ -171,4 +190,6 @@ Each gap record contains:
 - **Observed Behavior — `tap` (Core Audio process tap on the Live process, `MixAnalyzer/livetap`)**: builds and runs, but captured pure silence from both Live and `afplay` because macOS 15.5 never granted (or asked for) System Audio Recording for the app running the MCP. The tool reports this instead of pretending; usable once the user grants it in System Settings.
 - **Observed Behavior — `resample` (Live records itself)**: first attempt crashed Live 12.4.15b1 (SIGSEGV, no Python frame) when create-track + Resampling routing + arm + record_mode + play ran in one control-surface tick on a freshly created track. Split into five requests on separate ticks (`capture_prepare/route/arm/record/stop` + `capture_result`), it works: Live recorded 6.5 s (13 beats) of the arrangement into `~/Music/Ableton/Live Recordings/<Temp Project>/Samples/Recorded/Loom Capture 0001 [...].wav` and Mix Check measured it: peak −0.8 dBFS, RMS −14.9, crest 14.1 dB, −11.4 LUFS. The recorded clip appears on the track a moment after recording stops, so the result is read on a later tick with retries; the transport is confirmed from a state read 1.5 s in.
 - **Resolved 2026-09-03**: `mix_capture(method="resample")` through the control surface (works on release Live too); `method="tap"` available behind the OS permission. `crate_to_live` falls back to an in-place clip when the set is unsaved and `importIntoProject` cannot copy.
-- **Status**: RESOLVED (resample); tap pending the OS permission
+- **2026-09-06**: the control surface is gone, so `resample` is `UNSUPPORTED_BY_SDK` (record mode, resampling routing and arming are not in the SDK). Only `tap` remains, experimental, behind the macOS System Audio Recording permission.
+- **Tap working 2026-09-06**: two causes, both measured. (1) macOS charges the permission to the *responsible* process; as a child of the MCP the tap was charged to the host app (Claude/Terminal) and stayed silent even with "LiveTap" allowed. `mix_capture` now launches `LiveTap.app` through LaunchServices (`open -W -a … --args`), so the "LiveTap" entry is the one that counts. (2) `livetap` called `exit()` with the `AVAudioFile` alive, so every WAV had a 0-byte data chunk and Mix Check read it as silent; the file is now released before the report. Live playing, 6 s: peak −11.3 dBFS, RMS −24.4, crest 13.1 dB, −23.2 LUFS.
+- **Status**: OPEN on the extension path for resample (needs SDK recording APIs); tap RESOLVED

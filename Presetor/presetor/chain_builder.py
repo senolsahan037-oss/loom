@@ -21,18 +21,13 @@ if str(_AIMIXMASTER) not in sys.path:
     sys.path.insert(0, str(_AIMIXMASTER))
 
 from aimixmaster.buss_builder import clone_with_new_ids, next_pointee_node  # noqa: E402
-from aimixmaster.gain_staging import normalized_device_name  # noqa: E402
 from aimixmaster.project_analyzer import (  # noqa: E402
+    device_chain,
     direct_devices,
     iter_tracks,
+    track_name as display_name,
     track_snapshot,
 )
-
-_SCRIPTS = Path(__file__).resolve().parents[2] / "scripts"
-if str(_SCRIPTS) not in sys.path:
-    sys.path.insert(0, str(_SCRIPTS))
-
-from extract_device_chains import display_name  # noqa: E402
 
 
 class ChainBuildError(ValueError):
@@ -49,12 +44,11 @@ class ChainBuildResult:
 
 
 def find_track(root: ET.Element, name: str) -> ET.Element:
-    """Find exactly one track by name -- falling back to EffectiveName.
+    """Find exactly one track by the canonical name (project_analyzer).
 
-    project_analyzer.find_unique_track reads only UserName, which is empty in
-    most projects. The plan here is built with display_name, so placement has
-    to search by the same name or the transplant cannot find the track the plan
-    found. The uniqueness rule is kept: exactly one match is required.
+    The plan and the transplant have to search by the same name or placement
+    cannot find the track the plan found; since 2026-09-06 that name has one
+    definition for every reader. The uniqueness rule is kept.
     """
     matches = [track for track in iter_tracks(root) if display_name(track) == name]
     if len(matches) != 1:
@@ -63,7 +57,9 @@ def find_track(root: ET.Element, name: str) -> ET.Element:
 
 
 def chain_of(track_element: ET.Element) -> tuple[str, ...]:
-    return tuple(normalized_device_name(device) for device in direct_devices(track_element))
+    """This track's own chain, racks unexpanded -- the view the transplant
+    moves. `device_chain(track, expand=True)` is the other, different view."""
+    return device_chain(track_element)
 
 
 def find_donors(root: ET.Element, wanted_chain: tuple[str, ...]) -> list[str]:

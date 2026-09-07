@@ -10,8 +10,9 @@ directory and can change a running Ableton Live session. Specifically:
 - **Writes**, only when a tool is called with `apply: true`: device chains and
   automation envelopes into `.als` files, always taking a timestamped backup
   first and re-reading the file afterwards to verify.
-- **Writes** request files into `~/Documents/SenseiV2Bridge/`, which the Live
-  control surface consumes.
+- **Writes** request files into the Loom extension's own bridge directory
+  under `~/Library/Application Support/Ableton/Extensions Data/`, which the
+  extension running inside Live consumes. That is the only Live endpoint.
 
 Every writing tool is dry-run by default.
 
