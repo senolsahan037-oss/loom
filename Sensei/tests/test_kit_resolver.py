@@ -48,9 +48,13 @@ def test_unresolved_pads_are_reported_missing_not_guessed(pack: Path) -> None:
     kit = resolve_kit(str(pack / "Drums" / "Swang Bap Kit.adg"))
     assert kit["pad_count"] == 16
     # three files exist; the preset uses some of them on more than one pad
-    assert {Path(p["sample"]).name for p in kit["pads"]} == {"Kick Golden Era 34.aif", "Snare Golden Era 38.aif", "Hihat Closed Golden Era 24.aif"}
+    with_sample = [p for p in kit["pads"] if p["sample"]]
+    synth = [p for p in kit["pads"] if p["reference_state"] == "no_sample"]
+    assert {Path(p["sample"]).name for p in with_sample} == {"Kick Golden Era 34.aif", "Snare Golden Era 38.aif", "Hihat Closed Golden Era 24.aif"}
+    # every pad is accounted for: sample found, sample declared but missing, or a pad with no sample at all
     assert len(kit["pads"]) + len(kit["missing"]) == 16
-    assert len(kit["missing"]) >= 10
+    assert len(kit["missing"]) + len(synth) >= 10
+    assert all(p["sample"] is None and p["role"] for p in synth)
     assert all(m["reason"] and m.get("relative") for m in kit["missing"] if "declared" in m)
 
 

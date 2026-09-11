@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import random
 import sys
 from pathlib import Path as _Path
@@ -35,9 +36,39 @@ _ROLE_TAGS = {
 }
 
 
+_NAME_KEY = re.compile(r"(?<![A-Za-z#])([A-G](?:#|b)?)\s*(Minor|Major|min|maj|m)(?![a-z])", re.IGNORECASE)
+
+
+def key_from_name(name: str | None) -> tuple[str, str] | None:
+    """The key a clip's NAME states ("Downer Bass 01 A Minor 165 bpm", "Bm",
+    "Fmin", "F#Maj"), or None. Ableton's own clip names carry it where the
+    metadata field is empty (measured 2026-09-07: 20 of 95 bass-named
+    canonical clips have a key only in their name)."""
+    match = _NAME_KEY.search(name or "")
+    if not match:
+        return None
+    root = match.group(1)[0].upper() + match.group(1)[1:]
+    mode_raw = match.group(2).lower()
+    mode = "Major" if mode_raw.startswith("maj") else "Minor"
+    return root, mode
+
+
 def load_canonical_midi_corpus(path: str | Path) -> list[dict[str, Any]]:
-    """Load a release-built canonical corpus; source files are never reparsed here."""
-    return [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip()]
+    """Load a release-built canonical corpus; source files are never reparsed here.
+
+    A clip without key fields whose name states its key gets the key from
+    the name, marked key_source="name"; fields present are key_source="field".
+    A clip with neither keeps no key, and a key-aware write against it is
+    reported as untransposed (see _apply_target_key), never silently placed."""
+    entries = [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip()]
+    for entry in entries:
+        if entry.get("key_root") and entry.get("key_mode"):
+            entry.setdefault("key_source", "field")
+            continue
+        named = key_from_name(entry.get("name"))
+        if named:
+            entry["key_root"], entry["key_mode"], entry["key_source"] = named[0], named[1], "name"
+    return entries
 
 
 def _native_role(entry: dict[str, Any], role: str) -> bool:
@@ -73,16 +104,25 @@ def _semitone_offset(source_root: str, target_root: str) -> int:
 
 
 def _apply_target_key(entry: dict[str, Any], role: str, target_root: str | None) -> dict[str, Any]:
-    if role not in _KEY_AWARE_ROLES or not target_root:
-        return entry
-    source_root = entry.get("key_root")
+    """Transpose a key-aware clip to the target root and SAY what happened:
+    the returned entry carries `key` = {applied, source_root, source_mode,
+    key_source, target_root, semitones, reason}. A clip whose key is unknown
+    is returned untransposed with applied=False -- the caller decides whether
+    an untransposed bass may be written; it never passes for the target key."""
+    if role not in _KEY_AWARE_ROLES:
+        return {**entry, "key": {"applied": None, "reason": "role is not key-aware"}}
+    source_root, source_mode, key_source = entry.get("key_root"), entry.get("key_mode"), entry.get("key_source")
+    if not target_root:
+        return {**entry, "key": {"applied": None, "source_root": source_root, "source_mode": source_mode, "key_source": key_source, "reason": "no target key requested"}}
     if not source_root:
-        return entry
+        return {**entry, "key": {"applied": False, "source_root": None, "source_mode": None, "key_source": None, "target_root": target_root,
+                                 "semitones": 0, "reason": "source clip key unknown: not in its fields and not in its name"}}
     semitones = _semitone_offset(source_root, target_root)
+    key = {"applied": True, "source_root": source_root, "source_mode": source_mode, "key_source": key_source, "target_root": target_root, "semitones": semitones, "reason": None}
     if not semitones:
-        return entry
+        return {**entry, "key": key}
     transposed = [{**event, "pitch": int(event["pitch"]) + semitones} for event in entry.get("events") or []]
-    return {**entry, "events": transposed}
+    return {**entry, "events": transposed, "key": key}
 
 
 def _prefer_mode(candidates: list[dict[str, Any]], role: str, target_mode: str | None) -> list[dict[str, Any]]:
@@ -397,7 +437,7 @@ def generate_midi_variation(
             "notes": [{"pitch": event["pitch"], "time": event["time"], "duration": event["duration"], "velocity": event["velocity"]} for event in blended],
             "provenance": {"source_reference_ids": sources, "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre_mode": "synthesis", "genres": genres, "seed": seed, "variation_amount": variation_amount, "target_root": target_root, "target_mode": target_mode},
         }
-        return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": blended, "payload": payload, "diagnostics": {"source_reference_ids": sources, "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre_mode": "synthesis", "genres": genres, "candidate_count": len(candidates), "seed": seed, "variation_amount": variation_amount, **density_note, **genre_note}, "error": None}
+        return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": blended, "payload": payload, "key": selected.get("key"), "diagnostics": {"source_reference_ids": sources, "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre_mode": "synthesis", "genres": genres, "candidate_count": len(candidates), "seed": seed, "variation_amount": variation_amount, **density_note, **genre_note}, "error": None}
     # Excluding already-used sources can leave only candidates that fail the
     # target profile's structural checks (e.g. a "bassline"-tagged clip that
     # turns out not to be monophonic) even though a previously-used source
@@ -425,5 +465,5 @@ def generate_midi_variation(
                 "notes": [{"pitch": event["pitch"], "time": event["time"], "duration": event["duration"], "velocity": event["velocity"]} for event in events],
                 "provenance": {"source_reference_id": selected.get("reference_id"), "target_profile_id": target_profile.get("profile_id"), "source_role": role, "genre": genre, "seed": seed, "variation_amount": variation_amount, "target_root": target_root, "target_mode": target_mode},
             }
-            return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": events, "payload": payload, "diagnostics": {"source_reference_id": selected.get("reference_id"), "target_profile_id": target_profile.get("profile_id"), "source_role": role, "candidate_count": len(pool), "seed": seed, "variation_amount": variation_amount, **density_note, **genre_note}, "error": None}
+            return {"schema_version": SCHEMA_VERSION, "generation_safe": True, "events": events, "payload": payload, "key": selected.get("key"), "diagnostics": {"source_reference_id": selected.get("reference_id"), "target_profile_id": target_profile.get("profile_id"), "source_role": role, "candidate_count": len(pool), "seed": seed, "variation_amount": variation_amount, **density_note, **genre_note}, "error": None}
     return _failure("no_candidate_satisfies_target_profile")

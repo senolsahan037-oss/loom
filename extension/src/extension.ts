@@ -366,6 +366,14 @@ function liveFromContext(context: ExtensionContext<"1.0.0">): LiveLike {
     get cuePoints() { return song.cuePoints.map(wrapCue); },
     createCuePoint: (time: number) => song.createCuePoint(time).then(wrapCue),
     createMidiTrack: () => song.createMidiTrack().then(wrapTrack),
+    deleteTrackAt: (index: number) => {
+      const target = song.tracks[index];
+      return target ? song.deleteTrack(target) : Promise.reject(new Error(`no track at index ${index}`));
+    },
+    deleteCuePointAt: (time: number) => {
+      const target = song.cuePoints.find((cue) => Math.abs(cue.time - time) < 1e-6);
+      return target ? song.deleteCuePoint(target) : Promise.reject(new Error(`no cue point at ${time}`));
+    },
     withinTransaction: <T,>(fn: () => T) => context.withinTransaction(fn),
     importIntoProject: (filePath: string) => context.resources.importIntoProject(filePath),
     renderPreFxAudio: (trackName: string, startTime: number, endTime: number) => {

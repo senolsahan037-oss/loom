@@ -93,7 +93,8 @@ OP_CAPABILITY = {
     "set_tempo": "tempo", "set_mixer": "mixer", "set_device_parameter": "device_parameters",
     "list_device_parameters": "device_parameters", "create_locator": "locators",
     "write_arrangement_clip": "arrangement_clips", "write_clip": "session_clips",
-    "create_midi_track": "tracks", "import_audio_clip": "audio_import", "render_pre_fx": "render_pre_fx",
+    "create_midi_track": "tracks", "delete_track": "track_delete", "delete_locator": "locator_delete",
+    "import_audio_clip": "audio_import", "render_pre_fx": "render_pre_fx",
     "drum_pads": "drum_pads", "build_drum_kit": "drum_kit_build", "journal_import": "journal_import",
 }
 

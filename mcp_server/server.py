@@ -509,6 +509,12 @@ def handle_midi_generate(args: dict[str, Any]) -> dict[str, Any]:
     )
     result.update(evidence)
     result["beats_per_bar"] = beats_per_bar
+    key = result.get("key") or {}
+    if role in ("bass", "chord") and args.get("target_root") and key.get("applied") is False and result.get("generation_safe"):
+        # The corpus clip's key is unknown, so the part is in SOME key, not the
+        # requested one. It is still returned (for listening), never written.
+        result["writable_to_live"] = False
+        result["writable_reason"] = f"key_unknown_for_source: {key.get('reason')}; the part would be in the source clip's key, not {args.get('target_root')} {args.get('target_mode') or ''}".strip()
 
     if args.get("auto_write_to_live"):
         if not (result.get("generation_safe") and result.get("payload")):
@@ -751,7 +757,8 @@ def resolve_kit_reference(reference: str) -> dict[str, Any]:
 
 
 def _kit_pads_payload(kit: dict[str, Any]) -> list[dict[str, Any]]:
-    return [{"note": p["note"], "sample": p["sample"], "name": p["name"]} for p in kit["pads"]]
+    # Only pads with a sample file can be rebuilt; synth pads have nothing to load.
+    return [{"note": p["note"], "sample": p["sample"], "name": p["name"]} for p in kit["pads"] if p.get("sample")]
 
 
 def _kit_answer(kit: dict[str, Any], *, include_fidelity: bool = True) -> dict[str, Any]:
@@ -783,6 +790,8 @@ def _kit_rebuild_problem(kit: dict[str, Any], allow_lossy: bool) -> str | None:
         return "kit_samples_missing"
     if not allow_lossy:
         return "kit_rebuild_requires_consent"
+    if any(not p.get("sample") for p in kit["pads"]):
+        return "kit_has_synth_pads"  # a Drift/Operator pad cannot be rebuilt from a file
     return None
 
 
@@ -840,7 +849,8 @@ def handle_live_command(args: dict[str, Any]) -> dict[str, Any]:
     payload: dict[str, Any] = {"op": operation}
     for key in ("track", "device", "parameter", "value", "bpm", "volume", "pan", "mute", "solo",
                 "action", "position", "beat", "name", "include_devices", "instrument_family", "root", "mode",
-                "path", "slot", "start_beat", "end_beat", "duration_beats", "warped", "pads"):
+                "path", "slot", "start_beat", "end_beat", "duration_beats", "warped", "pads",
+                "index", "expected_devices"):
         if key in args:
             payload[key] = args[key]
     if operation == "build_drum_kit":
@@ -1483,7 +1493,7 @@ def _os_open(app: str, path: str) -> None:
     subprocess.run(["open", "-a", app, path], check=True, capture_output=True, timeout=20)
 
 
-def _os_load_preset(path: str, track_name: str, expected_name: str, wait: float, send, expected_index: int | None = None) -> dict[str, Any]:
+def _os_load_preset(path: str, track_name: str, expected_name: str, wait: float, send, expected_index: int | None = None, *, just_created: bool = True) -> dict[str, Any]:
     """Load a real preset onto ONE track of the open set, the way a Finder
     double-click does, and prove where it landed.
 
@@ -1521,6 +1531,13 @@ def _os_load_preset(path: str, track_name: str, expected_name: str, wait: float,
                 "reason": f"target track {track_name!r} is at index {target['index']}, create_midi_track reported {expected_index}"}
     if expected_name in target["devices"]:
         return {"loaded": True, "verified": True, "status": "OK", "via": "already_present", "track": track_name, "index": target["index"], "device": expected_name}
+    if not just_created:
+        # Live puts an opened preset on the SELECTED track, and only a track
+        # this build just created is known to be selected. Opening a preset
+        # for an adopted track made Live create a new "10-Riser Basic" track
+        # instead (measured 2026-09-07): refuse before opening anything.
+        return {"loaded": False, "verified": False, "status": "PRESET_LOAD_REQUIRED",
+                "reason": f"{track_name!r} was not created by this build; the OS path loads onto the selected track only -- load the preset onto it in Live yourself"}
     started = time.time()
     try:
         _os_open(app, path)
@@ -1759,6 +1776,18 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
     # the same key is refused by the journal, never silently re-applied.
     plan_digest = hashlib.sha256(plan_path.read_bytes()).hexdigest()[:12]
     run_key = f"{target.session_id or 'nosession'}:{plan_digest}:{created.get('run_id') or 'plan'}"
+    # Idempotency keys name the section. Two sections with the same name (a set
+    # with two "ES" cues, measured 2026-09-07) collided: the second's clips were
+    # refused as a conflict. A repeated name gets its start bar appended; a
+    # unique name keeps the key it always had, so earlier journals still match.
+    name_counts = Counter(str(s["name"]) for s in sections)
+
+    def section_key(section: dict[str, Any]) -> str:
+        return f"{section['name']}@{section['start_bar']}" if name_counts[str(section["name"])] > 1 else str(section["name"])
+
+    for step in steps:
+        if step["kind"] == "locator":
+            step["key"] = section_key(next(s for s in sections if s["name"] == step["section"] and (int(s["start_bar"]) - 1) * beats_per_bar == step["beat"]))
     aborted: str | None = None
 
     def send(payload: dict[str, Any], key: str) -> dict[str, Any]:
@@ -1823,7 +1852,7 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
             if placed and placed.get("path") == preset_path:
                 preset_loaded = {"loaded": True, "verified": True, "status": "OK", "via": "set_file_manifest", "device": preset_name}
             else:
-                preset_loaded = _os_load_preset(preset_path, name, str(preset_name), wait, send, expected_index=result.get("index"))
+                preset_loaded = _os_load_preset(preset_path, name, str(preset_name), wait, send, expected_index=result.get("index"), just_created=bool(result.get("created")))
             entry["preset"] = {"path": preset_path, "name": preset_name, **preset_loaded}
             if not preset_loaded.get("verified"):
                 # No verified preset on the target: nothing is written to it.
@@ -2007,7 +2036,7 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
                 "track": name, "start_bar": int(section["start_bar"]), "length_beats": entry["bars"] * beats_per_bar,
                 "beats_per_bar": beats_per_bar, "name": section["name"], "notes": notes, "wait_seconds": wait,
                 "on_conflict": args.get("on_conflict") or "refuse"},
-                target=target, idempotency_key=f"{run_key}:clip:{name}:{section['name']}")
+                target=target, idempotency_key=f"{run_key}:clip:{name}:{section_key(section)}")
             status = str(written.get("status"))
             held = written.get("result") or {}
             match = held.get("verified_notes_match")
@@ -2035,7 +2064,7 @@ def handle_project_build(args: dict[str, Any]) -> dict[str, Any]:
         for step in steps:
             if step["kind"] != "locator":
                 continue
-            answer = send({"op": "create_locator", "beat": step["beat"], "name": step["section"]}, f"locator:{step['section']}")
+            answer = send({"op": "create_locator", "beat": step["beat"], "name": step["section"]}, f"locator:{step.get('key') or step['section']}")
             step["outcome"] = answer.get("status")
             step["bridge_outcome"] = answer.get("outcome")
             if answer.get("error"):

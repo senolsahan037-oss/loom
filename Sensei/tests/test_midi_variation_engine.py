@@ -248,3 +248,20 @@ def test_density_out_of_range_is_refused():
 
     assert result["generation_safe"] is False
     assert result["error"] == "density_must_be_between_zero_and_one"
+
+
+def test_key_from_name_and_unknown_key_is_reported_not_silently_kept():
+    from core.midi_variation_engine import key_from_name
+    assert key_from_name("Downer Bass 01 A Minor 165 bpm") == ("A", "Minor")
+    assert key_from_name("Bass Bm staccato") == ("B", "Minor")
+    assert key_from_name("Chords F#Maj 120") == ("F#", "Major")
+    assert key_from_name("Eerie Bass C Minor 165 bpm") == ("C", "Minor")
+    assert key_from_name("Kick 01 128 bpm") is None
+    clip = _clip("c-bass", tags=["Clips|Music Clip|Bassline"], genres=["Trap"], events=[{"pitch": 36, "time": 0, "duration": 1, "velocity": 100}])
+    clip.pop("key_root", None); clip.pop("key_mode", None)
+    result = generate_midi_variation([clip], target_profile=_profile("ableton.bass.synth.v1"), genre="Trap", bars=1, seed=1, variation_amount=0, target_root="D")
+    assert result["generation_safe"] is True
+    assert result["key"]["applied"] is False and "unknown" in result["key"]["reason"]
+    keyed = dict(clip, key_root="C", key_mode="Minor")
+    result = generate_midi_variation([keyed], target_profile=_profile("ableton.bass.synth.v1"), genre="Trap", bars=1, seed=1, variation_amount=0, target_root="D")
+    assert result["key"] == {"applied": True, "source_root": "C", "source_mode": "Minor", "key_source": None, "target_root": "D", "semitones": 2, "reason": None}

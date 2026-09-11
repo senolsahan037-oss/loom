@@ -1,9 +1,149 @@
-# Codex / Claude çalışma kaydı — Loom
+# Codex / Claude çalışma levhası — Loom
 
-Son güncelleme: 2026-09-07 04:3x. Bu dosya kanıtı olan gerçekleri yazar;
-"tamamlandı" demez.
+Son güncelleme: 2026-09-11. Bu dosya kanıtı olan güncel gerçekleri, açık
+işleri ve çalışma yönünü tutar; kanıtsız biçimde "tamamlandı" demez.
+
+## Başlangıç levhaları
+
+### Önce nereye bakılır?
+
+1. `CLAUDE.md` — değişmez çalışma kuralları, güvenlik sınırları ve test sırası.
+2. `CODEX.md` — güncel durum, gerçek Live kanıtı, açık sorunlar ve sıradaki iş.
+3. `Docs/ARCHITECTURE.md` — bileşen sınırları ve veri akışı.
+4. `Docs/Sessions/` — kapanmış çalışmaların tarihli kanıt kayıtları.
+5. `Docs/MISSING_CONTROLS_LOG.md` — SDK/Live tarafından gerçekten eksik kalan
+   kontroller. Çözülen iş burada açık bırakılamaz.
+
+`README.md` dışarıya kısa proje özeti verir; çalışma günlüğü veya agent hafızası
+değildir. Aynı gerçek birden fazla yerde büyütülmez: kural `CLAUDE.md`ye, güncel
+durum `CODEX.md`ye, kalıcı teknik açıklama `Docs/`a yazılır.
+
+### Kanonik dosya ağacı
+
+```text
+Loom/
+├── CLAUDE.md                 # agent kuralları; sık değişmez
+├── CODEX.md                  # bugün ne doğru, ne eksik, kanıt nerede
+├── README.md                 # kısa proje girişi
+├── Docs/
+│   ├── ARCHITECTURE.md       # kalıcı mimari
+│   ├── MISSING_CONTROLS_LOG.md
+│   └── Sessions/             # YYYY-MM-DD_<konu>.md kapanış kayıtları
+├── extension/                # TEK Ableton Live bağlantısı ve .ablx paketi
+│   ├── src/                  # SDK bridge ve extension giriş kodu
+│   ├── tests/                # fake Live/headless bridge testleri
+│   ├── tools/                # canlı ölçüm araçları
+│   ├── vendor/               # sabitlenen Ableton SDK/CLI paketleri
+│   └── dist/                 # üretilen paket; kaynak değil
+├── mcp_server/               # TEK MCP sunucusu, şemalar ve extension istemcisi
+│   ├── tests/                # protokol, 45 araç ve uçtan uca yol testleri
+│   └── responses/            # çalışma çıktısı; kaynak değil
+├── Sensei/                   # MIDI üretimi, kit/pad çözümü ve veri kanıtı
+├── ArrangementGPS/           # yeni proje planı; mevcut sete katman ekleme aracı değil
+├── AIMixMaster/              # .als/mix/otomasyon okuma-yazma motorları
+├── Presetor/                 # cihaz zinciri kanıtı ve transplant
+├── AISoundDesigner/          # ölçülmüş ses paleti
+├── MusicalIntelligence/      # ölçüm ve küçük türetilmiş müzik profilleri
+├── MixAnalyzer/              # ses/mix ölçümü
+├── SampleAgent/              # sample analiz ve seçim motoru
+├── Renderer/                 # render planı, paket ve doğrulama
+├── scripts/                  # kullanıcıya dönük tek amaçlı orkestrasyon komutları
+└── tests/                    # bileşenler arası reader/contract testleri
+```
+
+### Nereye ne konur?
+
+- Live'a dokunan yeni özellik önce `extension/src/` içinde tek bridge op olur;
+  karşılığı `extension/tests/` ve `mcp_server/tests/test_extension_path.py` ile
+  kanıtlanır. İkinci bağlantı, Control Surface veya gizli fallback eklenmez.
+- Yeni MCP aracı: şema `mcp_server/tool_schemas.py`, işleyici
+  `mcp_server/server.py`, test aynı adla `mcp_server/tests/` içinde.
+- Kit, preset, nota ve tonalite gerçeği `Sensei/` içinde tek okuyucuya aittir.
+  MCP içinde ikinci parser yazılmaz.
+- Var olan sete sınırlı müdahale `scripts/add_layers.py` / `scripts/add_fx.py`;
+  sıfırdan proje kurma `project_build`. Bu iki akış birleştirilmez.
+- Tek seferlik teşhis çıktıları kaynak klasörüne bırakılmaz. Yeniden üretilebilir
+  sonuçlar ilgili `responses/`, `dist/`, `reports/`, `Builds/` veya `Sessions/`
+  alanına gider ve Git'e alınmaz.
+- Kalıcı bir karar yalnız kanıtı ve sahibi belli olduğunda `Docs/`a taşınır;
+  geçici çalışma notu `CODEX.md`nin en üstündeki açık işler bölümünde kalır.
+
+### Ağaç temizliği kuralları
+
+- Kaynak değildir: `.DS_Store`, `__pycache__/`, `.pytest_cache/`, `node_modules/`,
+  `.venv/`, `dist/`, `responses/`, geçici ölçüm ve rapor çıktıları.
+- Bu klasörler silinse de kaynak kaybolmaz; ihtiyaçta yeniden üretilir. Ancak
+  çalışan geliştirme ortamından topluca silinmez, yalnız açık temizlik göreviyle.
+- `Sessions/MixCaptures/`, ölçülmüş kataloglar ve kullanıcıya ait veri Git'e
+  sokulmaz; kanıt değeri varsa kullanıcı onayı olmadan silinmez.
+- Kök dizine yeni geçici script bırakılmaz. Tekrar kullanılacak komut
+  `scripts/`a, bileşene özel araç kendi `<bileşen>/tools/` klasörüne gider.
+- Eski görünen kod import, subprocess, manifest, CI ve paketleme aramalarıyla
+  sahipsiz olduğu kanıtlanmadan taşınmaz veya silinmez.
 
 ## 0. Kalan belirsizlikler (önce bunlar)
+
+**Güncelleme 2026-09-11 (headless; gerçek Live'da koşmadı):**
+- **`delete_track` / `delete_locator` extension op'ları eklendi** (7 Eylül'ün
+  "sonraki iş"i: başıboş "10-Riser Basic" kanalı). Kapılar: ad tam bir track'e
+  düşmeli (`track_not_found` / `ambiguous_track`), verilen `index` tutmalı
+  (`index_mismatch`), **session ya da arrangement clip'i olan track hiçbir
+  koşulda silinmez** (`track_has_clips`, override yok), cihazlı track yalnız
+  `expected_devices` cihaz listesini birebir verince silinir
+  (`track_has_devices` / `devices_differ`). Locator: beat'te cue yoksa
+  `locator_not_found`, ad verilip tutmazsa `name_mismatch`. SDK reddederse
+  `failed` (track/cue hâlâ orada, doğrulanmış), liste tutarsızsa
+  `indeterminate`. Silme sonrası track/cue listesinden geri okunarak
+  doğrulanır. Yetenekler state'te `track_delete` / `locator_delete`.
+  MCP: `live_command` op'ları + `index`, `expected_devices` alanları.
+- Kanıt: bridge.test.ts 139 (126+13), test_extension_path 121 (+9),
+  check_ci 12/12, tsc temiz, `git diff --check` temiz. Paket
+  `extension/dist/loom.ablx` **0.4.4** üretildi, **kurulmadı**; Live'da
+  `Song.deleteTrack`'in gerçekten ne yaptığı (seçim, undo, son track) ölçülmedi.
+- Set adı okuyucu filtresi (App-Resources / "Default MIDI Track") hâlâ açık.
+- Ağaç hâlâ **commit'lenmedi** (7 Eylül + bugün).
+
+**Güncelleme 2026-09-07 gece (Diplomat seti, kullanıcının kendi projesi):**
+- **Var olan bir sete katman eklemek `project_build` işi DEĞİL.** project_build
+  proje kurar (tempo, key denemesi, plan locator'ları, her bölüme clip);
+  kullanıcının oturmuş setine çalıştırılınca fazladan cue'lar açtı, planı
+  diskteki dosyadan türettiği için clip'ler 1 bar kaydı (kullanıcı kaydettikten
+  sonra düzenlemeyi kaydırmıştı). Kullanıcı hepsini sildi. Doğru araçlar:
+  `scripts/add_layers.py` (bölümler CANLI cue'lardan, gerçek preset, yalnız
+  seçilen bölümlere MIDI, tempo/key/locator yok) ve `scripts/add_fx.py`
+  (kural yerleşimli riser/hit — korpus kanıtı değil, öyle raporlanır; Sensei'de
+  FX rolü yok). `scripts/plan_from_set.py` de var ama project_build'e girdi
+  verdiği için aynı tuzağı taşır; setin içine katman için kullanma.
+- **OS preset yükleme yalnız az önce açılan track'e çalışır.** Var olan boş
+  "FX" track'ine denendi: Live yeni bir "10-Riser Basic" kanalı açtı
+  (`PRESET_LANDED_ELSEWHERE` yakaladı, MIDI yazılmadı). Artık `just_created`
+  olmayan hedef baştan reddediliyor. Başıboş kanalı kullanıcı elle siler;
+  SDK'da `Song.deleteTrack` / `deleteCuePoint` VAR; 2026-09-11'de
+  `delete_track` / `delete_locator` op'u olarak eklendi (yukarıda, headless).
+- **Bass anahtarı sessizce uygulanmıyordu:** kanonik korpus satırlarında
+  `key_root/key_mode` yok, klip ADI taşıyor ("Downer Bass 01 A Minor 165 bpm").
+  Wobble clip'leri B minör değil kaynak tonda yazıldı (kullanıcı sildi).
+  Şimdi `key_from_name` (Sensei loader, `key_source="name"`), sonuçta `key`
+  bloğu (`applied/source/target/semitones`), tonu bilinmeyen kaynakla
+  key-aware yazma `writable_to_live=false` (`key_unknown_for_source`).
+- **Aynı adlı iki bölüm** ("ES" ×2) idempotency anahtarında çakışıyordu;
+  tekrarlı ad `@start_bar` ekiyle ayrıldı, tekil adlar eski anahtarını korur.
+- Kit okuyucu: sample'sız (synth) padler artık pad sayılıyor
+  (`reference_state="no_sample"`; Halfstep Kit = 16 Drift pad); rolü
+  bilinmeyen doğrulanmış kitte GM dizilimi *çıkarım* olarak raporlanıyor.
+- Set adı okuyucu bu sette "Default MIDI Track" dedi (log'daki son yükleme
+  bir track varsayılanıydı; App-Resources filtresi bunu kaçırdı — pencere
+  başlığı "Diplomat" doğruydu). Filtre genişletilmeli (sonraki iş).
+- Bu gecenin değişiklikleri (yukarıdakiler + `add_layers.py`, `add_fx.py`,
+  `plan_from_set.py`) headless geçti (extension_path 113, Sensei 29, reader
+  contract) ama **commit'lenmedi**.
+
+Setin son hali (kullanıcı kaydedip kapattı): FX Riser (Riser Basic, 2 clip),
+FX Drop (Dropping Vehicle, 4 vuruş) — yerleşim kuralla; kullanıcının kit/808/
+FX kanalları dokunulmadı; "10-Riser Basic" başıboş kanalı silinmeli.
+
+### Önceki maddeler
+
 
 **Kullanıcı kabulü, 2026-09-07 ~04:50:** set kaydedildi, yeniden açıldı,
 değişiklik yok ("ONAYLANDI … SÜREÇ BAŞARILI GÖZÜKÜYOR"). Bu, save/reopen
@@ -79,7 +219,7 @@ SDK'da set adı/yolu yok (Song: tracks/tempo/scale; Environment: dizinler).
 şablonu = yeni kaydedilmemiş set) + pencere başlığı (System Events).
 `live_state.set` ve `live_bridge_status.open_set` taşıyor; `agreement`
 ikisinin aynı seti adlandırıp adlandırmadığını söyler. Ölçüm: Diplomat —
-`/Users/senolsahan/Desktop/solo/Diplomat Project/Diplomat.als`, 18:43:28,
+`~/Desktop/solo/Diplomat Project/Diplomat.als`, 18:43:28,
 başlık "Diplomat", agreement true. Testler: test_live_project 12 (şablon →
 set → track varsayılanları sırası; File > New; başlık uyuşmazlığı; log yok).
 Sınır: pencere başlığı Accessibility izni ister; izin yoksa yalnız log.

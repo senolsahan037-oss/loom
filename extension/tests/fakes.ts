@@ -234,6 +234,22 @@ export class FakeLive implements LiveLike {
     mutated();
     return track;
   }
+  // When set, the next delete rejects with this message and changes nothing
+  // (the SDK refusing, e.g. the last track of a set).
+  deleteFails: string | null = null;
+  async deleteTrackAt(index: number) {
+    if (this.deleteFails) throw new Error(this.deleteFails);
+    if (!this.tracks[index]) throw new Error(`no track at index ${index}`);
+    this.tracks.splice(index, 1);
+    mutated();
+  }
+  async deleteCuePointAt(time: number) {
+    if (this.deleteFails) throw new Error(this.deleteFails);
+    const before = this.cuePoints.length;
+    this.cuePoints = this.cuePoints.filter((cue) => Math.abs(cue.time - time) >= 1e-6);
+    if (this.cuePoints.length === before) throw new Error(`no cue point at ${time}`);
+    mutated();
+  }
   withinTransaction<T>(fn: () => T): T {
     this.transactions++;
     return fn();

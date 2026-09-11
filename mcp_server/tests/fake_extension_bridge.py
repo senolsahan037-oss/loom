@@ -21,8 +21,8 @@ SURFACE_VERSION = "loom-extension/test"
 BRIDGE_PROTOCOL = "loom.bridge/3"
 CAPABILITIES = {
     "transport": False, "meters": False, "time_signature": False, "key_write": False, "preset_load": False,
-    "native_device_insert": True, "arrangement_clips": True, "session_clips": True, "tracks": True,
-    "locators": True, "mixer": True, "device_parameters": True, "audio_import": True, "render_pre_fx": True,
+    "native_device_insert": True, "arrangement_clips": True, "session_clips": True, "tracks": True, "track_delete": True,
+    "locators": True, "locator_delete": True, "mixer": True, "device_parameters": True, "audio_import": True, "render_pre_fx": True,
     "tempo": True, "drum_pads": True, "drum_kit_build": True, "journal_import": True, "recording": False,
 }
 UNSUPPORTED = {"transport", "set_key", "capture_prepare", "capture_route", "capture_arm", "capture_record", "capture_stop", "capture_result"}
@@ -342,4 +342,42 @@ class FakeExtensionBridge:
             live.cues.append(cue)
             live.applied.append(op)
             return cue
+        if op == "delete_track":
+            # Mirrors bridge.ts opDeleteTrack: exact name, optional index lock,
+            # never with clips, devices only when named exactly.
+            name = str(payload.get("name") or "").strip()
+            matches = [t for t in live.tracks if t["name"] == name]
+            if not matches:
+                raise ValueError(f"track_not_found: no track named {name!r}")
+            if len(matches) > 1:
+                raise ValueError(f"ambiguous_track: {len(matches)} tracks named {name!r}")
+            track = matches[0]
+            index = live.tracks.index(track)
+            if payload.get("index") is not None and int(payload["index"]) != index:
+                raise ValueError(f"index_mismatch: {name!r} is at index {index}, not {payload['index']}")
+            clips = len(track["arrangement"]) + sum(1 for s in track["slots"] if s is not None)
+            if clips:
+                raise ValueError(f"track_has_clips: {name!r} holds {clips} clip(s); never deleted by the bridge")
+            expected = payload.get("expected_devices")
+            if expected is None and track["devices"]:
+                raise ValueError(f"track_has_devices: {name!r} holds {track['devices']}; pass expected_devices")
+            if expected is not None and [str(d) for d in expected] != list(track["devices"]):
+                raise ValueError(f"devices_differ: {name!r} holds {track['devices']}, expected {list(expected)}")
+            before = len(live.tracks)
+            live.tracks.remove(track)
+            live.applied.append(op)
+            return {"deleted": True, "name": name, "index": index, "devices": track["devices"],
+                    "track_count_before": before, "track_count_after": len(live.tracks), "verified": True}
+        if op == "delete_locator":
+            beat = float(payload["beat"])
+            found = [c for c in live.cues if abs(c["time"] - beat) < 1e-6]
+            if not found:
+                raise ValueError(f"locator_not_found: no locator at beat {beat}")
+            cue = found[0]
+            if payload.get("name") is not None and str(payload["name"]) != cue["name"]:
+                raise ValueError(f"name_mismatch: the locator at {beat} is named {cue['name']!r}")
+            before = len(live.cues)
+            live.cues.remove(cue)
+            live.applied.append(op)
+            return {"deleted": True, "beat": beat, "name": cue["name"], "cue_count_before": before, "cue_count_after": len(live.cues), "verified": True}
         raise ValueError(f"unknown op {op!r}")

@@ -586,6 +586,17 @@ try:
         server._os_preset_loader_available = real_available
         server._os_open = real_open
     with FakeExtensionBridge(BRIDGE_ROOT, FakeSet()) as bridge:
+        # Two sections with the same name (a set with two "ES" cues, measured): every clip and locator still gets its own key.
+        twin_plan = dict(kit_plan, locators=[{"id": "a", "name": "ES", "start_bar": 1, "end_bar": 4, "energy": 40}, {"id": "b", "name": "Verse", "start_bar": 5, "end_bar": 8, "energy": 80},
+                                             {"id": "c", "name": "ES", "start_bar": 9, "end_bar": 12, "energy": 40}],
+                         tracks=[{"ableton_name": "BASS", "sensei_role": "bass", "instrument_family": "Operator"}])
+        twin_path = kit_dir / "twin_plan.json"; twin_path.write_text(json.dumps(twin_plan), encoding="utf-8")
+        applied_before = len(bridge.live.applied)  # the enclosing fake bridge stays; a second consumer on the same root would be another session
+        twin = server.dispatch_tool("project_build", {"plan_path": str(twin_path), "dry_run": False, "wait_seconds": 5})
+        es = [w for w in twin["writes"] if w["section"] == "ES"]
+        check("two sections with the same name are both written and both locators exist: repeated names get their start bar in the key, unique names keep theirs",
+              len(es) == 2 and all(w["status"] == "OK" for w in es) and bridge.live.applied[applied_before:].count("create_locator") == 3
+              and all(s.get("verified") for s in twin["session_steps"] if s["kind"] == "locator"), (es, twin.get("session_steps"), bridge.live.applied[applied_before:]))
         preset_plan = dict(kit_plan, tracks=[{"ableton_name": "KEYS2", "sensei_role": "chord", "instrument_family": "Some Browser Preset"}])
         preset_path = kit_dir / "preset_plan.json"; preset_path.write_text(json.dumps(preset_plan), encoding="utf-8")
         blocked = server.dispatch_tool("project_build", {"plan_path": str(preset_path), "dry_run": False, "wait_seconds": 5})
@@ -619,8 +630,31 @@ try:
             for r in (a, b):
                 if r.get("run_dir") and Path(r["run_dir"]).is_relative_to(ROOT / "ArrangementGPS" / "engine" / "runs"):
                     shutil.rmtree(r["run_dir"], ignore_errors=True)
+
     else:
         print("  --  parallel plan_create check skipped: node is not installed")
+    # --- deletion: what an earlier build left behind (delete_track / delete_locator) ---
+    reset_root()
+    with FakeExtensionBridge(BRIDGE_ROOT, FakeSet()) as bridge:
+        made = server.dispatch_tool("live_command", {"op": "create_midi_track", "name": "10-Riser Basic", "instrument_family": "Operator", "wait_seconds": 5})
+        check("the stray track exists before the delete checks", made["status"] == "OK" and bridge.live.track("10-Riser Basic")["devices"] == ["Operator"], made)
+        refused = server.dispatch_tool("live_command", {"op": "delete_track", "name": "10-Riser Basic", "wait_seconds": 5})
+        check("a track with devices is refused until the caller names them", refused["status"] == "REFUSED_IN_LIVE" and "track_has_devices" in str(refused.get("error")) and len(bridge.live.tracks) == 1, refused)
+        wrong = server.dispatch_tool("live_command", {"op": "delete_track", "name": "10-Riser Basic", "expected_devices": ["Riser Basic"], "wait_seconds": 5})
+        check("a wrong device expectation is refused", wrong["status"] == "REFUSED_IN_LIVE" and "devices_differ" in str(wrong.get("error")), wrong)
+        bridge.live.track("10-Riser Basic")["arrangement"].append({"name": "user", "start": 0, "end": 4, "notes": []})
+        clipped = server.dispatch_tool("live_command", {"op": "delete_track", "name": "10-Riser Basic", "expected_devices": ["Operator"], "wait_seconds": 5})
+        check("a track holding a clip is never deleted, even with the devices named", clipped["status"] == "REFUSED_IN_LIVE" and "track_has_clips" in str(clipped.get("error")) and len(bridge.live.tracks) == 1, clipped)
+        bridge.live.track("10-Riser Basic")["arrangement"].clear()
+        gone = server.dispatch_tool("live_command", {"op": "delete_track", "name": "10-Riser Basic", "index": 0, "expected_devices": ["Operator"], "wait_seconds": 5})
+        check("an empty track with its devices named exactly is deleted and verified", gone["status"] == "OK" and gone["result"]["deleted"] is True and gone["result"]["verified"] is True and bridge.live.tracks == [], gone)
+        server.dispatch_tool("live_command", {"op": "create_locator", "beat": 64, "name": "Drop", "wait_seconds": 5})
+        wrongname = server.dispatch_tool("live_command", {"op": "delete_locator", "beat": 64, "name": "Verse", "wait_seconds": 5})
+        check("a locator is not deleted under another name", wrongname["status"] == "REFUSED_IN_LIVE" and "name_mismatch" in str(wrongname.get("error")) and len(bridge.live.cues) == 1, wrongname)
+        cut = server.dispatch_tool("live_command", {"op": "delete_locator", "beat": 64, "name": "Drop", "wait_seconds": 5})
+        check("the locator at the beat with that name is deleted and verified", cut["status"] == "OK" and cut["result"]["deleted"] is True and bridge.live.cues == [], cut)
+        missing = server.dispatch_tool("live_command", {"op": "delete_locator", "beat": 64, "wait_seconds": 5})
+        check("deleting a locator that is not there is refused, not silently ok", missing["status"] == "REFUSED_IN_LIVE" and "locator_not_found" in str(missing.get("error")), missing)
 finally:
     shutil.rmtree(BRIDGE_ROOT, ignore_errors=True)
     shutil.rmtree(OUTPUT_ROOT, ignore_errors=True)

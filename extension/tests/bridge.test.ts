@@ -90,6 +90,42 @@ async function main() {
   const adopted = await apply(live, { op: "create_locator", beat: 32, name: "Verse" });
   ok("a cue already on the beat is adopted and renamed, never duplicated", adopted.adopted === true && live.cuePoints.length === 1 && live.cuePoints[0].name === "Verse");
 
+  // --- deletion: only what is named exactly and holds no clip -----------------
+  const refusedWith = async (label: string, fn: () => Promise<unknown>, code: string, kind: string = "refused") => {
+    try {
+      await fn();
+      ok(label, false, "did not throw");
+    } catch (error) {
+      const outcome = error instanceof BridgeError ? error.outcome : {};
+      ok(label, error instanceof BridgeError && outcome.code === code && (outcome.kind ?? "refused") === kind, error instanceof Error ? `${error.message} ${JSON.stringify(outcome)}` : error);
+    }
+  };
+  ok("deletion is published as a capability", CAPABILITIES.track_delete === true && CAPABILITIES.locator_delete === true);
+  const strayTrack = await apply(live, { op: "create_midi_track", name: "10-Riser Basic", instrument_family: "Operator" });
+  const trackCount = live.tracks.length;
+  await refusedWith("a track with devices is not deleted until the caller names them", () => apply(live, { op: "delete_track", name: "10-Riser Basic" }), "track_has_devices");
+  await refusedWith("a wrong device expectation refuses the delete", () => apply(live, { op: "delete_track", name: "10-Riser Basic", expected_devices: ["Riser Basic"] }), "devices_differ");
+  await refusedWith("a wrong index refuses the delete even with the right name", () => apply(live, { op: "delete_track", name: "10-Riser Basic", index: 0, expected_devices: ["Operator"] }), "index_mismatch");
+  await refusedWith("a track with clips on it is never deleted (KICK holds the user's EQ and a clip)", async () => {
+    live.tracks[0].arrangement.push(new FakeClip(0, 4));
+    try { await apply(live, { op: "delete_track", name: "KICK", expected_devices: ["EQ Eight"] }); } finally { live.tracks[0].arrangement.pop(); }
+  }, "track_has_clips");
+  await refusedWith("a session clip alone blocks the delete", async () => {
+    live.tracks[1].clipSlots[0].clip = new FakeClip(0, 4);
+    try { await apply(live, { op: "delete_track", name: "BASS" }); } finally { live.tracks[1].clipSlots[0].clip = null; }
+  }, "track_has_clips");
+  live.deleteFails = "Live refused: transport running";
+  await refusedWith("an SDK rejection is reported failed with the track verified still there", () => apply(live, { op: "delete_track", name: "10-Riser Basic", expected_devices: ["Operator"] }), "delete_failed", "failed");
+  live.deleteFails = null;
+  ok("nothing was deleted by the refused and failed attempts", live.tracks.length === trackCount && live.tracks.some((t) => t.name === "10-Riser Basic"));
+  const deleted = await apply(live, { op: "delete_track", name: "10-Riser Basic", index: strayTrack.index as number, expected_devices: ["Operator"] });
+  ok("an empty track with its devices named exactly is deleted and verified from the track list", deleted.deleted === true && deleted.verified === true && deleted.track_count_after === trackCount - 1 && !live.tracks.some((t) => t.name === "10-Riser Basic"), deleted);
+  await refusedWith("deleting a track that is not there is refused, not silently ok", () => apply(live, { op: "delete_track", name: "10-Riser Basic" }), "track_not_found");
+  await refusedWith("a locator that is not at the beat is refused", () => apply(live, { op: "delete_locator", beat: 33 }), "locator_not_found");
+  await refusedWith("a locator is not deleted under another name", () => apply(live, { op: "delete_locator", beat: 32, name: "Chorus" }), "name_mismatch");
+  const cueGone = await apply(live, { op: "delete_locator", beat: 32, name: "Verse" });
+  ok("the locator at the beat with that name is deleted and verified from the cue list", cueGone.deleted === true && cueGone.verified === true && cueGone.name === "Verse" && live.cuePoints.length === 0, cueGone);
+
   // --- clip protection: the shared cases (tests/fixtures/clip_policy_cases.json) ---
   const cases = JSON.parse(readFileSync(join(process.cwd(), "..", "tests", "fixtures", "clip_policy_cases.json"), "utf8")) as { cases: Array<Record<string, any>> };
   const policyLive = new FakeLive();

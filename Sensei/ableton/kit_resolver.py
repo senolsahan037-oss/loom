@@ -136,11 +136,20 @@ def resolve_pad_notes(live_pads: list[int] | None = None, kit: dict[str, Any] | 
         pads = sorted({int(note) for note in live_pads if 0 <= int(note) <= 127})
         if pads:
             known = [p for p in (kit or {}).get("pads", []) if int(p["note"]) in pads] if kit_verified else []
-            described = known or [{"note": n, "role": GM_PAD_ROLES.get(n, "unknown_pad")} for n in pads]
+            roles_known = any(p.get("role") not in (None, "unknown_pad") for p in known)
+            if known and not roles_known:
+                # The verified preset names no roles (synth pads without labels or
+                # samples): the General MIDI layout is inferred for its pads and
+                # reported as such -- the pads are real, the roles are a guess.
+                described = [{"note": int(p["note"]), "role": GM_PAD_ROLES.get(int(p["note"]), "unknown_pad")} for p in known]
+                role_source = "assumed_general_midi_layout_on_verified_kit"
+            else:
+                described = known or [{"note": n, "role": GM_PAD_ROLES.get(n, "unknown_pad")} for n in pads]
+                role_source = "verified_kit_build" if known else "assumed_general_midi"
             return {"value": pads, "source": "live_drum_rack", "confidence": "read", "writable": True,
                     "note_semantics": "midi_note: SDK chain.receivingNote is the pad's MIDI note (measured 2026-09-07)",
                     "mapping": pad_mapping(described),
-                    "role_source": "verified_kit_build" if known else "assumed_general_midi",
+                    "role_source": role_source,
                     "preset_identity_verified": bool(known)}
     if kit and kit.get("pads"):
         pads = sorted(int(p["note"]) for p in kit["pads"])
@@ -296,7 +305,18 @@ def resolve_kit(reference: str, catalog: list[dict[str, Any]] | None = None) -> 
         if effects:
             dropped_effects[label] = effects
         if not declared:
-            missing.append({"note": note, "name": label, "reason": "no sample in this pad's chain"})
+            # A pad with no sample is still a pad: a synth chain (Drift, Operator,
+            # a nested rack -- Halfstep Kit, measured 2026-09-07: 16 Drift pads).
+            # It cannot be rebuilt from files, but it exists at its note and Live
+            # will report it; dropping it made such kits look empty.
+            role = resolve_pad_role(label, pad.get("normalized_role"), None)
+            raw = pad.get("raw_receiving_note")
+            pads.append({"note": note, "name": label, "sample": None,
+                         "raw_receiving_note": int(float(raw)) if raw not in (None, "") else 128 - note,
+                         "decoded_receiving_note": note, "note_source": "preset_xml", "note_confidence": "read",
+                         "role": role["value"], "role_source": role["source"], "role_confidence": role["confidence"],
+                         "source_devices": devices, "layered_samples": 0,
+                         "reference_state": "no_sample", "found_in": None, "declared": None})
             continue
         resolved, state, found_in = _resolve_sample(path, declared, relatives.get(declared))
         if resolved is None:
@@ -323,7 +343,7 @@ def resolve_kit(reference: str, catalog: list[dict[str, Any]] | None = None) -> 
         "pad_source": "preset_xml",
         "profile_write_safety": profile.get("kit_write_safety", "unknown"),
         "sample_states": {state: sum(1 for p in pads if p["reference_state"] == state) for state in SAMPLE_STATES[:2]}
-                         | {"missing": len(missing)},
+                         | {"missing": len(missing), "no_sample": sum(1 for p in pads if p["reference_state"] == "no_sample")},
         "fidelity": {
             "preset_preserved": False,
             "mode": "sample_reconstruction",

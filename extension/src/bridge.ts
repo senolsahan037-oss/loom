@@ -70,7 +70,9 @@ export const CAPABILITIES = {
   arrangement_clips: true,
   session_clips: true,
   tracks: true,
+  track_delete: true,
   locators: true,
+  locator_delete: true,
   mixer: true,
   device_parameters: true,
   audio_import: true,
@@ -178,6 +180,11 @@ export interface LiveLike {
   readonly cuePoints: CueLike[];
   createCuePoint(time: number): Promise<CueLike>;
   createMidiTrack(): Promise<TrackLike>;
+  // Song.deleteTrack / Song.deleteCuePoint (SDK 1.0.0). Wrappers are fresh
+  // objects per access, so the target is named by position, not identity;
+  // the op verifies name-at-index before asking.
+  deleteTrackAt(index: number): Promise<void>;
+  deleteCuePointAt(time: number): Promise<void>;
   withinTransaction<T>(fn: () => T): T;
   // Live copies the file into the project and returns the managed copy's path.
   importIntoProject(filePath: string): Promise<string>;
@@ -491,6 +498,79 @@ async function opCreateLocator(live: LiveLike, payload: BridgeRequest) {
 
 function describe(error: unknown) {
   return error instanceof Error ? error.message : String(error);
+}
+
+// Removing what an earlier build left behind: a track the OS preset path put
+// a preset on by mistake (measured 2026-09-07: Live opened a "10-Riser Basic"
+// track instead of loading onto the adopted one), or a cue a plan placed at
+// the wrong bar. Both live in the user's set, so the op deletes only what the
+// caller names exactly and what holds no clip. A track with a clip on it is
+// someone's work: it is never deleted here, and there is no override.
+async function opDeleteTrack(live: LiveLike, payload: BridgeRequest) {
+  const name = String(payload.name ?? "").trim();
+  if (!name) throw new BridgeError("track name is required");
+  const matches = live.tracks.map((track, index) => ({ track, index })).filter(({ track }) => track.name === name);
+  if (matches.length === 0) throw new BridgeError(`no track named ${JSON.stringify(name)}`, { code: "track_not_found" });
+  if (matches.length > 1) throw new BridgeError(`expected exactly one track named ${JSON.stringify(name)}, found ${matches.length}`, { code: "ambiguous_track" });
+  const { track, index } = matches[0];
+  if (payload.index !== undefined && num(payload.index, "index") !== index) {
+    throw new BridgeError(`track ${JSON.stringify(name)} is at index ${index}, not ${JSON.stringify(payload.index)}`, { code: "index_mismatch" });
+  }
+  const sessionClips = track.clipSlots.filter((slot) => slot.clip !== null).length;
+  const arrangementClips = track.arrangementClips.length;
+  if (sessionClips + arrangementClips > 0) {
+    throw new BridgeError(`track ${JSON.stringify(name)} holds ${arrangementClips} arrangement and ${sessionClips} session clip(s); a track with clips is never deleted by the bridge`, { code: "track_has_clips" });
+  }
+  const devices = track.devices.map((device) => device.name);
+  if (payload.expected_devices !== undefined) {
+    const expected = Array.isArray(payload.expected_devices) ? payload.expected_devices.map((d) => String(d)) : null;
+    if (!expected) throw new BridgeError("expected_devices must be a list of device names");
+    if (JSON.stringify(expected) !== JSON.stringify(devices)) {
+      throw new BridgeError(`track ${JSON.stringify(name)} holds devices ${JSON.stringify(devices)}, the caller expected ${JSON.stringify(expected)}`, { code: "devices_differ" });
+    }
+  } else if (devices.length > 0) {
+    throw new BridgeError(`track ${JSON.stringify(name)} holds devices ${JSON.stringify(devices)}; pass expected_devices naming exactly these to delete it`, { code: "track_has_devices" });
+  }
+  const before = live.tracks.length;
+  try {
+    await live.deleteTrackAt(index);
+  } catch (error) {
+    const still = live.tracks.length === before && live.tracks[index]?.name === name;
+    throw new BridgeError(`deleteTrack failed for ${JSON.stringify(name)}: ${describe(error)}`, still
+      ? { kind: "failed", code: "delete_failed", applied: false, verified: true, side_effects: "nothing: the track is still there" }
+      : { kind: "indeterminate", code: "delete_failed", applied: null, verified: false, side_effects: `the track list changed (${before} -> ${live.tracks.length}); look at the set`, next_step: "read live_state and compare the track list before retrying" });
+  }
+  const remaining = live.tracks.filter((t) => t.name === name).length;
+  if (!(live.tracks.length === before - 1 && remaining === 0)) {
+    throw new BridgeError(`deleteTrack returned but the set does not show it: ${live.tracks.length} tracks (was ${before}), ${remaining} still named ${JSON.stringify(name)}`,
+      { kind: "indeterminate", code: "delete_unverified", applied: null, verified: false, side_effects: "unknown: the track list does not match a single deletion", next_step: "look at the track list in Live before retrying" });
+  }
+  return { deleted: true, name, index, devices, track_count_before: before, track_count_after: live.tracks.length, verified: true };
+}
+
+async function opDeleteLocator(live: LiveLike, payload: BridgeRequest) {
+  const beat = num(payload.beat, "beat");
+  const at = (cue: CueLike) => Math.abs(cue.time - beat) < 1e-6;
+  const cue = live.cuePoints.find(at);
+  if (!cue) throw new BridgeError(`no locator at beat ${beat}`, { code: "locator_not_found" });
+  if (payload.name !== undefined && String(payload.name) !== cue.name) {
+    throw new BridgeError(`the locator at beat ${beat} is named ${JSON.stringify(cue.name)}, not ${JSON.stringify(payload.name)}`, { code: "name_mismatch" });
+  }
+  const name = cue.name;
+  const before = live.cuePoints.length;
+  try {
+    await live.deleteCuePointAt(beat);
+  } catch (error) {
+    const still = live.cuePoints.some(at);
+    throw new BridgeError(`deleteCuePoint failed at beat ${beat}: ${describe(error)}`, still
+      ? { kind: "failed", code: "delete_failed", applied: false, verified: true, side_effects: "nothing: the locator is still there" }
+      : { kind: "indeterminate", code: "delete_failed", applied: null, verified: false, side_effects: "the locator is gone although Live reported an error", next_step: "read live_state before retrying" });
+  }
+  if (live.cuePoints.some(at) || live.cuePoints.length !== before - 1) {
+    throw new BridgeError(`deleteCuePoint returned but the cue list does not show it: ${live.cuePoints.length} cues (was ${before})`,
+      { kind: "indeterminate", code: "delete_unverified", applied: null, verified: false, side_effects: "unknown: the cue list does not match a single deletion", next_step: "look at the locators in Live before retrying" });
+  }
+  return { deleted: true, beat, name, cue_count_before: before, cue_count_after: live.cuePoints.length, verified: true };
 }
 
 // Every note field, not just pitch/start/duration: a restore must give the
@@ -981,6 +1061,10 @@ export async function applyOperation(live: LiveLike, payload: BridgeRequest, con
       return opListDeviceParameters(live, payload);
     case "create_locator":
       return opCreateLocator(live, payload);
+    case "delete_locator":
+      return opDeleteLocator(live, payload);
+    case "delete_track":
+      return opDeleteTrack(live, payload);
     case "write_arrangement_clip":
       return opWriteArrangementClip(live, payload, ledger);
     case "write_clip":
