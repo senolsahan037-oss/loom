@@ -182,10 +182,18 @@ python3 scripts/setup_scan.py --check      # kataloglar: ne var, ne eksik
 
 ## Bilinen sınırlar
 
-- **Gerçek Live kabulü henüz yapılmadı.** Bu sürümün extension yolu sahte
-  Live'a karşı (gerçek kuyruk kodu) test edildi; Live 12.4 beta üzerinde uçtan
-  uca kabul ve yeni `.ablx`'in kurulması bekliyor. Makinede kurulu extension
-  0.1.0'dır ve MCP ona mutasyon göndermez (`UPGRADE_REQUIRED`).
+- **Gerçek Live kabulü 2026-09-07'de geçti.** Boş bir set'ten başlayıp gerçek
+  `.adg`/`.adv` preset'leri açtı, pad'leri çözdü (16/16), MIDI ve locator yazdı;
+  set kaydedilip yeniden açıldığında hepsi yerindeydi. Extension o gün 0.4.x idi.
+  **Açık kalan kenar:** 0.4.4'ün getirdiği `delete_track` / `delete_locator`
+  (2026-09-11) yalnız headless test edildi; onlar için gerçek Live kabulü henüz
+  yapılmadı.
+
+  Bu madde 2026-09-07'den 2026-09-12'ye kadar "kabul henüz yapılmadı, kurulu
+  extension 0.1.0" diyordu — kabulü geçiren commit'in kendisi tarafından
+  yazılmış ve geçtikten sonra geri dönülmemişti. Depo herkese açık olduğu için
+  beş gün boyunca projeyi çalışmıyor gösterdi. Sürüm ve kabul iddiaları
+  `extension/manifest.json` ile birlikte güncellenir.
 - Render Live'ın ses motorunu gerektirir; `render_plan` ne çıkması gerektiğini,
   `render_verify` çıkanın uyup uymadığını söyler.
 - Otomasyon yazma (dosya üzerinde) mikser ve cihaz parametrelerini kapsar;
