@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from core.midi_variation_engine import generate_midi_variation
 
 

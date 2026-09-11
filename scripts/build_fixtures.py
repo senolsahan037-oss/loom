@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Generate synthetic fixtures so the suite runs in a clean clone.
 
 This data is MADE UP and must stay that way. The real measured data comes from

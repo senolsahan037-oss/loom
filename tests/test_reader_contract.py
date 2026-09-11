@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """One owner per fact: the reader-layer contract.
 
 Loom reads the same facts from several engines. Before 2026-09-06 five of

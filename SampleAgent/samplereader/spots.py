@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Bir eserin chop adaylarini TURUNE GORE ayirmak.
 
 Onceki surum tek bir siralama veriyordu ve pratikte hep introyu one cikariyordu.

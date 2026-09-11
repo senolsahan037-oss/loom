@@ -1,3 +1,4 @@
+// © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 // The Loom bridge, inside the Loom extension (id subverselab.loom): the ONLY Live-side endpoint the
 // Loom MCP talks to.
 //

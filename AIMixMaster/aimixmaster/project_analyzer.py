@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The one reader of an Ableton Live Set: tracks, names, device chains, and
 the project's musical context.
 

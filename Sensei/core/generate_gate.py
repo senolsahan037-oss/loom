@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Fail-closed contract for Sensei's single Generate action."""
 
 from __future__ import annotations

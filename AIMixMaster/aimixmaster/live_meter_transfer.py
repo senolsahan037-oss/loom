@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Provisional relative-level transfer for the documented Live raw meter.
 
 It intentionally never produces dBFS.  The result is only a relative change

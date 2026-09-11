@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Read one audio file and report what is measurably in it.
 
 Nothing here is inferred from the file NAME. Every number comes out of the

@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Read-only, structural gain-staging analysis for Ableton Live sets.
 
 This module deliberately does not inspect audio media or write ALS XML.  It

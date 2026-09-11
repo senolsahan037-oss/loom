@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Give the Lakh MIDI files a genre, using the chart corpus we already verified.
 
 Lakh names its files Artist/Title and carries no genre. Our chart catalogue has

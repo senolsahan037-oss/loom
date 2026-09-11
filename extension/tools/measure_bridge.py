@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The real-Live acceptance run: the extension bridge measured through the
 MCP's own handlers against the Live that is running.
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The MCP against the extension protocol alone: no control surface, no Live.
 
 A fake extension bridge (tests/fake_extension_bridge.py) consumes the

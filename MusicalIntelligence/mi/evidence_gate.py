@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Decide which charted works Loom can actually learn anything from.
 
 The rule is the user's: a work with no obtainable composition information is

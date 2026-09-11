@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Bir yuklemenin dogru hizda olup olmadigi: SURE karsilastirmasiyla.
 
 Erkin Koray kendi resmi yayininin aciklamasinda bootleg baskilar icin

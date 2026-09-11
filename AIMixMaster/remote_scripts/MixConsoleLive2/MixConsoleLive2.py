@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from _Framework.ControlSurface import ControlSurface
 import math
 import json

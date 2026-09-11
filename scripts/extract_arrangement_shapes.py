@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Extract the real section structure from the producer's own .als projects.
 
 Why: which skeleton a genre should have is a matter of opinion. The producer's

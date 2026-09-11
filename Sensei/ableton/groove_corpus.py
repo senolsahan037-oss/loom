@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Verified Ableton Groove catalog and SDK-compatible MIDI payloads.
 
 This module deliberately treats ``.agr`` files as Ableton source material, not

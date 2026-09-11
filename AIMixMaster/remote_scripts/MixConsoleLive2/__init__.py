@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from .MixConsoleLive2 import MixConsoleLive2
 
 def create_instance(c_instance):

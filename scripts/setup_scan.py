@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """First-run setup: build Loom's catalogues from THIS machine's Ableton install.
 
 Loom ships code and fixtures, never measurements. The catalogues it reasons

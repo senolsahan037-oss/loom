@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Build the hit catalogue the product's genre evidence is drawn from.
 
 The list is never chosen by hand. It comes from a published chart -- Nielsen

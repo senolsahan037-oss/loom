@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Simpler-Slicing + Arpeggiator varyasyon uretici — kopyalamaz, dilbilgisinden turetir.
 
 Olculdu 2026-09-03: ~/Desktop/solo altindaki 53 ana set + Backup'lar.

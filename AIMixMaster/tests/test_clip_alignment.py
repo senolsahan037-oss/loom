@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 import xml.etree.ElementTree as ET
 from aimixmaster.clip_alignment import _has_fade
 

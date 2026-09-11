@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """One real Drum Rack preset (.adg) into a Live set file. The conversion and
 every check live in Presetor/presetor/preset_transplant.py; this is the
 single-kit command that proved it on a real Live (2026-09-07).

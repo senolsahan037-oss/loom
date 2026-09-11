@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """SubverseLab Mix Check, the measurement core only.
 
 Ported from the SubverseLab Launchpad service (subverse-mix-analyzer) on

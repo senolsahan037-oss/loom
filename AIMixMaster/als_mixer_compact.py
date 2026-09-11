@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 import glob, gzip, math, os, re, sys
 import soundfile as sf
 import xml.etree.ElementTree as ET

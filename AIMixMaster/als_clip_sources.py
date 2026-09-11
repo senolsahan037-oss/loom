@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 import gzip, sys
 import xml.etree.ElementTree as ET
 from collections import defaultdict

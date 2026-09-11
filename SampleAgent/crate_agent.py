@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The crate agent: SubverseLab's sample-reader and Sampler under one roof.
 
 Ported into Loom on 2026-09-03 so the MCP can run the whole chain that used

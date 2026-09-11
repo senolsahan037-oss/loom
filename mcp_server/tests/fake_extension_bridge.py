@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """A stand-in for the Loom extension's file bridge, for tests only.
 
 It speaks the same protocol the extension does (requests/ -> done/ or

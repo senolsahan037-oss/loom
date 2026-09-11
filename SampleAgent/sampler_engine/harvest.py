@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Cihaz hasadi — tezgah cihaz YAZMAZ, Live'in yazdigini KOPYALAR.
 
 Iki kaynak var, ikisi de Live tarafindan serilestirilmis gecerli XML:

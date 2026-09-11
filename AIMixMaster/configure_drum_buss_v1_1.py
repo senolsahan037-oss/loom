@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Apply and reload-verify Golden Step's conservative DRUM BUSS parameters."""
 
 from __future__ import annotations

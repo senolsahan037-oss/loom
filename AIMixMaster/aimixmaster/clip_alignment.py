@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Read-only, intra-track audio-clip peak alignment recommendations."""
 from __future__ import annotations
 

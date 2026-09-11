@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Build the immutable, parse-verified MIDI reference corpus for Sensei."""
 
 from __future__ import annotations

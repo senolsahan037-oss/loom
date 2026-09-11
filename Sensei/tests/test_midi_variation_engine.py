@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from ableton.instrument_capabilities import build_instrument_capability_catalog
 from core.midi_variation_engine import _apply_variation, generate_midi_variation
 

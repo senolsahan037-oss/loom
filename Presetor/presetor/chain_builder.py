@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Copy a track's device chain from another track in the same project.
 
 Why copying: synthesising valid Ableton device XML from nothing is not

@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The MCP's side of the one Loom connection: the extension's file bridge.
 
 Live 12.4 beta runs the Loom extension (extension/),

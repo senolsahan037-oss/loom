@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Measure one recording's musical structure.
 
 What this does NOT do is store the music. No audio is copied, no note sequence

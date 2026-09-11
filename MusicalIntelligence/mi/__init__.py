@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Measured musical evidence, one layer at a time.
 
 Importable from two places on purpose: the source tree, where it sits beside

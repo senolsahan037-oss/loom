@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from ableton.instrument_capabilities import build_instrument_capability_catalog
 from core.target_resolver import resolve_target_profile
 

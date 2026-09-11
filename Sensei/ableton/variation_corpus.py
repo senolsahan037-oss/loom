@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Build a genre-safe MIDI variation corpus from Ableton's own metadata."""
 
 from __future__ import annotations

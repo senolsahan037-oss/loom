@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Deterministic native-device BUSS builder for Ableton Live sets."""
 
 from __future__ import annotations

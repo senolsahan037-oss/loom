@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Verify a DRUM BUSS write against its pre-write ALS backup."""
 
 from __future__ import annotations

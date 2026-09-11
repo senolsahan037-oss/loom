@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Kit regressions: synthetic profiles and isolated MCP calls, no Live access."""
 import importlib.util
 import json

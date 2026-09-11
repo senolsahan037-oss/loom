@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Deterministic Ableton render manifest, matching, and validation helpers."""
 
 from __future__ import annotations

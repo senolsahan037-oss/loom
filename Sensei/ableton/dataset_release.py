@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Versioned integrity manifest for immutable Sensei MIDI dataset releases."""
 
 from __future__ import annotations

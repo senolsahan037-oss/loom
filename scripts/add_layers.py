@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Add layers to the arrangement that is OPEN in Live -- and nothing else.
 
 Not a project build: no tempo, no key, no locators, no plan. The sections

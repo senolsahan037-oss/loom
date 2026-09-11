@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Read-only access to a release-pinned Loom dataset."""
 
 from __future__ import annotations

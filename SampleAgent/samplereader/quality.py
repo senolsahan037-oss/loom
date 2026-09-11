@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Bir kaydin chop'lanacak kadar saglam olup olmadigi.
 
 DIKKAT -- bu malzemede TIZIN OLMAMASI KUSUR DEGIL. Aranan sey zaten eski

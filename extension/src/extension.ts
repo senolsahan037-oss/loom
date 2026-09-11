@@ -1,3 +1,4 @@
+// © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 // The Loom extension: Live's side of the one Loom connection.
 //
 // Two things happen here and nothing else:

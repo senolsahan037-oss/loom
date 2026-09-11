@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Tests built on signals whose answer is known by construction.
 
 No file from the producer's library is used here: a test that needs a 4 GB

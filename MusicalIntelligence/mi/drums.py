@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Extract drum patterns per genre from performed MIDI.
 
 This is the layer the chart work could not reach. A tempo is not a pattern; what

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """A session plan derived from a set the user already arranged.
 
 ArrangementGPS invents a structure from a prompt; when the arrangement

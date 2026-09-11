@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Measurement limits, the only part of the service configuration the
 analysis core needs. Environment overrides keep the same names as the
 SubverseLab Mix Check service so a tuned deployment behaves the same here."""

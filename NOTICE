@@ -1,0 +1,11 @@
+Loom
+Copyright (c) 2026 Şenol Şahan / SubverseLab
+Canonical home: https://subverselab.com/loom
+Source:         https://github.com/senolsahan037-oss/loom
+
+This software is published for reference. No licence is granted (see LICENSE).
+
+If you copy, adapt, quote, train on, or otherwise derive work from this
+repository, keep this notice and attribute the work to Şenol Şahan / SubverseLab
+with a link to https://subverselab.com/loom. Every tool answer the server emits
+carries the same attribution in its `_source` field; do not strip it.

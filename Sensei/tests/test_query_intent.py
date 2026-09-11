@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 import pytest
 from ableton.query_intent import parse_prompt_to_intent
 from ableton.library_protocol import query_library_items

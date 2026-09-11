@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Build the committed .als these tests measure against.
 
 Before this, the gain staging and drum buss tests read a pointer file naming

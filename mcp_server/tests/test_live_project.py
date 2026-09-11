@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """live_project.open_project judged by identity, not by counts.
 
 Fake Live: a log file and a crash directory in a temporary tree, `open`

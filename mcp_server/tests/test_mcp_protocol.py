@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """MCP protocol conformance test.
 
 The tool suite (test_mcp_tools.py) proves what the tools DO; this file proves

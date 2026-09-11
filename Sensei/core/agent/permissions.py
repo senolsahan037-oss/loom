@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 class PermissionsManager:
     """Manages execution permissions for tools and files based on agent mode."""
     def __init__(self, mode: str):

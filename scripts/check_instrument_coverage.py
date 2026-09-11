@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Verify each track's instrument against Sensei's catalog, without opening Live.
 
 What it proves: the plan's instrument_family resolves to exactly ONE role in

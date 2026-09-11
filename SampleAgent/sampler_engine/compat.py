@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Environment shims.
 
 librosa 0.10.1 calls scipy.signal.hann, which scipy >= 1.13 moved to

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Write a part that belongs to the project it is going into.
 
 This is the thing a prompt-driven generator cannot do. It does not know your key,

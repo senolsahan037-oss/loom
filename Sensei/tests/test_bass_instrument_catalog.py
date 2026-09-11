@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 import ableton.bass_instrument_catalog as bass_instrument_catalog
 from ableton.bass_instrument_catalog import build_bass_instrument_catalog
 

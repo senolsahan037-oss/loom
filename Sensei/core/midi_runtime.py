@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The single Sensei MIDI generation entry point.
 
 This module is deliberately small: it binds an evidenced Live target, selects

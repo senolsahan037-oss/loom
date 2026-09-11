@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Headless verification of Presetor. Ableton Live is not required.
 
 What this proves: the chain-evidence thresholds, and that the transplant both

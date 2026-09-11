@@ -1,3 +1,4 @@
+// © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 declare module "*.html" {
   const content: string;
   export default content;

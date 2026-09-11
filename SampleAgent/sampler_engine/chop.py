@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Turn an analysis into slice boundaries. Four modes, all returning
 a list of {'start', 'end'} in seconds, clamped to the audio duration."""
 

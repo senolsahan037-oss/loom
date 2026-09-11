@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Read-only, controlled experiments for locating the Live meter tap point.
 
 This module deliberately does not calibrate or transform the raw meter.  The

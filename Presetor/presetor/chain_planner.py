@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """An evidence-backed device chain plan for the tracks in a project.
 
 A plan has three parts:

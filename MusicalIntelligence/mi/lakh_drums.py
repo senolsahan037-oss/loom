@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Drum patterns for genres the performance corpus never covered.
 
 Groove MIDI has seven dance takes, below the threshold, so house and techno came

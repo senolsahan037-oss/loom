@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """sample-reader -- measure audio, not file names."""
 from .read import Reading, read_file, iter_audio, CHOP_BPM_MIN, CHOP_BPM_MAX
 from .profile import build_profile, save_profile, load_profile

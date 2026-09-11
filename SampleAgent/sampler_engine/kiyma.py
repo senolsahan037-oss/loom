@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Kiyma makinesi — SampleOffset envelope'u URETIR, kopyalamaz.
 
 Kullanicinin 512 envelope'undan cikarilan dilbilgisi (olculdu 2026-09-03):

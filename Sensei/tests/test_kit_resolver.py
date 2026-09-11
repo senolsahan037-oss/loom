@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """kit_resolver: a .adg kit becomes {note, sample} pads the extension can rebuild.
 
 Hermetic: the fixture preset's samples point at the pack author's machine;

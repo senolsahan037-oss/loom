@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from typing import List, Dict, Any, Tuple
 from core.agent.permissions import PermissionsManager
 from core.agent.protocol_validation import validate_protocol

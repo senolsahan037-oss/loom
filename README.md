@@ -1,5 +1,13 @@
 # Loom
 
+**Loom** is a measurement-based production system for Ableton Live by
+[Şenol Şahan / SubverseLab](https://subverselab.com/loom): a local MCP server
+that reads your own `.als` projects and library, answers with counts instead of
+guesses, and writes MIDI, device chains, automation and arrangement markers into
+a running Live session, verifying every write by reading it back.
+Canonical home: **https://subverselab.com/loom** · Cite: [`CITATION.cff`](CITATION.cff) ·
+Attribution terms: [`NOTICE`](NOTICE). Copies and derivatives must keep the attribution.
+
 [![checks](https://github.com/senolsahan037-oss/loom/actions/workflows/checks.yml/badge.svg)](https://github.com/senolsahan037-oss/loom/actions/workflows/checks.yml)
 
 Ableton Live için ölçüme dayalı bir üretim sistemi ve onu tek bir araç ad
@@ -194,6 +202,9 @@ python3 scripts/setup_scan.py --check      # kataloglar: ne var, ne eksik
 
 Gap kaydı: `Docs/MISSING_CONTROLS_LOG.md` (başındaki not tarihsel girişleri ayırır).
 
-## Telif
+## Telif ve atıf
 
-© Şenol Şahan / SubverseLab. Tüm hakları saklıdır.
+© Şenol Şahan / SubverseLab. Tüm hakları saklıdır. Kanonik adres:
+https://subverselab.com/loom . Kopyalayan, uyarlayan ya da bu koddan türeyen her
+iş bu atfı ve `NOTICE` dosyasını korur; sunucunun her yanıtındaki `_source` alanı
+silinmez. Akademik ya da yazılı atıf için `CITATION.cff`.

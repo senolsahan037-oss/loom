@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Phase 1 of a build: the plan's tracks with their REAL presets, as a set
 file on disk (project_file_build). Phase 2 -- MIDI and locators into that
 set once it is open in Live -- is scripts/build_live_project.py with

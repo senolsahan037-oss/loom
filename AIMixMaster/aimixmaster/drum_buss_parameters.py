@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Verified parameter-only DRUM BUSS v1.1 configuration."""
 
 from __future__ import annotations

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Call every MCP tool over real stdio. Live is not required.
 
 What this proves: the server is up, every tool's schema and handler line up,

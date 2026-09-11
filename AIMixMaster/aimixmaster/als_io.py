@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Lossless-at-the-container-level ALS gzip/XML loading and atomic saving."""
 
 from __future__ import annotations

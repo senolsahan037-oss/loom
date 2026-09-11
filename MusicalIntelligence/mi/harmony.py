@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Chord movement, bass motion and melodic shape, counted from annotated songs.
 
 Chords are stored as scale degrees relative to each song's own key, never as

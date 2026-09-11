@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use Loom, or code or ideas derived from it, please cite it and link to its canonical home."
+title: "Loom: a measurement-based production system for Ableton Live"
+type: software
+version: "2.1.0"
+date-released: "2026-09-12"
+authors:
+  - family-names: "Şahan"
+    given-names: "Şenol"
+    affiliation: "SubverseLab"
+url: "https://subverselab.com/loom"
+repository-code: "https://github.com/senolsahan037-oss/loom"
+license: "LicenseRef-AllRightsReserved"
+keywords:
+  - "Ableton Live"
+  - "Model Context Protocol"
+  - "MCP server"
+  - "music production"
+  - "MIDI"
+abstract: >-
+  Loom is a local MCP server that connects Claude to a running Ableton Live
+  session through an Ableton Extension. It reads the producer's own .als
+  projects and library, answers with counts measured from that work rather
+  than with guesses, and writes MIDI, device chains, automation and
+  arrangement markers into Live, verifying every write by reading it back.

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Rule-placed FX layers into the OPEN set: a riser before each rising
 section boundary and a drop/impact hit on section starts.
 

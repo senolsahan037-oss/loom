@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Opening, inspecting and closing Ableton Live projects.
 
 Live's own scripting cannot open or close a project -- that is an operating

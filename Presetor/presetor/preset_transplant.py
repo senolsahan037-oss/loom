@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Real Ableton presets into a Live set FILE, the way Live itself writes them.
 
 Why: the Extensions SDK inserts built-in devices with their default preset

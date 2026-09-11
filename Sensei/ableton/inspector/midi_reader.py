@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Minimal MIDI reader used by Ableton inspectors."""
 from __future__ import annotations
 

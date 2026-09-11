@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """One record per song: the lower layers, complete, in transposable form.
 
 The aggregate files answer "what does pop do"; this one answers "how is a song

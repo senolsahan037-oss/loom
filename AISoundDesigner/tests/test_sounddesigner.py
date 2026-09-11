@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Headless verification of AISoundDesigner. Live is not required."""
 import sys
 from pathlib import Path

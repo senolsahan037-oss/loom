@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Build and prove the native EQ Eight -> Glue -> Utility DRUM BUSS chain."""
 
 from __future__ import annotations

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Send one Sensei manual-trigger MIDI pulse for each physical X key press."""
 
 from __future__ import annotations

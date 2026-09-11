@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Build a project into the running Live, driving the MCP's own writers.
 
 Every note this script places is produced by `midi_generate` (Sensei's locked

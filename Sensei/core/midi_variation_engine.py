@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Dataset-first, deterministic MIDI variation engine for Sensei target profiles."""
 
 from __future__ import annotations

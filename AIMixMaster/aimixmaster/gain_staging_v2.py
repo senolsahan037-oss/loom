@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Deterministic-first, read-only gain-staging decisions.
 
 Source-file measurements are a reference, never a claim about a processed

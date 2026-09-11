@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Score one reading against a profile: is this record the continuation of ours?
 
 Distance is measured in IQRs, not in raw units, so a dimension the producer is

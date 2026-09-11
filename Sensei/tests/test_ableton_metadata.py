@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from pathlib import Path
 
 from ableton.ableton_metadata import normalize_keyword, read_xmp_keywords, scan_ableton_folder_info

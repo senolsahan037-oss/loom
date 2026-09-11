@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """One musical-time contract for the writers: bars x beats_per_bar, where a
 beat is a Live beat (quarter note). 4/4 -> 4, 3/4 -> 3, 6/8 -> 3. The engine,
 the runtime and the composer must all size clips and place notes by it;

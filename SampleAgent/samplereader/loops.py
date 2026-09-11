@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Aday chop noktalarini YouTube videosu uzerinde loop'layan bir sayfa uretir.
 
 Neden sayfa: nokta bulucu bir siralama onerir ama karar kulagin. Erkin Koray

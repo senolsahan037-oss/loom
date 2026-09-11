@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Build and resolve Ableton preset identities with dataset-derived genre neighbors."""
 
 from __future__ import annotations

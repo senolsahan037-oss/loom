@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The one reader of a drum kit: which pads exist, what each one is, and
 which sample file it plays.
 

@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Device chains measured from the producer's own projects.
 
 This module does not generate suggestions, it counts. The data comes from

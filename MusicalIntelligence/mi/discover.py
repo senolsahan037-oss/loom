@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Find which countries actually have chart data, instead of assuming a number.
 
 Wikipedia keeps per-country subcategories of number-one song lists. Walking that

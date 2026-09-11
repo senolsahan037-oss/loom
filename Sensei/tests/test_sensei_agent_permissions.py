@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 import pytest
 from core.agent.permissions import PermissionsManager
 

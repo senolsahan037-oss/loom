@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Extract the real device chains from the producer's own .als projects.
 
 Why: what Presetor should recommend is not a matter of opinion. The producer

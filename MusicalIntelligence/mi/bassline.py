@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The lower layers of a song, counted: bass motion under the harmony.
 
 POP909 has no separate bass track -- the accompaniment is one PIANO part. So the

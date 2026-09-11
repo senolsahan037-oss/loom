@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Turn Live SDK device evidence into a release-backed generation context."""
 
 from __future__ import annotations

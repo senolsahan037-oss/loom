@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Native Ableton chord instrument/preset catalog inside Sensei's MIDI dataset."""
 
 from __future__ import annotations

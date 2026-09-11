@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The crate agent on synthetic audio: no network, no YouTube, no Live.
 
 A click track at a known tempo stands in for a record. What is proven: the

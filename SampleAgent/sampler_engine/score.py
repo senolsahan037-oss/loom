@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Aday puanlama.
 
 Uc mod icin ayri olculer. Her puan, olculen buyuklukleri normalize edip

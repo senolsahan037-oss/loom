@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Create read-only structural gain-staging dry-run reports for an ALS file."""
 
 from __future__ import annotations

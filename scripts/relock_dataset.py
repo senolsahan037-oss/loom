@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Re-lock the dataset manifest against the files actually on this machine.
 
 The catalogues are rebuilt per machine by `setup_scan.py` -- that is the whole

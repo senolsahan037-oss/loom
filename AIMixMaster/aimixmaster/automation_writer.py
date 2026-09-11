@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Ableton .als icine otomasyon zarfi yazar.
 
 Until now this was the one thing the project could only READ (GAP-002/005):

@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Turn many readings into one reference profile -- "what our own material is".
 
 A profile is a median and an inter-quartile range per dimension. Median and IQR

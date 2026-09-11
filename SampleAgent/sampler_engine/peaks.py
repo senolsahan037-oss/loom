@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Min/max peak envelopes for waveform drawing, computed on demand.
 
 The UI asks for a window (start, end) and a bucket count; reading only that

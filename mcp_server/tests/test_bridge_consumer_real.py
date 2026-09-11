@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The MCP against the REAL extension queue code: bridge.ts over a fake Live.
 
 tests/fake_live_host.ts in the extension package runs the extension's own

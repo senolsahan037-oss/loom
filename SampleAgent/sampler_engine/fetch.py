@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Get a decoded WAV out of a YouTube URL (or any local audio/video file)."""
 
 import json

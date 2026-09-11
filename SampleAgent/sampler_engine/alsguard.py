@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """`.als` guvenlik kontrolu — Live'i acmadan bozulmayi yakalar.
 
 Neden var: agent bir Live projesine mudahale edince XML kolayca "corrupt"

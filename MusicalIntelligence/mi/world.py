@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Extract number-one songs for every country that has a real chart archive.
 
 Two things generalise badly across countries and are handled explicitly:

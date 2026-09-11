@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Install Loom in one command.
 
 Registers the MCP server with every client found on this machine, prepares

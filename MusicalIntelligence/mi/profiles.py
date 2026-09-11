@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Per-layer access to the measured evidence.
 
 One rule: a layer only ever sees its own evidence. Scoring a bass line against a

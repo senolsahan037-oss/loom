@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Tempo, onsets and silence structure of a decoded WAV.
 
 Analysis runs on a 22.05 kHz mono downmix (librosa's default working rate);

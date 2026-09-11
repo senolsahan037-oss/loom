@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The Loom MCP's public tool surface: names, descriptions and input schemas.
 
 Nothing here runs. server.py registers every tool listed below in

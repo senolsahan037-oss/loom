@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Measure a folder of recordings into one evidence file.
 
 Resumable: a work already measured is skipped, so a long scan can be stopped and

@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 from ableton.genre_identity import build_genre_neighbor_graph, build_preset_identities, resolve_preset_genre
 
 

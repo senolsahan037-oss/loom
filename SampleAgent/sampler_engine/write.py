@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Write slices to disk as WAV, plus the pack manifest."""
 
 import json

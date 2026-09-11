@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Resolve an SDK/Live target context to one writable Sensei target profile."""
 
 from __future__ import annotations

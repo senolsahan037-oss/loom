@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Extract the sound sources the producer actually uses.
 
 What the measurement showed: of 189 MIDI tracks, 113 are Simpler or Sampler --

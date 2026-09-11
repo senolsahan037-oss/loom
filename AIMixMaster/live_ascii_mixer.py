@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """Live terminal ASCII mixer: tails a MixConsoleLive2 session JSONL as it is written.
 
 Usage:

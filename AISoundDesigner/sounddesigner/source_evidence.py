@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 """The producer's real sound palette -- measured, not suggested.
 
 Two things are kept apart:

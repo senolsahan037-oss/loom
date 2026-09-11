@@ -1,3 +1,4 @@
+# © 2026 Şenol Şahan / SubverseLab · Loom · https://subverselab.com/loom
 import os
 from core.agent.providers.base import LLMProviderBase
 
