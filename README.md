@@ -34,7 +34,7 @@ bir yazıcı yolu yok.
 | **MusicalIntelligence** | Gerçek kayıtlardan ölçülmüş tür kanıtı; proje anahtarına göre part önerisi |
 | **Mix Check / SampleAgent** | Ses ölçümü ve profil karşılaştırması; YouTube → dilimlenmiş sample paketi |
 | **Loom extension** | Live'ın içinde çalışan Ableton Extension: MCP'nin Live'a tek bağlantısı |
-| **mcp_server** | 44 araç, resources, prompts, ilerleme, iptal |
+| **mcp_server** | 45 araç, resources, prompts, ilerleme, iptal |
 
 Hiçbir katman tahmin üretmez: kanıt yoksa öneri dönmez, SDK'nın yapamadığı iş
 emüle edilmez, yazan her araç varsayılan olarak kuru çalışır.
@@ -89,7 +89,7 @@ silinmez). Birden fazla Loom köprüsü görülürse `AMBIGUOUS_BRIDGE`.
 | Durum | Araçlar | Test |
 |---|---|---|
 | **Live üzerinden (extension)** | `live_state`, `live_bridge_status`, `live_command` (set_tempo, set_mixer, set_device_parameter, list_device_parameters, create_locator, create_midi_track, import_audio_clip, render_pre_fx, drum_pads, **build_drum_kit**, journal_import), `midi_write_arrangement`, `midi_write_to_live` (session clip), `crate_to_live`, `mix_from_live`, `project_build`, `midi_generate` (auto_write) | `mcp_server/tests/test_bridge_consumer_real.py` (gerçek bridge.ts), `test_extension_path.py`, `extension/tests/bridge.test.ts` |
-| **Live'sız motorlar** | `project_*`, `automation_*`, `drumbuss_*`, `chain_*`, `render_*`, `palette_read`, `library_search`, `genre_evidence`, `part_suggest`, `plan_create`, `plan_verify`, `projects_arrangement_shapes`, `mix_measure/analyze/profiles`, `crate_fetch/read/spots/chop/agent`, `setup_scan`, `gap_record` | `mcp_server/tests/test_mcp_tools.py` (44 araç, stdio), motorların kendi pytest paketleri |
+| **Live'sız motorlar** | `project_*`, `automation_*`, `drumbuss_*`, `chain_*`, `render_*`, `palette_read`, `library_search`, `genre_evidence`, `part_suggest`, `plan_create`, `plan_verify`, `projects_arrangement_shapes`, `mix_measure/analyze/profiles`, `crate_fetch/read/spots/chop/agent`, `setup_scan`, `gap_record` | `mcp_server/tests/test_mcp_tools.py` (45 araç, stdio), motorların kendi pytest paketleri |
 | **OS düzeyi, kullanıcı isteğiyle** | `live_project` (Live'ı aç / kapat / durum; Live'ın kendi logundan doğrular; set değiştirmek extension host'u düşürür) | `test_live_project.py` |
 | **Makineye bağlı** | `mix_capture` (`method="tap"`: Core Audio süreç musluğu, LaunchServices üzerinden `LiveTap.app` olarak başlar; macOS'ta "Ekran ve Sistem Sesi Kaydı" izni **LiveTap** girişine verilir, MCP'yi çalıştıran uygulamaya değil; 2026-09-06'da çalan Live'dan ölçüldü) | yalnız gerçek makinede |
 

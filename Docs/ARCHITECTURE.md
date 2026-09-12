@@ -201,7 +201,7 @@ replaces in place (same object); anything needing a delete is refused.
 | .adg → pads/samples/roles, relative-path resolution, fidelity report | `Sensei/tests/test_kit_resolver.py` |
 | MCP ↔ real extension queue code: OK, INDETERMINATE (held, crashed host, restart), STALE_SESSION, stdio | `mcp_server/tests/test_bridge_consumer_real.py` (needs node + `npm install`) |
 | MCP side fast: refusals, gate (old / mismatched / stale / session change), cancel, build order and status | `mcp_server/tests/test_extension_path.py` (Python fake) |
-| 44 tools over stdio, protocol conformance | `test_mcp_tools.py`, `test_mcp_protocol.py` |
+| 45 tools over stdio, protocol conformance | `test_mcp_tools.py`, `test_mcp_protocol.py` |
 | Live open/quit verification | `test_live_project.py` |
 | 4/4, 3/4, 6/8 time contract | `Sensei/tests/test_time_contract.py` |
 
