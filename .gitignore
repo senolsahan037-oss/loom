@@ -59,3 +59,5 @@ mcp_server/responses/
 # Packaging staging and artifacts — the wheel is built from a copy of the
 # checkout, never committed.
 packaging/build/
+packaging/mcpb/
+packaging/*.mcpb

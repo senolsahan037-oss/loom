@@ -5,11 +5,13 @@
 that reads your own `.als` projects and library, answers with counts instead of
 guesses, and writes MIDI, device chains, automation and arrangement markers into
 a running Live session, verifying every write by reading it back.
-<!-- mcp-name: com.subverselab/loom -->
+<!-- mcp-name: io.github.senolsahan037-oss/loom -->
 <!-- The MCP Registry proves package ownership by finding this line in the
      README that PyPI shows as the package description. It must match `name` in
      server.json exactly; the namespace is the reverse-DNS form of the domain,
-     authenticated by a TXT record on the apex of subverselab.com. -->
+     authenticated through the GitHub account. com.subverselab/loom is the
+     on-brand name and stays open: it needs a TXT record on the apex of
+     subverselab.com, whose DNS lives at the registrar. -->
 
 Canonical home: **https://subverselab.com/loom** · Cite: [`CITATION.cff`](CITATION.cff) ·
 Attribution terms: [`NOTICE`](NOTICE). Copies and derivatives must keep the attribution.

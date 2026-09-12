@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "com.subverselab/loom",
+  "name": "io.github.senolsahan037-oss/loom",
   "title": "Loom by SubverseLab",
   "description": "Measurement-based production for Ableton Live: reads your own projects and library, answers with counts instead of guesses, and writes MIDI, device chains, automation and markers into a running Live session, verifying every write by reading it back.",
   "version": "0.4.4",
@@ -11,10 +11,13 @@
   },
   "packages": [
     {
-      "registryType": "pypi",
-      "identifier": "subverselab-loom",
+      "registryType": "mcpb",
+      "identifier": "https://github.com/senolsahan037-oss/loom/releases/download/v0.4.4/loom-0.4.4.mcpb",
       "version": "0.4.4",
-      "transport": { "type": "stdio" }
+      "fileSha256": "a3ba35d84f5a6fcd97c6cf727c4ce8209a61c39def0044c6b2d0bd5881f4e358",
+      "transport": {
+        "type": "stdio"
+      }
     }
   ]
 }
