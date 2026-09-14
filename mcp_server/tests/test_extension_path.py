@@ -620,7 +620,7 @@ try:
     shutil.rmtree(kit_dir, ignore_errors=True)
 
     # ---- 10) two plan_create calls never share files (needs node) --------------
-    if shutil.which("node"):
+    if shutil.which("node") and (ROOT / "ArrangementGPS" / "node_modules" / "openai").is_dir():
         results: dict[str, dict] = {}
 
         def make(label, prompt):
@@ -646,7 +646,7 @@ try:
                     shutil.rmtree(r["run_dir"], ignore_errors=True)
 
     else:
-        print("  --  parallel plan_create check skipped: node is not installed")
+        print("  --  SKIPPED: parallel plan_create checks need node and `npm ci` in ArrangementGPS/ (the engine imports the openai package)")
     # --- deletion: what an earlier build left behind (delete_track / delete_locator) ---
     reset_root()
     with FakeExtensionBridge(BRIDGE_ROOT, FakeSet()) as bridge:

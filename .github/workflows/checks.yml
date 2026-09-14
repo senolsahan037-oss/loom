@@ -35,6 +35,9 @@ jobs:
           python -m pip install --quiet --upgrade pip
           python -m pip install --quiet pytest "numpy>=1.26" "scipy>=1.11" "librosa>=0.10.2" "soundfile>=0.12" "pyloudnorm>=0.1.1" "pydantic>=2"
 
+      - name: ArrangementGPS engine dependencies (plan_create runs its Node engine; no API key, the provider answers offline)
+        run: npm ci --prefix ArrangementGPS --ignore-scripts --no-audit --no-fund
+
       - name: Suites that need neither Live nor personal data
         run: ./scripts/check_ci.sh
 
