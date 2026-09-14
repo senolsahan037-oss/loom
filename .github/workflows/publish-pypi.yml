@@ -1,0 +1,91 @@
+name: publish-pypi
+
+# Publishes subverselab-loom to PyPI through Trusted Publishing (OIDC).
+#
+# There is no API token anywhere — not in the repository, not in secrets, not
+# in this file. PyPI is configured to accept uploads only from this repository
+# and only from this workflow file, and GitHub mints a short-lived identity
+# token for each run. That is why `id-token: write` is the one permission
+# raised below; everything else stays read-only.
+#
+# No GitHub environment is used, so the PyPI trusted-publisher entry must leave
+# its "Environment name" field empty. If one is ever added here, it has to be
+# added there in the same change or the upload is rejected.
+#
+# Triggered by a version tag (v0.4.4) or by hand from the Actions tab.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Build and check only, do not upload"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build tooling
+        run: python -m pip install --quiet --upgrade pip build twine
+
+      - name: Build the wheel and sdist from a staging copy
+        # Loom is not laid out as a Python distribution; build_wheel.py stages a
+        # copy under subverselab_loom/ that preserves the relative layout so
+        # Path(__file__).parents[1] keeps resolving. See its module docstring.
+        run: python packaging/build_wheel.py
+
+      - name: Refuse to publish if the tag and the package version disagree
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          pkg=$(sed -n 's/^version[[:space:]]*=[[:space:]]*"\(.*\)"/\1/p' packaging/pyproject.toml | head -1)
+          echo "tag=$tag  pyproject=$pkg"
+          if [ -z "$pkg" ]; then
+            echo "::error title=Version unreadable::No version line found in packaging/pyproject.toml."
+            exit 1
+          fi
+          if [ "$tag" != "$pkg" ]; then
+            echo "::error title=Version mismatch::Tag v$tag does not match pyproject version $pkg. Nothing was uploaded."
+            exit 1
+          fi
+
+      - name: Check the built metadata renders on PyPI
+        run: python -m twine check packaging/build/dist/*
+
+      - name: Confirm the MCP Registry name is in the package metadata
+        # The registry verifies ownership of a pypi package by finding this line
+        # in the long description. Without it, `mcp-publisher publish` is
+        # rejected — better to fail here than after the version is burned.
+        run: python packaging/check_mcp_name.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: packaging/build/dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    # A hand-run with dry_run left on builds and checks but uploads nothing.
+    if: startsWith(github.ref, 'refs/tags/v') || inputs.dry_run == false
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
