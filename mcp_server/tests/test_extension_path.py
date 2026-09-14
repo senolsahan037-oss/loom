@@ -216,7 +216,8 @@ try:
     generated = server.dispatch_tool("midi_generate", {"role": "drum", "genre": "Trap", "bars": 2, "auto_write_to_live": True})
     check("auto-write of an unverified drum part is BLOCKED, not attempted", (generated.get("bridge_write_status") or {}).get("status") == "BLOCKED", generated.get("bridge_write_status"))
     waltz = server.dispatch_tool("midi_generate", {"role": "bass", "genre": "Trap", "bars": 2, "beats_per_bar": 3})
-    if waltz.get("generation_safe"):
+    bass_corpus = bool(waltz.get("generation_safe"))
+    if bass_corpus:
         check("beats_per_bar sizes the generated clip", waltz["payload"]["clip_length"] == 6.0, waltz["payload"]["clip_length"])
     else:
         print("  --  beats_per_bar clip-length check skipped: no bass corpus on this machine (%s)" % waltz.get("error"))
@@ -531,11 +532,23 @@ try:
               kick["instrument"] == "skipped" and bridge.live.track("KICK")["devices"] == [] and "build_drum_kit" not in bridge.live.applied
               and kick.get("kit", {}).get("status") == "PRESET_LOAD_REQUIRED" and kick["preset"]["status"] == "PRESET_LOAD_REQUIRED"
               and by_track.get("KICK") == {("blocked", "PRESET_LOAD_REQUIRED")} and built.get("allow_lossy_kit", "").startswith("ignored"), (kick, by_track.get("KICK"), built.get("allow_lossy_kit")))
-        check("the other tracks are unaffected: bass (native Operator) is written, the device-mapped chord track is blocked by EVIDENCE, the build is partial",
-              by_track.get("BASS") == {("OK", None)} and all("no_native_role_and_genre_candidate" in w.get("reason", "") for w in built["writes"] if w["track"] == "PAD") and built["status"] == "partial", by_track)
-        check("... and the op order is tempo, tracks, clips, locators -- locators last, no kit build anywhere",
-              bridge.live.applied[0] == "set_tempo" and bridge.live.applied.index("create_midi_track") < bridge.live.applied.index("write_arrangement_clip")
-              and max(i for i, op in enumerate(bridge.live.applied) if op == "write_arrangement_clip") < min(i for i, op in enumerate(bridge.live.applied) if op == "create_locator"), bridge.live.applied)
+        applied = bridge.live.applied
+        clip_idx = [i for i, op in enumerate(applied) if op == "write_arrangement_clip"]
+        locator_idx = [i for i, op in enumerate(applied) if op == "create_locator"]
+        if bass_corpus:
+            check("the other tracks are unaffected: bass (native Operator) is written, the device-mapped chord track is blocked by EVIDENCE, the build is partial",
+                  by_track.get("BASS") == {("OK", None)} and all("no_native_role_and_genre_candidate" in w.get("reason", "") for w in built["writes"] if w["track"] == "PAD") and built["status"] == "partial", by_track)
+            check("... and the op order is tempo, tracks, clips, locators -- locators last, no kit build anywhere",
+                  applied[0] == "set_tempo" and clip_idx and locator_idx and applied.index("create_midi_track") < min(clip_idx)
+                  and max(clip_idx) < min(locator_idx), applied)
+        else:
+            # A clean checkout (CI) has no Sensei bass corpus, so the bass
+            # track has nothing to write; the ordering that remains provable
+            # is tempo first, tracks before locators, and no kit build.
+            print("  --  SKIPPED: bass write and clip-order checks need the Sensei bass corpus (not on this machine)")
+            check("without a bass corpus no clip is written and the op order is still tempo, tracks, locators -- no kit build anywhere",
+                  applied[0] == "set_tempo" and not clip_idx and "build_drum_kit" not in applied
+                  and (not locator_idx or applied.index("create_midi_track") < min(locator_idx)), applied)
 
     # The OS load path, simulated: the loader is what a Finder double-click
     # does, so a fake one puts the preset into the fake set. What is proven is
