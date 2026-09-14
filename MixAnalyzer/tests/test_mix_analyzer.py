@@ -69,7 +69,7 @@ def test_general_mode_is_descriptive_and_has_no_recommendations(
     )
 
     assert result.mode == "general"
-    assert result.finding_policy_version == "2026-08-02.findings.2"
+    assert result.finding_policy_version == "2026-09-13.findings.3"
     assert result.comparison is None
     assert result.findings == []
     assert result.recommendations_enabled is False
@@ -369,6 +369,7 @@ def test_genre_profile_is_built_from_real_track_measurements(
             "name": "Test Genre",
             "source_count": 3,
             "measurement_contract": "2026-07-29.mix.2",
+            "role": "genre",
         }
     ]
     stored = store.get("test-genre")
@@ -660,6 +661,12 @@ def test_genre_affinity_ranks_profiles_without_classifying_the_track(
     assert affinity_result.comparison is not None
     assert affinity_result.comparison.target_id == "low"
     assert affinity_result.comparison_policy == "mix_to_genre"
+    assert affinity_result.closest_profile_status == "clear"
+    assert mix_result.genre_affinity[0].distance_unit == "dB"
+    assert mix_result.genre_affinity[0].clear is True
+    assert mix_result.genre_affinity[0].separation_db >= 1.0
+    assert mix_result.genre_affinity[1].separation_db is None
+    assert 0.0 <= mix_result.genre_affinity[0].bands_within_range_share <= 1.0
     assert mix_result.genre_affinity[0].basis == [
         "loudness_relative_spectrum"
     ]
@@ -669,3 +676,51 @@ def test_genre_affinity_ranks_profiles_without_classifying_the_track(
     ]
     assert master_result.genre_affinity[0].numeric_distance is not None
     assert "not a genre classification" in master_result.genre_affinity_notice
+
+
+def test_pooled_profile_is_the_fallback_when_no_genre_is_clearly_nearest(
+    tmp_path: Path,
+) -> None:
+    subject_path = tmp_path / "subject.wav"
+    _tone(subject_path, 100.0)
+    sources = []
+    for index, frequency in enumerate((90.0, 100.0, 110.0)):
+        path = tmp_path / f"src-{index}.wav"
+        _tone(path, frequency)
+        sources.append(path)
+    twin_a = build_genre_profile("twina", "Twin A", sources)
+    twin_b = build_genre_profile("twinb", "Twin B", sources)
+    pooled = build_genre_profile("released", "Released masters (all genres)", sources)
+    pooled["role"] = "pooled"
+
+    result = MixAnalysisResponse.model_validate(
+        analyze_mix(
+            subject_path,
+            subject_path.name,
+            genre_profiles=[twin_a, twin_b, pooled],
+            use_closest_profile=True,
+            analysis_stage="mix",
+        )
+    )
+
+    # The pooled profile never takes part in the genre ranking.
+    assert [item.profile_id for item in result.genre_affinity] == ["twina", "twinb"]
+    assert result.closest_profile_status == "ambiguous"
+    assert result.mode == "pooled"
+    assert result.recommendation_basis == "pooled_profile"
+    assert result.comparison is not None
+    assert result.comparison.target_id == "released"
+    assert "no single genre profile is clearly nearest" in result.summary
+    assert any("pooled released-masters profile was used" in item for item in result.limitations)
+
+    without_pooled = MixAnalysisResponse.model_validate(
+        analyze_mix(
+            subject_path,
+            subject_path.name,
+            genre_profiles=[twin_a, twin_b],
+            use_closest_profile=True,
+            analysis_stage="mix",
+        )
+    )
+    assert without_pooled.mode == "general"
+    assert without_pooled.comparison is None

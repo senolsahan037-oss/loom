@@ -504,7 +504,7 @@ TOOLS = [
     },
     {
         "name": "mix_analyze",
-        "description": "Full Mix Check of one audio file: the measurements of mix_measure plus one-third-octave spectrum, tonal map with key candidate, noise floor, section summaries, mono fold-down compatibility, and evidence-backed findings. Optionally compared against a reference file or one of the stored Genre Profiles (measured from released masters: electronic, hiphop, jazz, metal, pop, rock); use_closest_profile ranks the track by technical proximity, which is not a genre classification and is labelled as such. Findings only appear when a measurement is actually outside the comparison range; limitations are listed with every result.",
+        "description": "Full Mix Check of one audio file: the measurements of mix_measure plus one-third-octave spectrum, tonal map with key candidate, noise floor, section summaries, mono fold-down compatibility, and evidence-backed findings. Optionally compared against a reference file or one of the stored Genre Profiles (hiphop, trap, electronic, pop, rock; each built from 20 of the most widely known released masters of the genre, measured locally, audio not retained); use_closest_profile ranks the track by technical distance in dB, which is not a genre classification, and uses the nearest genre profile as a correction target only when it leads the runner-up by at least 1 dB (closest_profile_status); otherwise the track is compared with the pooled released-masters profile (mode: pooled). Findings only appear when a measurement is actually outside the comparison range; limitations are listed with every result.",
         "inputSchema": {
             "type": "object",
             "properties": {

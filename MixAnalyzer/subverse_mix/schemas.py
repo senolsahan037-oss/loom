@@ -183,9 +183,13 @@ class GenreAffinity(BaseModel):
     profile_name: str
     rank: int
     distance: float
+    distance_unit: str = "dB"
     spectral_distance: float
     numeric_distance: Optional[float] = None
+    bands_within_range_share: Optional[float] = None
     basis: list[ComparisonMetric]
+    separation_db: Optional[float] = None
+    clear: bool = False
 
 
 class FindingEvidence(BaseModel):
@@ -217,8 +221,8 @@ class MixFinding(BaseModel):
 
 class MixAnalysisResponse(BaseModel):
     mix_contract_version: Literal["2026-07-29.mix.2"]
-    finding_policy_version: Literal["2026-08-02.findings.2"]
-    mode: Literal["general", "reference", "genre", "affinity"]
+    finding_policy_version: Literal["2026-09-13.findings.3"]
+    mode: Literal["general", "reference", "genre", "affinity", "pooled"]
     analysis_stage: AnalysisStage
     reference_stage: Optional[AnalysisStage] = None
     comparison_policy: ComparisonPolicy
@@ -227,9 +231,12 @@ class MixAnalysisResponse(BaseModel):
     summary: str
     selected_genre: Optional[str] = None
     recommendation_basis: Optional[
-        Literal["reference", "genre", "closest_profile"]
+        Literal["reference", "genre", "closest_profile", "pooled_profile"]
     ] = None
     genre_affinity: list[GenreAffinity]
+    closest_profile_status: Literal[
+        "not_requested", "unavailable", "clear", "ambiguous"
+    ] = "not_requested"
     genre_affinity_notice: str
     mix: MixFeatureSet
     comparison: Optional[MixComparison] = None
@@ -242,6 +249,7 @@ class GenreProfileSummary(BaseModel):
     id: str
     name: str
     source_count: int
+    role: Optional[Literal["genre", "pooled"]] = "genre"
     measurement_contract: Literal["2026-07-29.mix.2"]
 
 

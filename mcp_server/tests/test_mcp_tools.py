@@ -400,7 +400,7 @@ def main():
 
         is_error, payload = server.tool("mix_profiles")
 
-        check("mix_profiles lists the stored genre profiles", not is_error and len(payload.get("profiles") or []) >= 6, payload)
+        check("mix_profiles lists the five reference genre profiles plus the pooled released-masters profile (rebuilt 2026-09-13 from well-known released masters)", not is_error and sorted(x["id"] for x in (payload.get("profiles") or [])) == ["electronic", "hiphop", "pop", "released", "rock", "trap"], payload)
 
         try:
 
@@ -426,7 +426,7 @@ def main():
 
             check("mix_analyze compares a master against the nearest profile and says it is not a classification",
 
-                  not is_error and payload.get("mode") in ("affinity", "general") and "not a genre classification" in str(payload.get("genre_affinity_notice")), payload if is_error else payload.get("mode"))
+                  not is_error and payload.get("mode") in ("affinity", "pooled", "general") and "not a genre classification" in str(payload.get("genre_affinity_notice")), payload if is_error else payload.get("mode"))
 
             check("the waveform envelope is omitted unless asked", (payload.get("mix") or {}).get("waveform", {}).get("omitted") is True, (payload.get("mix") or {}).get("waveform"))
 

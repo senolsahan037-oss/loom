@@ -1,0 +1,536 @@
+{
+  "version": 1,
+  "selection": "The most widely known released masters per genre, chosen by hand on 2026-09-13; mostly streaming-era releases with a few defining classics. Only aggregate measurements and this list are retained; audio is deleted after measurement.",
+  "genres": [
+    {
+      "id": "hiphop",
+      "name": "Hip-Hop",
+      "tracks": [
+        {
+          "artist": "Kendrick Lamar",
+          "title": "HUMBLE.",
+          "year": 2017
+        },
+        {
+          "artist": "Drake",
+          "title": "God's Plan",
+          "year": 2018
+        },
+        {
+          "artist": "Eminem",
+          "title": "Lose Yourself",
+          "year": 2002
+        },
+        {
+          "artist": "JAY-Z",
+          "title": "99 Problems",
+          "year": 2003
+        },
+        {
+          "artist": "Kanye West",
+          "title": "Stronger",
+          "year": 2007
+        },
+        {
+          "artist": "50 Cent",
+          "title": "In Da Club",
+          "year": 2003
+        },
+        {
+          "artist": "Dr. Dre",
+          "title": "Still D.R.E.",
+          "year": 1999
+        },
+        {
+          "artist": "Nas",
+          "title": "N.Y. State of Mind",
+          "year": 1994
+        },
+        {
+          "artist": "The Notorious B.I.G.",
+          "title": "Juicy",
+          "year": 1994
+        },
+        {
+          "artist": "2Pac",
+          "title": "California Love",
+          "year": 1995
+        },
+        {
+          "artist": "Outkast",
+          "title": "Ms. Jackson",
+          "year": 2000
+        },
+        {
+          "artist": "Missy Elliott",
+          "title": "Work It",
+          "year": 2002
+        },
+        {
+          "artist": "Lil Wayne",
+          "title": "A Milli",
+          "year": 2008
+        },
+        {
+          "artist": "J. Cole",
+          "title": "No Role Modelz",
+          "year": 2014
+        },
+        {
+          "artist": "Cardi B",
+          "title": "Bodak Yellow",
+          "year": 2017
+        },
+        {
+          "artist": "Nicki Minaj",
+          "title": "Super Bass",
+          "year": 2011
+        },
+        {
+          "artist": "Snoop Dogg",
+          "title": "Drop It Like It's Hot",
+          "year": 2004
+        },
+        {
+          "artist": "Wu-Tang Clan",
+          "title": "C.R.E.A.M.",
+          "year": 1993
+        },
+        {
+          "artist": "Kendrick Lamar",
+          "title": "Alright",
+          "year": 2015
+        },
+        {
+          "artist": "Drake",
+          "title": "Nonstop",
+          "year": 2018
+        }
+      ]
+    },
+    {
+      "id": "trap",
+      "name": "Trap",
+      "tracks": [
+        {
+          "artist": "Future",
+          "title": "Mask Off",
+          "year": 2017
+        },
+        {
+          "artist": "Migos",
+          "title": "Bad and Boujee",
+          "year": 2016
+        },
+        {
+          "artist": "Travis Scott",
+          "title": "SICKO MODE",
+          "year": 2018
+        },
+        {
+          "artist": "Lil Uzi Vert",
+          "title": "XO Tour Llif3",
+          "year": 2017
+        },
+        {
+          "artist": "21 Savage",
+          "title": "a lot",
+          "year": 2018
+        },
+        {
+          "artist": "Playboi Carti",
+          "title": "Magnolia",
+          "year": 2017
+        },
+        {
+          "artist": "Lil Baby",
+          "title": "Drip Too Hard",
+          "year": 2018
+        },
+        {
+          "artist": "Young Thug",
+          "title": "Best Friend",
+          "year": 2015
+        },
+        {
+          "artist": "Roddy Ricch",
+          "title": "The Box",
+          "year": 2019
+        },
+        {
+          "artist": "Juice WRLD",
+          "title": "Lucid Dreams",
+          "year": 2018
+        },
+        {
+          "artist": "XXXTENTACION",
+          "title": "SAD!",
+          "year": 2018
+        },
+        {
+          "artist": "Lil Pump",
+          "title": "Gucci Gang",
+          "year": 2017
+        },
+        {
+          "artist": "Kodak Black",
+          "title": "Tunnel Vision",
+          "year": 2017
+        },
+        {
+          "artist": "Travis Scott",
+          "title": "goosebumps",
+          "year": 2016
+        },
+        {
+          "artist": "Future",
+          "title": "Life Is Good",
+          "year": 2020
+        },
+        {
+          "artist": "21 Savage",
+          "title": "Bank Account",
+          "year": 2017
+        },
+        {
+          "artist": "Lil Uzi Vert",
+          "title": "Just Wanna Rock",
+          "year": 2022
+        },
+        {
+          "artist": "Migos",
+          "title": "Walk It Talk It",
+          "year": 2018
+        },
+        {
+          "artist": "Post Malone",
+          "title": "rockstar",
+          "year": 2017
+        },
+        {
+          "artist": "Metro Boomin",
+          "title": "Creepin'",
+          "year": 2022
+        }
+      ]
+    },
+    {
+      "id": "electronic",
+      "name": "Electronic",
+      "tracks": [
+        {
+          "artist": "Daft Punk",
+          "title": "One More Time",
+          "year": 2000
+        },
+        {
+          "artist": "Avicii",
+          "title": "Levels",
+          "year": 2011
+        },
+        {
+          "artist": "Swedish House Mafia",
+          "title": "Don't You Worry Child",
+          "year": 2012
+        },
+        {
+          "artist": "Calvin Harris",
+          "title": "Feel So Close",
+          "year": 2011
+        },
+        {
+          "artist": "deadmau5",
+          "title": "Strobe",
+          "year": 2009
+        },
+        {
+          "artist": "Skrillex",
+          "title": "Bangarang",
+          "year": 2011
+        },
+        {
+          "artist": "The Chemical Brothers",
+          "title": "Galvanize",
+          "year": 2005
+        },
+        {
+          "artist": "Fatboy Slim",
+          "title": "Right Here, Right Now",
+          "year": 1999
+        },
+        {
+          "artist": "The Prodigy",
+          "title": "Firestarter",
+          "year": 1996
+        },
+        {
+          "artist": "Martin Garrix",
+          "title": "Animals",
+          "year": 2013
+        },
+        {
+          "artist": "David Guetta",
+          "title": "Titanium",
+          "year": 2011
+        },
+        {
+          "artist": "Zedd",
+          "title": "Clarity",
+          "year": 2012
+        },
+        {
+          "artist": "Disclosure",
+          "title": "Latch",
+          "year": 2012
+        },
+        {
+          "artist": "Eric Prydz",
+          "title": "Opus",
+          "year": 2015
+        },
+        {
+          "artist": "Justice",
+          "title": "D.A.N.C.E.",
+          "year": 2007
+        },
+        {
+          "artist": "Flume",
+          "title": "Never Be Like You",
+          "year": 2016
+        },
+        {
+          "artist": "Underworld",
+          "title": "Born Slippy .NUXX",
+          "year": 1995
+        },
+        {
+          "artist": "Marshmello",
+          "title": "Alone",
+          "year": 2016
+        },
+        {
+          "artist": "Kygo",
+          "title": "Firestone",
+          "year": 2014
+        },
+        {
+          "artist": "Fred again..",
+          "title": "Marea (We've Lost Dancing)",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "id": "pop",
+      "name": "Pop",
+      "tracks": [
+        {
+          "artist": "Michael Jackson",
+          "title": "Billie Jean",
+          "year": 1982
+        },
+        {
+          "artist": "Taylor Swift",
+          "title": "Shake It Off",
+          "year": 2014
+        },
+        {
+          "artist": "The Weeknd",
+          "title": "Blinding Lights",
+          "year": 2019
+        },
+        {
+          "artist": "Dua Lipa",
+          "title": "Levitating",
+          "year": 2020
+        },
+        {
+          "artist": "Ariana Grande",
+          "title": "7 rings",
+          "year": 2019
+        },
+        {
+          "artist": "Britney Spears",
+          "title": "...Baby One More Time",
+          "year": 1998
+        },
+        {
+          "artist": "Lady Gaga",
+          "title": "Bad Romance",
+          "year": 2009
+        },
+        {
+          "artist": "Katy Perry",
+          "title": "Teenage Dream",
+          "year": 2010
+        },
+        {
+          "artist": "Mark Ronson",
+          "title": "Uptown Funk",
+          "year": 2014
+        },
+        {
+          "artist": "Ed Sheeran",
+          "title": "Shape of You",
+          "year": 2017
+        },
+        {
+          "artist": "Adele",
+          "title": "Rolling in the Deep",
+          "year": 2010
+        },
+        {
+          "artist": "Billie Eilish",
+          "title": "bad guy",
+          "year": 2019
+        },
+        {
+          "artist": "Harry Styles",
+          "title": "As It Was",
+          "year": 2022
+        },
+        {
+          "artist": "Beyoncé",
+          "title": "Halo",
+          "year": 2008
+        },
+        {
+          "artist": "Justin Bieber",
+          "title": "Sorry",
+          "year": 2015
+        },
+        {
+          "artist": "Rihanna",
+          "title": "Umbrella",
+          "year": 2007
+        },
+        {
+          "artist": "Olivia Rodrigo",
+          "title": "good 4 u",
+          "year": 2021
+        },
+        {
+          "artist": "Madonna",
+          "title": "Like a Prayer",
+          "year": 1989
+        },
+        {
+          "artist": "Sabrina Carpenter",
+          "title": "Espresso",
+          "year": 2024
+        },
+        {
+          "artist": "Miley Cyrus",
+          "title": "Flowers",
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "id": "rock",
+      "name": "Rock",
+      "tracks": [
+        {
+          "artist": "Nirvana",
+          "title": "Smells Like Teen Spirit",
+          "year": 1991
+        },
+        {
+          "artist": "Queen",
+          "title": "Bohemian Rhapsody",
+          "year": 1975
+        },
+        {
+          "artist": "AC/DC",
+          "title": "Back In Black",
+          "year": 1980
+        },
+        {
+          "artist": "Led Zeppelin",
+          "title": "Whole Lotta Love",
+          "year": 1969
+        },
+        {
+          "artist": "Foo Fighters",
+          "title": "Everlong",
+          "year": 1997
+        },
+        {
+          "artist": "Red Hot Chili Peppers",
+          "title": "Californication",
+          "year": 1999
+        },
+        {
+          "artist": "Arctic Monkeys",
+          "title": "Do I Wanna Know?",
+          "year": 2013
+        },
+        {
+          "artist": "The Strokes",
+          "title": "Last Nite",
+          "year": 2001
+        },
+        {
+          "artist": "Green Day",
+          "title": "Basket Case",
+          "year": 1994
+        },
+        {
+          "artist": "Radiohead",
+          "title": "Creep",
+          "year": 1992
+        },
+        {
+          "artist": "Linkin Park",
+          "title": "In the End",
+          "year": 2000
+        },
+        {
+          "artist": "The White Stripes",
+          "title": "Seven Nation Army",
+          "year": 2003
+        },
+        {
+          "artist": "Metallica",
+          "title": "Enter Sandman",
+          "year": 1991
+        },
+        {
+          "artist": "Guns N' Roses",
+          "title": "Sweet Child O' Mine",
+          "year": 1987
+        },
+        {
+          "artist": "Pearl Jam",
+          "title": "Alive",
+          "year": 1991
+        },
+        {
+          "artist": "Oasis",
+          "title": "Wonderwall",
+          "year": 1995
+        },
+        {
+          "artist": "The Killers",
+          "title": "Mr. Brightside",
+          "year": 2004
+        },
+        {
+          "artist": "Muse",
+          "title": "Uprising",
+          "year": 2009
+        },
+        {
+          "artist": "Imagine Dragons",
+          "title": "Believer",
+          "year": 2017
+        },
+        {
+          "artist": "Rage Against the Machine",
+          "title": "Killing In the Name",
+          "year": 1992
+        }
+      ]
+    }
+  ]
+}

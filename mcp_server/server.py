@@ -2765,7 +2765,7 @@ def handle_mix_profiles(_args: dict[str, Any]) -> dict[str, Any]:
     mix = _mix_module()
     store = mix.GenreProfileStore(mix.DEFAULT_PROFILES_PATH)
     return {"profiles": store.list(), "catalog": str(mix.DEFAULT_PROFILES_PATH),
-            "notice": "Profiles are technical measurement distributions of released masters, not genre definitions."}
+            "notice": "Profiles are technical measurement distributions of 20 well-known released masters per genre (provenance lists them), not genre definitions; use_closest_profile only uses a profile as a target when it leads by at least 1 dB."}
 
 
 def handle_mix_analyze(args: dict[str, Any]) -> dict[str, Any]:

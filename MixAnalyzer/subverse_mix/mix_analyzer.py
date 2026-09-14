@@ -10,11 +10,16 @@ from scipy.signal import welch
 from .analyzer import _load_audio, analyze_decoded_audio
 
 MIX_CONTRACT_VERSION = "2026-07-29.mix.2"
-FINDING_POLICY_VERSION = "2026-08-02.findings.2"
+FINDING_POLICY_VERSION = "2026-09-13.findings.3"
 WAVEFORM_CONTRACT_VERSION = "2026-07-30.waveform.1"
 WAVEFORM_MAX_BINS = 1200
 SIGNIFICANT_SPECTRAL_DELTA_DB = 2.0
 MIN_SIGNIFICANT_BAND_COUNT = 2
+# Nearest-profile guidance is produced only when the nearest profile is at
+# least this much closer (in dB) than the runner-up; otherwise the ranking is
+# shown but no profile is used as a correction target.
+AFFINITY_MIN_SEPARATION_DB = 1.0
+MIN_AFFINITY_BAND_COUNT = 8
 SPECTRAL_RELEVANCE_FLOOR_DB = -50.0
 SPECTRAL_ACTIVITY_FLOOR_DBFS = -70.0
 MONO_LOSS_DETECTION_THRESHOLD_DB = -4.0
@@ -575,6 +580,15 @@ def _genre_affinity(
     profiles: Iterable[Dict[str, Any]],
     analysis_stage: str,
 ) -> List[Dict[str, Any]]:
+    """Rank stored profiles by technical distance to the subject, in dB.
+
+    Distance is measured against each profile's median only. It is never
+    divided by the profile's spread: a profile built from heterogeneous
+    sources has a wide interquartile range, and a spread-normalised distance
+    would make that profile look close to every track. The share of bands
+    that fall inside the profile's p25-p75 range is reported separately as a
+    disclosure, not as part of the ranking.
+    """
     subject_bands = _relative_band_map(feature_set)
     subject_analysis = feature_set["analysis"]
     subject_numeric = {
@@ -586,26 +600,32 @@ def _genre_affinity(
     affinities: List[Dict[str, Any]] = []
 
     for profile in profiles:
+        if profile.get("role") == "pooled":
+            continue  # the pooled released-masters profile is a fallback, not a genre
         profile_bands = _profile_band_map(profile)
         profile_ranges = _profile_band_ranges(profile)
-        spectral_distances = []
+        spectral_deviations: List[float] = []
+        within_range = 0
         for center, subject_band in subject_bands.items():
             median = profile_bands.get(center)
+            if median is None:
+                continue
+            value = float(subject_band["loudness_relative_db"])
+            spectral_deviations.append(value - median)
             measured_range = profile_ranges.get(center)
-            if median is None or measured_range is None:
-                continue
-            width = measured_range[1] - measured_range[0]
-            if width <= 0:
-                continue
-            spectral_distances.append(
-                abs(float(subject_band["loudness_relative_db"]) - median) / width
-            )
-        if not spectral_distances:
+            if (
+                measured_range is not None
+                and measured_range[0] <= value <= measured_range[1]
+            ):
+                within_range += 1
+        if len(spectral_deviations) < MIN_AFFINITY_BAND_COUNT:
             continue
 
-        spectral_distance = float(np.median(spectral_distances))
+        spectral_distance = float(
+            np.sqrt(np.mean(np.square(spectral_deviations)))
+        )
         basis = ["loudness_relative_spectrum"]
-        numeric_distances: List[float] = []
+        numeric_deviations: List[float] = []
         if analysis_stage == "master":
             distributions = profile.get("master_metric_distributions", {})
             for metric, subject_value in subject_numeric.items():
@@ -618,29 +638,40 @@ def _genre_affinity(
                     or median is None
                     or p25 is None
                     or p75 is None
+                    or float(p75) - float(p25) <= 0
                 ):
+                    # A zero-width distribution carries no measured spread and
+                    # is not used, matching the numeric finding policy.
                     continue
-                width = float(p75) - float(p25)
-                if width <= 0:
-                    continue
-                numeric_distances.append(
-                    abs(float(subject_value) - float(median)) / width
+                numeric_deviations.append(
+                    abs(float(subject_value) - float(median))
                 )
                 basis.append(metric)
 
-        components = [spectral_distance, *numeric_distances]
+        numeric_distance = (
+            None
+            if not numeric_deviations
+            else float(np.mean(numeric_deviations))
+        )
+        components = [spectral_distance]
+        if numeric_distance is not None:
+            components.append(numeric_distance)
         affinities.append(
             {
                 "profile_id": profile["id"],
                 "profile_name": profile["name"],
-                "distance": round(float(np.median(components)), 4),
+                "distance": round(float(np.mean(components)), 4),
+                "distance_unit": "dB",
                 "spectral_distance": round(spectral_distance, 4),
                 "numeric_distance": (
-                    None
-                    if not numeric_distances
-                    else round(float(np.median(numeric_distances)), 4)
+                    None if numeric_distance is None else round(numeric_distance, 4)
+                ),
+                "bands_within_range_share": round(
+                    within_range / len(spectral_deviations), 3
                 ),
                 "basis": basis,
+                "separation_db": None,
+                "clear": False,
             }
         )
 
@@ -649,6 +680,15 @@ def _genre_affinity(
     )
     for rank, affinity in enumerate(affinities, start=1):
         affinity["rank"] = rank
+    if affinities:
+        if len(affinities) == 1:
+            # A single stored profile cannot be "nearest" to anything.
+            affinities[0]["separation_db"] = None
+            affinities[0]["clear"] = False
+        else:
+            separation = affinities[1]["distance"] - affinities[0]["distance"]
+            affinities[0]["separation_db"] = round(float(separation), 4)
+            affinities[0]["clear"] = separation >= AFFINITY_MIN_SEPARATION_DB
     return affinities
 
 
@@ -1263,11 +1303,13 @@ def analyze_mix(
         analysis_stage,
     )
     comparison_profile = genre_profile
+    pooled_fallback = False
     if (
         reference_path is None
         and comparison_profile is None
         and use_closest_profile
         and genre_affinity
+        and genre_affinity[0]["clear"]
     ):
         nearest_profile_id = genre_affinity[0]["profile_id"]
         comparison_profile = next(
@@ -1278,6 +1320,22 @@ def analyze_mix(
             ),
             None,
         )
+    elif (
+        reference_path is None
+        and comparison_profile is None
+        and use_closest_profile
+    ):
+        # No genre is clearly nearest: compare with released masters in
+        # general rather than with a genre the track may not belong to.
+        comparison_profile = next(
+            (
+                profile
+                for profile in affinity_profiles
+                if profile.get("role") == "pooled"
+            ),
+            None,
+        )
+        pooled_fallback = comparison_profile is not None
     comparison: Optional[Dict[str, Any]] = None
     mode = "general"
     comparison_policy, compared_metrics, excluded_metrics = _comparison_policy(
@@ -1296,7 +1354,12 @@ def analyze_mix(
         mode = "reference"
     elif comparison_profile is not None:
         comparison = _genre_comparison(mix, comparison_profile, compared_metrics)
-        mode = "genre" if genre_profile is not None else "affinity"
+        if genre_profile is not None:
+            mode = "genre"
+        elif pooled_fallback:
+            mode = "pooled"
+        else:
+            mode = "affinity"
 
     compared_metrics, excluded_metrics = _remove_unavailable_metrics(
         compared_metrics,
@@ -1324,6 +1387,14 @@ def analyze_mix(
             analysis_stage,
         )
     )
+    if not use_closest_profile or reference_path is not None or genre_profile is not None:
+        closest_profile_status = "not_requested"
+    elif not genre_affinity:
+        closest_profile_status = "unavailable"
+    elif genre_affinity[0]["clear"]:
+        closest_profile_status = "clear"
+    else:
+        closest_profile_status = "ambiguous"
     stage_name = "Mix" if analysis_stage == "mix" else "Master"
     if mode == "reference":
         summary = (
@@ -1337,11 +1408,28 @@ def analyze_mix(
             "built from measured released tracks, using stage-appropriate "
             "measurements."
         )
+    elif mode == "pooled":
+        nearest_text = (
+            f" The nearest genre profile, {genre_affinity[0]['profile_name']}, "
+            f"led by only {genre_affinity[0]['separation_db']:.2f} dB."
+            if genre_affinity and genre_affinity[0]["separation_db"] is not None
+            else ""
+        )
+        summary = (
+            "No Genre Profile was selected and no single genre profile is "
+            f"clearly nearest, so the {stage_name} was compared with "
+            f"{comparison['target_name']}: {comparison_profile['source_count']} "
+            "well-known released masters across all stored genres."
+            + nearest_text
+        )
     elif mode == "affinity":
         summary = (
             "No Genre Profile was selected. The technically nearest measured "
-            f"profile was {comparison['target_name']}, and {analysis_stage} "
-            "guidance was generated from that profile."
+            f"profile was {comparison['target_name']} "
+            f"({genre_affinity[0]['distance']:.1f} dB away, "
+            f"{genre_affinity[0]['separation_db']:.1f} dB ahead of the next "
+            f"profile), and {analysis_stage} guidance was generated from that "
+            "profile."
         )
     else:
         summary = (
@@ -1384,6 +1472,20 @@ def analyze_mix(
                 "Measured differences did not cross the finding threshold; no "
                 "correction was suggested."
             )
+    elif mode == "pooled":
+        limitations.append(
+            (
+                "The pooled profile spans every stored genre, so its spectral "
+                "range is wide: a difference reported here is large even for "
+                "released masters in general. Select a Genre Profile for a "
+                "narrower comparison."
+            )
+        )
+        if not findings:
+            limitations.append(
+                "Measurements produced no finding outside the pooled "
+                "released-master distribution; no correction was suggested."
+            )
     elif mode == "genre":
         limitations.append(
             (
@@ -1402,6 +1504,21 @@ def analyze_mix(
                 "The nearest profile reports technical distance only among "
                 "stored Genre Profiles; it is not a genre classification."
             )
+        )
+    if closest_profile_status == "ambiguous":
+        nearest = genre_affinity[0]
+        limitations.insert(
+            0,
+            (
+                f"No stored profile is clearly nearest: {nearest['profile_name']} "
+                f"leads by only {nearest['separation_db']:.2f} dB (minimum "
+                f"{AFFINITY_MIN_SEPARATION_DB:.1f} dB). The ranking is shown"
+                + (
+                    "; the pooled released-masters profile was used instead."
+                    if mode == "pooled"
+                    else ", but no profile was used as a correction target."
+                )
+            ),
         )
         limitations.append(
             (
@@ -1432,10 +1549,13 @@ def analyze_mix(
             else (
                 "closest_profile"
                 if mode == "affinity"
+                else "pooled_profile"
+                if mode == "pooled"
                 else comparison["source"]
             )
         ),
         "genre_affinity": genre_affinity,
+        "closest_profile_status": closest_profile_status,
         "genre_affinity_notice": (
             "This is not a genre classification. The track is ranked only by "
             "technical proximity to stored measurement profiles."

@@ -190,6 +190,7 @@ class GenreProfileStore:
                 "name": profile["name"],
                 "source_count": profile["source_count"],
                 "measurement_contract": profile["measurement_contract"],
+                "role": profile.get("role", "genre"),
             }
             for profile in self._read()["profiles"]
         ]
