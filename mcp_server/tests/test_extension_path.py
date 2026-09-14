@@ -208,16 +208,35 @@ try:
         shutil.rmtree(fake_data, ignore_errors=True)
 
     # ---- 8) midi_generate: offline suggestion vs live target -------------------
+    # The Sensei corpus is built from the user's own Ableton install and is
+    # never in the repository. With it, the checks below prove the write path;
+    # on a clean checkout (CI) they prove the fail-closed path instead: every
+    # clip write is blocked with dataset_release_invalid, nothing is written,
+    # tempo and locators are still applied and verified. Neither shape is
+    # counted as the other.
+    probe = server.dispatch_tool("midi_generate", {"role": "bass", "genre": "Trap", "bars": 2})
+    bass_corpus = bool(probe.get("generation_safe"))
+    if not bass_corpus:
+        print("  --  no Sensei corpus on this machine (%s): write-path checks assert the fail-closed shape instead" % probe.get("error"))
+
+    def either(label, with_corpus, without_corpus, detail=""):
+        if bass_corpus:
+            check(label, with_corpus(), detail)
+        else:
+            check(label + "  [no corpus: blocked with dataset_release_invalid, nothing written]", without_corpus(), detail)
+
     generated = server.dispatch_tool("midi_generate", {"role": "drum", "genre": "Trap", "bars": 2})
     check("a drum part without pad evidence is an offline suggestion, not writable",
           generated.get("writable_to_live") is False and generated.get("target_evidence") == "assumed_general_midi_pads", {k: generated.get(k) for k in ("writable_to_live", "target_evidence", "error")})
     generated = server.dispatch_tool("midi_generate", {"role": "drum", "genre": "Trap", "bars": 2, "pad_notes": [36, 38, 42, 46]})
     check("with pad notes from Live the part is writable", generated.get("writable_to_live") is True and generated.get("target_evidence") == "live_drum_rack_pads", generated.get("error"))
     generated = server.dispatch_tool("midi_generate", {"role": "drum", "genre": "Trap", "bars": 2, "auto_write_to_live": True})
-    check("auto-write of an unverified drum part is BLOCKED, not attempted", (generated.get("bridge_write_status") or {}).get("status") == "BLOCKED", generated.get("bridge_write_status"))
+    either("auto-write of an unverified drum part is BLOCKED, not attempted",
+           lambda: (generated.get("bridge_write_status") or {}).get("status") == "BLOCKED",
+           lambda: (generated.get("bridge_write_status") or {}).get("status") == "NOT_WRITTEN"
+           and "dataset_release_invalid" in str((generated.get("bridge_write_status") or {}).get("reason")), generated.get("bridge_write_status") or generated)
     waltz = server.dispatch_tool("midi_generate", {"role": "bass", "genre": "Trap", "bars": 2, "beats_per_bar": 3})
-    bass_corpus = bool(waltz.get("generation_safe"))
-    if bass_corpus:
+    if waltz.get("generation_safe"):
         check("beats_per_bar sizes the generated clip", waltz["payload"]["clip_length"] == 6.0, waltz["payload"]["clip_length"])
     else:
         print("  --  beats_per_bar clip-length check skipped: no bass corpus on this machine (%s)" % waltz.get("error"))
@@ -249,23 +268,26 @@ try:
         answer = server.dispatch_tool("project_build", {"plan_path": str(fixture_plan), "dry_run": False, "wait_seconds": 5})
         applied = bridge.live.applied
         first_clip = applied.index("write_arrangement_clip") if "write_arrangement_clip" in applied else -1
-        check("the build writes in order: tempo, tracks, clips, locators",
-              applied and applied[0] == "set_tempo" and all(op == "create_midi_track" for op in applied[1:4]) and first_clip > 0
-              and all(op != "create_midi_track" for op in applied[first_clip:]) and applied[-1] == "create_locator" and "create_locator" not in applied[:first_clip], applied)
+        either("the build writes in order: tempo, tracks, clips, locators",
+               lambda: applied and applied[0] == "set_tempo" and all(op == "create_midi_track" for op in applied[1:4]) and first_clip > 0
+               and all(op != "create_midi_track" for op in applied[first_clip:]) and applied[-1] == "create_locator" and "create_locator" not in applied[:first_clip],
+               lambda: applied and applied[0] == "set_tempo" and all(op == "create_midi_track" for op in applied[1:4]) and first_clip == -1 and applied[-1] == "create_locator", applied)
         by_track = {}
         for write in answer["writes"]:
             by_track.setdefault(write["track"], []).append(write["status"])
-        check("bass parts are written with a verified instrument; drums are blocked because an inserted Drum Rack is empty (no kit resolved)",
-              set(by_track.get("BASS", [])) == {"OK"} and set(by_track.get("KICK", [])) == {"blocked"} and all("drum_rack_not_verified" in w.get("reason", "") for w in answer["writes"] if w["track"] == "KICK"), by_track)
+        either("bass parts are written with a verified instrument; drums are blocked because an inserted Drum Rack is empty (no kit resolved)",
+               lambda: set(by_track.get("BASS", [])) == {"OK"} and set(by_track.get("KICK", [])) == {"blocked"} and all("drum_rack_not_verified" in w.get("reason", "") for w in answer["writes"] if w["track"] == "KICK"),
+               lambda: set(by_track.get("BASS", [])) == {"blocked"} and all("dataset_release_invalid" in w.get("reason", "") for w in answer["writes"] if w["track"] == "BASS"), by_track)
         check("a track whose instrument could not be loaded gets blocked writes, not silent ones",
               set(by_track.get("PAD", [])) == {"blocked"} and all("instrument_not_loaded" in w.get("reason", "") for w in answer["writes"] if w["track"] == "PAD"), by_track)
         check("the song key step is reported unsupported, never attempted", not any(op == "set_key" for op in applied) and any(s["kind"] == "key" and s["outcome"] == "UNSUPPORTED_BY_SDK" for s in answer["session_steps"]))
         check("locators and tempo are verified from a read-back", all(s.get("verified") for s in answer["session_steps"] if s["kind"] in ("locator", "tempo")), answer["session_steps"])
-        check("the overall status is partial (one track blocked)", answer["status"] == "partial", answer["status"])
+        either("the overall status is partial (one track blocked)", lambda: answer["status"] == "partial", lambda: answer["status"] == "blocked", answer["status"])
         check("Turkish characters in the project name survive", answer["project"]["name"] == "Küçük Şarkı")
         again = server.dispatch_tool("project_build", {"plan_path": str(fixture_plan), "dry_run": False, "wait_seconds": 5})
-        check("rebuilding the same plan replays instead of stacking clips",
-              len(bridge.live.track("BASS")["arrangement"]) == 2 and all(w.get("replayed") for w in again["writes"] if w["track"] == "BASS"), (len(bridge.live.track("BASS")["arrangement"]), [w.get("replayed") for w in again["writes"]]))
+        either("rebuilding the same plan replays instead of stacking clips",
+               lambda: len(bridge.live.track("BASS")["arrangement"]) == 2 and all(w.get("replayed") for w in again["writes"] if w["track"] == "BASS"),
+               lambda: len(bridge.live.track("BASS")["arrangement"]) == 0 and again["status"] == "blocked", (len(bridge.live.track("BASS")["arrangement"]), [w.get("replayed") for w in again["writes"]]))
     reset_root()
     with FakeExtensionBridge(BRIDGE_ROOT, FakeSet(), swallow=True) as bridge:
         answer = server.dispatch_tool("project_build", {"plan_path": str(fixture_plan), "dry_run": False, "wait_seconds": 0.5})
@@ -370,9 +392,11 @@ try:
         first = server.dispatch_tool("project_build", {"plan_path": str(same_name_a), "dry_run": False, "wait_seconds": 5})
         second = server.dispatch_tool("project_build", {"plan_path": str(same_name_b), "dry_run": False, "wait_seconds": 5})
         bass_clips = bridge.live.track("BASS")["arrangement"]
-        check("two different plans with the same file name get different build keys and both build",
-              first["status"] == "partial" and second["status"] == "partial" and not any(w.get("replayed") for w in second["writes"])
-              and [c["name"] for c in bass_clips] == ["Intro", "Hook", "Intro B", "Hook B"], (first["status"], second["status"], [c["name"] for c in bass_clips], second["totals"]))
+        either("two different plans with the same file name get different build keys and both build",
+               lambda: first["status"] == "partial" and second["status"] == "partial" and not any(w.get("replayed") for w in second["writes"])
+               and [c["name"] for c in bass_clips] == ["Intro", "Hook", "Intro B", "Hook B"],
+               lambda: first["status"] == "blocked" and second["status"] == "blocked" and not any(w.get("replayed") for w in second["writes"]) and bass_clips == [],
+               (first["status"], second["status"], [c["name"] for c in bass_clips], second["totals"]))
     shutil.rmtree(plan_dir_a, ignore_errors=True)
     shutil.rmtree(plan_dir_b, ignore_errors=True)
 
@@ -464,7 +488,17 @@ try:
     # instead of rebuilding it. Needs the Live app's Core Library; skipped
     # where it is absent, never counted as passed.
     live_kit = Path("/Applications/Ableton Live 12 Beta.app/Contents/App-Resources/Core Library/Racks/Drum Racks/Electronic/BNYX Boot Kit.adg")
-    if live_kit.is_file():
+    def kit_in_catalogue(name):
+        # The catalogue is built by install.py from the user's Live; a fresh
+        # checkout beside an installed Live has the file but no catalogue.
+        try:
+            server.resolve_kit_reference(name)
+            return True
+        except Exception as error:  # noqa: BLE001 -- any resolver refusal means "not here"
+            print("  --  SKIPPED: project_file_build checks need the kit catalogue from install.py (%s)" % str(error)[:120])
+            return False
+
+    if live_kit.is_file() and kit_in_catalogue("BNYX Boot Kit"):
         file_plan = dict(plan, tracks=[{"ableton_name": "Kit", "sensei_role": "drum", "instrument_family": "BNYX Boot Kit"},
                                        {"ableton_name": "BASS", "sensei_role": "bass", "instrument_family": "Operator"}])
         file_plan_path = kit_dir / "file_plan.json"
@@ -580,10 +614,12 @@ try:
                   and kick["kit"]["pad_notes"] == kit_pads and kick["kit"]["device_evidence"]["verified"] is True and kick["kit"]["device_evidence"]["device_class_verified"] is None
                   and kick["kit"]["device_evidence"]["pads_whose_device_is_named_after_the_files_sample"] == len(kit_pads) and kick["preset_identity_verified"] is True, kick)
             kick_writes = [w for w in built["writes"] if w["track"] == "KICK"]
-            check("drums are written only after that, onto the kit's own pads, and every written note is one of Live's reported pads",
-                  kick_writes and all(w["status"] == "OK" for w in kick_writes) and "build_drum_kit" not in bridge.live.applied
-                  and kick.get("target_notes") and set(kick["target_notes"]) <= set(kit_pads) and kick.get("notes_outside_pads") == []
-                  and kick["pad_targets"] and all(t["target_note"] in kit_pads for t in kick["pad_targets"]), (kick.get("target_notes"), kick.get("notes_outside_pads"), [w["status"] for w in kick_writes]))
+            either("drums are written only after that, onto the kit's own pads, and every written note is one of Live's reported pads",
+                   lambda: kick_writes and all(w["status"] == "OK" for w in kick_writes) and "build_drum_kit" not in bridge.live.applied
+                   and kick.get("target_notes") and set(kick["target_notes"]) <= set(kit_pads) and kick.get("notes_outside_pads") == []
+                   and kick["pad_targets"] and all(t["target_note"] in kit_pads for t in kick["pad_targets"]),
+                   lambda: kick_writes and all(w["status"] == "blocked" for w in kick_writes) and "build_drum_kit" not in bridge.live.applied,
+                   (kick.get("target_notes"), kick.get("notes_outside_pads"), [w["status"] for w in kick_writes]))
         reset_root()
         with FakeExtensionBridge(BRIDGE_ROOT, FakeSet()) as bridge:
             bridge.live.add_track("Other", devices=[])  # a track that was selected when the file arrived
@@ -608,9 +644,12 @@ try:
         applied_before = len(bridge.live.applied)  # the enclosing fake bridge stays; a second consumer on the same root would be another session
         twin = server.dispatch_tool("project_build", {"plan_path": str(twin_path), "dry_run": False, "wait_seconds": 5})
         es = [w for w in twin["writes"] if w["section"] == "ES"]
-        check("two sections with the same name are both written and both locators exist: repeated names get their start bar in the key, unique names keep theirs",
-              len(es) == 2 and all(w["status"] == "OK" for w in es) and bridge.live.applied[applied_before:].count("create_locator") == 3
-              and all(s.get("verified") for s in twin["session_steps"] if s["kind"] == "locator"), (es, twin.get("session_steps"), bridge.live.applied[applied_before:]))
+        either("two sections with the same name are both written and both locators exist: repeated names get their start bar in the key, unique names keep theirs",
+               lambda: len(es) == 2 and all(w["status"] == "OK" for w in es) and bridge.live.applied[applied_before:].count("create_locator") == 3
+               and all(s.get("verified") for s in twin["session_steps"] if s["kind"] == "locator"),
+               lambda: len(es) == 2 and all(w["status"] == "blocked" for w in es) and bridge.live.applied[applied_before:].count("create_locator") == 3
+               and all(s.get("verified") for s in twin["session_steps"] if s["kind"] == "locator"),
+               (es, twin.get("session_steps"), bridge.live.applied[applied_before:]))
         preset_plan = dict(kit_plan, tracks=[{"ableton_name": "KEYS2", "sensei_role": "chord", "instrument_family": "Some Browser Preset"}])
         preset_path = kit_dir / "preset_plan.json"; preset_path.write_text(json.dumps(preset_plan), encoding="utf-8")
         blocked = server.dispatch_tool("project_build", {"plan_path": str(preset_path), "dry_run": False, "wait_seconds": 5})
